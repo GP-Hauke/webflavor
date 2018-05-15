@@ -1,1 +1,3 @@
-"# webflavor" 
+"# webflavor"
+
+Documentation stub.
