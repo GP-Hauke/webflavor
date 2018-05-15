@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="CACHE-CONTROL" content="NO-CACHE"/>
+    <title></title>
+    <script type="text/javascript" src="../vendors/jquery/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="../vendors/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../resources/js/settings.js"></script>
+    <script type="text/javascript" src="../resources/js/common_functions.js"></script>
+    <script type="text/javascript" src="../resources/js/content_functions.js"></script>
+    <script type="text/javascript" src="../resources/js/tracking_functions.js"></script>
+    <script type="text/javascript" src="../resources/components/modal_functions.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="../vendors/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../theme-path/css/typography.css" class="add-theme-path-head"/>
+    <link rel="stylesheet" type="text/css" href="../resources/css/course_content.css" />
+    <link rel="stylesheet" type="text/css" href="../theme-path/css/theme_global.css" class="add-theme-path-head"/>
+    <link rel="stylesheet" type="text/css" href="../theme-path/css/theme_content.css" class="add-theme-path-head"/>
+  </head>
+  <body onload="initContent(); loadContentStyles(); initCommonFunctions();">
+
+    <div id="pageContainer" class="page-container completion container">
+      <div id="pageContent">
+
+        <div class="row">
+          <div class="col-sm-6">
+            <h1 id="pageTitle"></h1>
+            <div class="page-number"><span>1</span> of <span>1</span></div>
+          </div>
+        </div>
+
+        <div class="row">
+
+          <div class="col-sm-6">
+            <p id="sectionComplete">Please select the <span class="bolded">Complete for Credit</span> button below to receive credit for this course.</p>
+          </div>
+
+        </div>
+
+        <div class="row margin-below">
+          <div class="offset-1 col-sm-4">
+            <a class="btn btn-default d-block mx-auto btn-complete" id="btnComplete" role="button" onclick="setComplete()">Complete for Credit</a>
+          </div>
+        </div>
+
+        <div class="row">
+
+          <div class="col-sm-6">
+            <p class="top-paragraph">You are among the first to take this course. We would appreciate your feedback.</p>
+          </div>
+        </div>
+
+        <div class="row margin-below">
+          <div class="offset-1 col-sm-4">
+            <a class="btn btn-default d-block mx-auto" href="https://www.surveymonkey.com/r/B29CSP2" target="_blank" role="button">Take Survey</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-spacer"></div>
+    </div>
+    <div id="pageModalContainer"></div>
+  </body>
+</html>

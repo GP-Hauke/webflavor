@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings>
+  <courseStorageID>GM_Selling_Skills_Match_Features_to_Wants</courseStorageID>
+  <courseTitle><![CDATA[Selling Skills]]></courseTitle>
+  <courseSubTitle><![CDATA[Match Features to Wants]]></courseSubTitle>
+  <version>0.0.7</version>
+  <theme>gm_selling_skills</theme> <!-- active -->
+  <cookieName>cookie_gm_ssmftw</cookieName>
+
+  <!--
+  completionMethod values:
+  page_view: course will automatically register completion upon viewing all pages
+  assessment: course will register completion based upon results of an assessment
+  immediate: course will register completion on load
+  custom: catchall for completion conditions that don't fall within the other conditions. e.g. specific interactives need to be completed in addition to assessments.
+  -->
+  <completionMethod>assessment</completionMethod>
+
+  <!-- MENU PLACEMENT INACTIVE -->
+  <!-- valid values: "top", "left", "false" -->
+  <menuPlacement>top</menuPlacement>
+
+  <!-- valid values: "true", "false"
+        - true will open a splash page at the beginning of the course, false will take learner directly to first page of the course (or resume the course at the page where they left off) -->
+  <hasSplashPage>true</hasSplashPage>
+
+  <hasGlossary>true</hasGlossary>
+
+  <hasResources>false</hasResources>
+
+  <hasCards>true</hasCards>
+
+  <hasStrings>false</hasStrings>
+
+  <bookmarking>
+    <hasLocalBookmarking>false</hasLocalBookmarking>
+    <bookmarkingStorageID></bookmarkingStorageID>
+  </bookmarking>
+
+  <trackActions>true</trackActions>
+
+  <linkTracking>
+    <trackLinks>true</trackLinks>
+  </linkTracking>
+
+  <pageCount>
+    <countPages>false</countPages>
+    <pageCountStorageID></pageCountStorageID>
+    <totalPages></totalPages>
+  </pageCount>
+
+  <hasAssessments>true</hasAssessments>
+
+</settings>

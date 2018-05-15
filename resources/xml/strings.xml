@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!-- used for generic interface strings for localization/translation purposes -->
+<strings>
+    <string><![CDATA[Main Menu]]></string>
+    <string><![CDATA[Glossary]]></string>
+    <string><![CDATA[Next]]></string>
+    <string><![CDATA[Prev]]></string>
+    <string><![CDATA[@ of #]]></string>
+    <string><![CDATA[Would you like to resume where you left off?]]></string>
+    <string><![CDATA[Yes]]></string>
+    <string><![CDATA[No]]></string>
+    <string><![CDATA[TRANSCRIPT]]></string>
+    <string><![CDATA[Close]]></string>
+    <string><![CDATA[Help]]></string>
+    <string><![CDATA[Menu]]></string>
+    <string><![CDATA[Click arrow in bottom right to continue.]]></string>
+</strings>

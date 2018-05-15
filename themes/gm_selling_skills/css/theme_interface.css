@@ -1,0 +1,844 @@
+body {
+  background:#fff;
+  overflow: hidden;
+}
+
+#mainContainer{
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  background: #f3f1f1;
+  float: left;
+}
+
+#contentContainer {
+  -webkit-overflow-scrolling: touch;
+  overflow: auto;
+  position: absolute;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+#contentFrame{
+  width: 100%;
+  height: 948px;
+  background: #ffffff;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  border: 0px;
+  /*position: absolute;*/
+}
+
+#navbar-left > #navbar {
+  margin-top: 90px;
+}
+
+#navContainer .container {
+  position: relative;
+}
+
+@media only screen and (max-width : 991px) {
+  #navContainer .container {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+/* NAVBAR MAIN CONTAINER */
+nav.navbar {
+  background-color: #003056;
+  border: none;
+  border-radius: 0;
+  margin-bottom: 0;
+  min-height: auto;
+  padding: 0;
+}
+
+nav.navbar#navbarBottom {
+  background-color: #618eb5;
+  /*
+  padding-top: 15px;
+  padding-bottom: 15px;
+  */
+}
+/* end NAVBAR MAIN CONTAINER */
+
+.navbar-header {
+  float: none;
+  width: 100%;
+}
+
+/* NAVBAR LEFT SECTION/HEADER - LOGO, TITLE */
+.navbar-header .navbar-toggle {
+  float: left;
+  display: block;
+  border: none;
+  margin: 0;
+  padding: 10px 30px 5px 0;
+}
+
+.navbar-toggle:focus, .navbar-toggle:active {
+   outline: none !important;
+   box-shadow: none;
+}
+
+.navbar-header .navbar-toggle .icon-bar {
+  width: 40px;
+  height: 2px;
+  border-radius: 0;
+  background-color: #fff;
+  margin-bottom: 10px;
+}
+
+.navbar-header .navbar-toggle .icon-bar:last-of-type {
+  margin-bottom: 0;
+}
+
+.navbar-header .navbar-toggle:focus,
+.navbar-header .navbar-toggle:hover,
+.navbar-header .navbar-toggle:focus {
+  background-color: transparent;
+}
+
+.navbar-header .navbar-brand {
+  color: #fff;
+  padding: 0 40px;
+  height: 80px;
+  margin-top: 0;
+  margin-bottom: 0;
+  position: relative;
+  right: 0;
+  top: 0;
+  float: left;
+}
+
+.navbar-header .title-container {
+  float: left;
+}
+
+.navbar-header #titleMain {
+  display: inline-block;
+  position: relative;
+  margin-right: 10px;
+}
+
+.navbar-header #subTitle {
+  /*  display: block;*/
+}
+
+.navbar-header .navmenu {
+  color: #fff;
+  line-height: 36px;
+}
+/* end NAVBAR LEFT SECTION/HEADER - LOGO, TITLE */
+
+/*LEFT NAVBAR*/
+.left-nav{
+  float: left;
+  height: calc(100vh - 50px);
+  position: relative;
+  width: 16%;
+  max-width: 230px;
+  display: flex;
+  flex-flow:column;
+}
+
+.left-nav-text#subTitle {
+  font-size: 22px;
+  line-height: 0;
+}
+
+.left-nav-drop#navbarMobile li{
+  font-size: 18px;
+}
+/*end LEFT NAVBAR*/
+
+/* COLLAPSABLE PART OF NAV BAR - MOBILE LINK LIST */
+@media only screen and (min-width : 768px) {
+  .navbar-collapse.collapse {
+    /*display:  none !important; REMOVED FOR BOOTSTRAP 4*/
+  }
+
+  .navbar-collapse.collapse.in {
+    display:  block !important;
+  }
+}
+/* end COLLAPSABLE PART OF NAV BAR - MOBILE LINK LIST */
+
+
+/* COLLAPSABLE PART OF NAV BAR - CONTAINER */
+.navbar-collapse{
+  border: none;
+  background-color: #618eb5;
+}
+
+.navbar-collapse.collapsing .navbar-nav,
+.navbar-collapse.in .navbar-nav {
+  width: 100%;
+}
+/* end COLLAPSABLE PART OF NAV BAR -  END CONTAINER */
+
+/* COLLAPSABLE PART OF NAV BAR - LINK LIST ON RIGHT */
+.page-assist {
+  margin-right: 0;
+}
+
+.page-assist > li > a:active,
+.page-assist > li > a:focus,
+.page-assist > li > a:hover {
+  background-color: #003056;
+}
+
+.page-assist > .active > a,
+.page-assist .navbar-nav > .active > a:active,
+.page-assist .navbar-nav > .active > a:focus,
+.page-assist .navbar-nav > .active > a:hover {
+
+}
+/* end COLLAPSABLE PART OF NAV BAR - LINK LIST ON RIGHT */
+
+/* INDIVIDUAL MENU ITEMS */
+#navbarMobile li {
+  cursor: pointer;
+  width: 100%;
+}
+
+li.courseTitleChapter {
+  display: block;
+}
+
+li.courseTitleChapterSelected {
+  background-color: #003056;
+}
+/* end INDIVIDUAL MENU ITEMS */
+
+/* COLLAPSABLE PART OF NAV BAR - BOTTOM NAV BAR */
+.navbar-collapse #nav-items-bottom-row > li {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  cursor: pointer;
+}
+/* end COLLAPSABLE PART OF NAV BAR - BOTTOM NAV BAR */
+
+/* LEFT NAVIGATION MENU */
+#navbar-left {
+  position: fixed;
+  left: 250px;
+  width: 250px;
+  height: 100%;
+  z-index: 10;
+  margin-left: -250px;
+}
+
+/* LINK LIST ON COMPLETION PAGE */
+#clicked-links-list {
+  text-align: center;
+}
+
+#clicked-links-list ul {
+  margin-bottom: 25px;
+  list-style: none;
+  padding-left: 0;
+}
+
+#clicked-links-list ul li {
+  word-wrap: break-word;
+}
+/* LINK LIST ON COMPLETION PAGE end */
+
+.btn-complete {
+  background-color: #9DC3E6;
+  margin-bottom: 40px;
+  color: #fff;
+  border-radius: 0;
+  border: 0;
+}
+
+.btn-complete:hover,
+.btn-complete:active,
+.btn-complete:focus {
+  background-color: #e6e6e6;
+}
+
+@-webkit-keyframes kenburns {
+  100% { -webkit-transform: scale3d(1.1, 1.1, 1.1); transform: scale3d(1.1, 1.1, 1.1); }
+}
+@keyframes kenburns {
+  100% { -webkit-transform: scale3d(1.1, 1.1, 1.1); transform: scale3d(1.1, 1.1, 1.1); }
+}
+
+/* MOBILE STATES */
+@media only screen and (min-width : 768px) {
+  .logo-mobile {
+    display: none;
+  }
+}
+
+@media only screen and (max-width : 1200px) {
+  .navbar-collapse > ul > li {
+    padding: 5px 0;
+  }
+}
+
+@media only screen and (max-width : 992px) {
+  #titleMainMobile {
+    display: block;
+    position: relative;
+    border-bottom: 3px solid #fff;
+    margin-bottom: 5px;
+  }
+
+  #subTitleMobile {
+    display: block;
+  }
+}
+
+@media only screen and (max-width : 768px) {
+  .navbar-header .navbar-brand {
+    padding-left: 0;
+  }
+
+  .navbar-default .navbar-collapse {
+    background-color: #618eb5;
+  }
+}
+
+@media only screen and (max-width : 480px) {
+
+}
+
+
+.chapterSelected {
+  color:#ffffff;
+  font-size:1.2em;
+}
+
+.chapterNotSelected {
+  color:#ffffff;
+  font-size:1.2em;
+}
+
+.chapterTitle {
+  cursor:pointer;
+}
+
+.menuItem {
+  padding:.25em .5em;
+  color:#ffffff;
+  font-size:1.125em;
+}
+
+.menuItem:hover {
+  background-color:#7f7f7f;
+  border:1px solid #7f7f7f;
+}
+
+.menuItemNotSelected {
+  border:1px solid #7f7f7f;
+}
+
+.menuItemNotActive {
+  border:1px solid #7f7f7f;
+}
+
+.menuItemSelected {
+  border:1px solid #f4bc00;
+  background-color:#f4bc00;
+}
+
+.menuItemVisited {
+  border:1px solid #7f7f7f;
+}
+
+/* MODAL - GLOBAL STYLES */
+.modal {
+  padding-left: 0 !important;
+}
+
+.modal-header button.close {
+  margin-top: 0;
+  text-shadow: none;
+  filter: alpha(opacity=100);
+  opacity: 1;
+}
+
+.modal .modal-content {
+  border-radius: 0;
+  border: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+/* end MODAL - GLOBAL STYLES */
+
+/* SPLASH PAGE MODAL */
+#splashPageModal.modal {
+  background-color: #fff;
+}
+
+#splashPageModal .modal-dialog {
+  width: auto;
+  margin: 0 auto;
+}
+/* end SPLASH PAGE MODAL */
+
+/* GLOSSARY MODAL */
+#glossaryModal.modal {
+  overflow-y: hidden !important;
+}
+
+#glossaryModal.modal .modal-dialog {
+  margin: 0;
+}
+
+#glossaryModal .modal-header {
+  background-color: #618eb5;
+  position: absolute;
+  width: 100%;
+  z-index: 10;
+  display: block;
+}
+
+#glossaryModal.modal .modal-body {
+  padding-top: 120px;
+  overflow-y: scroll;
+}
+
+#glossaryModal.modal .modal-body .gloss-item {
+  border-bottom: 1px solid #cbc3c0;
+  padding: 20px 0;
+}
+
+#glossaryModal .modal-title-wrapper{
+  display: block;
+  width: 100%;
+}
+
+#glossaryModal .modal-title{
+  display: inline-block;
+  height: 100%;
+  font-size: 30px;
+}
+
+#glossaryModal .letterHeading{
+  font-size: 30px;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+#glossaryModal .alphabet{
+  display: block;
+  width: 100%;
+  text-align: center;
+  text-transform: uppercase;
+  padding-top: 25px;
+}
+
+#glossaryModal .alphabet a{
+  text-decoration: none;
+  font-size: 22px;
+  font-weight: 400;
+  color: black;
+  opacity: .2;
+  letter-spacing: 5px;
+}
+
+#glossaryModal .alphabet a:hover{
+  opacity: 1;
+  font-weight: 600;
+}
+
+
+/* end GLOSSARY MODAL */
+
+/*GLOSSARY BOOTSTRAP 4*/
+.modal-header .close{
+  padding: 0;
+  padding-right: 1rem;
+  border-radius: 0;
+}
+
+#btnGlossary{
+  margin-right: 20px;
+}
+
+/*end GLOSSARY BOOTSTRAP 4*/
+
+/* HELP MODAL */
+#helpModal.modal {
+  overflow-y: hidden !important;
+}
+
+#helpModal.modal .modal-dialog {
+  margin: 0;
+}
+
+#helpModal.modal .modal-header {
+  background-color: #fff;
+  border-bottom: none;
+  padding: 40px 40px 40px 40px;
+  position: absolute;
+  width: 100%;
+  z-index: 10;
+}
+
+#helpModal.modal .modal-body {
+  padding: 40px 40px 0 40px;
+  overflow-y: scroll;
+}
+
+#helpModal.modal .modal-body .help-section {
+  margin-bottom: 30px;
+}
+
+#helpModal.modal .modal-body .help-section h5 {
+  margin-bottom: 20px;
+}
+
+#helpModal.modal .modal-body .help-item {
+  border-bottom: 1px solid #cbc3c0;
+  padding: 20px 0;
+}
+/* end HELP MODAL */
+
+/* CONTENT MODAL */
+#contentModal .modal-dialog {
+  border: 5px solid #618eb5;
+}
+
+@media only screen and (min-width: 768px) {
+  #contentModal .modal-dialog {
+    width: 900px;
+  }
+  #vidModal .modal-dialog {
+    width: 900px;
+  }
+}
+/* end CONTENT MODAL */
+
+/* VIDEO MODAL */
+#vidModal video {
+  width: 100%;
+}
+/* end VIDEO MODAL */
+
+/* ASSESSMENT MODAL */
+#assessmentModal {
+
+}
+
+#assessmentModal .modal-dialog {
+  min-height: 700px;
+  border: 3px solid #003056;
+}
+
+@media only screen and (min-width: 992px) {
+  .modal-dialog {
+    width: 800px;
+  }
+}
+
+#assessmentModal .modal-content {
+  min-height: 700px;
+  padding: 55px;
+}
+
+#assessmentModal .modal-content p,
+#assessmentModal .modal-content h3 {
+  margin-bottom: 25px;
+}
+
+/* ASSESSMENT SELECTION SCREEN */
+#assessmentModal .modal-content .selection-screen div:first-of-type {
+  margin-bottom: 50px;
+}
+
+#assessmentModal .modal-content .selection-screen button {
+  background-color: transparent;
+  border: none;
+}
+
+#assessmentModal .modal-content .selection-screen button:focus {
+  outline: none;
+}
+/* end ASSESSMENT SELECTION SCREEN */
+
+
+/* ASSESSMENT GAME RETRY SCREEN */
+#assessmentModal .retry-container button {
+  padding: 0;
+  border: none;
+  padding: 20px 0;
+  width: 49%;
+}
+#assessmentModal .retry-container button:last-of-type {
+  float: right;
+}}
+
+#assessmentModal .retry-container.buick button {
+  background-color: #ef7521;
+}
+
+#assessmentModal .retry-container.chevy button {
+  background-color: #f4bc00;
+}
+
+#assessmentModal .retry-container.gmc button {
+  background-color: #e31837;
+}
+/* end ASSESSMENT GAME RETRY SCREEN */
+
+
+/* ASSESSMENT INTRO SCREEN */
+#assessmentModal .modal-content .intro-screen ul > li {
+
+}
+
+#assessmentModal .modal-content .intro-screen button {
+  padding: 0;
+  border: none;
+  margin-bottom: 20px;
+  width: 100%;
+  padding: 20px 0;
+}
+
+#assessmentModal .modal-content .intro-screen.buick button {
+  background-color: #ef7521;
+}
+
+#assessmentModal .modal-content .intro-screen.chevy button {
+  background-color: #f4bc00;
+}
+
+#assessmentModal .modal-content .intro-screen.gmc button {
+  background-color: #e31837;
+}
+/* end ASSESSMENT INTRO SCREEN */
+
+
+/* ASSESSMENT GAME SCREEN */
+#assessmentModal .assessment-content h3 {
+  margin: 0 0 15px;
+}
+
+#assessmentModal .assessment-content .answers {
+  padding-top: 30px;
+/*  margin-left: 0;*/
+/*  padding-left: 0;*/
+  list-style: none;
+  border-top: 1px solid #e2e2e2;
+  width: 100%; /*ADDED for Bootstrap 4 to match width of previous version */
+}
+
+#assessmentModal .assessment-content .answer-container {
+  position: relative;
+  cursor: pointer;
+  margin-bottom: 15px;
+}
+
+#assessmentModal .assessment-content .answer-container .unselected-box {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  background-color: transparent;
+}
+
+#assessmentModal .assessment-content .answer-container.unselected .unselected-box {
+  background-color: rgba(250,250,250,.6);
+}
+
+#assessmentModal .assessment-content .answer-container .border-box {
+  border: 1px solid #e2e2e2;
+}
+
+#assessmentModal .assessment-content .answer-container .border-box img {
+  width: 100%
+}
+
+/* CAPTION AREA ON BOTTOM */
+#assessmentModal .assessment-content .answer-container .brand-model-attr {
+  padding: 0 20px 15px 20px;
+}
+
+#assessmentModal .assessment-content.gmc .answer-container .brand-model-attr {
+  background-color: #000;
+}
+
+#assessmentModal .assessment-content .answer-container .brand-model-attr > p {
+  margin-bottom: 0;
+}
+
+#assessmentModal .assessment-content.gmc .answer-container .brand-model-attr > p.brand,
+#assessmentModal .assessment-content.gmc .answer-container .brand-model-attr > p.model {
+  display: inline-block;
+}
+
+#assessmentModal .assessment-content.gmc .answer-container .brand-model-attr > p.brand{
+  padding-right: 5px;
+}
+
+#assessmentModal .assessment-content.gmc .answer-container .brand-model-attr > p.model {
+  padding-left: 5px;
+  border-left: 1px solid #fff;
+}
+
+#assessmentModal .assessment-content.gmc .answer-container .brand-model-attr > p.attr {
+  margin-top: 5px;
+}
+
+#assessmentModal .assessment-content.buick .answer-container .brand-model-attr > p.model,
+#assessmentModal .assessment-content.chevy .answer-container .brand-model-attr > p.model,
+#assessmentModal .assessment-content.buick .answer-container .brand-model-attr > p.attr,
+#assessmentModal .assessment-content.chevy .answer-container .brand-model-attr > p.attr {
+  display: inline;
+  float: left;
+  vertical-align: bottom;
+  line-height: 40px;
+}
+
+#assessmentModal .assessment-content.buick .answer-container .brand-model-attr > p.attr,
+#assessmentModal .assessment-content.chevy .answer-container .brand-model-attr > p.attr {
+  padding-left: 5px;
+}
+/* CAPTION AREA ON BOTTOM */
+
+.feedback-container{
+  width: 100%;
+}
+
+#assessmentModal .assessment-content button {
+  width: 100%;
+  padding: 20px 0;
+  border: none;
+}
+
+#assessmentModal .assessment-content .feedback-container p {
+  display: inline-block;
+  margin-bottom: 0;
+  line-height: 60px;
+  width: 85%;
+}
+
+#assessmentModal .assessment-content .feedback-container div {
+  float: right;
+  width: 15%;
+}
+
+#assessmentModal .assessment-content .feedback-container button.btn-ok {
+  width: 60px;
+  height: 60px;
+  padding: 0;
+  border-radius: 50%;
+  float: right;
+}
+
+/* SUBMIT BUTTON BAR FOR EACH BRAND */
+#assessmentModal .assessment-content.buick .feedback-container button.btn-ok,
+#assessmentModal .assessment-content.buick .btn-submit-answer {
+  background-color: #ef7521;
+}
+
+#assessmentModal .assessment-content.chevy .feedback-container button.btn-ok,
+#assessmentModal .assessment-content.chevy .btn-submit-answer {
+  background-color: #f4bc00;
+}
+
+#assessmentModal .assessment-content.gmc .feedback-container button.btn-ok,
+#assessmentModal .assessment-content.gmc .btn-submit-answer {
+  background-color: #e31837;
+}
+/* end SUBMIT BUTTON BAR FOR EACH BRAND */
+
+
+/* SELECTED BAR FOR EACH BRAND */
+#assessmentModal .assessment-content .answer-container .selected-bar {
+  height: 10px;
+  width: 100%;
+}
+
+#assessmentModal .assessment-content.buick .answer-container.selected .selected-bar {
+  background-color: #ef7521;
+}
+
+#assessmentModal .assessment-content.chevy .answer-container.selected .selected-bar {
+  background-color: #f4bc00;
+}
+
+#assessmentModal .assessment-content.gmc .answer-container .selected-bar {
+  background-color: #000;
+}
+
+#assessmentModal .assessment-content.gmc .answer-container.selected .selected-bar {
+  background-color: #e31837;
+}
+/* end SELECTED BAR FOR EACH BRAND */
+/* end ASSESSMENT GAME SCREEN */
+
+
+/* ASSESSMENT GAME SUMMARY SCREEN */
+#assessmentModal .finish-screen button {
+  padding: 0;
+  border: none;
+  padding: 20px 0;
+  width: 49%;
+}
+#assessmentModal .finish-screen button:last-of-type {
+  float: right;
+}
+
+#assessmentModal .finish-screen.buick button {
+  background-color: #ef7521;
+}
+
+#assessmentModal .finish-screen.chevy button {
+  background-color: #f4bc00;
+}
+
+#assessmentModal .finish-screen.gmc button {
+  background-color: #e31837;
+}
+/* end ASSESSMENT GAME SUMMARY SCREEN */
+/* end ASSESSMENT MODAL */
+
+/* VIEWED OVERLAY ON THUMBNAIL */
+.viewed-overlay {
+  display: block;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  text-align: right;
+  position: absolute;
+  right: -10px;
+  top: -10px;
+}
+/* end VIEWED OVERLAY ON THUMBNAIL */
+
+/* FOOTER */
+footer.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  background-color: rgba(154, 154, 154, 0.9);
+  z-index: 20;
+}
+
+footer.footer > .container.footer-nav {
+  width: auto;
+  max-width: 680px;
+  padding: 0 15px;
+}
+
+footer.footer > .container.footer-nav * {
+  display: inline-block;
+}
+
+footer.footer > .container.footer-nav .back {
+  float: left;
+}
+
+footer.footer > .container.footer-nav .next {
+  float: right;
+}
+/* end FOOTER */
