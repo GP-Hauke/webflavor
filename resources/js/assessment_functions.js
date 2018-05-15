@@ -14,6 +14,7 @@ function initAssessments(assessmentsContentXML) {
 
     courseData.assessmentData.VERSION = $(assessmentsContentXML).find("version").text();
     courseData.assessmentData.TOTAL_QUESTIONS = $(assessmentsContentXML).find("question").length;
+    courseData.assessmentData.QUESTIONS_GIVEN = $(assessmentsContentXML).find("assessments").attr("questionsGiven");
 
 
     courseData.assessmentData.assessments = [];
@@ -170,9 +171,11 @@ function startAssessment(id) {
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
   var activeAssessment = id;
   var style = courseData.assessmentData.assessments[activeAssessment].style;
-  var questionsNum = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions.length;
+  var questionsNum = courseData.assessmentData.QUESTIONS_GIVEN;
+  //var questionsNum = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions.length;
   var questionIndex = courseData.assessmentData.assessments[activeAssessment].currentQuestionIndex;
   var questionCount = questionIndex + 1;
+  courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions = shuffle(courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions);
 
   /*if(questionIndex === (questionsNum)) {
   retryChoice(activeAssessment);
@@ -322,8 +325,6 @@ function submitAnswer() {
     }
 
     else if(criterion === "hp") {
-      console.log("SELECTED:  "+ parseInt(selectedAnswersData[0].horsePower));
-      console.log("OTHER:  " + unselectedAnswerData.horsePower);
 
       if(selectedAnswersData.length > 1) {
         if(selectedAnswersData[0].horsePower === selectedAnswersData[1].horsePower) {
