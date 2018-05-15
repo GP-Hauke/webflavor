@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<page>
+  <title><![CDATA[Know Your Lineup]]></title>
+  <content>
+    <![CDATA[
+            <div class="row">
+              <div class="col-sm-6">
+                <h1 id="pageTitle">Couse Completion</h1>
+                <div class="page-number"><span>2</span> of <span>1</span></div>
+              </div>
+            </div>
+
+            <div class="row">
+
+              <div class="col-sm-6">
+                <p id="sectionComplete">Please select the <span class="bolded">Complete for Credit</span> button below to receive credit for this course.</p>
+              </div>
+
+            </div>
+
+            <div class="row margin-below">
+              <div class="offset-1 col-sm-4">
+                <a class="btn btn-default d-block mx-auto btn-complete" id="btnComplete" role="button" onclick="setComplete()">Complete for Credit</a>
+              </div>
+            </div>
+
+            <div class="row">
+
+              <div class="col-sm-6">
+                <p class="top-paragraph">You are among the first to take this course. We would appreciate your feedback.</p>
+              </div>
+            </div>
+
+            <div class="row margin-below">
+              <div class="offset-1 col-sm-4">
+                <a class="btn btn-default d-block mx-auto" href="https://www.surveymonkey.com/r/B29CSP2" target="_blank" role="button">Take Survey</a>
+              </div>
+            </div>]]>
+</content>
+</page>

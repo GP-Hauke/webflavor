@@ -66,7 +66,7 @@ function loadXMLData() {
   }
 
   if(courseData.assessmentData !== undefined && assessmentsLoaded === false) {
-    GetInterfaceXML("resources/xml/assessments_content.xml");
+    GetInterfaceXML("resources/xml/assessments.xml");
     return;
   }
 

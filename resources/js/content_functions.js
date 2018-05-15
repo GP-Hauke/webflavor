@@ -290,26 +290,30 @@ function tallyActions() {
 }
 
 function setupAssessment() {
-  var courseData = JSON.parse(localStorage.getItem(window.parent.LOCAL_COURSE_DATA_ID));
-  var assessmentID = parseInt($(".btn-assess").attr("id").substring(13,15), 10) - 1;
+  setTimeout(function(){
 
-  if(assessmentID === 0){
-    for(var i = 0; i < 3; i++){
-      if(courseData.assessmentData.assessments[i].completed === "true"){
+    var courseData = JSON.parse(localStorage.getItem(window.parent.LOCAL_COURSE_DATA_ID));
+    var assessmentID = parseInt($(".btn-assess").attr("id").substring(13,15), 10) - 1;
+
+    if(assessmentID === 0){
+      for(var i = 0; i < 3; i++){
+        if(courseData.assessmentData.assessments[i].completed === "true"){
+          $(".btn-assess").append("<div class='viewed-overlay'><img src='../"+courseData.THEME_PATH+"/media/img/icon_viewed.png'></div>");
+          continue;
+        }
+      }
+
+    } else if(assessmentID === 3) {
+      if(courseData.assessmentData.assessments[assessmentID].completed === "true"){
         $(".btn-assess").append("<div class='viewed-overlay'><img src='../"+courseData.THEME_PATH+"/media/img/icon_viewed.png'></div>");
-        continue;
       }
     }
 
-  } else if(assessmentID === 3) {
-    if(courseData.assessmentData.assessments[assessmentID].completed === "true"){
-      $(".btn-assess").append("<div class='viewed-overlay'><img src='../"+courseData.THEME_PATH+"/media/img/icon_viewed.png'></div>");
-    }
-  }
+    $(".btn-assess").click(function() {
+      window.parent.openModal('assessment', assessmentID, $(this));
+    });
 
-  $(".btn-assess").click(function() {
-    window.parent.openModal('assessment', assessmentID, $(this));
-  });
+  },1);
 }
 
 function setComplete() {
@@ -353,10 +357,8 @@ function loadContent(param){
 
   $.get(arg)
     .done(function(xml) {
-      console.log($(xml).find('content').text());
-      $('#pageContent').html($(xml).find('content').text());
+      $('#pageContent').append($(xml).find('content').text());
+
   });
-
-
 
 }

@@ -397,6 +397,8 @@ li.courseTitleChapterSelected {
   width: 100%;
   z-index: 10;
   display: block;
+  border-radius: 0;
+
 }
 
 #glossaryModal.modal .modal-body {
@@ -418,6 +420,7 @@ li.courseTitleChapterSelected {
   display: inline-block;
   height: 100%;
   font-size: 30px;
+  color: #fff;
 }
 
 #glossaryModal .letterHeading{
@@ -455,7 +458,6 @@ li.courseTitleChapterSelected {
 .modal-header .close{
   padding: 0;
   padding-right: 1rem;
-  border-radius: 0;
 }
 
 #btnGlossary{
@@ -480,6 +482,7 @@ li.courseTitleChapterSelected {
   position: absolute;
   width: 100%;
   z-index: 10;
+  border-radius: 0;
 }
 
 #helpModal.modal .modal-body {

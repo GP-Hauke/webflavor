@@ -11,10 +11,13 @@ function initAssessments(assessmentsContentXML) {
   /* if course is loaded for first time, or assessment content xml was updated, initialize assessment data. otherwise do nothing. */
   if(courseData.assessmentData.VERSION === undefined || courseData.assessmentData.VERSION !== $(assessmentsContentXML).find("version").text()) {
 
+
     courseData.assessmentData.VERSION = $(assessmentsContentXML).find("version").text();
-    courseData.assessmentData.TOTAL_QUESTIONS = $(assessmentsContentXML).find("questionAnswer").length;
+    courseData.assessmentData.TOTAL_QUESTIONS = $(assessmentsContentXML).find("question").length;
+
 
     courseData.assessmentData.assessments = [];
+
 
     for(var i = 0; i < $(assessmentsContentXML).find("assessment").length; i++) {
       var currentAssessment = $(assessmentsContentXML).find("assessment")[i];
@@ -24,65 +27,65 @@ function initAssessments(assessmentsContentXML) {
         completed: $(currentAssessment).attr("completed"),
         title: $(currentAssessment).attr("title"),
         introText: $(currentAssessment).find("introText").text(),
-        questionsAnswers: [],
+        questionsAnswers: {
+          questions: [],
+          answers: [],
+          feedback: {}
+        },
         currentQuestionIndex: 0
       };
+
 
       if(assessmentObj.title.indexOf("Buick") !== -1) {
         assessmentObj.style = "buick";
 
       } else if(assessmentObj.title.indexOf("Chevrolet") !== -1) {
         assessmentObj.style = "chevy";
-
       } else if(assessmentObj.title.indexOf("GMC") !== -1) {
         assessmentObj.style = "gmc";
       }
 
-      $(currentAssessment).find("questionAnswer").each(function() {
+
+      assessmentObj.questionsAnswers.feedback.correct = $(currentAssessment).find("correct").text();
+      assessmentObj.questionsAnswers.feedback.incorrect = $(currentAssessment).find("incorrect").text();
+
+      $(currentAssessment).find("question").each(function() {
         var currentQuestion = $(this);
 
-        var questionAnswerContentObject = {
+        var question = {
           TYPE: currentQuestion.attr("type"),
           REQUIRED: currentQuestion.attr("required"),
           ANSWERED: currentQuestion.attr("answered"),
           PASSED: currentQuestion.attr("passed"),
           IMAGE: currentQuestion.find("imgSrc").text(),
+          criterion: currentQuestion.attr("criterion"),
           question: {
             questionTitle: currentQuestion.find("questionTitle").text(),
-            questionBody: currentQuestion.find("questionBody").text(),
-            criterion: currentQuestion.find("question").attr("criterion")
-          },
-          feedback: {
-            correct: currentQuestion.find("correct").text(),
-            incorrect: currentQuestion.find("incorrect").text()
+            questionBody: currentQuestion.find("questionBody").text()
           }
         };
 
-        var answers = [];
-        var currentAnswers;
-        for(var i = 0; i < currentQuestion.find("answers").length; i++) {
+        assessmentObj.questionsAnswers.questions.push(question);
+      });
 
-          currentAnswers = $(currentQuestion.find("answers")[i]);
-          for(var j = 0; j < currentAnswers.find("answer").length; j++) {
-            var answerObj = {
-              correct: $(currentAnswers.find("answer")[j]).attr("correct"),
-              img: $(currentAnswers.find("answer")[j]).find("modelImgSrc").text(),
-              brand: $(currentAnswers.find("answer")[j]).find("brand").text(),
-              model: $(currentAnswers.find("answer")[j]).find("model").text(),
-              attributes: $(currentAnswers.find("answer")[j]).find("attributes").text(),
-              mpg: $(currentAnswers.find("answer")[j]).find("mpg").attr("val"),
-              rearLegRoom: $(currentAnswers.find("answer")[j]).find("rearLegRoom").attr("val"),
-              cargoVol: $(currentAnswers.find("answer")[j]).find("cargoVol").attr("val"),
-              basePrice: $(currentAnswers.find("answer")[j]).find("basePrice").attr("val"),
-              horsePower: $(currentAnswers.find("answer")[j]).find("horsePower").attr("val")
-            }
-            answers.push(answerObj);
-          }
-        }
 
-        questionAnswerContentObject.answers = answers;
-        assessmentObj.questionsAnswers.push(questionAnswerContentObject);
+      $(currentAssessment).find("answer").each(function() {
+        var currentAnswer = $(this);
 
+        var answer = {
+          correct: currentAnswer.attr("correct"),
+          img: currentAnswer.find("modelImgSrc").text(),
+          brand: currentAnswer.find("brand").text(),
+          model: currentAnswer.find("model").text(),
+          attributes: currentAnswer.find("attributes").text(),
+          mpg: (parseInt(currentAnswer.find("mpgCity").text()) + parseInt(currentAnswer.find("mpgHighway").text()))/2,
+          rearLegRoom: currentAnswer.find("rearLegRoom").text(),
+          cargoVol: currentAnswer.find("cargoVol").text(),
+          basePrice: currentAnswer.find("basePrice").text(),
+          horsePower: currentAnswer.find("horsePower").text()
+        };
+
+        assessmentObj.questionsAnswers.answers.push(answer);
       });
 
       courseData.assessmentData.assessments.push(assessmentObj);
@@ -90,51 +93,53 @@ function initAssessments(assessmentsContentXML) {
 
     localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(courseData));
   }
+
 }
+
 
 function launchAssessment(id, clickTarget) {
   console.log("launchAssessment");
   startBtn = clickTarget;
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
   var activeAssessment = id;
-  var questionsNum = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.length;
+  var questionsNum = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions.length;
   var questionIndex = courseData.assessmentData.assessments[activeAssessment].currentQuestionIndex;
   var completed = courseData.assessmentData.assessments[activeAssessment].completed;
 
   //  if(questionIndex === questionsNum) {
   /*if(completed === "true") {
-    retryChoice(activeAssessment);
-    return;
+  retryChoice(activeAssessment);
+  return;
 
-  } else {*/
+} else {*/
 
-  if(activeAssessment === 0) {
-    $("#modalContainer .assessment-container").append("<div class='selection-screen row'></div>");
-    $("#modalContainer .selection-screen").append("<div class='col-md-12'><p>Think you know your lineup? Let's see if you can find the best vehicle for the customer. First select the brand you want to view. We'll give you a question regarding a customer's particular interest. You'll be given a choice between two different vehicles. Select the one that best suits your customer's needs. In some cases, BOTH vehicles could meet your customer's needs.</p><p>When you're done, see how you did. And feel free to come back to play again and again. You can use this game to bring you up to speed on the models you sell or as a quick refresher.</p><p>When you're ready, click the <span class='bolded'>brand button</span> and get started.</p></div>");
+if(activeAssessment === 0) {
+  $("#modalContainer .assessment-container").append("<div class='selection-screen row'></div>");
+  $("#modalContainer .selection-screen").append("<div class='col-md-12'><p>Think you know your lineup? Let's see if you can find the best vehicle for the customer. First select the brand you want to view. We'll give you a question regarding a customer's particular interest. You'll be given a choice between two different vehicles. Select the one that best suits your customer's needs. In some cases, BOTH vehicles could meet your customer's needs.</p><p>When you're done, see how you did. And feel free to come back to play again and again. You can use this game to bring you up to speed on the models you sell or as a quick refresher.</p><p>When you're ready, click the <span class='bolded'>brand button</span> and get started.</p></div>");
 
-    $("#modalContainer .selection-screen").append("<div class='col-md-4'><button class='d-block mx-auto btn-game buick'><img class='img-fluid' src='resources/media/img/game/game_branch_buick.jpg' alt=''></button></div>");
+  $("#modalContainer .selection-screen").append("<div class='col-md-4'><button class='d-block mx-auto btn-game buick'><img class='img-fluid' src='resources/media/img/game/game_branch_buick.jpg' alt=''></button></div>");
 
-    $("#modalContainer .selection-screen").append("<div class='col-md-4'><button class='d-block mx-auto  btn-game gmc'><img class='img-fluid' src='resources/media/img/game/game_branch_gmc.jpg' alt=''></button></div>");
+  $("#modalContainer .selection-screen").append("<div class='col-md-4'><button class='d-block mx-auto  btn-game gmc'><img class='img-fluid' src='resources/media/img/game/game_branch_gmc.jpg' alt=''></button></div>");
 
-    $("#modalContainer .selection-screen").append("<div class='col-md-4'><button class='d-block mx-auto  btn-game chevy'><img class='img-fluid' src='resources/media/img/game/game_branch_chevy.jpg' alt=''></button></div>");
+  $("#modalContainer .selection-screen").append("<div class='col-md-4'><button class='d-block mx-auto  btn-game chevy'><img class='img-fluid' src='resources/media/img/game/game_branch_chevy.jpg' alt=''></button></div>");
 
-    $("#modalContainer .btn-game.buick").click(function() {
-      $(".selection-screen").remove();
-      openIntroScreen(0);
-    });
-    $("#modalContainer .btn-game.gmc").click(function() {
-      $(".selection-screen").remove();
-      openIntroScreen(1);
-    });
-    $("#modalContainer .btn-game.chevy").click(function() {
-      $(".selection-screen").remove();
-      openIntroScreen(2);
-    });
+  $("#modalContainer .btn-game.buick").click(function() {
+    $(".selection-screen").remove();
+    openIntroScreen(0);
+  });
+  $("#modalContainer .btn-game.gmc").click(function() {
+    $(".selection-screen").remove();
+    openIntroScreen(1);
+  });
+  $("#modalContainer .btn-game.chevy").click(function() {
+    $(".selection-screen").remove();
+    openIntroScreen(2);
+  });
 
-  } else {
-    openIntroScreen(3);
-  }
-  //  }
+} else {
+  openIntroScreen(3);
+}
+//  }
 }
 
 function openIntroScreen(id) {
@@ -148,7 +153,7 @@ function openIntroScreen(id) {
     return;
   }
 
-  courseData.assessmentData.assessments[activeAssessment].questionsAnswers = shuffle(courseData.assessmentData.assessments[activeAssessment].questionsAnswers);
+  courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions = shuffle(courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions);
   localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(courseData));
 
   $("#modalContainer .assessment-container").append("<div class='intro-screen "+style+"'></div>");
@@ -165,252 +170,266 @@ function startAssessment(id) {
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
   var activeAssessment = id;
   var style = courseData.assessmentData.assessments[activeAssessment].style;
-  var questionsNum = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.length;
+  var questionsNum = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions.length;
   var questionIndex = courseData.assessmentData.assessments[activeAssessment].currentQuestionIndex;
   var questionCount = questionIndex + 1;
 
   /*if(questionIndex === (questionsNum)) {
-    retryChoice(activeAssessment);
-    return;
-  }*/
+  retryChoice(activeAssessment);
+  return;
+}*/
 
-  var questionTitle = courseData.assessmentData.assessments[activeAssessment].questionsAnswers[questionIndex].question.questionTitle;
-  var questionBody = courseData.assessmentData.assessments[activeAssessment].questionsAnswers[questionIndex].question.questionBody;
+var questionTitle = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions[questionIndex].question.questionTitle;
+var questionBody = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions[questionIndex].question.questionBody;
 
-  var qIndex;
-  var aIndex;
-  var answersArr = shuffle(courseData.assessmentData.assessments[activeAssessment].questionsAnswers[questionIndex].answers);
-  //  var answerTries = 0;
+var qIndex;
+var aIndex;
+var answersArr = shuffle(courseData.assessmentData.assessments[activeAssessment].questionsAnswers.answers);
+//  var answerTries = 0;
 
-  $("#modalContainer .assessment-container").append("<div class='assessment-content "+style+" row'></div>");
-  $("#modalContainer .assessment-content").append("<h3>Question "+questionCount+"</3>");
-  $("#modalContainer .assessment-content").append("<p>"+questionBody+"</p>");
-  $("#modalContainer .assessment-content").append("<div class='row mx-auto answers clearfix'></div>");
+$("#modalContainer .assessment-container").append("<div class='assessment-content "+style+" row'></div>");
+$("#modalContainer .assessment-content").append("<h3>Question "+questionCount+"</3>");
+$("#modalContainer .assessment-content").append("<p>"+questionBody+"</p>");
+$("#modalContainer .assessment-content").append("<div class='row mx-auto answers clearfix'></div>");
 
-  for(var i = 0; i < 2; i++) {
+for(var i = 0; i < 2; i++) {
 
-    $("#modalContainer .answers").append("<div class='col-md-6 answer-container initial btn"+i+"'><div class='unselected-box'></div><div class='border-box'><img class='img-fluid' src='"+answersArr[i].img+"'/><div class='brand-model-attr clearfix'><p class='brand'>"+answersArr[i].brand+"</p><p class='model'>"+answersArr[i].model+"</p><p class='attr'>"+answersArr[i].attributes+"</p></div><div class='selected-bar'></div></div></div>");
+  $("#modalContainer .answers").append("<div class='col-md-6 answer-container initial btn"+i+"'><div class='unselected-box'></div><div class='border-box'><img class='img-fluid' src='"+answersArr[i].img+"'/><div class='brand-model-attr clearfix'><p class='brand'>"+answersArr[i].brand+"</p><p class='model'>"+answersArr[i].model+"</p><p class='attr'>"+answersArr[i].attributes+"</p></div><div class='selected-bar'></div></div></div>");
 
-  }
+}
 
-  $("#modalContainer .assessment-content").append("<button class='btn-submit-answer'>SUBMIT</button>");
+$("#modalContainer .assessment-content").append("<button class='btn-submit-answer'>SUBMIT</button>");
 
-  for(var i = 0; i < $("#modalContainer .answer-container").length; i++) {
-    $($("#modalContainer .answer-container")[i]).click({questionIndex: questionIndex, answerIndex: i}, selectAnswer);
-  }
+for(var i = 0; i < $("#modalContainer .answer-container").length; i++) {
+  $($("#modalContainer .answer-container")[i]).click({questionIndex: questionIndex, answerIndex: i}, selectAnswer);
+}
 
-  function selectAnswer(event) {
-    qIndex = event.data.questionIndex;
-    aIndex = event.data.answerIndex;
+function selectAnswer(event) {
+  qIndex = event.data.questionIndex;
+  aIndex = event.data.answerIndex;
 
-    $("#modalContainer .answer-container").each(function(){
-      if($(this).hasClass("initial")) {
-        $(this).removeClass("initial");
-        $(this).addClass("unselected");
-      }
-    });
-
-    if($(this).hasClass("selected")) {
-      $(this).removeClass("selected");
+  $("#modalContainer .answer-container").each(function(){
+    if($(this).hasClass("initial")) {
+      $(this).removeClass("initial");
       $(this).addClass("unselected");
-
-    } else {
-      $(this).addClass("selected");
-      $(this).removeClass("unselected");
     }
+  });
+
+  if($(this).hasClass("selected")) {
+    $(this).removeClass("selected");
+    $(this).addClass("unselected");
+
+  } else {
+    $(this).addClass("selected");
+    $(this).removeClass("unselected");
+    $(this).siblings().removeClass("selected");
+    $(this).siblings().addClass("unselected");
+  }
+}
+
+$("#modalContainer .btn-submit-answer").click(submitAnswer);
+
+function submitAnswer() {
+  var answerSelected = false;
+
+  $("#modalContainer .answer-container").each(function(){
+    if($(this).hasClass("selected")) {
+      answerSelected = true;
+    }
+  });
+
+  if(answerSelected === false) {
+    $("#modalContainer .btn-submit-answer").addClass("d-none");
+
+    $("#modalContainer .assessment-content").append("<div class='feedback-container'><p>Please select an answer.</p><div class=''><button class='btn-ok'>OK</button></div></div>");
+
+    $("#modalContainer .btn-ok").click(returnToQuestion);
+
+    function returnToQuestion() {
+      $("#modalContainer .btn-submit-answer").removeClass("d-none");
+      $("#modalContainer .feedback-container").remove();
+    }
+
   }
 
-  $("#modalContainer .btn-submit-answer").click(submitAnswer);
+  else {
+    $("#modalContainer .answer-container").off();
+    $("#modalContainer .btn-submit-answer").addClass("d-none");
 
-  function submitAnswer() {
-    var answerSelected = false;
+    var criterion = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions[qIndex].criterion;
 
-    $("#modalContainer .answer-container").each(function(){
-      if($(this).hasClass("selected")) {
-        answerSelected = true;
+    var correctlyAnswered = false;
+    var bothCorrect = false;
+    var selectedAnswersData = [];
+    var unselectedAnswerData;
+    var selectedAnswers = [];
+    var unselectedAnswer;
+
+    for(var i = 0; i < $("#modalContainer .answer-container").length; i++) {
+
+      if($($("#modalContainer .answer-container")[i]).hasClass("selected")) {
+        selectedAnswersData.push(courseData.assessmentData.assessments[activeAssessment].questionsAnswers.answers[i]);
+        selectedAnswers.push($("#modalContainer .answer-container")[i]);
+
+      } else if ($($("#modalContainer .answer-container")[i]).hasClass("unselected")) {
+        unselectedAnswerData = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.answers[i];
+        unselectedAnswer = $("#modalContainer .answer-container")[i];
       }
-    });
+    }
 
-    if(answerSelected === false) {
-      $("#modalContainer .btn-submit-answer").addClass("d-none");
-
-      $("#modalContainer .assessment-content").append("<div class='feedback-container'><p>Please select an answer.</p><div class=''><button class='btn-ok'>OK</button></div></div>");
-
-      $("#modalContainer .btn-ok").click(returnToQuestion);
-
-      function returnToQuestion() {
-        $("#modalContainer .btn-submit-answer").removeClass("d-none");
-        $("#modalContainer .feedback-container").remove();
-      }
-
-    } else {
-      $("#modalContainer .answer-container").off();
-      $("#modalContainer .btn-submit-answer").addClass("d-none");
-
-      var criterion = courseData.assessmentData.assessments[activeAssessment].questionsAnswers[qIndex].question.criterion;
-
-      var correctlyAnswered = false;
-      var bothCorrect = false;
-      var selectedAnswersData = [];
-      var unselectedAnswerData;
-      var selectedAnswers = [];
-      var unselectedAnswer;
-
-      for(var i = 0; i < $("#modalContainer .answer-container").length; i++) {
-
-        if($($("#modalContainer .answer-container")[i]).hasClass("selected")) {
-          selectedAnswersData.push(courseData.assessmentData.assessments[activeAssessment].questionsAnswers[qIndex].answers[i]);
-          selectedAnswers.push($("#modalContainer .answer-container")[i]);
-
-        } else if ($($("#modalContainer .answer-container")[i]).hasClass("unselected")) {
-          unselectedAnswerData = courseData.assessmentData.assessments[activeAssessment].questionsAnswers[qIndex].answers[i];
-          unselectedAnswer = $("#modalContainer .answer-container")[i];
+    if(criterion === "cargo_space") {
+      if(selectedAnswersData.length > 1) {
+        if(selectedAnswersData[0].cargoVol === selectedAnswersData[1].cargoVol) {
+          correctlyAnswered = true;
+          bothCorrect = true;
         }
-      }
-
-      if(criterion === "cargo_space") {
-        if(selectedAnswersData.length > 1) {
-          if(selectedAnswersData[0].cargoVol === selectedAnswersData[1].cargoVol) {
-            correctlyAnswered = true;
-            bothCorrect = true;
-          }
-
-        } else {
-          if(parseInt(selectedAnswersData[0].cargoVol) < unselectedAnswerData.cargoVol) {
-            correctlyAnswered = true;
-          }
-        }
-
-      } else if(criterion === "mpg") {
-        if(selectedAnswersData.length > 1) {
-          if(selectedAnswersData[0].mpg === selectedAnswersData[1].mpg) {
-            correctlyAnswered = true;
-            bothCorrect = true;
-          }
-
-        } else {
-          if(parseInt(selectedAnswersData[0].mpg) < unselectedAnswerData.mpg) {
-            correctlyAnswered = true;
-          }
-        }
-
-      } else if(criterion === "leg_room") {
-        if(selectedAnswersData.length > 1) {
-          if(selectedAnswersData[0].rearLegRoom === selectedAnswersData[1].rearLegRoom) {
-            correctlyAnswered = true;
-            bothCorrect = true;
-          }
-
-        } else {
-          if(parseInt(selectedAnswersData[0].rearLegRoom) < unselectedAnswerData.rearLegRoom) {
-            correctlyAnswered = true;
-          }
-        }
-
-      } else if(criterion === "hp") {
-        if(selectedAnswersData.length > 1) {
-          if(selectedAnswersData[0].horsePower === selectedAnswersData[1].horsePower) {
-            correctlyAnswered = true;
-            bothCorrect = true;
-          }
-
-        } else {
-          if(parseInt(selectedAnswersData[0].horsePower) < unselectedAnswerData.horsePower) {
-            correctlyAnswered = true;
-          }
-        }
-
-      } else if(criterion === "base_price") {
-        if(selectedAnswersData.length > 1) {
-          if(selectedAnswersData[0].basePrice === selectedAnswersData[1].basePrice) {
-            correctlyAnswered = true;
-            bothCorrect = true;
-          }
-
-        } else {
-          if(parseInt(selectedAnswersData[0].basePrice) < unselectedAnswerData.basePrice) {
-            correctlyAnswered = true;
-
-          }
-        }
-      }
-
-      if(correctlyAnswered) {
-        var feedback = courseData.assessmentData.assessments[activeAssessment].questionsAnswers[qIndex].feedback.correct;
-
-        courseData.assessmentData.assessments[activeAssessment].questionsAnswers[qIndex].PASSED = "true";
-        localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(courseData));
-
-        for(var i = 0; i < selectedAnswers.length; i++) {
-          $(selectedAnswers[i]).append("<div class='viewed-overlay'><img src='themes/gm_selling_skills/media/img/icon_viewed.png'></div>");
-        }
-
-        $("#modalContainer .assessment-content").append("<div class='feedback-container'><p>"+feedback+"</p><button class='btn-ok'>OK</button></div>");
-
-        $("#modalContainer .btn-ok").click(function() {
-          courseData.assessmentData.assessments[activeAssessment].currentQuestionIndex += 1;
-          localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(courseData));
-          $("#modalContainer .assessment-content").remove();
-
-          if(questionIndex === (questionsNum - 1)) {
-            courseData.assessmentData.assessments[activeAssessment].completed = "true";
-            localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(courseData));
-            endAssessment(activeAssessment);
-
-          } else {
-            startAssessment(activeAssessment);
-          }
-        });
 
       } else {
-        //        answerTries++;
+        if(parseInt(selectedAnswersData[0].cargoVol) > unselectedAnswerData.cargoVol) {
+          correctlyAnswered = true;
+        }
+      }
 
-        $(unselectedAnswer).append("<div class='viewed-overlay'><img src='themes/gm_selling_skills/media/img/icon_viewed.png'></div>");
+    }
+    else if(criterion === "mpg") {
+      if(selectedAnswersData.length > 1) {
+        if(selectedAnswersData[0].mpg === selectedAnswersData[1].mpg) {
+          correctlyAnswered = true;
+          bothCorrect = true;
+        }
 
-        var feedback = courseData.assessmentData.assessments[activeAssessment].questionsAnswers[qIndex].feedback.incorrect;
-
-        qIndex = undefined;
-        aIndex = undefined;
-
-        /* TODO: make this modular so answerTries is a setting and triggers the "try again" prompt only if answerTris > 1 */
-        /*if(answerTries === 2) {*/
-        $("#modalContainer .assessment-content").append("<div class='feedback-container'><p>"+feedback+"</p><button class='btn-ok'>OK</button></div>");
-
-        $("#modalContainer .btn-ok").click(function() {
-          courseData.assessmentData.assessments[activeAssessment].currentQuestionIndex += 1;
-          localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(courseData));
-          $("#modalContainer .assessment-content").remove();
-
-          if(questionIndex === (questionsNum - 1)) {
-            courseData.assessmentData.assessments[activeAssessment].completed = "true";
-            localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(courseData));
-            endAssessment(activeAssessment);
-
-          } else {
-            startAssessment(activeAssessment);
-          }
-        });
-
-        /*} else {
-
-          $("#modalContainer .assessment-content").append("<div class='feedback incorrect'><p>That is not correct. Click here to try again.</p></div>");
-
-          $("#modalContainer .feedback.incorrect").click(function() {
-            $("#modalContainer .assessment-content .feedback.incorrect").remove();
-            $("#modalContainer .assessment-content .btn-try-again").remove();
-
-            for(var i = 0; i < $("#modalContainer .answer-container").length; i++) {
-              $($("#modalContainer .answer-container")[i]).click({questionIndex: questionIndex, answerIndex: i}, selectAnswer).removeClass("selected").addClass("initial");
-            }
-
-            $("#modalContainer .btn-submit-answer").removeClass("hide");
-          });
-        }*/
+      } else {
+        if(parseInt(selectedAnswersData[0].mpg) < unselectedAnswerData.mpg) {
+          correctlyAnswered = true;
+        }
       }
 
     }
 
-  }
+    else if(criterion === "leg_room") {
+      if(selectedAnswersData.length > 1) {
+        if(selectedAnswersData[0].rearLegRoom === selectedAnswersData[1].rearLegRoom) {
+          correctlyAnswered = true;
+          bothCorrect = true;
+        }
+
+      } else {
+        if(parseInt(selectedAnswersData[0].rearLegRoom) > unselectedAnswerData.rearLegRoom) {
+          correctlyAnswered = true;
+        }
+      }
+
+    }
+
+    else if(criterion === "hp") {
+      console.log("SELECTED:  "+ parseInt(selectedAnswersData[0].horsePower));
+      console.log("OTHER:  " + unselectedAnswerData.horsePower);
+
+      if(selectedAnswersData.length > 1) {
+        if(selectedAnswersData[0].horsePower === selectedAnswersData[1].horsePower) {
+          correctlyAnswered = true;
+          bothCorrect = true;
+        }
+
+      } else {
+        if(parseInt(selectedAnswersData[0].horsePower) > unselectedAnswerData.horsePower) {
+          correctlyAnswered = true;
+        }
+      }
+
+    }
+
+    else if(criterion === "base_price") {
+      if(selectedAnswersData.length > 1) {
+        if(selectedAnswersData[0].basePrice === selectedAnswersData[1].basePrice) {
+          correctlyAnswered = true;
+          bothCorrect = true;
+        }
+
+      } else {
+        if(parseInt(selectedAnswersData[0].basePrice) < unselectedAnswerData.basePrice) {
+          correctlyAnswered = true;
+
+        }
+      }
+    }
+
+    if(correctlyAnswered) {
+      var feedback = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.feedback.correct;
+
+      courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions[qIndex].PASSED = "true";
+      localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(courseData));
+
+      for(var i = 0; i < selectedAnswers.length; i++) {
+        $(selectedAnswers[i]).append("<div class='viewed-overlay'><img src='themes/gm_selling_skills/media/img/icon_viewed.png'></div>");
+      }
+
+      $("#modalContainer .assessment-content").append("<div class='feedback-container'><p>"+feedback+"</p><button class='btn-ok'>OK</button></div>");
+
+      $("#modalContainer .btn-ok").click(function() {
+        courseData.assessmentData.assessments[activeAssessment].currentQuestionIndex += 1;
+        localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(courseData));
+        $("#modalContainer .assessment-content").remove();
+
+        if(questionIndex === (questionsNum - 1)) {
+          courseData.assessmentData.assessments[activeAssessment].completed = "true";
+          localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(courseData));
+          endAssessment(activeAssessment);
+
+        } else {
+          startAssessment(activeAssessment);
+        }
+      });
+
+    } else {
+      //        answerTries++;
+
+      $(unselectedAnswer).append("<div class='viewed-overlay'><img src='themes/gm_selling_skills/media/img/icon_viewed.png'></div>");
+
+      var feedback = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.feedback.incorrect;
+
+      qIndex = undefined;
+      aIndex = undefined;
+
+      /* TODO: make this modular so answerTries is a setting and triggers the "try again" prompt only if answerTris > 1 */
+      /*if(answerTries === 2) {*/
+      $("#modalContainer .assessment-content").append("<div class='feedback-container'><p>"+feedback+"</p><button class='btn-ok'>OK</button></div>");
+
+      $("#modalContainer .btn-ok").click(function() {
+        courseData.assessmentData.assessments[activeAssessment].currentQuestionIndex += 1;
+        localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(courseData));
+        $("#modalContainer .assessment-content").remove();
+
+        if(questionIndex === (questionsNum - 1)) {
+          courseData.assessmentData.assessments[activeAssessment].completed = "true";
+          localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(courseData));
+          endAssessment(activeAssessment);
+
+        } else {
+          startAssessment(activeAssessment);
+        }
+      });
+
+      /*} else {
+
+      $("#modalContainer .assessment-content").append("<div class='feedback incorrect'><p>That is not correct. Click here to try again.</p></div>");
+
+      $("#modalContainer .feedback.incorrect").click(function() {
+      $("#modalContainer .assessment-content .feedback.incorrect").remove();
+      $("#modalContainer .assessment-content .btn-try-again").remove();
+
+      for(var i = 0; i < $("#modalContainer .answer-container").length; i++) {
+      $($("#modalContainer .answer-container")[i]).click({questionIndex: questionIndex, answerIndex: i}, selectAnswer).removeClass("selected").addClass("initial");
+    }
+
+    $("#modalContainer .btn-submit-answer").removeClass("hide");
+  });
+}*/
+}
+
+}
+
+}
 
 }
 
@@ -423,11 +442,11 @@ function endAssessment(activeAssessment) {
   var style = courseData.assessmentData.assessments[activeAssessment].style;
   var correctAnswerCount = 0;
   var gameFeedback = "";
-  for(var i = 0; i < courseData.assessmentData.assessments[activeAssessment].questionsAnswers.length; i ++) {
-    if(courseData.assessmentData.assessments[activeAssessment].questionsAnswers[i].PASSED === "true") {
+  for(var i = 0; i < courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions.length; i ++) {
+    if(courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions[i].PASSED === "true") {
       correctAnswerCount += 1;
     }
-    courseData.assessmentData.assessments[activeAssessment].questionsAnswers[i].PASSED = "false";
+    courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions[i].PASSED = "false";
   }
 
   $("#modalContainer .assessment-container").append("<div class='finish-screen "+style+"'></div>");
@@ -439,14 +458,14 @@ function endAssessment(activeAssessment) {
 
   switch(correctAnswerCount) {
     case 0: case 1: case 2: case 3: case 4: case 5:
-      gameFeedback += "You probably should go review your product training and then try again.";
-      break;
+    gameFeedback += "You probably should go review your product training and then try again.";
+    break;
     case 6: case 7: case 8:
-      gameFeedback += "You’re on the right track. Keep practicing.";
-      break;
+    gameFeedback += "You’re on the right track. Keep practicing.";
+    break;
     case 9: case 10:
-      gameFeedback += "You’re a rock star! You really know the basic differences in the vehicles in your product line. Nice job!";
-      break;
+    gameFeedback += "You’re a rock star! You really know the basic differences in the vehicles in your product line. Nice job!";
+    break;
   }
   $("#modalContainer .finish-screen").append("<p>Let’s find out how well you did.</p>");
 

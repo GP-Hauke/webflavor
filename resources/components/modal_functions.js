@@ -82,8 +82,6 @@ function getGlossary() {
 function glossaryNavigate(){
   $(".alphabet a").click(function() {
     var c = '#' + $(this).text()
-    console.log(c);
-    console.log('offset:  ' + $(c).offset().top);
 
     if($(c).offset().top > 140 || 120 > $(c).offset().top){
       $('.modal-body').scrollTop(
