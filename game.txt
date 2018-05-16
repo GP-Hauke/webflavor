@@ -1,0 +1,21 @@
+ARCHITECTURE:
+  - Create production distribution directory that also includes a .zip SCORM package.
+  -	Re-organize folder structure to separate core course functionality from reusable components and refactor code accordingly.
+  -	Make assessment more modular for different types of assessments. Either separate from game or make game a type of assessment.
+  -	Add knowledge check functionality (scoring, tracking on LMS).
+  -	Add Create.JS and build prototype of a game
+  -	Build a UI to generate scaffold core course files pre-populated with the critical data that needs to go into the SCORM sco01.xml and imsmanifest.xml files and the settings.xml file.
+
+
+GAME NEXT ITERATION:
+  + Increase Vehicles Dynamically
+  - Increase Characteristics
+  + Add Filters
+  + Change Number of Questions Asked
+  + Randomize Questions
+
+
+GAME SCORING:
+  + 10 Second Timer
+  + 10 Points per Question
+  + Make End Screen Dynamic
