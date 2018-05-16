@@ -1,11 +1,12 @@
 Next Iteration:
   + Increase Vehicles Dynamically
   - Increase Characteristics
-  - Add Filters
+  + Add Filters
   + Change Number of Questions Asked
   + Randomize Questions
 
 
 Scoring:
-  - 10 Second Timer
-  - 10 Points per Question
+  + 10 Second Timer
+  + 10 Points per Question
+  + Make End Screen Dynamic

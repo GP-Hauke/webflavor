@@ -59,6 +59,7 @@ function initAssessments(assessmentsContentXML) {
           REQUIRED: currentQuestion.attr("required"),
           ANSWERED: currentQuestion.attr("answered"),
           PASSED: currentQuestion.attr("passed"),
+          SCORE: 0,
           IMAGE: currentQuestion.find("imgSrc").text(),
           CRITERION: currentQuestion.find('criterion').text(),
           FILTER: currentQuestion.find('filter').text(),
@@ -102,7 +103,6 @@ function initAssessments(assessmentsContentXML) {
 
 
 function launchAssessment(id, clickTarget) {
-  console.log("launchAssessment");
   startBtn = clickTarget;
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
   var activeAssessment = id;
@@ -178,6 +178,7 @@ function startAssessment(id) {
   //var questionsNum = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions.length;
   var questionIndex = courseData.assessmentData.assessments[activeAssessment].currentQuestionIndex;
   var questionCount = questionIndex + 1;
+  var time = 0;
   courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions = shuffle(courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions);
 
   /*if(questionIndex === (questionsNum)) {
@@ -207,7 +208,7 @@ courseData.assessmentData.assessments[activeAssessment].questionsAnswers.answers
 //  var answerTries = 0;
 
 $("#modalContainer .assessment-container").append("<div class='assessment-content "+style+" row'></div>");
-$("#modalContainer .assessment-content").append("<h3>Question "+questionCount+"</3>");
+$("#modalContainer .assessment-content").append("<h3>Question "+questionCount+"<span> 10 seconds</span>");
 $("#modalContainer .assessment-content").append("<p>"+questionBody+"</p>");
 $("#modalContainer .assessment-content").append("<div class='row mx-auto answers clearfix'></div>");
 
@@ -272,10 +273,13 @@ function submitAnswer() {
   }
 
   else {
+    clearInterval(timingInterval);
+
     $("#modalContainer .answer-container").off();
     $("#modalContainer .btn-submit-answer").addClass("d-none");
 
     var criterion = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions[qIndex].CRITERION;
+    courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions[qIndex].ANSWERED = "true";
 
     var correctlyAnswered = false;
     var bothCorrect = false;
@@ -377,6 +381,9 @@ function submitAnswer() {
       courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions[qIndex].PASSED = "true";
       localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(courseData));
 
+      courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions[qIndex].SCORE = 10 - time;
+
+
       for(var i = 0; i < selectedAnswers.length; i++) {
         $(selectedAnswers[i]).append("<div class='viewed-overlay'><img src='themes/gm_selling_skills/media/img/icon_viewed.png'></div>");
       }
@@ -448,6 +455,17 @@ function submitAnswer() {
 
 }
 
+var timingInterval = setInterval(function(){
+    time += .1;
+    var timeLeft = (10 - time).toFixed(0);
+
+    if(timeLeft >= 0){
+      var timeLeft = Math.abs(timeLeft);
+      $("#modalContainer .assessment-content h3 span").html("<span> " +timeLeft+ " seconds</span>");
+
+  }
+}, 100)
+
 }
 
 function endAssessment(activeAssessment) {
@@ -458,13 +476,20 @@ function endAssessment(activeAssessment) {
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
   var style = courseData.assessmentData.assessments[activeAssessment].style;
   var correctAnswerCount = 0;
+  var correctPercentage = 0;
+  var totalScore = 0;
   var gameFeedback = "";
   for(var i = 0; i < courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions.length; i ++) {
     if(courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions[i].PASSED === "true") {
       correctAnswerCount += 1;
+      totalScore += courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions[i].SCORE;
     }
     courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions[i].PASSED = "false";
   }
+
+  totalScore = totalScore.toFixed(0)
+  correctPercentage = 10 * correctAnswerCount / courseData.assessmentData.QUESTIONS_GIVEN;
+  correctPercentage = parseInt(correctPercentage.toFixed(0));
 
   $("#modalContainer .assessment-container").append("<div class='finish-screen "+style+"'></div>");
   $("#modalContainer .finish-screen").append("<h3>Congratulations!</h3>");
@@ -472,8 +497,11 @@ function endAssessment(activeAssessment) {
   gameFeedback = "You answered <span class='bolded'>";
   gameFeedback += correctAnswerCount;
   gameFeedback += "</span> questions correctly. ";
+  gameFeedback += "For a score of <span class='bolded'>";
+  gameFeedback += totalScore;
+  gameFeedback += "</span> points. ";
 
-  switch(correctAnswerCount) {
+  switch(correctPercentage) {
     case 0: case 1: case 2: case 3: case 4: case 5:
     gameFeedback += "You probably should go review your product training and then try again.";
     break;

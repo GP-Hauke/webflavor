@@ -622,6 +622,13 @@ li.courseTitleChapterSelected {
 /* ASSESSMENT GAME SCREEN */
 #assessmentModal .assessment-content h3 {
   margin: 0 0 15px;
+  width: 100%;
+}
+
+#assessmentModal .assessment-content h3 span{
+  float: right;
+  font-size: 22px;
+  text-transform: lowercase;
 }
 
 #assessmentModal .assessment-content .answers {
