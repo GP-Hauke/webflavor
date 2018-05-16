@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<assessments questionsGiven="9">
+<assessments questionsGiven="5">
   <version>0.0.4</version>
   <!--  -->
   <assessment id="1" type="" completed="false" title="Match Features to Wants Game - Buick">
@@ -15,61 +15,111 @@
 
     <questionAnswer type="multi_choice" required="false" answered="false" passed="false">
       <questions>
-        <question type="multi_choice" required="false" answered="false" passed="false" criterion="mpg">
+        <question type="multi_choice" required="false" answered="false" passed="false" >
+          <type>
+            <criterion>mpg</criterion>
+            <filter></filter>
+            <filterNum></filterNum>
+          </type>
           <questionTitle><![CDATA[]]></questionTitle>
           <questionBody><![CDATA[The customer wants the vehicle with the best combined gas mileage. Which vehicle would you recommend?]]></questionBody>
           <imgSrc><![CDATA[]]></imgSrc>
         </question>
 
-        <question type="multi_choice" required="false" answered="false" passed="false" criterion="leg_room">
+        <question type="multi_choice" required="false" answered="false" passed="false">
+          <type>
+            <criterion>rearLegRoom</criterion>
+            <filter>mpg</filter>
+            <filterNum>25</filterNum>
+          </type>
           <questionTitle><![CDATA[]]></questionTitle>
           <questionBody><![CDATA[The customer wants the vehicle with the most interior cabin space. Which vehicle would you recommend?]]></questionBody>
           <imgSrc><![CDATA[]]></imgSrc>
         </question>
 
-        <question type="multi_choice" required="false" answered="false" passed="false" criterion="cargo_space">
+        <question type="multi_choice" required="false" answered="false" passed="false">
+          <type>
+            <criterion>cargoVol</criterion>
+            <filter>cargoVol</filter>
+            <filterNum>20</filterNum>
+          </type>
           <questionTitle><![CDATA[]]></questionTitle>
           <questionBody><![CDATA[The customer wants the vehicle with the biggest trunk. Which vehicle would you recommend?]]></questionBody>
           <imgSrc><![CDATA[]]></imgSrc>
         </question>
 
-        <question type="multi_choice" required="false" answered="false" passed="false" criterion="base_price">
+        <question type="multi_choice" required="false" answered="false" passed="false">
+          <type>
+            <criterion>basePrice</criterion>
+            <filter>horsePower</filter>
+            <filterNum>250</filterNum>
+          </type>
           <questionTitle><![CDATA[]]></questionTitle>
           <questionBody><![CDATA[The customer wants the vehicle with the lowest base price. Which vehicle would you recommend? (Note: Assume lowest trim level and no dealer/factory incentives.)]]></questionBody>
           <imgSrc><![CDATA[]]></imgSrc>
         </question>
 
-        <question type="multi_choice" required="false" answered="false" passed="false" criterion="hp">
+        <question type="multi_choice" required="false" answered="false" passed="false">
+          <type>
+            <criterion>horsePower</criterion>
+            <filter>horsePower</filter>
+            <filterNum>250</filterNum>
+          </type>
           <questionTitle><![CDATA[]]></questionTitle>
           <questionBody><![CDATA[The customer wants the vehicle with the most horsepower. Which vehicle would you recommend?]]></questionBody>
           <imgSrc><![CDATA[]]></imgSrc>
         </question>
 
-        <question type="multi_choice" required="false" answered="false" passed="false" criterion="mpg">
+        <question type="multi_choice" required="false" answered="false" passed="false">
+          <type>
+            <criterion>mpg</criterion>
+            <filter>horsePower</filter>
+            <filterNum>250</filterNum>
+          </type>
           <questionTitle><![CDATA[]]></questionTitle>
           <questionBody><![CDATA[The customer wants a vehicle with good horsepower but is more concerned with fuel efficiency. Which vehicle would you recommend?]]></questionBody>
           <imgSrc><![CDATA[]]></imgSrc>
         </question>
 
-        <question type="multi_choice" required="false" answered="false" passed="false" criterion="cargo_space">
+        <question type="multi_choice" required="false" answered="false" passed="false">
+          <type>
+            <criterion>cargoVol</criterion>
+            <filter></filter>
+            <filterNum></filterNum>
+          </type>
           <questionTitle><![CDATA[]]></questionTitle>
           <questionBody><![CDATA[The customer is a real estate agent, and she needs a vehicle that looks great. However, she often needs to haul signs and other items, which means she needs the most cargo space available. Which vehicle would you recommend?]]></questionBody>
           <imgSrc><![CDATA[]]></imgSrc>
         </question>
 
-        <question type="multi_choice" required="false" answered="false" passed="false" criterion="base_price">
+        <question type="multi_choice" required="false" answered="false" passed="false">
+          <type>
+            <criterion>basePrice</criterion>
+            <filter></filter>
+            <filterNum></filterNum>
+          </type>
           <questionTitle><![CDATA[]]></questionTitle>
           <questionBody><![CDATA[The customer wants a sleek vehicle that will turn heads but he is more concerned about the price. Which vehicle would you recommend?]]></questionBody>
           <imgSrc><![CDATA[]]></imgSrc>
         </question>
 
-        <question type="multi_choice" required="false" answered="false" passed="false" criterion="cargo_space">
+        <question type="multi_choice" required="false" answered="false" passed="false">
+          <type>
+            <criterion>cargoVol</criterion>
+            <filter></filter>
+            <filterNum></filterNum>
+          </type>
           <questionTitle><![CDATA[]]></questionTitle>
           <questionBody><![CDATA[The customer mentions she often likes to travel to local state parks to go mountain biking. Which vehicle with the most cargo space would you recommend?]]></questionBody>
           <imgSrc><![CDATA[]]></imgSrc>
         </question>
 
-        <question type="multi_choice" required="false" answered="false" passed="false" criterion="leg_room">
+        <question type="multi_choice" required="false" answered="false" passed="false">
+          <type>
+            <criterion>rearLegRoom</criterion>
+            <filter></filter>
+            <filterNum></filterNum>
+          </type>
           <questionTitle><![CDATA[]]></questionTitle>
           <questionBody><![CDATA[The customer has children and needs a vehicle that has the most leg room. Which vehicle would you recommend?]]></questionBody>
           <imgSrc><![CDATA[]]></imgSrc>
@@ -210,61 +260,111 @@
 
     <questionAnswer type="multi_choice" required="false" answered="false" passed="false">
       <questions>
-        <question type="multi_choice" required="false" answered="false" passed="false" criterion="mpg">
+        <question type="multi_choice" required="false" answered="false" passed="false">
+          <type>
+            <criterion>mpg</criterion>
+            <filter></filter>
+            <filterNum></filterNum>
+          </type>
           <questionTitle><![CDATA[]]></questionTitle>
           <questionBody><![CDATA[The customer wants the vehicle with the best combined gas mileage. Which vehicle would you recommend?]]></questionBody>
           <imgSrc><![CDATA[]]></imgSrc>
         </question>
 
-        <question type="multi_choice" required="false" answered="false" passed="false" criterion="leg_room">
+        <question type="multi_choice" required="false" answered="false" passed="false">
+          <type>
+            <criterion>rearLegRoom</criterion>
+            <filter></filter>
+            <filterNum></filterNum>
+          </type>
           <questionTitle><![CDATA[]]></questionTitle>
           <questionBody><![CDATA[The customer wants the vehicle with the most interior cabin space. Which vehicle would you recommend?]]></questionBody>
           <imgSrc><![CDATA[]]></imgSrc>
         </question>
 
-        <question type="multi_choice" required="false" answered="false" passed="false" criterion="cargo_space">
+        <question type="multi_choice" required="false" answered="false" passed="false">
+          <type>
+            <criterion>cargoVol</criterion>
+            <filter></filter>
+            <filterNum></filterNum>
+          </type>
           <questionTitle><![CDATA[]]></questionTitle>
           <questionBody><![CDATA[The customer wants the vehicle with the biggest trunk. Which vehicle would you recommend?]]></questionBody>
           <imgSrc><![CDATA[]]></imgSrc>
         </question>
 
-        <question type="multi_choice" required="false" answered="false" passed="false" criterion="base_price">
+        <question type="multi_choice" required="false" answered="false" passed="false">
+          <type>
+            <criterion>basePrice</criterion>
+            <filter></filter>
+            <filterNum></filterNum>
+          </type>
           <questionTitle><![CDATA[]]></questionTitle>
           <questionBody><![CDATA[The customer wants the vehicle with the lowest base price. Which vehicle would you recommend? (Note: Assume lowest trim level and no dealer/factory incentives.)]]></questionBody>
           <imgSrc><![CDATA[]]></imgSrc>
         </question>
 
-        <question type="multi_choice" required="false" answered="false" passed="false" criterion="hp">
+        <question type="multi_choice" required="false" answered="false" passed="false">
+          <type>
+            <criterion>horsePower</criterion>
+            <filter></filter>
+            <filterNum></filterNum>
+          </type>
           <questionTitle><![CDATA[]]></questionTitle>
           <questionBody><![CDATA[The customer wants the vehicle with the most horsepower. Which vehicle would you recommend?]]></questionBody>
           <imgSrc><![CDATA[]]></imgSrc>
         </question>
 
-        <question type="multi_choice" required="false" answered="false" passed="false" criterion="mpg">
+        <question type="multi_choice" required="false" answered="false" passed="false">
+          <type>
+            <criterion>mpg</criterion>
+            <filter></filter>
+            <filterNum></filterNum>
+          </type>
           <questionTitle><![CDATA[]]></questionTitle>
           <questionBody><![CDATA[The customer wants a vehicle with good horsepower but is more concerned with fuel efficiency. Which vehicle would you recommend?]]></questionBody>
           <imgSrc><![CDATA[]]></imgSrc>
         </question>
 
-        <question  type="multi_choice" required="false" answered="false" passed="false" criterion="cargo_space">
+        <question  type="multi_choice" required="false" answered="false" passed="false" criterion="cargoVol">
+          <type>
+            <criterion>cargo</criterion>
+            <filter></filter>
+            <filterNum></filterNum>
+          </type>
           <questionTitle><![CDATA[]]></questionTitle>
           <questionBody><![CDATA[The customer is a real estate agent, and she needs a vehicle that looks great. However, she often needs to haul signs and other items, which means she needs the most cargo space available. Which vehicle would you recommend?]]></questionBody>
           <imgSrc><![CDATA[]]></imgSrc>
         </question>
 
-        <question type="multi_choice" required="false" answered="false" passed="false" criterion="base_price">
+        <question type="multi_choice" required="false" answered="false" passed="false">
+          <type>
+            <criterion>basePrice</criterion>
+            <filter></filter>
+            <filterNum></filterNum>
+          </type>
           <questionTitle><![CDATA[]]></questionTitle>
           <questionBody><![CDATA[The customer wants a sleek vehicle that will turn heads but he is more concerned about the price. Which vehicle would you recommend?]]></questionBody>
           <imgSrc><![CDATA[]]></imgSrc>
         </question>
 
-        <question type="multi_choice" required="false" answered="false" passed="false" criterion="cargo_space">
+        <question type="multi_choice" required="false" answered="false" passed="false">
+          <type>
+            <criterion>cargoVol</criterion>
+            <filter></filter>
+            <filterNum></filterNum>
+          </type>
           <questionTitle><![CDATA[]]></questionTitle>
           <questionBody><![CDATA[The customer mentions she often likes to travel to local state parks to go mountain biking. Which vehicle with the most cargo space would you recommend?]]></questionBody>
           <imgSrc><![CDATA[]]></imgSrc>
         </question>
 
-        <question type="multi_choice" required="false" answered="false" passed="false" criterion="leg_room">
+        <question type="multi_choice" required="false" answered="false" passed="false">
+          <type>
+            <criterion>rearLegRoom</criterion>
+            <filter></filter>
+            <filterNum></filterNum>
+          </type>
           <questionTitle><![CDATA[]]></questionTitle>
           <questionBody><![CDATA[The customer has children and needs a vehicle that has the most leg room. Which vehicle would you recommend?]]></questionBody>
           <imgSrc><![CDATA[]]></imgSrc>
@@ -362,61 +462,111 @@
 
     <questionAnswer type="multi_choice" required="false" answered="false" passed="false">
       <questions>
-        <question type="multi_choice" required="false" answered="false" passed="false" criterion="mpg">
+        <question type="multi_choice" required="false" answered="false" passed="false">
+          <type>
+            <criterion>mpg</criterion>
+            <filter></filter>
+            <filterNum></filterNum>
+          </type>
           <questionTitle><![CDATA[]]></questionTitle>
           <questionBody><![CDATA[The customer wants the vehicle with the best combined gas mileage. Which vehicle would you recommend?]]></questionBody>
           <imgSrc><![CDATA[]]></imgSrc>
         </question>
 
-        <question type="multi_choice" required="false" answered="false" passed="false" criterion="leg_room">
+        <question type="multi_choice" required="false" answered="false" passed="false">
+          <type>
+            <criterion>rearLegRoom</criterion>
+            <filter></filter>
+            <filterNum></filterNum>
+          </type>
           <questionTitle><![CDATA[]]></questionTitle>
           <questionBody><![CDATA[The customer wants the vehicle with the most interior cabin space. Which vehicle would you recommend?]]></questionBody>
           <imgSrc><![CDATA[]]></imgSrc>
         </question>
 
-        <question type="multi_choice" required="false" answered="false" passed="false" criterion="cargo_space">
+        <question type="multi_choice" required="false" answered="false" passed="false">
+          <type>
+            <criterion>cargoVol</criterion>
+            <filter></filter>
+            <filterNum></filterNum>
+          </type>
           <questionTitle><![CDATA[]]></questionTitle>
           <questionBody><![CDATA[The customer wants the vehicle with the biggest trunk. Which vehicle would you recommend?]]></questionBody>
           <imgSrc><![CDATA[]]></imgSrc>
         </question>
 
-        <question type="multi_choice" required="false" answered="false" passed="false" criterion="base_price">
+        <question type="multi_choice" required="false" answered="false" passed="false">
+          <type>
+            <criterion>basePrice</criterion>
+            <filter></filter>
+            <filterNum></filterNum>
+          </type>
           <questionTitle><![CDATA[]]></questionTitle>
           <questionBody><![CDATA[The customer wants the vehicle with the lowest base price. Which vehicle would you recommend? (Note: Assume lowest trim level and no dealer/factory incentives.)]]></questionBody>
           <imgSrc><![CDATA[]]></imgSrc>
         </question>
 
-        <question type="multi_choice" required="false" answered="false" passed="false" criterion="hp">
+        <question type="multi_choice" required="false" answered="false" passed="false">
+          <type>
+            <criterion>horsePower</criterion>
+            <filter></filter>
+            <filterNum></filterNum>
+          </type>
           <questionTitle><![CDATA[]]></questionTitle>
           <questionBody><![CDATA[The customer wants the vehicle with the most horsepower. Which vehicle would you recommend?]]></questionBody>
           <imgSrc><![CDATA[]]></imgSrc>
         </question>
 
-        <question type="multi_choice" required="false" answered="false" passed="false" criterion="mpg">
+        <question type="multi_choice" required="false" answered="false" passed="false">
+          <type>
+            <criterion>mpg</criterion>
+            <filter></filter>
+            <filterNum></filterNum>
+          </type>
           <questionTitle><![CDATA[]]></questionTitle>
           <questionBody><![CDATA[The customer wants a vehicle with good horsepower but is more concerned with fuel efficiency. Which vehicle would you recommend?]]></questionBody>
           <imgSrc><![CDATA[]]></imgSrc>
         </question>
 
-        <question type="multi_choice" required="false" answered="false" passed="false" criterion="cargo_space">
+        <question type="multi_choice" required="false" answered="false" passed="false">
+          <type>
+            <criterion>cargoVol</criterion>
+            <filter></filter>
+            <filterNum></filterNum>
+          </type>
           <questionTitle><![CDATA[]]></questionTitle>
           <questionBody><![CDATA[The customer is a real estate agent, and she needs a vehicle that looks great. However, she often needs to haul signs and other items, which means she needs the most cargo space available. Which vehicle would you recommend?]]></questionBody>
           <imgSrc><![CDATA[]]></imgSrc>
         </question>
 
-        <question type="multi_choice" required="false" answered="false" passed="false" criterion="base_price">
+        <question type="multi_choice" required="false" answered="false" passed="false">
+          <type>
+            <criterion>basePrice</criterion>
+            <filter></filter>
+            <filterNum></filterNum>
+          </type>
           <questionTitle><![CDATA[]]></questionTitle>
           <questionBody><![CDATA[The customer wants a sleek vehicle that will turn heads but he is more concerned about the price. Which vehicle would you recommend?]]></questionBody>
           <imgSrc><![CDATA[]]></imgSrc>
         </question>
 
-        <question type="multi_choice" required="false" answered="false" passed="false" criterion="cargo_space">
+        <question type="multi_choice" required="false" answered="false" passed="false">
+          <type>
+            <criterion>cargoVol</criterion>
+            <filter></filter>
+            <filterNum></filterNum>
+          </type>
           <questionTitle><![CDATA[]]></questionTitle>
           <questionBody><![CDATA[The customer mentions she often likes to travel to local state parks to go mountain biking. Which vehicle with the most cargo space would you recommend?]]></questionBody>
           <imgSrc><![CDATA[]]></imgSrc>
         </question>
 
-        <question type="multi_choice" required="false" answered="false" passed="false" criterion="leg_room">
+        <question type="multi_choice" required="false" answered="false" passed="false">
+          <type>
+            <criterion>rearLegRoom</criterion>
+            <filter></filter>
+            <filterNum></filterNum>
+          </type>
           <questionTitle><![CDATA[]]></questionTitle>
           <questionBody><![CDATA[The customer has children and needs a vehicle that has the most leg room. Which vehicle would you recommend?]]></questionBody>
           <imgSrc><![CDATA[]]></imgSrc>

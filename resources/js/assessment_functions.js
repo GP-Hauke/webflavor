@@ -31,6 +31,7 @@ function initAssessments(assessmentsContentXML) {
         questionsAnswers: {
           questions: [],
           answers: [],
+          answersFiltered: [],
           feedback: {}
         },
         currentQuestionIndex: 0
@@ -59,7 +60,9 @@ function initAssessments(assessmentsContentXML) {
           ANSWERED: currentQuestion.attr("answered"),
           PASSED: currentQuestion.attr("passed"),
           IMAGE: currentQuestion.find("imgSrc").text(),
-          criterion: currentQuestion.attr("criterion"),
+          CRITERION: currentQuestion.find('criterion').text(),
+          FILTER: currentQuestion.find('filter').text(),
+          FILTERNUM: currentQuestion.find('filterNum').text(),
           question: {
             questionTitle: currentQuestion.find("questionTitle").text(),
             questionBody: currentQuestion.find("questionBody").text()
@@ -185,9 +188,22 @@ function startAssessment(id) {
 var questionTitle = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions[questionIndex].question.questionTitle;
 var questionBody = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions[questionIndex].question.questionBody;
 
+var questionFilter = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions[questionIndex].FILTER;
+var filterNum = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions[questionIndex].FILTERNUM;
+
 var qIndex;
 var aIndex;
+
 var answersArr = shuffle(courseData.assessmentData.assessments[activeAssessment].questionsAnswers.answers);
+var answersFiltered = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.answers;
+
+if(questionFilter.length > 0){
+  answersFiltered = filterAnswers(activeAssessment, questionFilter, filterNum);
+}
+
+
+courseData.assessmentData.assessments[activeAssessment].questionsAnswers.answersFiltered = answersFiltered;
+
 //  var answerTries = 0;
 
 $("#modalContainer .assessment-container").append("<div class='assessment-content "+style+" row'></div>");
@@ -197,7 +213,7 @@ $("#modalContainer .assessment-content").append("<div class='row mx-auto answers
 
 for(var i = 0; i < 2; i++) {
 
-  $("#modalContainer .answers").append("<div class='col-md-6 answer-container initial btn"+i+"'><div class='unselected-box'></div><div class='border-box'><img class='img-fluid' src='"+answersArr[i].img+"'/><div class='brand-model-attr clearfix'><p class='brand'>"+answersArr[i].brand+"</p><p class='model'>"+answersArr[i].model+"</p><p class='attr'>"+answersArr[i].attributes+"</p></div><div class='selected-bar'></div></div></div>");
+  $("#modalContainer .answers").append("<div class='col-md-6 answer-container initial btn"+i+"'><div class='unselected-box'></div><div class='border-box'><img class='img-fluid' src='"+answersFiltered[i].img+"'/><div class='brand-model-attr clearfix'><p class='brand'>"+answersFiltered[i].brand+"</p><p class='model'>"+answersFiltered[i].model+"</p><p class='attr'>"+answersFiltered[i].attributes+"</p></div><div class='selected-bar'></div></div></div>");
 
 }
 
@@ -259,7 +275,7 @@ function submitAnswer() {
     $("#modalContainer .answer-container").off();
     $("#modalContainer .btn-submit-answer").addClass("d-none");
 
-    var criterion = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions[qIndex].criterion;
+    var criterion = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions[qIndex].CRITERION;
 
     var correctlyAnswered = false;
     var bothCorrect = false;
@@ -280,7 +296,7 @@ function submitAnswer() {
       }
     }
 
-    if(criterion === "cargo_space") {
+    if(criterion === "cargoVol") {
       if(selectedAnswersData.length > 1) {
         if(selectedAnswersData[0].cargoVol === selectedAnswersData[1].cargoVol) {
           correctlyAnswered = true;
@@ -309,7 +325,7 @@ function submitAnswer() {
 
     }
 
-    else if(criterion === "leg_room") {
+    else if(criterion === "rearLegRoom") {
       if(selectedAnswersData.length > 1) {
         if(selectedAnswersData[0].rearLegRoom === selectedAnswersData[1].rearLegRoom) {
           correctlyAnswered = true;
@@ -324,7 +340,7 @@ function submitAnswer() {
 
     }
 
-    else if(criterion === "hp") {
+    else if(criterion === "horsePower") {
 
       if(selectedAnswersData.length > 1) {
         if(selectedAnswersData[0].horsePower === selectedAnswersData[1].horsePower) {
@@ -340,7 +356,7 @@ function submitAnswer() {
 
     }
 
-    else if(criterion === "base_price") {
+    else if(criterion === "basePrice") {
       if(selectedAnswersData.length > 1) {
         if(selectedAnswersData[0].basePrice === selectedAnswersData[1].basePrice) {
           correctlyAnswered = true;
@@ -534,4 +550,17 @@ function shuffle(array) {
   }
 
   return array;
+}
+
+function filterAnswers(activeAssessment, filter, num){
+  var answers = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.answers;
+  var answersFiltered = [];
+
+  for(var i = 0; i < answers.length; i++){
+    if(answers[i][filter] > num){
+      answersFiltered.push(answers[i]);
+    }
+  }
+
+  return answersFiltered;
 }
