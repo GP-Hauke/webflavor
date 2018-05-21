@@ -381,7 +381,7 @@ function submitAnswer() {
       courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions[qIndex].PASSED = "true";
       localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(courseData));
 
-      courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions[qIndex].SCORE = 10 - time;
+      courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions[qIndex].SCORE = (10 - time) * 10;
 
 
       for(var i = 0; i < selectedAnswers.length; i++) {

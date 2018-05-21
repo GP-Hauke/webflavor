@@ -72,10 +72,43 @@ ul {
     font-size: 20px;
     line-height: 40px;
     font-weight: 100;
-    text-align: center; }
+    text-align: center;
+  }
   #subTitleMobile {
     color: #fff;
-    text-align: center; } }
+    text-align: center; }
+  }
+
+  #splashPageModal .modal-dialog .modal-content{
+    background-image: url('../../../dir/media/img/assets/bg_completion.jpg');
+    height: 800px;
+    background-repeat: no-repeat;
+  }
+
+  #splashPageModal .col{
+    margin-left: 60px;
+    margin-top: 30px;
+  }
+
+  #splashPageModal .btn{
+    width: 50%;
+  }
+
+  #splashPageModal h1, h3{
+    text-transform: uppercase;
+    font-weight: 600;
+    padding-top: 0px;
+  }
+
+  #splashPageModal h3{
+    font-weight: 400;
+  }
+
+  #splashPageModal p{
+    font-size: 20px;
+    padding-top: 10px;
+    padding-bottom: 20px;
+  }
 
 /* QUOTES */
 .quote > p {

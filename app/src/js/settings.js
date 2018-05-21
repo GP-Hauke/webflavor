@@ -4,29 +4,29 @@ function initSettings(xml) {
   LOCAL_COURSE_DATA_ID = $(xml).find("courseStorageID").text();
 
   /*var localStorageLen = JSON.stringify(localStorage).length;
-    console.log("localStorageLen ", localStorageLen);
+  console.log("localStorageLen ", localStorageLen);
 
-    var l = 1;
-    localStorage.setItem(l, "x");
+  var l = 1;
+  localStorage.setItem(l, "x");
 
-    for(var i = 0; i < 100000; i++) {
-      console.log("uh oh... ", i);
-      var ls = localStorage.getItem(l);
-      var templs = JSON.stringify(ls);
-    }*/
+  for(var i = 0; i < 100000; i++) {
+  console.log("uh oh... ", i);
+  var ls = localStorage.getItem(l);
+  var templs = JSON.stringify(ls);
+}*/
 
-  var localStorageSize = ((JSON.stringify(localStorage).length * 2) / 1048576).toFixed(4);
-  console.log("localStorage in megabytes: ", localStorageSize);
+var localStorageSize = ((JSON.stringify(localStorage).length * 2) / 1048576).toFixed(4);
+console.log("localStorage in megabytes: ", localStorageSize);
 
-  var currentVersion = $(xml).find("version").text();
+var currentVersion = $(xml).find("version").text();
 
-  var tempStorage = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
+var tempStorage = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
 
-  if(tempStorage === null || tempStorage.SETTINGS_VERSION !== currentVersion) {
+if(tempStorage === null || tempStorage.SETTINGS_VERSION !== currentVersion) {
 
-    populateStorage(xml, tempStorage);
+  populateStorage(xml, tempStorage);
 
-  }
+}
 }
 
 function populateStorage(xml, tempStorage) {
@@ -91,24 +91,37 @@ function addGlossaryToLocalStorage(xml) {
 
   tempStorage.glossary = {"items":[]}
 
-    var itemsXML = $(xml).find("item");
-    var items = [];
+  var itemsXML = $(xml).find("item");
+  var items = [];
 
-    for(var hl = 0; hl < itemsXML.length; hl++) {
-      item = {};
+  for(var hl = 0; hl < itemsXML.length; hl++) {
+    item = {};
 
-      item.term = $(itemsXML[hl]).find('term').text();
-      item.definition = $(itemsXML[hl]).find('definition').text();
-      items.push(item);
-    }
+    item.term = $(itemsXML[hl]).find('term').text();
+    item.definition = $(itemsXML[hl]).find('definition').text();
+    items.push(item);
+  }
 
-    tempStorage.glossary.items = items;
+  tempStorage.glossary.items = items;
 
 
 
   localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(tempStorage));
 }
 /*end ADD GLOSSARY TO LOCAL STORAGE */
+
+
+function addSplashToLocalStorage(xml) {
+  var storage = localStorage.getItem(LOCAL_COURSE_DATA_ID);
+  var tempStorage = JSON.parse(storage);
+
+  tempStorage.splash = {
+    "title": $(xml).find("title").text(),
+    "caption": $(xml).find("caption").text(),
+    "introduction": $(xml).find("introduction").text()
+  }
+  localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(tempStorage));
+}
 
 
 function addNavToLocalStorage(xml) {

@@ -1,29 +1,29 @@
 @font-face {
   font-family: "GMGlobalSansCond";
-  src: url('../../../media/fonts/GMGlobalSansCond_1_ExtraLight.eot');
-  src:  url('../../../media/fonts/GMGlobalSansCond_1_ExtraLight.eot?#iefix') format('embedded-opentype'),
-  url('../../../media/fonts/GMGlobalSansCond_1_ExtraLight.woff') format('woff'),
-  url('../../../media/fonts/GMGlobalSansCond_1_ExtraLight.ttf') format('truetype');
+  src: url('../../media/fonts/GMGlobalSansCond_1_ExtraLight.eot');
+  src:  url('../../media/fonts/GMGlobalSansCond_1_ExtraLight.eot?#iefix') format('embedded-opentype'),
+  url('../../media/fonts/GMGlobalSansCond_1_ExtraLight.woff') format('woff'),
+  url('../../media/fonts/GMGlobalSansCond_1_ExtraLight.ttf') format('truetype');
   font-weight: 100;
   font-style: normal;
 }
 
 @font-face {
   font-family: "GMGlobalSansCond";
-  src: url('../../../media/fonts/GMGlobalSansCond_4_Plain.eot');
-  src:  url('../../../media/fonts/GMGlobalSansCond_4_Plain.eot?#iefix') format('embedded-opentype'),
-  url('../../../media/fonts/GMGlobalSansCond_4_Plain.woff') format('woff'),
-  url('../../../media/fonts/GMGlobalSansCond_4_Plain.ttf') format('truetype');
+  src: url('../../media/fonts/GMGlobalSansCond_4_Plain.eot');
+  src:  url('../../media/fonts/GMGlobalSansCond_4_Plain.eot?#iefix') format('embedded-opentype'),
+  url('../../media/fonts/GMGlobalSansCond_4_Plain.woff') format('woff'),
+  url('../../media/fonts/GMGlobalSansCond_4_Plain.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: "GMGlobalSansCond";
-  src: url('../../../media/fonts/GMGlobalSansCond_6_Bold.eot');
-  src:  url('../../../media/fonts/GMGlobalSansCond_6_Bold.eot?#iefix') format('embedded-opentype'),
-  url('../../../media/fonts/GMGlobalSansCond_6_Bold.woff') format('woff'),
-  url('../../../media/fonts/GMGlobalSansCond_6_Bold.ttf') format('truetype');
+  src: url('../../media/fonts/GMGlobalSansCond_6_Bold.eot');
+  src:  url('../../media/fonts/GMGlobalSansCond_6_Bold.eot?#iefix') format('embedded-opentype'),
+  url('../../media/fonts/GMGlobalSansCond_6_Bold.woff') format('woff'),
+  url('../../media/fonts/GMGlobalSansCond_6_Bold.ttf') format('truetype');
   font-weight: 600;
   font-style: normal;
 }
@@ -119,9 +119,11 @@ li.courseTitleChapterSelected {
 }
 
 .btn-default {
+  font-family: 'GMGlobalSansCond';
+  font-size: 20px;
   border: 2px solid #003056;
   background-color: #003056;
-  color: #ffffff;
+  color: #ffffff !important;
 }
 
 .btn-default:hover,
@@ -132,7 +134,7 @@ li.courseTitleChapterSelected {
   -webkit-box-shadow: none;
   box-shadow: none;
   outline: 0;
-  color: #000000
+  color: #000000 !important;
 }
 
 .btn {
@@ -140,6 +142,15 @@ li.courseTitleChapterSelected {
   border-radius: 0;
 }
 
+#splashPageModal .modal-dialog .modal-content{
+  background-image: url('../../media/img/assets/bg_completion.jpg');
+  font-family: 'GMGlobalSansCond';
+}
+
+
+#splashPageModal h1, h3{
+  color: #003056;
+}
 
 #assessmentModal .retry-container.buick button {
   background-color: #ef7521;

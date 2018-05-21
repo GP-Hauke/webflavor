@@ -19,6 +19,12 @@ function openModal(modalType, assessmentID, clickTarget) {
       break;
   }
 
+  $('#beginCourse').click(function(){
+    console.log("here");
+    $('#modalContainer').html('');
+    $('.modal-backdrop').remove();
+  });
+
   $('.modal').on('shown.bs.modal', function (e) {
     $('.modal .modal-body').css({height: $('.modal').height()});
   });
@@ -51,7 +57,16 @@ function openVidModal(heading,vidSrc,posterSrc) {
 }
 
 function getSplashPage() {
-  var html = '<div class="modal" id="splashPageModal" tabindex="-1" role="dialog" aria-labelledby="splashPageModalLabel"><div class="modal-dialog" role="document" style="max-width: 1000px"><div class="modal-content"><div class="row"><div class="col-md-12"><img class="img-fluid mx-auto d-block" data-dismiss="modal" src="dir/media/img/assets/00_splash_lg.jpg" alt="splash page image"><img class="img-fluid mx-auto d-none" data-dismiss="modal" src="dir/media/img/assets/00_splash_sm.jpg" alt="splash page image"></div></div></div></div></div><audio autoplay><source src="../../dir/media/audio/0.mp3"/></audio>';
+  var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
+
+
+  var title = courseData.splash.title;
+  var caption = courseData.splash.caption;
+  var intro = courseData.splash.introduction;
+
+
+  var html = '<div class="modal" id="splashPageModal" tabindex="-1" role="dialog" aria-labelledby="splashPageModalLabel"><div class="modal-dialog" role="document" style="max-width: 1000px"><div class="modal-content"><div class="row"><div class="col-md-5 col"><h3>'+title+'</h3><h1>'+caption+'</h1><p>'+intro+'</p> <a id="beginCourse" class="btn btn-default d-block mx-auto" role="button">Begin Course</a></div></div></div></div></div><audio autoplay><source src="../../dir/media/audio/0.mp3"/></audio>';
+
   return html;
 }
 

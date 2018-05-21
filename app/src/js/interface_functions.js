@@ -8,6 +8,7 @@ var navigationLoaded = false;
 var cardContentLoaded = false;
 var stringsLoaded = false;
 var assessmentsLoaded = false;
+var splashLoaded = false;
 
 var totalPages;
 var activePageCount;
@@ -74,6 +75,11 @@ function loadXMLData() {
     GetInterfaceXML("../../dir/content/glossary.xml");
     return;
 
+  }
+  if(courseData.HAS_SPLASH_PAGE === 'true' && splashLoaded === false){
+    GetInterfaceXML("../../dir/content/splash.xml");
+    return;
+
   } else {
     checkXMLLoadingComplete();
   }
@@ -118,7 +124,11 @@ function GetInterfaceXML(args) {
       glossaryLoaded = true;
       addGlossaryToLocalStorage(xml);
       loadXMLData();
-
+    }
+    else if(args.indexOf("splash") != -1) {
+      splashLoaded = true;
+      addSplashToLocalStorage(xml);
+      loadXMLData();
     }
   });
 }
