@@ -90,8 +90,20 @@ module.exports = function(grunt){
           keepalive: true
         }
       }
-    }
+    },
 
+    compress: {
+      main: {
+        options: {
+          archive: 'scorm_package.zip'
+        },
+        files: [{
+           src: ['**/*'],
+           cwd: 'dist/',
+           expand: true
+       }]
+      }
+    }
   });
 
   grunt.loadNpmTasks('grunt-contrib-copy');
@@ -103,11 +115,13 @@ module.exports = function(grunt){
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-usemin');
+  grunt.loadNpmTasks('grunt-contrib-compress');
 
+  grunt.registerTask('test', ['compress']);
   grunt.registerTask('dev', ['watch']);
   grunt.registerTask(
     'build',
     'Compiles all of the assets and copies the files to the build directory.',
-    [ 'clean', 'copy', 'uglify', 'cssmin', 'useminPrepare', 'usemin', 'connect']
+    [ 'clean', 'copy', 'uglify', 'cssmin', 'useminPrepare', 'usemin', 'compress', 'connect']
   );
 }
