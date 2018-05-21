@@ -1,0 +1,15 @@
+#helpModal.modal .modal-header {
+  background-color: #fff;
+}
+
+#helpModal .modal-header .modal-title {
+  color: #003056;
+}
+
+#helpModal .modal-body .help-section h5 {
+  color: #003056;
+}
+
+#helpModal .modal-body .help-item h6 {
+  color: #000018;
+}

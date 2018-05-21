@@ -1,0 +1,17 @@
+nav.navbar {
+  background-color: #003056;
+}
+
+.page-assist > li > a:active,
+.page-assist > li > a:focus,
+.page-assist > li > a:hover {
+  background-color: #003056; }
+
+.navbar-collapse {
+  border: none;
+  background-color: #618eb5;
+}
+
+li.courseTitleChapterSelected {
+  background-color: #003056;
+}
