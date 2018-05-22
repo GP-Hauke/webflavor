@@ -95,7 +95,7 @@ module.exports = function(grunt){
     compress: {
       main: {
         options: {
-          archive: 'scorm_package.zip'
+          archive: 'dist/scorm_package.zip'
         },
         files: [{
            src: ['**/*'],
