@@ -92,6 +92,7 @@ function initAssessments(assessmentsContentXML) {
         };
 
         assessmentObj.questionsAnswers.answers.push(answer);
+        assessmentObj.questionsAnswers.answersFiltered.push(answer);
       });
 
       courseData.assessmentData.assessments.push(assessmentObj);
@@ -179,287 +180,282 @@ function startAssessment(id) {
   var activeAssessment = id;
   var style = courseData.assessmentData.assessments[activeAssessment].style;
   var questionsNum = courseData.assessmentData.QUESTIONS_GIVEN;
-  //var questionsNum = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions.length;
   var questionIndex = courseData.assessmentData.assessments[activeAssessment].currentQuestionIndex;
   var questionCount = questionIndex + 1;
   var time = 0;
   courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions = shuffle(courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions);
 
-  /*if(questionIndex === (questionsNum)) {
-  retryChoice(activeAssessment);
-  return;
-}*/
+  var questionTitle = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions[questionIndex].question.questionTitle;
+  var questionBody = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions[questionIndex].question.questionBody;
 
-var questionTitle = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions[questionIndex].question.questionTitle;
-var questionBody = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions[questionIndex].question.questionBody;
+  var questionFilter = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions[questionIndex].FILTER;
+  var filterNum = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions[questionIndex].FILTERNUM;
 
-var questionFilter = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions[questionIndex].FILTER;
-var filterNum = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions[questionIndex].FILTERNUM;
+  var qIndex;
+  var aIndex;
 
-var qIndex;
-var aIndex;
+  var answersArr = shuffle(courseData.assessmentData.assessments[activeAssessment].questionsAnswers.answers);
+  var answersFiltered = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.answers;
 
-var answersArr = shuffle(courseData.assessmentData.assessments[activeAssessment].questionsAnswers.answers);
-var answersFiltered = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.answers;
+  var score = courseData.assessmentData.assessments[activeAssessment].score;
 
-var score = courseData.assessmentData.assessments[activeAssessment].score;
-
-
-if(questionFilter.length > 0){
-  answersFiltered = filterAnswers(activeAssessment, questionFilter, filterNum);
-}
-
-courseData.assessmentData.assessments[activeAssessment].questionsAnswers.answersFiltered = answersFiltered;
-
-//  var answerTries = 0;
-
-$("#modalContainer .assessment-container").append("<div class='assessment-content "+style+" row'></div>");
-$("#modalContainer .assessment-content").append("<h3 class='assessment-total'>"+score+" Total Points");
-$("#modalContainer .assessment-content").append("<h3>Question "+questionCount+" of "+questionsNum+"<span> 10 seconds</span>");
-$("#modalContainer .assessment-content").append("<p>"+questionBody+"</p>");
-$("#modalContainer .assessment-content").append("<div class='row mx-auto answers clearfix'></div>");
-
-for(var i = 0; i < 2; i++) {
-
-  $("#modalContainer .answers").append("<div class='col-md-6 answer-container initial btn"+i+"'><div class='unselected-box'></div><div class='border-box'><img class='img-fluid' src='"+answersFiltered[i].img+"'/><div class='brand-model-attr clearfix'><p class='brand'>"+answersFiltered[i].brand+"</p><p class='model'>"+answersFiltered[i].model+"</p><p class='attr'>"+answersFiltered[i].attributes+"</p></div><div class='selected-bar'></div></div></div>");
-
-}
-
-$("#modalContainer .assessment-content").append("<button class='btn-submit-answer'>SUBMIT</button>");
-
-for(var i = 0; i < $("#modalContainer .answer-container").length; i++) {
-  $($("#modalContainer .answer-container")[i]).click({questionIndex: questionIndex, answerIndex: i}, selectAnswer);
-}
-
-function selectAnswer(event) {
-  qIndex = event.data.questionIndex;
-  aIndex = event.data.answerIndex;
-
-  $("#modalContainer .answer-container").each(function(){
-    if($(this).hasClass("initial")) {
-      $(this).removeClass("initial");
-      $(this).addClass("unselected");
-    }
-  });
-
-  if($(this).hasClass("selected")) {
-    $(this).removeClass("selected");
-    $(this).addClass("unselected");
-
-  } else {
-    $(this).addClass("selected");
-    $(this).removeClass("unselected");
-    $(this).siblings().removeClass("selected");
-    $(this).siblings().addClass("unselected");
+  if(questionFilter.length > 0){
+    answersFiltered = filterAnswers(activeAssessment, questionFilter, filterNum);
   }
-}
 
-$("#modalContainer .btn-submit-answer").click(submitAnswer);
+  courseData.assessmentData.assessments[activeAssessment].questionsAnswers.answersFiltered = answersFiltered;
 
-function submitAnswer() {
-  var answerSelected = false;
+  //sameAnswerCheck(activeAssessment);
 
-  $("#modalContainer .answer-container").each(function(){
+  //  var answerTries = 0;
+
+  $("#modalContainer .assessment-container").append("<div class='assessment-content "+style+" row'></div>");
+  $("#modalContainer .assessment-content").append("<h3 class='assessment-total'>"+score+" Total Points");
+  $("#modalContainer .assessment-content").append("<h3>Question "+questionCount+" of "+questionsNum+"<span> 10 seconds</span>");
+  $("#modalContainer .assessment-content").append("<p>"+questionBody+"</p>");
+  $("#modalContainer .assessment-content").append("<div class='row mx-auto answers clearfix'></div>");
+
+  for(var i = 0; i < 2; i++) {
+
+    $("#modalContainer .answers").append("<div class='col-md-6 answer-container initial btn"+i+"'><div class='unselected-box'></div><div class='border-box'><img class='img-fluid' src='"+answersFiltered[i].img+"'/><div class='brand-model-attr clearfix'><p class='brand'>"+answersFiltered[i].brand+"</p><p class='model'>"+answersFiltered[i].model+"</p><p class='attr'>"+answersFiltered[i].attributes+"</p></div><div class='selected-bar'></div></div></div>");
+
+  }
+
+  $("#modalContainer .assessment-content").append("<button class='btn-submit-answer'>SUBMIT</button>");
+
+  for(var i = 0; i < $("#modalContainer .answer-container").length; i++) {
+    $($("#modalContainer .answer-container")[i]).click({questionIndex: questionIndex, answerIndex: i}, selectAnswer);
+  }
+
+  function selectAnswer(event) {
+    qIndex = event.data.questionIndex;
+    aIndex = event.data.answerIndex;
+
+    $("#modalContainer .answer-container").each(function(){
+      if($(this).hasClass("initial")) {
+        $(this).removeClass("initial");
+        $(this).addClass("unselected");
+      }
+    });
+
     if($(this).hasClass("selected")) {
-      answerSelected = true;
-    }
-  });
-
-  if(answerSelected === false) {
-    $("#modalContainer .btn-submit-answer").addClass("d-none");
-
-    $("#modalContainer .assessment-content").append("<div class='feedback-container'><p>Please select an answer.</p><div class=''><button class='btn-ok'>OK</button></div></div>");
-
-    $("#modalContainer .btn-ok").click(returnToQuestion);
-
-    function returnToQuestion() {
-      $("#modalContainer .btn-submit-answer").removeClass("d-none");
-      $("#modalContainer .feedback-container").remove();
-    }
-
-  }
-
-  else {
-    clearInterval(timingInterval);
-
-    $("#modalContainer .answer-container").off();
-    $("#modalContainer .btn-submit-answer").addClass("d-none");
-
-    var criterion = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions[qIndex].CRITERION;
-    courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions[qIndex].ANSWERED = "true";
-
-    var correctlyAnswered = false;
-    var bothCorrect = false;
-    var selectedAnswersData = [];
-    var unselectedAnswerData;
-    var selectedAnswers = [];
-    var unselectedAnswer;
-
-    for(var i = 0; i < $("#modalContainer .answer-container").length; i++) {
-
-      if($($("#modalContainer .answer-container")[i]).hasClass("selected")) {
-        selectedAnswersData.push(courseData.assessmentData.assessments[activeAssessment].questionsAnswers.answersFiltered[i]);
-        selectedAnswers.push($("#modalContainer .answer-container")[i]);
-
-      } else if ($($("#modalContainer .answer-container")[i]).hasClass("unselected")) {
-        unselectedAnswerData = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.answersFiltered[i];
-        unselectedAnswer = $("#modalContainer .answer-container")[i];
-      }
-    }
-
-    if(criterion === "cargoVol") {
-      if(selectedAnswersData.length > 1) {
-        if(selectedAnswersData[0].cargoVol === selectedAnswersData[1].cargoVol) {
-          correctlyAnswered = true;
-          bothCorrect = true;
-        }
-
-      } else {
-        if(parseInt(selectedAnswersData[0].cargoVol) > unselectedAnswerData.cargoVol) {
-          correctlyAnswered = true;
-        }
-      }
-
-    }
-    else if(criterion === "mpg") {
-      if(selectedAnswersData.length > 1) {
-        if(selectedAnswersData[0].mpg === selectedAnswersData[1].mpg) {
-          correctlyAnswered = true;
-          bothCorrect = true;
-        }
-
-      } else {
-        if(parseInt(selectedAnswersData[0].mpg) > unselectedAnswerData.mpg) {
-          correctlyAnswered = true;
-        }
-      }
-
-    }
-
-    else if(criterion === "rearLegRoom") {
-      if(selectedAnswersData.length > 1) {
-        if(selectedAnswersData[0].rearLegRoom === selectedAnswersData[1].rearLegRoom) {
-          correctlyAnswered = true;
-          bothCorrect = true;
-        }
-
-      } else {
-        if(parseInt(selectedAnswersData[0].rearLegRoom) > unselectedAnswerData.rearLegRoom) {
-          correctlyAnswered = true;
-        }
-      }
-
-    }
-
-    else if(criterion === "horsePower") {
-
-      if(selectedAnswersData.length > 1) {
-        if(selectedAnswersData[0].horsePower === selectedAnswersData[1].horsePower) {
-          correctlyAnswered = true;
-          bothCorrect = true;
-        }
-
-      } else {
-        if(parseInt(selectedAnswersData[0].horsePower) > unselectedAnswerData.horsePower) {
-          correctlyAnswered = true;
-        }
-      }
-
-    }
-
-    else if(criterion === "basePrice") {
-      if(selectedAnswersData.length > 1) {
-        if(selectedAnswersData[0].basePrice === selectedAnswersData[1].basePrice) {
-          correctlyAnswered = true;
-          bothCorrect = true;
-        }
-
-      } else {
-        if(parseInt(selectedAnswersData[0].basePrice) < parseInt(unselectedAnswerData.basePrice)) {
-          correctlyAnswered = true;
-        }
-
-      }
-    }
-
-    if(correctlyAnswered) {
-      var feedback = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.feedback.correct;
-      //var car1 =
-      //var characteristic1 =
-      //var value1
-
-      courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions[qIndex].PASSED = "true";
-      localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(courseData));
-
-      var tempScore = Math.round(10 + ((10 - time) * 10));
-      courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions[qIndex].SCORE = tempScore;
-      courseData.assessmentData.assessments[activeAssessment].score += tempScore
-
-      for(var i = 0; i < selectedAnswers.length; i++) {
-        $(selectedAnswers[i]).append("<div class='viewed-overlay'><img src='../../dir/media/img/icon_viewed.png'></div>");
-      }
-
-      $("#modalContainer .assessment-content").append("<div class='feedback-container'><p class='feedback-details'>The <span>"+unselectedAnswerData.model+"</span> has "+criterion+" of <span>"+unselectedAnswerData[criterion]+"</span></p><p class='feedback-details'>The <span>"+selectedAnswersData[0].model+"</span> has "+criterion+" of <span>"+selectedAnswersData[0][criterion]+"</span></p><p>"+feedback+" +"+tempScore+" points</p><button class='btn-ok'>GO</button></div>");
-
-      $("#modalContainer .btn-ok").click(function() {
-        courseData.assessmentData.assessments[activeAssessment].currentQuestionIndex += 1;
-        localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(courseData));
-        $("#modalContainer .assessment-content").remove();
-
-        if(questionIndex === (questionsNum - 1)) {
-          courseData.assessmentData.assessments[activeAssessment].completed = "true";
-          localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(courseData));
-          endAssessment(activeAssessment);
-
-        } else {
-          startAssessment(activeAssessment);
-        }
-      });
+      $(this).removeClass("selected");
+      $(this).addClass("unselected");
 
     } else {
-      //        answerTries++;
+      $(this).addClass("selected");
+      $(this).removeClass("unselected");
+      $(this).siblings().removeClass("selected");
+      $(this).siblings().addClass("unselected");
+    }
+  }
 
-      $(unselectedAnswer).append("<div class='viewed-overlay'><img src='../../dir/media/img/icon_viewed.png'></div>");
+  $("#modalContainer .btn-submit-answer").click(submitAnswer);
 
-      var feedback = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.feedback.incorrect;
+  function submitAnswer() {
+    var answerSelected = false;
 
-      qIndex = undefined;
-      aIndex = undefined;
+    $("#modalContainer .answer-container").each(function(){
+      if($(this).hasClass("selected")) {
+        answerSelected = true;
+      }
+    });
 
-      /* TODO: make this modular so answerTries is a setting and triggers the "try again" prompt only if answerTris > 1 */
-      /*if(answerTries === 2) {*/
-      $("#modalContainer .assessment-content").append("<div class='feedback-container'><p class='feedback-details'>The <span>"+unselectedAnswerData.model+"</span> has "+criterion+" of <span>"+unselectedAnswerData[criterion]+"</span></p><p class='feedback-details'>The <span>"+selectedAnswersData[0].model+"</span> has "+criterion+" of <span>"+selectedAnswersData[0][criterion]+"</span></p><p>"+feedback+" +0 points</p><button class='btn-ok'>GO</button></div>");
+    if(answerSelected === false) {
+      $("#modalContainer .btn-submit-answer").addClass("d-none");
 
-      $("#modalContainer .btn-ok").click(function() {
-        courseData.assessmentData.assessments[activeAssessment].currentQuestionIndex += 1;
-        localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(courseData));
-        $("#modalContainer .assessment-content").remove();
+      $("#modalContainer .assessment-content").append("<div class='feedback-container'><p>Please select an answer.</p><div class=''><button class='btn-ok'>OK</button></div></div>");
 
-        if(questionIndex === (questionsNum - 1)) {
-          courseData.assessmentData.assessments[activeAssessment].completed = "true";
-          localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(courseData));
-          endAssessment(activeAssessment);
+      $("#modalContainer .btn-ok").click(returnToQuestion);
 
-        } else {
-          startAssessment(activeAssessment);
-        }
-      });
+      function returnToQuestion() {
+        $("#modalContainer .btn-submit-answer").removeClass("d-none");
+        $("#modalContainer .feedback-container").remove();
+      }
 
-      /*} else {
-
-      $("#modalContainer .assessment-content").append("<div class='feedback incorrect'><p>That is not correct. Click here to try again.</p></div>");
-
-      $("#modalContainer .feedback.incorrect").click(function() {
-      $("#modalContainer .assessment-content .feedback.incorrect").remove();
-      $("#modalContainer .assessment-content .btn-try-again").remove();
-
-      for(var i = 0; i < $("#modalContainer .answer-container").length; i++) {
-      $($("#modalContainer .answer-container")[i]).click({questionIndex: questionIndex, answerIndex: i}, selectAnswer).removeClass("selected").addClass("initial");
     }
 
-    $("#modalContainer .btn-submit-answer").removeClass("hide");
-  });
-}*/
+    else {
+      clearInterval(timingInterval);
+
+      $("#modalContainer .answer-container").off();
+      $("#modalContainer .btn-submit-answer").addClass("d-none");
+
+      var criterion = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions[qIndex].CRITERION;
+      courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions[qIndex].ANSWERED = "true";
+
+      var correctlyAnswered = false;
+      var bothCorrect = false;
+      var selectedAnswersData = [];
+      var unselectedAnswerData;
+      var selectedAnswers = [];
+      var unselectedAnswer;
+
+      for(var i = 0; i < $("#modalContainer .answer-container").length; i++) {
+
+        if($($("#modalContainer .answer-container")[i]).hasClass("selected")) {
+          selectedAnswersData.push(courseData.assessmentData.assessments[activeAssessment].questionsAnswers.answersFiltered[i]);
+          selectedAnswers.push($("#modalContainer .answer-container")[i]);
+
+        } else if ($($("#modalContainer .answer-container")[i]).hasClass("unselected")) {
+          unselectedAnswerData = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.answersFiltered[i];
+          unselectedAnswer = $("#modalContainer .answer-container")[i];
+        }
+      }
+
+      if(criterion === "cargoVol") {
+        if(selectedAnswersData.length > 1) {
+          if(selectedAnswersData[0].cargoVol === selectedAnswersData[1].cargoVol) {
+            correctlyAnswered = true;
+            bothCorrect = true;
+          }
+
+        } else {
+          if(parseInt(selectedAnswersData[0].cargoVol) > unselectedAnswerData.cargoVol) {
+            correctlyAnswered = true;
+          }
+        }
+
+      }
+      else if(criterion === "mpg") {
+        if(selectedAnswersData.length > 1) {
+          if(selectedAnswersData[0].mpg === selectedAnswersData[1].mpg) {
+            correctlyAnswered = true;
+            bothCorrect = true;
+          }
+
+        } else {
+          if(parseInt(selectedAnswersData[0].mpg) > unselectedAnswerData.mpg) {
+            correctlyAnswered = true;
+          }
+        }
+
+      }
+
+      else if(criterion === "rearLegRoom") {
+        if(selectedAnswersData.length > 1) {
+          if(selectedAnswersData[0].rearLegRoom === selectedAnswersData[1].rearLegRoom) {
+            correctlyAnswered = true;
+            bothCorrect = true;
+          }
+
+        } else {
+          if(parseInt(selectedAnswersData[0].rearLegRoom) > unselectedAnswerData.rearLegRoom) {
+            correctlyAnswered = true;
+          }
+        }
+
+      }
+
+      else if(criterion === "horsePower") {
+
+        if(selectedAnswersData.length > 1) {
+          if(selectedAnswersData[0].horsePower === selectedAnswersData[1].horsePower) {
+            correctlyAnswered = true;
+            bothCorrect = true;
+          }
+
+        } else {
+          if(parseInt(selectedAnswersData[0].horsePower) > unselectedAnswerData.horsePower) {
+            correctlyAnswered = true;
+          }
+        }
+
+      }
+
+      else if(criterion === "basePrice") {
+        if(selectedAnswersData.length > 1) {
+          if(selectedAnswersData[0].basePrice === selectedAnswersData[1].basePrice) {
+            correctlyAnswered = true;
+            bothCorrect = true;
+          }
+
+        } else {
+          if(parseInt(selectedAnswersData[0].basePrice) < parseInt(unselectedAnswerData.basePrice)) {
+            correctlyAnswered = true;
+          }
+
+        }
+      }
+
+      if(correctlyAnswered) {
+        var feedback = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.feedback.correct;
+        //var car1 =
+        //var characteristic1 =
+        //var value1
+
+        courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions[qIndex].PASSED = "true";
+        localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(courseData));
+
+        var tempScore = Math.round(10 + ((10 - time) * 10));
+        courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions[qIndex].SCORE = tempScore;
+        courseData.assessmentData.assessments[activeAssessment].score += tempScore
+
+        for(var i = 0; i < selectedAnswers.length; i++) {
+          $(selectedAnswers[i]).append("<div class='viewed-overlay'><img src='../../dir/media/img/icon_viewed.png'></div>");
+        }
+
+        $("#modalContainer .assessment-content").append("<div class='feedback-container'><p class='feedback-details'>The <span>"+unselectedAnswerData.model+"</span> has "+criterion+" of <span>"+unselectedAnswerData[criterion]+"</span></p><p class='feedback-details'>The <span>"+selectedAnswersData[0].model+"</span> has "+criterion+" of <span>"+selectedAnswersData[0][criterion]+"</span></p><p>"+feedback+" +"+tempScore+" points</p><button class='btn-ok'>GO</button></div>");
+
+        $("#modalContainer .btn-ok").click(function() {
+          courseData.assessmentData.assessments[activeAssessment].currentQuestionIndex += 1;
+          localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(courseData));
+          $("#modalContainer .assessment-content").remove();
+
+          if(questionIndex === (questionsNum - 1)) {
+            courseData.assessmentData.assessments[activeAssessment].completed = "true";
+            localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(courseData));
+            endAssessment(activeAssessment);
+
+          } else {
+            startAssessment(activeAssessment);
+          }
+        });
+
+      } else {
+        //        answerTries++;
+
+        $(unselectedAnswer).append("<div class='viewed-overlay'><img src='../../dir/media/img/icon_viewed.png'></div>");
+
+        var feedback = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.feedback.incorrect;
+
+        qIndex = undefined;
+        aIndex = undefined;
+
+        /* TODO: make this modular so answerTries is a setting and triggers the "try again" prompt only if answerTris > 1 */
+        /*if(answerTries === 2) {*/
+        $("#modalContainer .assessment-content").append("<div class='feedback-container'><p class='feedback-details'>The <span>"+unselectedAnswerData.model+"</span> has "+criterion+" of <span>"+unselectedAnswerData[criterion]+"</span></p><p class='feedback-details'>The <span>"+selectedAnswersData[0].model+"</span> has "+criterion+" of <span>"+selectedAnswersData[0][criterion]+"</span></p><p>"+feedback+" +0 points</p><button class='btn-ok'>GO</button></div>");
+
+        $("#modalContainer .btn-ok").click(function() {
+          courseData.assessmentData.assessments[activeAssessment].currentQuestionIndex += 1;
+          localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(courseData));
+          $("#modalContainer .assessment-content").remove();
+
+          if(questionIndex === (questionsNum - 1)) {
+            courseData.assessmentData.assessments[activeAssessment].completed = "true";
+            localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(courseData));
+            endAssessment(activeAssessment);
+
+          } else {
+            startAssessment(activeAssessment);
+          }
+        });
+
+        /*} else {
+
+        $("#modalContainer .assessment-content").append("<div class='feedback incorrect'><p>That is not correct. Click here to try again.</p></div>");
+
+        $("#modalContainer .feedback.incorrect").click(function() {
+        $("#modalContainer .assessment-content .feedback.incorrect").remove();
+        $("#modalContainer .assessment-content .btn-try-again").remove();
+
+        for(var i = 0; i < $("#modalContainer .answer-container").length; i++) {
+        $($("#modalContainer .answer-container")[i]).click({questionIndex: questionIndex, answerIndex: i}, selectAnswer).removeClass("selected").addClass("initial");
+      }
+
+      $("#modalContainer .btn-submit-answer").removeClass("hide");
+    });
+  }*/
 }
 
 }
@@ -467,12 +463,12 @@ function submitAnswer() {
 }
 
 var timingInterval = setInterval(function(){
-    time += .1;
-    var timeLeft = (10 - time).toFixed(1);
+  time += .1;
+  var timeLeft = (10 - time).toFixed(1);
 
-    if(timeLeft >= 0){
-      var timeLeft = Math.abs(timeLeft);
-      $("#modalContainer .assessment-content h3 span").html("<span> " +timeLeft+ " seconds</span>");
+  if(timeLeft >= 0){
+    var timeLeft = Math.abs(timeLeft);
+    $("#modalContainer .assessment-content h3 span").html("<span> " +timeLeft+ " seconds</span>");
 
   }
 }, 100)
@@ -614,4 +610,26 @@ function filterAnswers(activeAssessment, filter, num){
   }
 
   return answersFiltered;
+}
+
+function sameAnswerCheck(activeAssessment){
+  var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
+  var questionIndex = courseData.assessmentData.assessments[activeAssessment].currentQuestionIndex;
+  var criterion = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions[questionIndex].CRITERION;
+  var answersFiltered = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.answersFiltered;
+
+  var answer1 = answersFiltered[0][criterion];
+  var answer2 = answersFiltered[1][criterion];
+
+  console.log(answer1 + ": " + answersFiltered[0].model);
+  console.log(answer2 + ": " + answersFiltered[1].model);
+
+  if(answer1 == answer2){
+    shuffle(answersFiltered);
+    console.log("^^^^SHUFFLED");
+    //sameAnswerCheck(activeAssessment);
+  }
+  else{
+    return;
+  }
 }
