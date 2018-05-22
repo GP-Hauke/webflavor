@@ -31,7 +31,11 @@
 function updatePagination() {
   var currChap = window.parent.currentChapter + 1;
   //var totalChaps = parseInt(window.parent.totalPages);
-  var totalChaps = 1;
+  var courseData = JSON.parse(localStorage.getItem(window.parent.LOCAL_COURSE_DATA_ID));
+  var totalChaps = courseData.chapters.length;
+
+
+  //var totalChaps = 1;
   $(".page-number").empty();
   $(".page-number").append("<span>"+currChap+"</span> of <span>"+totalChaps+"</span>");
 }
