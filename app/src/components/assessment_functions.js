@@ -34,7 +34,8 @@ function initAssessments(assessmentsContentXML) {
           answersFiltered: [],
           feedback: {}
         },
-        currentQuestionIndex: 0
+        currentQuestionIndex: 0,
+        score: 0
       };
 
 
@@ -109,6 +110,9 @@ function launchAssessment(id, clickTarget) {
   var questionsNum = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions.length;
   var questionIndex = courseData.assessmentData.assessments[activeAssessment].currentQuestionIndex;
   var completed = courseData.assessmentData.assessments[activeAssessment].completed;
+
+  courseData.assessmentData.assessments[activeAssessment].score = 0;
+
 
   //  if(questionIndex === questionsNum) {
   /*if(completed === "true") {
@@ -198,17 +202,20 @@ var aIndex;
 var answersArr = shuffle(courseData.assessmentData.assessments[activeAssessment].questionsAnswers.answers);
 var answersFiltered = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.answers;
 
+var score = courseData.assessmentData.assessments[activeAssessment].score;
+
+
 if(questionFilter.length > 0){
   answersFiltered = filterAnswers(activeAssessment, questionFilter, filterNum);
 }
-
 
 courseData.assessmentData.assessments[activeAssessment].questionsAnswers.answersFiltered = answersFiltered;
 
 //  var answerTries = 0;
 
 $("#modalContainer .assessment-container").append("<div class='assessment-content "+style+" row'></div>");
-$("#modalContainer .assessment-content").append("<h3>Question "+questionCount+"<span> 10 seconds</span>");
+$("#modalContainer .assessment-content").append("<h3 class='assessment-total'>"+score+" Total Points");
+$("#modalContainer .assessment-content").append("<h3>Question "+questionCount+" of "+questionsNum+"<span> 10 seconds</span>");
 $("#modalContainer .assessment-content").append("<p>"+questionBody+"</p>");
 $("#modalContainer .assessment-content").append("<div class='row mx-auto answers clearfix'></div>");
 
@@ -291,11 +298,11 @@ function submitAnswer() {
     for(var i = 0; i < $("#modalContainer .answer-container").length; i++) {
 
       if($($("#modalContainer .answer-container")[i]).hasClass("selected")) {
-        selectedAnswersData.push(courseData.assessmentData.assessments[activeAssessment].questionsAnswers.answers[i]);
+        selectedAnswersData.push(courseData.assessmentData.assessments[activeAssessment].questionsAnswers.answersFiltered[i]);
         selectedAnswers.push($("#modalContainer .answer-container")[i]);
 
       } else if ($($("#modalContainer .answer-container")[i]).hasClass("unselected")) {
-        unselectedAnswerData = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.answers[i];
+        unselectedAnswerData = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.answersFiltered[i];
         unselectedAnswer = $("#modalContainer .answer-container")[i];
       }
     }
@@ -322,7 +329,7 @@ function submitAnswer() {
         }
 
       } else {
-        if(parseInt(selectedAnswersData[0].mpg) < unselectedAnswerData.mpg) {
+        if(parseInt(selectedAnswersData[0].mpg) > unselectedAnswerData.mpg) {
           correctlyAnswered = true;
         }
       }
@@ -368,27 +375,31 @@ function submitAnswer() {
         }
 
       } else {
-        if(parseInt(selectedAnswersData[0].basePrice) < unselectedAnswerData.basePrice) {
+        if(parseInt(selectedAnswersData[0].basePrice) < parseInt(unselectedAnswerData.basePrice)) {
           correctlyAnswered = true;
-
         }
+
       }
     }
 
     if(correctlyAnswered) {
       var feedback = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.feedback.correct;
+      //var car1 =
+      //var characteristic1 =
+      //var value1
 
       courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions[qIndex].PASSED = "true";
       localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(courseData));
 
-      courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions[qIndex].SCORE = (10 - time) * 10;
-
+      var tempScore = Math.round(10 + ((10 - time) * 10));
+      courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions[qIndex].SCORE = tempScore;
+      courseData.assessmentData.assessments[activeAssessment].score += tempScore
 
       for(var i = 0; i < selectedAnswers.length; i++) {
         $(selectedAnswers[i]).append("<div class='viewed-overlay'><img src='../../dir/media/img/icon_viewed.png'></div>");
       }
 
-      $("#modalContainer .assessment-content").append("<div class='feedback-container'><p>"+feedback+"</p><button class='btn-ok'>OK</button></div>");
+      $("#modalContainer .assessment-content").append("<div class='feedback-container'><p class='feedback-details'>The <span>"+unselectedAnswerData.model+"</span> has "+criterion+" of <span>"+unselectedAnswerData[criterion]+"</span></p><p class='feedback-details'>The <span>"+selectedAnswersData[0].model+"</span> has "+criterion+" of <span>"+selectedAnswersData[0][criterion]+"</span></p><p>"+feedback+" +"+tempScore+" points</p><button class='btn-ok'>GO</button></div>");
 
       $("#modalContainer .btn-ok").click(function() {
         courseData.assessmentData.assessments[activeAssessment].currentQuestionIndex += 1;
@@ -417,7 +428,7 @@ function submitAnswer() {
 
       /* TODO: make this modular so answerTries is a setting and triggers the "try again" prompt only if answerTris > 1 */
       /*if(answerTries === 2) {*/
-      $("#modalContainer .assessment-content").append("<div class='feedback-container'><p>"+feedback+"</p><button class='btn-ok'>OK</button></div>");
+      $("#modalContainer .assessment-content").append("<div class='feedback-container'><p class='feedback-details'>The <span>"+unselectedAnswerData.model+"</span> has "+criterion+" of <span>"+unselectedAnswerData[criterion]+"</span></p><p class='feedback-details'>The <span>"+selectedAnswersData[0].model+"</span> has "+criterion+" of <span>"+selectedAnswersData[0][criterion]+"</span></p><p>"+feedback+" +0 points</p><button class='btn-ok'>GO</button></div>");
 
       $("#modalContainer .btn-ok").click(function() {
         courseData.assessmentData.assessments[activeAssessment].currentQuestionIndex += 1;
@@ -457,7 +468,7 @@ function submitAnswer() {
 
 var timingInterval = setInterval(function(){
     time += .1;
-    var timeLeft = (10 - time).toFixed(0);
+    var timeLeft = (10 - time).toFixed(1);
 
     if(timeLeft >= 0){
       var timeLeft = Math.abs(timeLeft);
@@ -477,17 +488,16 @@ function endAssessment(activeAssessment) {
   var style = courseData.assessmentData.assessments[activeAssessment].style;
   var correctAnswerCount = 0;
   var correctPercentage = 0;
-  var totalScore = 0;
+  var totalScore = courseData.assessmentData.assessments[activeAssessment].score
   var gameFeedback = "";
   for(var i = 0; i < courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions.length; i ++) {
     if(courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions[i].PASSED === "true") {
       correctAnswerCount += 1;
-      totalScore += courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions[i].SCORE;
     }
     courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions[i].PASSED = "false";
   }
 
-  totalScore = totalScore.toFixed(0)
+  //totalScore = totalScore.toFixed(0);
   correctPercentage = 10 * correctAnswerCount / courseData.assessmentData.QUESTIONS_GIVEN;
   correctPercentage = parseInt(correctPercentage.toFixed(0));
 
@@ -531,6 +541,13 @@ function endAssessment(activeAssessment) {
   $("#modalContainer .btn-play-again").click(function() {
     $("#modalContainer .finish-screen").remove();
     courseData.assessmentData.assessments[activeAssessment].currentQuestionIndex = 0;
+    courseData.assessmentData.assessments[activeAssessment].score = 0;
+
+    for(var i = 0; i < courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions.length; i++){
+      courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions[i].ANSWERED = false;
+      courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions[i].SCORE = 0;
+    }
+
     //    courseData.assessmentData.assessments[activeAssessment].completed = "false";
     localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(courseData));
     launchAssessment(0, undefined);
@@ -556,6 +573,12 @@ function retryChoice(id) {
   $("#modalContainer .btn-try-again").click(function() {
     $("#modalContainer .retry-container").remove();
     courseData.assessmentData.assessments[activeAssessment].currentQuestionIndex = 0;
+    courseData.assessmentData.assessments[activeAssessment].score = 0;
+    for(var i = 0; i < courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions.length; i++){
+      courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions[i].ANSWERED = false;
+      courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions[i].SCORE = 0;
+    }
+
     courseData.assessmentData.assessments[activeAssessment].completed = "false";
     localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(courseData));
     //    launchAssessment(0, undefined);

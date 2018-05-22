@@ -20,7 +20,6 @@ function openModal(modalType, assessmentID, clickTarget) {
   }
 
   $('#beginCourse').click(function(){
-    console.log("here");
     $('#modalContainer').html('');
     $('.modal-backdrop').remove();
   });

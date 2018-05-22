@@ -29,8 +29,8 @@
         <question type="multi_choice" required="false" answered="false" passed="false">
           <type>
             <criterion>rearLegRoom</criterion>
-            <filter>mpg</filter>
-            <filterNum>25</filterNum>
+            <filter></filter>
+            <filterNum></filterNum>
           </type>
           <questionTitle><![CDATA[]]></questionTitle>
           <questionBody><![CDATA[The customer wants the vehicle with the most interior cabin space. Which vehicle would you recommend?]]></questionBody>
@@ -40,8 +40,8 @@
         <question type="multi_choice" required="false" answered="false" passed="false">
           <type>
             <criterion>cargoVol</criterion>
-            <filter>cargoVol</filter>
-            <filterNum>20</filterNum>
+            <filter></filter>
+            <filterNum></filterNum>
           </type>
           <questionTitle><![CDATA[]]></questionTitle>
           <questionBody><![CDATA[The customer wants the vehicle with the biggest trunk. Which vehicle would you recommend?]]></questionBody>
@@ -51,8 +51,8 @@
         <question type="multi_choice" required="false" answered="false" passed="false">
           <type>
             <criterion>basePrice</criterion>
-            <filter>horsePower</filter>
-            <filterNum>250</filterNum>
+            <filter></filter>
+            <filterNum></filterNum>
           </type>
           <questionTitle><![CDATA[]]></questionTitle>
           <questionBody><![CDATA[The customer wants the vehicle with the lowest base price. Which vehicle would you recommend? (Note: Assume lowest trim level and no dealer/factory incentives.)]]></questionBody>
@@ -62,8 +62,8 @@
         <question type="multi_choice" required="false" answered="false" passed="false">
           <type>
             <criterion>horsePower</criterion>
-            <filter>horsePower</filter>
-            <filterNum>250</filterNum>
+            <filter></filter>
+            <filterNum></filterNum>
           </type>
           <questionTitle><![CDATA[]]></questionTitle>
           <questionBody><![CDATA[The customer wants the vehicle with the most horsepower. Which vehicle would you recommend?]]></questionBody>
@@ -73,8 +73,8 @@
         <question type="multi_choice" required="false" answered="false" passed="false">
           <type>
             <criterion>mpg</criterion>
-            <filter>horsePower</filter>
-            <filterNum>250</filterNum>
+            <filter></filter>
+            <filterNum></filterNum>
           </type>
           <questionTitle><![CDATA[]]></questionTitle>
           <questionBody><![CDATA[The customer wants a vehicle with good horsepower but is more concerned with fuel efficiency. Which vehicle would you recommend?]]></questionBody>
@@ -328,7 +328,7 @@
 
         <question  type="multi_choice" required="false" answered="false" passed="false" criterion="cargoVol">
           <type>
-            <criterion>cargo</criterion>
+            <criterion>cargoVol</criterion>
             <filter></filter>
             <filterNum></filterNum>
           </type>

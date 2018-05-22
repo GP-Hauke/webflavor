@@ -88,7 +88,7 @@ function loadXMLData() {
 function GetInterfaceXML(args) {
   $.get(args)
 
-    .done(function(xml) {
+  .done(function(xml) {
 
     if(args.indexOf("settings") != -1) {
       settingsLoaded = true;
@@ -321,51 +321,51 @@ function buildTopNav() {
 
       /*var currentTitle = chapters[i].title;
 
-          if(chapters[i].titleIndex != -1) {
-            currentTitle = chapters[i].title.split(";")[chapters[i].titleIndex];
-          }
-
-          if(i == currentChapter) {
-            if(chapters.length > 1) {
-              navMarkup = navMarkup+'<div id="chapter'+i+'" class="chapterSelected chapterIncomplete chapterTitle" style="margin-top:0em" onclick="openPage('+i+',0)">'+currentTitle+'</div>';
-
-            } else {
-              navMarkup = navMarkup+'<div id="chapter'+i+'" class="chapterSelected chapterIncomplete chapterTitle" style="margin-top:0em" onclick="openPage('+i+',0)">'+currentTitle+'</div>';
-            }
-            navMarkup = navMarkup+'<div id="pages'+i+'">';
-
-          } else {
-            navMarkup = navMarkup+'<div id="chapter'+i+'" class="chapterNotSelected chapterIncomplete chapterTitle" onclick="openPage('+i+',0)">'+currentTitle+'</div>';
-
-            navMarkup = navMarkup+'<div id="pages'+i+'">';
-          }
-
-          for(var j = 0; j < chapters[i].pages.length; j++) {
-
-            if(i == currentChapter && j == currentPage) {
-              navMarkup = navMarkup+'<a href="javascript:openPage('+i+','+j+');void(0)"><div id="mi'+i+'_'+j+'" class="menuItem menuItemSelected">'+chapters[i].pages[j].title+'</div></a>';
-
-            } else {
-              navMarkup = navMarkup+'<a href="javascript:openPage('+i+','+j+');void(0)"><div id="mi'+i+'_'+j+'" class="menuItem '+notSelectedClass+'">'+chapters[i].pages[j].title+'</div></a>';
-            }
-          }
-          navMarkup = navMarkup+'</div>';*/
+      if(chapters[i].titleIndex != -1) {
+      currentTitle = chapters[i].title.split(";")[chapters[i].titleIndex];
     }
 
-    bottomNav = bottomNav + '</ul></div></div>';
+    if(i == currentChapter) {
+    if(chapters.length > 1) {
+    navMarkup = navMarkup+'<div id="chapter'+i+'" class="chapterSelected chapterIncomplete chapterTitle" style="margin-top:0em" onclick="openPage('+i+',0)">'+currentTitle+'</div>';
 
-    $("#navbarMain").on('hidden.bs.collapse', function () {
-      calculateHeight();
-    });
+  } else {
+  navMarkup = navMarkup+'<div id="chapter'+i+'" class="chapterSelected chapterIncomplete chapterTitle" style="margin-top:0em" onclick="openPage('+i+',0)">'+currentTitle+'</div>';
+}
+navMarkup = navMarkup+'<div id="pages'+i+'">';
 
-    $("#navbarBottom").append(bottomNav);
-    // END BOTTOM NAV
+} else {
+navMarkup = navMarkup+'<div id="chapter'+i+'" class="chapterNotSelected chapterIncomplete chapterTitle" onclick="openPage('+i+',0)">'+currentTitle+'</div>';
 
-    loadInterfaceStyles();
+navMarkup = navMarkup+'<div id="pages'+i+'">';
+}
 
-  });
+for(var j = 0; j < chapters[i].pages.length; j++) {
 
-  var notSelectedClass = "menuItemNotSelected";
+if(i == currentChapter && j == currentPage) {
+navMarkup = navMarkup+'<a href="javascript:openPage('+i+','+j+');void(0)"><div id="mi'+i+'_'+j+'" class="menuItem menuItemSelected">'+chapters[i].pages[j].title+'</div></a>';
+
+} else {
+navMarkup = navMarkup+'<a href="javascript:openPage('+i+','+j+');void(0)"><div id="mi'+i+'_'+j+'" class="menuItem '+notSelectedClass+'">'+chapters[i].pages[j].title+'</div></a>';
+}
+}
+navMarkup = navMarkup+'</div>';*/
+}
+
+bottomNav = bottomNav + '</ul></div></div>';
+
+$("#navbarMain").on('hidden.bs.collapse', function () {
+  calculateHeight();
+});
+
+$("#navbarBottom").append(bottomNav);
+// END BOTTOM NAV
+
+loadInterfaceStyles();
+
+});
+
+var notSelectedClass = "menuItemNotSelected";
 
 }
 
@@ -572,7 +572,7 @@ function getFooterNav() {
   var footerNavHTML = '<span><img src="../../dir/media/img/btn_play_pause_inactive.png" alt="play/pause button"></span>';
 
   /* current page is not the last page in the current chapter so display next button
-    OR current chapter is not the last chapter so display next button */
+  OR current chapter is not the last chapter so display next button */
   if(currentPage != courseData.chapters[currentChapter].pages.length-1 || currentChapter != courseData.chapters.length-1) {
 
     if(hasLocks) {
@@ -591,7 +591,7 @@ function getFooterNav() {
   }
 
   /* current page is not the first page in the current chapter so display back button
-    OR current chapter is not the first chapter so display back button */
+  OR current chapter is not the first chapter so display back button */
   if(currentPage != 0 || currentChapter != 0) {
     backBtnImgPath = '/img/btn_back.png';
 

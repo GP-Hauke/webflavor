@@ -1,3 +1,4 @@
+/*---- FONT IMPORTS ----*/
 @font-face {
   font-family: "GMGlobalSansCond";
   src: url('../../media/fonts/GMGlobalSansCond_1_ExtraLight.eot');
@@ -28,11 +29,11 @@
   font-style: normal;
 }
 
+/*---- BASIC STYLES ----*/
 body {
   font-family: "GMGlobalSansCond" !important;
   text-rendering: optimizeLegibility;
 }
-
 
 h3 {
   color: #3179D0;
@@ -67,6 +68,7 @@ footer.footer {
   z-index: 20;
 }
 
+/*---- NAVIGATION STYLES ----*/
 nav.navbar {
   background-color: #003056;
 }
@@ -86,6 +88,7 @@ li.courseTitleChapterSelected {
   background-color: #003056;
 }
 
+/*---- HELP MODAL STYLES ----*/
 #helpModal.modal .modal-header {
   background-color: #fff;
 }
@@ -102,6 +105,7 @@ li.courseTitleChapterSelected {
   color: #000018;
 }
 
+/*---- GLOSSARY MODAL STYLES ----*/
 #glossaryModal .modal-header {
   background-color: #618eb5;
 }
@@ -113,6 +117,7 @@ li.courseTitleChapterSelected {
 #glossaryModal .alphabet a {
 }
 
+/*---- BUTTON STYLES ----*/
 .btn {
   padding: 10px 16px;
   border-radius: 0;
@@ -142,6 +147,7 @@ li.courseTitleChapterSelected {
   border-radius: 0;
 }
 
+/*---- SPLASH PAGE STYLES ----*/
 #splashPageModal .modal-dialog .modal-content{
   background-image: url('../../media/img/assets/bg_completion.jpg');
   font-family: 'GMGlobalSansCond';
@@ -152,6 +158,7 @@ li.courseTitleChapterSelected {
   color: #003056;
 }
 
+/*---- ASSESSMENT STYLES ----*/
 #assessmentModal .retry-container.buick button {
   background-color: #ef7521;
 }
