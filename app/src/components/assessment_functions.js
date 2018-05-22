@@ -11,20 +11,17 @@ function initAssessments(assessmentsContentXML) {
   /* if course is loaded for first time, or assessment content xml was updated, initialize assessment data. otherwise do nothing. */
   if(courseData.assessmentData.VERSION === undefined || courseData.assessmentData.VERSION !== $(assessmentsContentXML).find("version").text()) {
 
-
     courseData.assessmentData.VERSION = $(assessmentsContentXML).find("version").text();
     courseData.assessmentData.TOTAL_QUESTIONS = $(assessmentsContentXML).find("question").length;
     courseData.assessmentData.QUESTIONS_GIVEN = $(assessmentsContentXML).find("assessments").attr("questionsGiven");
 
-
     courseData.assessmentData.assessments = [];
-
 
     for(var i = 0; i < $(assessmentsContentXML).find("assessment").length; i++) {
       var currentAssessment = $(assessmentsContentXML).find("assessment")[i];
 
       var assessmentObj = {
-        id: parseInt($(currentAssessment).attr("id")),
+        id: parseFloat($(currentAssessment).attr("id")),
         completed: $(currentAssessment).attr("completed"),
         title: $(currentAssessment).attr("title"),
         introText: $(currentAssessment).find("introText").text(),
@@ -38,7 +35,6 @@ function initAssessments(assessmentsContentXML) {
         score: 0
       };
 
-
       if(assessmentObj.title.indexOf("Buick") !== -1) {
         assessmentObj.style = "buick";
 
@@ -47,7 +43,6 @@ function initAssessments(assessmentsContentXML) {
       } else if(assessmentObj.title.indexOf("GMC") !== -1) {
         assessmentObj.style = "gmc";
       }
-
 
       assessmentObj.questionsAnswers.feedback.correct = $(currentAssessment).find("correct").text();
       assessmentObj.questionsAnswers.feedback.incorrect = $(currentAssessment).find("incorrect").text();
@@ -74,7 +69,6 @@ function initAssessments(assessmentsContentXML) {
         assessmentObj.questionsAnswers.questions.push(question);
       });
 
-
       $(currentAssessment).find("answer").each(function() {
         var currentAnswer = $(this);
 
@@ -84,24 +78,19 @@ function initAssessments(assessmentsContentXML) {
           brand: currentAnswer.find("brand").text(),
           model: currentAnswer.find("model").text(),
           attributes: currentAnswer.find("attributes").text(),
-          mpg: (parseInt(currentAnswer.find("mpgCity").text()) + parseInt(currentAnswer.find("mpgHighway").text()))/2,
+          mpg: (parseFloat(currentAnswer.find("mpgCity").text()) + parseFloat(currentAnswer.find("mpgHighway").text()))/2,
           rearLegRoom: currentAnswer.find("rearLegRoom").text(),
           cargoVol: currentAnswer.find("cargoVol").text(),
           basePrice: currentAnswer.find("basePrice").text(),
           horsePower: currentAnswer.find("horsePower").text()
         };
-
         assessmentObj.questionsAnswers.answers.push(answer);
       });
-
       courseData.assessmentData.assessments.push(assessmentObj);
     }
-
     localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(courseData));
   }
-
 }
-
 
 function launchAssessment(id, clickTarget) {
   startBtn = clickTarget;
@@ -175,36 +164,47 @@ function openIntroScreen(id) {
 }
 
 function startAssessment(id) {
+  //LocalStorage - Assessment ID - Style
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
   var activeAssessment = id;
   var style = courseData.assessmentData.assessments[activeAssessment].style;
+
+  //Number of Questions Given - Index of Current Question -
   var questionsNum = courseData.assessmentData.QUESTIONS_GIVEN;
   var questionIndex = courseData.assessmentData.assessments[activeAssessment].currentQuestionIndex;
   var questionCount = questionIndex + 1;
-  var time = 0;
+
+  //Shuffle Questions Everytime (to get same question multiple times)
   courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions = shuffle(courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions);
 
+  //Question Information for Dispaly
   var questionTitle = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions[questionIndex].question.questionTitle;
   var questionBody = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions[questionIndex].question.questionBody;
+
+  //Question Filter (may not have one) and its Numerical Value
   var questionFilter = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions[questionIndex].FILTER;
   var filterNum = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions[questionIndex].FILTERNUM;
-
-  var qIndex;
-  var aIndex;
-
+  //Initialize answersFiltered to be the same as answers (prior to filter being applied)
   var answersArr = shuffle(courseData.assessmentData.assessments[activeAssessment].questionsAnswers.answers);
   var answersFiltered = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.answers;
-
-  var score = courseData.assessmentData.assessments[activeAssessment].score;
-
   if(questionFilter.length > 0){
+    //If a filter exists, apply it
     answersFiltered = filterAnswers(activeAssessment, questionFilter, filterNum);
   }
 
+  //Update LocalStorage AnswersFiltered array
   courseData.assessmentData.assessments[activeAssessment].questionsAnswers.answersFiltered = answersFiltered;
 
-  sameAnswerCheck(activeAssessment, answersFiltered);
-  //  var answerTries = 0;
+  //Overall Score and Time for Each Question
+  var score = courseData.assessmentData.assessments[activeAssessment].score;
+  var time = 0;
+  var qIndex;
+  var aIndex;
+
+  var criterion = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions[questionIndex].CRITERION;
+  sameAnswerCheck(activeAssessment, answersFiltered, criterion);
+
+  var answerTries = 0;
 
   $("#modalContainer .assessment-container").append("<div class='assessment-content "+style+" row'></div>");
   $("#modalContainer .assessment-content").append("<h3 class='assessment-total'>"+score+" Total Points");
@@ -269,7 +269,6 @@ function startAssessment(id) {
         $("#modalContainer .btn-submit-answer").removeClass("d-none");
         $("#modalContainer .feedback-container").remove();
       }
-
     }
 
     else {
@@ -289,7 +288,6 @@ function startAssessment(id) {
       var unselectedAnswer;
 
       for(var i = 0; i < $("#modalContainer .answer-container").length; i++) {
-
         if($($("#modalContainer .answer-container")[i]).hasClass("selected")) {
           selectedAnswersData.push(courseData.assessmentData.assessments[activeAssessment].questionsAnswers.answersFiltered[i]);
           selectedAnswers.push($("#modalContainer .answer-container")[i]);
@@ -306,14 +304,15 @@ function startAssessment(id) {
             correctlyAnswered = true;
             bothCorrect = true;
           }
+        }
 
-        } else {
-          if(parseInt(selectedAnswersData[0].cargoVol) > unselectedAnswerData.cargoVol) {
+        else {
+          if(parseFloat(selectedAnswersData[0].cargoVol) > parseFloat(unselectedAnswerData.cargoVol)) {
             correctlyAnswered = true;
           }
         }
-
       }
+
       else if(criterion === "mpg") {
         if(selectedAnswersData.length > 1) {
           if(selectedAnswersData[0].mpg === selectedAnswersData[1].mpg) {
@@ -322,11 +321,10 @@ function startAssessment(id) {
           }
 
         } else {
-          if(parseInt(selectedAnswersData[0].mpg) > unselectedAnswerData.mpg) {
+          if(parseFloat(selectedAnswersData[0].mpg) > unselectedAnswerData.mpg) {
             correctlyAnswered = true;
           }
         }
-
       }
 
       else if(criterion === "rearLegRoom") {
@@ -335,17 +333,14 @@ function startAssessment(id) {
             correctlyAnswered = true;
             bothCorrect = true;
           }
-
         } else {
-          if(parseInt(selectedAnswersData[0].rearLegRoom) > unselectedAnswerData.rearLegRoom) {
+          if(parseFloat(selectedAnswersData[0].rearLegRoom) > unselectedAnswerData.rearLegRoom) {
             correctlyAnswered = true;
           }
         }
-
       }
 
       else if(criterion === "horsePower") {
-
         if(selectedAnswersData.length > 1) {
           if(selectedAnswersData[0].horsePower === selectedAnswersData[1].horsePower) {
             correctlyAnswered = true;
@@ -353,7 +348,7 @@ function startAssessment(id) {
           }
 
         } else {
-          if(parseInt(selectedAnswersData[0].horsePower) > unselectedAnswerData.horsePower) {
+          if(parseFloat(selectedAnswersData[0].horsePower) > unselectedAnswerData.horsePower) {
             correctlyAnswered = true;
           }
         }
@@ -368,23 +363,22 @@ function startAssessment(id) {
           }
 
         } else {
-          if(parseInt(selectedAnswersData[0].basePrice) < parseInt(unselectedAnswerData.basePrice)) {
+          if(parseFloat(selectedAnswersData[0].basePrice) < parseFloat(unselectedAnswerData.basePrice)) {
             correctlyAnswered = true;
           }
-
         }
       }
 
       if(correctlyAnswered) {
         var feedback = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.feedback.correct;
-        //var car1 =
-        //var characteristic1 =
-        //var value1
 
         courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions[qIndex].PASSED = "true";
         localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(courseData));
 
-        var tempScore = Math.round(10 + ((10 - time) * 10));
+        var tempScore = 10;
+        if(time <= 10){
+          tempScore = Math.round(10 + ((10 - time) * 10));
+        }
         courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions[qIndex].SCORE = tempScore;
         courseData.assessmentData.assessments[activeAssessment].score += tempScore
 
@@ -410,7 +404,6 @@ function startAssessment(id) {
         });
 
       } else {
-        //        answerTries++;
 
         $(unselectedAnswer).append("<div class='viewed-overlay'><img src='../../dir/media/img/icon_viewed.png'></div>");
 
@@ -459,6 +452,7 @@ function startAssessment(id) {
 
 }
 
+//Timer used in countdown and scoring
 var timingInterval = setInterval(function(){
   time += .1;
   var timeLeft = (10 - time).toFixed(1);
@@ -490,9 +484,10 @@ function endAssessment(activeAssessment) {
     courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions[i].PASSED = "false";
   }
 
-  //totalScore = totalScore.toFixed(0);
+  //Find the percentage correct, that way the Feedback is based on how well the user did, not how many they got right
+  //Number of questions changes, so use percentage
   correctPercentage = 10 * correctAnswerCount / courseData.assessmentData.QUESTIONS_GIVEN;
-  correctPercentage = parseInt(correctPercentage.toFixed(0));
+  correctPercentage = parseFloat(correctPercentage.toFixed(0));
 
   $("#modalContainer .assessment-container").append("<div class='finish-screen "+style+"'></div>");
   $("#modalContainer .finish-screen").append("<h3>Congratulations!</h3>");
@@ -601,7 +596,9 @@ function filterAnswers(activeAssessment, filter, num){
   var answersFiltered = [];
 
   for(var i = 0; i < answers.length; i++){
+    //Iterate through the answers and check if the given criteria (filter) is greater than the num given
     if(answers[i][filter] > num){
+      //If so, then add it to the answersFiltered array to be used in the assessment
       answersFiltered.push(answers[i]);
     }
   }
@@ -609,29 +606,23 @@ function filterAnswers(activeAssessment, filter, num){
   return answersFiltered;
 }
 
-function sameAnswerCheck(activeAssessment, answersFiltered){
+function sameAnswerCheck(activeAssessment, answersFiltered, criterion){
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
   var questionIndex = courseData.assessmentData.assessments[activeAssessment].currentQuestionIndex;
-  var criterion = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions[questionIndex].CRITERION;
 
-  var answer1 = parseInt(answersFiltered[0][criterion]);
-  var answer2 = parseInt(answersFiltered[1][criterion]);
-
-  console.log(answer1 + " " +criterion+": " + answersFiltered[0].model);
-  console.log(answer2 + " " +criterion+": " + answersFiltered[1].model);
+  //Check to see if the two chosen answers criteria are equal
+  var answer1 = parseFloat(answersFiltered[0][criterion]);
+  var answer2 = parseFloat(answersFiltered[1][criterion]);
 
   if(answer1 == answer2){
-    console.log("The Same Answer");
+    //If so, they shuffle the answers and check again
     answersFiltered = shuffle(answersFiltered);
     courseData.assessmentData.assessments[activeAssessment].questionsAnswers.answersFiltered = answersFiltered;
-    //sameAnswerCheck(activeAssessment);
-    console.log("NEW");
-    console.log(answer1 + " " +criterion+": " + answersFiltered[0].model);
-    console.log(answer2 + " " +criterion+": " + answersFiltered[1].model);
 
-    sameAnswerCheck(activeAssessment, answersFiltered);
+    sameAnswerCheck(activeAssessment, answersFiltered, criterion);
   }
   else{
+    //If not, then return with the updated answersFiltered
     return;
   }
 }
