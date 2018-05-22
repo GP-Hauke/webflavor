@@ -5,8 +5,8 @@
     <![CDATA[
     <div class="row">
       <div class="col-sm-12">
-        <h1 id="pageTitle">Know Your Lineup</h1>
-        <div class="page-number"><span>1</span> of <span>2</span></div>
+        <h1 id="pageTitle"></h1>
+        <div class="page-number"></div>
       </div>
     </div>
     <div class="row margin-below">

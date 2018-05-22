@@ -5,8 +5,8 @@
     <![CDATA[
             <div class="row">
               <div class="col-sm-6">
-                <h1 id="pageTitle">Couse Completion</h1>
-                <div class="page-number"><span>2</span> of <span>2</span></div>
+                <h1 id="pageTitle"></h1>
+                <div class="page-number"></div>
               </div>
             </div>
 

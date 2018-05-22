@@ -1,4 +1,4 @@
-function initContent(pageID) {
+/*function initContent(pageID) {
   var courseData = JSON.parse(localStorage.getItem(window.parent.LOCAL_COURSE_DATA_ID));
 
   updatePagination();
@@ -26,11 +26,11 @@ function initContent(pageID) {
   } catch(e) {
     console.log('something went wrong ', e);
   }
-}
+}*/
 
 function updatePagination() {
   var currChap = window.parent.currentChapter + 1;
-//  var totalChaps = parseInt(window.parent.totalPages);
+  //var totalChaps = parseInt(window.parent.totalPages);
   var totalChaps = 1;
   $(".page-number").empty();
   $(".page-number").append("<span>"+currChap+"</span> of <span>"+totalChaps+"</span>");
@@ -359,6 +359,31 @@ function loadContent(param){
     .done(function(xml) {
       $('#pageContent').append($(xml).find('content').text());
 
-  });
+      var courseData = JSON.parse(localStorage.getItem(window.parent.LOCAL_COURSE_DATA_ID));
+      updatePagination();
 
+      if(courseData.COUNT_PAGES == 'true') {
+        registerPageVisit(window.parent.LOCAL_COURSE_DATA_ID, pageID); // lives in tracking_functions.js
+      }
+
+      if(courseData.cardData !== undefined) {
+        populateCards();
+      }
+
+      try {
+        $("#pageTitle").html(window.parent.getPageTitle());
+      } catch(e) {
+        console.log('something went wrong ', e);
+      }
+
+      if($('.footer-spacer').length) {
+        $('.footer-spacer').css({height:window.parent.getFooterHeight()+25});
+      }
+
+      try {
+        window.parent.pageLoaded();
+      } catch(e) {
+        console.log('something went wrong ', e);
+      }
+  });
 }
