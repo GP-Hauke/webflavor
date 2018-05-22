@@ -136,7 +136,7 @@
           <mpgCity><![CDATA[19]]></mpgCity>
           <mpgHighway><![CDATA[27]]></mpgHighway>
           <rearLegRoom><![CDATA[36.9]]></rearLegRoom>
-          <cargoVol><![CDATA[31.5]]></cargoVol>
+          <cargoVol><![CDATA[12]]></cargoVol>
           <basePrice><![CDATA[39,070]]></basePrice>
           <horsePower><![CDATA[310]]></horsePower>
         </answer>
@@ -150,7 +150,7 @@
           <mpgCity><![CDATA[22]]></mpgCity>
           <mpgHighway><![CDATA[32]]></mpgHighway>
           <rearLegRoom><![CDATA[36.9]]></rearLegRoom>
-          <cargoVol><![CDATA[31.5]]></cargoVol>
+          <cargoVol><![CDATA[12]]></cargoVol>
           <basePrice><![CDATA[24,990]]></basePrice>
           <horsePower><![CDATA[250]]></horsePower>
         </answer>
@@ -164,7 +164,7 @@
           <mpgCity><![CDATA[21]]></mpgCity>
           <mpgHighway><![CDATA[29]]></mpgHighway>
           <rearLegRoom><![CDATA[36.9]]></rearLegRoom>
-          <cargoVol><![CDATA[32.7]]></cargoVol>
+          <cargoVol><![CDATA[12]]></cargoVol>
           <basePrice><![CDATA[29,070]]></basePrice>
           <horsePower><![CDATA[250]]></horsePower>
         </answer>
@@ -178,7 +178,7 @@
           <mpgCity><![CDATA[21]]></mpgCity>
           <mpgHighway><![CDATA[31]]></mpgHighway>
           <rearLegRoom><![CDATA[38.0]]></rearLegRoom>
-          <cargoVol><![CDATA[15.0]]></cargoVol>
+          <cargoVol><![CDATA[12]]></cargoVol>
           <basePrice><![CDATA[29,565]]></basePrice>
           <horsePower><![CDATA[310]]></horsePower>
         </answer>
@@ -192,7 +192,7 @@
           <mpgCity><![CDATA[21]]></mpgCity>
           <mpgHighway><![CDATA[29]]></mpgHighway>
           <rearLegRoom><![CDATA[32.8]]></rearLegRoom>
-          <cargoVol><![CDATA[13.4]]></cargoVol>
+          <cargoVol><![CDATA[12]]></cargoVol>
           <basePrice><![CDATA[33,065]]></basePrice>
           <horsePower><![CDATA[200]]></horsePower>
         </answer>
@@ -206,7 +206,7 @@
           <mpgCity><![CDATA[25]]></mpgCity>
           <mpgHighway><![CDATA[33]]></mpgHighway>
           <rearLegRoom><![CDATA[35.7]]></rearLegRoom>
-          <cargoVol><![CDATA[18.8]]></cargoVol>
+          <cargoVol><![CDATA[12]]></cargoVol>
           <basePrice><![CDATA[22,990]]></basePrice>
           <horsePower><![CDATA[138]]></horsePower>
         </answer>
@@ -220,7 +220,7 @@
           <mpgCity><![CDATA[22]]></mpgCity>
           <mpgHighway><![CDATA[29]]></mpgHighway>
           <rearLegRoom><![CDATA[37.5]]></rearLegRoom>
-          <cargoVol><![CDATA[26.9]]></cargoVol>
+          <cargoVol><![CDATA[10]]></cargoVol>
           <basePrice><![CDATA[33,995]]></basePrice>
           <horsePower><![CDATA[197]]></horsePower>
         </answer>
@@ -234,7 +234,7 @@
           <mpgCity><![CDATA[18]]></mpgCity>
           <mpgHighway><![CDATA[26]]></mpgHighway>
           <rearLegRoom><![CDATA[38.9]]></rearLegRoom>
-          <cargoVol><![CDATA[58.0]]></cargoVol>
+          <cargoVol><![CDATA[10]]></cargoVol>
           <basePrice><![CDATA[39,995]]></basePrice>
           <horsePower><![CDATA[310]]></horsePower>
         </answer>

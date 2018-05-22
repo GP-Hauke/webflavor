@@ -92,7 +92,6 @@ function initAssessments(assessmentsContentXML) {
         };
 
         assessmentObj.questionsAnswers.answers.push(answer);
-        assessmentObj.questionsAnswers.answersFiltered.push(answer);
       });
 
       courseData.assessmentData.assessments.push(assessmentObj);
@@ -187,7 +186,6 @@ function startAssessment(id) {
 
   var questionTitle = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions[questionIndex].question.questionTitle;
   var questionBody = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions[questionIndex].question.questionBody;
-
   var questionFilter = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions[questionIndex].FILTER;
   var filterNum = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions[questionIndex].FILTERNUM;
 
@@ -205,8 +203,7 @@ function startAssessment(id) {
 
   courseData.assessmentData.assessments[activeAssessment].questionsAnswers.answersFiltered = answersFiltered;
 
-  //sameAnswerCheck(activeAssessment);
-
+  sameAnswerCheck(activeAssessment, answersFiltered);
   //  var answerTries = 0;
 
   $("#modalContainer .assessment-container").append("<div class='assessment-content "+style+" row'></div>");
@@ -612,22 +609,27 @@ function filterAnswers(activeAssessment, filter, num){
   return answersFiltered;
 }
 
-function sameAnswerCheck(activeAssessment){
+function sameAnswerCheck(activeAssessment, answersFiltered){
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
   var questionIndex = courseData.assessmentData.assessments[activeAssessment].currentQuestionIndex;
   var criterion = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions[questionIndex].CRITERION;
-  var answersFiltered = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.answersFiltered;
 
-  var answer1 = answersFiltered[0][criterion];
-  var answer2 = answersFiltered[1][criterion];
+  var answer1 = parseInt(answersFiltered[0][criterion]);
+  var answer2 = parseInt(answersFiltered[1][criterion]);
 
-  console.log(answer1 + ": " + answersFiltered[0].model);
-  console.log(answer2 + ": " + answersFiltered[1].model);
+  console.log(answer1 + " " +criterion+": " + answersFiltered[0].model);
+  console.log(answer2 + " " +criterion+": " + answersFiltered[1].model);
 
   if(answer1 == answer2){
-    shuffle(answersFiltered);
-    console.log("^^^^SHUFFLED");
+    console.log("The Same Answer");
+    answersFiltered = shuffle(answersFiltered);
+    courseData.assessmentData.assessments[activeAssessment].questionsAnswers.answersFiltered = answersFiltered;
     //sameAnswerCheck(activeAssessment);
+    console.log("NEW");
+    console.log(answer1 + " " +criterion+": " + answersFiltered[0].model);
+    console.log(answer2 + " " +criterion+": " + answersFiltered[1].model);
+
+    sameAnswerCheck(activeAssessment, answersFiltered);
   }
   else{
     return;
