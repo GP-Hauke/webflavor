@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<drag_drops questionsGiven="10">
+  <version>0.0.4</version>
+  <!--  -->
+  <drag_drop id="1" type="" completed="false" title="Title Goes Here">
+    <intro><![CDATA[Match the following cities with their states. Complete the task by dragging and dropping the items into their correct spots. Correct answers will turn green, while the wrong answers will turn red. Good luck!]]>
+    </intro>
+    <matchings>
+      <pair>
+        <drag>Bloomington</drag>
+        <drop>Indiana</drop>
+      </pair>
+      <pair>
+        <drag>Louisville</drag>
+        <drop>Kentucky</drop>
+      </pair>
+      <pair>
+        <drag>Chicago</drag>
+        <drop>Illinois</drop>
+      </pair>
+      <pair>
+        <drag>Miami</drag>
+        <drop>Florida</drop>
+      </pair>
+      <pair>
+        <drag>New York</drag>
+        <drop>New York</drop>
+      </pair>
+      <pair>
+        <drag>Seattle</drag>
+        <drop>Washington</drop>
+      </pair>
+      <pair>
+        <drag>Dallas</drag>
+        <drop>Texas</drop>
+      </pair>
+    </matchings>
+  </drag_drop>
+</drag_drops>

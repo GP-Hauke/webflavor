@@ -237,6 +237,18 @@ li.courseTitleChapterSelected {
   color: #e31837;
 }
 
+#assessmentModal .assessment-content.buick span {
+  color: #ef7521;
+}
+
+#assessmentModal .assessment-content.chevy span {
+  color: #f4bc00;
+}
+
+#assessmentModal .assessment-content.gmc span {
+  color: #e31837;
+}
+
 #assessmentModal .answer-container .brand-model-attr p.model {
   color: #58595b;
 }

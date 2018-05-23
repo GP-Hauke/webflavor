@@ -8,6 +8,7 @@ var navigationLoaded = false;
 var cardContentLoaded = false;
 var stringsLoaded = false;
 var assessmentsLoaded = false;
+var dragDropsLoaded = false;
 var splashLoaded = false;
 
 var totalPages;
@@ -71,6 +72,11 @@ function loadXMLData() {
     return;
   }
 
+  if(courseData.dragDropData !== undefined && dragDropsLoaded === false) {
+    GetInterfaceXML("../../dir/content/drag_drops.xml");
+    return;
+  }
+
   if(courseData.HAS_GLOSSARY === 'true' && glossaryLoaded === false) {
     GetInterfaceXML("../../dir/content/glossary.xml");
     return;
@@ -114,6 +120,11 @@ function GetInterfaceXML(args) {
     } else if(args.indexOf("assessments") != -1) {
       assessmentsLoaded = true;
       initAssessments(xml); // lives in assessment_functions.js
+      loadXMLData();
+
+    } else if(args.indexOf("drag_drops") != -1) {
+      dragDropsLoaded = true;
+      initDragDrops(xml); // lives in assessment_functions.js
       loadXMLData();
 
     } else if(args.indexOf("strings") != -1) {

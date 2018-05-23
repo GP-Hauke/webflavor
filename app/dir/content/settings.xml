@@ -50,5 +50,6 @@
   </pageCount>
 
   <hasAssessments>true</hasAssessments>
+  <hasDragDrops>true</hasDragDrops>
 
 </settings>

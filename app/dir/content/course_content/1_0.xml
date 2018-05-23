@@ -4,6 +4,18 @@
   <content>
     <![CDATA[
             <div class="row">
+              <div class="col-sm-12">
+                <h1 id="pageTitle"></h1>
+                <div class="page-number"></div>
+              </div>
+            </div>
+
+            <div class="row">
+
+            </div>
+            </div>]]>
+
+            <!--<div class="row">
               <div class="col-sm-6">
                 <h1 id="pageTitle"></h1>
                 <div class="page-number"></div>
@@ -35,6 +47,6 @@
               <div class="offset-1 col-sm-4">
                 <a class="btn btn-default d-block mx-auto" href="https://www.surveymonkey.com/r/B29CSP2" target="_blank" role="button">Take Survey</a>
               </div>
-            </div>]]>
+            </div> -->
 </content>
 </page>

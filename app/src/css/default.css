@@ -641,7 +641,9 @@ footer.footer > .container.footer-nav .next {
   width: 100%;
   text-align: center;
   text-transform: uppercase;
-  padding-top: 25px; }
+  padding-top: 25px;
+  margin-left: -10px;
+}
 
 #glossaryModal .alphabet a {
   text-decoration: none;
@@ -1359,6 +1361,7 @@ h2.section-title {
 
 /* end MODAL - GLOBAL STYLES */
 
+
 #dragAndDrop .left{
   height: 85%;
 }
@@ -1367,9 +1370,52 @@ h2.section-title {
   height: 85%;
 }
 
-#dragAndDrop .item{
+#dragAndDrop .item-container{
   height: 50px;
-  background: #ccc;
+  background: #f7f7f7;
   margin-bottom: 10px;
   cursor: pointer;
+  font-size: 20px;
+  text-align: center;
+  height: 50px;
+  line-height: 50px;
+  font-weight: 400;
+  height: 50px;
+  position: relative;
+
+}
+
+#dragAndDrop .item-container p{
+  font-size: 25px;
+  text-align: center;
+  height: 50px;
+  line-height: 50px;
+  font-weight: 600;
+  height: 50px;
+  background: #0e426b;
+  color: #fff;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+#dragAndDrop .draggable{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+#dragAndDrop .correct{
+  color: #2ee216 !important;
+}
+
+#dragAndDrop .wrong{
+  color: #e21616 !important;
+}
+
+#dragAndDrop .intro{
+  width: 75%;
+  margin: 0 auto;
+  font-size: 20px;
+  margin-bottom: 20px;
 }
