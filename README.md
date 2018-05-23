@@ -48,7 +48,6 @@ app
     +---lms
     +---vendors
 
----
 
 ## Quick Reference:
 This section will go into a little more detail about the folder structure and explain which files to modify to make changes to an existing course or create a new course from the template.
@@ -124,3 +123,128 @@ This section will go into a little more detail about the folder structure and ex
 **hasStrings**: Some courses have repetitive text in places such as navigation or instructions. Repetitive text strings can be defined in **strings.xml** and then loaded by setting this node to “true”. For details on how to display strings in the course, see the section **strings.xml** below.
 
 **bookmarking**: This was used in a course that had a launch page that branched off into different courses. The launch page kept track of which pages in which of the branched courses had been visited. Can be disregarded unless a similar setup is required.
+
+
+## HTML Grid Layout – Powered by Bootstrap
+
+**Basics**
+
+The layout of the entire course is built as a grid of content elements that automatically arrange themselves according to the screen size of the device the course is being viewed on. The CSS grid framework Bootstrap is used to accomplish this.
+
+* **Note:** The pertinent parts of Bootstrap that are used in the course will be described here. For complete documentation of Bootstrap, see http://getbootstrap.com/. For complete and specific documentation of the grid system utilized in the course, see http://getbootstrap.com/css/#grid.
+
+Bootstrap arranges content elements in rows and columns, where each row can have a varying number of content elements divisible by 12. The rows and columns are defined and created by using specific HTML tags and CSS classes in the HTML document.  
+
+Bootstrap divides every row up into twelve columns. Each content element can take up any number of these columns. For example, you can have one content item that spans all twelve columns – i.e. the entire width of the content area – or you can have four content items, each taking up three columns, or three content items where two take up five columns and one takes up two columns or any other combination that is divisible by 12. To illustrate this, let’s look at some code examples:
+
+Firstly, rows are represented in the HTML by div elements with the class name row. Rows need to be surrounded by HTML div elements with the class name container. This results in markup of this basic structure:
+
+```
+<div class="container">
+  <div class=”row”>
+  		…  
+  </div>  
+  <div class=”row”>  
+  		…  
+  </div>
+</div>
+```
+
+In the above example, we have two empty rows that are set up to contain Bootstrap column content elements that can occupy between 1 and 12 horizontal “spaces” as described above. These column content elements are represented by HTML div elements with specific class names. The class names will determine how the column content elements flow on the page based on the available width of the viewport (i.e. the area of the screen in which the site/course is visible).
+
+To illustrate how these elements work, let’s first look at some of the class names:
+
+**"col-md-1"**
+
+**"col-md-8"**
+
+**"col-xs-6"**
+
+**"col-lg-4"**
+
+ The class names consist of three parts. The first part – ”col” – simply makes this easily identifiable as a column element and all column elements start with it.
+ The second part can be one of four infixes: "xs", "sm", "md", "lg". These define the screen width in which a certain element should occupy a certain number of column spaces (see below).
+ The third part is any number from 1 to 12. This number defines how many column spaces a certain element should occupy.
+
+ Let’s look at examples:
+
+```
+ <div class="container">  
+  <div class=”row”>   
+    <div class=”col-xs-12”> … </div>  
+  </div>
+ </div>
+```
+In this example, the markup defines one column that will occupy all 12 column spaces – i.e. the entire available width of the container – in all screen widths. It will span the entire available container width on large computer screens down to narrow devices like cell phones. Note: The look of column content elements is not determined by these class names. Separate CSS is required for that. The class names only determine the layout. Disregarding additional CSS that would define the design of the elements, the above markup can be represented as the illustration below:
+
+```
+<div class="container">
+ <div class=”row”>  
+  <div class=”col-lg-4”>
+    …
+  </div>  
+  <div class=”col-lg-5”>
+    …
+  </div>
+  <div class=”col-lg-3”>
+    …
+  </div>  
+ </div>
+</div>
+```
+
+  In this example, the markup defines one row with three column elements. The first element will occupy 4 column spaces, the second 5 column spaces, and the third 3 column spaces. Note that they add up to 12. The ”lg” part of the class name defines that the elements will occupy 4, 5, and 3 column spaces respectively on only large screens. As soon as the screen width falls below a certain value, each of the 3 elements will occupy the full width of the container.
+
+Disregarding additional CSS that would define the design of the elements, the above markup can be represented as the illustration below:
+
+* **Note:** Bootstrap will add gutters (horizontal and vertical spaces) between the elements. They are not displayed here for simplicity.
+
+Keeping in mind the examples above, let’s look at the specific viewport width values that are defined by the "xs", "sm", "md", "lg" parts of the CSS class names.  
+
+**xs:** No specified width - the element will be displayed occupying the number of column spaces specified by the number part of the CSS class on all screens, from large computer screens to “extra small” device screens.
+
+**sm:** 768px – the element will be displayed occupying the number of column spaces specified by the number part of the CSS class name as long as the viewport width is 768px and above. Typically, this includes tablets and larger devices in the landscape position but not smaller tablets and cell phones. On screens of 767px and below, the element will occupy the entire width of the container. At this screen width range, Bootstrap will set the width of the container element to 750px.
+
+**md:** 992px – the element will be displayed occupying the number of column spaces specified by the number part of the CSS class name as long as the viewport width is 992px and above. Typically, that only includes computer screens and some oversized tablets. On screens of 991px and below, the element will occupy the entire width of the container. At this screen width range, Bootstrap will set the width of the container element to 970px.
+
+**lg:** 1200px – the element will be displayed occupying the number of column spaces specified by the number part of the CSS class name as long as the viewport width is 1200px and above. That only includes large computer screens. On screens of 1199px and below, the element will occupy the entire width of the container. At this screen width range, Bootstrap will set the width of the container element to 1170px.
+
+**Combining Class Names**
+
+The class names described above can be combined to get even more control over how content elements flow on the page across different devices.  
+
+Example:
+
+```
+<div class="container">  
+ <div class=”row”>   
+  <div class=”col-lg-4 col-md-4 col-sm-3 col-xs-12”>
+    …
+  </div>
+  <div class=”col-lg-5 col-md-4 col-sm-3 col-xs-12”>
+    …
+  </div>
+  <div class=”col-lg-3 col-md-4 col-sm-3 col-xs-12”>
+    …
+  </div>  
+ </div>
+</div>
+```
+
+Disregarding additional CSS that would define the design of the elements, the above markup can be represented as the illustrations below, depending on the viewport width: Large screens (1200px wide and above):
+
+
+Medium screens (between 992px and 1299px width):
+
+
+Small screens (between 768px and 991px width):
+
+* **Note:** If the specified combined width of content elements does not add up to 12, the elements will not fill the entire width of the content area. In this example, each element occupies 3 of the total available 12 spaces or columns so they only occupy a combined 9 spaces, leaving a gap at the end.
+
+
+Extra small screens (between 0px and 767px width):
+
+
+* **Note:** Since each element is defined to occupy the entire width of the content area on extra small screens, they will flow into a stacked layout.
+
+Many other layout configurations can be accomplished using the Bootstrap grid (e.g. nested grids, offsets) but the markup explained in this section covers the basics. For more information, please see the full Bootstrap documentation linked above

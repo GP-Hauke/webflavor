@@ -43,6 +43,8 @@ function initDragDrops(dragDropContentXML) {
 }
 
 function setupDragDrop(){
+  $('#dragAndDrop').remove();
+
   var courseData = JSON.parse(localStorage.getItem(window.parent.LOCAL_COURSE_DATA_ID));
   var dragDropData= courseData.dragDropData;
 
