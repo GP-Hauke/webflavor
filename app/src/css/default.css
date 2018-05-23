@@ -1361,15 +1361,6 @@ h2.section-title {
 
 /* end MODAL - GLOBAL STYLES */
 
-
-#dragAndDrop .left{
-  height: 85%;
-}
-
-#dragAndDrop .right{
-  height: 85%;
-}
-
 #dragAndDrop .item-container{
   height: 50px;
   background: #f7f7f7;
@@ -1392,7 +1383,7 @@ h2.section-title {
   line-height: 50px;
   font-weight: 600;
   height: 50px;
-  background: #0e426b;
+  background: #003056;
   color: #fff;
   margin-bottom: 10px;
   cursor: pointer;
@@ -1418,4 +1409,20 @@ h2.section-title {
   margin: 0 auto;
   font-size: 20px;
   margin-bottom: 20px;
+}
+
+#dragAndDrop .btn-row{
+  float: right;
+  margin-right: 1;
+}
+
+#dragAndDrop .btn{
+  color: #fff;
+  background: #003056;
+  border: 2px #003056 solid;
+  font-size: 20px;
+}
+
+#dragAndDrop .btn:hover{
+  opacity: .5;
 }

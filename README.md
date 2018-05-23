@@ -230,21 +230,3 @@ Example:
  </div>
 </div>
 ```
-
-Disregarding additional CSS that would define the design of the elements, the above markup can be represented as the illustrations below, depending on the viewport width: Large screens (1200px wide and above):
-
-
-Medium screens (between 992px and 1299px width):
-
-
-Small screens (between 768px and 991px width):
-
-* **Note:** If the specified combined width of content elements does not add up to 12, the elements will not fill the entire width of the content area. In this example, each element occupies 3 of the total available 12 spaces or columns so they only occupy a combined 9 spaces, leaving a gap at the end.
-
-
-Extra small screens (between 0px and 767px width):
-
-
-* **Note:** Since each element is defined to occupy the entire width of the content area on extra small screens, they will flow into a stacked layout.
-
-Many other layout configurations can be accomplished using the Bootstrap grid (e.g. nested grids, offsets) but the markup explained in this section covers the basics. For more information, please see the full Bootstrap documentation linked above

@@ -19,6 +19,7 @@ function initDragDrops(dragDropContentXML) {
       var dragDropObj = {
         id: parseFloat($(currentDragDrop).attr("id")),
         completed: $(currentDragDrop).attr("completed"),
+        score: 0,
         title: $(currentDragDrop).attr("title"),
         matchings: []
       };
@@ -69,7 +70,9 @@ function setupDragDrop(){
   leftContainerHtml += '</div>';
   rightContainerHtml += '</div>';
 
-  var html = '<div id="dragAndDrop"><div class="row intro">Match the following cities with their states. Complete the task by dragging and dropping the items into their correct spots. Correct answers will turn green, while the wrong answers will turn red. Good luck!</div><div class="row">' + leftContainerHtml + rightContainerHtml + '</div>';
+  var submitBtn = '</div><div class="row btn-row"><a class="btn">Submit</a></div>';
+
+  var html = '<div id="dragAndDrop"><div class="row intro">Match the following cities with their states. Complete the task by dragging and dropping the items into their correct spots. Correct answers will turn green, while the wrong answers will turn red. Good luck!</div><div class="row">' + leftContainerHtml + rightContainerHtml + submitBtn;
 
   $("#pageContent").after(html);
   shuffleDrags();
