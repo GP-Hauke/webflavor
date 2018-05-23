@@ -72,7 +72,7 @@ function getSplashPage() {
 /* NEW GLOSSARY METHOD USING XML */
 
 function getGlossary() {
-  var glossary = '<div class="modal fade" id="glossaryModal" tabindex="-1" role="dialog" aria-labelledby="glossaryModalLabel"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header"><div class="modal-title-wrapper"><h4 class="modal-title" id="glossaryModalLabel">GLOSSARY</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><img src="dir/media/img/btn_close_glossary.png" alt="close the glossary"></span></button></div><div class="alphabet"><a id="" href="#">a</a><a id="" href="#">b</a><a id="" href="#">c</a><a id="" href="#">d</a><a id="" href="#">e</a><a id="" href="#">f</a><a id="" href="#">g</a><a id="" href="#">h</a><a id="" href="#">i</a><a id="" href="#">j</a><a id="" href="#">k</a><a id="" href="#">l</a><a id="" href="#">m</a><a id="" href="#">n</a><a id="" href="#">o</a><a id="" href="#">p</a><a id="" href="#">q</a><a id="" href="#">r</a><a id="" href="#">s</a><a id="" href="#">t</a><a id="" href="#">u</a><a id="" href="#">v</a><a id="" href="#">w</a><a id="" href="#">x</a><a id="" href="#">y</a><a id="" href="#">z</a></div></div><div class="modal-body">';
+  var glossary = '<div class="modal fade" id="glossaryModal" tabindex="-1" role="dialog" aria-labelledby="glossaryModalLabel"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header"><div class="modal-title-wrapper"><h4 class="modal-title" id="glossaryModalLabel">GLOSSARY</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><img src="dir/media/img/btn_close_glossary.png" alt="close the glossary"></span></button></div><div class="alphabet"><a id="" href="#">#</a><a id="" href="#">a</a><a id="" href="#">b</a><a id="" href="#">c</a><a id="" href="#">d</a><a id="" href="#">e</a><a id="" href="#">f</a><a id="" href="#">g</a><a id="" href="#">h</a><a id="" href="#">i</a><a id="" href="#">j</a><a id="" href="#">k</a><a id="" href="#">l</a><a id="" href="#">m</a><a id="" href="#">n</a><a id="" href="#">o</a><a id="" href="#">p</a><a id="" href="#">q</a><a id="" href="#">r</a><a id="" href="#">s</a><a id="" href="#">t</a><a id="" href="#">u</a><a id="" href="#">v</a><a id="" href="#">w</a><a id="" href="#">x</a><a id="" href="#">y</a><a id="" href="#">z</a></div></div><div class="modal-body">';
 
 
   for(i = 0; i < courseData.glossary.items.length; i++){
@@ -96,15 +96,25 @@ function getGlossary() {
 function glossaryNavigate(){
   $(".alphabet a").click(function() {
     var c = '#' + $(this).text()
-
-    if($(c).offset().top > 140 || 120 > $(c).offset().top){
+    //If clicking # to see numbers, go to top
+    if(c == '##'){
       $('.modal-body').scrollTop(
         0
       );
+    }
+    else{
+      //Else, they are clicking letter
+      if($(c).offset() != null){
+        if($(c).offset().top > 140 || 120 > $(c).offset().top){
+          $('.modal-body').scrollTop(
+            0
+          );
 
-      $('.modal-body').animate({
-        scrollTop: $(c).offset().top - 130
-      });
+          $('.modal-body').animate({
+            scrollTop: $(c).offset().top - 130
+          });
+        }
+      }
     }
   });
 }
