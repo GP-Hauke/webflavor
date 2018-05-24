@@ -1434,6 +1434,8 @@ h2.section-title {
   background: #fff;
   color: #003056;
   font-size: 20px;
+  transition: all 200ms ease-in-out;
+  transform: scale(.90);
 }
 
 #dragAndDrop .btn:first-child{
@@ -1442,4 +1444,8 @@ h2.section-title {
 
 #dragAndDrop .feedback{
   font-size: 24px;
+}
+
+#dragAndDrop .feedback span{
+  font-weight: 600;
 }

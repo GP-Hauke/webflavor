@@ -29,6 +29,7 @@
     </div>]]>
   </content>
 
+  <!-- TESTED CODE BELOW NOT USED -->
   <!-- TESTING MODULAR LAYOUT OF XML  -->
   <assessment>true</assessment>
   <dragDrop>false</dragDrop>

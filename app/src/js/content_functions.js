@@ -1,31 +1,31 @@
 /*function initContent(pageID) {
-  var courseData = JSON.parse(localStorage.getItem(window.parent.LOCAL_COURSE_DATA_ID));
+var courseData = JSON.parse(localStorage.getItem(window.parent.LOCAL_COURSE_DATA_ID));
 
-  updatePagination();
+updatePagination();
 
-  if(courseData.COUNT_PAGES == 'true') {
-    registerPageVisit(window.parent.LOCAL_COURSE_DATA_ID, pageID); // lives in tracking_functions.js
-  }
+if(courseData.COUNT_PAGES == 'true') {
+registerPageVisit(window.parent.LOCAL_COURSE_DATA_ID, pageID); // lives in tracking_functions.js
+}
 
-  if(courseData.cardData !== undefined) {
-    populateCards();
-  }
+if(courseData.cardData !== undefined) {
+populateCards();
+}
 
-  try {
-    $("#pageTitle").html(window.parent.getPageTitle());
-  } catch(e) {
-    console.log('something went wrong ', e);
-  }
+try {
+$("#pageTitle").html(window.parent.getPageTitle());
+} catch(e) {
+console.log('something went wrong ', e);
+}
 
-  if($('.footer-spacer').length) {
-    $('.footer-spacer').css({height:window.parent.getFooterHeight()+25});
-  }
+if($('.footer-spacer').length) {
+$('.footer-spacer').css({height:window.parent.getFooterHeight()+25});
+}
 
-  try {
-    window.parent.pageLoaded();
-  } catch(e) {
-    console.log('something went wrong ', e);
-  }
+try {
+window.parent.pageLoaded();
+} catch(e) {
+console.log('something went wrong ', e);
+}
 }*/
 
 function updatePagination() {
@@ -265,17 +265,17 @@ function tallyActions() {
     var msg = "";
     switch (clickedLinksNum) {
       case 0: case 1: case 2: case 3: case 4:
-        msg = "Great Job! You completed the required elements but there are other topics that may help you with your customers. Consider reviewing those pieces before you go.";
-        break;
+      msg = "Great Job! You completed the required elements but there are other topics that may help you with your customers. Consider reviewing those pieces before you go.";
+      break;
       case 5: case 6: case 7: case 8:
-        msg = "Pretty good! You've completed some of the elements for the Connected Vehicle Services but there are other pieces that can help you better serve your customers. You may want to take the time to go back and review them before exiting the course.";
-        break;
+      msg = "Pretty good! You've completed some of the elements for the Connected Vehicle Services but there are other pieces that can help you better serve your customers. You may want to take the time to go back and review them before exiting the course.";
+      break;
       case 9: case 10: case 11:
-        msg = "Great job! You've completed most of the elements required for the course. You may want to consider going back and reviewing some of the elements you may have missed.";
-        break;
+      msg = "Great job! You've completed most of the elements required for the course. You may want to consider going back and reviewing some of the elements you may have missed.";
+      break;
       case 12: case 13: case 14: case 15: default:
-        msg = "Well done! You've completed all the required elements for the course!";
-        break;
+      msg = "Well done! You've completed all the required elements for the course!";
+      break;
     }
     $("#completionBox").append("<p>"+msg+"</p>");
 
@@ -295,27 +295,27 @@ function tallyActions() {
 
 function setupAssessment() {
 
-    var courseData = JSON.parse(localStorage.getItem(window.parent.LOCAL_COURSE_DATA_ID));
-    console.log("setupassessment");
-    var assessmentID = parseInt($(".btn-assess").attr("id").substring(13,15), 10) - 1;
+  var courseData = JSON.parse(localStorage.getItem(window.parent.LOCAL_COURSE_DATA_ID));
+  console.log("setupassessment");
+  var assessmentID = parseInt($(".btn-assess").attr("id").substring(13,15), 10) - 1;
 
-    if(assessmentID === 0){
-      for(var i = 0; i < 3; i++){
-        if(courseData.assessmentData.assessments[i].completed === "true"){
-          $(".btn-assess").append("<div class='viewed-overlay'><img src='../"+courseData.THEME_PATH+"/media/img/icon_viewed.png'></div>");
-          continue;
-        }
-      }
-
-    } else if(assessmentID === 3) {
-      if(courseData.assessmentData.assessments[assessmentID].completed === "true"){
+  if(assessmentID === 0){
+    for(var i = 0; i < 3; i++){
+      if(courseData.assessmentData.assessments[i].completed === "true"){
         $(".btn-assess").append("<div class='viewed-overlay'><img src='../"+courseData.THEME_PATH+"/media/img/icon_viewed.png'></div>");
+        continue;
       }
     }
 
-    $(".btn-assess").click(function() {
-      window.parent.openModal('assessment', assessmentID, $(this));
-    });
+  } else if(assessmentID === 3) {
+    if(courseData.assessmentData.assessments[assessmentID].completed === "true"){
+      $(".btn-assess").append("<div class='viewed-overlay'><img src='../"+courseData.THEME_PATH+"/media/img/icon_viewed.png'></div>");
+    }
+  }
+
+  $(".btn-assess").click(function() {
+    window.parent.openModal('assessment', assessmentID, $(this));
+  });
 
 
 }
@@ -360,62 +360,70 @@ function loadContent(param){
   var arg = '../../../dir/content/course_content/' + param +'.xml';
 
   $.get(arg)
-    .done(function(xml) {
-      //$('#pageContent').append($(xml).find('content').text());
+  .done(function(xml) {
+    //$('#pageContent').append($(xml).find('content').text());
 
     //  /*
-      var titleSize = $(xml).find("title").find("size").text();
-      var titleHTML = '<div class="row"><div class="col-sm-'+titleSize+'"><h1 id="pageTitle"></h1><div class="page-number"></div></div></div>';
+    var titleSize = $(xml).find("title").find("size").text();
+    var titleHTML = '<div class="row"><div class="col-sm-'+titleSize+'"><h1 id="pageTitle"></h1><div class="page-number"></div></div></div>';
 
+
+    var contentHTML = "";
+    if($(xml).find('contents').children().length > 0){
       var paragraphHTML = "";
+
       $(xml).find("paragraph").each(function(){
         var p = $(this);
         paragraphHTML += '<p class="top-paragraph">' + p.text() + '</p>';
       })
 
-      var extraHTML = ""
+      var extraHTML = "";
       $(xml).find("extra").each(function(){
         var e = $(this);
         extraHTML += e.text();
       })
 
-      var contentHTML = titleHTML + '<div class="row margin-below"><div class="col-md-6">' + paragraphHTML + '</div>'+extraHTML+'</div>';
-      $('#pageContent').append(contentHTML);
+      contentHTML = '<div class="row margin-below"><div class="col-md-6">' + paragraphHTML + '</div>'+extraHTML+'</div>';
+    }
+    var pageHTML = titleHTML +contentHTML;
 
-  //    */
+    $('#pageContent').append(pageHTML);
 
-      if($(xml).find('assessment').text() == "true"){
-        setupAssessment();
-      }
-      if($(xml).find('dragDrop').text() == "true"){
-        setupDragDrop();
-      }
 
-      var courseData = JSON.parse(localStorage.getItem(window.parent.LOCAL_COURSE_DATA_ID));
-      updatePagination();
+    //    */
 
-      if(courseData.COUNT_PAGES == 'true') {
-        registerPageVisit(window.parent.LOCAL_COURSE_DATA_ID, pageID); // lives in tracking_functions.js
-      }
+    if($(xml).find('assessment').text() == "true"){
+      setupAssessment();
+    }
+    if($(xml).find('dragDrop').text() == "true"){
+      setupDragDrop();
+    }
 
-      if(courseData.cardData !== undefined) {
-        populateCards();
-      }
+    var courseData = JSON.parse(localStorage.getItem(window.parent.LOCAL_COURSE_DATA_ID));
+    updatePagination();
 
-      try {
-        $("#pageTitle").html(window.parent.getPageTitle());
-      } catch(e) {
-        console.log('something went wrong ', e);
-      }
+    if(courseData.COUNT_PAGES == 'true') {
+      registerPageVisit(window.parent.LOCAL_COURSE_DATA_ID, pageID); // lives in tracking_functions.js
+    }
 
-      if($('.footer-spacer').length) {
-        $('.footer-spacer').css({height:window.parent.getFooterHeight()+25});
-      }
+    if(courseData.cardData !== undefined) {
+      populateCards();
+    }
 
-      try {
-        window.parent.pageLoaded();
-      } catch(e) {
-        console.log('something went wrong ', e);
-      }
+    try {
+      $("#pageTitle").html(window.parent.getPageTitle());
+    } catch(e) {
+      console.log('something went wrong ', e);
+    }
+
+    if($('.footer-spacer').length) {
+      $('.footer-spacer').css({height:window.parent.getFooterHeight()+25});
+    }
+
+    try {
+      window.parent.pageLoaded();
+    } catch(e) {
+      console.log('something went wrong ', e);
+    }
   });
 }

@@ -143,7 +143,7 @@ function submitDragDrop(){
     var answerID = answers[i].id;
 
     if($('#'+answerID).find('p')[0] == null){
-      $('#dragAndDrop .feedback').html('Finish dragging items over.<a onclick="setupDragDrop();" class="btn btn-reversed btn-restart">Restart</a><a onclick="submitDragDrop();" class="btn btn-default-main">Submit</a>')
+      $('#dragAndDrop .feedback').html('Finish dragging items to their correct location.<a onclick="setupDragDrop();" class="btn btn-reversed btn-restart">Restart</a><a onclick="submitDragDrop();" class="btn btn-default-main">Submit</a>')
       return;
     }
   }
@@ -164,7 +164,28 @@ function submitDragDrop(){
   courseData.dragDropData.dragDrops[0].completed = true;
   courseData.dragDropData.dragDrops[0].score = score;
   localStorage.setItem(window.parent.LOCAL_COURSE_DATA_ID, JSON.stringify(courseData));
-  $('#dragAndDrop .feedback').html('Here are your results. Total Score: +'+score+' points<a onclick="setupDragDrop();" class="btn btn-reversed btn-restart">Restart</a><a onclick="submitDragDrop();" class="btn btn-default-main">Submit</a>')
+  var percentage = courseData.dragDropData.dragDrops[0].matchings.length;
+  var correctPercentage = score / percentage;
+  correctPercentage = parseFloat(correctPercentage.toFixed(0));
+  var gameFeedback;
+
+  switch(correctPercentage) {
+    case 0: case 1: case 2: case 3: case 4: case 5:
+    gameFeedback = "Try again?";
+    break;
+    case 6: case 7: case 8:
+    gameFeedback = "Keep practicing.";
+    break;
+    case 9: case 10:
+    gameFeedback = "Nice job!";
+    break;
+  }
+
+  gameFeedback += " <span> Total Score: +"+score+" points</span.>";
+
+
+  $('#dragAndDrop .feedback').html(gameFeedback+'<a onclick="setupDragDrop();" class="btn btn-reversed btn-restart">Restart</a><a onclick="submitDragDrop();" class="btn btn-default-main">Submit</a>');
+  $('#dragAndDrop .feedback').after('');
 }
 
 // DRAG AND DROP CORE FUNCTIONALITY

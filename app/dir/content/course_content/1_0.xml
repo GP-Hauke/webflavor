@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <page>
   <title><![CDATA[Know Your Lineup]]></title>
-
   <content>
     <![CDATA[
             <div class="row">
@@ -39,6 +38,7 @@
             </div>]]>
 </content>
 
+<!-- TESTED CODE BELOW NOT USED -->
 <!-- TESTING MODULAR LAYOUT OF XML  -->
 <assessment>false</assessment>
 <dragDrop>false</dragDrop>
@@ -46,7 +46,6 @@
   <!-- Size can be a number from 1-12 representing how much of the window it takes up. 12 being the full width, 6 being half, 4 being a third, etc... -->
   <size>6</size>
 </title>
-
 <contents>
   <paragraph>
     <![CDATA[Please select the <span class="bolded">Complete for Credit</span> button below to receive credit for this course.<a class="btn btn-default d-block mx-auto btn-complete" id="btnComplete" role="button" onclick="setComplete()">Complete for Credit</a>]]>

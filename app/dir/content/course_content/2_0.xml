@@ -49,7 +49,9 @@
               </div>
             </div> -->
   </content>
-  <!-- TESTING MODULAR LAYOUT OF XML  -->
+  
+  <!-- TESTED CODE BELOW NOT USED -->
+  <!-- MODULAR LAYOUT OF XML  -->
   <assessment>false</assessment>
   <dragDrop>true</dragDrop>
   <title>
@@ -58,7 +60,7 @@
   </title>
 
   <contents>
-    
+
   </contents>
 
 </page>
