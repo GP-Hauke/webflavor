@@ -475,6 +475,7 @@ function nextPage() {
 
       currentPage++;
       courseData.localBookmarkingStorage.page += 1;
+
       loadPage();
 
     }
@@ -585,7 +586,6 @@ function getFooterNav() {
   /* current page is not the last page in the current chapter so display next button
   OR current chapter is not the last chapter so display next button */
   if(currentPage != courseData.chapters[currentChapter].pages.length-1 || currentChapter != courseData.chapters.length-1) {
-
     if(hasLocks) {
       nextBtnImgPath = '/img/btn_next.png';
     } else {

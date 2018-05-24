@@ -361,19 +361,28 @@ function loadContent(param){
 
   $.get(arg)
     .done(function(xml) {
-      $('#pageContent').append($(xml).find('content').text());
+      //$('#pageContent').append($(xml).find('content').text());
 
-      /*
+    //  /*
+      var titleSize = $(xml).find("title").find("size").text();
+      var titleHTML = '<div class="row"><div class="col-sm-'+titleSize+'"><h1 id="pageTitle"></h1><div class="page-number"></div></div></div>';
+
       var paragraphHTML = "";
-      $(xml).children()
-      $(xml).find("contents").children().each(function(){
+      $(xml).find("paragraph").each(function(){
         var p = $(this);
         paragraphHTML += '<p class="top-paragraph">' + p.text() + '</p>';
       })
 
-      var contentHTML = '<div class="row"><div class="col-sm-12"><h1 id="pageTitle"></h1><div class="page-number"></div></div></div><div class="row margin-below"><div class="col-md-6">' + paragraphHTML + '</div><div id="btnAssessment1" class="col-md-offset-1 col-md-5 btn-assess"><div class="block summary"><img class="img-fluid" src="../../../dir/media/img/assets/game/game_launch_btn.png" alt="game launch button"/></div></div></div>';
+      var extraHTML = ""
+      $(xml).find("extra").each(function(){
+        var e = $(this);
+        extraHTML += e.text();
+      })
 
-      $('#pageContent').append(contentHTML);*/
+      var contentHTML = titleHTML + '<div class="row margin-below"><div class="col-md-6">' + paragraphHTML + '</div>'+extraHTML+'</div>';
+      $('#pageContent').append(contentHTML);
+
+  //    */
 
       if($(xml).find('assessment').text() == "true"){
         setupAssessment();
@@ -381,7 +390,6 @@ function loadContent(param){
       if($(xml).find('dragDrop').text() == "true"){
         setupDragDrop();
       }
-
 
       var courseData = JSON.parse(localStorage.getItem(window.parent.LOCAL_COURSE_DATA_ID));
       updatePagination();

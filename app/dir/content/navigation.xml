@@ -24,4 +24,10 @@
       <page gated="false" locks="0" audio=""><![CDATA[COURSE COMPLETION]]></page>
     </pages>
   </chapter>
+  <chapter>
+    <title><![CDATA[DRAG AND DROP]]></title>
+    <pages>
+      <page gated="false" locks="0" audio=""><![CDATA[DRAG AND DROP COMPONENT]]></page>
+    </pages>
+  </chapter>
 </course>

@@ -1,10 +1,21 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <page>
   <title><![CDATA[Know Your Lineup]]></title>
-
   <content>
     <![CDATA[
             <div class="row">
+              <div class="col-sm-12">
+                <h1 id="pageTitle"></h1>
+                <div class="page-number"></div>
+              </div>
+            </div>
+
+            <div class="row">
+
+            </div>
+            </div>]]>
+
+            <!--<div class="row">
               <div class="col-sm-6">
                 <h1 id="pageTitle"></h1>
                 <div class="page-number"></div>
@@ -36,26 +47,18 @@
               <div class="offset-1 col-sm-4">
                 <a class="btn btn-default d-block mx-auto" href="https://www.surveymonkey.com/r/B29CSP2" target="_blank" role="button">Take Survey</a>
               </div>
-            </div>]]>
-</content>
+            </div> -->
+  </content>
+  <!-- TESTING MODULAR LAYOUT OF XML  -->
+  <assessment>false</assessment>
+  <dragDrop>true</dragDrop>
+  <title>
+    <!-- Size can be a number from 1-12 representing how much of the window it takes up. 12 being the full width, 6 being half, 4 being a third, etc... -->
+    <size>12</size>
+  </title>
 
-<!-- TESTING MODULAR LAYOUT OF XML  -->
-<assessment>false</assessment>
-<dragDrop>false</dragDrop>
-<title>
-  <!-- Size can be a number from 1-12 representing how much of the window it takes up. 12 being the full width, 6 being half, 4 being a third, etc... -->
-  <size>6</size>
-</title>
+  <contents>
+    
+  </contents>
 
-<contents>
-  <paragraph>
-    <![CDATA[Please select the <span class="bolded">Complete for Credit</span> button below to receive credit for this course.<a class="btn btn-default d-block mx-auto btn-complete" id="btnComplete" role="button" onclick="setComplete()">Complete for Credit</a>]]>
-  </paragraph>
-
-  <paragraph>
-    <![CDATA[You are among the first to take this course. We would appreciate your feedback.<a class="btn btn-default d-block mx-auto" href="https://www.surveymonkey.com/r/B29CSP2" target="_blank" role="button">Take Survey</a>]]>
-  </paragraph>
-
-  <extra></extra>
-</contents>
 </page>

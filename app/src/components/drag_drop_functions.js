@@ -74,7 +74,7 @@ function setupDragDrop(){
 
   var html = '<div id="dragAndDrop"><div class="row intro">Match the following cities with their states. Complete the task by dragging and dropping the items into their correct spots. Correct answers will turn green, while the wrong answers will turn red. Good luck!</div><div class="row">' + leftContainerHtml + rightContainerHtml + submitBtn;
 
-  $("#pageContent").after(html);
+  $("#pageContent").append(html);
   $('#dragAndDrop .btn-reversed').on({
     mouseenter: function () {
       $(this).removeClass('btn-reversed');

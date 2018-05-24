@@ -14,7 +14,8 @@ ul {
 @media only screen and (max-width: 768px) {
   .page-container {
     padding-left: 15px !important;
-    padding-right: 15px !important; } }
+    padding-right: 15px !important; }
+  }
 
 #titleMain {
     font-weight: 100;
@@ -1373,7 +1374,6 @@ h2.section-title {
   font-weight: 400;
   height: 50px;
   position: relative;
-
 }
 
 #dragAndDrop .item-container p{
@@ -1387,6 +1387,8 @@ h2.section-title {
   color: #fff;
   margin-bottom: 10px;
   cursor: pointer;
+  transition: all 200ms ease-in;
+
 }
 
 #dragAndDrop .draggable{
