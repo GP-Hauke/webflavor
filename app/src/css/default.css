@@ -1362,6 +1362,24 @@ h2.section-title {
 
 /* end MODAL - GLOBAL STYLES */
 
+@-webkit-keyframes opacity-fade {
+   0% {
+     opacity: 0;
+   }
+   100% {
+     opacity: 1;
+   }
+}
+
+@keyframes opacity-fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 #dragAndDrop .item-container{
   height: 50px;
   background: #f7f7f7;
@@ -1374,6 +1392,8 @@ h2.section-title {
   font-weight: 400;
   height: 50px;
   position: relative;
+  -webkit-animation: opacity-fade 100ms ease-in 1;
+  animation: opacity-fade 100ms ease-in 1;
 }
 
 #dragAndDrop .item-container p{
@@ -1387,7 +1407,9 @@ h2.section-title {
   color: #fff;
   margin-bottom: 10px;
   cursor: pointer;
-  transition: all 200ms ease-in;
+  transition: all 250ms ease-in;
+  -webkit-animation: opacity-fade 100ms ease-in 1;
+  animation: opacity-fade 100ms ease-in 1;
 
 }
 
@@ -1435,7 +1457,7 @@ h2.section-title {
   color: #003056;
   font-size: 20px;
   transition: all 200ms ease-in-out;
-  transform: scale(.90);
+  transform: scale(.88);
 }
 
 #dragAndDrop .btn:first-child{

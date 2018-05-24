@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<page>
+<page type="content">
   <title><![CDATA[Know Your Lineup]]></title>
   <content>
     <![CDATA[
@@ -41,7 +41,6 @@
 <!-- TESTED CODE BELOW NOT USED -->
 <!-- TESTING MODULAR LAYOUT OF XML  -->
 <assessment>false</assessment>
-<dragDrop>false</dragDrop>
 <title>
   <!-- Size can be a number from 1-12 representing how much of the window it takes up. 12 being the full width, 6 being half, 4 being a third, etc... -->
   <size>6</size>

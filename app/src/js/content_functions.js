@@ -1,33 +1,3 @@
-/*function initContent(pageID) {
-var courseData = JSON.parse(localStorage.getItem(window.parent.LOCAL_COURSE_DATA_ID));
-
-updatePagination();
-
-if(courseData.COUNT_PAGES == 'true') {
-registerPageVisit(window.parent.LOCAL_COURSE_DATA_ID, pageID); // lives in tracking_functions.js
-}
-
-if(courseData.cardData !== undefined) {
-populateCards();
-}
-
-try {
-$("#pageTitle").html(window.parent.getPageTitle());
-} catch(e) {
-console.log('something went wrong ', e);
-}
-
-if($('.footer-spacer').length) {
-$('.footer-spacer').css({height:window.parent.getFooterHeight()+25});
-}
-
-try {
-window.parent.pageLoaded();
-} catch(e) {
-console.log('something went wrong ', e);
-}
-}*/
-
 function updatePagination() {
   var currChap = window.parent.currentChapter + 1;
   //var totalChaps = parseInt(window.parent.totalPages);
@@ -363,41 +333,52 @@ function loadContent(param){
   .done(function(xml) {
     //$('#pageContent').append($(xml).find('content').text());
 
-    //  /*
-    var titleSize = $(xml).find("title").find("size").text();
-    var titleHTML = '<div class="row"><div class="col-sm-'+titleSize+'"><h1 id="pageTitle"></h1><div class="page-number"></div></div></div>';
+    ///*
+    //CHECK TO SEE WHAT TYPE OF PAGE: ASSESSMENT OR CONTENT
+    if($(xml).find("page").attr("type") == "content"){
+      var titleSize = $(xml).find("title").find("size").text();
+      var titleHTML = '<div class="row"><div class="col-sm-'+titleSize+'"><h1 id="pageTitle"></h1><div class="page-number"></div></div></div>';
 
+      var contentHTML = "";
+      if($(xml).find('contents').children().length > 0){
+        var paragraphHTML = "";
 
-    var contentHTML = "";
-    if($(xml).find('contents').children().length > 0){
-      var paragraphHTML = "";
+        $(xml).find("paragraph").each(function(){
+          var p = $(this);
+          paragraphHTML += '<p class="top-paragraph">' + p.text() + '</p>';
+        })
 
-      $(xml).find("paragraph").each(function(){
-        var p = $(this);
-        paragraphHTML += '<p class="top-paragraph">' + p.text() + '</p>';
-      })
+        var extraHTML = "";
+        $(xml).find("extra").each(function(){
+          var e = $(this);
+          extraHTML += e.text();
+        })
 
-      var extraHTML = "";
-      $(xml).find("extra").each(function(){
-        var e = $(this);
-        extraHTML += e.text();
-      })
+        contentHTML = '<div class="row margin-below"><div class="col-md-6">' + paragraphHTML + '</div>'+extraHTML+'</div>';
+      }
+      var pageHTML = titleHTML +contentHTML;
 
-      contentHTML = '<div class="row margin-below"><div class="col-md-6">' + paragraphHTML + '</div>'+extraHTML+'</div>';
+      $('#pageContent').append(pageHTML);
+
     }
-    var pageHTML = titleHTML +contentHTML;
+    else if($(xml).find("page").attr("type") == "assessment"){
+      if($(xml).find('assessment').text() == "game"){
+        setupAssessment();
+      }
+      if($(xml).find('assessment').text() == "dragDrop"){
+        setupDragDrop();
+      }
+    }
+    //*/
 
-    $('#pageContent').append(pageHTML);
 
-
-    //    */
-
-    if($(xml).find('assessment').text() == "true"){
+    if($(xml).find('assessment').text() == "game"){
       setupAssessment();
     }
-    if($(xml).find('dragDrop').text() == "true"){
+    if($(xml).find('assessment').text() == "dragDrop"){
       setupDragDrop();
     }
+
 
     var courseData = JSON.parse(localStorage.getItem(window.parent.LOCAL_COURSE_DATA_ID));
     updatePagination();

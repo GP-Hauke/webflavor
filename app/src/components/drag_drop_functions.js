@@ -31,12 +31,9 @@ function initDragDrops(dragDropContentXML) {
         var pair = {
           drag: currentPair.find("drag").text(),
           drop: currentPair.find("drop").text()
-
         };
-
         dragDropObj.matchings.push(pair);
       });
-
       courseData.dragDropData.dragDrops.push(dragDropObj);
     }
     localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(courseData));
@@ -106,7 +103,6 @@ function shuffleDrags(){
       draggables[j] = x;
   }
 
-
   $('.left').empty();
 
   for(var i = 0; i < draggables.length; i++){
@@ -143,11 +139,10 @@ function submitDragDrop(){
     var answerID = answers[i].id;
 
     if($('#'+answerID).find('p')[0] == null){
-      $('#dragAndDrop .feedback').html('Finish dragging items to their correct location.<a onclick="setupDragDrop();" class="btn btn-reversed btn-restart">Restart</a><a onclick="submitDragDrop();" class="btn btn-default-main">Submit</a>')
+      $('#dragAndDrop .feedback').html('Finish dragging items to their correct location.<a onclick="setupDragDrop();" class="btn btn-reversed">Restart</a><a onclick="submitDragDrop();" class="btn btn-default-main">Submit</a>')
       return;
     }
   }
-
 
   for(var i = 0; i < answers.length; i++){
     var answerID = answers[i].id;
@@ -183,9 +178,23 @@ function submitDragDrop(){
 
   gameFeedback += " <span> Total Score: +"+score+" points</span.>";
 
-
-  $('#dragAndDrop .feedback').html(gameFeedback+'<a onclick="setupDragDrop();" class="btn btn-reversed btn-restart">Restart</a><a onclick="submitDragDrop();" class="btn btn-default-main">Submit</a>');
+  $('#dragAndDrop .feedback').html(gameFeedback+'<a onclick="setupDragDrop();" class="btn btn-reversed ">Restart</a><a onclick="submitDragDrop();" class="btn btn-default-main">Submit</a>');
   $('#dragAndDrop .feedback').after('');
+  $('#dragAndDrop .btn-reversed').on({
+    mouseenter: function () {
+      $(this).removeClass('btn-reversed');
+      $(this).addClass('btn-default-main');
+      $(this).next().removeClass('btn-default-main');
+      $(this).next().addClass('btn-reversed');
+
+    },
+    mouseleave: function () {
+      $(this).addClass('btn-reversed');
+      $(this).removeClass('btn-default-main');
+      $(this).next().addClass('btn-default-main');
+      $(this).next().removeClass('btn-reversed');
+    }
+  })
 }
 
 // DRAG AND DROP CORE FUNCTIONALITY

@@ -37,7 +37,6 @@ function initAssessments(assessmentsContentXML) {
 
       if(assessmentObj.title.indexOf("Buick") !== -1) {
         assessmentObj.style = "buick";
-
       } else if(assessmentObj.title.indexOf("Chevrolet") !== -1) {
         assessmentObj.style = "chevy";
       } else if(assessmentObj.title.indexOf("GMC") !== -1) {
@@ -102,41 +101,38 @@ function launchAssessment(id, clickTarget) {
 
   courseData.assessmentData.assessments[activeAssessment].score = 0;
 
-
   //  if(questionIndex === questionsNum) {
   /*if(completed === "true") {
   retryChoice(activeAssessment);
-  return;
+  return; else {*/
 
-} else {*/
+  if(activeAssessment === 0) {
+    $("#modalContainer .assessment-container").append("<div class='selection-screen row'></div>");
+    $("#modalContainer .selection-screen").append("<div class='col-md-12'><p>Think you know your lineup? Let's see if you can find the best vehicle for the customer. First select the brand you want to view. We'll give you a question regarding a customer's particular interest. You'll be given a choice between two different vehicles. Select the one that best suits your customer's needs. In some cases, BOTH vehicles could meet your customer's needs.</p><p>When you're done, see how you did. And feel free to come back to play again and again. You can use this game to bring you up to speed on the models you sell or as a quick refresher.</p><p>When you're ready, click the <span class='bolded'>brand button</span> and get started.</p></div>");
 
-if(activeAssessment === 0) {
-  $("#modalContainer .assessment-container").append("<div class='selection-screen row'></div>");
-  $("#modalContainer .selection-screen").append("<div class='col-md-12'><p>Think you know your lineup? Let's see if you can find the best vehicle for the customer. First select the brand you want to view. We'll give you a question regarding a customer's particular interest. You'll be given a choice between two different vehicles. Select the one that best suits your customer's needs. In some cases, BOTH vehicles could meet your customer's needs.</p><p>When you're done, see how you did. And feel free to come back to play again and again. You can use this game to bring you up to speed on the models you sell or as a quick refresher.</p><p>When you're ready, click the <span class='bolded'>brand button</span> and get started.</p></div>");
+    $("#modalContainer .selection-screen").append("<div class='col-md-4'><button class='d-block mx-auto btn-game buick'><img class='img-fluid' src='../../../dir/media/img/assets/game/game_branch_buick.jpg' alt=''></button></div>");
 
-  $("#modalContainer .selection-screen").append("<div class='col-md-4'><button class='d-block mx-auto btn-game buick'><img class='img-fluid' src='../../../dir/media/img/assets/game/game_branch_buick.jpg' alt=''></button></div>");
+    $("#modalContainer .selection-screen").append("<div class='col-md-4'><button class='d-block mx-auto  btn-game gmc'><img class='img-fluid' src='../../../dir/media/img/assets/game/game_branch_gmc.jpg' alt=''></button></div>");
 
-  $("#modalContainer .selection-screen").append("<div class='col-md-4'><button class='d-block mx-auto  btn-game gmc'><img class='img-fluid' src='../../../dir/media/img/assets/game/game_branch_gmc.jpg' alt=''></button></div>");
+    $("#modalContainer .selection-screen").append("<div class='col-md-4'><button class='d-block mx-auto  btn-game chevy'><img class='img-fluid' src='../../../dir/media/img/assets/game/game_branch_chevy.jpg' alt=''></button></div>");
 
-  $("#modalContainer .selection-screen").append("<div class='col-md-4'><button class='d-block mx-auto  btn-game chevy'><img class='img-fluid' src='../../../dir/media/img/assets/game/game_branch_chevy.jpg' alt=''></button></div>");
+    $("#modalContainer .btn-game.buick").click(function() {
+      $(".selection-screen").remove();
+      openIntroScreen(0);
+    });
+    $("#modalContainer .btn-game.gmc").click(function() {
+      $(".selection-screen").remove();
+      openIntroScreen(1);
+    });
+    $("#modalContainer .btn-game.chevy").click(function() {
+      $(".selection-screen").remove();
+      openIntroScreen(2);
+    });
 
-  $("#modalContainer .btn-game.buick").click(function() {
-    $(".selection-screen").remove();
-    openIntroScreen(0);
-  });
-  $("#modalContainer .btn-game.gmc").click(function() {
-    $(".selection-screen").remove();
-    openIntroScreen(1);
-  });
-  $("#modalContainer .btn-game.chevy").click(function() {
-    $(".selection-screen").remove();
-    openIntroScreen(2);
-  });
-
-} else {
-  openIntroScreen(3);
-}
-//  }
+  } else {
+    openIntroScreen(3);
+  }
+  //  }
 }
 
 function openIntroScreen(id) {
@@ -213,9 +209,7 @@ function startAssessment(id) {
   $("#modalContainer .assessment-content").append("<div class='row mx-auto answers clearfix'></div>");
 
   for(var i = 0; i < 2; i++) {
-
     $("#modalContainer .answers").append("<div class='col-md-6 answer-container initial btn"+i+"'><div class='unselected-box'></div><div class='border-box'><img class='img-fluid' src='"+answersFiltered[i].img+"'/><div class='brand-model-attr clearfix'><p class='brand'>"+answersFiltered[i].brand+"</p><p class='model'>"+answersFiltered[i].model+"</p><p class='attr'>"+answersFiltered[i].attributes+"</p></div><div class='selected-bar'></div></div></div>");
-
   }
 
   $("#modalContainer .assessment-content").append("<button class='btn-submit-answer'>SUBMIT</button>");
@@ -353,13 +347,11 @@ function startAssessment(id) {
             correctlyAnswered = true;
             bothCorrect = true;
           }
-
         } else {
           if(parseFloat(selectedAnswersData[0].horsePower) > unselectedAnswerData.horsePower) {
             correctlyAnswered = true;
           }
         }
-
       }
 
       else if(criterion === "basePrice") {
@@ -369,7 +361,6 @@ function startAssessment(id) {
             correctlyAnswered = true;
             bothCorrect = true;
           }
-
         } else {
           if(parseFloat(selectedAnswersData[0].basePrice) < parseFloat(unselectedAnswerData.basePrice)) {
             correctlyAnswered = true;
@@ -405,13 +396,13 @@ function startAssessment(id) {
             courseData.assessmentData.assessments[activeAssessment].completed = "true";
             localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(courseData));
             endAssessment(activeAssessment);
-
-          } else {
+          }
+          else {
             startAssessment(activeAssessment);
           }
         });
-
-      } else {
+      }
+      else {
 
         $(unselectedAnswer).append("<div class='viewed-overlay'><img src='../../dir/media/img/icon_viewed.png'></div>");
 
@@ -433,8 +424,8 @@ function startAssessment(id) {
             courseData.assessmentData.assessments[activeAssessment].completed = "true";
             localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(courseData));
             endAssessment(activeAssessment);
-
-          } else {
+          }
+          else {
             startAssessment(activeAssessment);
           }
         });
@@ -455,9 +446,7 @@ function startAssessment(id) {
     });
   }*/
 }
-
 }
-
 }
 
 //Timer used in countdown and scoring
@@ -468,10 +457,8 @@ var timingInterval = setInterval(function(){
   if(timeLeft >= 0){
     var timeLeft = Math.abs(timeLeft);
     $("#modalContainer .assessment-content h3 span").html("<span> " +timeLeft+ " seconds</span>");
-
   }
 }, 100)
-
 }
 
 function endAssessment(activeAssessment) {
@@ -548,7 +535,6 @@ function endAssessment(activeAssessment) {
     localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(courseData));
     launchAssessment(0, undefined);
   });
-
 }
 
 function retryChoice(id) {
@@ -595,7 +581,6 @@ function shuffle(array) {
     array[currentIndex] = array[randomIndex];
     array[randomIndex] = temporaryValue;
   }
-
   return array;
 }
 

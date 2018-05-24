@@ -10,7 +10,7 @@
       <li>No dealer or factory incentives</li>
       <li>All seats up for trunk/cargo space</li>
     </ul>
-    <p>Try to get all 10 right! Then come back and play again. The questions and answers will change!</p>
+    <p>Try to get them all right! Then come back and play again. The questions and answers will change!</p>
     <p>Click <span class='bolded'>NEXT</span> to begin.</p>]]></introText>
 
     <questionAnswer type="multi_choice" required="false" answered="false" passed="false">
@@ -255,7 +255,7 @@
       <li>No dealer or factory incentives</li>
       <li>All seats up for trunk/cargo space</li>
     </ul>
-    <p>Try to get all 10 right! Then come back and play again. The questions and answers will change!</p>
+    <p>Try to get them all right! Then come back and play again. The questions and answers will change!</p>
     <p>Click <span class='bolded'>NEXT</span> to begin.</p>]]></introText>
 
     <questionAnswer type="multi_choice" required="false" answered="false" passed="false">
@@ -422,7 +422,7 @@
           <mpgCity><![CDATA[19]]></mpgCity>
           <mpgHighway><![CDATA[26]]></mpgHighway>
           <rearLegRoom><![CDATA[28.6]]></rearLegRoom>
-          <cargoVol><![CDATA[N/A]]></cargoVol>
+          <cargoVol><![CDATA[0]]></cargoVol>
           <basePrice><![CDATA[21,100]]></basePrice>
           <horsePower><![CDATA[200]]></horsePower>
         </answer>
@@ -436,7 +436,7 @@
           <mpgCity><![CDATA[18]]></mpgCity>
           <mpgHighway><![CDATA[24]]></mpgHighway>
           <rearLegRoom><![CDATA[34.6]]></rearLegRoom>
-          <cargoVol><![CDATA[N/A]]></cargoVol>
+          <cargoVol><![CDATA[0]]></cargoVol>
           <basePrice><![CDATA[29,000]]></basePrice>
           <horsePower><![CDATA[285]]></horsePower>
         </answer>
@@ -457,7 +457,7 @@
       <li>No dealer or factory incentives</li>
       <li>All seats up for trunk/cargo space</li>
     </ul>
-    <p>Try to get all 10 right! Then come back and play again. The questions and answers will change!</p>
+    <p>Try to get them all right! Then come back and play again. The questions and answers will change!</p>
     <p>Click <span class='bolded'>NEXT</span> to begin.</p>]]></introText>
 
     <questionAnswer type="multi_choice" required="false" answered="false" passed="false">
@@ -695,7 +695,7 @@
           <mpgCity><![CDATA[19]]></mpgCity>
           <mpgHighway><![CDATA[26]]></mpgHighway>
           <rearLegRoom><![CDATA[28.6]]></rearLegRoom>
-          <cargoVol><![CDATA[N/A]]></cargoVol>
+          <cargoVol><![CDATA[0]]></cargoVol>
           <basePrice><![CDATA[20,200]]></basePrice>
           <horsePower><![CDATA[200]]></horsePower>
         </answer>
@@ -709,7 +709,7 @@
           <mpgCity><![CDATA[18]]></mpgCity>
           <mpgHighway><![CDATA[24]]></mpgHighway>
           <rearLegRoom><![CDATA[34.6]]></rearLegRoom>
-          <cargoVol><![CDATA[N/A]]></cargoVol>
+          <cargoVol><![CDATA[0]]></cargoVol>
           <basePrice><![CDATA[28,300]]></basePrice>
           <horsePower><![CDATA[285]]></horsePower>
         </answer>
