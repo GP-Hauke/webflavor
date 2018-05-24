@@ -70,11 +70,27 @@ function setupDragDrop(){
   leftContainerHtml += '</div>';
   rightContainerHtml += '</div>';
 
-  var submitBtn = '</div><div class="row btn-row"><a class="btn">Submit</a></div>';
+  var submitBtn = '</div><div class="row btn-row"><p class="feedback"><a onclick="setupDragDrop();" class="btn btn-reversed btn-restart">Restart</a><a onclick="submitDragDrop();" class="btn btn-default-main">Submit</a></p></div>';
 
   var html = '<div id="dragAndDrop"><div class="row intro">Match the following cities with their states. Complete the task by dragging and dropping the items into their correct spots. Correct answers will turn green, while the wrong answers will turn red. Good luck!</div><div class="row">' + leftContainerHtml + rightContainerHtml + submitBtn;
 
   $("#pageContent").after(html);
+  $('#dragAndDrop .btn-reversed').on({
+    mouseenter: function () {
+      $(this).removeClass('btn-reversed');
+      $(this).addClass('btn-default-main');
+      $(this).next().removeClass('btn-default-main');
+      $(this).next().addClass('btn-reversed');
+
+    },
+    mouseleave: function () {
+      $(this).addClass('btn-reversed');
+      $(this).removeClass('btn-default-main');
+      $(this).next().addClass('btn-default-main');
+      $(this).next().removeClass('btn-reversed');
+
+    }
+  })
   shuffleDrags();
   shuffleDrops();
 }
@@ -118,6 +134,39 @@ function shuffleDrops(){
   return;
 }
 
+function submitDragDrop(){
+  var courseData = JSON.parse(localStorage.getItem(window.parent.LOCAL_COURSE_DATA_ID));
+  var score = 0;
+
+  var answers = $('#dragAndDrop .right').children();
+  for(var i = 0; i < answers.length; i++){
+    var answerID = answers[i].id;
+
+    if($('#'+answerID).find('p')[0] == null){
+      $('#dragAndDrop .feedback').html('Finish dragging items over.<a onclick="setupDragDrop();" class="btn btn-reversed btn-restart">Restart</a><a onclick="submitDragDrop();" class="btn btn-default-main">Submit</a>')
+      return;
+    }
+  }
+
+
+  for(var i = 0; i < answers.length; i++){
+    var answerID = answers[i].id;
+    var matchID = $('#'+answerID).find('p')[0].id;
+
+    if(answerID.charAt(1) == matchID.charAt(1)){
+      $('#'+matchID).addClass('correct');
+      score += 10;
+    }
+    else{
+      $('#'+matchID).addClass('wrong');
+    }
+  }
+  courseData.dragDropData.dragDrops[0].completed = true;
+  courseData.dragDropData.dragDrops[0].score = score;
+  localStorage.setItem(window.parent.LOCAL_COURSE_DATA_ID, JSON.stringify(courseData));
+  $('#dragAndDrop .feedback').html('Here are your results. Total Score: +'+score+' points<a onclick="setupDragDrop();" class="btn btn-reversed btn-restart">Restart</a><a onclick="submitDragDrop();" class="btn btn-default-main">Submit</a>')
+}
+
 // DRAG AND DROP CORE FUNCTIONALITY
 function dragstart_handler(ev) {
   // Add the target element's id to the data transfer object
@@ -143,6 +192,11 @@ function drop_handler(ev) {
   var dropId = "#"+dropVal;
 
   $(dropId).append($(dragId));
+
+  $(dragId).removeClass('correct');
+  $(dragId).removeClass('wrong');
+
+  /*
   if($(ev.target).hasClass('holder')){
     $(dragId).removeClass('correct');
     $(dragId).removeClass('wrong');
@@ -156,4 +210,5 @@ function drop_handler(ev) {
     $(dragId).addClass('wrong');
     $(dragId).removeClass('correct');
   }
+  */
 }

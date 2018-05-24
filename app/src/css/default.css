@@ -1414,15 +1414,30 @@ h2.section-title {
 #dragAndDrop .btn-row{
   float: right;
   margin-right: 1;
+  margin-top: 20px;
+  margin-right: -10px;
 }
 
-#dragAndDrop .btn{
-  color: #fff;
+#dragAndDrop .btn-default-main{
+  margin-right: 10px;
+  border: 2px solid #003056;
   background: #003056;
-  border: 2px #003056 solid;
+  color: #fff;
   font-size: 20px;
 }
 
-#dragAndDrop .btn:hover{
-  opacity: .5;
+#dragAndDrop .btn-reversed{
+  margin-right: 10px;
+  border: 2px solid #003056;
+  background: #fff;
+  color: #003056;
+  font-size: 20px;
+}
+
+#dragAndDrop .btn:first-child{
+  margin-left: 20px;
+}
+
+#dragAndDrop .feedback{
+  font-size: 24px;
 }

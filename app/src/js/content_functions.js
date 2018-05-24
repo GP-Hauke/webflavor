@@ -294,9 +294,9 @@ function tallyActions() {
 }
 
 function setupAssessment() {
-  setTimeout(function(){
 
     var courseData = JSON.parse(localStorage.getItem(window.parent.LOCAL_COURSE_DATA_ID));
+    console.log("setupassessment");
     var assessmentID = parseInt($(".btn-assess").attr("id").substring(13,15), 10) - 1;
 
     if(assessmentID === 0){
@@ -317,7 +317,7 @@ function setupAssessment() {
       window.parent.openModal('assessment', assessmentID, $(this));
     });
 
-  },1);
+
 }
 
 function setComplete() {
@@ -362,6 +362,26 @@ function loadContent(param){
   $.get(arg)
     .done(function(xml) {
       $('#pageContent').append($(xml).find('content').text());
+
+      /*
+      var paragraphHTML = "";
+      $(xml).children()
+      $(xml).find("contents").children().each(function(){
+        var p = $(this);
+        paragraphHTML += '<p class="top-paragraph">' + p.text() + '</p>';
+      })
+
+      var contentHTML = '<div class="row"><div class="col-sm-12"><h1 id="pageTitle"></h1><div class="page-number"></div></div></div><div class="row margin-below"><div class="col-md-6">' + paragraphHTML + '</div><div id="btnAssessment1" class="col-md-offset-1 col-md-5 btn-assess"><div class="block summary"><img class="img-fluid" src="../../../dir/media/img/assets/game/game_launch_btn.png" alt="game launch button"/></div></div></div>';
+
+      $('#pageContent').append(contentHTML);*/
+
+      if($(xml).find('assessment').text() == "true"){
+        setupAssessment();
+      }
+      if($(xml).find('dragDrop').text() == "true"){
+        setupDragDrop();
+      }
+
 
       var courseData = JSON.parse(localStorage.getItem(window.parent.LOCAL_COURSE_DATA_ID));
       updatePagination();
