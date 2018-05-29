@@ -1,15 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <page type="assessment">
-  <title><![CDATA[Know Your Lineup]]></title>
+  <title size="12"><![CDATA[Know Your Lineup]]></title>
   <content>
     <![CDATA[
-    <div class="row">
-      <div class="col-sm-12">
-        <h1 id="pageTitle"></h1>
-        <div class="page-number"></div>
-      </div>
-    </div>
-
     <div class="row">
       <div class="col-md-12">
         <p class="top-paragraph">Keeping a few things in mind before you hit the road will help enhance the customer experience and make your demo drive a success.</p>

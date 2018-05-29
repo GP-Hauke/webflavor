@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <page type="content">
-  <title><![CDATA[Know Your Lineup]]></title>
+  <!-- Size can be a number from 1-12 representing how much of the window it takes up. 12 being the full width, 6 being half, 4 being a third, etc... -->
+  <title size="12"><![CDATA[Know Your Lineup]]></title>
   <content>
     <![CDATA[
-    <div class="row">
-      <div class="col-sm-12">
-        <h1 id="pageTitle"></h1>
-        <div class="page-number"></div>
-      </div>
-    </div>
     <div class="row margin-below">
       <div class="col-md-6">
         <p class="top-paragraph">While no two people are the same, there is a cross-section of features and attributes that many customers look for in their next new vehicle. Customers tend to lean toward a few key criteria:</p>
