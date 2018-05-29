@@ -37,23 +37,4 @@
               </div>
             </div>]]>
 </content>
-
-<!-- TESTED CODE BELOW NOT USED -->
-<!-- TESTING MODULAR LAYOUT OF XML  -->
-<assessment>false</assessment>
-<title>
-  <!-- Size can be a number from 1-12 representing how much of the window it takes up. 12 being the full width, 6 being half, 4 being a third, etc... -->
-  <size>6</size>
-</title>
-<contents>
-  <paragraph>
-    <![CDATA[Please select the <span class="bolded">Complete for Credit</span> button below to receive credit for this course.<a class="btn btn-default d-block mx-auto btn-complete" id="btnComplete" role="button" onclick="setComplete()">Complete for Credit</a>]]>
-  </paragraph>
-
-  <paragraph>
-    <![CDATA[You are among the first to take this course. We would appreciate your feedback.<a class="btn btn-default d-block mx-auto" href="https://www.surveymonkey.com/r/B29CSP2" target="_blank" role="button">Take Survey</a>]]>
-  </paragraph>
-
-  <extra></extra>
-</contents>
 </page>

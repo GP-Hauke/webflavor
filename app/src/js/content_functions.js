@@ -331,54 +331,20 @@ function loadContent(param){
 
   $.get(arg)
   .done(function(xml) {
-    //$('#pageContent').append($(xml).find('content').text());
+    $('#pageContent').append($(xml).find('content').text());
 
-    ///*
-    //CHECK TO SEE WHAT TYPE OF PAGE: ASSESSMENT OR CONTENT
-    if($(xml).find("page").attr("type") == "content"){
-      var titleSize = $(xml).find("title").find("size").text();
-      var titleHTML = '<div class="row"><div class="col-sm-'+titleSize+'"><h1 id="pageTitle"></h1><div class="page-number"></div></div></div>';
-
-      var contentHTML = "";
-      if($(xml).find('contents').children().length > 0){
-        var paragraphHTML = "";
-
-        $(xml).find("paragraph").each(function(){
-          var p = $(this);
-          paragraphHTML += '<p class="top-paragraph">' + p.text() + '</p>';
-        })
-
-        var extraHTML = "";
-        $(xml).find("extra").each(function(){
-          var e = $(this);
-          extraHTML += e.text();
-        })
-
-        contentHTML = '<div class="row margin-below"><div class="col-md-6">' + paragraphHTML + '</div>'+extraHTML+'</div>';
-      }
-      var pageHTML = titleHTML +contentHTML;
-
-      $('#pageContent').append(pageHTML);
-
-    }
-    else if($(xml).find("page").attr("type") == "assessment"){
-      if($(xml).find('assessment').text() == "game"){
-        setupAssessment();
-      }
-      if($(xml).find('assessment').text() == "dragDrop"){
-        setupDragDrop();
-      }
-    }
-    //*/
-
-
-    if($(xml).find('assessment').text() == "game"){
+    //CERTAIN PAGES NEED SPECIFIC METHODS RUN FOR THE COMPONENTS
+    //MUST BE RUN AFTER THE CONTENT AS LOADED
+    //MOVED FROM HTML BODY onLoad="" TO HERE DUE TO ASYNC
+    if(param == '0_0'){
       setupAssessment();
     }
-    if($(xml).find('assessment').text() == "dragDrop"){
+    else if(param == '2_0'){
       setupDragDrop();
     }
-
+    else if(param == '3_0'){
+      setupHotSpot();
+    }
 
     var courseData = JSON.parse(localStorage.getItem(window.parent.LOCAL_COURSE_DATA_ID));
     updatePagination();

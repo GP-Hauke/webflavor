@@ -21,42 +21,11 @@
         </ul>
         <p class="top-paragraph">This is just the beginning. The more you interact with customers, the more criteria you’ll begin to notice. Knowing which vehicle is the best choice for customers’ individual needs can rev up a conversation and drive their confidence in you.</p>
       </div>
-      <div id="btnAssessment1" class="col-md-offset-1 col-md-5 btn-assess">
+      <div id="btnAssessment1" class="col-md-offset-1 col-md-6 btn-assess">
         <div class="block summary">
           <img class="img-fluid" src="../../../dir/media/img/assets/game/game_launch_btn.png" alt="game launch button"/>
         </div>
       </div>
     </div>]]>
   </content>
-
-  <!-- TESTED CODE BELOW NOT USED -->
-  <!-- TESTING MODULAR LAYOUT OF XML  -->
-  <assessment>game</assessment>
-  <title>
-    <!-- Size can be a number from 1-12 representing how much of the window it takes up. 12 being the full width, 6 being half, 4 being a third, etc... -->
-    <size>12</size>
-  </title>
-
-  <contents>
-    <paragraph>
-      <![CDATA[While no two people are the same, there is a cross-section of features and attributes that many customers look for in their next new vehicle. Customers tend to lean toward a few key criteria:]]>
-    </paragraph>
-
-    <paragraph>
-      <![CDATA[<ul>
-        <li>Fuel efficiency</li>
-        <li>Safety</li>
-        <li>Performance and handling</li>
-        <li>Exterior design</li>
-        <li>Reliability</li>
-      </ul>]]>
-    </paragraph>
-
-    <paragraph>
-      <![CDATA[This is just the beginning. The more you interact with customers, the more criteria you’ll begin to notice. Knowing which vehicle is the best choice for customers’ individual needs can rev up a conversation and drive their confidence in you.]]>
-    </paragraph>
-
-    <extra><![CDATA[<div id="btnAssessment1" class="col-md-offset-1 col-md-5 btn-assess"><div class="block summary"><img class="img-fluid" src="../../../dir/media/img/assets/game/game_launch_btn.png" alt="game launch button"/></div></div>]]>
-    </extra>
-  </contents>
 </page>

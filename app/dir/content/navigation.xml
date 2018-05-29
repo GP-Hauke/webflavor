@@ -25,9 +25,15 @@
     </pages>
   </chapter>
   <chapter>
-    <title><![CDATA[DRAG AND DROP]]></title>
+    <title><![CDATA[DRAG AND DROP COMPONENT]]></title>
     <pages>
       <page gated="false" locks="0" audio=""><![CDATA[DRAG AND DROP COMPONENT]]></page>
+    </pages>
+  </chapter>
+  <chapter>
+    <title><![CDATA[HOT SPOT COMPONENT]]></title>
+    <pages>
+      <page gated="false" locks="0" audio=""><![CDATA[HOT SPOT COMPONENT]]></page>
     </pages>
   </chapter>
 </course>

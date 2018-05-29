@@ -9,11 +9,13 @@
         <div class="page-number"></div>
       </div>
     </div>
-    
+
     <div class="row">
       <div class="col-md-12">
-        <p>Match the following cities with their states. Complete the task by dragging and dropping the items into their correct spots. Correct answers will turn green, while the wrong answers will turn red. Good luck!</p>
+        <p class="top-paragraph">Keeping a few things in mind before you hit the road will help enhance the customer experience and make your demo drive a success.</p>
+        <p class="top-paragraph">Click each button to reveal best practices for conducting a demo drive.</p>
       </div>
     </div>]]>
+
   </content>
 </page>

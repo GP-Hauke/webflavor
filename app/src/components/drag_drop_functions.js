@@ -69,7 +69,7 @@ function setupDragDrop(){
 
   var submitBtn = '</div><div class="row btn-row"><p class="feedback"><a onclick="setupDragDrop();" class="btn btn-reversed btn-restart">Restart</a><a onclick="submitDragDrop();" class="btn btn-default-main">Submit</a></p></div>';
 
-  var html = '<div id="dragAndDrop"><div class="row intro">Match the following cities with their states. Complete the task by dragging and dropping the items into their correct spots. Correct answers will turn green, while the wrong answers will turn red. Good luck!</div><div class="row">' + leftContainerHtml + rightContainerHtml + submitBtn;
+  var html = '<div id="dragAndDrop"><div class="row">' + leftContainerHtml + rightContainerHtml + submitBtn;
 
   $("#pageContent").append(html);
   $('#dragAndDrop .btn-reversed').on({
