@@ -110,11 +110,11 @@ function launchAssessment(id, clickTarget) {
     $("#modalContainer .assessment-container").append("<div class='selection-screen row'></div>");
     $("#modalContainer .selection-screen").append("<div class='col-md-12'><p>Think you know your lineup? Let's see if you can find the best vehicle for the customer. First select the brand you want to view. We'll give you a question regarding a customer's particular interest. You'll be given a choice between two different vehicles. Select the one that best suits your customer's needs. In some cases, BOTH vehicles could meet your customer's needs.</p><p>When you're done, see how you did. And feel free to come back to play again and again. You can use this game to bring you up to speed on the models you sell or as a quick refresher.</p><p>When you're ready, click the <span class='bolded'>brand button</span> and get started.</p></div>");
 
-    $("#modalContainer .selection-screen").append("<div class='col-md-4'><button class='d-block mx-auto btn-game buick'><img class='img-fluid' src='/dir/media/img/assets/game/game_branch_buick.jpg' alt=''></button></div>");
+    $("#modalContainer .selection-screen").append("<div class='col-md-4'><button class='d-block mx-auto btn-game buick'><img class='img-fluid' src='dir/media/img/assets/game/game_branch_buick.jpg' alt=''></button></div>");
 
-    $("#modalContainer .selection-screen").append("<div class='col-md-4'><button class='d-block mx-auto  btn-game gmc'><img class='img-fluid' src='/dir/media/img/assets/game/game_branch_gmc.jpg' alt=''></button></div>");
+    $("#modalContainer .selection-screen").append("<div class='col-md-4'><button class='d-block mx-auto  btn-game gmc'><img class='img-fluid' src='dir/media/img/assets/game/game_branch_gmc.jpg' alt=''></button></div>");
 
-    $("#modalContainer .selection-screen").append("<div class='col-md-4'><button class='d-block mx-auto  btn-game chevy'><img class='img-fluid' src='/dir/media/img/assets/game/game_branch_chevy.jpg' alt=''></button></div>");
+    $("#modalContainer .selection-screen").append("<div class='col-md-4'><button class='d-block mx-auto  btn-game chevy'><img class='img-fluid' src='dir/media/img/assets/game/game_branch_chevy.jpg' alt=''></button></div>");
 
     $("#modalContainer .btn-game.buick").click(function() {
       $(".selection-screen").remove();
@@ -382,7 +382,7 @@ function startAssessment(id) {
         courseData.assessmentData.assessments[activeAssessment].score += tempScore
 
         for(var i = 0; i < selectedAnswers.length; i++) {
-          $(selectedAnswers[i]).append("<div class='viewed-overlay'><img src='/dir/media/img/icon_viewed.png'></div>");
+          $(selectedAnswers[i]).append("<div class='viewed-overlay'><img src='dir/media/img/icon_viewed.png'></div>");
         }
 
         $("#modalContainer .assessment-content").append("<div class='feedback-container'><p class='feedback-details'>The <span>"+unselectedAnswerData.model+"</span> has <span>"+phrasedCriterion+"</span> of <span>"+unselectedAnswerData[criterion]+"</span></p><p class='feedback-details'>The <span>"+selectedAnswersData[0].model+"</span> has <span>"+phrasedCriterion+"</span> of <span>"+selectedAnswersData[0][criterion]+"</span></p><p>"+feedback+" +"+tempScore+" points</p><button class='btn-ok'>GO</button></div>");
@@ -404,7 +404,7 @@ function startAssessment(id) {
       }
       else {
 
-        $(unselectedAnswer).append("<div class='viewed-overlay'><img src='/dir/media/img/icon_viewed.png'></div>");
+        $(unselectedAnswer).append("<div class='viewed-overlay'><img src='dir/media/img/icon_viewed.png'></div>");
 
         var feedback = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.feedback.incorrect;
 
@@ -463,7 +463,7 @@ var timingInterval = setInterval(function(){
 
 function endAssessment(activeAssessment) {
   if(startBtn !== undefined) {
-    startBtn.append("<div class='viewed-overlay'><img src='/dir/media/img/icon_viewed.png'></div>");
+    startBtn.append("<div class='viewed-overlay'><img src='../../../dir/media/img/icon_viewed.png'></div>");
   }
 
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
