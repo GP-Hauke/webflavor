@@ -327,7 +327,7 @@ function onAssessmentDone(param1, param2){
 }
 
 function loadContent(param){
-  var arg = '/dir/content/course_content/' + param +'.xml';
+  var arg = '../../../dir/content/course_content/' + param +'.xml';
 
   $.get(arg)
   .done(function(xml) {
