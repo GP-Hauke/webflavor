@@ -46,44 +46,44 @@ function initInterface() {
 
 function loadXMLData() {
   if(settingsLoaded === false) {
-    GetInterfaceXML("../../dir/content/settings.xml");
+    GetInterfaceXML("/dir/content/settings.xml");
     return;
   }
 
   courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
 
   if(courseData.HAS_RESOURCES === 'true' && resourcesLoaded === false) {
-    GetInterfaceXML("../../dir/content/course_resources.xml");
+    GetInterfaceXML("/dir/content/course_resources.xml");
     return;
   }
 
   if(courseData.MENU_PLACEMENT !== 'none' && navigationLoaded === false) {
-    GetInterfaceXML("../../dir/content/navigation.xml");
+    GetInterfaceXML("/dir/content/navigation.xml");
     return;
   }
 
   if(courseData.cardData !== undefined && cardContentLoaded === false) {
-    GetInterfaceXML("../../dir/content/card_content.xml");
+    GetInterfaceXML("/dir/content/card_content.xml");
     return;
   }
 
   if(courseData.assessmentData !== undefined && assessmentsLoaded === false) {
-    GetInterfaceXML("../../dir/content/assessments.xml");
+    GetInterfaceXML("/dir/content/assessments.xml");
     return;
   }
 
   if(courseData.dragDropData !== undefined && dragDropsLoaded === false) {
-    GetInterfaceXML("../../dir/content/drag_drops.xml");
+    GetInterfaceXML("/dir/content/drag_drops.xml");
     return;
   }
 
   if(courseData.HAS_GLOSSARY === 'true' && glossaryLoaded === false) {
-    GetInterfaceXML("../../dir/content/glossary.xml");
+    GetInterfaceXML("/dir/content/glossary.xml");
     return;
 
   }
   if(courseData.HAS_SPLASH_PAGE === 'true' && splashLoaded === false){
-    GetInterfaceXML("../../dir/content/splash.xml");
+    GetInterfaceXML("/dir/content/splash.xml");
     return;
 
   } else {
@@ -581,7 +581,7 @@ function getFooterNav() {
   // USE THIS TO DISPLAY CURRENT PAGE NUMBER AND TOTAL PAGES SEPARATED BY A DIVIDER
   /*var footerNavHTML = '<span class="page-current">'+(currentChapter+1)+'</span>&nbsp;<span><img src="'+courseData.THEME_PATH+'/media/img/divider_pagination.png" alt="pagination divider"></span>&nbsp;<span class="page-total">'+parseInt(totalPages)+'</span>';*/
 
-  var footerNavHTML = '<span><img src="../../dir/media/img/btn_play_pause_inactive.png" alt="play/pause button"></span>';
+  var footerNavHTML = '<span><img src="/dir/media/img/btn_play_pause_inactive.png" alt="play/pause button"></span>';
 
   /* current page is not the last page in the current chapter so display next button
   OR current chapter is not the last chapter so display next button */
@@ -592,12 +592,12 @@ function getFooterNav() {
       nextBtnImgPath = '/img/btn_next.png';
     }
 
-    footerNavHTML = footerNavHTML + '<a class="next" href="#" onclick="nextPage();"><img src="../../dir/media'+nextBtnImgPath+'" alt="go to next page"></a>';
+    footerNavHTML = footerNavHTML + '<a class="next" href="#" onclick="nextPage();"><img src="/dir/media'+nextBtnImgPath+'" alt="go to next page"></a>';
 
   } else {
     nextBtnImgPath = '/img/btn_next_inactive.png';
 
-    footerNavHTML = footerNavHTML + '<a class="next" href="#" onclick="nextPage();"><img src="../../dir/media'+nextBtnImgPath+'" alt="go to next page"></a>';
+    footerNavHTML = footerNavHTML + '<a class="next" href="#" onclick="nextPage();"><img src="/dir/media'+nextBtnImgPath+'" alt="go to next page"></a>';
 
   }
 
@@ -606,12 +606,12 @@ function getFooterNav() {
   if(currentPage != 0 || currentChapter != 0) {
     backBtnImgPath = '/img/btn_back.png';
 
-    footerNavHTML = '<a class="back" href="#" onclick="prevPage();"><img src="../../dir/media'+backBtnImgPath+'" alt="go to previous page"></a>' + footerNavHTML;
+    footerNavHTML = '<a class="back" href="#" onclick="prevPage();"><img src="/dir/media'+backBtnImgPath+'" alt="go to previous page"></a>' + footerNavHTML;
 
   } else {
     backBtnImgPath = '/img/btn_back_inactive.png';
 
-    footerNavHTML = '<a class="back" href="#" onclick="prevPage();"><img src="../../dir/media/'+backBtnImgPath+'" alt="go to previous page"></a>' + footerNavHTML;
+    footerNavHTML = '<a class="back" href="#" onclick="prevPage();"><img src="/dir/media/'+backBtnImgPath+'" alt="go to previous page"></a>' + footerNavHTML;
   }
 
   return footerNavHTML;

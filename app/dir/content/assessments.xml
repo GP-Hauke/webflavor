@@ -128,7 +128,7 @@
       </questions>
       <answers>
         <answer correct="">
-          <modelImgSrc><![CDATA[../../dir/media/img/assets/game/2018-Buick-Regal-GS-094.png]]></modelImgSrc>
+          <modelImgSrc><![CDATA[/dir/media/img/assets/game/2018-Buick-Regal-GS-094.png]]></modelImgSrc>
           <brand><![CDATA[2018 Buick]]></brand>
           <model><![CDATA[Regal GS]]></model>
           <attributes><![CDATA[(AWD)]]></attributes>
@@ -142,7 +142,7 @@
         </answer>
 
         <answer correct="">
-          <modelImgSrc><![CDATA[../../dir/media/img/assets/game/2018-Buick-Regal-Sportback-052.png]]></modelImgSrc>
+          <modelImgSrc><![CDATA[/dir/media/img/assets/game/2018-Buick-Regal-Sportback-052.png]]></modelImgSrc>
           <brand><![CDATA[2018 Buick]]></brand>
           <model><![CDATA[Regal Sportback]]></model>
           <attributes><![CDATA[(FWD)]]></attributes>
@@ -156,7 +156,7 @@
         </answer>
 
         <answer correct="">
-          <modelImgSrc><![CDATA[../../dir/media/img/assets/game/2018-Buick-Regal-TourX-123.png]]></modelImgSrc>
+          <modelImgSrc><![CDATA[/dir/media/img/assets/game/2018-Buick-Regal-TourX-123.png]]></modelImgSrc>
           <brand><![CDATA[2018 Buick]]></brand>
           <model><![CDATA[Regal TourX]]></model>
           <attributes><![CDATA[]]></attributes>
@@ -170,7 +170,7 @@
         </answer>
 
         <answer correct="">
-          <modelImgSrc><![CDATA[../../dir/media/img/assets/game/2018-Buick-LaCrosse-025.png]]></modelImgSrc>
+          <modelImgSrc><![CDATA[/dir/media/img/assets/game/2018-Buick-LaCrosse-025.png]]></modelImgSrc>
           <brand><![CDATA[2018 Buick]]></brand>
           <model><![CDATA[LaCrosse]]></model>
           <attributes><![CDATA[(3.6L V6 FWD)]]></attributes>
@@ -184,7 +184,7 @@
         </answer>
 
         <answer correct="">
-          <modelImgSrc><![CDATA[../../dir/media/img/assets/game/2018-Buick-Cascada-Convertible-028.png]]></modelImgSrc>
+          <modelImgSrc><![CDATA[/dir/media/img/assets/game/2018-Buick-Cascada-Convertible-028.png]]></modelImgSrc>
           <brand><![CDATA[2018 Buick]]></brand>
           <model><![CDATA[Cascada]]></model>
           <attributes><![CDATA[]]></attributes>
@@ -198,7 +198,7 @@
         </answer>
 
         <answer correct="">
-          <modelImgSrc><![CDATA[../../dir/media/img/assets/game/2018-Buick-Encore-006.png]]></modelImgSrc>
+          <modelImgSrc><![CDATA[/dir/media/img/assets/game/2018-Buick-Encore-006.png]]></modelImgSrc>
           <brand><![CDATA[2018 Buick]]></brand>
           <model><![CDATA[Encore]]></model>
           <attributes><![CDATA[(1.4L standard FWD)]]></attributes>
@@ -212,7 +212,7 @@
         </answer>
 
         <answer correct="">
-          <modelImgSrc><![CDATA[../../dir/media/img/assets/game/2018-Buick-Envision-017.png]]></modelImgSrc>
+          <modelImgSrc><![CDATA[/dir/media/img/assets/game/2018-Buick-Envision-017.png]]></modelImgSrc>
           <brand><![CDATA[2018 Buick]]></brand>
           <model><![CDATA[Envision]]></model>
           <attributes><![CDATA[(2.5L FWD)]]></attributes>
@@ -226,7 +226,7 @@
         </answer>
 
         <answer correct="">
-          <modelImgSrc><![CDATA[../../dir/media/img/assets/game/2018-Buick-Enclave-033.png]]></modelImgSrc>
+          <modelImgSrc><![CDATA[/dir/media/img/assets/game/2018-Buick-Enclave-033.png]]></modelImgSrc>
           <brand><![CDATA[2018 Buick]]></brand>
           <model><![CDATA[Enclave]]></model>
           <attributes><![CDATA[(FWD)]]></attributes>
@@ -372,7 +372,7 @@
       </questions>
       <answers>
         <answer correct="">
-          <modelImgSrc><![CDATA[../../dir/media/img/assets/game/2018-GMC-Acadia-All-Terrain-003.png]]></modelImgSrc>
+          <modelImgSrc><![CDATA[/dir/media/img/assets/game/2018-GMC-Acadia-All-Terrain-003.png]]></modelImgSrc>
           <brand><![CDATA[2018 GMC]]></brand>
           <model><![CDATA[Acadia]]></model>
           <attributes><![CDATA[(2.5L FWD)]]></attributes>
@@ -386,7 +386,7 @@
         </answer>
 
         <answer correct="">
-          <modelImgSrc><![CDATA[../../dir/media/img/assets/game/2018-GMC-Terrain-059.png]]></modelImgSrc>
+          <modelImgSrc><![CDATA[/dir/media/img/assets/game/2018-GMC-Terrain-059.png]]></modelImgSrc>
           <brand><![CDATA[2018 GMC]]></brand>
           <model><![CDATA[Terrain]]></model>
           <attributes><![CDATA[(1.5L FWD)]]></attributes>
@@ -400,7 +400,7 @@
         </answer>
 
         <answer correct="">
-          <modelImgSrc><![CDATA[../../dir/media/img/assets/game/2018-GMC-Yukon-Denali-026.png]]></modelImgSrc>
+          <modelImgSrc><![CDATA[/dir/media/img/assets/game/2018-GMC-Yukon-Denali-026.png]]></modelImgSrc>
           <brand><![CDATA[2018 GMC]]></brand>
           <model><![CDATA[Yukon]]></model>
           <attributes><![CDATA[(2WD 5.3L)]]></attributes>
@@ -414,7 +414,7 @@
         </answer>
 
         <answer correct="">
-          <modelImgSrc><![CDATA[../../dir/media/img/assets/game/2018-GMC-Canyon-001.png]]></modelImgSrc>
+          <modelImgSrc><![CDATA[/dir/media/img/assets/game/2018-GMC-Canyon-001.png]]></modelImgSrc>
           <brand><![CDATA[2018 GMC]]></brand>
           <model><![CDATA[Canyon]]></model>
           <attributes><![CDATA[(2.5L I-4 2WD Extended Cab)]]></attributes>
@@ -428,7 +428,7 @@
         </answer>
 
         <answer correct="">
-          <modelImgSrc><![CDATA[../../dir/media/img/assets/game/2018-GMC-Sierra-SLT-009.png]]></modelImgSrc>
+          <modelImgSrc><![CDATA[/dir/media/img/assets/game/2018-GMC-Sierra-SLT-009.png]]></modelImgSrc>
           <brand><![CDATA[2018 GMC]]></brand>
           <model><![CDATA[Sierra 1500]]></model>
           <attributes><![CDATA[(4.3L V6 2WD, Double Cab)]]></attributes>
@@ -575,7 +575,7 @@
       </questions>
       <answers>
         <answer correct="">
-          <modelImgSrc><![CDATA[../../dir/media/img/assets/game/2018-Chevrolet-SparkACTIV-001.png]]></modelImgSrc>
+          <modelImgSrc><![CDATA[/dir/media/img/assets/game/2018-Chevrolet-SparkACTIV-001.png]]></modelImgSrc>
           <brand><![CDATA[2018 Chevrolet]]></brand>
           <model><![CDATA[Spark]]></model>
           <attributes><![CDATA[(CVT)]]></attributes>
@@ -589,7 +589,7 @@
         </answer>
 
         <answer correct="">
-          <modelImgSrc><![CDATA[../../dir/media/img/assets/game/2018-Chevrolet-Sonic-005.png]]></modelImgSrc>
+          <modelImgSrc><![CDATA[/dir/media/img/assets/game/2018-Chevrolet-Sonic-005.png]]></modelImgSrc>
           <brand><![CDATA[2018 Chevrolet]]></brand>
           <model><![CDATA[Sonic Sedan]]></model>
           <attributes><![CDATA[(1.4L Turbo, Manual)]]></attributes>
@@ -603,7 +603,7 @@
         </answer>
 
         <answer correct="">
-          <modelImgSrc><![CDATA[../../dir/media/img/assets/game/2018-Chevrolet-Cruze-011.png]]></modelImgSrc>
+          <modelImgSrc><![CDATA[/dir/media/img/assets/game/2018-Chevrolet-Cruze-011.png]]></modelImgSrc>
           <brand><![CDATA[2018 Chevrolet]]></brand>
           <model><![CDATA[Cruze LT Sedan]]></model>
           <attributes><![CDATA[(1.4L Turbo, Automatic)]]></attributes>
@@ -617,7 +617,7 @@
         </answer>
 
         <answer correct="">
-          <modelImgSrc><![CDATA[../../dir/media/img/assets/game/2018-Chevrolet-Malibu-008.png]]></modelImgSrc>
+          <modelImgSrc><![CDATA[/dir/media/img/assets/game/2018-Chevrolet-Malibu-008.png]]></modelImgSrc>
           <brand><![CDATA[2018 Chevrolet]]></brand>
           <model><![CDATA[Malibu]]></model>
           <attributes><![CDATA[(1.5L Turbo)]]></attributes>
@@ -631,7 +631,7 @@
         </answer>
 
         <answer correct="">
-          <modelImgSrc><![CDATA[../../dir/media/img/assets/game/2018-Chevrolet-Impala-LTZ-008.png]]></modelImgSrc>
+          <modelImgSrc><![CDATA[/dir/media/img/assets/game/2018-Chevrolet-Impala-LTZ-008.png]]></modelImgSrc>
           <brand><![CDATA[2018 Chevrolet]]></brand>
           <model><![CDATA[Impala]]></model>
           <attributes><![CDATA[2.5L I-4]]></attributes>
@@ -645,7 +645,7 @@
         </answer>
 
         <answer correct="">
-          <modelImgSrc><![CDATA[../../dir/media/img/assets/game/2018-Chevrolet-Trax-03.png]]></modelImgSrc>
+          <modelImgSrc><![CDATA[/dir/media/img/assets/game/2018-Chevrolet-Trax-03.png]]></modelImgSrc>
           <brand><![CDATA[2018 Chevrolet]]></brand>
           <model><![CDATA[Trax]]></model>
           <attributes><![CDATA[(FWD)]]></attributes>
@@ -659,7 +659,7 @@
         </answer>
 
         <answer correct="">
-          <modelImgSrc><![CDATA[../../dir/media/img/assets/game/2018-Chevrolet-Equinox-054.png]]></modelImgSrc>
+          <modelImgSrc><![CDATA[/dir/media/img/assets/game/2018-Chevrolet-Equinox-054.png]]></modelImgSrc>
           <brand><![CDATA[2018 Chevrolet]]></brand>
           <model><![CDATA[Equinox]]></model>
           <attributes><![CDATA[(1.5L FWD)]]></attributes>
@@ -673,7 +673,7 @@
         </answer>
 
         <answer correct="">
-          <modelImgSrc><![CDATA[../../dir/media/img/assets/game/2018-Chevrolet-Traverse-049.png]]></modelImgSrc>
+          <modelImgSrc><![CDATA[/dir/media/img/assets/game/2018-Chevrolet-Traverse-049.png]]></modelImgSrc>
           <brand><![CDATA[2018 Chevrolet]]></brand>
           <model><![CDATA[Traverse]]></model>
           <attributes><![CDATA[(3.6L V6 FWD)]]></attributes>
@@ -687,7 +687,7 @@
         </answer>
 
         <answer correct="">
-          <modelImgSrc><![CDATA[../../dir/media/img/assets/game/2018-Chevrolet-Colorado-ZR2-070.png]]></modelImgSrc>
+          <modelImgSrc><![CDATA[/dir/media/img/assets/game/2018-Chevrolet-Colorado-ZR2-070.png]]></modelImgSrc>
           <brand><![CDATA[2018 Chevrolet]]></brand>
           <model><![CDATA[Colorado]]></model>
           <attributes><![CDATA[(2.5L I-4 2WD Manual, Extended Cab)]]></attributes>
@@ -701,7 +701,7 @@
         </answer>
 
         <answer correct="">
-          <modelImgSrc><![CDATA[../../dir/media/img/assets/game/2018-Chevrolet-Silverado-001.png]]></modelImgSrc>
+          <modelImgSrc><![CDATA[/dir/media/img/assets/game/2018-Chevrolet-Silverado-001.png]]></modelImgSrc>
           <brand><![CDATA[2018 Chevrolet]]></brand>
           <model><![CDATA[Silverado 1500]]></model>
           <attributes><![CDATA[(4.3L V6 2WD, Double Cab)]]></attributes>
@@ -715,7 +715,7 @@
         </answer>
 
         <answer correct="">
-          <modelImgSrc><![CDATA[../../dir/media/img/assets/game/2018-Chevrolet-Camaro-051.png]]></modelImgSrc>
+          <modelImgSrc><![CDATA[/dir/media/img/assets/game/2018-Chevrolet-Camaro-051.png]]></modelImgSrc>
           <brand><![CDATA[2018 Chevrolet]]></brand>
           <model><![CDATA[Camaro Coupe]]></model>
           <attributes><![CDATA[(2.0L I-4, Manual)]]></attributes>

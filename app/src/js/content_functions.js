@@ -39,12 +39,12 @@ function populateCards() {
           card.append("<div class='loading-overlay'><p>Loading...</p></div><div class='img-container'><img class='img-zoom card-img' src='' alt=''></div><div class='caption'><h3></h3><p></p></div>");
 
         } else {
-          card.append("<div class='loading-overlay'><p>Loading...</p></div><div class='img-container'><img class='img-zoom card-img' src='' alt=''></div><div class='caption'><h3></h3><p></p></div><div class='viewed-overlay'><img src='../"+courseData.THEME_PATH+"/media/img/icon_viewed.png'/></div>");
+          card.append("<div class='loading-overlay'><p>Loading...</p></div><div class='img-container'><img class='img-zoom card-img' src='' alt=''></div><div class='caption'><h3></h3><p></p></div><div class='viewed-overlay'><img src='/"+courseData.THEME_PATH+"/media/img/icon_viewed.png'/></div>");
         }
 
         card.click(function() {
           if($(this).has(".viewed-overlay").length === 0) {
-            $(this).append("<div class='viewed-overlay'><img src='../"+courseData.THEME_PATH+"/media/img/icon_viewed.png'/></div>");
+            $(this).append("<div class='viewed-overlay'><img src='/"+courseData.THEME_PATH+"/media/img/icon_viewed.png'/></div>");
           }
           var cardNum = parseInt($(this).attr("id").substring(4,6), 10);
           var clickDataIndex = cardNum - 1;
@@ -64,12 +64,12 @@ function populateCards() {
           card.append("<div class='loading-overlay'><p>Loading...</p></div><div class='img-container'><img class='img-zoom card-img' src='' alt=''></div><div class='caption'><h3></h3><p></p></div>");
 
         } else {
-          card.append("<div class='loading-overlay'><p>Loading...</p></div><div class='img-container'><img class='img-zoom card-img' src='' alt=''></div><div class='caption'><h3></h3><p></p></div><div class='viewed-overlay'><img src='../"+courseData.THEME_PATH+"/media/img/icon_viewed.png'/></div>");
+          card.append("<div class='loading-overlay'><p>Loading...</p></div><div class='img-container'><img class='img-zoom card-img' src='' alt=''></div><div class='caption'><h3></h3><p></p></div><div class='viewed-overlay'><img src='/"+courseData.THEME_PATH+"/media/img/icon_viewed.png'/></div>");
         }
 
         card.click(function() {
           if($(this).has(".viewed-overlay").length === 0) {
-            $(this).append("<div class='viewed-overlay'><img src='../"+courseData.THEME_PATH+"/media/img/icon_viewed.png'/></div>");
+            $(this).append("<div class='viewed-overlay'><img src='/"+courseData.THEME_PATH+"/media/img/icon_viewed.png'/></div>");
           }
           var cardNum = parseInt($(this).attr("id").substring(4,6), 10);
           var clickDataIndex = cardNum - 1;
@@ -90,7 +90,7 @@ function populateCards() {
           card.append("<a href='' alt='' target='_blank'><div class='loading-overlay'><p>Loading...</p></div><div class='img-container'><img class='img-zoom card-img' src='' alt=''></div><div class='caption'><h3></h3><p></p></div></a>");
 
         } else {
-          card.append("<a href='' alt='' target='_blank'><div class='loading-overlay'><p>Loading...</p></div><div class='img-container'><img class='img-zoom card-img' src='' alt=''></div><div class='caption'><h3></h3><p></p></div><div class='viewed-overlay'><img src='../"+courseData.THEME_PATH+"/media/img/icon_viewed.png'/></div></a>");
+          card.append("<a href='' alt='' target='_blank'><div class='loading-overlay'><p>Loading...</p></div><div class='img-container'><img class='img-zoom card-img' src='' alt=''></div><div class='caption'><h3></h3><p></p></div><div class='viewed-overlay'><img src='/"+courseData.THEME_PATH+"/media/img/icon_viewed.png'/></div></a>");
         }
 
         card.find("a").attr("href", courseData.cardData.cardContent[dataIndex].actions[0].urlstr);
@@ -98,7 +98,7 @@ function populateCards() {
 
         card.click(function() {
           if($(this).has(".viewed-overlay").length === 0) {
-            $(this).append("<div class='viewed-overlay'><img src='../"+courseData.THEME_PATH+"/media/img/icon_viewed.png'/></div>");
+            $(this).append("<div class='viewed-overlay'><img src='/"+courseData.THEME_PATH+"/media/img/icon_viewed.png'/></div>");
           }
 
           var cardNum = parseInt($(this).attr("id").substring(4,6), 10);
@@ -115,12 +115,12 @@ function populateCards() {
           card.append("<div class='loading-overlay'><p>Loading...</p></div><div class='img-container'><img class='img-zoom card-img' src='' alt=''></div><div class='caption'><h3></h3><p></p></div>");
 
         } else {
-          card.append("<div class='loading-overlay'><p>Loading...</p></div><div class='img-container'><img class='img-zoom card-img' src='' alt=''></div><div class='caption'><h3></h3><p></p></div><div class='viewed-overlay'><img src='../"+courseData.THEME_PATH+"/media/img/icon_viewed.png'/></div>");
+          card.append("<div class='loading-overlay'><p>Loading...</p></div><div class='img-container'><img class='img-zoom card-img' src='' alt=''></div><div class='caption'><h3></h3><p></p></div><div class='viewed-overlay'><img src='/"+courseData.THEME_PATH+"/media/img/icon_viewed.png'/></div>");
         }
 
         card.click(function() {
           if($(this).has(".viewed-overlay").length === 0) {
-            $(this).append("<div class='viewed-overlay'><img src='../"+courseData.THEME_PATH+"/media/img/icon_viewed.png'/></div>");
+            $(this).append("<div class='viewed-overlay'><img src='/"+courseData.THEME_PATH+"/media/img/icon_viewed.png'/></div>");
           }
           var cardNum = parseInt($(this).attr("id").substring(4,6), 10);
           var clickDataIndex = cardNum - 1;
@@ -272,14 +272,14 @@ function setupAssessment() {
   if(assessmentID === 0){
     for(var i = 0; i < 3; i++){
       if(courseData.assessmentData.assessments[i].completed === "true"){
-        $(".btn-assess").append("<div class='viewed-overlay'><img src='../"+courseData.THEME_PATH+"/media/img/icon_viewed.png'></div>");
+        $(".btn-assess").append("<div class='viewed-overlay'><img src='/"+courseData.THEME_PATH+"/media/img/icon_viewed.png'></div>");
         continue;
       }
     }
 
   } else if(assessmentID === 3) {
     if(courseData.assessmentData.assessments[assessmentID].completed === "true"){
-      $(".btn-assess").append("<div class='viewed-overlay'><img src='../"+courseData.THEME_PATH+"/media/img/icon_viewed.png'></div>");
+      $(".btn-assess").append("<div class='viewed-overlay'><img src='/"+courseData.THEME_PATH+"/media/img/icon_viewed.png'></div>");
     }
   }
 
@@ -313,7 +313,7 @@ function changeVolume(args) {
 function openPageModal(heading,content,img) {
   var courseData = JSON.parse(localStorage.getItem(window.parent.LOCAL_COURSE_DATA_ID));
 
-  $('#pageModalContainer').html('<div class="modal fade" id="pageModal" tabindex="-1" role="dialog" aria-labelledby="pageModalLabel" style="background:url('+img+') center bottom / cover no-repeat fixed"><div class="container"><div class="row"><div class="modal-dialog" role="document"><div class="modal-page text-container col-md-8"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><img src="../'+courseData.THEME_PATH+'/media/img/btn_close.png" alt="close the modal"></span></button><h4 class="modal-title" id="">'+heading+'</h4></div><div class="modal-body clearfix">'+content+'</div></div></div></div></div></div>');
+  $('#pageModalContainer').html('<div class="modal fade" id="pageModal" tabindex="-1" role="dialog" aria-labelledby="pageModalLabel" style="background:url('+img+') center bottom / cover no-repeat fixed"><div class="container"><div class="row"><div class="modal-dialog" role="document"><div class="modal-page text-container col-md-8"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><img src="/'+courseData.THEME_PATH+'/media/img/btn_close.png" alt="close the modal"></span></button><h4 class="modal-title" id="">'+heading+'</h4></div><div class="modal-body clearfix">'+content+'</div></div></div></div></div></div>');
 
   $('.modal').on('hidden.bs.modal', function (e) {
     $('#pageModalContainer').html('');
@@ -327,7 +327,7 @@ function onAssessmentDone(param1, param2){
 }
 
 function loadContent(param){
-  var arg = '../../../dir/content/course_content/' + param +'.xml';
+  var arg = '/dir/content/course_content/' + param +'.xml';
 
   $.get(arg)
   .done(function(xml) {
@@ -338,7 +338,7 @@ function loadContent(param){
     $('#pageContent').append($(xml).find('content').text());
 
     //CERTAIN PAGES NEED SPECIFIC METHODS RUN FOR THE COMPONENTS
-    //MUST BE RUN AFTER THE CONTENT AS LOADED
+    //MUST BE RUN AFTER THE CONTENT HAS LOADED
     //MOVED FROM HTML BODY onLoad="" TO HERE DUE TO ASYNC
     if(param == '0_0'){
       setupAssessment();

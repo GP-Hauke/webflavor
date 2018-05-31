@@ -3,10 +3,13 @@ html {
 
 body {
   background: #fff;
-  overflow: hidden;
   font-family: sans-serif;
   text-rendering: optimizeLegibility;
+  overflow: hidden;
 }
+
+
+
 
 ul {
   margin-bottom: 20px; }
@@ -1136,7 +1139,9 @@ li.courseTitleChapterSelected {
   width: 100%;
   -webkit-box-sizing: border-box;
   -webkit-box-sizing: border-box;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  overflow: auto !important;
+}
 
 #contentFrame {
   width: 100%;
@@ -1472,7 +1477,6 @@ h2.section-title {
   font-weight: 600;
 }
 
-
 #hotSpot{
   height: 560px;
   width: 740px;
@@ -1500,7 +1504,6 @@ h2.section-title {
   border-radius: 100px;
   position: absolute;
 }
-
 
 #hotSpot .circle-1{
   top: 270px;
@@ -1537,7 +1540,6 @@ h2.section-title {
   margin: 0;
 }
 
-
 #hotSpot .hotSpot-popup ul{
   margin:0 !important;
 }
@@ -1549,5 +1551,4 @@ h2.section-title {
   margin-top: -45px;
   margin-right: -35px;
   cursor: pointer;
-
 }

@@ -18,7 +18,7 @@
       </div>
       <div id="btnAssessment1" class="col-md-offset-1 col-md-6 btn-assess">
         <div class="block summary">
-          <img class="img-fluid" src="../../../dir/media/img/assets/game/game_launch_btn.png" alt="game launch button"/>
+          <img class="img-fluid" src="/dir/media/img/assets/game/game_launch_btn.png" alt="game launch button"/>
         </div>
       </div>
     </div>]]>
