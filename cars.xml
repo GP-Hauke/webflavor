@@ -1,0 +1,132 @@
+<!-- BUICK CARS -->
+
+<answers>
+  <answer correct="">
+    <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-Buick-Regal-GS-094.png]]></modelImgSrc>
+    <brand><![CDATA[2018 Buick]]></brand>
+    <model><![CDATA[Regal GS]]></model>
+    <attributes><![CDATA[(AWD)]]></attributes>
+    <mpg><![CDATA[19/27]]></mpg>
+    <mpgCity><![CDATA[19]]></mpgCity>
+    <mpgHighway><![CDATA[27]]></mpgHighway>
+    <rearLegRoom><![CDATA[36.9]]></rearLegRoom>
+    <cargoVol><![CDATA[31.5]]></cargoVol>
+    <basePrice><![CDATA[39,070]]></basePrice>
+    <horsePower><![CDATA[310]]></horsePower>
+    <color><![CDATA[red]]></color>
+    <sunroof><![CDATA[yes]]></sunroof>
+  </answer>
+
+  <answer correct="">
+    <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-Buick-Regal-Sportback-052.png]]></modelImgSrc>
+    <brand><![CDATA[2018 Buick]]></brand>
+    <model><![CDATA[Regal Sportback]]></model>
+    <attributes><![CDATA[(FWD)]]></attributes>
+    <mpg><![CDATA[22/32]]></mpg>
+    <mpgCity><![CDATA[22]]></mpgCity>
+    <mpgHighway><![CDATA[32]]></mpgHighway>
+    <rearLegRoom><![CDATA[36.9]]></rearLegRoom>
+    <cargoVol><![CDATA[31.5]]></cargoVol>
+    <basePrice><![CDATA[24,990]]></basePrice>
+    <horsePower><![CDATA[250]]></horsePower>
+    <color><![CDATA[black]]></color>
+    <sunroof><![CDATA[no]]></sunroof>
+  </answer>
+
+  <answer correct="">
+    <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-Buick-Regal-TourX-123.png]]></modelImgSrc>
+    <brand><![CDATA[2018 Buick]]></brand>
+    <model><![CDATA[Regal TourX]]></model>
+    <attributes><![CDATA[]]></attributes>
+    <mpg><![CDATA[21/29]]></mpg>
+    <mpgCity><![CDATA[21]]></mpgCity>
+    <mpgHighway><![CDATA[29]]></mpgHighway>
+    <rearLegRoom><![CDATA[36.9]]></rearLegRoom>
+    <cargoVol><![CDATA[32.7]]></cargoVol>
+    <basePrice><![CDATA[29,070]]></basePrice>
+    <horsePower><![CDATA[250]]></horsePower>
+    <color><![CDATA[white]]></color>
+    <sunroof><![CDATA[no]]></sunroof>
+  </answer>
+
+  <answer correct="">
+    <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-Buick-LaCrosse-025.png]]></modelImgSrc>
+    <brand><![CDATA[2018 Buick]]></brand>
+    <model><![CDATA[LaCrosse]]></model>
+    <attributes><![CDATA[(3.6L V6 FWD)]]></attributes>
+    <mpg><![CDATA[21/31]]></mpg>
+    <mpgCity><![CDATA[21]]></mpgCity>
+    <mpgHighway><![CDATA[31]]></mpgHighway>
+    <rearLegRoom><![CDATA[38.0]]></rearLegRoom>
+    <cargoVol><![CDATA[15.0]]></cargoVol>
+    <basePrice><![CDATA[29,565]]></basePrice>
+    <horsePower><![CDATA[310]]></horsePower>
+    <color><![CDATA[silver]]></color>
+    <sunroof><![CDATA[no]]></sunroof>
+  </answer>
+
+  <answer correct="">
+    <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-Buick-Cascada-Convertible-028.png]]></modelImgSrc>
+    <brand><![CDATA[2018 Buick]]></brand>
+    <model><![CDATA[Cascada]]></model>
+    <attributes><![CDATA[]]></attributes>
+    <mpg><![CDATA[21/29]]></mpg>
+    <mpgCity><![CDATA[21]]></mpgCity>
+    <mpgHighway><![CDATA[29]]></mpgHighway>
+    <rearLegRoom><![CDATA[32.8]]></rearLegRoom>
+    <cargoVol><![CDATA[13.4]]></cargoVol>
+    <basePrice><![CDATA[33,065]]></basePrice>
+    <horsePower><![CDATA[200]]></horsePower>
+    <color><![CDATA[blue]]></color>
+    <sunroof><![CDATA[no]]></sunroof>
+  </answer>
+
+  <answer correct="">
+    <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-Buick-Encore-006.png]]></modelImgSrc>
+    <brand><![CDATA[2018 Buick]]></brand>
+    <model><![CDATA[Encore]]></model>
+    <attributes><![CDATA[(1.4L standard FWD)]]></attributes>
+    <mpg><![CDATA[25/33]]></mpg>
+    <mpgCity><![CDATA[25]]></mpgCity>
+    <mpgHighway><![CDATA[33]]></mpgHighway>
+    <rearLegRoom><![CDATA[35.7]]></rearLegRoom>
+    <cargoVol><![CDATA[18.8]]></cargoVol>
+    <basePrice><![CDATA[22,990]]></basePrice>
+    <horsePower><![CDATA[138]]></horsePower>
+    <color><![CDATA[blue]]></color>
+    <sunroof><![CDATA[no]]></sunroof>
+  </answer>
+
+  <answer correct="">
+    <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-Buick-Envision-017.png]]></modelImgSrc>
+    <brand><![CDATA[2018 Buick]]></brand>
+    <model><![CDATA[Envision]]></model>
+    <attributes><![CDATA[(2.5L FWD)]]></attributes>
+    <mpg><![CDATA[22/29]]></mpg>
+    <mpgCity><![CDATA[22]]></mpgCity>
+    <mpgHighway><![CDATA[29]]></mpgHighway>
+    <rearLegRoom><![CDATA[37.5]]></rearLegRoom>
+    <cargoVol><![CDATA[26.9]]></cargoVol>
+    <basePrice><![CDATA[33,995]]></basePrice>
+    <horsePower><![CDATA[197]]></horsePower>
+    <color><![CDATA[silver]]></color>
+    <sunroof><![CDATA[no]]></sunroof>
+  </answer>
+
+  <answer correct="">
+    <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-Buick-Enclave-033.png]]></modelImgSrc>
+    <brand><![CDATA[2018 Buick]]></brand>
+    <model><![CDATA[Enclave]]></model>
+    <attributes><![CDATA[(FWD)]]></attributes>
+    <mpg><![CDATA[18/26]]></mpg>
+    <mpgCity><![CDATA[18]]></mpgCity>
+    <mpgHighway><![CDATA[26]]></mpgHighway>
+    <rearLegRoom><![CDATA[38.9]]></rearLegRoom>
+    <cargoVol><![CDATA[58.0]]></cargoVol>
+    <basePrice><![CDATA[39,995]]></basePrice>
+    <horsePower><![CDATA[310]]></horsePower>
+    <color><![CDATA[silver]]></color>
+    <sunroof><![CDATA[no]]></sunroof>
+  </answer>
+</answers>
+<feedback>

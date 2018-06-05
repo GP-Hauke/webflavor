@@ -71,6 +71,7 @@ function setupDragDrop(){
 
   var html = '<div id="dragAndDrop"><div class="row">' + leftContainerHtml + rightContainerHtml + submitBtn;
 
+
   $("#pageContent").append(html);
   $('#dragAndDrop .btn-reversed').on({
     mouseenter: function () {

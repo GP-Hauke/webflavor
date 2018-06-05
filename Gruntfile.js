@@ -4,7 +4,7 @@ module.exports = function(grunt){
     pkg: grunt.file.readJSON('package.json'),
 
     useminPrepare: {
-      html: 'app/**/*.html',
+      html: 'app/**/index.html',
       options: {
         dest: 'dist'
       }

@@ -51,22 +51,39 @@ function initAssessments(assessmentsContentXML) {
 
         var question = {
           TYPE: currentQuestion.attr("type"),
+          CHARACTERISTIC: currentQuestion.find("characteristic").text(),
           REQUIRED: currentQuestion.attr("required"),
           ANSWERED: currentQuestion.attr("answered"),
           PASSED: currentQuestion.attr("passed"),
           SCORE: 0,
           IMAGE: currentQuestion.find("imgSrc").text(),
           CRITERION: currentQuestion.find('criterion').text(),
-          FILTER: currentQuestion.find('filter').text(),
-          FILTERNUM: currentQuestion.find('filterNum').text(),
+          HASFILTERS: currentQuestion.find('filters').attr("hasFilters"),
+          filters: [],
           question: {
             questionTitle: currentQuestion.find("questionTitle").text(),
             questionBody: currentQuestion.find("questionBody").text()
           }
         };
 
+        $(this).find("filter").each(function() {
+
+          var currentFilter = $(this);
+
+          var filter = {
+            type: currentFilter.attr('type'),
+            filter: currentFilter.text(),
+            compare: currentFilter.attr('compare'),
+            value: currentFilter.attr('value')
+          };
+
+          question.filters.push(filter);
+        });
+
         assessmentObj.questionsAnswers.questions.push(question);
       });
+
+
 
       $(currentAssessment).find("answer").each(function() {
         var currentAnswer = $(this);
@@ -81,7 +98,10 @@ function initAssessments(assessmentsContentXML) {
           rearLegRoom: currentAnswer.find("rearLegRoom").text(),
           cargoVol: currentAnswer.find("cargoVol").text(),
           basePrice: currentAnswer.find("basePrice").text(),
-          horsePower: currentAnswer.find("horsePower").text()
+          horsePower: currentAnswer.find("horsePower").text(),
+          color: currentAnswer.find("color").text(),
+          sunroof: currentAnswer.find("sunroof").text()
+
         };
         assessmentObj.questionsAnswers.answers.push(answer);
       });
@@ -178,14 +198,25 @@ function startAssessment(id) {
   var questionBody = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions[questionIndex].question.questionBody;
 
   //Question Filter (may not have one) and its Numerical Value
-  var questionFilter = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions[questionIndex].FILTER;
-  var filterNum = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions[questionIndex].FILTERNUM;
+  var hasFilters = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions[questionIndex].HASFILTERS;
+  var filterType = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions[questionIndex].filters[0].type;
+  var filters = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions[questionIndex].filters;
+
+
+
   //Initialize answersFiltered to be the same as answers (prior to filter being applied)
   var answersArr = shuffle(courseData.assessmentData.assessments[activeAssessment].questionsAnswers.answers);
   var answersFiltered = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.answers;
-  if(questionFilter.length > 0){
+
+  console.log(hasFilters);
+
+  if(hasFilters == "true"){
     //If a filter exists, apply it
-    answersFiltered = filterAnswers(activeAssessment, questionFilter, filterNum);
+    if(filterType == "attribute"){
+      answersFiltered = filterAnswersAttribute(activeAssessment, filters);
+    }else if(filterType == "characteristic"){
+      answersFiltered = filterAnswersCharacteristic(activeAssessment, filters);
+    }
   }
 
   //Update LocalStorage AnswersFiltered array
@@ -198,8 +229,19 @@ function startAssessment(id) {
   var aIndex;
 
   var criterion = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions[questionIndex].CRITERION;
-  sameAnswerCheck(activeAssessment, answersFiltered, criterion);
+  var type = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions[questionIndex].TYPE;
 
+
+  console.log(type);
+
+  if(type == 'attribute'){
+    sameAnswerCheck(activeAssessment, answersFiltered, criterion);
+  }
+  else if(type == 'characteristic'){
+    var value = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions[questionIndex].CHARACTERISTIC;
+    orderAnswers(activeAssessment, answersFiltered, criterion, value);
+
+  }
   var answerTries = 0;
 
   $("#modalContainer .assessment-container").append("<div class='assessment-content "+style+" row'></div>");
@@ -272,6 +314,9 @@ function startAssessment(id) {
       $("#modalContainer .btn-submit-answer").addClass("d-none");
 
       var criterion = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions[qIndex].CRITERION;
+      var type = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions[qIndex].TYPE;
+
+
       courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions[qIndex].ANSWERED = "true";
 
       var correctlyAnswered = false;
@@ -294,75 +339,109 @@ function startAssessment(id) {
         }
       }
 
-      if(criterion === "cargoVol") {
-        phrasedCriterion = "Cargo Room";
-        if(selectedAnswersData.length > 1) {
-          if(selectedAnswersData[0].cargoVol === selectedAnswersData[1].cargoVol) {
-            correctlyAnswered = true;
-            bothCorrect = true;
+      //CHECK WHAT TYPE OF QUESTION IT IS
+      //ATTRIBUTE: NUMBERS (MPG, CARGO, PRICE)
+      //CHARACTERISTIC: WORDS (COLOR, SUNROOF, AC)
+
+      if(type == "attribute"){
+
+        //CALCULATE CORRECTNESS OF ATTRIBUTE QUESTIONS WITH THIS FUNCTIONALITY
+        if(criterion === "cargoVol") {
+          phrasedCriterion = "Cargo Room";
+          if(selectedAnswersData.length > 1) {
+            if(selectedAnswersData[0].cargoVol === selectedAnswersData[1].cargoVol) {
+              correctlyAnswered = true;
+              bothCorrect = true;
+            }
+          }
+
+          else {
+            if(parseFloat(selectedAnswersData[0].cargoVol) > parseFloat(unselectedAnswerData.cargoVol)) {
+              correctlyAnswered = true;
+            }
           }
         }
 
-        else {
-          if(parseFloat(selectedAnswersData[0].cargoVol) > parseFloat(unselectedAnswerData.cargoVol)) {
-            correctlyAnswered = true;
+        else if(criterion === "mpg") {
+          phrasedCriterion = "MPG";
+          if(selectedAnswersData.length > 1) {
+            if(selectedAnswersData[0].mpg === selectedAnswersData[1].mpg) {
+              correctlyAnswered = true;
+              bothCorrect = true;
+            }
+
+          } else {
+            if(parseFloat(selectedAnswersData[0].mpg) > unselectedAnswerData.mpg) {
+              correctlyAnswered = true;
+            }
+          }
+        }
+
+        else if(criterion === "rearLegRoom") {
+          phrasedCriterion = "Leg Room";
+
+          if(selectedAnswersData.length > 1) {
+            if(selectedAnswersData[0].rearLegRoom === selectedAnswersData[1].rearLegRoom) {
+              correctlyAnswered = true;
+              bothCorrect = true;
+            }
+          } else {
+            if(parseFloat(selectedAnswersData[0].rearLegRoom) > unselectedAnswerData.rearLegRoom) {
+              correctlyAnswered = true;
+            }
+          }
+        }
+
+        else if(criterion === "horsePower") {
+          phrasedCriterion = "Horse Power";
+          if(selectedAnswersData.length > 1) {
+            if(selectedAnswersData[0].horsePower === selectedAnswersData[1].horsePower) {
+              correctlyAnswered = true;
+              bothCorrect = true;
+            }
+          } else {
+            if(parseFloat(selectedAnswersData[0].horsePower) > unselectedAnswerData.horsePower) {
+              correctlyAnswered = true;
+            }
+          }
+        }
+
+        else if(criterion === "basePrice") {
+          phrasedCriterion = "Base Price";
+          if(selectedAnswersData.length > 1) {
+            if(selectedAnswersData[0].basePrice === selectedAnswersData[1].basePrice) {
+              correctlyAnswered = true;
+              bothCorrect = true;
+            }
+          } else {
+            if(parseFloat(selectedAnswersData[0].basePrice) < parseFloat(unselectedAnswerData.basePrice)) {
+              correctlyAnswered = true;
+            }
           }
         }
       }
+      else if(type == "characteristic") {
+        var correctCharacteristic = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions[qIndex].CHARACTERISTIC;
 
-      else if(criterion === "mpg") {
-        phrasedCriterion = "MPG";
-        if(selectedAnswersData.length > 1) {
-          if(selectedAnswersData[0].mpg === selectedAnswersData[1].mpg) {
-            correctlyAnswered = true;
-            bothCorrect = true;
-          }
+        if(criterion === "brand") {
+          phrasedCriterion = "Brand";
 
-        } else {
-          if(parseFloat(selectedAnswersData[0].mpg) > unselectedAnswerData.mpg) {
+          if(selectedAnswersData[0].brand == correctCharacteristic) {
             correctlyAnswered = true;
           }
         }
-      }
+        else if(criterion === "color") {
+          phrasedCriterion = "Color";
 
-      else if(criterion === "rearLegRoom") {
-        phrasedCriterion = "Leg Room";
+          if(selectedAnswersData[0].color == correctCharacteristic) {
+            correctlyAnswered = true;
 
-        if(selectedAnswersData.length > 1) {
-          if(selectedAnswersData[0].rearLegRoom === selectedAnswersData[1].rearLegRoom) {
-            correctlyAnswered = true;
-            bothCorrect = true;
-          }
-        } else {
-          if(parseFloat(selectedAnswersData[0].rearLegRoom) > unselectedAnswerData.rearLegRoom) {
-            correctlyAnswered = true;
           }
         }
-      }
+        else if(criterion === "sunroof") {
+          phrasedCriterion = "Sunroof";
 
-      else if(criterion === "horsePower") {
-        phrasedCriterion = "Horse Power";
-        if(selectedAnswersData.length > 1) {
-          if(selectedAnswersData[0].horsePower === selectedAnswersData[1].horsePower) {
-            correctlyAnswered = true;
-            bothCorrect = true;
-          }
-        } else {
-          if(parseFloat(selectedAnswersData[0].horsePower) > unselectedAnswerData.horsePower) {
-            correctlyAnswered = true;
-          }
-        }
-      }
-
-      else if(criterion === "basePrice") {
-        phrasedCriterion = "Base Price";
-        if(selectedAnswersData.length > 1) {
-          if(selectedAnswersData[0].basePrice === selectedAnswersData[1].basePrice) {
-            correctlyAnswered = true;
-            bothCorrect = true;
-          }
-        } else {
-          if(parseFloat(selectedAnswersData[0].basePrice) < parseFloat(unselectedAnswerData.basePrice)) {
+          if(selectedAnswersData[0].sunroof == correctCharacteristic) {
             correctlyAnswered = true;
           }
         }
@@ -584,14 +663,57 @@ function shuffle(array) {
   return array;
 }
 
-function filterAnswers(activeAssessment, filter, num){
+function filterAnswersAttribute(activeAssessment, filters){
+  var filter = filters[0].filter;
+  var value = filters[0].value;
+  var comparison = filters[0].compare;
+  var operator = "";
+
+  if(comparison == 'minimum'){
+    operator = ">";
+  }else if(comparison == 'maximum'){
+    operator = "<";
+  }else if(comparison == 'equals'){
+    operator = "==";
+  }
+
   var answers = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.answers;
   var answersFiltered = [];
 
   for(var i = 0; i < answers.length; i++){
     //Iterate through the answers and check if the given criteria (filter) is greater than the num given
-    if(answers[i][filter] > num){
+
+    if(eval(answers[i][filter] + operator + value)){
       //If so, then add it to the answersFiltered array to be used in the assessment
+      answersFiltered.push(answers[i]);
+    }
+  }
+
+  return answersFiltered;
+}
+
+function filterAnswersCharacteristic(activeAssessment, filters){
+  var answers = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.answers;
+  var answersFiltered = [];
+  var vehiclePassedFilter = true;
+  var filter = filters[0].filter;
+  var value = filters[0].value;
+
+  for(var i = 0; i < answers.length; i++){
+    vehiclePassedFilter = true;
+    //Iterate through the answers and check if the given criteria (filter) is greater than the num given
+
+    for(var j = 0; j < filters.length; j++){
+      filter = filters[j].filter;
+      value = filters[j].value;
+
+      if(answers[i][filter] != value){
+        vehiclePassedFilter = false;
+        break;
+      }
+    }
+
+    if(vehiclePassedFilter){
       answersFiltered.push(answers[i]);
     }
   }
@@ -604,8 +726,8 @@ function sameAnswerCheck(activeAssessment, answersFiltered, criterion){
   var questionIndex = courseData.assessmentData.assessments[activeAssessment].currentQuestionIndex;
 
   //Check to see if the two chosen answers criteria are equal
-  var answer1 = parseFloat(answersFiltered[0][criterion]);
-  var answer2 = parseFloat(answersFiltered[1][criterion]);
+  var answer1 = answersFiltered[0][criterion];
+  var answer2 = answersFiltered[1][criterion];
 
   if(answer1 == answer2){
     //If so, they shuffle the answers and check again
@@ -618,4 +740,43 @@ function sameAnswerCheck(activeAssessment, answersFiltered, criterion){
     //If not, then return with the updated answersFiltered
     return;
   }
+}
+
+function orderAnswers(activeAssessment, answersFiltered, criterion, value){
+  var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
+  var questionsIndex = courseData.assessmentData.assessments[activeAssessment].currentQuestionIndex;
+
+  //Check to see if the two chosen answers criteria are equal
+  var answer1 = answersFiltered[0][criterion];
+  var answer2 = answersFiltered[1][criterion];
+
+  if((answer1 == value || answer2 == value) && answer1 != answer2){
+    //Answers already ordered
+  }else if(answer1 == value) {
+    //Both answers have the characteristic
+    for(var i = 0; i < 1000; i++){
+      var replacement = answersFiltered[i][criterion];
+
+      if(replacement != value){
+        var swap = answersFiltered[0];
+        answersFiltered[0] = answersFiltered[i];
+        answersFiltered[i] = swap;
+        break;
+      }
+    }
+  }else{
+    //Neither answers have the characteristic
+    for(var i = 0; i < 1000; i++){
+      var replacement = answersFiltered[i][criterion];
+
+      if(replacement == value){
+        var swap = answersFiltered[1];
+        answersFiltered[1] = answersFiltered[i];
+        answersFiltered[i] = swap;
+        break;
+      }
+    }
+  }
+
+  courseData.assessmentData.assessments[activeAssessment].questionsAnswers.answersFiltered = answersFiltered;
 }
