@@ -39,12 +39,12 @@ function populateCards() {
           card.append("<div class='loading-overlay'><p>Loading...</p></div><div class='img-container'><img class='img-zoom card-img' src='' alt=''></div><div class='caption'><h3></h3><p></p></div>");
 
         } else {
-          card.append("<div class='loading-overlay'><p>Loading...</p></div><div class='img-container'><img class='img-zoom card-img' src='' alt=''></div><div class='caption'><h3></h3><p></p></div><div class='viewed-overlay'><img src='/"+courseData.THEME_PATH+"/media/img/icon_viewed.png'/></div>");
+          card.append("<div class='loading-overlay'><p>Loading...</p></div><div class='img-container'><img class='img-zoom card-img' src='' alt=''></div><div class='caption'><h3></h3><p></p></div><div class='viewed-overlay'><img src='/dir/media/img/icon_viewed.png'/></div>");
         }
 
         card.click(function() {
           if($(this).has(".viewed-overlay").length === 0) {
-            $(this).append("<div class='viewed-overlay'><img src='/"+courseData.THEME_PATH+"/media/img/icon_viewed.png'/></div>");
+            $(this).append("<div class='viewed-overlay'><img src='/dir/media/img/icon_viewed.png'/></div>");
           }
           var cardNum = parseInt($(this).attr("id").substring(4,6), 10);
           var clickDataIndex = cardNum - 1;
@@ -64,12 +64,12 @@ function populateCards() {
           card.append("<div class='loading-overlay'><p>Loading...</p></div><div class='img-container'><img class='img-zoom card-img' src='' alt=''></div><div class='caption'><h3></h3><p></p></div>");
 
         } else {
-          card.append("<div class='loading-overlay'><p>Loading...</p></div><div class='img-container'><img class='img-zoom card-img' src='' alt=''></div><div class='caption'><h3></h3><p></p></div><div class='viewed-overlay'><img src='/"+courseData.THEME_PATH+"/media/img/icon_viewed.png'/></div>");
+          card.append("<div class='loading-overlay'><p>Loading...</p></div><div class='img-container'><img class='img-zoom card-img' src='' alt=''></div><div class='caption'><h3></h3><p></p></div><div class='viewed-overlay'><img src='/dir/media/img/icon_viewed.png'/></div>");
         }
 
         card.click(function() {
           if($(this).has(".viewed-overlay").length === 0) {
-            $(this).append("<div class='viewed-overlay'><img src='/"+courseData.THEME_PATH+"/media/img/icon_viewed.png'/></div>");
+            $(this).append("<div class='viewed-overlay'><img src='/dir/media/img/icon_viewed.png'/></div>");
           }
           var cardNum = parseInt($(this).attr("id").substring(4,6), 10);
           var clickDataIndex = cardNum - 1;
@@ -90,7 +90,7 @@ function populateCards() {
           card.append("<a href='' alt='' target='_blank'><div class='loading-overlay'><p>Loading...</p></div><div class='img-container'><img class='img-zoom card-img' src='' alt=''></div><div class='caption'><h3></h3><p></p></div></a>");
 
         } else {
-          card.append("<a href='' alt='' target='_blank'><div class='loading-overlay'><p>Loading...</p></div><div class='img-container'><img class='img-zoom card-img' src='' alt=''></div><div class='caption'><h3></h3><p></p></div><div class='viewed-overlay'><img src='/"+courseData.THEME_PATH+"/media/img/icon_viewed.png'/></div></a>");
+          card.append("<a href='' alt='' target='_blank'><div class='loading-overlay'><p>Loading...</p></div><div class='img-container'><img class='img-zoom card-img' src='' alt=''></div><div class='caption'><h3></h3><p></p></div><div class='viewed-overlay'><img src='/dir/media/img/icon_viewed.png'/></div></a>");
         }
 
         card.find("a").attr("href", courseData.cardData.cardContent[dataIndex].actions[0].urlstr);
@@ -98,7 +98,7 @@ function populateCards() {
 
         card.click(function() {
           if($(this).has(".viewed-overlay").length === 0) {
-            $(this).append("<div class='viewed-overlay'><img src='/"+courseData.THEME_PATH+"/media/img/icon_viewed.png'/></div>");
+            $(this).append("<div class='viewed-overlay'><img src='/dir/media/img/icon_viewed.png'/></div>");
           }
 
           var cardNum = parseInt($(this).attr("id").substring(4,6), 10);
@@ -115,12 +115,12 @@ function populateCards() {
           card.append("<div class='loading-overlay'><p>Loading...</p></div><div class='img-container'><img class='img-zoom card-img' src='' alt=''></div><div class='caption'><h3></h3><p></p></div>");
 
         } else {
-          card.append("<div class='loading-overlay'><p>Loading...</p></div><div class='img-container'><img class='img-zoom card-img' src='' alt=''></div><div class='caption'><h3></h3><p></p></div><div class='viewed-overlay'><img src='/"+courseData.THEME_PATH+"/media/img/icon_viewed.png'/></div>");
+          card.append("<div class='loading-overlay'><p>Loading...</p></div><div class='img-container'><img class='img-zoom card-img' src='' alt=''></div><div class='caption'><h3></h3><p></p></div><div class='viewed-overlay'><img src='/dir/media/img/icon_viewed.png'/></div>");
         }
 
         card.click(function() {
           if($(this).has(".viewed-overlay").length === 0) {
-            $(this).append("<div class='viewed-overlay'><img src='/"+courseData.THEME_PATH+"/media/img/icon_viewed.png'/></div>");
+            $(this).append("<div class='viewed-overlay'><img src='/dir/media/img/icon_viewed.png'/></div>");
           }
           var cardNum = parseInt($(this).attr("id").substring(4,6), 10);
           var clickDataIndex = cardNum - 1;
@@ -272,14 +272,14 @@ function setupAssessment() {
   if(assessmentID === 0){
     for(var i = 0; i < 3; i++){
       if(courseData.assessmentData.assessments[i].completed === "true"){
-        $(".btn-assess").append("<div class='viewed-overlay'><img src='/"+courseData.THEME_PATH+"/media/img/icon_viewed.png'></div>");
+        $(".btn-assess").append("<div class='viewed-overlay'><img src='/dir/media/img/icon_viewed.png'></div>");
         continue;
       }
     }
 
   } else if(assessmentID === 3) {
     if(courseData.assessmentData.assessments[assessmentID].completed === "true"){
-      $(".btn-assess").append("<div class='viewed-overlay'><img src='/"+courseData.THEME_PATH+"/media/img/icon_viewed.png'></div>");
+      $(".btn-assess").append("<div class='viewed-overlay'><img src='/dir/media/img/icon_viewed.png'></div>");
     }
   }
 

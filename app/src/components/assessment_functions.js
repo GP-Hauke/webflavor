@@ -208,8 +208,6 @@ function startAssessment(id) {
   var answersArr = shuffle(courseData.assessmentData.assessments[activeAssessment].questionsAnswers.answers);
   var answersFiltered = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.answers;
 
-  console.log(hasFilters);
-
   if(hasFilters == "true"){
     //If a filter exists, apply it
     if(filterType == "attribute"){
@@ -231,8 +229,6 @@ function startAssessment(id) {
   var criterion = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions[questionIndex].CRITERION;
   var type = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions[questionIndex].TYPE;
 
-
-  console.log(type);
 
   if(type == 'attribute'){
     sameAnswerCheck(activeAssessment, answersFiltered, criterion);
