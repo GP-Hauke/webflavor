@@ -6,9 +6,9 @@
   </strings>
 
   <headerLinks included="true"> <!-- valid values: "true", "false" -->
-    <!--<headerLink href="" itemId="test" target=""><![CDATA[OPERATIONS GUIDE]]></headerLink>-->
+    <!--<headerLink href="" itemId="test" target=""><![CDATA[OPERATIONS GUIDE]]></headerLink>
     <headerLink href="#" itemId="btnGlossary" target=""><![CDATA[GLOSSARY]]></headerLink>
-    <headerLink href="#" itemId="btnHelpModal" target=""><![CDATA[?]]></headerLink>
+    <headerLink href="#" itemId="btnHelpModal" target=""><![CDATA[?]]></headerLink>-->
   </headerLinks>
 
   <chapter>

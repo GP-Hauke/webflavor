@@ -340,15 +340,17 @@ function loadContent(param){
     //CERTAIN PAGES NEED SPECIFIC METHODS RUN FOR THE COMPONENTS
     //MUST BE RUN AFTER THE CONTENT HAS LOADED
     //MOVED FROM HTML BODY onLoad="" TO HERE DUE TO ASYNC
-    if(param == '0_0'){
+    var component = $(xml).find('component').text();
+    if(component == 'game'){
       setupAssessment();
     }
-    else if(param == '2_0'){
+    else if(component == 'dragAndDrop'){
       setupDragDrop();
     }
-    else if(param == '3_0'){
+    else if(component == 'hotspot'){
       setupHotSpot();
     }
+
 
     var courseData = JSON.parse(localStorage.getItem(window.parent.LOCAL_COURSE_DATA_ID));
     updatePagination();

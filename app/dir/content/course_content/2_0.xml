@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <page type="assessment">
   <title size="12"><![CDATA[Know Your Lineup]]></title>
+  <component>dragAndDrop</component>
   <content>
     <![CDATA[
     <div class="row">

@@ -36,6 +36,10 @@
 
   <hasStrings>false</hasStrings>
 
+  <hasAssessments>true</hasAssessments>
+
+  <hasDragDrops>true</hasDragDrops>
+
   <bookmarking>
     <hasLocalBookmarking>false</hasLocalBookmarking>
     <bookmarkingStorageID></bookmarkingStorageID>
@@ -52,8 +56,4 @@
     <pageCountStorageID></pageCountStorageID>
     <totalPages></totalPages>
   </pageCount>
-
-  <hasAssessments>true</hasAssessments>
-  <hasDragDrops>true</hasDragDrops>
-
 </settings>
