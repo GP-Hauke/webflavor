@@ -8,9 +8,6 @@ body {
   overflow: hidden;
 }
 
-
-
-
 ul {
   margin-bottom: 20px; }
 
@@ -770,10 +767,6 @@ footer.footer > .container.footer-nav .next {
 #navContainer .container {
   position: relative; }
 
-@media only screen and (max-width: 991px) {
-  #navContainer .container {
-    padding-left: 40px;
-    padding-right: 40px; } }
 
 /* NAVBAR MAIN CONTAINER */
 nav.navbar {
@@ -782,7 +775,8 @@ nav.navbar {
   border-radius: 0;
   margin-bottom: 0;
   min-height: auto;
-  padding: 0; }
+  padding: 0;
+}
 
 nav.navbar#navbarBottom {
   background-color: #618eb5;
@@ -797,31 +791,18 @@ nav.navbar#navbarBottom {
   width: 100%; }
 
 /* NAVBAR LEFT SECTION/HEADER - LOGO, TITLE */
-.navbar-header .navbar-toggle {
-  float: left;
-  display: block;
+.navbar-toggler{
+  position: relative;
+  top: -4px;
   border: none;
-  margin: 0;
-  padding: 10px 30px 5px 0; }
-
-.navbar-toggle:focus, .navbar-toggle:active {
-  outline: none !important;
-  box-shadow: none; }
-
-.navbar-header .navbar-toggle .icon-bar {
-  width: 40px;
-  height: 2px;
-  border-radius: 0;
-  background-color: #fff;
-  margin-bottom: 10px; }
-
-.navbar-header .navbar-toggle .icon-bar:last-of-type {
-  margin-bottom: 0; }
-
-.navbar-header .navbar-toggle:focus,
-.navbar-header .navbar-toggle:hover,
-.navbar-header .navbar-toggle:focus {
-  background-color: transparent; }
+  opacity: .5;
+}
+.navbar-toggler:hover{
+  opacity: 1;
+}
+.navbar-toggler:focus{
+  outline: none;
+}
 
 .navbar-header .navbar-brand {
   color: #fff;
@@ -835,7 +816,9 @@ nav.navbar#navbarBottom {
   float: left; }
 
 .navbar-header .title-container {
-  float: left; }
+  float: left;
+  margin-left: 15px !important;
+}
 
 .navbar-header #titleMain {
   display: inline-block;
@@ -866,6 +849,19 @@ nav.navbar#navbarBottom {
 
 /*end LEFT NAVBAR*/
 /* COLLAPSABLE PART OF NAV BAR - MOBILE LINK LIST */
+@media only screen and (max-width: 990px) {
+  #titleMain{
+    font-size: 22px;
+  }
+  #subTitle{
+    font-size: 22px;
+  }
+
+  .links-container ul li a{
+    font-size: 22px;
+  }
+}
+
 @media only screen and (min-width: 768px) {
   .navbar-collapse.collapse {
     /*display:  none !important; REMOVED FOR BOOTSTRAP 4*/ }
@@ -925,6 +921,11 @@ nav.navbar#navbarBottom {
 
 /* end COLLAPSABLE PART OF NAV BAR - BOTTOM NAV BAR */
 /* INDIVIDUAL MENU ITEMS */
+#navbarMobile{
+  width: 100%;
+  margin: 0 auto;
+}
+
 #navbarMobile li {
   cursor: pointer;
   width: 100%; }
@@ -943,6 +944,94 @@ li.courseTitleChapterSelected {
   cursor: pointer; }
 
 /* end COLLAPSABLE PART OF NAV BAR - BOTTOM NAV BAR */
+/*  NAVIGATION TABBED */
+.tabbed{
+  background: #fff !important;
+}
+
+.tabbed #navbarMobile {
+  display: flex;
+  flex-flow: row;
+  position: relative;
+  width: 100% !important;
+  max-width: 1450px;
+  margin: 0 auto;
+}
+
+.tabbed #navbarMobile li{
+  display: inline-block;
+  background: #fff;
+  color: #003056;
+  font-weight: 600;
+  line-height: 50px;
+  height: 50px;
+  position: relative;
+  padding: 0px 10px 0px 20px !important;
+  font-size: 14px;
+}
+
+.tabbed #navbarMobile li.courseTitleChapterSelected {
+  background: #fff;
+  border-bottom: 3px solid #003056;
+
+}
+
+.tabbed #navbarMobile li:not(:first-child):after
+{
+  content: "/";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  font-weight: 100;
+  font-size: 30px;
+  color: #8f9193;
+}
+
+@media (max-width: 1350px) {
+
+  .tabbed #navbarMobile li{
+    font-size: 13px;
+  }
+}
+
+@media (min-width: 767px) {
+  .tabbed{
+    display: block;
+  }
+}
+
+@media (max-width: 767px) {
+  .tabbed{
+    background: #003056 !important;
+  }
+
+  .tabbed #navbarMobile {
+    display: block;
+    width: 100% !important;
+    margin: 0 auto;
+  }
+  .tabbed #navbarMobile li{
+    background: #003056;
+    color: #fff;
+    font-weight: 200;
+    line-height: 20px;
+    height: 30px;
+    position: relative;
+  }
+
+  .tabbed #navbarMobile li.courseTitleChapterSelected {
+    background: #618eb5;
+  }
+
+  .tabbed #navbarMobile li:not(:first-child):after
+  {
+    content: "";
+  }
+}
+
+
+/* END NAVIGATION TABBED */
 /* LEFT NAVIGATION MENU */
 #navbar-left {
   position: fixed;
@@ -1309,14 +1398,21 @@ h2.section-title {
   }
 
 @media only screen and (max-width: 992px) {
-  #titleMainMobile {
-    display: block;
-    position: relative;
-    border-bottom: 3px solid #fff;
-    margin-bottom: 5px; }
-  #subTitleMobile {
-    display: block;
-}
+  nav.navbar .container {
+    padding: 0;
+  }
+  nav.navbar .container .mobile-container{
+    padding: 0;
+  }
+  nav.navbar .container .navbar-toggler{
+    top: -1px;
+  }
+  #titleMainMobile{
+    font-size: 17px;
+  }
+  #subTitleMobile{
+    font-size: 17px;
+  }
 }
 
 @media only screen and (max-width: 768px) {

@@ -267,7 +267,7 @@ function buildTopNav() {
     $("#navContainer").append(navMarkup);
 
     $('#titleMain').html(courseData.TITLE+":");
-    $('#titleMainMobile').html(courseData.TITLE);
+    $('#titleMainMobile').html(courseData.TITLE+":");
     $('#subTitle').html(courseData.SUB_TITLE);
     $('#subTitleMobile').html(courseData.SUB_TITLE);
 
@@ -333,37 +333,10 @@ function buildTopNav() {
 
       bottomNav = bottomNav + menuButton;
 
-      /*var currentTitle = chapters[i].title;
-
-      if(chapters[i].titleIndex != -1) {
-      currentTitle = chapters[i].title.split(";")[chapters[i].titleIndex];
-    }
-
-    if(i == currentChapter) {
-    if(chapters.length > 1) {
-    navMarkup = navMarkup+'<div id="chapter'+i+'" class="chapterSelected chapterIncomplete chapterTitle" style="margin-top:0em" onclick="openPage('+i+',0)">'+currentTitle+'</div>';
-
-  } else {
-  navMarkup = navMarkup+'<div id="chapter'+i+'" class="chapterSelected chapterIncomplete chapterTitle" style="margin-top:0em" onclick="openPage('+i+',0)">'+currentTitle+'</div>';
-}
-navMarkup = navMarkup+'<div id="pages'+i+'">';
-
-} else {
-navMarkup = navMarkup+'<div id="chapter'+i+'" class="chapterNotSelected chapterIncomplete chapterTitle" onclick="openPage('+i+',0)">'+currentTitle+'</div>';
-
-navMarkup = navMarkup+'<div id="pages'+i+'">';
-}
-
-for(var j = 0; j < chapters[i].pages.length; j++) {
-
-if(i == currentChapter && j == currentPage) {
-navMarkup = navMarkup+'<a href="javascript:openPage('+i+','+j+');void(0)"><div id="mi'+i+'_'+j+'" class="menuItem menuItemSelected">'+chapters[i].pages[j].title+'</div></a>';
-
-} else {
-navMarkup = navMarkup+'<a href="javascript:openPage('+i+','+j+');void(0)"><div id="mi'+i+'_'+j+'" class="menuItem '+notSelectedClass+'">'+chapters[i].pages[j].title+'</div></a>';
-}
-}
-navMarkup = navMarkup+'</div>';*/
+      if(courseData.MENU_STYLE === 'tab') {
+        $('#navbarMain').addClass('tabbed');
+        $('.navbar .container').addClass('navbar-expand-md');
+      }
 }
 
 bottomNav = bottomNav + '</ul></div></div>';
@@ -380,7 +353,6 @@ loadInterfaceStyles();
 });
 
 var notSelectedClass = "menuItemNotSelected";
-
 }
 
 
@@ -392,7 +364,7 @@ function buildTabNav() {
     $("#navContainer").append(navMarkup);
 
     $('#titleMain').html(courseData.TITLE+":");
-    $('#titleMainMobile').html(courseData.TITLE);
+    $('#titleMainMobile').html(courseData.TITLE+":");
     $('#subTitle').html(courseData.SUB_TITLE);
     $('#subTitleMobile').html(courseData.SUB_TITLE);
 

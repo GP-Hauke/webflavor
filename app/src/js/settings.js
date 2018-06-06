@@ -38,6 +38,7 @@ function populateStorage(xml, tempStorage) {
   courseStorageObj.THEME_PATH = "dir/themes/" + courseStorageObj.THEME;
   courseStorageObj.COOKIE_NAME = $(xml).find("cookieName").text();
   courseStorageObj.MENU_PLACEMENT = $(xml).find("menuPlacement").text();
+  courseStorageObj.MENU_STYLE = $(xml).find("menuStyle").text();
   courseStorageObj.COMPLETION_METHOD = $(xml).find("completionMethod").text();
   courseStorageObj.HAS_STRINGS = $(xml).find("hasStrings").text();
   courseStorageObj.HAS_GLOSSARY = $(xml).find("hasGlossary").text();

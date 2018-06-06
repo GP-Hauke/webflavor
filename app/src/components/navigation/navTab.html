@@ -1,38 +1,34 @@
 <div id="navbar" class="nav-container navbar-fixed-left">
-  <nav class="navbar navbar-collapse navbar-dark">
-    <div class="container-fluid d-block d-sm-none">
-      <span id="titleMainMobile" class="title-main"></span>
-    </div>
 
-    <div class="title-wrapper">
-      <div class="title-container d-none d-sm-none d-md-block">
+  <nav class="navbar navbar-dark">
+    <div class="container">
+
+      <div class="mobile-container container-fluid d-block d-md-none">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMain" aria-controls="navbarsExample01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <span id="titleMainMobile" class="title-main"></span>
+        <span id="subTitleMobile" class=""></span>
+
+      </div>
+
+      <div class="title-container d-none d-sm-none d-md-block ">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMain" aria-controls="navbarsExample01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
         <span id="titleMain" class="title-main"></span>
         <span id="subTitle" class=""></span>
       </div>
 
-      <ul id="headerLinks" class="nav navbar-right page-assist float-right"></ul>
-    </div>
+      <div class="links-container d-none d-sm-none d-md-block ">
+        <ul id="headerLinks" class="nav page-assist float-right"></ul>
+      </div>
 
-    <div class="container navbar-expand-md">
-      <div class="navbar-header">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMain" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-
-        <!--<img class="navbar-brand add-theme-path" src="theme-path/media/img/logo_main.png" alt="">-->
-
-
-
-      <div id="navbarMain" class="navbar-collapse collapse">
-        <ul id="navbarMobile" class="nav nav-justified ">
-        </ul>
+      <div id="navbarMain" class="collapse navbar-collapse">
+        <ul id="navbarMobile" class="navbar-nav mr-auto"></ul>
       </div>
     </div>
-
-
   </nav>
-
-  <!--<nav id="navbarBottom" class="navbar navbar-default"></nav>-->
-
 </div>
