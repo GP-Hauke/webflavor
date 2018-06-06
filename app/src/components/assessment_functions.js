@@ -99,9 +99,17 @@ function initAssessments(assessmentsContentXML) {
           cargoVol: currentAnswer.find("cargoVol").text(),
           basePrice: currentAnswer.find("basePrice").text(),
           horsePower: currentAnswer.find("horsePower").text(),
+          driveLine: currentAnswer.find("driveLine").text(),
+          interiorHeadRoom: currentAnswer.find("interiorHeadRoom").text(),
+          doors: currentAnswer.find("doors").text(),
           color: currentAnswer.find("color").text(),
-          sunroof: currentAnswer.find("sunroof").text()
-
+          engineType: currentAnswer.find("engineType").text(),
+          heatedSeats: currentAnswer.find("heatedSeats").text(),
+          sunroof: currentAnswer.find("sunroof").text(),
+          heatedWheel: currentAnswer.find("heatedWheel").text(),
+          remoteStart: currentAnswer.find("remoteStart").text(),
+          connectedNavigation: currentAnswer.find("connectedNavigation").text(),
+          thirdRowSeating: currentAnswer.find("thirdRowSeating").text(),
         };
         assessmentObj.questionsAnswers.answers.push(answer);
       });
@@ -213,6 +221,7 @@ function startAssessment(id) {
     if(filterType == "attribute"){
       answersFiltered = filterAnswersAttribute(activeAssessment, filters);
     }else if(filterType == "characteristic"){
+
       answersFiltered = filterAnswersCharacteristic(activeAssessment, filters);
     }
   }
@@ -441,6 +450,13 @@ function startAssessment(id) {
             correctlyAnswered = true;
           }
         }
+        else if(criterion === "heatedSeats") {
+          phrasedCriterion = "Heated Seats";
+
+          if(selectedAnswersData[0].heatedSeats == correctCharacteristic) {
+            correctlyAnswered = true;
+          }
+        }
       }
 
       if(correctlyAnswered) {
@@ -460,7 +476,7 @@ function startAssessment(id) {
           $(selectedAnswers[i]).append("<div class='viewed-overlay'><img src='dir/media/img/icon_viewed.png'></div>");
         }
 
-        $("#modalContainer .assessment-content").append("<div class='feedback-container'><p class='feedback-details'>The <span>"+unselectedAnswerData.model+"</span> has <span>"+phrasedCriterion+"</span> of <span>"+unselectedAnswerData[criterion]+"</span></p><p class='feedback-details'>The <span>"+selectedAnswersData[0].model+"</span> has <span>"+phrasedCriterion+"</span> of <span>"+selectedAnswersData[0][criterion]+"</span></p><p>"+feedback+" +"+tempScore+" points</p><button class='btn-ok'>GO</button></div>");
+        $("#modalContainer .assessment-content").append("<div class='feedback-container'><p class='feedback-details'>The <span class='bolded'>"+unselectedAnswerData.model+"'s</span> listed <span>"+phrasedCriterion+":</span>  <span class='bolded'>"+unselectedAnswerData[criterion]+"</span></p><p class='feedback-details'>The <span class='bolded'>"+selectedAnswersData[0].model+"'s</span> listed <span>"+phrasedCriterion+":</span> <span class='bolded'>"+selectedAnswersData[0][criterion]+"</span></p><p>"+feedback+" +"+tempScore+" points</p><button class='btn-ok'>GO</button></div>");
 
         $("#modalContainer .btn-ok").click(function() {
           courseData.assessmentData.assessments[activeAssessment].currentQuestionIndex += 1;
@@ -488,7 +504,7 @@ function startAssessment(id) {
 
         /* TODO: make this modular so answerTries is a setting and triggers the "try again" prompt only if answerTris > 1 */
         /*if(answerTries === 2) {*/
-        $("#modalContainer .assessment-content").append("<div class='feedback-container'><p class='feedback-details'>The <span>"+unselectedAnswerData.model+"</span> has <span>"+phrasedCriterion+"</span> of <span>"+unselectedAnswerData[criterion]+"</span></p><p class='feedback-details'>The <span>"+selectedAnswersData[0].model+"</span> has <span>"+phrasedCriterion+"</span> of <span>"+selectedAnswersData[0][criterion]+"</span></p><p>"+feedback+" +0 points</p><button class='btn-ok'>GO</button></div>");
+        $("#modalContainer .assessment-content").append("<div class='feedback-container'><p class='feedback-details'>The <span class='bolded'>"+unselectedAnswerData.model+"'s</span> listed <span>"+phrasedCriterion+":</span> <span class='bolded'>"+unselectedAnswerData[criterion]+"</span></p><p class='feedback-details'>The <span class='bolded'>"+selectedAnswersData[0].model+"'s</span> listed <span>"+phrasedCriterion+":</span> <span class='bolded'>"+selectedAnswersData[0][criterion]+"</span></p><p>"+feedback+" +0 points</p><button class='btn-ok'>GO</button></div>");
 
         $("#modalContainer .btn-ok").click(function() {
           courseData.assessmentData.assessments[activeAssessment].currentQuestionIndex += 1;

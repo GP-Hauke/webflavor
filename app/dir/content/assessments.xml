@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<assessments questionsGiven="3">
+<assessments questionsGiven="10">
   <version>0.0.4</version>
   <!--  -->
   <assessment id="1" type="" completed="false" title="Match Features to Wants Game - Buick">
-    <introText><![CDATA[<p>With all the questions, play with these assumptions:</p>
-    <ul>
-      <li>Most recent model year</li>
-      <li>Lowest trim level</li>
-      <li>No dealer or factory incentives</li>
-      <li>All seats up for trunk/cargo space</li>
-    </ul>
-    <p>Try to get them all right! Then come back and play again. The questions and answers will change!</p>
-    <p>Click <span class='bolded'>NEXT</span> to begin.</p>]]></introText>
+    <introText>
+      <![CDATA[<p>With all the questions, play with these assumptions:</p>
+      <ul>
+        <li>Most recent model year</li>
+        <li>Lowest trim level</li>
+        <li>No dealer or factory incentives</li>
+        <li>All seats up for trunk/cargo space</li>
+      </ul>
+      <p>Try to get them all right! Then come back and play again. The questions and answers will change!</p>
+      <p>Click <span class='bolded'>NEXT</span> to begin.</p>]]>
+    </introText>
 
     <questionAnswer required="false" answered="false" passed="false">
       <questions>
@@ -134,9 +136,6 @@
           <imgSrc><![CDATA[]]></imgSrc>
         </question>
 
-
-
-
         <question type="attribute" required="false" answered="false" passed="false">
           <type>
             <criterion>rearLegRoom</criterion>
@@ -149,7 +148,7 @@
           <questionBody><![CDATA[The customer has children and needs a vehicle that has the most leg room. Which vehicle would you recommend?]]></questionBody>
           <imgSrc><![CDATA[]]></imgSrc>
         </question>
-
+        <!--
         <question type="characteristic" required="false" answered="false" passed="false">
           <type>
             <criterion>color</criterion>
@@ -163,35 +162,35 @@
           <imgSrc><![CDATA[]]></imgSrc>
         </question>
 
-        <question type="characteristic" required="false" answered="false" passed="false">
+        <question type="attribute" required="false" answered="false" passed="false">
+
+          <questionTitle><![CDATA[]]></questionTitle>
+          <questionBody><![CDATA[The customer wants a blue car but needs lots of Leg Room, which satisfies her needs?]]></questionBody>
+          <imgSrc><![CDATA[]]></imgSrc>
           <type>
-            <criterion>color</criterion>
-            <characteristic>red</characteristic>
-            <filters hasFilters="false">
-              <filter type="" compare="" value=""></filter>
+            <criterion>rearLegRoom</criterion>
+            <characteristic></characteristic>
+            <filters hasFilters="true">
+              <filter type="characteristic" compare="" value="blue">color</filter>
+            </filters>
+
+          </type>
+        </question>
+
+        <question type="attribute" required="false" answered="false" passed="false">
+          <type>
+            <criterion>mpg</criterion>
+            <characteristic></characteristic>
+            <filters hasFilters="true">
+              <filter type="characteristic" compare="" value="silver">color</filter>
+              <filter type="characteristic" compare="" value="yes">heatedSeats</filter>
             </filters>
           </type>
           <questionTitle><![CDATA[]]></questionTitle>
-          <questionBody><![CDATA[The customer is looking for a car that is RED. Which of these two cars do you offer?]]></questionBody>
+          <questionBody><![CDATA[The customer wants HEATED SEATS...]]></questionBody>
           <imgSrc><![CDATA[]]></imgSrc>
         </question>
-
-              <question type="attribute" required="false" answered="false" passed="false">
-
-                <questionTitle><![CDATA[]]></questionTitle>
-                <questionBody><![CDATA[The customer wants a blue car but needs lots of Leg Room, which satisfies her needs?]]></questionBody>
-                <imgSrc><![CDATA[]]></imgSrc>
-                <type>
-                  <criterion>rearLegRoom</criterion>
-                  <characteristic></characteristic>
-                  <filters hasFilters="true">
-                    <filter type="characteristic" compare="" value="blue">color</filter>
-                  </filters>
-
-                </type>
-              </question>
-
-
+        -->
       </questions>
       <answers>
         <answer correct="">
@@ -199,6 +198,7 @@
           <brand><![CDATA[2018 Buick]]></brand>
           <model><![CDATA[Regal GS]]></model>
           <attributes><![CDATA[(AWD)]]></attributes>
+          <!-- ATTRIBUTES -->
           <mpg><![CDATA[19/27]]></mpg>
           <mpgCity><![CDATA[19]]></mpgCity>
           <mpgHighway><![CDATA[27]]></mpgHighway>
@@ -206,8 +206,18 @@
           <cargoVol><![CDATA[31.5]]></cargoVol>
           <basePrice><![CDATA[39,070]]></basePrice>
           <horsePower><![CDATA[310]]></horsePower>
+          <driveLine></driveLine>
+          <interiorHeadRoom></interiorHeadRoom>
+          <doors></doors>
+          <!-- CHARACTERISTICS -->
           <color><![CDATA[red]]></color>
-          <sunroof><![CDATA[yes]]></sunroof>
+          <engineType><![CDATA[]]></engineType>
+          <heatedSeats><![CDATA[no]]></heatedSeats>
+          <sunroof><![CDATA[]]></sunroof>
+          <heatedWheel><![CDATA[]]></heatedWheel>
+          <remoteStart><![CDATA[]]></remoteStart>
+          <connectedNavigation><![CDATA[]]></connectedNavigation>
+          <thirdRowSeating><![CDATA[]]></thirdRowSeating>
         </answer>
 
         <answer correct="">
@@ -215,6 +225,7 @@
           <brand><![CDATA[2018 Buick]]></brand>
           <model><![CDATA[Regal Sportback]]></model>
           <attributes><![CDATA[(FWD)]]></attributes>
+          <!-- ATTRIBUTES -->
           <mpg><![CDATA[22/32]]></mpg>
           <mpgCity><![CDATA[22]]></mpgCity>
           <mpgHighway><![CDATA[32]]></mpgHighway>
@@ -222,8 +233,18 @@
           <cargoVol><![CDATA[31.5]]></cargoVol>
           <basePrice><![CDATA[24,990]]></basePrice>
           <horsePower><![CDATA[250]]></horsePower>
+          <driveLine></driveLine>
+          <interiorHeadRoom></interiorHeadRoom>
+          <doors></doors>
+          <!-- CHARACTERISTICS -->
           <color><![CDATA[black]]></color>
-          <sunroof><![CDATA[no]]></sunroof>
+          <engineType><![CDATA[]]></engineType>
+          <heatedSeats><![CDATA[no]]></heatedSeats>
+          <sunroof><![CDATA[]]></sunroof>
+          <heatedWheel><![CDATA[]]></heatedWheel>
+          <remoteStart><![CDATA[]]></remoteStart>
+          <connectedNavigation><![CDATA[]]></connectedNavigation>
+          <thirdRowSeating><![CDATA[]]></thirdRowSeating>
         </answer>
 
         <answer correct="">
@@ -231,6 +252,7 @@
           <brand><![CDATA[2018 Buick]]></brand>
           <model><![CDATA[Regal TourX]]></model>
           <attributes><![CDATA[]]></attributes>
+          <!-- ATTRIBUTES -->
           <mpg><![CDATA[21/29]]></mpg>
           <mpgCity><![CDATA[21]]></mpgCity>
           <mpgHighway><![CDATA[29]]></mpgHighway>
@@ -238,8 +260,18 @@
           <cargoVol><![CDATA[32.7]]></cargoVol>
           <basePrice><![CDATA[29,070]]></basePrice>
           <horsePower><![CDATA[250]]></horsePower>
+          <driveLine></driveLine>
+          <interiorHeadRoom></interiorHeadRoom>
+          <doors></doors>
+          <!-- CHARACTERISTICS -->
           <color><![CDATA[white]]></color>
-          <sunroof><![CDATA[no]]></sunroof>
+          <engineType><![CDATA[]]></engineType>
+          <heatedSeats><![CDATA[no]]></heatedSeats>
+          <sunroof><![CDATA[]]></sunroof>
+          <heatedWheel><![CDATA[]]></heatedWheel>
+          <remoteStart><![CDATA[]]></remoteStart>
+          <connectedNavigation><![CDATA[]]></connectedNavigation>
+          <thirdRowSeating><![CDATA[]]></thirdRowSeating>
         </answer>
 
         <answer correct="">
@@ -247,6 +279,7 @@
           <brand><![CDATA[2018 Buick]]></brand>
           <model><![CDATA[LaCrosse]]></model>
           <attributes><![CDATA[(3.6L V6 FWD)]]></attributes>
+          <!-- ATTRIBUTES -->
           <mpg><![CDATA[21/31]]></mpg>
           <mpgCity><![CDATA[21]]></mpgCity>
           <mpgHighway><![CDATA[31]]></mpgHighway>
@@ -254,8 +287,18 @@
           <cargoVol><![CDATA[15.0]]></cargoVol>
           <basePrice><![CDATA[29,565]]></basePrice>
           <horsePower><![CDATA[310]]></horsePower>
+          <driveLine></driveLine>
+          <interiorHeadRoom></interiorHeadRoom>
+          <doors></doors>
+          <!-- CHARACTERISTICS -->
           <color><![CDATA[silver]]></color>
-          <sunroof><![CDATA[no]]></sunroof>
+          <engineType><![CDATA[]]></engineType>
+          <heatedSeats><![CDATA[yes]]></heatedSeats>
+          <sunroof><![CDATA[]]></sunroof>
+          <heatedWheel><![CDATA[]]></heatedWheel>
+          <remoteStart><![CDATA[]]></remoteStart>
+          <connectedNavigation><![CDATA[]]></connectedNavigation>
+          <thirdRowSeating><![CDATA[]]></thirdRowSeating>
         </answer>
 
         <answer correct="">
@@ -263,6 +306,7 @@
           <brand><![CDATA[2018 Buick]]></brand>
           <model><![CDATA[Cascada]]></model>
           <attributes><![CDATA[]]></attributes>
+          <!-- ATTRIBUTES -->
           <mpg><![CDATA[21/29]]></mpg>
           <mpgCity><![CDATA[21]]></mpgCity>
           <mpgHighway><![CDATA[29]]></mpgHighway>
@@ -270,8 +314,18 @@
           <cargoVol><![CDATA[13.4]]></cargoVol>
           <basePrice><![CDATA[33,065]]></basePrice>
           <horsePower><![CDATA[200]]></horsePower>
+          <driveLine></driveLine>
+          <interiorHeadRoom></interiorHeadRoom>
+          <doors></doors>
+          <!-- CHARACTERISTICS -->
           <color><![CDATA[blue]]></color>
-          <sunroof><![CDATA[no]]></sunroof>
+          <engineType><![CDATA[]]></engineType>
+          <heatedSeats><![CDATA[no]]></heatedSeats>
+          <sunroof><![CDATA[]]></sunroof>
+          <heatedWheel><![CDATA[]]></heatedWheel>
+          <remoteStart><![CDATA[]]></remoteStart>
+          <connectedNavigation><![CDATA[]]></connectedNavigation>
+          <thirdRowSeating><![CDATA[]]></thirdRowSeating>
         </answer>
 
         <answer correct="">
@@ -279,6 +333,7 @@
           <brand><![CDATA[2018 Buick]]></brand>
           <model><![CDATA[Encore]]></model>
           <attributes><![CDATA[(1.4L standard FWD)]]></attributes>
+          <!-- ATTRIBUTES -->
           <mpg><![CDATA[25/33]]></mpg>
           <mpgCity><![CDATA[25]]></mpgCity>
           <mpgHighway><![CDATA[33]]></mpgHighway>
@@ -286,8 +341,18 @@
           <cargoVol><![CDATA[18.8]]></cargoVol>
           <basePrice><![CDATA[22,990]]></basePrice>
           <horsePower><![CDATA[138]]></horsePower>
+          <driveLine></driveLine>
+          <interiorHeadRoom></interiorHeadRoom>
+          <doors></doors>
+          <!-- CHARACTERISTICS -->
           <color><![CDATA[blue]]></color>
-          <sunroof><![CDATA[no]]></sunroof>
+          <engineType><![CDATA[]]></engineType>
+          <heatedSeats><![CDATA[yes]]></heatedSeats>
+          <sunroof><![CDATA[]]></sunroof>
+          <heatedWheel><![CDATA[]]></heatedWheel>
+          <remoteStart><![CDATA[]]></remoteStart>
+          <connectedNavigation><![CDATA[]]></connectedNavigation>
+          <thirdRowSeating><![CDATA[]]></thirdRowSeating>
         </answer>
 
         <answer correct="">
@@ -295,6 +360,7 @@
           <brand><![CDATA[2018 Buick]]></brand>
           <model><![CDATA[Envision]]></model>
           <attributes><![CDATA[(2.5L FWD)]]></attributes>
+          <!-- ATTRIBUTES -->
           <mpg><![CDATA[22/29]]></mpg>
           <mpgCity><![CDATA[22]]></mpgCity>
           <mpgHighway><![CDATA[29]]></mpgHighway>
@@ -302,8 +368,18 @@
           <cargoVol><![CDATA[26.9]]></cargoVol>
           <basePrice><![CDATA[33,995]]></basePrice>
           <horsePower><![CDATA[197]]></horsePower>
+          <driveLine></driveLine>
+          <interiorHeadRoom></interiorHeadRoom>
+          <doors></doors>
+          <!-- CHARACTERISTICS -->
           <color><![CDATA[silver]]></color>
-          <sunroof><![CDATA[no]]></sunroof>
+          <engineType><![CDATA[]]></engineType>
+          <heatedSeats><![CDATA[yes]]></heatedSeats>
+          <sunroof><![CDATA[]]></sunroof>
+          <heatedWheel><![CDATA[]]></heatedWheel>
+          <remoteStart><![CDATA[]]></remoteStart>
+          <connectedNavigation><![CDATA[]]></connectedNavigation>
+          <thirdRowSeating><![CDATA[]]></thirdRowSeating>
         </answer>
 
         <answer correct="">
@@ -311,6 +387,7 @@
           <brand><![CDATA[2018 Buick]]></brand>
           <model><![CDATA[Enclave]]></model>
           <attributes><![CDATA[(FWD)]]></attributes>
+          <!-- ATTRIBUTES -->
           <mpg><![CDATA[18/26]]></mpg>
           <mpgCity><![CDATA[18]]></mpgCity>
           <mpgHighway><![CDATA[26]]></mpgHighway>
@@ -318,8 +395,18 @@
           <cargoVol><![CDATA[58.0]]></cargoVol>
           <basePrice><![CDATA[39,995]]></basePrice>
           <horsePower><![CDATA[310]]></horsePower>
+          <driveLine></driveLine>
+          <interiorHeadRoom></interiorHeadRoom>
+          <doors></doors>
+          <!-- CHARACTERISTICS -->
           <color><![CDATA[silver]]></color>
-          <sunroof><![CDATA[no]]></sunroof>
+          <engineType><![CDATA[]]></engineType>
+          <heatedSeats><![CDATA[no]]></heatedSeats>
+          <sunroof><![CDATA[]]></sunroof>
+          <heatedWheel><![CDATA[]]></heatedWheel>
+          <remoteStart><![CDATA[]]></remoteStart>
+          <connectedNavigation><![CDATA[]]></connectedNavigation>
+          <thirdRowSeating><![CDATA[]]></thirdRowSeating>
         </answer>
       </answers>
       <feedback>
@@ -331,15 +418,17 @@
 
   <!-- -->
   <assessment id="2" type="" completed="false" title="Match Features to Wants Game - GMC">
-    <introText><![CDATA[<p>With all the questions, play with these assumptions:</p>
-    <ul>
-      <li>Most recent model year</li>
-      <li>Lowest trim level</li>
-      <li>No dealer or factory incentives</li>
-      <li>All seats up for trunk/cargo space</li>
-    </ul>
-    <p>Try to get them all right! Then come back and play again. The questions and answers will change!</p>
-    <p>Click <span class='bolded'>NEXT</span> to begin.</p>]]></introText>
+    <introText>
+      <![CDATA[<p>With all the questions, play with these assumptions:</p>
+      <ul>
+        <li>Most recent model year</li>
+        <li>Lowest trim level</li>
+        <li>No dealer or factory incentives</li>
+        <li>All seats up for trunk/cargo space</li>
+      </ul>
+      <p>Try to get them all right! Then come back and play again. The questions and answers will change!</p>
+      <p>Click <span class='bolded'>NEXT</span> to begin.</p>]]>
+    </introText>
 
     <questionAnswer type="attribute" required="false" answered="false" passed="false">
       <questions>
@@ -421,7 +510,7 @@
           <imgSrc><![CDATA[]]></imgSrc>
         </question>
 
-        <question  type="attribute" required="false" answered="false" passed="false" criterion="cargoVol">
+        <question  type="attribute" required="false" answered="false" passed="false">
           <type>
             <criterion>cargoVol</criterion>
             <characteristic></characteristic>
@@ -477,6 +566,7 @@
           <brand><![CDATA[2018 GMC]]></brand>
           <model><![CDATA[Acadia]]></model>
           <attributes><![CDATA[(2.5L FWD)]]></attributes>
+          <!-- ATTRIBUTES -->
           <mpg><![CDATA[21/26]]></mpg>
           <mpgCity><![CDATA[21]]></mpgCity>
           <mpgHighway><![CDATA[26]]></mpgHighway>
@@ -484,6 +574,15 @@
           <cargoVol><![CDATA[41.7]]></cargoVol>
           <basePrice><![CDATA[29,000]]></basePrice>
           <horsePower><![CDATA[193]]></horsePower>
+          <!-- CHARACTERISTICS -->
+          <color><![CDATA[red]]></color>
+          <engineType><![CDATA[]]></engineType>
+          <heatedSeats><![CDATA[]]></heatedSeats>
+          <sunroof><![CDATA[]]></sunroof>
+          <heatedWheel><![CDATA[]]></heatedWheel>
+          <remoteStart><![CDATA[]]></remoteStart>
+          <connectedNavigation><![CDATA[]]></connectedNavigation>
+          <thirdRowSeating><![CDATA[]]></thirdRowSeating>
         </answer>
 
         <answer correct="">
@@ -491,6 +590,7 @@
           <brand><![CDATA[2018 GMC]]></brand>
           <model><![CDATA[Terrain]]></model>
           <attributes><![CDATA[(1.5L FWD)]]></attributes>
+          <!-- ATTRIBUTES -->
           <mpg><![CDATA[26/30]]></mpg>
           <mpgCity><![CDATA[26]]></mpgCity>
           <mpgHighway><![CDATA[30]]></mpgHighway>
@@ -498,6 +598,15 @@
           <cargoVol><![CDATA[29.6]]></cargoVol>
           <basePrice><![CDATA[24,995]]></basePrice>
           <horsePower><![CDATA[170]]></horsePower>
+          <!-- CHARACTERISTICS -->
+          <color><![CDATA[red]]></color>
+          <engineType><![CDATA[]]></engineType>
+          <heatedSeats><![CDATA[]]></heatedSeats>
+          <sunroof><![CDATA[]]></sunroof>
+          <heatedWheel><![CDATA[]]></heatedWheel>
+          <remoteStart><![CDATA[]]></remoteStart>
+          <connectedNavigation><![CDATA[]]></connectedNavigation>
+          <thirdRowSeating><![CDATA[]]></thirdRowSeating>
         </answer>
 
         <answer correct="">
@@ -505,6 +614,7 @@
           <brand><![CDATA[2018 GMC]]></brand>
           <model><![CDATA[Yukon]]></model>
           <attributes><![CDATA[(2WD 5.3L)]]></attributes>
+          <!-- ATTRIBUTES -->
           <mpg><![CDATA[16/23]]></mpg>
           <mpgCity><![CDATA[16]]></mpgCity>
           <mpgHighway><![CDATA[31]]></mpgHighway>
@@ -512,6 +622,15 @@
           <cargoVol><![CDATA[51.7]]></cargoVol>
           <basePrice><![CDATA[49,100]]></basePrice>
           <horsePower><![CDATA[355]]></horsePower>
+          <!-- CHARACTERISTICS -->
+          <color><![CDATA[silver]]></color>
+          <engineType><![CDATA[]]></engineType>
+          <heatedSeats><![CDATA[]]></heatedSeats>
+          <sunroof><![CDATA[]]></sunroof>
+          <heatedWheel><![CDATA[]]></heatedWheel>
+          <remoteStart><![CDATA[]]></remoteStart>
+          <connectedNavigation><![CDATA[]]></connectedNavigation>
+          <thirdRowSeating><![CDATA[]]></thirdRowSeating>
         </answer>
 
         <answer correct="">
@@ -519,6 +638,7 @@
           <brand><![CDATA[2018 GMC]]></brand>
           <model><![CDATA[Canyon]]></model>
           <attributes><![CDATA[(2.5L I-4 2WD Extended Cab)]]></attributes>
+          <!-- ATTRIBUTES -->
           <mpg><![CDATA[19/26]]></mpg>
           <mpgCity><![CDATA[19]]></mpgCity>
           <mpgHighway><![CDATA[26]]></mpgHighway>
@@ -526,6 +646,15 @@
           <cargoVol><![CDATA[0]]></cargoVol>
           <basePrice><![CDATA[21,100]]></basePrice>
           <horsePower><![CDATA[200]]></horsePower>
+          <!-- CHARACTERISTICS -->
+          <color><![CDATA[black]]></color>
+          <engineType><![CDATA[]]></engineType>
+          <heatedSeats><![CDATA[]]></heatedSeats>
+          <sunroof><![CDATA[]]></sunroof>
+          <heatedWheel><![CDATA[]]></heatedWheel>
+          <remoteStart><![CDATA[]]></remoteStart>
+          <connectedNavigation><![CDATA[]]></connectedNavigation>
+          <thirdRowSeating><![CDATA[]]></thirdRowSeating>
         </answer>
 
         <answer correct="">
@@ -533,6 +662,7 @@
           <brand><![CDATA[2018 GMC]]></brand>
           <model><![CDATA[Sierra 1500]]></model>
           <attributes><![CDATA[(4.3L V6 2WD, Double Cab)]]></attributes>
+          <!-- ATTRIBUTES -->
           <mpg><![CDATA[18/24]]></mpg>
           <mpgCity><![CDATA[18]]></mpgCity>
           <mpgHighway><![CDATA[24]]></mpgHighway>
@@ -540,6 +670,15 @@
           <cargoVol><![CDATA[0]]></cargoVol>
           <basePrice><![CDATA[29,000]]></basePrice>
           <horsePower><![CDATA[285]]></horsePower>
+          <!-- CHARACTERISTICS -->
+          <color><![CDATA[red]]></color>
+          <engineType><![CDATA[]]></engineType>
+          <heatedSeats><![CDATA[]]></heatedSeats>
+          <sunroof><![CDATA[]]></sunroof>
+          <heatedWheel><![CDATA[]]></heatedWheel>
+          <remoteStart><![CDATA[]]></remoteStart>
+          <connectedNavigation><![CDATA[]]></connectedNavigation>
+          <thirdRowSeating><![CDATA[]]></thirdRowSeating>
         </answer>
       </answers>
       <feedback>
@@ -551,15 +690,17 @@
 
   <!-- -->
   <assessment id="3" type="" completed="false" title="Match Features to Wants Game - Chevrolet">
-    <introText><![CDATA[<p>With all the questions, play with these assumptions:</p>
-    <ul>
-      <li>Most recent model year</li>
-      <li>Lowest trim level</li>
-      <li>No dealer or factory incentives</li>
-      <li>All seats up for trunk/cargo space</li>
-    </ul>
-    <p>Try to get them all right! Then come back and play again. The questions and answers will change!</p>
-    <p>Click <span class='bolded'>NEXT</span> to begin.</p>]]></introText>
+    <introText>
+      <![CDATA[<p>With all the questions, play with these assumptions:</p>
+      <ul>
+        <li>Most recent model year</li>
+        <li>Lowest trim level</li>
+        <li>No dealer or factory incentives</li>
+        <li>All seats up for trunk/cargo space</li>
+      </ul>
+      <p>Try to get them all right! Then come back and play again. The questions and answers will change!</p>
+      <p>Click <span class='bolded'>NEXT</span> to begin.</p>]]>
+    </introText>
 
     <questionAnswer type="attribute" required="false" answered="false" passed="false">
       <questions>
@@ -690,7 +831,6 @@
           <questionBody><![CDATA[The customer has children and needs a vehicle that has the most leg room. Which vehicle would you recommend?]]></questionBody>
           <imgSrc><![CDATA[]]></imgSrc>
         </question>
-
       </questions>
       <answers>
         <answer correct="">
@@ -698,6 +838,7 @@
           <brand><![CDATA[2018 Chevrolet]]></brand>
           <model><![CDATA[Spark]]></model>
           <attributes><![CDATA[(CVT)]]></attributes>
+          <!-- ATTRIBUTES -->
           <mpg><![CDATA[30/38]]></mpg>
           <mpgCity><![CDATA[30]]></mpgCity>
           <mpgHighway><![CDATA[38]]></mpgHighway>
@@ -705,6 +846,15 @@
           <cargoVol><![CDATA[11.1]]></cargoVol>
           <basePrice><![CDATA[13,050]]></basePrice>
           <horsePower><![CDATA[98]]></horsePower>
+          <!-- CHARACTERISTICS -->
+          <color><![CDATA[black]]></color>
+          <engineType><![CDATA[]]></engineType>
+          <heatedSeats><![CDATA[]]></heatedSeats>
+          <sunroof><![CDATA[]]></sunroof>
+          <heatedWheel><![CDATA[]]></heatedWheel>
+          <remoteStart><![CDATA[]]></remoteStart>
+          <connectedNavigation><![CDATA[]]></connectedNavigation>
+          <thirdRowSeating><![CDATA[]]></thirdRowSeating>
         </answer>
 
         <answer correct="">
@@ -712,6 +862,7 @@
           <brand><![CDATA[2018 Chevrolet]]></brand>
           <model><![CDATA[Sonic Sedan]]></model>
           <attributes><![CDATA[(1.4L Turbo, Manual)]]></attributes>
+          <!-- ATTRIBUTES -->
           <mpg><![CDATA[28/37]]></mpg>
           <mpgCity><![CDATA[28]]></mpgCity>
           <mpgHighway><![CDATA[37]]></mpgHighway>
@@ -719,6 +870,15 @@
           <cargoVol><![CDATA[14.9]]></cargoVol>
           <basePrice><![CDATA[15,295]]></basePrice>
           <horsePower><![CDATA[138]]></horsePower>
+          <!-- CHARACTERISTICS -->
+          <color><![CDATA[silver]]></color>
+          <engineType><![CDATA[]]></engineType>
+          <heatedSeats><![CDATA[]]></heatedSeats>
+          <sunroof><![CDATA[]]></sunroof>
+          <heatedWheel><![CDATA[]]></heatedWheel>
+          <remoteStart><![CDATA[]]></remoteStart>
+          <connectedNavigation><![CDATA[]]></connectedNavigation>
+          <thirdRowSeating><![CDATA[]]></thirdRowSeating>
         </answer>
 
         <answer correct="">
@@ -726,6 +886,7 @@
           <brand><![CDATA[2018 Chevrolet]]></brand>
           <model><![CDATA[Cruze LT Sedan]]></model>
           <attributes><![CDATA[(1.4L Turbo, Automatic)]]></attributes>
+          <!-- ATTRIBUTES -->
           <mpg><![CDATA[30/40]]></mpg>
           <mpgCity><![CDATA[30]]></mpgCity>
           <mpgHighway><![CDATA[40]]></mpgHighway>
@@ -733,6 +894,15 @@
           <cargoVol><![CDATA[13.9]]></cargoVol>
           <basePrice><![CDATA[16,975]]></basePrice>
           <horsePower><![CDATA[137]]></horsePower>
+          <!-- CHARACTERISTICS -->
+          <color><![CDATA[silver]]></color>
+          <engineType><![CDATA[]]></engineType>
+          <heatedSeats><![CDATA[]]></heatedSeats>
+          <sunroof><![CDATA[]]></sunroof>
+          <heatedWheel><![CDATA[]]></heatedWheel>
+          <remoteStart><![CDATA[]]></remoteStart>
+          <connectedNavigation><![CDATA[]]></connectedNavigation>
+          <thirdRowSeating><![CDATA[]]></thirdRowSeating>
         </answer>
 
         <answer correct="">
@@ -740,6 +910,7 @@
           <brand><![CDATA[2018 Chevrolet]]></brand>
           <model><![CDATA[Malibu]]></model>
           <attributes><![CDATA[(1.5L Turbo)]]></attributes>
+          <!-- ATTRIBUTES -->
           <mpg><![CDATA[27/36]]></mpg>
           <mpgCity><![CDATA[27]]></mpgCity>
           <mpgHighway><![CDATA[36]]></mpgHighway>
@@ -747,6 +918,15 @@
           <cargoVol><![CDATA[15.8]]></cargoVol>
           <basePrice><![CDATA[21,680]]></basePrice>
           <horsePower><![CDATA[163]]></horsePower>
+          <!-- CHARACTERISTICS -->
+          <color><![CDATA[black]]></color>
+          <engineType><![CDATA[]]></engineType>
+          <heatedSeats><![CDATA[]]></heatedSeats>
+          <sunroof><![CDATA[]]></sunroof>
+          <heatedWheel><![CDATA[]]></heatedWheel>
+          <remoteStart><![CDATA[]]></remoteStart>
+          <connectedNavigation><![CDATA[]]></connectedNavigation>
+          <thirdRowSeating><![CDATA[]]></thirdRowSeating>
         </answer>
 
         <answer correct="">
@@ -754,6 +934,7 @@
           <brand><![CDATA[2018 Chevrolet]]></brand>
           <model><![CDATA[Impala]]></model>
           <attributes><![CDATA[2.5L I-4]]></attributes>
+          <!-- ATTRIBUTES -->
           <mpg><![CDATA[22/30]]></mpg>
           <mpgCity><![CDATA[22]]></mpgCity>
           <mpgHighway><![CDATA[30]]></mpgHighway>
@@ -761,6 +942,15 @@
           <cargoVol><![CDATA[18.8]]></cargoVol>
           <basePrice><![CDATA[27,895]]></basePrice>
           <horsePower><![CDATA[197]]></horsePower>
+          <!-- CHARACTERISTICS -->
+          <color><![CDATA[black]]></color>
+          <engineType><![CDATA[]]></engineType>
+          <heatedSeats><![CDATA[]]></heatedSeats>
+          <sunroof><![CDATA[]]></sunroof>
+          <heatedWheel><![CDATA[]]></heatedWheel>
+          <remoteStart><![CDATA[]]></remoteStart>
+          <connectedNavigation><![CDATA[]]></connectedNavigation>
+          <thirdRowSeating><![CDATA[]]></thirdRowSeating>
         </answer>
 
         <answer correct="">
@@ -768,6 +958,7 @@
           <brand><![CDATA[2018 Chevrolet]]></brand>
           <model><![CDATA[Trax]]></model>
           <attributes><![CDATA[(FWD)]]></attributes>
+          <!-- ATTRIBUTES -->
           <mpg><![CDATA[25/33]]></mpg>
           <mpgCity><![CDATA[25]]></mpgCity>
           <mpgHighway><![CDATA[33]]></mpgHighway>
@@ -775,6 +966,15 @@
           <cargoVol><![CDATA[18.7]]></cargoVol>
           <basePrice><![CDATA[21,000]]></basePrice>
           <horsePower><![CDATA[138]]></horsePower>
+          <!-- CHARACTERISTICS -->
+          <color><![CDATA[blue]]></color>
+          <engineType><![CDATA[]]></engineType>
+          <heatedSeats><![CDATA[]]></heatedSeats>
+          <sunroof><![CDATA[]]></sunroof>
+          <heatedWheel><![CDATA[]]></heatedWheel>
+          <remoteStart><![CDATA[]]></remoteStart>
+          <connectedNavigation><![CDATA[]]></connectedNavigation>
+          <thirdRowSeating><![CDATA[]]></thirdRowSeating>
         </answer>
 
         <answer correct="">
@@ -782,6 +982,7 @@
           <brand><![CDATA[2018 Chevrolet]]></brand>
           <model><![CDATA[Equinox]]></model>
           <attributes><![CDATA[(1.5L FWD)]]></attributes>
+          <!-- ATTRIBUTES -->
           <mpg><![CDATA[26/32]]></mpg>
           <mpgCity><![CDATA[26]]></mpgCity>
           <mpgHighway><![CDATA[32]]></mpgHighway>
@@ -789,11 +990,21 @@
           <cargoVol><![CDATA[29.9]]></cargoVol>
           <basePrice><![CDATA[23,580]]></basePrice>
           <horsePower><![CDATA[170]]></horsePower>
+          <!-- CHARACTERISTICS -->
+          <color><![CDATA[black]]></color>
+          <engineType><![CDATA[]]></engineType>
+          <heatedSeats><![CDATA[]]></heatedSeats>
+          <sunroof><![CDATA[]]></sunroof>
+          <heatedWheel><![CDATA[]]></heatedWheel>
+          <remoteStart><![CDATA[]]></remoteStart>
+          <connectedNavigation><![CDATA[]]></connectedNavigation>
+          <thirdRowSeating><![CDATA[]]></thirdRowSeating>
         </answer>
 
         <answer correct="">
           <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-Chevrolet-Traverse-049.png]]></modelImgSrc>
           <brand><![CDATA[2018 Chevrolet]]></brand>
+          <!-- ATTRIBUTES -->
           <model><![CDATA[Traverse]]></model>
           <attributes><![CDATA[(3.6L V6 FWD)]]></attributes>
           <mpg><![CDATA[18/27]]></mpg>
@@ -803,6 +1014,15 @@
           <cargoVol><![CDATA[58.1]]></cargoVol>
           <basePrice><![CDATA[29,930]]></basePrice>
           <horsePower><![CDATA[310]]></horsePower>
+          <!-- CHARACTERISTICS -->
+          <color><![CDATA[red]]></color>
+          <engineType><![CDATA[]]></engineType>
+          <heatedSeats><![CDATA[]]></heatedSeats>
+          <sunroof><![CDATA[]]></sunroof>
+          <heatedWheel><![CDATA[]]></heatedWheel>
+          <remoteStart><![CDATA[]]></remoteStart>
+          <connectedNavigation><![CDATA[]]></connectedNavigation>
+          <thirdRowSeating><![CDATA[]]></thirdRowSeating>
         </answer>
 
         <answer correct="">
@@ -810,6 +1030,7 @@
           <brand><![CDATA[2018 Chevrolet]]></brand>
           <model><![CDATA[Colorado]]></model>
           <attributes><![CDATA[(2.5L I-4 2WD Manual, Extended Cab)]]></attributes>
+          <!-- ATTRIBUTES -->
           <mpg><![CDATA[19/26]]></mpg>
           <mpgCity><![CDATA[19]]></mpgCity>
           <mpgHighway><![CDATA[26]]></mpgHighway>
@@ -817,6 +1038,15 @@
           <cargoVol><![CDATA[0]]></cargoVol>
           <basePrice><![CDATA[20,200]]></basePrice>
           <horsePower><![CDATA[200]]></horsePower>
+          <!-- CHARACTERISTICS -->
+          <color><![CDATA[red]]></color>
+          <engineType><![CDATA[]]></engineType>
+          <heatedSeats><![CDATA[]]></heatedSeats>
+          <sunroof><![CDATA[]]></sunroof>
+          <heatedWheel><![CDATA[]]></heatedWheel>
+          <remoteStart><![CDATA[]]></remoteStart>
+          <connectedNavigation><![CDATA[]]></connectedNavigation>
+          <thirdRowSeating><![CDATA[]]></thirdRowSeating>
         </answer>
 
         <answer correct="">
@@ -824,6 +1054,7 @@
           <brand><![CDATA[2018 Chevrolet]]></brand>
           <model><![CDATA[Silverado 1500]]></model>
           <attributes><![CDATA[(4.3L V6 2WD, Double Cab)]]></attributes>
+          <!-- ATTRIBUTES -->
           <mpg><![CDATA[18/24]]></mpg>
           <mpgCity><![CDATA[18]]></mpgCity>
           <mpgHighway><![CDATA[24]]></mpgHighway>
@@ -831,6 +1062,15 @@
           <cargoVol><![CDATA[0]]></cargoVol>
           <basePrice><![CDATA[28,300]]></basePrice>
           <horsePower><![CDATA[285]]></horsePower>
+          <!-- CHARACTERISTICS -->
+          <color><![CDATA[black]]></color>
+          <engineType><![CDATA[]]></engineType>
+          <heatedSeats><![CDATA[]]></heatedSeats>
+          <sunroof><![CDATA[]]></sunroof>
+          <heatedWheel><![CDATA[]]></heatedWheel>
+          <remoteStart><![CDATA[]]></remoteStart>
+          <connectedNavigation><![CDATA[]]></connectedNavigation>
+          <thirdRowSeating><![CDATA[]]></thirdRowSeating>
         </answer>
 
         <answer correct="">
@@ -838,6 +1078,7 @@
           <brand><![CDATA[2018 Chevrolet]]></brand>
           <model><![CDATA[Camaro Coupe]]></model>
           <attributes><![CDATA[(2.0L I-4, Manual)]]></attributes>
+          <!-- ATTRIBUTES -->
           <mpg><![CDATA[20/30]]></mpg>
           <mpgCity><![CDATA[20]]></mpgCity>
           <mpgHighway><![CDATA[30]]></mpgHighway>
@@ -845,6 +1086,15 @@
           <cargoVol><![CDATA[9.1]]></cargoVol>
           <basePrice><![CDATA[25,905]]></basePrice>
           <horsePower><![CDATA[275]]></horsePower>
+          <!-- CHARACTERISTICS -->
+          <color><![CDATA[yellow]]></color>
+          <engineType><![CDATA[]]></engineType>
+          <heatedSeats><![CDATA[]]></heatedSeats>
+          <sunroof><![CDATA[]]></sunroof>
+          <heatedWheel><![CDATA[]]></heatedWheel>
+          <remoteStart><![CDATA[]]></remoteStart>
+          <connectedNavigation><![CDATA[]]></connectedNavigation>
+          <thirdRowSeating><![CDATA[]]></thirdRowSeating>
         </answer>
       </answers>
 
@@ -854,5 +1104,4 @@
       </feedback>
     </questionAnswer>
   </assessment>
-
 </assessments>

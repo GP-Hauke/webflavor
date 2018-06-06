@@ -108,3 +108,12 @@
 #assessmentModal .assessment-content.gmc .answer-container .brand-model-attr > p.brand {
   color: #e31837;
 }
+
+#assessmentModal .assessment-content .feedback-container .feedback-details{
+  font-size: 20px;
+  line-height: 35px;
+}
+
+#assessmentModal .assessment-content .feedback-container .feedback-details span{
+  font-weight: 300;
+}

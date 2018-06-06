@@ -171,6 +171,9 @@ function buildShellUI() {
   } else if(courseData.MENU_PLACEMENT === 'left') {
     buildLeftNav();
   }
+  else if(courseData.MENU_PLACEMENT === 'tab') {
+    buildTabNav();
+  }
   else {
     buildNoneNav();
   }
@@ -260,6 +263,131 @@ function buildTopNav() {
 
   var navMarkup = '';
   $.get("src/components/navigation/nav.html", function(data) {
+    navMarkup = data;
+    $("#navContainer").append(navMarkup);
+
+    $('#titleMain').html(courseData.TITLE+":");
+    $('#titleMainMobile').html(courseData.TITLE);
+    $('#subTitle').html(courseData.SUB_TITLE);
+    $('#subTitleMobile').html(courseData.SUB_TITLE);
+
+    // MOBILE NAV DRAWER
+    var mobileNav = '';
+
+    for(var i = 0; i < courseData.chapters.length; i++) {
+
+      var mobileMenuButton = "";
+
+      if(courseData.chapters[i].pages.length > 1) {
+
+        mobileMenuButton = '<li><button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse'+i+'" aria-expanded="false" aria-controls="collapseExample">'+courseData.chapters[i].title+'</button><div class="collapse" id="collapse'+i+'"><ul class="">';
+
+        for(var j = 0; j < courseData.chapters[i].pages.length; j++) {
+          mobileMenuButton = mobileMenuButton + '<li><a href="javascript:openPage('+i+','+j+')">'+courseData.chapters[i].pages[j].title+'</a></li>';
+        }
+
+        mobileMenuButton = mobileMenuButton + '</ul></div></li>';
+
+      } else {
+        mobileMenuButton = '<li class="courseTitleChapter" id="courseTitleChapter'+i+'" onclick="openPage('+i+',0)">'+courseData.chapters[i].title+'</li>';
+      }
+
+      mobileNav = mobileNav + mobileMenuButton;
+
+    }
+
+    $("#navbarMobile").append(mobileNav);
+    // END MOBILE NAV DRAWER
+
+    // HEADER LINKS
+    if(courseData.headerLinks.included === "true") {
+      var headerLinks = "";
+      for(var i = 0; i < courseData.headerLinks.links.length; i++) {
+        var headerLinkEl = '<li><a id="'+courseData.headerLinks.links[i].id+'" href="'+courseData.headerLinks.links[i].href+'" target="'+courseData.headerLinks.links[i].target+'">'+courseData.headerLinks.links[i].title+'</a></li>';
+        headerLinks = headerLinks + headerLinkEl;
+      }
+      $("#headerLinks").append(headerLinks);
+    }
+    // END HEADER LINKS
+
+    // BOTTOM NAV
+    var bottomNav = '<div class="container"><div id="navbarBottomCollapse" class="navbar-collapse collapse"><ul id="nav-items-bottom-row" class="nav nav-justified">';
+
+    for(var i = 0; i < courseData.chapters.length; i++) {
+
+      var menuButton = "";
+
+      if(courseData.chapters[i].pages.length > 1) {
+
+        menuButton = '<li class="dropdown"><button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">'+courseData.chapters[i].title+'<span class="caret"></span></button><ul class="dropdown-menu">';
+
+        for(var k = 0; k < courseData.chapters[i].pages.length; k++) {
+          menuButton = menuButton + '<li><a href="javascript:openPage('+i+','+k+')">'+courseData.chapters[i].pages[k].title+'</a></li>';
+        }
+
+        menuButton = menuButton + '</ul></li>';
+
+      } else {
+        menuButton = '<li class="courseTitleChapter" id="courseTitleChapter'+i+'" onclick="openPage('+i+',0)">'+courseData.chapters[i].title+'</li>';
+      }
+
+      bottomNav = bottomNav + menuButton;
+
+      /*var currentTitle = chapters[i].title;
+
+      if(chapters[i].titleIndex != -1) {
+      currentTitle = chapters[i].title.split(";")[chapters[i].titleIndex];
+    }
+
+    if(i == currentChapter) {
+    if(chapters.length > 1) {
+    navMarkup = navMarkup+'<div id="chapter'+i+'" class="chapterSelected chapterIncomplete chapterTitle" style="margin-top:0em" onclick="openPage('+i+',0)">'+currentTitle+'</div>';
+
+  } else {
+  navMarkup = navMarkup+'<div id="chapter'+i+'" class="chapterSelected chapterIncomplete chapterTitle" style="margin-top:0em" onclick="openPage('+i+',0)">'+currentTitle+'</div>';
+}
+navMarkup = navMarkup+'<div id="pages'+i+'">';
+
+} else {
+navMarkup = navMarkup+'<div id="chapter'+i+'" class="chapterNotSelected chapterIncomplete chapterTitle" onclick="openPage('+i+',0)">'+currentTitle+'</div>';
+
+navMarkup = navMarkup+'<div id="pages'+i+'">';
+}
+
+for(var j = 0; j < chapters[i].pages.length; j++) {
+
+if(i == currentChapter && j == currentPage) {
+navMarkup = navMarkup+'<a href="javascript:openPage('+i+','+j+');void(0)"><div id="mi'+i+'_'+j+'" class="menuItem menuItemSelected">'+chapters[i].pages[j].title+'</div></a>';
+
+} else {
+navMarkup = navMarkup+'<a href="javascript:openPage('+i+','+j+');void(0)"><div id="mi'+i+'_'+j+'" class="menuItem '+notSelectedClass+'">'+chapters[i].pages[j].title+'</div></a>';
+}
+}
+navMarkup = navMarkup+'</div>';*/
+}
+
+bottomNav = bottomNav + '</ul></div></div>';
+
+$("#navbarMain").on('hidden.bs.collapse', function () {
+  calculateHeight();
+});
+
+$("#navbarBottom").append(bottomNav);
+// END BOTTOM NAV
+
+loadInterfaceStyles();
+
+});
+
+var notSelectedClass = "menuItemNotSelected";
+
+}
+
+
+function buildTabNav() {
+
+  var navMarkup = '';
+  $.get("src/components/navigation/navTab.html", function(data) {
     navMarkup = data;
     $("#navContainer").append(navMarkup);
 
