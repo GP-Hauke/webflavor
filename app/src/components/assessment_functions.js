@@ -207,7 +207,6 @@ function startAssessment(id) {
 
   //Question Filter (may not have one) and its Numerical Value
   var hasFilters = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions[questionIndex].HASFILTERS;
-  var filterType = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions[questionIndex].filters[0].type;
   var filters = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions[questionIndex].filters;
 
 
@@ -218,11 +217,14 @@ function startAssessment(id) {
 
   if(hasFilters == "true"){
     //If a filter exists, apply it
-    if(filterType == "attribute"){
-      answersFiltered = filterAnswersAttribute(activeAssessment, filters);
-    }else if(filterType == "characteristic"){
-
-      answersFiltered = filterAnswersCharacteristic(activeAssessment, filters);
+    console.log(filters.length);
+    for(var i = 0; i < filters.length; i++){
+      var filterType = filters[i].type;
+      if(filterType == "attribute"){
+        answersFiltered = filterAnswersAttribute(activeAssessment, filters[i], answersFiltered);
+      }else if(filterType == "characteristic"){
+        answersFiltered = filterAnswersCharacteristic(activeAssessment, filters[i], answersFiltered);
+      }
     }
   }
 
@@ -459,6 +461,8 @@ function startAssessment(id) {
         }
       }
 
+      var feedbackDetails = "The <span class='bolded'>"+unselectedAnswerData.model+"'s</span> listed <span>"+phrasedCriterion+":</span>  <span class='bolded'>"+unselectedAnswerData[criterion]+"</span>"
+
       if(correctlyAnswered) {
         var feedback = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.feedback.correct;
 
@@ -476,7 +480,8 @@ function startAssessment(id) {
           $(selectedAnswers[i]).append("<div class='viewed-overlay'><img src='dir/media/img/icon_viewed.png'></div>");
         }
 
-        $("#modalContainer .assessment-content").append("<div class='feedback-container'><p class='feedback-details'>The <span class='bolded'>"+unselectedAnswerData.model+"'s</span> listed <span>"+phrasedCriterion+":</span>  <span class='bolded'>"+unselectedAnswerData[criterion]+"</span></p><p class='feedback-details'>The <span class='bolded'>"+selectedAnswersData[0].model+"'s</span> listed <span>"+phrasedCriterion+":</span> <span class='bolded'>"+selectedAnswersData[0][criterion]+"</span></p><p>"+feedback+" +"+tempScore+" points</p><button class='btn-ok'>GO</button></div>");
+
+        $("#modalContainer .assessment-content").append("<div class='feedback-container'><p class='feedback-details'>"+feedbackDetails+"</p><p class='feedback-details'>The <span class='bolded'>"+selectedAnswersData[0].model+"'s</span> listed <span>"+phrasedCriterion+":</span> <span class='bolded'>"+selectedAnswersData[0][criterion]+"</span></p><p>"+feedback+" +"+tempScore+" points</p><button class='btn-ok'>GO</button></div>");
 
         $("#modalContainer .btn-ok").click(function() {
           courseData.assessmentData.assessments[activeAssessment].currentQuestionIndex += 1;
@@ -675,11 +680,12 @@ function shuffle(array) {
   return array;
 }
 
-function filterAnswersAttribute(activeAssessment, filters){
-  var filter = filters[0].filter;
-  var value = filters[0].value;
-  var comparison = filters[0].compare;
+function filterAnswersAttribute(activeAssessment, filterParam, answersFilteredParam){
+  var filter = filterParam.filter;
+  var value = filterParam.value;
+  var comparison = filterParam.compare;
   var operator = "";
+  var answersFiltered = [];
 
   if(comparison == 'minimum'){
     operator = ">";
@@ -689,44 +695,37 @@ function filterAnswersAttribute(activeAssessment, filters){
     operator = "==";
   }
 
-  var answers = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.answers;
-  var answersFiltered = [];
-
-  for(var i = 0; i < answers.length; i++){
+  for(var i = 0; i < answersFilteredParam.length; i++){
     //Iterate through the answers and check if the given criteria (filter) is greater than the num given
 
-    if(eval(answers[i][filter] + operator + value)){
+    if(eval(answersFilteredParam[i][filter] + operator + value)){
       //If so, then add it to the answersFiltered array to be used in the assessment
-      answersFiltered.push(answers[i]);
+      answersFiltered.push(answersFilteredParam[i]);
     }
   }
 
   return answersFiltered;
 }
 
-function filterAnswersCharacteristic(activeAssessment, filters){
-  var answers = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.answers;
-  var answersFiltered = [];
+function filterAnswersCharacteristic(activeAssessment, filterParam, answersFilteredParam){
   var vehiclePassedFilter = true;
-  var filter = filters[0].filter;
-  var value = filters[0].value;
+  var filter = filterParam.filter;
+  var value = filterParam.value;
+  var answersFiltered = [];
 
-  for(var i = 0; i < answers.length; i++){
+
+  for(var i = 0; i < answersFilteredParam.length; i++){
+    console.log(answersFilteredParam[i].model);
+    console.log(answersFilteredParam[i].heatedSeats);
+
     vehiclePassedFilter = true;
     //Iterate through the answers and check if the given criteria (filter) is greater than the num given
-
-    for(var j = 0; j < filters.length; j++){
-      filter = filters[j].filter;
-      value = filters[j].value;
-
-      if(answers[i][filter] != value){
-        vehiclePassedFilter = false;
-        break;
-      }
+    if(answersFilteredParam[i][filter] != value){
+      vehiclePassedFilter = false;
     }
 
     if(vehiclePassedFilter){
-      answersFiltered.push(answers[i]);
+      answersFiltered.push(answersFilteredParam[i]);
     }
   }
 

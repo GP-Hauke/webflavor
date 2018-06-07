@@ -17,7 +17,7 @@
 
     <questionAnswer required="false" answered="false" passed="false">
       <questions>
-
+<!--
         <question type="attribute" required="false" answered="false" passed="false" >
           <type>
             <criterion>mpg</criterion>
@@ -135,13 +135,13 @@
           <questionBody><![CDATA[The customer mentions she often likes to travel to local state parks to go mountain biking. Which vehicle with the most cargo space would you recommend?]]></questionBody>
           <imgSrc><![CDATA[]]></imgSrc>
         </question>
-
-        <question type="attribute" required="false" answered="false" passed="false">
+      -->
+        <question type="characteristic" required="false" answered="false" passed="false">
           <type>
-            <criterion>rearLegRoom</criterion>
-            <characteristic></characteristic>
+            <criterion>sunroof</criterion>
+            <characteristic>yes</characteristic>
             <filters hasFilters="true">
-              <filter type="attribute" compare="minimum" value="37">rearLegRoom</filter>
+              <filter type="attribute" compare="minimum" value="25">mpg</filter>
             </filters>
           </type>
           <questionTitle><![CDATA[]]></questionTitle>
@@ -213,7 +213,7 @@
           <color><![CDATA[red]]></color>
           <engineType><![CDATA[]]></engineType>
           <heatedSeats><![CDATA[no]]></heatedSeats>
-          <sunroof><![CDATA[]]></sunroof>
+          <sunroof><![CDATA[no]]></sunroof>
           <heatedWheel><![CDATA[]]></heatedWheel>
           <remoteStart><![CDATA[]]></remoteStart>
           <connectedNavigation><![CDATA[]]></connectedNavigation>
@@ -240,7 +240,7 @@
           <color><![CDATA[black]]></color>
           <engineType><![CDATA[]]></engineType>
           <heatedSeats><![CDATA[no]]></heatedSeats>
-          <sunroof><![CDATA[]]></sunroof>
+          <sunroof><![CDATA[no]]></sunroof>
           <heatedWheel><![CDATA[]]></heatedWheel>
           <remoteStart><![CDATA[]]></remoteStart>
           <connectedNavigation><![CDATA[]]></connectedNavigation>
@@ -267,7 +267,7 @@
           <color><![CDATA[white]]></color>
           <engineType><![CDATA[]]></engineType>
           <heatedSeats><![CDATA[no]]></heatedSeats>
-          <sunroof><![CDATA[]]></sunroof>
+          <sunroof><![CDATA[no]]></sunroof>
           <heatedWheel><![CDATA[]]></heatedWheel>
           <remoteStart><![CDATA[]]></remoteStart>
           <connectedNavigation><![CDATA[]]></connectedNavigation>
@@ -293,8 +293,8 @@
           <!-- CHARACTERISTICS -->
           <color><![CDATA[silver]]></color>
           <engineType><![CDATA[]]></engineType>
-          <heatedSeats><![CDATA[yes]]></heatedSeats>
-          <sunroof><![CDATA[]]></sunroof>
+          <heatedSeats><![CDATA[no]]></heatedSeats>
+          <sunroof><![CDATA[no]]></sunroof>
           <heatedWheel><![CDATA[]]></heatedWheel>
           <remoteStart><![CDATA[]]></remoteStart>
           <connectedNavigation><![CDATA[]]></connectedNavigation>
@@ -320,8 +320,8 @@
           <!-- CHARACTERISTICS -->
           <color><![CDATA[blue]]></color>
           <engineType><![CDATA[]]></engineType>
-          <heatedSeats><![CDATA[no]]></heatedSeats>
-          <sunroof><![CDATA[]]></sunroof>
+          <heatedSeats><![CDATA[yes]]></heatedSeats>
+          <sunroof><![CDATA[no]]></sunroof>
           <heatedWheel><![CDATA[]]></heatedWheel>
           <remoteStart><![CDATA[]]></remoteStart>
           <connectedNavigation><![CDATA[]]></connectedNavigation>
@@ -348,7 +348,7 @@
           <color><![CDATA[blue]]></color>
           <engineType><![CDATA[]]></engineType>
           <heatedSeats><![CDATA[yes]]></heatedSeats>
-          <sunroof><![CDATA[]]></sunroof>
+          <sunroof><![CDATA[yes]]></sunroof>
           <heatedWheel><![CDATA[]]></heatedWheel>
           <remoteStart><![CDATA[]]></remoteStart>
           <connectedNavigation><![CDATA[]]></connectedNavigation>
@@ -375,7 +375,7 @@
           <color><![CDATA[silver]]></color>
           <engineType><![CDATA[]]></engineType>
           <heatedSeats><![CDATA[yes]]></heatedSeats>
-          <sunroof><![CDATA[]]></sunroof>
+          <sunroof><![CDATA[no]]></sunroof>
           <heatedWheel><![CDATA[]]></heatedWheel>
           <remoteStart><![CDATA[]]></remoteStart>
           <connectedNavigation><![CDATA[]]></connectedNavigation>
@@ -401,8 +401,8 @@
           <!-- CHARACTERISTICS -->
           <color><![CDATA[silver]]></color>
           <engineType><![CDATA[]]></engineType>
-          <heatedSeats><![CDATA[no]]></heatedSeats>
-          <sunroof><![CDATA[]]></sunroof>
+          <heatedSeats><![CDATA[yes]]></heatedSeats>
+          <sunroof><![CDATA[no]]></sunroof>
           <heatedWheel><![CDATA[]]></heatedWheel>
           <remoteStart><![CDATA[]]></remoteStart>
           <connectedNavigation><![CDATA[]]></connectedNavigation>
