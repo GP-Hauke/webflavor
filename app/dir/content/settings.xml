@@ -28,7 +28,7 @@
         - true will open a splash page at the beginning of the course, false will take learner directly to first page of the course (or resume the course at the page where they left off) -->
   <hasSplashPage>false</hasSplashPage>
 
-  <hasGlossary>true</hasGlossary>
+  <hasGlossary>false</hasGlossary>
 
   <hasResources>false</hasResources>
 

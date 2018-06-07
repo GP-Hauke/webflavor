@@ -16,11 +16,50 @@ module.exports = function(grunt){
 
     copy: {
       build: {
+
         cwd: 'app',
-        src: ['**', '!**/*.scss', '!**/vendors/**',
-        '!**/base/**', '!**/component/**', '!**/layout/**', '!**/components/*.js', '!**src/js/*.js', '!**/api/**'],
+        src: ['**','!**/vendors/**', '!**/vendors/**', '!**/components/*.js', '!**/api/**', '!**/component/**', '!**src/js/*.js'],
+      //  '!**/*.scss', '!**/vendors/**', '!**/base/**', '!**/component/**', '!**/layout/**', '!**/components/*.js', '!**src/js/*.js', '!**/api/**'],
         dest: 'dist',
-        expand: true
+        expand: true,
+
+        filter: function(filepath){
+          if(require('path').extname(filepath) == '.xml'){
+            var path = require('path').basename(filepath)
+            var json = grunt.file.readJSON('settings.json');
+
+            if(path == 'splash.xml'){
+              if(json.settings.hasSplashPage == 'false'){
+                return false;
+              }
+            }else if(path == 'glossary.xml'){
+              if(json.settings.hasGlossary == 'false'){
+                return false;
+              }
+            }else if(path == 'course_resources.xml'){
+              if(json.settings.hasResources == 'false'){
+                return false;
+              }
+            }else if(path == 'card_content.xml'){
+              if(json.settings.hasCards == 'false'){
+                return false;
+              }
+            }else if(path == 'assessments.xml'){
+              if(json.settings.hasAssessments == 'false'){
+                return false;
+              }
+            }else if(path == 'drag_drops.xml'){
+              if(json.settings.hasDragDrops == 'false'){
+                return false;
+              }
+            }
+
+            return true;
+          }
+          else {
+            return true;
+          }
+        }
       }
     },
 
@@ -51,8 +90,8 @@ module.exports = function(grunt){
     cssmin: {
       build: {
         files: {
-          'dist/dir/css/default/main.css': [ 'dist/dir/css/default/main.css' ],
-          'dist/dir/css/themes/gm_selling_skills/theme.css': [ 'dist/dir/css/themes/gm_selling_skills/theme.css' ],
+          'dist/src/css/default.css': [ 'dist/src/css/default.css' ],
+          'dist/dir/themes/gm_selling_skills/theme.css': [ 'dist/dir/themes/gm_selling_skills/theme.css' ],
           'dist/src/vendors/vendors.min.css': ['app/src/vendors/**/*.min.css'],
         }
       }
@@ -103,6 +142,23 @@ module.exports = function(grunt){
            expand: true
        }]
       }
+    },
+
+    convert: {
+      options: {
+        explicitArray: false,
+      },
+      xml2json: {
+          files: [
+            {
+              expand: true,
+              cwd: 'app/dir/content/',
+              src: ['settings.xml'],
+              dest: '',
+              ext: '.json'
+            }
+          ]
+      },
     }
   });
 
@@ -116,12 +172,30 @@ module.exports = function(grunt){
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-usemin');
   grunt.loadNpmTasks('grunt-contrib-compress');
+  grunt.loadNpmTasks('grunt-convert');
 
-  grunt.registerTask('test', ['compress']);
+
   grunt.registerTask('dev', ['watch']);
   grunt.registerTask(
     'build',
     'Compiles all of the assets and copies the files to the build directory.',
-    [ 'clean', 'copy', 'uglify', 'cssmin', 'useminPrepare', 'usemin', 'compress', 'connect']
+    [ 'clean', 'convert', 'copy', 'uglify', 'cssmin', 'useminPrepare', 'usemin', 'compress', 'connect']
   );
+
+  grunt.registerTask('test', function(){
+
+      var fs = require('fs');
+      var parse = require('xml-parser');
+      var xml = fs.readFileSync('app/dir/content/settings.xml', 'utf8');
+      var inspect = require('util').inspect;
+
+      var obj = parse(xml);
+      //grunt.log.oklns(inspect(obj, { colors: true, depth: Infinity }));
+      grunt.log.oklns(inspect(obj.declaration.root));
+
+  });
+
+
+
+  grunt.registerTask('con', ['convert']);
 }
