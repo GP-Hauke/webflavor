@@ -64,26 +64,11 @@ module.exports = function(grunt){
     },
 
     clean: {
-      build: {
+      rebuild: {
         src: [ 'dist' ]
       },
-    },
-
-    sass: {
-      dist: {
-        files: {
-          //Default Sass to CSS
-          'app/dir/css/default/main.css': 'app/dir/css/default/style.scss',
-          //GM Selling Skills Sass to CSS
-          'app/dir/css/themes/gm_selling_skills/theme.css': 'app/dir/css/default/themes/gm_selling_skills/style.scss'
-        }
-      }
-    },
-
-    watch: {
       css: {
-        files: '**/*.scss',
-        tasks: ['sass']
+        src: ['dist/dir/themes/**/**.css','!dist/dir/themes/**/theme.css']
       }
     },
 
@@ -179,23 +164,6 @@ module.exports = function(grunt){
   grunt.registerTask(
     'build',
     'Compiles all of the assets and copies the files to the build directory.',
-    [ 'clean', 'convert', 'copy', 'uglify', 'cssmin', 'useminPrepare', 'usemin', 'compress', 'connect']
+    [ 'clean:rebuild', 'convert', 'copy', 'uglify', 'cssmin', 'clean:css', 'useminPrepare', 'usemin', 'compress', 'connect']
   );
-
-  grunt.registerTask('test', function(){
-
-      var fs = require('fs');
-      var parse = require('xml-parser');
-      var xml = fs.readFileSync('app/dir/content/settings.xml', 'utf8');
-      var inspect = require('util').inspect;
-
-      var obj = parse(xml);
-      //grunt.log.oklns(inspect(obj, { colors: true, depth: Infinity }));
-      grunt.log.oklns(inspect(obj.declaration.root));
-
-  });
-
-
-
-  grunt.registerTask('con', ['convert']);
 }
