@@ -18,7 +18,7 @@ module.exports = function(grunt){
       build: {
 
         cwd: 'app',
-        src: ['**','!**/vendors/**', '!**/vendors/**', '!**/components/*.js', '!**/api/**', '!**/component/**', '!**src/js/*.js'],
+        src: ['**','!**/vendors/**', '!**/components/*.js', '!**/api/**', '!**/component/**', '!**src/js/*.js'],
       //  '!**/*.scss', '!**/vendors/**', '!**/base/**', '!**/component/**', '!**/layout/**', '!**/components/*.js', '!**src/js/*.js', '!**/api/**'],
         dest: 'dist',
         expand: true,
@@ -56,6 +56,10 @@ module.exports = function(grunt){
 
             return true;
           }
+
+        //  else if(require('path').extname(filepath) == '.xml'){
+
+          //}
           else {
             return true;
           }

@@ -6,7 +6,6 @@
   <version>0.0.7</version>
   <theme>gm_selling_skills</theme> <!-- active -->
   <cookieName>cookie_gm_ssmftw</cookieName>
-
   <!--
   completionMethod values:
   page_view: course will automatically register completion upon viewing all pages
@@ -15,29 +14,20 @@
   custom: catchall for completion conditions that don't fall within the other conditions. e.g. specific interactives need to be completed in addition to assessments.
   -->
   <completionMethod>assessment</completionMethod>
-
   <!-- MENU PLACEMENT: Placement on page, top, left, or none-->
   <!-- valid values: "top", "left", "false" -->
   <menuPlacement>top</menuPlacement>
   <!-- MENU STYLE: Type of style, default dropdown or responsive tabbed -->
   <!-- valid values: "default", "tab", -->
   <menuStyle>tab</menuStyle>
-
-
-  <!-- valid values: "true", "false"
-        - true will open a splash page at the beginning of the course, false will take learner directly to first page of the course (or resume the course at the page where they left off) -->
-  <hasSplashPage>false</hasSplashPage>
-
+  <!-- COMPONENTS: Used components on the course -->
+  <!-- valid values: "true", "false"-->
+  <hasSplashPage>true</hasSplashPage>
   <hasGlossary>false</hasGlossary>
-
   <hasResources>false</hasResources>
-
-  <hasCards>true</hasCards>
-
+  <hasCards>false</hasCards>
   <hasStrings>false</hasStrings>
-
   <hasAssessments>true</hasAssessments>
-
   <hasDragDrops>true</hasDragDrops>
 
   <bookmarking>
@@ -46,7 +36,6 @@
   </bookmarking>
 
   <trackActions>true</trackActions>
-
   <linkTracking>
     <trackLinks>true</trackLinks>
   </linkTracking>
@@ -56,4 +45,15 @@
     <pageCountStorageID></pageCountStorageID>
     <totalPages></totalPages>
   </pageCount>
+
+  <!-- VENDORS: Used vendors in the course -->
+  <!-- valid values: "true", "false"-->
+  <vendors>
+    <jquery>true</jquery>
+    <bootstrap>true</bootstrap>
+    <createJS>true</createJS>
+    <fontAwesome>true</fontAwesome>
+    <glyphicons>false</glyphicons>
+    <signals>false</signals>
+  </vendors>
 </settings>
