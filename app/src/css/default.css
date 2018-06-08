@@ -961,7 +961,7 @@ li.courseTitleChapterSelected {
 .tabbed #navbarMobile li{
   display: inline-block;
   background: #fff;
-  color: #003056;
+  color: #000;
   font-weight: 600;
   line-height: 50px;
   height: 50px;
@@ -972,8 +972,7 @@ li.courseTitleChapterSelected {
 
 .tabbed #navbarMobile li.courseTitleChapterSelected {
   background: #fff;
-  border-bottom: 3px solid #003056;
-
+  border-bottom: 3px solid #fff;
 }
 
 .tabbed #navbarMobile li:not(:first-child):after
@@ -989,7 +988,6 @@ li.courseTitleChapterSelected {
 }
 
 @media (max-width: 1350px) {
-
   .tabbed #navbarMobile li{
     font-size: 13px;
   }
@@ -1003,7 +1001,7 @@ li.courseTitleChapterSelected {
 
 @media (max-width: 767px) {
   .tabbed{
-    background: #003056 !important;
+    background: #808080 !important;
   }
 
   .tabbed #navbarMobile {
@@ -1012,7 +1010,7 @@ li.courseTitleChapterSelected {
     margin: 0 auto;
   }
   .tabbed #navbarMobile li{
-    background: #003056;
+    background: #808080;
     color: #fff;
     font-weight: 200;
     line-height: 20px;
@@ -1021,7 +1019,7 @@ li.courseTitleChapterSelected {
   }
 
   .tabbed #navbarMobile li.courseTitleChapterSelected {
-    background: #618eb5;
+    background: #ccc;
   }
 
   .tabbed #navbarMobile li:not(:first-child):after
@@ -1029,7 +1027,6 @@ li.courseTitleChapterSelected {
     content: "";
   }
 }
-
 
 /* END NAVIGATION TABBED */
 /* LEFT NAVIGATION MENU */

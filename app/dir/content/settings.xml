@@ -22,7 +22,7 @@
   <menuStyle>tab</menuStyle>
   <!-- COMPONENTS: Used components on the course -->
   <!-- valid values: "true", "false"-->
-  <hasSplashPage>true</hasSplashPage>
+  <hasSplashPage>false</hasSplashPage>
   <hasGlossary>false</hasGlossary>
   <hasResources>false</hasResources>
   <hasCards>false</hasCards>
