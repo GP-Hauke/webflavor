@@ -49,11 +49,9 @@
   <!-- VENDORS: Used vendors in the course -->
   <!-- valid values: "true", "false"-->
   <vendors>
-    <jquery>true</jquery>
-    <bootstrap>true</bootstrap>
-    <createJS>true</createJS>
+    <createJS>false</createJS>
+    <flipCard>false</flipCard>
     <fontAwesome>true</fontAwesome>
-    <glyphicons>false</glyphicons>
-    <signals>false</signals>
+    <glyphicons>true</glyphicons>
   </vendors>
 </settings>

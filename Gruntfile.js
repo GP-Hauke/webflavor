@@ -18,12 +18,12 @@ module.exports = function(grunt){
       build: {
 
         cwd: 'app',
-        src: ['**','!**/vendors/**', '!**/components/*.js', '!**/api/**', '!**/component/**', '!**src/js/*.js'],
+        src: ['**', '!**/components/*.js', '!**/api/**', '!**/component/**', '!**src/js/*.js'],
         dest: 'dist',
         expand: true,
 
         filter: function(filepath){
-          if(require('path').extname(filepath) == '.xml'){
+          if(require('path').dirname(filepath) == "app\\dir\\content"){
             var path = require('path').basename(filepath)
             var json = grunt.file.readJSON('settings.json');
 
@@ -56,10 +56,65 @@ module.exports = function(grunt){
             return true;
           }
 
-          else {
-            return true;
+          else if(require('path').dirname(filepath) == "app\\src\\vendors\\create_js"){
+            var path = require('path').basename(filepath)
+            var json = grunt.file.readJSON('settings.json');
+
+            if(json.settings.vendors.createJS == 'false'){
+              return false;
+            }
           }
+
+          else if(require('path').dirname(filepath) == "app\\src\\vendors\\flip_card"){
+            var path = require('path').basename(filepath)
+            var json = grunt.file.readJSON('settings.json');
+
+            if(json.settings.vendors.flipCard == 'false'){
+              return false;
+            }
+          }
+
+          else if(require('path').dirname(filepath) == "app\\src\\vendors\\font_awesome"){
+            var path = require('path').basename(filepath)
+            var json = grunt.file.readJSON('settings.json');
+
+            if(json.settings.vendors.fontAwesome == 'false'){
+              return false;
+            }
+          }
+
+          else if(require('path').dirname(filepath) == "app\\src\\vendors\\glyphicons"){
+            var path = require('path').basename(filepath)
+            var json = grunt.file.readJSON('settings.json');
+
+            if(json.settings.vendors.glyphicons == 'false'){
+              return false;
+            }
+          }
+
+          else if(require('path').dirname(filepath) == "app\\src\\vendors\\signals"){
+            var path = require('path').basename(filepath)
+            var json = grunt.file.readJSON('settings.json');
+
+            if(json.settings.vendors.signals == 'false'){
+              grunt.log.oklns("WORKED");
+              return false;
+            }
+          }
+
+          return true;
         }
+      },
+
+      vendors: {
+        files: [
+            {
+              expand: true,
+              src: ['dist/src/vendors/**/*.ttf'],
+              dest: 'dist/src/vendors',
+              flatten: true
+            }
+        ]
       }
     },
 
@@ -67,11 +122,8 @@ module.exports = function(grunt){
       rebuild: {
         src: [ 'dist' ]
       },
-      css: {
-        src: ['dist/dir/themes/**/**.css','!dist/dir/themes/**/theme.css']
-      },
-      settings: {
-        src: ['settings.json']
+      finishbuild: {
+        src: ['dist/src/vendors/**/*', '!dist/src/vendors/vendors.min.*', '!dist/src/vendors/*.ttf', 'dist/dir/themes/**/**.css', '!dist/dir/themes/**/theme.css', 'settings.json']
       }
     },
 
@@ -92,7 +144,7 @@ module.exports = function(grunt){
             ext: '.css'
           },
           {
-            'dist/src/vendors/vendors.min.css': ['app/src/vendors/**/*.min.css']
+            'dist/src/vendors/vendors.min.css': ['dist/src/vendors/**/*.min.css']
           }]
         }
     },
@@ -172,9 +224,11 @@ module.exports = function(grunt){
   grunt.loadNpmTasks('grunt-contrib-compress');
   grunt.loadNpmTasks('grunt-convert');
 
+  grunt.registerTask('test', ['copy:vendors']);
+
   grunt.registerTask(
     'build',
     'Compiles all of the assets and copies the files to the build directory.',
-    [ 'clean:rebuild', 'convert', 'copy', 'uglify', 'cssmin', 'clean:css', 'useminPrepare', 'usemin', 'clean:settings', 'compress', 'connect']
+    [ 'clean:rebuild', 'convert', 'copy:build', 'uglify', 'cssmin', 'useminPrepare', 'usemin', 'copy:vendors', 'clean:finishbuild', 'compress', 'connect']
   );
 }
