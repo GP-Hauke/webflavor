@@ -73,17 +73,32 @@ module.exports = function(grunt){
       },
       css: {
         src: ['dist/dir/themes/**/**.css','!dist/dir/themes/**/theme.css']
+      },
+      settings: {
+        src: ['settings.json']
       }
     },
 
     cssmin: {
-      build: {
-        files: {
-          'dist/src/css/default.css': [ 'dist/src/css/default.css' ],
-          'dist/dir/themes/gm_selling_skills/theme.css': [ 'dist/dir/themes/gm_selling_skills/theme.css' ],
-          'dist/src/vendors/vendors.min.css': ['app/src/vendors/**/*.min.css'],
+        target: {
+          files: [{
+            expand: true,
+            cwd: 'dist/dir/themes',
+            src: ['**/theme.css'],
+            dest: 'dist/dir/themes',
+            ext: '.css'
+          },
+          {
+            expand: true,
+            cwd: 'dist/src/css',
+            src: ['default.css'],
+            dest: 'dist/src/css',
+            ext: '.css'
+          },
+          {
+            'dist/src/vendors/vendors.min.css': ['app/src/vendors/**/*.min.css']
+          }]
         }
-      }
     },
 
     uglify: {
@@ -153,8 +168,6 @@ module.exports = function(grunt){
 
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-clean');
-  grunt.loadNpmTasks('grunt-sass');
-  grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-concat');
@@ -163,11 +176,9 @@ module.exports = function(grunt){
   grunt.loadNpmTasks('grunt-contrib-compress');
   grunt.loadNpmTasks('grunt-convert');
 
-
-  grunt.registerTask('dev', ['watch']);
   grunt.registerTask(
     'build',
     'Compiles all of the assets and copies the files to the build directory.',
-    [ 'clean:rebuild', 'convert', 'copy', 'uglify', 'cssmin', 'clean:css', 'useminPrepare', 'usemin', 'compress', 'connect']
+    [ 'clean:rebuild', 'convert', 'copy', 'uglify', 'cssmin', 'clean:css', 'useminPrepare', 'usemin', 'clean:settings', 'compress', 'connect']
   );
 }
