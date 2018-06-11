@@ -19,6 +19,32 @@
       <questions>
         <question type="characteristic" required="false" answered="false" passed="false" >
           <type>
+            <criterion>thirdRowSeating</criterion>
+            <characteristic>yes</characteristic>
+            <filters hasFilters="true">
+              <filter type="attribute" compare="minimum" value="250">horsePower</filter>
+            </filters>
+          </type>
+          <questionTitle><![CDATA[]]></questionTitle>
+          <questionBody><![CDATA[The customer needs a vehicle that has at least 250 horsepower and has available third-row seating. Which vehicle has third-row seating?]]></questionBody>
+          <imgSrc><![CDATA[]]></imgSrc>
+        </question>
+
+        <question type="characteristic" required="false" answered="false" passed="false" >
+          <type>
+            <criterion>sunroof</criterion>
+            <characteristic>yes</characteristic>
+            <filters hasFilters="true">
+              <filter type="attribute" compare="maximum" value="30000">basePrice</filter>
+            </filters>
+          </type>
+          <questionTitle><![CDATA[]]></questionTitle>
+          <questionBody><![CDATA[The customer wants a vehicle with a base price of no more than $30,000 and offers a moonroof or sunroof. Which vehicle offers a moonroof or sunroof?]]></questionBody>
+          <imgSrc><![CDATA[]]></imgSrc>
+        </question>
+
+        <question type="characteristic" required="false" answered="false" passed="false" >
+          <type>
             <criterion>remoteStart</criterion>
             <characteristic>yes</characteristic>
             <filters hasFilters="true">
@@ -91,7 +117,7 @@
             </filters>
           </type>
           <questionTitle><![CDATA[]]></questionTitle>
-          <questionBody><![CDATA[The customer wants a Buick that offers a moon roof or sunroof that gets the best gas mileage. Which Buick gets the best gas mileage?]]></questionBody>
+          <questionBody><![CDATA[The customer wants a Buick that offers a moonroof or sunroof that gets the best gas mileage. Which Buick gets the best gas mileage?]]></questionBody>
           <imgSrc><![CDATA[]]></imgSrc>
         </question>
 
@@ -129,7 +155,7 @@
             </filters>
           </type>
           <questionTitle><![CDATA[]]></questionTitle>
-          <questionBody><![CDATA[The customer needs a vehicle that has a moon roof or sunroof and gets at least 25 MPG combined. Which vehicle gets the best MPG?]]></questionBody>
+          <questionBody><![CDATA[The customer needs a vehicle that has a moonroof or sunroof and gets at least 25 MPG combined. Which vehicle gets the best MPG?]]></questionBody>
           <imgSrc><![CDATA[]]></imgSrc>
         </question>
 
@@ -195,7 +221,7 @@
             </filters>
           </type>
           <questionTitle><![CDATA[]]></questionTitle>
-          <questionBody><![CDATA[The customer wants a vehicle that has a moon roof or sunroof and heated seats. Which vehicle offers a heated seats?]]></questionBody>
+          <questionBody><![CDATA[The customer wants a vehicle that has a moonroof or sunroof and heated seats. Which vehicle offers a heated seats?]]></questionBody>
           <imgSrc><![CDATA[]]></imgSrc>
         </question>
 
@@ -254,7 +280,7 @@
           <mpgHighway><![CDATA[27]]></mpgHighway>
           <rearLegRoom><![CDATA[36.9]]></rearLegRoom>
           <cargoVol><![CDATA[31.5]]></cargoVol>
-          <basePrice><![CDATA[39,070]]></basePrice>
+          <basePrice><![CDATA[39070]]></basePrice>
           <horsePower><![CDATA[310]]></horsePower>
           <interiorHeadRoom><![CDATA[38.8]]></interiorHeadRoom>
           <!-- CHARACTERISTICS -->
@@ -278,7 +304,7 @@
           <mpg><![CDATA[26]]></mpg>
           <rearLegRoom><![CDATA[36.9]]></rearLegRoom>
           <cargoVol><![CDATA[31.5]]></cargoVol>
-          <basePrice><![CDATA[24,990]]></basePrice>
+          <basePrice><![CDATA[24990]]></basePrice>
           <horsePower><![CDATA[250]]></horsePower>
           <interiorHeadRoom><![CDATA[38.8]]></interiorHeadRoom>
           <!-- CHARACTERISTICS -->
@@ -302,7 +328,7 @@
           <mpg><![CDATA[26]]></mpg>
           <rearLegRoom><![CDATA[36.9]]></rearLegRoom>
           <cargoVol><![CDATA[31.5]]></cargoVol>
-          <basePrice><![CDATA[32,695]]></basePrice>
+          <basePrice><![CDATA[32695]]></basePrice>
           <horsePower><![CDATA[250]]></horsePower>
           <interiorHeadRoom><![CDATA[38.8]]></interiorHeadRoom>
           <!-- CHARACTERISTICS -->
@@ -326,7 +352,7 @@
           <mpg><![CDATA[24]]></mpg>
           <rearLegRoom><![CDATA[36.9]]></rearLegRoom>
           <cargoVol><![CDATA[32.7]]></cargoVol>
-          <basePrice><![CDATA[29,070]]></basePrice>
+          <basePrice><![CDATA[29070]]></basePrice>
           <horsePower><![CDATA[250]]></horsePower>
           <interiorHeadRoom><![CDATA[38.8]]></interiorHeadRoom>
           <!-- CHARACTERISTICS -->
@@ -350,7 +376,7 @@
           <mpg><![CDATA[24]]></mpg>
           <rearLegRoom><![CDATA[36.9]]></rearLegRoom>
           <cargoVol><![CDATA[32.7]]></cargoVol>
-          <basePrice><![CDATA[35,995]]></basePrice>
+          <basePrice><![CDATA[35995]]></basePrice>
           <horsePower><![CDATA[250]]></horsePower>
           <interiorHeadRoom><![CDATA[38.8]]></interiorHeadRoom>
           <!-- CHARACTERISTICS -->
@@ -374,7 +400,7 @@
           <mpg><![CDATA[30]]></mpg>
           <rearLegRoom><![CDATA[38.0]]></rearLegRoom>
           <cargoVol><![CDATA[15.0]]></cargoVol>
-          <basePrice><![CDATA[29,565]]></basePrice>
+          <basePrice><![CDATA[29565]]></basePrice>
           <horsePower><![CDATA[194]]></horsePower>
           <interiorHeadRoom><![CDATA[38.4]]></interiorHeadRoom>
           <!-- CHARACTERISTICS -->
@@ -398,7 +424,7 @@
           <mpg><![CDATA[30]]></mpg>
           <rearLegRoom><![CDATA[38.0]]></rearLegRoom>
           <cargoVol><![CDATA[15.0]]></cargoVol>
-          <basePrice><![CDATA[29,565]]></basePrice>
+          <basePrice><![CDATA[29565]]></basePrice>
           <horsePower><![CDATA[310]]></horsePower>
           <interiorHeadRoom><![CDATA[38.4]]></interiorHeadRoom>
           <!-- CHARACTERISTICS -->
@@ -422,7 +448,7 @@
           <mpg><![CDATA[26]]></mpg>
           <rearLegRoom><![CDATA[38.0]]></rearLegRoom>
           <cargoVol><![CDATA[15.0]]></cargoVol>
-          <basePrice><![CDATA[37,295]]></basePrice>
+          <basePrice><![CDATA[37295]]></basePrice>
           <horsePower><![CDATA[310]]></horsePower>
           <interiorHeadRoom><![CDATA[38.4]]></interiorHeadRoom>
           <!-- CHARACTERISTICS -->
@@ -446,7 +472,7 @@
           <mpg><![CDATA[24]]></mpg>
           <rearLegRoom><![CDATA[32.8]]></rearLegRoom>
           <cargoVol><![CDATA[13.4]]></cargoVol>
-          <basePrice><![CDATA[33,990]]></basePrice>
+          <basePrice><![CDATA[33990]]></basePrice>
           <horsePower><![CDATA[200]]></horsePower>
           <interiorHeadRoom><![CDATA[37.8]]></interiorHeadRoom>
           <!-- CHARACTERISTICS -->
@@ -470,7 +496,7 @@
           <mpg><![CDATA[24]]></mpg>
           <rearLegRoom><![CDATA[32.8]]></rearLegRoom>
           <cargoVol><![CDATA[13.4]]></cargoVol>
-          <basePrice><![CDATA[37,995]]></basePrice>
+          <basePrice><![CDATA[37995]]></basePrice>
           <horsePower><![CDATA[200]]></horsePower>
           <interiorHeadRoom><![CDATA[37.8]]></interiorHeadRoom>
           <!-- CHARACTERISTICS -->
@@ -494,7 +520,7 @@
           <mpg><![CDATA[28]]></mpg>
           <rearLegRoom><![CDATA[35.7]]></rearLegRoom>
           <cargoVol><![CDATA[18.8]]></cargoVol>
-          <basePrice><![CDATA[25,395]]></basePrice>
+          <basePrice><![CDATA[25395]]></basePrice>
           <horsePower><![CDATA[138]]></horsePower>
           <interiorHeadRoom><![CDATA[39.58]]></interiorHeadRoom>
           <!-- CHARACTERISTICS -->
@@ -518,7 +544,7 @@
           <mpg><![CDATA[28]]></mpg>
           <rearLegRoom><![CDATA[35.7]]></rearLegRoom>
           <cargoVol><![CDATA[18.8]]></cargoVol>
-          <basePrice><![CDATA[26,595]]></basePrice>
+          <basePrice><![CDATA[26595]]></basePrice>
           <horsePower><![CDATA[138]]></horsePower>
           <interiorHeadRoom><![CDATA[39.58]]></interiorHeadRoom>
           <!-- CHARACTERISTICS -->
@@ -542,7 +568,7 @@
           <mpg><![CDATA[28]]></mpg>
           <rearLegRoom><![CDATA[35.7]]></rearLegRoom>
           <cargoVol><![CDATA[18.8]]></cargoVol>
-          <basePrice><![CDATA[31,595]]></basePrice>
+          <basePrice><![CDATA[31595]]></basePrice>
           <horsePower><![CDATA[138]]></horsePower>
           <interiorHeadRoom><![CDATA[39.58]]></interiorHeadRoom>
           <!-- CHARACTERISTICS -->
@@ -566,7 +592,7 @@
           <mpg><![CDATA[25]]></mpg>
           <rearLegRoom><![CDATA[37.5]]></rearLegRoom>
           <cargoVol><![CDATA[26.9]]></cargoVol>
-          <basePrice><![CDATA[34,990]]></basePrice>
+          <basePrice><![CDATA[34990]]></basePrice>
           <horsePower><![CDATA[197]]></horsePower>
           <interiorHeadRoom><![CDATA[40]]></interiorHeadRoom>
           <!-- CHARACTERISTICS -->
@@ -590,7 +616,7 @@
           <mpg><![CDATA[25]]></mpg>
           <rearLegRoom><![CDATA[37.5]]></rearLegRoom>
           <cargoVol><![CDATA[26.9]]></cargoVol>
-          <basePrice><![CDATA[38,715]]></basePrice>
+          <basePrice><![CDATA[38715]]></basePrice>
           <horsePower><![CDATA[197]]></horsePower>
           <interiorHeadRoom><![CDATA[40]]></interiorHeadRoom>
           <!-- CHARACTERISTICS -->
@@ -648,7 +674,7 @@
             </filters>
           </type>
           <questionTitle><![CDATA[]]></questionTitle>
-          <questionBody><![CDATA[The customer wants a GMC with at least 41 inches of headroom but also offers a moon roof or sunroof. Which GMC offers a moon roof or sunroof?  ]]></questionBody>
+          <questionBody><![CDATA[The customer wants a GMC with at least 41 inches of headroom but also offers a moonroof or sunroof. Which GMC offers a moonroof or sunroof?  ]]></questionBody>
           <imgSrc><![CDATA[]]></imgSrc>
         </question>
 
@@ -687,7 +713,7 @@
             </filters>
           </type>
           <questionTitle><![CDATA[]]></questionTitle>
-          <questionBody><![CDATA[The customer wants a GMC with the lowest base price and offers a moon roof or sunroof. Which GMC has the lowest base price?]]></questionBody>
+          <questionBody><![CDATA[The customer wants a GMC with the lowest base price and offers a moonroof or sunroof. Which GMC has the lowest base price?]]></questionBody>
           <imgSrc><![CDATA[]]></imgSrc>
         </question>
 
@@ -700,7 +726,7 @@
             </filters>
           </type>
           <questionTitle><![CDATA[]]></questionTitle>
-          <questionBody><![CDATA[The customer wants a GMC that has a moon roof or sunroof and heated seats. Which vehicle offers a moon roof or sunroof?]]></questionBody>
+          <questionBody><![CDATA[The customer wants a GMC that has a moonroof or sunroof and heated seats. Which vehicle offers a moonroof or sunroof?]]></questionBody>
           <imgSrc><![CDATA[]]></imgSrc>
         </question>
 
@@ -740,7 +766,7 @@
             </filters>
           </type>
           <questionTitle><![CDATA[]]></questionTitle>
-          <questionBody><![CDATA[The customer needs a GMC that has a moon roof or sunroof and gets at least 21 MPG combined. Which vehicle gets the best MPG?]]></questionBody>
+          <questionBody><![CDATA[The customer needs a GMC that has a moonroof or sunroof and gets at least 21 MPG combined. Which vehicle gets the best MPG?]]></questionBody>
           <imgSrc><![CDATA[]]></imgSrc>
         </question>
 
@@ -1203,6 +1229,46 @@
       <questions>
         <question type="attribute" required="false" answered="false" passed="false">
           <type>
+            <criterion>basePrice</criterion>
+            <characteristic></characteristic>
+            <filters hasFilters="true">
+              <filter type="attribute" compare="maximum" value="25000">basePrice</filter>
+              <filter type="characteristic" compare="" value="yes">dr4</filter>
+            </filters>
+          </type>
+          <questionTitle><![CDATA[]]></questionTitle>
+          <questionBody><![CDATA[The customer wants a four-door vehicle that has a base price of no higher than $25,000. Which vehicle has the lowest base price?]]></questionBody>
+          <imgSrc><![CDATA[]]></imgSrc>
+        </question>
+
+        <question type="characteristic" required="false" answered="false" passed="false">
+          <type>
+            <criterion>remoteStart</criterion>
+            <characteristic>yes</characteristic>
+            <filters hasFilters="true">
+              <filter type="attribute" compare="maximum" value="30000">basePrice</filter>
+            </filters>
+          </type>
+          <questionTitle><![CDATA[]]></questionTitle>
+          <questionBody><![CDATA[The customer wants a vehicle under $30,000 that has remote start. Which vehicle offers remote start? ]]></questionBody>
+          <imgSrc><![CDATA[]]></imgSrc>
+        </question>
+
+        <question type="characteristic" required="false" answered="false" passed="false">
+          <type>
+            <criterion>sunroof</criterion>
+            <characteristic>yes</characteristic>
+            <filters hasFilters="true">
+              <filter type="attribute" compare="maximum" value="30000">basePrice</filter>
+            </filters>
+          </type>
+          <questionTitle><![CDATA[]]></questionTitle>
+          <questionBody><![CDATA[The customer wants a vehicle with a base price of no more than $30,000 and offers a moonroof or sunroof. Which vehicle offers a moonroof or sunroof?]]></questionBody>
+          <imgSrc><![CDATA[]]></imgSrc>
+        </question>
+
+        <question type="attribute" required="false" answered="false" passed="false">
+          <type>
             <criterion>horsePower</criterion>
             <characteristic></characteristic>
             <filters hasFilters="true">
@@ -1329,7 +1395,7 @@
             </filters>
           </type>
           <questionTitle><![CDATA[]]></questionTitle>
-          <questionBody><![CDATA[The customer needs a vehicle that has a moon roof or sunroof and gets at least 25 MPG combined. Which vehicle gets the best MPG?]]></questionBody>
+          <questionBody><![CDATA[The customer needs a vehicle that has a moonroof or sunroof and gets at least 25 MPG combined. Which vehicle gets the best MPG?]]></questionBody>
           <imgSrc><![CDATA[]]></imgSrc>
         </question>
 
@@ -1422,7 +1488,7 @@
             </filters>
           </type>
           <questionTitle><![CDATA[]]></questionTitle>
-          <questionBody><![CDATA[The customer wants a vehicle that has a moon roof or sunroof and heated seats. Which vehicle offers a heated seats?]]></questionBody>
+          <questionBody><![CDATA[The customer wants a vehicle that has a moonroof or sunroof and heated seats. Which vehicle offers a heated seats?]]></questionBody>
           <imgSrc><![CDATA[]]></imgSrc>
         </question>
 
@@ -1438,7 +1504,7 @@
           <mpg><![CDATA[33]]></mpg>
           <rearLegRoom><![CDATA[33]]></rearLegRoom>
           <cargoVol><![CDATA[11.1]]></cargoVol>
-          <basePrice><![CDATA[13,050]]></basePrice>
+          <basePrice><![CDATA[13050]]></basePrice>
           <horsePower><![CDATA[98]]></horsePower>
           <interiorHeadRoom><![CDATA[39]]></interiorHeadRoom>
           <!-- CHARACTERISTICS -->
@@ -1465,7 +1531,7 @@
           <mpg><![CDATA[33]]></mpg>
           <rearLegRoom><![CDATA[33]]></rearLegRoom>
           <cargoVol><![CDATA[11.1]]></cargoVol>
-          <basePrice><![CDATA[18.045]]></basePrice>
+          <basePrice><![CDATA[18045]]></basePrice>
           <horsePower><![CDATA[98]]></horsePower>
           <interiorHeadRoom><![CDATA[39]]></interiorHeadRoom>
           <!-- CHARACTERISTICS -->
@@ -1492,7 +1558,7 @@
           <mpg><![CDATA[31]]></mpg>
           <rearLegRoom><![CDATA[34.6]]></rearLegRoom>
           <cargoVol><![CDATA[14.9]]></cargoVol>
-          <basePrice><![CDATA[15,295]]></basePrice>
+          <basePrice><![CDATA[15295]]></basePrice>
           <horsePower><![CDATA[138]]></horsePower>
           <interiorHeadRoom><![CDATA[38.7]]></interiorHeadRoom>
           <!-- CHARACTERISTICS -->
@@ -1519,7 +1585,7 @@
           <mpg><![CDATA[31]]></mpg>
           <rearLegRoom><![CDATA[34.6]]></rearLegRoom>
           <cargoVol><![CDATA[14.9]]></cargoVol>
-          <basePrice><![CDATA[15,295]]></basePrice>
+          <basePrice><![CDATA[15295]]></basePrice>
           <horsePower><![CDATA[138]]></horsePower>
           <interiorHeadRoom><![CDATA[38.7]]></interiorHeadRoom>
           <!-- CHARACTERISTICS -->
@@ -1546,7 +1612,7 @@
           <mpg><![CDATA[31]]></mpg>
           <rearLegRoom><![CDATA[34.6]]></rearLegRoom>
           <cargoVol><![CDATA[47]]></cargoVol>
-          <basePrice><![CDATA[20,695]]></basePrice>
+          <basePrice><![CDATA[20695]]></basePrice>
           <horsePower><![CDATA[138]]></horsePower>
           <interiorHeadRoom><![CDATA[38.7]]></interiorHeadRoom>
           <!-- CHARACTERISTICS -->
@@ -1573,7 +1639,7 @@
           <mpg><![CDATA[36.1]]></mpg>
           <rearLegRoom><![CDATA[36.1]]></rearLegRoom>
           <cargoVol><![CDATA[13.9]]></cargoVol>
-          <basePrice><![CDATA[16,975]]></basePrice>
+          <basePrice><![CDATA[16975]]></basePrice>
           <horsePower><![CDATA[138]]></horsePower>
           <interiorHeadRoom><![CDATA[38.9]]></interiorHeadRoom>
           <!-- CHARACTERISTICS -->
@@ -1600,7 +1666,7 @@
           <mpg><![CDATA[41]]></mpg>
           <rearLegRoom><![CDATA[36.1]]></rearLegRoom>
           <cargoVol><![CDATA[13.9]]></cargoVol>
-          <basePrice><![CDATA[19,295]]></basePrice>
+          <basePrice><![CDATA[19295]]></basePrice>
           <horsePower><![CDATA[138]]></horsePower>
           <interiorHeadRoom><![CDATA[38.9]]></interiorHeadRoom>
           <!-- CHARACTERISTICS -->
@@ -1627,7 +1693,7 @@
           <mpg><![CDATA[33]]></mpg>
           <rearLegRoom><![CDATA[42]]></rearLegRoom>
           <cargoVol><![CDATA[22.7]]></cargoVol>
-          <basePrice><![CDATA[20,095]]></basePrice>
+          <basePrice><![CDATA[20095]]></basePrice>
           <horsePower><![CDATA[138]]></horsePower>
           <interiorHeadRoom><![CDATA[38.9]]></interiorHeadRoom>
           <!-- CHARACTERISTICS -->
@@ -1654,7 +1720,7 @@
           <mpg><![CDATA[31]]></mpg>
           <rearLegRoom><![CDATA[38.1]]></rearLegRoom>
           <cargoVol><![CDATA[15.8]]></cargoVol>
-          <basePrice><![CDATA[21,680]]></basePrice>
+          <basePrice><![CDATA[21680]]></basePrice>
           <horsePower><![CDATA[163]]></horsePower>
           <interiorHeadRoom><![CDATA[39.1]]></interiorHeadRoom>
           <!-- CHARACTERISTICS -->
@@ -1681,7 +1747,7 @@
           <mpg><![CDATA[27]]></mpg>
           <rearLegRoom><![CDATA[38.1]]></rearLegRoom>
           <cargoVol><![CDATA[15.8]]></cargoVol>
-          <basePrice><![CDATA[31,895]]></basePrice>
+          <basePrice><![CDATA[31895]]></basePrice>
           <horsePower><![CDATA[250]]></horsePower>
           <interiorHeadRoom><![CDATA[39.1]]></interiorHeadRoom>
           <!-- CHARACTERISTICS -->
@@ -1708,7 +1774,7 @@
           <mpg><![CDATA[26]]></mpg>
           <rearLegRoom><![CDATA[39.8]]></rearLegRoom>
           <cargoVol><![CDATA[18.8]]></cargoVol>
-          <basePrice><![CDATA[27,895]]></basePrice>
+          <basePrice><![CDATA[27895]]></basePrice>
           <horsePower><![CDATA[197]]></horsePower>
           <interiorHeadRoom><![CDATA[39.9]]></interiorHeadRoom>
           <!-- CHARACTERISTICS -->
@@ -1735,7 +1801,7 @@
           <mpg><![CDATA[23]]></mpg>
           <rearLegRoom><![CDATA[39.8]]></rearLegRoom>
           <cargoVol><![CDATA[18.8]]></cargoVol>
-          <basePrice><![CDATA[31,295]]></basePrice>
+          <basePrice><![CDATA[31295]]></basePrice>
           <horsePower><![CDATA[305]]></horsePower>
           <interiorHeadRoom><![CDATA[39.9]]></interiorHeadRoom>
           <!-- CHARACTERISTICS -->
@@ -1762,7 +1828,7 @@
           <mpg><![CDATA[29]]></mpg>
           <rearLegRoom><![CDATA[35.7]]></rearLegRoom>
           <cargoVol><![CDATA[18.7]]></cargoVol>
-          <basePrice><![CDATA[21,000]]></basePrice>
+          <basePrice><![CDATA[21000]]></basePrice>
           <horsePower><![CDATA[138]]></horsePower>
           <interiorHeadRoom><![CDATA[39.6]]></interiorHeadRoom>
           <!-- CHARACTERISTICS -->
@@ -1789,7 +1855,7 @@
           <mpg><![CDATA[29]]></mpg>
           <rearLegRoom><![CDATA[39.7]]></rearLegRoom>
           <cargoVol><![CDATA[29.9]]></cargoVol>
-          <basePrice><![CDATA[23,580]]></basePrice>
+          <basePrice><![CDATA[23580]]></basePrice>
           <horsePower><![CDATA[170]]></horsePower>
           <interiorHeadRoom><![CDATA[40]]></interiorHeadRoom>
           <!-- CHARACTERISTICS -->
@@ -1816,7 +1882,7 @@
           <mpg><![CDATA[36]]></mpg>
           <rearLegRoom><![CDATA[39.7]]></rearLegRoom>
           <cargoVol><![CDATA[29.9]]></cargoVol>
-          <basePrice><![CDATA[33,995]]></basePrice>
+          <basePrice><![CDATA[33995]]></basePrice>
           <horsePower><![CDATA[137]]></horsePower>
           <interiorHeadRoom><![CDATA[40]]></interiorHeadRoom>
           <!-- CHARACTERISTICS -->
@@ -1843,7 +1909,7 @@
           <mpg><![CDATA[22]]></mpg>
           <rearLegRoom><![CDATA[38.4]]></rearLegRoom>
           <cargoVol><![CDATA[58.1]]></cargoVol>
-          <basePrice><![CDATA[29,930]]></basePrice>
+          <basePrice><![CDATA[29930]]></basePrice>
           <horsePower><![CDATA[310]]></horsePower>
           <interiorHeadRoom><![CDATA[41.3]]></interiorHeadRoom>
           <!-- CHARACTERISTICS -->
@@ -1870,7 +1936,7 @@
           <mpg><![CDATA[23]]></mpg>
           <rearLegRoom><![CDATA[38.4]]></rearLegRoom>
           <cargoVol><![CDATA[58.1]]></cargoVol>
-          <basePrice><![CDATA[43,595]]></basePrice>
+          <basePrice><![CDATA[43595]]></basePrice>
           <horsePower><![CDATA[257]]></horsePower>
           <interiorHeadRoom><![CDATA[41.3]]></interiorHeadRoom>
           <!-- CHARACTERISTICS -->
@@ -1897,7 +1963,7 @@
           <mpg><![CDATA[23]]></mpg>
           <rearLegRoom><![CDATA[28.6]]></rearLegRoom>
           <cargoVol><![CDATA[0]]></cargoVol>
-          <basePrice><![CDATA[20,200]]></basePrice>
+          <basePrice><![CDATA[20200]]></basePrice>
           <horsePower><![CDATA[200]]></horsePower>
           <interiorHeadRoom><![CDATA[41.4]]></interiorHeadRoom>
           <!-- CHARACTERISTICS -->
@@ -1924,7 +1990,7 @@
           <mpg><![CDATA[26]]></mpg>
           <rearLegRoom><![CDATA[35.8]]></rearLegRoom>
           <cargoVol><![CDATA[0]]></cargoVol>
-          <basePrice><![CDATA[27,295]]></basePrice>
+          <basePrice><![CDATA[27295]]></basePrice>
           <horsePower><![CDATA[186]]></horsePower>
           <interiorHeadRoom><![CDATA[41.4]]></interiorHeadRoom>
           <!-- CHARACTERISTICS -->
@@ -1951,7 +2017,7 @@
           <mpg><![CDATA[21]]></mpg>
           <rearLegRoom><![CDATA[34.6]]></rearLegRoom>
           <cargoVol><![CDATA[0]]></cargoVol>
-          <basePrice><![CDATA[28,300]]></basePrice>
+          <basePrice><![CDATA[28300]]></basePrice>
           <horsePower><![CDATA[285]]></horsePower>
           <interiorHeadRoom><![CDATA[42.8]]></interiorHeadRoom>
           <!-- CHARACTERISTICS -->
@@ -1978,7 +2044,7 @@
           <mpg><![CDATA[19]]></mpg>
           <rearLegRoom><![CDATA[40.9]]></rearLegRoom>
           <cargoVol><![CDATA[0]]></cargoVol>
-          <basePrice><![CDATA[53,395]]></basePrice>
+          <basePrice><![CDATA[53395]]></basePrice>
           <horsePower><![CDATA[285]]></horsePower>
           <interiorHeadRoom><![CDATA[42.8]]></interiorHeadRoom>
           <!-- CHARACTERISTICS -->
@@ -2005,7 +2071,7 @@
           <mpg><![CDATA[22]]></mpg>
           <rearLegRoom><![CDATA[29.9]]></rearLegRoom>
           <cargoVol><![CDATA[9.1]]></cargoVol>
-          <basePrice><![CDATA[42,995]]></basePrice>
+          <basePrice><![CDATA[42995]]></basePrice>
           <horsePower><![CDATA[445]]></horsePower>
           <interiorHeadRoom><![CDATA[38.5]]></interiorHeadRoom>
           <!-- CHARACTERISTICS -->
@@ -2032,7 +2098,7 @@
           <mpg><![CDATA[23]]></mpg>
           <rearLegRoom><![CDATA[29.9]]></rearLegRoom>
           <cargoVol><![CDATA[9.1]]></cargoVol>
-          <basePrice><![CDATA[31,495]]></basePrice>
+          <basePrice><![CDATA[31495]]></basePrice>
           <horsePower><![CDATA[335]]></horsePower>
           <interiorHeadRoom><![CDATA[38.5]]></interiorHeadRoom>
           <!-- CHARACTERISTICS -->
@@ -2059,7 +2125,7 @@
           <mpg><![CDATA[26]]></mpg>
           <rearLegRoom><![CDATA[29.9]]></rearLegRoom>
           <cargoVol><![CDATA[9.1]]></cargoVol>
-          <basePrice><![CDATA[25,905]]></basePrice>
+          <basePrice><![CDATA[25905]]></basePrice>
           <horsePower><![CDATA[335]]></horsePower>
           <interiorHeadRoom><![CDATA[38.5]]></interiorHeadRoom>
           <!-- CHARACTERISTICS -->
