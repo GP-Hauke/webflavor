@@ -91,9 +91,10 @@ function initAssessments(assessmentsContentXML) {
           correct: currentAnswer.attr("correct"),
           img: currentAnswer.find("modelImgSrc").text(),
           brand: currentAnswer.find("brand").text(),
+          base: currentAnswer.find("base").text(),
           model: currentAnswer.find("model").text(),
           attributes: currentAnswer.find("attributes").text(),
-          mpg: (parseFloat(currentAnswer.find("mpgCity").text()) + parseFloat(currentAnswer.find("mpgHighway").text()))/2,
+          mpg: currentAnswer.find("mpg").text(),
           rearLegRoom: currentAnswer.find("rearLegRoom").text(),
           cargoVol: currentAnswer.find("cargoVol").text(),
           basePrice: currentAnswer.find("basePrice").text(),
@@ -109,6 +110,10 @@ function initAssessments(assessmentsContentXML) {
           remoteStart: currentAnswer.find("remoteStart").text(),
           connectedNavigation: currentAnswer.find("connectedNavigation").text(),
           thirdRowSeating: currentAnswer.find("thirdRowSeating").text(),
+          i4: currentAnswer.find("i4").text(),
+          v6: currentAnswer.find("v6").text(),
+          dr4: currentAnswer.find("dr4").text(),
+          dr2: currentAnswer.find("dr4").text()
         };
         assessmentObj.questionsAnswers.answers.push(answer);
       });
@@ -208,8 +213,6 @@ function startAssessment(id) {
   var hasFilters = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions[questionIndex].HASFILTERS;
   var filters = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions[questionIndex].filters;
 
-
-
   //Initialize answersFiltered to be the same as answers (prior to filter being applied)
   var answersArr = shuffle(courseData.assessmentData.assessments[activeAssessment].questionsAnswers.answers);
   var answersFiltered = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.answers;
@@ -256,7 +259,7 @@ function startAssessment(id) {
   $("#modalContainer .assessment-content").append("<div class='row mx-auto answers clearfix'></div>");
 
   for(var i = 0; i < 2; i++) {
-    $("#modalContainer .answers").append("<div class='col-md-6 answer-container initial btn"+i+"'><div class='unselected-box'></div><div class='border-box'><img class='img-fluid' src='"+answersFiltered[i].img+"'/><div class='brand-model-attr clearfix'><p class='brand'>"+answersFiltered[i].brand+"</p><p class='model'>"+answersFiltered[i].model+"</p><p class='attr'>"+answersFiltered[i].attributes+"</p></div><div class='selected-bar'></div></div></div>");
+    $("#modalContainer .answers").append("<div class='col-md-6 answer-container initial btn"+i+"'><div class='unselected-box'></div><div class='border-box'><img class='img-fluid' src='"+answersFiltered[i].img+"'/><div class='brand-model-attr clearfix'><p class='brand'>"+answersFiltered[i].brand+"</p><p class='model'>"+answersFiltered[i].model+"&nbsp</p><p class='attr'>"+answersFiltered[i].attributes+"</p></div><div class='selected-bar'></div></div></div>");
   }
 
   $("#modalContainer .assessment-content").append("<button class='btn-submit-answer'>SUBMIT</button>");
@@ -358,7 +361,7 @@ function startAssessment(id) {
       if(type == "attribute"){
         //CALCULATE CORRECTNESS OF ATTRIBUTE QUESTIONS WITH THIS FUNCTIONALITY
         if(criterion === "cargoVol") {
-          phrasedCriterion = "Cargo Room";
+          phrasedCriterion = "cu. ft of Cargo Room";
           correct = unselectedAnswerData.model;
           incorrect = selectedAnswersData[0].model;
           incorrectAttr = selectedAnswersData[0].cargoVol;
@@ -373,8 +376,25 @@ function startAssessment(id) {
           }
         }
 
+        else if(criterion === "interiorHeadRoom") {
+          phrasedCriterion = "in of Headroom";
+          correct = unselectedAnswerData.model;
+          incorrect = selectedAnswersData[0].model;
+          incorrectAttr = selectedAnswersData[0].mpg;
+          correctAttr = unselectedAnswerData.mpg;
+
+
+          if(parseFloat(selectedAnswersData[0].mpg) > unselectedAnswerData.mpg) {
+            correctlyAnswered = true;
+            correct = selectedAnswersData[0].model;
+            incorrect = unselectedAnswerData.model;
+            incorrectAttr = unselectedAnswerData.mpg;
+            correctAttr = selectedAnswersData[0].mpg;
+          }
+        }
+
         else if(criterion === "mpg") {
-          phrasedCriterion = "MPG";
+          phrasedCriterion = "mpg";
           correct = unselectedAnswerData.model;
           incorrect = selectedAnswersData[0].model;
           incorrectAttr = selectedAnswersData[0].mpg;
@@ -393,7 +413,7 @@ function startAssessment(id) {
         }
 
         else if(criterion === "rearLegRoom") {
-          phrasedCriterion = "Leg Room";
+          phrasedCriterion = "in of Rear Leg Room";
           correct = unselectedAnswerData.model;
           incorrect = selectedAnswersData[0].model;
           incorrectAttr = selectedAnswersData[0].rearLegRoom;
@@ -410,7 +430,7 @@ function startAssessment(id) {
         }
 
         else if(criterion === "horsePower") {
-          phrasedCriterion = "Horse Power";
+          phrasedCriterion = "horsepower";
           correct = unselectedAnswerData.model;
           incorrect = selectedAnswersData[0].model;
           incorrectAttr = selectedAnswersData[0].horsePower;
@@ -493,7 +513,7 @@ function startAssessment(id) {
         }
 
         else if(criterion === "sunroof") {
-          phrasedCriterion = "Sunroof";
+          phrasedCriterion = "Sunroof/Moonroof";
           correct = unselectedAnswerData.model;
           incorrect = selectedAnswersData[0].model;
 
@@ -503,8 +523,8 @@ function startAssessment(id) {
             incorrect = unselectedAnswerData.model;
           }
 
-          feedbackDetailsIncorrect = "The <span class='bolded'>"+incorrect+"</span> doesn't have a <span>"+phrasedCriterion+"</span>";
-          feedbackDetailsCorrect = "The <span class='bolded'>"+correct+"</span> has a <span>"+phrasedCriterion+"</span>";
+          feedbackDetailsIncorrect = "The <span class='bolded'>"+incorrect+"</span> doesn't offer a <span>"+phrasedCriterion+"</span>";
+          feedbackDetailsCorrect = "The <span class='bolded'>"+correct+"</span> offers a <span>"+phrasedCriterion+"</span>";
         }
 
         else if(criterion === "heatedSeats") {
@@ -518,8 +538,8 @@ function startAssessment(id) {
             incorrect = unselectedAnswerData.model;
           }
 
-          feedbackDetailsIncorrect = "The <span class='bolded'>"+incorrect+"</span> doesn't have <span>"+phrasedCriterion+"</span>";
-          feedbackDetailsCorrect = "The <span class='bolded'>"+correct+"</span> has <span>"+phrasedCriterion+"</span>";
+          feedbackDetailsIncorrect = "The <span class='bolded'>"+incorrect+"</span> doesn't offer <span>"+phrasedCriterion+"</span>";
+          feedbackDetailsCorrect = "The <span class='bolded'>"+correct+"</span> offers <span>"+phrasedCriterion+"</span>";
         }
 
         else if(criterion === "heatedWheel") {
@@ -533,8 +553,8 @@ function startAssessment(id) {
             incorrect = unselectedAnswerData.model;
           }
 
-          feedbackDetailsIncorrect = "The <span class='bolded'>"+incorrect+"</span> doesn't have a <span>"+phrasedCriterion+"</span>";
-          feedbackDetailsCorrect = "The <span class='bolded'>"+correct+"</span> has a <span>"+phrasedCriterion+"</span>";
+          feedbackDetailsIncorrect = "The <span class='bolded'>"+incorrect+"</span> doesn't offer a <span>"+phrasedCriterion+"</span>";
+          feedbackDetailsCorrect = "The <span class='bolded'>"+correct+"</span> offers a <span>"+phrasedCriterion+"</span>";
         }
 
         else if(criterion === "remoteStart") {
@@ -548,8 +568,8 @@ function startAssessment(id) {
             incorrect = unselectedAnswerData.model;
           }
 
-          feedbackDetailsIncorrect = "The <span class='bolded'>"+incorrect+"</span> doesn't have <span>"+phrasedCriterion+"</span>";
-          feedbackDetailsCorrect = "The <span class='bolded'>"+correct+"</span> has <span>"+phrasedCriterion+"</span>";
+          feedbackDetailsIncorrect = "The <span class='bolded'>"+incorrect+"</span> doesn't offer <span>"+phrasedCriterion+"</span>";
+          feedbackDetailsCorrect = "The <span class='bolded'>"+correct+"</span> offers <span>"+phrasedCriterion+"</span>";
         }
 
         else if(criterion === "connectedNavigation") {
@@ -563,8 +583,8 @@ function startAssessment(id) {
             incorrect = unselectedAnswerData.model;
           }
 
-          feedbackDetailsIncorrect = "The <span class='bolded'>"+incorrect+"</span> doesn't have <span>"+phrasedCriterion+"</span>";
-          feedbackDetailsCorrect = "The <span class='bolded'>"+correct+"</span> has <span>"+phrasedCriterion+"</span>";
+          feedbackDetailsIncorrect = "The <span class='bolded'>"+incorrect+"</span> doesn't offer <span>"+phrasedCriterion+"</span>";
+          feedbackDetailsCorrect = "The <span class='bolded'>"+correct+"</span> offers <span>"+phrasedCriterion+"</span>";
         }
 
         else if(criterion === "thirdRowSeating") {
@@ -578,8 +598,83 @@ function startAssessment(id) {
             incorrect = unselectedAnswerData.model;
           }
 
-          feedbackDetailsIncorrect = "The <span class='bolded'>"+incorrect+"</span> doesn't have <span>"+phrasedCriterion+"</span>";
-          feedbackDetailsCorrect = "The <span class='bolded'>"+correct+"</span> has <span>"+phrasedCriterion+"</span>";
+          feedbackDetailsIncorrect = "The <span class='bolded'>"+incorrect+"</span> doesn't offer <span>"+phrasedCriterion+"</span>";
+          feedbackDetailsCorrect = "The <span class='bolded'>"+correct+"</span> offers <span>"+phrasedCriterion+"</span>";
+        }
+
+        else if(criterion === "driveLine") {
+          phrasedCriterion = "Driveline";
+          correct = unselectedAnswerData.model;
+          incorrect = selectedAnswersData[0].model;
+
+          if(selectedAnswersData[0].driveLine == correctCharacteristic) {
+            correctlyAnswered = true;
+            correct = selectedAnswersData[0].model;
+            incorrect = unselectedAnswerData.model;
+          }
+
+          feedbackDetailsIncorrect = "The <span class='bolded'>"+incorrect+"</span> doesn't offer <span>"+phrasedCriterion+"</span>";
+          feedbackDetailsCorrect = "The <span class='bolded'>"+correct+"</span> offers <span>"+phrasedCriterion+"</span>";
+        }
+
+        else if(criterion === "i4") {
+          phrasedCriterion = "I4";
+          correct = unselectedAnswerData.model;
+          incorrect = selectedAnswersData[0].model;
+
+          if(selectedAnswersData[0].i4 == correctCharacteristic) {
+            correctlyAnswered = true;
+            correct = selectedAnswersData[0].model;
+            incorrect = unselectedAnswerData.model;
+          }
+
+          feedbackDetailsIncorrect = "The <span class='bolded'>"+incorrect+"</span> doesn't offer <span>"+phrasedCriterion+"</span>";
+          feedbackDetailsCorrect = "The <span class='bolded'>"+correct+"</span> offers <span>"+phrasedCriterion+"</span>";
+        }
+
+        else if(criterion === "v6") {
+          phrasedCriterion = "V-6";
+          correct = unselectedAnswerData.model;
+          incorrect = selectedAnswersData[0].model;
+
+          if(selectedAnswersData[0].v6 == correctCharacteristic) {
+            correctlyAnswered = true;
+            correct = selectedAnswersData[0].model;
+            incorrect = unselectedAnswerData.model;
+          }
+
+          feedbackDetailsIncorrect = "The <span class='bolded'>"+incorrect+"</span> doesn't offer a <span>"+phrasedCriterion+"</span>";
+          feedbackDetailsCorrect = "The <span class='bolded'>"+correct+"</span> offers a <span>"+phrasedCriterion+"</span>";
+        }
+
+        else if(criterion === "thirdRowSeating") {
+          phrasedCriterion = "Third Row Seating";
+          correct = unselectedAnswerData.model;
+          incorrect = selectedAnswersData[0].model;
+
+          if(selectedAnswersData[0].thirdRowSeating == correctCharacteristic) {
+            correctlyAnswered = true;
+            correct = selectedAnswersData[0].model;
+            incorrect = unselectedAnswerData.model;
+          }
+
+          feedbackDetailsIncorrect = "The <span class='bolded'>"+incorrect+"</span> doesn't offer <span>"+phrasedCriterion+"</span>";
+          feedbackDetailsCorrect = "The <span class='bolded'>"+correct+"</span> offers <span>"+phrasedCriterion+"</span>";
+        }
+
+        else if(criterion === "dr2") {
+          phrasedCriterion = "Two Doors";
+          correct = unselectedAnswerData.model;
+          incorrect = selectedAnswersData[0].model;
+
+          if(selectedAnswersData[0].dr2 == correctCharacteristic) {
+            correctlyAnswered = true;
+            correct = selectedAnswersData[0].model;
+            incorrect = unselectedAnswerData.model;
+          }
+
+          feedbackDetailsIncorrect = "The <span class='bolded'>"+incorrect+"</span> doesn't offer <span>"+phrasedCriterion+"</span>";
+          feedbackDetailsCorrect = "The <span class='bolded'>"+correct+"</span> offer <span>"+phrasedCriterion+"</span>";
         }
       }
 
@@ -808,9 +903,9 @@ function filterAnswersAttribute(activeAssessment, filterParam, answersFilteredPa
   var answersFiltered = [];
 
   if(comparison == 'minimum'){
-    operator = ">";
+    operator = ">=";
   }else if(comparison == 'maximum'){
-    operator = "<";
+    operator = "<=";
   }else if(comparison == 'equals'){
     operator = "==";
   }
@@ -895,7 +990,7 @@ function orderAnswers(activeAssessment, answersFiltered, criterion, value){
     }
   }else{
     //Neither answers have the characteristic
-    for(var i = 0; i < 1000; i++){
+    for(var i = 0; i < answersFiltered; i++){
       var replacement = answersFiltered[i][criterion];
 
       if(replacement == value){

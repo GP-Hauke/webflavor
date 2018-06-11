@@ -310,11 +310,11 @@ ul {
   display: inline;
   float: left;
   vertical-align: bottom;
-  line-height: 40px; }
+  line-height: 30px; }
 
 #assessmentModal .assessment-content.buick .answer-container .brand-model-attr > p.attr,
 #assessmentModal .assessment-content.chevy .answer-container .brand-model-attr > p.attr {
-  padding-left: 5px; }
+  padding-left: 0px; }
 
 /* CAPTION AREA ON BOTTOM */
 .feedback-container {
@@ -440,16 +440,18 @@ ul {
   text-transform: uppercase; }
 
 #assessmentModal .answer-container .brand-model-attr p.brand {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 100; }
 
 #assessmentModal .answer-container .brand-model-attr p.model {
   color: #808080;
-  font-size: 26px;
-  font-weight: 400; }
+  font-size: 17px;
+  font-weight: 400;
+}
 
 #assessmentModal .answer-container .brand-model-attr p.attr {
-  font-size: 12px; }
+  font-size: 13px;
+}
 
 #assessmentModal .assessment-content.buick .answer-container .brand-model-attr p.brand {
   color: #808080; }
@@ -459,12 +461,12 @@ ul {
 
 #assessmentModal .assessment-content.gmc .answer-container .brand-model-attr > p.brand {
   color: #808080;
-  font-size: 24px;
+  font-size: 16px;
   font-weight: 600; }
 
 #assessmentModal .assessment-content.gmc .answer-container .brand-model-attr > p.model {
   color: #fff;
-  font-size: 24px; }
+  font-size: 17px; }
 
 #assessmentModal .assessment-content.gmc .answer-container .brand-model-attr p.attr {
   color: #fff; }

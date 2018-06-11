@@ -1,0 +1,323 @@
+<question type="attribute" required="false" answered="false" passed="false" >
+  <type>
+    <criterion>mpg</criterion>
+    <characteristic></characteristic>
+    <filters hasFilters="true">
+      <filter type="characteristic" compare="" value="yes">sunroof</filter>
+    </filters>
+  </type>
+  <questionTitle><![CDATA[]]></questionTitle>
+  <questionBody><![CDATA[The customer needs a vehicle that has a moon roof or sunroof and gets at least 25 MPG combined. Which vehicle gets the best MPG?]]></questionBody>
+  <imgSrc><![CDATA[]]></imgSrc>
+</question>
+
+<question type="attribute" required="false" answered="false" passed="false" >
+  <type>
+    <criterion>interiorHeadRoom</criterion>
+    <characteristic></characteristic>
+    <filters hasFilters="true">
+      <filter type="characteristic" compare="" value="yes">heatedWheel</filter>
+      <filter type="attribute" compare="minimum" value="35">interiorHeadRoom</filter>
+    </filters>
+  </type>
+  <questionTitle><![CDATA[]]></questionTitle>
+  <questionBody><![CDATA[The customer wants a vehicle that has heated steering wheel and at least 35 inches of headroom. Which has the most interior headroom? ]]></questionBody>
+  <imgSrc><![CDATA[]]></imgSrc>
+</question>
+
+<question type="attribute" required="false" answered="false" passed="false" >
+  <type>
+    <criterion>horsePower</criterion>
+    <characteristic></characteristic>
+    <filters hasFilters="true">
+      <filter type="characteristic" compare="" value="yes">remoteStart</filter>
+    </filters>
+  </type>
+  <questionTitle><![CDATA[]]></questionTitle>
+  <questionBody><![CDATA[The customer wants remote start on his vehicle and at least 250 horsepower. Which vehicle has the highest horsepower?]]></questionBody>
+  <imgSrc><![CDATA[]]></imgSrc>
+</question>
+
+<question type="characteristic" required="false" answered="false" passed="false" >
+  <type>
+    <criterion>heatedSeats</criterion>
+    <characteristic>yes</characteristic>
+    <filters hasFilters="true">
+      <filter type="attribute" compare="minimum" value="35">rearLegRoom</filter>
+    </filters>
+  </type>
+  <questionTitle><![CDATA[]]></questionTitle>
+  <questionBody><![CDATA[The customer wants a vehicle with at least 35 inches of rear leg room and has heated seats. Which vehicle has heated seats? ]]></questionBody>
+  <imgSrc><![CDATA[]]></imgSrc>
+</question>
+
+<!--
+<question type="characteristic" required="false" answered="false" passed="false" >
+  <type>
+    <criterion>thirdRowSeating</criterion>
+    <characteristic>yes</characteristic>
+    <filters hasFilters="true">
+      <filter type="attribute" compare="minimum" value="250">horsePower</filter>
+    </filters>
+  </type>
+  <questionTitle><![CDATA[]]></questionTitle>
+  <questionBody><![CDATA[The customer needs a vehicle that has at least 250 horsepower and has available third-row seating. Which vehicle has third-row seating?]]></questionBody>
+  <imgSrc><![CDATA[]]></imgSrc>
+</question>
+-->
+
+<question type="characteristic" required="false" answered="false" passed="false" >
+  <type>
+    <criterion>connectedNavigation</criterion>
+    <characteristic>yes</characteristic>
+    <filters hasFilters="true">
+      <filter type="attribute" compare="minimum" value="35">interiorHeadRoom</filter>
+    </filters>
+  </type>
+  <questionTitle><![CDATA[]]></questionTitle>
+  <questionBody><![CDATA[The customer needs a vehicle with Connected Navigation that has at least 35 inches of headroom. Which vehicle offers Connected Navigation?]]></questionBody>
+  <imgSrc><![CDATA[]]></imgSrc>
+</question>
+
+<!--
+<question type="attribute" required="false" answered="false" passed="false" >
+  <type>
+    <criterion>basePrice</criterion>
+    <characteristic></characteristic>
+    <filters hasFilters="true">
+      <filter type="characteristic" compare="" value="yes">dr4</filter>
+      <filter type="attribute" compare="maximum" value="25,000">basePrice</filter>
+    </filters>
+  </type>
+  <questionTitle><![CDATA[]]></questionTitle>
+  <questionBody><![CDATA[The customer wants a four-door vehicle that has a base price of no higher than $25,000. Which vehicle has the lowest base price?]]></questionBody>
+  <imgSrc><![CDATA[]]></imgSrc>
+</question>
+
+-->
+
+<question type="characteristic" required="false" answered="false" passed="false" >
+  <type>
+    <criterion>heatedSeats</criterion>
+    <characteristic>yes</characteristic>
+    <filters hasFilters="true">
+      <filter type="characteristic" compare="" value="yes">sunroof</filter>
+    </filters>
+  </type>
+  <questionTitle><![CDATA[]]></questionTitle>
+  <questionBody><![CDATA[The customer wants a vehicle that has a moon roof or sunroof and heated seats. Which vehicle offers a heated seats?]]></questionBody>
+  <imgSrc><![CDATA[]]></imgSrc>
+</question>
+
+<!--
+<question type="characteristic" required="false" answered="false" passed="false" >
+  <type>
+    <criterion>sunroof</criterion>
+    <characteristic>yes</characteristic>
+    <filters hasFilters="true">
+      <filter type="attribute" compare="maximum" value="30,000">basePrice</filter>
+    </filters>
+  </type>
+  <questionTitle><![CDATA[]]></questionTitle>
+  <questionBody><![CDATA[The customer wants a vehicle with a base price of no more than $30,000 and offers a moon roof or sunroof. Which vehicle offers a moon roof or sunroof?]]></questionBody>
+  <imgSrc><![CDATA[]]></imgSrc>
+</question>
+-->
+
+<question type="attribute" required="false" answered="false" passed="false" >
+  <type>
+    <criterion>cargoVol</criterion>
+    <characteristic></characteristic>
+    <filters hasFilters="true">
+      <filter type="characteristic" compare="" value="yes">heatedSeats</filter>
+      <filter type="attribute" compare="minimum" value="30">cargoVol</filter>
+    </filters>
+  </type>
+  <questionTitle><![CDATA[]]></questionTitle>
+  <questionBody><![CDATA[The customer wants a vehicle with heated seats and at least 30 cubic feet of cargo space. Which vehicle has the most cargo space?]]></questionBody>
+  <imgSrc><![CDATA[]]></imgSrc>
+</question>
+
+<question type="characteristic" required="false" answered="false" passed="false" >
+  <type>
+    <criterion>remoteStart</criterion>
+    <characteristic>yes</characteristic>
+    <filters hasFilters="true">
+      <filter type="attribute" compare="minimum" value="30">cargoVol</filter>
+    </filters>
+  </type>
+  <questionTitle><![CDATA[]]></questionTitle>
+  <questionBody><![CDATA[The customer wants a vehicle with remote start and that has at least 30 cubic feet of cargo space. Which vehicle has remote start?]]></questionBody>
+  <imgSrc><![CDATA[]]></imgSrc>
+</question>
+
+<question type="characteristic" required="false" answered="false" passed="false" >
+  <type>
+    <criterion>remoteStart</criterion>
+    <characteristic>yes</characteristic>
+    <filters hasFilters="true">
+      <filter type="attribute" compare="minimum" value="30">cargoVol</filter>
+    </filters>
+  </type>
+  <questionTitle><![CDATA[]]></questionTitle>
+  <questionBody><![CDATA[The customer wants a vehicle with remote start and that has at least 30 cubic feet of cargo space. Which vehicle has remote start?]]></questionBody>
+  <imgSrc><![CDATA[]]></imgSrc>
+</question>
+
+<question type="characteristic" required="false" answered="false" passed="false" >
+  <type>
+    <criterion>remoteStart</criterion>
+    <characteristic>yes</characteristic>
+    <filters hasFilters="true">
+      <filter type="characteristic" compare="" value="Regal">base</filter>
+    </filters>
+  </type>
+  <questionTitle><![CDATA[]]></questionTitle>
+  <questionBody><![CDATA[The customer is fond of the Buick Regal but wants remote start. Which Regal offers remote start?]]></questionBody>
+  <imgSrc><![CDATA[]]></imgSrc>
+</question>
+
+<question type="characteristic" required="false" answered="false" passed="false" >
+  <type>
+    <criterion>heatedSeats</criterion>
+    <characteristic>yes</characteristic>
+    <filters hasFilters="true">
+      <filter type="attribute" compare="minimum" value="250">horsePower</filter>
+    </filters>
+  </type>
+  <questionTitle><![CDATA[]]></questionTitle>
+  <questionBody><![CDATA[The customer wants a Buick that has heated seats and has at least 250 horsepower. Which vehicle has the heated seats?]]></questionBody>
+  <imgSrc><![CDATA[]]></imgSrc>
+</question>
+
+<question type="characteristic" required="false" answered="false" passed="false" >
+  <type>
+    <criterion>heatedWheel</criterion>
+    <characteristic>yes</characteristic>
+    <filters hasFilters="true">
+      <filter type="attribute" compare="minimum" value="25">mpg</filter>
+    </filters>
+  </type>
+  <questionTitle><![CDATA[]]></questionTitle>
+  <questionBody><![CDATA[The customer wants a Buick that gets at least 25 MPG and offers a heated steering wheel. Which Buick offers a heated steering wheel?]]></questionBody>
+  <imgSrc><![CDATA[]]></imgSrc>
+</question>
+
+<question type="characteristic" required="false" answered="false" passed="false" >
+  <type>
+    <criterion>connectedNavigation</criterion>
+    <characteristic>yes</characteristic>
+    <filters hasFilters="true">
+      <filter type="attribute" compare="minimum" value="35">rearLegRoom</filter>
+    </filters>
+  </type>
+  <questionTitle><![CDATA[]]></questionTitle>
+  <questionBody><![CDATA[The customer needs a vehicle that gets at least 35 inches of rear leg room and offers Connected Navigation. Which vehicle offers Connected Navigation? ]]></questionBody>
+  <imgSrc><![CDATA[]]></imgSrc>
+</question>
+
+<question type="characteristic" required="false" answered="false" passed="false" >
+  <type>
+    <criterion>heatedWheel</criterion>
+    <characteristic>yes</characteristic>
+    <filters hasFilters="true">
+      <filter type="characteristic" compare="" value="LaCrosse">base</filter>
+    </filters>
+  </type>
+  <questionTitle><![CDATA[]]></questionTitle>
+  <questionBody><![CDATA[The customer loves the luxurious look of the LaCrosse but wants a heated steering wheel. Which LaCrosse has a heated steering wheel?]]></questionBody>
+  <imgSrc><![CDATA[]]></imgSrc>
+</question>
+
+<question type="characteristic" required="false" answered="false" passed="false" >
+  <type>
+    <criterion>heatedSeats</criterion>
+    <characteristic>yes</characteristic>
+    <filters hasFilters="true">
+      <filter type="characteristic" compare="" value="Encore">base</filter>
+    </filters>
+  </type>
+  <questionTitle><![CDATA[]]></questionTitle>
+  <questionBody><![CDATA[The customer loves the Buick Encore for it’s great gas mileage but wants heated seats. Which Encore offers heated seats?]]></questionBody>
+  <imgSrc><![CDATA[]]></imgSrc>
+</question>
+
+<question type="attribute" required="false" answered="false" passed="false" >
+  <type>
+    <criterion>mpg</criterion>
+    <characteristic></characteristic>
+    <filters hasFilters="true">
+      <filter type="characteristic" compare="" value="yes">sunroof</filter>
+    </filters>
+  </type>
+  <questionTitle><![CDATA[]]></questionTitle>
+  <questionBody><![CDATA[The customer wants a Buick that offers a moon roof or sunroof that gets the best gas mileage. Which Buick gets the best gas mileage?]]></questionBody>
+  <imgSrc><![CDATA[]]></imgSrc>
+</question>
+
+<question type="characteristic" required="false" answered="false" passed="false" >
+  <type>
+    <criterion>remoteStart</criterion>
+    <characteristic>yes</characteristic>
+    <filters hasFilters="false">
+    </filters>
+  </type>
+  <questionTitle><![CDATA[]]></questionTitle>
+  <questionBody><![CDATA[ The customer wants a Buick that offers remote start? Which Buick offers remote start?]]></questionBody>
+  <imgSrc><![CDATA[]]></imgSrc>
+</question>
+
+<question type="characteristic" required="false" answered="false" passed="false" >
+  <type>
+    <criterion>connectedNavigation</criterion>
+    <characteristic>yes</characteristic>
+    <filters hasFilters="true">
+      <filter type="attribute" compare="maximum" value="30000">basePrice</filter>
+    </filters>
+  </type>
+  <questionTitle><![CDATA[]]></questionTitle>
+  <questionBody><![CDATA[The customer wants a Buick for under $30,000 that has Connected Navigation. Which vehicle offers Connected Navigation?]]></questionBody>
+  <imgSrc><![CDATA[]]></imgSrc>
+</question>
+
+
+chevy
+<!--<question type="attribute" required="false" answered="false" passed="false">
+  <type>
+    <criterion>basePrice</criterion>
+    <characteristic></characteristic>
+    <filters hasFilters="true">
+      <filter type="attribute" compare="maximum" value="25,000">basePrice</filter>
+      <filter type="characteristic" compare="" value="yes">dr4</filter>
+    </filters>
+  </type>
+  <questionTitle><![CDATA[]]></questionTitle>
+  <questionBody><![CDATA[The customer wants a four-door vehicle that has a base price of no higher than $25,000. Which vehicle has the lowest base price?]]></questionBody>
+  <imgSrc><![CDATA[]]></imgSrc>
+</question>-->
+
+<question type="characteristic" required="false" answered="false" passed="false">
+  <type>
+    <criterion>remoteStart</criterion>
+    <characteristic>yes</characteristic>
+    <filters hasFilters="true">
+      <filter type="attribute" compare="maximum" value="30,000">basePrice</filter>
+    </filters>
+  </type>
+  <questionTitle><![CDATA[]]></questionTitle>
+  <questionBody><![CDATA[The customer wants a vehicle under $30,000 that has remote start. Which vehicle offers remote start? ]]></questionBody>
+  <imgSrc><![CDATA[]]></imgSrc>
+</question>
+
+<question type="characteristic" required="false" answered="false" passed="false">
+  <type>
+    <criterion>sunroof</criterion>
+    <characteristic>yes</characteristic>
+    <filters hasFilters="true">
+      <filter type="attribute" compare="maximum" value="30,000">basePrice</filter>
+    </filters>
+  </type>
+  <questionTitle><![CDATA[]]></questionTitle>
+  <questionBody><![CDATA[The customer wants a vehicle with a base price of no more than $30,000 and offers a moon roof or sunroof. Which vehicle offers a moon roof or sunroof?]]></questionBody>
+  <imgSrc><![CDATA[]]></imgSrc>
+</question>

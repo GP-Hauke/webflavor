@@ -36,29 +36,5 @@
       <page gated="false" locks="0" audio=""><![CDATA[HOT SPOT COMPONENT]]></page>
     </pages>
   </chapter>
-  <chapter>
-      <title><![CDATA[BLANK PAGE 1]]></title>
-      <pages>
-      <page gated="false" locks="0" audio=""><![CDATA[KNOW YOUR LINEUP]]></page>
-    </pages>
-  </chapter>
 
-  <chapter>
-      <title><![CDATA[BLANK PAGE 2]]></title>
-      <pages>
-      <page gated="false" locks="0" audio=""><![CDATA[COURSE COMPLETION]]></page>
-    </pages>
-  </chapter>
-  <chapter>
-      <title><![CDATA[BLANK PAGE 3]]></title>
-      <pages>
-      <page gated="false" locks="0" audio=""><![CDATA[DRAG AND DROP COMPONENT]]></page>
-    </pages>
-  </chapter>
-  <chapter>
-      <title><![CDATA[BLANK PAGE 4]]></title>
-      <pages>
-      <page gated="false" locks="0" audio=""><![CDATA[HOT SPOT COMPONENT]]></page>
-    </pages>
-  </chapter>
 </course>
