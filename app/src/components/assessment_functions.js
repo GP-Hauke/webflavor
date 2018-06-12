@@ -140,7 +140,7 @@ function launchAssessment(id, clickTarget) {
 
   if(activeAssessment === 0) {
     $("#modalContainer .assessment-container").append("<div class='selection-screen row'></div>");
-    $("#modalContainer .selection-screen").append("<div class='col-md-12'><p>Think you know your lineup? Let's see if you can find the best vehicle for the customer. First select the brand you want to view. We'll give you a question regarding a customer's particular interest. You'll be given a choice between two different vehicles. Select the one that best suits your customer's needs. In some cases, BOTH vehicles could meet your customer's needs.</p><p>When you're done, see how you did. And feel free to come back to play again and again. You can use this game to bring you up to speed on the models you sell or as a quick refresher.</p><p>When you're ready, click the <span class='bolded'>brand button</span> and get started.</p></div>");
+    $("#modalContainer .selection-screen").append("<div class='col-md-12'><p>Think you know your lineup? Let’s see if you can find the best vehicle for the customer.</p><p>First, select the brand you want to view. We’ll give you 10 questions that includes two customer requests. You’ll be given a choice between two vehicles. The vehicles could be different models or the same model at different trim levels. Select the one that best suits your customer’s needs.</p><p>Think fast! You’ll only have 10 seconds to answer! You’ll get 10 points for each correct answer, and bonus points for how quickly you answer. There are 1,000 total points possible. See if you can get them all!</p><p>When you're ready, click the <span class='bolded'>brand button</span> and get started.</p></div>");
 
     $("#modalContainer .selection-screen").append("<div class='col-md-4'><button class='d-block mx-auto btn-game buick'><img class='img-fluid' src='dir/media/img/assets/game/game_branch_buick.jpg' alt=''></button></div>");
 
@@ -178,7 +178,7 @@ function openIntroScreen(id) {
     return;
   }
 
-  courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions = shuffle(courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions);
+  //courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions = shuffle(courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions);
   localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(courseData));
 
   $("#modalContainer .assessment-container").append("<div class='intro-screen "+style+"'></div>");
@@ -203,7 +203,7 @@ function startAssessment(id) {
   var questionCount = questionIndex + 1;
 
   //Shuffle Questions Everytime (to get same question multiple times)
-  courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions = shuffle(courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions);
+  //courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions = shuffle(courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions);
 
   //Question Information for Dispaly
   var questionTitle = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions[questionIndex].question.questionTitle;
@@ -257,6 +257,7 @@ function startAssessment(id) {
   $("#modalContainer .assessment-content").append("<h3>Question "+questionCount+" of "+questionsNum+"<span> 10 seconds</span>");
   $("#modalContainer .assessment-content").append("<p>"+questionBody+"</p>");
   $("#modalContainer .assessment-content").append("<div class='row mx-auto answers clearfix'></div>");
+
 
   for(var i = 0; i < 2; i++) {
     $("#modalContainer .answers").append("<div class='col-md-6 answer-container initial btn"+i+"'><div class='unselected-box'></div><div class='border-box'><img class='img-fluid' src='"+answersFiltered[i].img+"'/><div class='brand-model-attr clearfix'><p class='brand'>"+answersFiltered[i].brand+"</p><p class='model'>"+answersFiltered[i].model+"&nbsp</p><p class='attr'>"+answersFiltered[i].attributes+"</p></div><div class='selected-bar'></div></div></div>");
@@ -762,20 +763,20 @@ function startAssessment(id) {
       $("#modalContainer .btn-submit-answer").removeClass("hide");
     });
   }*/
-}
-}
-}
+    }
+    }
+  }
 
 //Timer used in countdown and scoring
-var timingInterval = setInterval(function(){
-  time += .1;
-  var timeLeft = (10 - time).toFixed(1);
+  var timingInterval = setInterval(function(){
+    time += .1;
+    var timeLeft = (10 - time).toFixed(1);
 
-  if(timeLeft >= 0){
-    var timeLeft = Math.abs(timeLeft);
-    $("#modalContainer .assessment-content h3 span").html("<span> " +timeLeft+ " seconds</span>");
-  }
-}, 100)
+    if(timeLeft >= 0){
+      var timeLeft = Math.abs(timeLeft);
+      $("#modalContainer .assessment-content h3 span").html("<span> " +timeLeft+ " seconds</span>");
+    }
+  }, 100)
 }
 
 function endAssessment(activeAssessment) {
@@ -812,11 +813,14 @@ function endAssessment(activeAssessment) {
   gameFeedback += "</span> points. ";
 
   switch(correctPercentage) {
-    case 0: case 1: case 2: case 3: case 4: case 5:
-    gameFeedback += "You probably should go review your product training and then try again.";
+    case 0: case 1: case 2: case 3: case 4:
+    gameFeedback += "You can do better! Go ahead, try again!";
     break;
-    case 6: case 7: case 8:
-    gameFeedback += "You’re on the right track. Keep practicing.";
+    case 5: case 6:
+    gameFeedback += "You’re on the right track. Keep practicing!";
+    break;
+    case 7: case 8:
+    gameFeedback += "You’re on your way to stardom. Keep going!";
     break;
     case 9: case 10:
     gameFeedback += "You’re a rock star! You really know the basic differences in the vehicles in your product line. Nice job!";
@@ -983,7 +987,7 @@ function orderAnswers(activeAssessment, answersFiltered, criterion, value){
     //Answers already ordered
   }else if(answer1 == value) {
     //Both answers have the characteristic
-    for(var i = 0; i < 1000; i++){
+    for(var i = 0; i < answersFiltered.length; i++){
       var replacement = answersFiltered[i][criterion];
 
       if(replacement != value){
@@ -995,7 +999,7 @@ function orderAnswers(activeAssessment, answersFiltered, criterion, value){
     }
   }else{
     //Neither answers have the characteristic
-    for(var i = 0; i < answersFiltered; i++){
+    for(var i = 0; i < answersFiltered.length; i++){
       var replacement = answersFiltered[i][criterion];
 
       if(replacement == value){

@@ -19,14 +19,14 @@
       <questions>
         <question type="characteristic" required="false" answered="false" passed="false" >
           <type>
-            <criterion>thirdRowSeating</criterion>
+            <criterion>connectedNavigation</criterion>
             <characteristic>yes</characteristic>
             <filters hasFilters="true">
-              <filter type="attribute" compare="minimum" value="250">horsePower</filter>
+              <filter type="attribute" compare="maximum" value="30000">basePrice</filter>
             </filters>
           </type>
           <questionTitle><![CDATA[]]></questionTitle>
-          <questionBody><![CDATA[The customer needs a vehicle that has at least 250 horsepower and has available third-row seating. Which vehicle has third-row seating?]]></questionBody>
+          <questionBody><![CDATA[The customer wants a Buick for under $30,000 that has Connected Navigation. Which vehicle offers Connected Navigation?]]></questionBody>
           <imgSrc><![CDATA[]]></imgSrc>
         </question>
 
@@ -130,19 +130,6 @@
           </type>
           <questionTitle><![CDATA[]]></questionTitle>
           <questionBody><![CDATA[ The customer wants a Buick that offers remote start? Which Buick offers remote start?]]></questionBody>
-          <imgSrc><![CDATA[]]></imgSrc>
-        </question>
-
-        <question type="characteristic" required="false" answered="false" passed="false" >
-          <type>
-            <criterion>connectedNavigation</criterion>
-            <characteristic>yes</characteristic>
-            <filters hasFilters="true">
-              <filter type="attribute" compare="maximum" value="30000">basePrice</filter>
-            </filters>
-          </type>
-          <questionTitle><![CDATA[]]></questionTitle>
-          <questionBody><![CDATA[The customer wants a Buick for under $30,000 that has Connected Navigation. Which vehicle offers Connected Navigation?]]></questionBody>
           <imgSrc><![CDATA[]]></imgSrc>
         </question>
 
@@ -264,7 +251,6 @@
           <questionBody><![CDATA[The customer wants a vehicle with remote start and that has at least 30 cubic feet of cargo space. Which vehicle has remote start?]]></questionBody>
           <imgSrc><![CDATA[]]></imgSrc>
         </question>
-
 
       </questions>
       <answers>
@@ -424,7 +410,7 @@
           <mpg><![CDATA[30]]></mpg>
           <rearLegRoom><![CDATA[38.0]]></rearLegRoom>
           <cargoVol><![CDATA[15.0]]></cargoVol>
-          <basePrice><![CDATA[29565]]></basePrice>
+          <basePrice><![CDATA[45795]]></basePrice>
           <horsePower><![CDATA[310]]></horsePower>
           <interiorHeadRoom><![CDATA[38.4]]></interiorHeadRoom>
           <!-- CHARACTERISTICS -->

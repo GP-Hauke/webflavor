@@ -169,7 +169,7 @@ ul {
 /* ASSESSMENT MODAL */
 #assessmentModal .modal-dialog {
   min-height: 700px;
-  border: 3px solid #808080; }
+  border: 3px solid #2b2b2b; }
 
 @media only screen and (min-width: 992px) {
   .modal-dialog {
@@ -206,13 +206,13 @@ ul {
   float: right; }
 
 #assessmentModal .retry-container.buick button {
-  background-color: #808080; }
+  background-color: #2b2b2b; }
 
 #assessmentModal .retry-container.chevy button {
-  background-color: #808080; }
+  background-color: #2b2b2b; }
 
 #assessmentModal .retry-container.gmc button {
-  background-color: #808080; }
+  background-color: #2b2b2b; }
 
 /* end ASSESSMENT GAME RETRY SCREEN */
 /* ASSESSMENT INTRO SCREEN */
@@ -224,13 +224,13 @@ ul {
   padding: 20px 0; }
 
 #assessmentModal .modal-content .intro-screen.buick button {
-  background-color: #808080; }
+  background-color: #2b2b2b; }
 
 #assessmentModal .modal-content .intro-screen.chevy button {
-  background-color: #808080; }
+  background-color: #2b2b2b; }
 
 #assessmentModal .modal-content .intro-screen.gmc button {
-  background-color: #808080; }
+  background-color: #2b2b2b; }
 
 /* end ASSESSMENT INTRO SCREEN */
 /* ASSESSMENT GAME SCREEN */
@@ -301,7 +301,9 @@ ul {
   border-left: 1px solid #fff; }
 
 #assessmentModal .assessment-content.gmc .answer-container .brand-model-attr > p.attr {
-  margin-top: 5px; }
+  margin-top: 5px;
+  display: inline-block;
+}
 
 #assessmentModal .assessment-content.buick .answer-container .brand-model-attr > p.model,
 #assessmentModal .assessment-content.chevy .answer-container .brand-model-attr > p.model,
@@ -345,15 +347,15 @@ ul {
 /* SUBMIT BUTTON BAR FOR EACH BRAND */
 #assessmentModal .assessment-content.buick .feedback-container button.btn-ok,
 #assessmentModal .assessment-content.buick .btn-submit-answer {
-  background-color: #808080; }
+  background-color: #2b2b2b; }
 
 #assessmentModal .assessment-content.chevy .feedback-container button.btn-ok,
 #assessmentModal .assessment-content.chevy .btn-submit-answer {
-  background-color: #808080; }
+  background-color: #2b2b2b; }
 
 #assessmentModal .assessment-content.gmc .feedback-container button.btn-ok,
 #assessmentModal .assessment-content.gmc .btn-submit-answer {
-  background-color: #808080; }
+  background-color: #2b2b2b; }
 
 /* end SUBMIT BUTTON BAR FOR EACH BRAND */
 /* SELECTED BAR FOR EACH BRAND */
@@ -362,16 +364,16 @@ ul {
   width: 100%; }
 
 #assessmentModal .assessment-content.buick .answer-container.selected .selected-bar {
-  background-color: #808080; }
+  background-color: #2b2b2b; }
 
 #assessmentModal .assessment-content.chevy .answer-container.selected .selected-bar {
-  background-color: #808080; }
+  background-color: #2b2b2b; }
 
 #assessmentModal .assessment-content.gmc .answer-container .selected-bar {
   background-color: #000; }
 
 #assessmentModal .assessment-content.gmc .answer-container.selected .selected-bar {
-  background-color: #808080; }
+  background-color: #2b2b2b; }
 
 /* end SELECTED BAR FOR EACH BRAND */
 /* end ASSESSMENT GAME SCREEN */
@@ -386,13 +388,13 @@ ul {
   float: right; }
 
 #assessmentModal .finish-screen.buick button {
-  background-color: #808080; }
+  background-color: #2b2b2b; }
 
 #assessmentModal .finish-screen.chevy button {
-  background-color: #808080; }
+  background-color: #2b2b2b; }
 
 #assessmentModal .finish-screen.gmc button {
-  background-color: #808080; }
+  background-color: #2b2b2b; }
 
 /* end ASSESSMENT GAME SUMMARY SCREEN */
 /* end ASSESSMENT MODAL */
@@ -426,13 +428,13 @@ ul {
 /* end ASSESSMENT INTRO SCREEN */
 /* ASSESSMENT MAIN SCREEN */
 #assessmentModal .assessment-content.buick h3 {
-  color: #808080; }
+  color: #2b2b2b; }
 
 #assessmentModal .assessment-content.chevy h3 {
-  color: #808080; }
+  color: #2b2b2b; }
 
 #assessmentModal .assessment-content.gmc h3 {
-  color: #808080; }
+  color: #2b2b2b; }
 
 #assessmentModal .answer-container .brand-model-attr p.brand,
 #assessmentModal .answer-container .brand-model-attr p.model,
@@ -444,7 +446,7 @@ ul {
   font-weight: 100; }
 
 #assessmentModal .answer-container .brand-model-attr p.model {
-  color: #808080;
+  color: #2b2b2b;
   font-size: 17px;
   font-weight: 400;
 }
@@ -454,13 +456,13 @@ ul {
 }
 
 #assessmentModal .assessment-content.buick .answer-container .brand-model-attr p.brand {
-  color: #808080; }
+  color: #2b2b2b; }
 
 #assessmentModal .assessment-content.chevy .answer-container .brand-model-attr > p.brand {
-  color: #808080; }
+  color: #2b2b2b; }
 
 #assessmentModal .assessment-content.gmc .answer-container .brand-model-attr > p.brand {
-  color: #808080;
+  color: #2b2b2b;
   font-size: 16px;
   font-weight: 600; }
 
@@ -505,6 +507,8 @@ ul {
   border: 2px solid #000;
   background-color: #fff;
   color: #000;
+  border-radius: 0px;
+  font-size: 20px;
  }
 
 
@@ -576,7 +580,7 @@ footer.footer {
   bottom: 0;
   width: 100%;
   height: 50px;
-  background-color: rgba(154, 154, 154, 0.9);
+  background-color: rgba(80, 80, 80, 0.9);
   z-index: 20; }
 
 footer.footer > .container.footer-nav {
@@ -608,7 +612,7 @@ footer.footer > .container.footer-nav .next {
   margin: 0; }
 
 #glossaryModal .modal-header {
-  background-color: #808080;
+  background-color: #2b2b2b;
   position: absolute;
   width: 100%;
   z-index: 10;
@@ -678,7 +682,7 @@ footer.footer > .container.footer-nav .next {
   margin: 0; }
 
 #helpModal.modal .modal-header {
-  background-color: #808080;
+  background-color: #2b2b2b;
   border-bottom: none;
   padding: 40px 40px 40px 40px;
   position: absolute;
@@ -772,7 +776,7 @@ footer.footer > .container.footer-nav .next {
 
 /* NAVBAR MAIN CONTAINER */
 nav.navbar {
-  background-color: #808080;
+  background-color: #2b2b2b;
   border: none;
   border-radius: 0;
   margin-bottom: 0;
@@ -892,7 +896,7 @@ nav.navbar#navbarBottom {
 .page-assist > li > a:active,
 .page-assist > li > a:focus,
 .page-assist > li > a:hover {
-  background-color: #808080; }
+  background-color: #2b2b2b; }
 
 /* COLLAPSABLE PART OF NAV BAR - LINK LIST ON RIGHT */
 .page-assist > li > a {
@@ -936,7 +940,7 @@ li.courseTitleChapter {
   display: block; }
 
 li.courseTitleChapterSelected {
-  background-color: #808080; }
+  background-color: #2b2b2b; }
 
 /* end INDIVIDUAL MENU ITEMS */
 /* COLLAPSABLE PART OF NAV BAR - BOTTOM NAV BAR */
@@ -1003,7 +1007,7 @@ li.courseTitleChapterSelected {
 
 @media (max-width: 767px) {
   .tabbed{
-    background: #808080 !important;
+    background: #2b2b2b !important;
   }
 
   .tabbed #navbarMobile {
@@ -1012,7 +1016,7 @@ li.courseTitleChapterSelected {
     margin: 0 auto;
   }
   .tabbed #navbarMobile li{
-    background: #808080;
+    background: #2b2b2b;
     color: #fff;
     font-weight: 200;
     line-height: 20px;
@@ -1100,7 +1104,7 @@ li.courseTitleChapterSelected {
   font-size: 50px; }
 
 .thumbnail .caption h3.clicked {
-  color: #808080; }
+  color: #2b2b2b; }
 
 .thumbnail .caption h3::before {
   /*content: '';
@@ -1120,7 +1124,7 @@ li.courseTitleChapterSelected {
   text-align: center;
   padding: 0 20px;
   height: 110px;
-  background-color: #808080; }
+  background-color: #2b2b2b; }
 
 .thumbnail .caption h4 > span {
   display: inline-block;
@@ -1134,7 +1138,7 @@ li.courseTitleChapterSelected {
   padding: 0 20px;
   margin: 1px;
   height: 80px;
-  background-color: #808080; }
+  background-color: #2b2b2b; }
 
 .thumbnail .caption h3.clicked {
   -webkit-animation-name: ctr-clicked;
@@ -1209,7 +1213,7 @@ li.courseTitleChapterSelected {
 /* end VIEWED OVERLAY ON THUMBNAIL */
 /* MARGINALIA THUMBNAIL */
 .thumbnail.marginalia {
-  border: 2px solid #808080;
+  border: 2px solid #2b2b2b;
   padding: 1px; }
 
 /* end MARGINALIA THUMBNAIL */
@@ -1303,7 +1307,9 @@ li.courseTitleChapterSelected {
 h1#pageTitle {
   margin-top: 0;
   margin-bottom: 20px;
-  border-bottom: 3px solid #cdcdcd; }
+  border-bottom: 3px solid #cdcdcd;
+  font-size: 32px;
+}
 
 h2.section-title {
   margin-bottom: 20px; }
@@ -1347,7 +1353,7 @@ h2.section-title {
   background: url(../../dir/media/img/assets/bg_completion.jpg) center center/cover no-repeat fixed; }
 
 .results-container {
-  border: 2px solid #808080;
+  border: 2px solid #2b2b2b;
   padding-bottom: 30px;
 }
 
@@ -1454,7 +1460,7 @@ h2.section-title {
 }
 
 .modal-body .gloss-item h5 {
-  color: #808080;
+  color: #2b2b2b;
   font-weight: 100;
   font-size: 16px;
   text-transform: uppercase;
@@ -1503,7 +1509,7 @@ h2.section-title {
   line-height: 50px;
   font-weight: 600;
   height: 50px;
-  background: #808080;
+  background: #474747;
   color: #fff;
   margin-bottom: 10px;
   cursor: pointer;
@@ -1544,17 +1550,17 @@ h2.section-title {
 
 #dragAndDrop .btn-default-main{
   margin-right: 10px;
-  border: 2px solid #808080;
-  background: #808080;
+  border: 2px solid #2b2b2b;
+  background: #2b2b2b;
   color: #fff;
   font-size: 20px;
 }
 
 #dragAndDrop .btn-reversed{
   margin-right: 10px;
-  border: 2px solid #808080;
+  border: 2px solid #2b2b2b;
   background: #fff;
-  color: #808080;
+  color: #2b2b2b;
   font-size: 20px;
   transition: all 200ms ease-in-out;
   transform: scale(.88);
