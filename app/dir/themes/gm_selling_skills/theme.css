@@ -1,5 +1,21 @@
 @import "typography.css";
 @import "assessment.css";
+@import "navigation.css";
+@import "button.css";
+@import "glossary.css";
+@import "help.css";
+@import "dragdrop.css";
+
+/*----------- SPLASH PAGE STYLES -----------*/
+#splashPageModal .modal-dialog .modal-content{
+  font-family: 'GMGlobalSansCond';
+  background-image: url('../../media/img/assets/bg_completion.jpg');
+}
+
+#splashPageModal h1, h3{
+  color: #003056;
+}
+
 
 /*------------ BASIC STYLES ------------*/
 body {
@@ -7,11 +23,6 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-h3 {
-  color: #3179D0;
-}
-
-/*------------ CONTENT STYLES ------------*/
 /*Page Titles*/
 h1#pageTitle {
   font-weight: 600;
@@ -38,161 +49,4 @@ h1#pageTitle {
 /*Footer Navigation*/
 footer.footer {
   background-color: rgba(154, 154, 154, 0.9);
-}
-
-
-/*------------ NAVIGATION STYLES ------------*/
-/*Navigation Main Color*/
-nav.navbar {
-  background-color: #003056;
-}
-
-/*Navigation Secondary Color*/
-.navbar-collapse {
-  border: none;
-  background-color: #618eb5;
-}
-
-/*Navigation Current Page*/
-li.courseTitleChapterSelected {
-  background-color: #003056;
-}
-
-/*  Navigation Tabs Verion */
-.tabbed{
-  background: #fff !important;
-}
-
-.tabbed #navbarMobile {
-  max-width: 1450px;
-}
-
-.tabbed #navbarMobile li{
-  background: #fff;
-  color: #003056;
-  font-weight: 600;
-  line-height: 50px;
-  height: 50px;
-  font-size: 14px;
-}
-
-.tabbed #navbarMobile li.courseTitleChapterSelected {
-  background: #fff;
-  border-bottom: 3px solid #003056;
-}
-
-@media (max-width: 767px) {
-  .tabbed{
-    background: #003056 !important;
-  }
-
-  .tabbed #navbarMobile {
-    display: block;
-    width: 100% !important;
-    margin: 0 auto;
-  }
-  .tabbed #navbarMobile li{
-    background: #003056;
-    color: #fff;
-    font-weight: 200;
-    line-height: 30px;
-    height: 30px;
-    position: relative;
-  }
-
-  .tabbed #navbarMobile li.courseTitleChapterSelected {
-    background: #618eb5;
-  }
-}
-
-/*------------ HELP MODAL STYLES ------------*/
-/*Help Modal*/
-#helpModal.modal .modal-header {
-  background-color: #fff;
-}
-
-/*Help Modal Title*/
-#helpModal .modal-header .modal-title {
-  color: #003056;
-}
-
-/*Help Modal Headings*/
-#helpModal .modal-body .help-section h5 {
-  color: #003056;
-}
-
-#helpModal .modal-body .help-item h6 {
-  color: #000018;
-}
-
-/*----------- GLOSSARY MODAL STYLES -----------*/
-/*Glossary Modal*/
-#glossaryModal .modal-header {
-  background-color: #618eb5;
-}
-
-/*Glossary Modal Title*/
-#glossaryModal .modal-title {
-  color: #fff;
-}
-
-/*Glossary Modal Alphabet*/
-#glossaryModal .alphabet a {
-}
-
-/*----------- BUTTON STYLES -----------*/
-.btn {
-  padding: 10px 16px;
-  border-radius: 0;
-}
-
-/*Default Button*/
-.btn-default {
-  font-family: 'GMGlobalSansCond';
-  font-size: 20px;
-  border: 2px solid #003056;
-  background-color: #003056;
-  color: #ffffff !important;
-}
-
-.btn-default:hover,
-.btn-default:active,
-.btn-default:focus {
-  background-color: #fff;
-  border-color: #003056;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-  outline: 0;
-  color: #000000 !important;
-}
-
-/*----------- SPLASH PAGE STYLES -----------*/
-#splashPageModal .modal-dialog .modal-content{
-  font-family: 'GMGlobalSansCond';
-  background-image: url('../../media/img/assets/bg_completion.jpg');
-}
-
-#splashPageModal h1, h3{
-  color: #003056;
-}
-
-/*----------- DRAG AND DROP STYLES -----------*/
-/*Draggable Items*/
-#dragAndDrop .item-container p{
-  background: #003056;
-  color: #fff;
-}
-
-/*Hover Button*/
-#dragAndDrop .btn-default-main{
-  border: 2px solid #003056;
-  background: #003056;
-  color: #fff;
-}
-
-/*Hover Button Seconday*/
-#dragAndDrop .btn-reversed{
-  border: 2px solid #003056;
-  background: #fff;
-  color: #003056;
 }

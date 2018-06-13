@@ -81,6 +81,15 @@ function populateStorage(xml, tempStorage) {
     }
   }
 
+  if($(xml).find("hasHotspots").text() === "true") {
+    if(tempStorage === null || tempStorage.hotspotData === undefined) {
+      courseStorageObj.hotspotData = {};
+
+    } else {
+      courseStorageObj.hotspotData = tempStorage.hotspotData;
+    }
+  }
+
   if($(xml).find("hasGlossary").text() === "true") {
     if(tempStorage === null || tempStorage.glossary === undefined) {
       courseStorageObj.glossary = {};

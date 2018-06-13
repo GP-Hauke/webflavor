@@ -15,28 +15,24 @@
   <drag_drop completed="false">
     <matchings>
       <pair>
-        <drag>Bloomington</drag>
-        <drop>Indiana</drop>
+        <drag>Washington DC</drag>
+        <drop>United States</drop>
       </pair>
       <pair>
-        <drag>Louisville</drag>
-        <drop>Kentucky</drop>
+        <drag>Paris</drag>
+        <drop>France</drop>
       </pair>
       <pair>
-        <drag>Chicago</drag>
-        <drop>Illinois</drop>
+        <drag>Tokyo</drag>
+        <drop>Japan</drop>
       </pair>
       <pair>
-        <drag>Miami</drag>
-        <drop>Florida</drop>
+        <drag>London</drag>
+        <drop>England</drop>
       </pair>
       <pair>
-        <drag>New York</drag>
-        <drop>New York</drop>
-      </pair>
-      <pair>
-        <drag>Seattle</drag>
-        <drop>Washington</drop>
+        <drag>Rio</drag>
+        <drop>Brazil</drop>
       </pair>
     </matchings>
   </drag_drop>

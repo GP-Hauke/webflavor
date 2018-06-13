@@ -1,0 +1,25 @@
+/*----------- BUTTON STYLES -----------*/
+.btn {
+  padding: 10px 16px;
+  border-radius: 0;
+}
+
+/*Default Button*/
+.btn-default {
+  font-family: 'GMGlobalSansCond';
+  font-size: 20px;
+  border: 2px solid #003056;
+  background-color: #003056;
+  color: #ffffff !important;
+}
+
+.btn-default:hover,
+.btn-default:active,
+.btn-default:focus {
+  background-color: #fff;
+  border-color: #003056;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  outline: 0;
+  color: #000000 !important;
+}

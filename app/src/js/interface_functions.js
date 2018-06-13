@@ -8,7 +8,6 @@ var navigationLoaded = false;
 var cardContentLoaded = false;
 var stringsLoaded = false;
 var assessmentsLoaded = false;
-var dragDropsLoaded = false;
 var splashLoaded = false;
 
 var totalPages;
@@ -72,11 +71,6 @@ function loadXMLData() {
     return;
   }
 
-  if(courseData.dragDropData !== undefined && dragDropsLoaded === false) {
-    GetInterfaceXML("dir/content/drag_drops.xml");
-    return;
-  }
-
   if(courseData.HAS_GLOSSARY === 'true' && glossaryLoaded === false) {
     GetInterfaceXML("dir/content/glossary.xml");
     return;
@@ -122,12 +116,7 @@ function GetInterfaceXML(args) {
       initAssessments(xml); // lives in assessment_functions.js
       loadXMLData();
 
-    } else if(args.indexOf("drag_drops") != -1) {
-      dragDropsLoaded = true;
-      initDragDrops(xml); // lives in assessment_functions.js
-      loadXMLData();
-
-    } else if(args.indexOf("strings") != -1) {
+    }else if(args.indexOf("strings") != -1) {
       stringsLoaded = true;
       buildStrings(xml);
     }
@@ -280,16 +269,16 @@ function buildTopNav() {
 
       if(courseData.chapters[i].pages.length > 1) {
 
-        mobileMenuButton = '<li><button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse'+i+'" aria-expanded="false" aria-controls="collapseExample">'+courseData.chapters[i].title+'</button><div class="collapse" id="collapse'+i+'"><ul class="">';
+        mobileMenuButton = '<li id="courseTitleChapter'+i+'" class="courseTitleChapter dropdown"><p data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">'+courseData.chapters[i].title+'</p><ul class="dropdown-menu">';
 
         for(var j = 0; j < courseData.chapters[i].pages.length; j++) {
-          mobileMenuButton = mobileMenuButton + '<li><a href="javascript:openPage('+i+','+j+')">'+courseData.chapters[i].pages[j].title+'</a></li>';
+          mobileMenuButton = mobileMenuButton + '<li onclick = "openPage('+i+','+j+')"><p>'+courseData.chapters[i].pages[j].title+'</p></li>';
         }
 
-        mobileMenuButton = mobileMenuButton + '</ul></div></li>';
+        mobileMenuButton = mobileMenuButton + '</ul></li>';
 
       } else {
-        mobileMenuButton = '<li class="courseTitleChapter" id="courseTitleChapter'+i+'" onclick="openPage('+i+',0)">'+courseData.chapters[i].title+'</li>';
+        mobileMenuButton = '<li class="courseTitleChapter" id="courseTitleChapter'+i+'" onclick="openPage('+i+',0)"><p>'+courseData.chapters[i].title+'</p></li>';
       }
 
       mobileNav = mobileNav + mobileMenuButton;
@@ -574,7 +563,7 @@ function nextPage() {
       }
 
       currentPage++;
-      courseData.localBookmarkingStorage.page += 1;
+      //courseData.localBookmarkingStorage.page += 1;
 
       loadPage();
 

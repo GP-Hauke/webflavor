@@ -1,5 +1,50 @@
-function setupHotSpot(){
-  var html ='<div class="row margin-below"><div class="col-md-12"><div id="hotSpot"><img class="hotSpot-img" src="../../../dir/media/img/assets/City-Map.jpg"><div class="hotSpot-spot circle-1">1</div><div class="hotSpot-spot circle-2">2</div><div class="hotSpot-spot circle-3">3</div><div class="hotSpot-popup"></div></div></div>';
+//INITIALIZE AND RENDER DRAG AND DROP
+function initHotspot(hotspotContentXML) {
+  if(localStorage === "undefined") {
+    location.reload();
+  }
+
+  var courseData = JSON.parse(localStorage.getItem(window.parent.LOCAL_COURSE_DATA_ID));
+
+  courseData.hotspotData.VERSION = $(hotspotContentXML).find("version").text();
+
+  var currentHotspot = $(hotspotContentXML).find("hotspot");
+
+  courseData.hotspotData.hotspot = {
+    completed: $(currentHotspot).attr("completed"),
+    spots: []
+  };
+
+  $(currentHotspot).find("spot").each(function() {
+    var currentSpot = $(this);
+    spot ={
+      label:currentSpot.find('label').text(),
+      popup:currentSpot.find('popup').text()
+    }
+    courseData.hotspotData.hotspot.spots.push(spot);
+  });
+
+
+  localStorage.setItem(window.parent.LOCAL_COURSE_DATA_ID, JSON.stringify(courseData));
+}
+
+
+
+function setupHotSpot(xml){
+  initHotspot(xml);
+
+  var courseData = JSON.parse(localStorage.getItem(window.parent.LOCAL_COURSE_DATA_ID));
+
+
+  var html ='<div class="row margin-below"><div class="col-md-12"><div id="hotSpot"><img class="hotSpot-img" src="../../../dir/media/img/assets/City-Map.jpg">';
+
+  for(var i = 0; i < courseData.hotspotData.hotspot.spots.length; i++){
+    var label = courseData.hotspotData.hotspot.spots[i].label;
+    html += '<div id="spot-'+i+'" class="hotSpot-spot circle-'+label+'">'+label+'</div>';
+  }
+
+  html += '<div class="hotSpot-popup"></div></div></div>';
+
 
   $("#pageContent").append(html);
 
@@ -12,10 +57,14 @@ function setupHotSpot(){
 
   $('#hotSpot .hotSpot-spot').click(function(){
 
-    var popupHTML = 'popup_'+$(this).html();
+    var spotID = $(this).attr("id").substr($(this).attr("id").length - 1);
+
+
+    var popupHTML =     courseData.hotspotData.hotspot.spots[spotID].popup;
+
 
     $('#hotSpot .hotSpot-popup').empty();
-    $('#hotSpot .hotSpot-popup').append('<a class="hotSpot-close">x</a>' + eval(popupHTML));
+    $('#hotSpot .hotSpot-popup').append('<a class="hotSpot-close">x</a>' + popupHTML);
     $('#hotSpot .hotSpot-popup').css('display','block');
 
     $('#hotSpot .hotSpot-popup .hotSpot-close').click(function(){

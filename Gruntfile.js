@@ -110,7 +110,7 @@ module.exports = function(grunt){
         files: [
             {
               expand: true,
-              src: ['dist/src/vendors/**/*.ttf'],
+              src: ['dist/src/vendors/**/*.ttf','dist/src/vendors/**/*.otf','dist/src/vendors/**/*.eot','dist/src/vendors/**/*.svg','dist/src/vendors/**/*.woff','dist/src/vendors/**/*.woff2'],
               dest: 'dist/src/vendors',
               flatten: true
             }
@@ -123,7 +123,7 @@ module.exports = function(grunt){
         src: [ 'dist' ]
       },
       finishbuild: {
-        src: ['dist/src/vendors/**/*', '!dist/src/vendors/vendors.min.*', '!dist/src/vendors/*.ttf', 'dist/dir/themes/**/**.css', '!dist/dir/themes/**/theme.css', 'settings.json']
+        src: ['dist/src/vendors/*/']
       }
     },
 
@@ -211,6 +211,17 @@ module.exports = function(grunt){
             }
           ]
       },
+      jsonconvert: {
+          files: [
+            {
+              expand: true,
+              cwd: 'app/dir/content/',
+              src: ['*.xml'],
+              dest: 'xmlJson',
+              ext: '.json'
+            }
+          ]
+      }
     }
   });
 
@@ -223,12 +234,13 @@ module.exports = function(grunt){
   grunt.loadNpmTasks('grunt-usemin');
   grunt.loadNpmTasks('grunt-contrib-compress');
   grunt.loadNpmTasks('grunt-convert');
+  grunt.loadNpmTasks('grunt-cleanempty');
 
-  grunt.registerTask('test', ['copy:vendors']);
+  grunt.registerTask('test', ['convert:jsonconvert']);
 
   grunt.registerTask(
     'build',
     'Compiles all of the assets and copies the files to the build directory.',
-    [ 'clean:rebuild', 'convert', 'copy:build', 'uglify', 'cssmin', 'useminPrepare', 'usemin', 'copy:vendors', 'clean:finishbuild', 'compress', 'connect']
+    [ 'clean:rebuild', 'convert:xml2json', 'copy:build', 'uglify', 'cssmin', 'useminPrepare', 'usemin', 'copy:vendors', 'clean:finishbuild', 'compress', 'connect']
   );
 }

@@ -4,43 +4,41 @@ function initDragDrops(dragDropContentXML) {
     location.reload();
   }
 
-  var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
+  var courseData = JSON.parse(localStorage.getItem(window.parent.LOCAL_COURSE_DATA_ID));
 
-  /* if course is loaded for first time, or assessment content xml was updated, initialize assessment data. otherwise do nothing. */
-  if(courseData.dragDropData.VERSION === undefined || courseData.dragDropData.VERSION !== $(dragDropContentXML).find("version").text()) {
+  courseData.dragDropData.VERSION = $(dragDropContentXML).find("version").text();
 
-    courseData.dragDropData.VERSION = $(dragDropContentXML).find("version").text();
+  courseData.dragDropData.dragDrops = [];
 
-    courseData.dragDropData.dragDrops = [];
+  for(var i = 0; i < $(dragDropContentXML).find("drag_drop").length; i++) {
+    var currentDragDrop = $(dragDropContentXML).find("drag_drop")[i];
 
-    for(var i = 0; i < $(dragDropContentXML).find("drag_drop").length; i++) {
-      var currentDragDrop = $(dragDropContentXML).find("drag_drop")[i];
+    var dragDropObj = {
+      id: parseFloat($(currentDragDrop).attr("id")),
+      completed: $(currentDragDrop).attr("completed"),
+      score: 0,
+      title: $(currentDragDrop).attr("title"),
+      matchings: []
+    };
 
-      var dragDropObj = {
-        id: parseFloat($(currentDragDrop).attr("id")),
-        completed: $(currentDragDrop).attr("completed"),
-        score: 0,
-        title: $(currentDragDrop).attr("title"),
-        matchings: []
+    $(currentDragDrop).find("pair").each(function() {
+      var currentPair = $(this);
+
+      var pair = {
+        drag: currentPair.find("drag").text(),
+        drop: currentPair.find("drop").text()
       };
-
-
-      $(currentDragDrop).find("pair").each(function() {
-        var currentPair = $(this);
-
-        var pair = {
-          drag: currentPair.find("drag").text(),
-          drop: currentPair.find("drop").text()
-        };
-        dragDropObj.matchings.push(pair);
-      });
-      courseData.dragDropData.dragDrops.push(dragDropObj);
-    }
-    localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(courseData));
+      dragDropObj.matchings.push(pair);
+    });
+    courseData.dragDropData.dragDrops.push(dragDropObj);
   }
+  localStorage.setItem(window.parent.LOCAL_COURSE_DATA_ID, JSON.stringify(courseData));
+
 }
 
-function setupDragDrop(){
+function setupDragDrop(xml){
+  initDragDrops(xml);
+
   $('#dragAndDrop').remove();
 
   var courseData = JSON.parse(localStorage.getItem(window.parent.LOCAL_COURSE_DATA_ID));
@@ -100,8 +98,8 @@ function shuffleDrags(){
   for (var i = draggables.length - 1; i > 0; i--) {
     j = Math.floor(Math.random() * (i + 1));
     x = draggables[i];
-      draggables[i] = draggables[j];
-      draggables[j] = x;
+    draggables[i] = draggables[j];
+    draggables[j] = x;
   }
 
   $('.left').empty();
@@ -119,8 +117,8 @@ function shuffleDrops(){
   for (var i = droppables.length - 1; i > 0; i--) {
     j = Math.floor(Math.random() * (i + 1));
     x = droppables[i];
-      droppables[i] = droppables[j];
-      droppables[j] = x;
+    droppables[i] = droppables[j];
+    droppables[j] = x;
   }
 
   $('.right').empty();
@@ -229,17 +227,17 @@ function drop_handler(ev) {
 
   /*
   if($(ev.target).hasClass('holder')){
-    $(dragId).removeClass('correct');
-    $(dragId).removeClass('wrong');
-  }
-  else if(dragVal.charAt(1) == dropVal.charAt(1)){
-    $(dragId).addClass('correct');
-    $(dragId).removeClass('wrong');
+  $(dragId).removeClass('correct');
+  $(dragId).removeClass('wrong');
+}
+else if(dragVal.charAt(1) == dropVal.charAt(1)){
+$(dragId).addClass('correct');
+$(dragId).removeClass('wrong');
 
-  }
-  else{
-    $(dragId).addClass('wrong');
-    $(dragId).removeClass('correct');
-  }
-  */
+}
+else{
+$(dragId).addClass('wrong');
+$(dragId).removeClass('correct');
+}
+*/
 }

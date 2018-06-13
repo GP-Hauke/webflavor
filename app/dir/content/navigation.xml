@@ -1,20 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <course translatePanel="false" useNextPrevLabel="false">
-  <strings>
-    <title><![CDATA[HTML Template Example]]></title>
-    <subTitle><![CDATA[LET'S TAKE A LOOK AT THIS]]></subTitle>
-  </strings>
-
   <headerLinks included="true"> <!-- valid values: "true", "false" -->
     <!--<headerLink href="" itemId="test" target=""><![CDATA[OPERATIONS GUIDE]]></headerLink>
     <headerLink href="#" itemId="btnGlossary" target=""><![CDATA[GLOSSARY]]></headerLink>
     <headerLink href="#" itemId="btnHelpModal" target=""><![CDATA[?]]></headerLink>-->
   </headerLinks>
-
   <chapter>
-    <title><![CDATA[KNOW YOUR LINEUP]]></title>
+    <title><![CDATA[VEHICLE GAME]]></title>
     <pages>
-      <page gated="false" locks="0" audio=""><![CDATA[KNOW YOUR LINEUP]]></page>
+      <page gated="false" locks="0" audio=""><![CDATA[VEHICLE GAME]]></page>
     </pages>
   </chapter>
 
@@ -24,12 +18,15 @@
       <page gated="false" locks="0" audio=""><![CDATA[COURSE COMPLETION]]></page>
     </pages>
   </chapter>
+
   <chapter>
     <title><![CDATA[DRAG AND DROP COMPONENT]]></title>
     <pages>
-      <page gated="false" locks="0" audio=""><![CDATA[DRAG AND DROP COMPONENT]]></page>
+      <page gated="false" locks="0" audio=""><![CDATA[CITIES AND STATES]]></page>
+      <page gated="false" locks="0" audio=""><![CDATA[CITIES AND COUNTRIES]]></page>
     </pages>
   </chapter>
+
   <chapter>
     <title><![CDATA[HOT SPOT COMPONENT]]></title>
     <pages>

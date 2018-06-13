@@ -773,8 +773,54 @@ footer.footer > .container.footer-nav .next {
 #navContainer .container {
   position: relative; }
 
+  #navbarMain #navbarMobile .dropdown .dropdown-menu li:first-child{
+  }
+
+#navbarMain #navbarMobile .dropdown .dropdown-menu li{
+  z-index: 100;
+  text-align: center;
+  background: #efefef;
+  border: 2px solid transparent;
+  width: 75%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: 500;
+  margin-bottom: 1px;
+}
+
+#navbarMain #navbarMobile .dropdown p{
+  margin: 0;
+}
+
+#navbarMain #navbarMobile .dropdown .dropdown-menu li:after{
+  content: "" !important;
+}
+
+#navbarMain #navbarMobile .dropdown .dropdown-menu{
+  z-index: 100;
+  padding: 0;
+  margin: 0;
+}
+
+#navbarMain #navbarMobile .dropdown .dropdown-menu li a{
+  color: #003056;
+}
+
+#navbarMain #navbarMobile .dropdown .dropdown-menu li a:hover{
+  text-decoration: none;
+}
+
+#navbarMain #navbarMobile .dropdown .dropdown-menu li:hover{
+  text-decoration: none;
+  font-weight: 600;
+}
 
 /* NAVBAR MAIN CONTAINER */
+
+nav .courseTitleChapter p{
+  margin: 0;
+}
 nav.navbar {
   background-color: #2b2b2b;
   border: none;

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <page type="assessment">
-  <title size="12"><![CDATA[Know Your Lineup]]></title>
+  <title>12</title>
   <component>hotspot</component>
   <content>
     <![CDATA[
@@ -11,4 +11,41 @@
       </div>
     </div>]]>
   </content>
+
+  <hotspot completed="false">
+    <spot>
+      <label><![CDATA[1]]></label>
+      <popup>
+        <![CDATA[
+        <ul>
+          <li>Ask your Sales Manager about recommended routes.</li>
+          <li>Include a variety of speed zones. Make sure there are stretches that allow the customer to drive more than 45 mph.</li><li>Alternate your route as needed.</li>
+        </ul>]]>
+      </popup>
+    </spot>
+
+    <spot>
+      <label><![CDATA[2]]></label>
+      <popup>
+        <![CDATA[
+        <ul>
+          <li>Be flexible on the drive. Your customer may want a longer or shorter drive than planned.</li>
+          <li>Ask your manager how to handle these situations.</li>
+          <li>If the customer wants a shorter drive, know how to return to the dealership quuickly using streets with varied speeds that will still enhance the drive.</li>
+        </ul>]]>
+      </popup>
+    </spot>
+
+    <spot>
+      <label><![CDATA[3]]></label>
+      <popup>
+        <![CDATA[
+          <ul>
+          <li>Know your drive.</li>
+          <li>Shadow a live demo drive with an experienced consultant and a customer.</li>
+          <li>Play the role of a customer and let an experienced consultant show you how he or she conducts a demo drive.</li>
+        </ul>]]>
+      </popup>
+    </spot>
+  </hotspot>
 </page>

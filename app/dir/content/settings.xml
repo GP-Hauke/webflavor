@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <settings>
   <courseStorageID>GM_Selling_Skills_Match_Features_to_Wants</courseStorageID>
-  <courseTitle><![CDATA[Selling Skills]]></courseTitle>
-  <courseSubTitle><![CDATA[Match Features to Wants]]></courseSubTitle>
+  <courseTitle><![CDATA[HTML TEMPLATE]]></courseTitle>
+  <courseSubTitle><![CDATA[WEBFLAVOR COURSE]]></courseSubTitle>
   <version>0.0.7</version>
   <theme>gm_selling_skills</theme> <!-- active -->
   <cookieName>cookie_gm_ssmftw</cookieName>
@@ -29,6 +29,7 @@
   <hasStrings>false</hasStrings>
   <hasAssessments>true</hasAssessments>
   <hasDragDrops>true</hasDragDrops>
+  <hasHotspots>true</hasHotspots>
 
   <bookmarking>
     <hasLocalBookmarking>false</hasLocalBookmarking>

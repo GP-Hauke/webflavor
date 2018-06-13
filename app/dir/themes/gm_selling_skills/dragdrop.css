@@ -1,0 +1,20 @@
+/*----------- DRAG AND DROP STYLES -----------*/
+/*Draggable Items*/
+#dragAndDrop .item-container p{
+  background: #003056;
+  color: #fff;
+}
+
+/*Hover Button*/
+#dragAndDrop .btn-default-main{
+  border: 2px solid #003056;
+  background: #003056;
+  color: #fff;
+}
+
+/*Hover Button Seconday*/
+#dragAndDrop .btn-reversed{
+  border: 2px solid #003056;
+  background: #fff;
+  color: #003056;
+}

@@ -331,7 +331,7 @@ function loadContent(param){
 
   $.get(arg)
   .done(function(xml) {
-    var titleSize = $(xml).find("title").attr("size");
+    var titleSize = $(xml).find("title").text();
     var titleHTML = '<div class="row"><div class="col-sm-'+titleSize+'"><h1 id="pageTitle"></h1><div class="page-number"></div></div></div>';
 
     $('#pageContent').append(titleHTML);
@@ -345,10 +345,10 @@ function loadContent(param){
       setupAssessment();
     }
     else if(component == 'dragAndDrop'){
-      setupDragDrop();
+      setupDragDrop(xml);
     }
     else if(component == 'hotspot'){
-      setupHotSpot();
+      setupHotSpot(xml);
     }
 
 
