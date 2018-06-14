@@ -1,0 +1,110 @@
+
+@-webkit-keyframes opacity-fade {
+   0% {
+     opacity: 0;
+   }
+   100% {
+     opacity: 1;
+   }
+}
+
+@keyframes opacity-fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+#dragAndDrop .item-container{
+  height: 50px;
+  background: #f7f7f7;
+  margin-bottom: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  text-align: center;
+  height: 50px;
+  line-height: 50px;
+  font-weight: 400;
+  height: 50px;
+  position: relative;
+  -webkit-animation: opacity-fade 100ms ease-in 1;
+  animation: opacity-fade 100ms ease-in 1;
+}
+
+#dragAndDrop .item-container p{
+  font-size: 25px;
+  text-align: center;
+  height: 50px;
+  line-height: 50px;
+  font-weight: 600;
+  height: 50px;
+  background: #474747;
+  color: #fff;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: all 250ms ease-in;
+  -webkit-animation: opacity-fade 100ms ease-in 1;
+  animation: opacity-fade 100ms ease-in 1;
+
+}
+
+#dragAndDrop .draggable{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+#dragAndDrop .correct{
+  color: #2ee216 !important;
+}
+
+#dragAndDrop .wrong{
+  color: #e21616 !important;
+}
+
+#dragAndDrop .intro{
+  width: 75%;
+  margin: 0 auto;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+#dragAndDrop .btn-row{
+  float: right;
+  margin-right: 1;
+  margin-top: 20px;
+  margin-right: -10px;
+}
+
+#dragAndDrop .btn-default-main{
+  margin-right: 10px;
+  border: 2px solid #2b2b2b;
+  background: #2b2b2b;
+  color: #fff;
+  font-size: 20px;
+}
+
+#dragAndDrop .btn-reversed{
+  margin-right: 10px;
+  border: 2px solid #2b2b2b;
+  background: #fff;
+  color: #2b2b2b;
+  font-size: 20px;
+  transition: all 200ms ease-in-out;
+  transform: scale(.88);
+}
+
+#dragAndDrop .btn:first-child{
+  margin-left: 20px;
+}
+
+#dragAndDrop .feedback{
+  font-size: 24px;
+}
+
+#dragAndDrop .feedback span{
+  font-weight: 600;
+}

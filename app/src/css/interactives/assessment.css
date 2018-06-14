@@ -1,0 +1,334 @@
+/* ASSESSMENT MODAL */
+#assessmentModal .modal-dialog {
+  min-height: 700px;
+  border: 3px solid #2b2b2b; }
+
+@media only screen and (min-width: 992px) {
+  .modal-dialog {
+    width: 800px; } }
+
+#assessmentModal .modal-content {
+  min-height: 700px;
+  padding: 55px; }
+
+#assessmentModal .modal-content p,
+#assessmentModal .modal-content h3 {
+  margin-bottom: 25px; }
+
+/* ASSESSMENT SELECTION SCREEN */
+#assessmentModal .modal-content .selection-screen div:first-of-type {
+  margin-bottom: 50px; }
+
+#assessmentModal .modal-content .selection-screen button {
+  background-color: transparent;
+  border: none; }
+
+#assessmentModal .modal-content .selection-screen button:focus {
+  outline: none; }
+
+/* end ASSESSMENT SELECTION SCREEN */
+/* ASSESSMENT GAME RETRY SCREEN */
+#assessmentModal .retry-container button {
+  padding: 0;
+  border: none;
+  padding: 20px 0;
+  width: 49%; }
+
+#assessmentModal .retry-container button:last-of-type {
+  float: right; }
+
+#assessmentModal .retry-container.buick button {
+  background-color: #2b2b2b; }
+
+#assessmentModal .retry-container.chevy button {
+  background-color: #2b2b2b; }
+
+#assessmentModal .retry-container.gmc button {
+  background-color: #2b2b2b; }
+
+/* end ASSESSMENT GAME RETRY SCREEN */
+/* ASSESSMENT INTRO SCREEN */
+#assessmentModal .modal-content .intro-screen button {
+  padding: 0;
+  border: none;
+  margin-bottom: 20px;
+  width: 100%;
+  padding: 20px 0; }
+
+#assessmentModal .modal-content .intro-screen.buick button {
+  background-color: #2b2b2b; }
+
+#assessmentModal .modal-content .intro-screen.chevy button {
+  background-color: #2b2b2b; }
+
+#assessmentModal .modal-content .intro-screen.gmc button {
+  background-color: #2b2b2b; }
+
+/* end ASSESSMENT INTRO SCREEN */
+/* ASSESSMENT GAME SCREEN */
+#assessmentModal .assessment-content h3 {
+  margin: 0 0 15px;
+  width: 100%; }
+
+#assessmentModal .assessment-content h3 span {
+  float: right;
+  font-size: 22px;
+  text-transform: lowercase;
+}
+
+#assessmentModal .assessment-total{
+  text-align: center;
+  margin-top: -20px !important;
+}
+
+#assessmentModal .assessment-content .answers {
+  padding-top: 30px;
+  /*  margin-left: 0;*/
+  /*  padding-left: 0;*/
+  list-style: none;
+  border-top: 1px solid #e2e2e2;
+  width: 100%;
+  /*ADDED for Bootstrap 4 to match width of previous version */ }
+
+#assessmentModal .assessment-content .answer-container {
+  position: relative;
+  cursor: pointer;
+  margin-bottom: 15px; }
+
+#assessmentModal .assessment-content .answer-container .unselected-box {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  background-color: transparent; }
+
+#assessmentModal .assessment-content .answer-container.unselected .unselected-box {
+  background-color: rgba(250, 250, 250, 0.6); }
+
+#assessmentModal .assessment-content .answer-container .border-box {
+  border: 1px solid #e2e2e2; }
+
+#assessmentModal .assessment-content .answer-container .border-box img {
+  width: 100%; }
+
+/* CAPTION AREA ON BOTTOM */
+#assessmentModal .assessment-content .answer-container .brand-model-attr {
+  padding: 0 20px 15px 20px; }
+
+#assessmentModal .assessment-content.gmc .answer-container .brand-model-attr {
+  background-color: #000; }
+
+#assessmentModal .assessment-content .answer-container .brand-model-attr > p {
+  margin-bottom: 0; }
+
+#assessmentModal .assessment-content.gmc .answer-container .brand-model-attr > p.brand,
+#assessmentModal .assessment-content.gmc .answer-container .brand-model-attr > p.model {
+  display: inline-block; }
+
+#assessmentModal .assessment-content.gmc .answer-container .brand-model-attr > p.brand {
+  padding-right: 5px; }
+
+#assessmentModal .assessment-content.gmc .answer-container .brand-model-attr > p.model {
+  padding-left: 5px;
+  border-left: 1px solid #fff; }
+
+#assessmentModal .assessment-content.gmc .answer-container .brand-model-attr > p.attr {
+  margin-top: 5px;
+  display: inline-block;
+}
+
+#assessmentModal .assessment-content.buick .answer-container .brand-model-attr > p.model,
+#assessmentModal .assessment-content.chevy .answer-container .brand-model-attr > p.model,
+#assessmentModal .assessment-content.buick .answer-container .brand-model-attr > p.attr,
+#assessmentModal .assessment-content.chevy .answer-container .brand-model-attr > p.attr {
+  display: inline;
+  float: left;
+  vertical-align: bottom;
+  line-height: 30px; }
+
+#assessmentModal .assessment-content.buick .answer-container .brand-model-attr > p.attr,
+#assessmentModal .assessment-content.chevy .answer-container .brand-model-attr > p.attr {
+  padding-left: 0px; }
+
+/* CAPTION AREA ON BOTTOM */
+.feedback-container {
+  width: 100%; }
+
+#assessmentModal .assessment-content button {
+  width: 100%;
+  padding: 20px 0;
+  border: none; }
+
+#assessmentModal .assessment-content .feedback-container p {
+  display: inline-block;
+  margin-bottom: 0;
+  line-height: 60px;
+  width: 85%; }
+
+#assessmentModal .assessment-content .feedback-container div {
+  float: right;
+  width: 15%; }
+
+#assessmentModal .assessment-content .feedback-container button.btn-ok {
+  width: 60px;
+  height: 60px;
+  padding: 0;
+  border-radius: 50%;
+  float: right; }
+
+/* SUBMIT BUTTON BAR FOR EACH BRAND */
+#assessmentModal .assessment-content.buick .feedback-container button.btn-ok,
+#assessmentModal .assessment-content.buick .btn-submit-answer {
+  background-color: #2b2b2b; }
+
+#assessmentModal .assessment-content.chevy .feedback-container button.btn-ok,
+#assessmentModal .assessment-content.chevy .btn-submit-answer {
+  background-color: #2b2b2b; }
+
+#assessmentModal .assessment-content.gmc .feedback-container button.btn-ok,
+#assessmentModal .assessment-content.gmc .btn-submit-answer {
+  background-color: #2b2b2b; }
+
+/* end SUBMIT BUTTON BAR FOR EACH BRAND */
+/* SELECTED BAR FOR EACH BRAND */
+#assessmentModal .assessment-content .answer-container .selected-bar {
+  height: 10px;
+  width: 100%; }
+
+#assessmentModal .assessment-content.buick .answer-container.selected .selected-bar {
+  background-color: #2b2b2b; }
+
+#assessmentModal .assessment-content.chevy .answer-container.selected .selected-bar {
+  background-color: #2b2b2b; }
+
+#assessmentModal .assessment-content.gmc .answer-container .selected-bar {
+  background-color: #000; }
+
+#assessmentModal .assessment-content.gmc .answer-container.selected .selected-bar {
+  background-color: #2b2b2b; }
+
+/* end SELECTED BAR FOR EACH BRAND */
+/* end ASSESSMENT GAME SCREEN */
+/* ASSESSMENT GAME SUMMARY SCREEN */
+#assessmentModal .finish-screen button {
+  padding: 0;
+  border: none;
+  padding: 20px 0;
+  width: 49%; }
+
+#assessmentModal .finish-screen button:last-of-type {
+  float: right; }
+
+#assessmentModal .finish-screen.buick button {
+  background-color: #2b2b2b; }
+
+#assessmentModal .finish-screen.chevy button {
+  background-color: #2b2b2b; }
+
+#assessmentModal .finish-screen.gmc button {
+  background-color: #2b2b2b; }
+
+/* end ASSESSMENT GAME SUMMARY SCREEN */
+/* end ASSESSMENT MODAL */
+/* ASSESSMENT MODAL */
+#assessmentModal .modal-content {
+  text-align: left; }
+
+#assessmentModal .modal-content h3 {
+  text-transform: uppercase; }
+
+#assessmentModal .modal-content p {
+  font-weight: 100;
+  font-size: 20px; }
+
+/* ASSESSMENT GAME RETRY SCREEN */
+#assessmentModal .retry-container button {
+  color: #fff;
+  font-size: 24px; }
+
+/* end ASSESSMENT GAME RETRY SCREEN */
+/* ASSESSMENT INTRO SCREEN */
+#assessmentModal .intro-screen ul > li {
+  font-weight: 100;
+  font-size: 20px; }
+
+#assessmentModal .intro-screen button {
+  color: #fff;
+  font-size: 24px;
+  font-weight: 100; }
+
+/* end ASSESSMENT INTRO SCREEN */
+/* ASSESSMENT MAIN SCREEN */
+#assessmentModal .assessment-content.buick h3 {
+  color: #2b2b2b; }
+
+#assessmentModal .assessment-content.chevy h3 {
+  color: #2b2b2b; }
+
+#assessmentModal .assessment-content.gmc h3 {
+  color: #2b2b2b; }
+
+#assessmentModal .answer-container .brand-model-attr p.brand,
+#assessmentModal .answer-container .brand-model-attr p.model,
+#assessmentModal .answer-container .brand-model-attr p.attr {
+  text-transform: uppercase; }
+
+#assessmentModal .answer-container .brand-model-attr p.brand {
+  font-size: 18px;
+  font-weight: 100; }
+
+#assessmentModal .answer-container .brand-model-attr p.model {
+  color: #2b2b2b;
+  font-size: 17px;
+  font-weight: 400;
+}
+
+#assessmentModal .answer-container .brand-model-attr p.attr {
+  font-size: 13px;
+}
+
+#assessmentModal .assessment-content.buick .answer-container .brand-model-attr p.brand {
+  color: #2b2b2b; }
+
+#assessmentModal .assessment-content.chevy .answer-container .brand-model-attr > p.brand {
+  color: #2b2b2b; }
+
+#assessmentModal .assessment-content.gmc .answer-container .brand-model-attr > p.brand {
+  color: #2b2b2b;
+  font-size: 16px;
+  font-weight: 600; }
+
+#assessmentModal .assessment-content.gmc .answer-container .brand-model-attr > p.model {
+  color: #fff;
+  font-size: 17px; }
+
+#assessmentModal .assessment-content.gmc .answer-container .brand-model-attr p.attr {
+  color: #fff; }
+
+#assessmentModal .assessment-content .feedback-container p {
+  font-size: 24px;
+  text-align: right; }
+
+#assessmentModal .assessment-content button {
+  color: #fff;
+  font-size: 24px;
+  font-weight: 100; }
+
+#assessmentModal .feedback > p {
+  color: #fff;
+}
+
+#assessmentModal .assessment-content .feedback-container .feedback-details{
+  font-size: 20px;
+  line-height: 35px;
+}
+
+#assessmentModal .assessment-content .feedback-container .feedback-details span{
+  font-weight: 600;
+}
+
+/* end ASSESSMENT MAIN SCREEN */
+/* ASSESSMENT GAME SUMMARY SCREEN */
+#assessmentModal .finish-screen button {
+  color: #fff;
+  font-size: 24px; }

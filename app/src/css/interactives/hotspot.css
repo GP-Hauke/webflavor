@@ -1,0 +1,93 @@
+#hotSpot{
+  max-width: 740px;
+  margin: 0 auto;
+  display: block;
+  position: relative;
+}
+
+/*HOT SPOT COMPONENT*/
+#hotSpot .hotSpot-img{
+  width: 100%;
+  border: 2px solid #003056;
+  border-radius: 10px;
+}
+
+#hotSpot .hotSpot-spot{
+  font-size: 30px;
+  line-height: 60px;
+  text-align: center;
+  background: rgba(128, 128, 128, .8);
+  border: 1px solid #000;
+  cursor: pointer;
+  width: 60px;
+  height: 60px;
+  border-radius: 100px;
+  position: absolute;
+}
+
+#hotSpot .circle-1{
+  top: 52%;
+  left: 22%;
+}
+#hotSpot .circle-2{
+  top: 40%;
+  left: 61%;
+}
+
+#hotSpot .circle-3{
+  top: 67%;
+  left: 76%;
+}
+
+@media(max-width: 500px){
+  #hotSpot .hotSpot-spot{
+    font-size: 20px;
+    line-height: 40px;
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media(max-width: 300px){
+  #hotSpot .hotSpot-spot{
+    font-size: 15px;
+    line-height: 30px;
+    width: 30px;
+    height: 30px;
+
+  }
+}
+
+#hotSpot .hotSpot-popup{
+  width: 80%;
+  background: rgba(0, 0, 0, .75);
+  position: absolute;
+  top: 50%;
+	left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 40px 50px 50px 10px;
+  display: none;
+}
+
+#hotSpot .hotSpot-popup ul li{
+  color: #fff;
+  font-size: 25px;
+  margin-bottom: 5px;
+}
+
+#hotSpot .hotSpot-popup ul li:last-child{
+  margin: 0;
+}
+
+#hotSpot .hotSpot-popup ul{
+  margin:0 !important;
+}
+
+#hotSpot .hotSpot-close{
+  color: #fff;
+  font-size: 40px;
+  float: right;
+  margin-top: -45px;
+  margin-right: -35px;
+  cursor: pointer;
+}

@@ -25,8 +25,9 @@ var volume = .6;
 
 function initInterface() {
 
-  //Clear Local Storage for Development: REMOVE LATER
+  // @if DEBUG
   localStorage.clear();
+  // @endif
 
   //  Signal = signals.Signal;
 

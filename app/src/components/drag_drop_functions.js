@@ -33,12 +33,10 @@ function initDragDrops(dragDropContentXML) {
     courseData.dragDropData.dragDrops.push(dragDropObj);
   }
   localStorage.setItem(window.parent.LOCAL_COURSE_DATA_ID, JSON.stringify(courseData));
-
+  setupDragDrop();
 }
 
-function setupDragDrop(xml){
-  initDragDrops(xml);
-
+function setupDragDrop(){
   $('#dragAndDrop').remove();
 
   var courseData = JSON.parse(localStorage.getItem(window.parent.LOCAL_COURSE_DATA_ID));

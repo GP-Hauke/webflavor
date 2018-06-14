@@ -1,0 +1,365 @@
+#navbar-left > #navbar {
+  margin-top: 90px; }
+
+#navContainer .container {
+  position: relative; }
+
+  #navbarMain #navbarMobile .dropdown .dropdown-menu li:first-child{
+  }
+
+#navbarMain #navbarMobile .dropdown .dropdown-menu li{
+  z-index: 100;
+  text-align: center;
+  background: #efefef;
+  border: 2px solid transparent;
+  width: 75%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: 500;
+  margin-bottom: 1px;
+}
+
+#navbarMain #navbarMobile .dropdown p{
+  margin: 0;
+}
+
+#navbarMain #navbarMobile .dropdown .dropdown-menu li:after{
+  content: "" !important;
+}
+
+#navbarMain #navbarMobile .dropdown .dropdown-menu{
+  z-index: 100;
+  padding: 0;
+  margin: 0;
+}
+
+#navbarMain #navbarMobile .dropdown .dropdown-menu li a{
+  color: #003056;
+}
+
+#navbarMain #navbarMobile .dropdown .dropdown-menu li a:hover{
+  text-decoration: none;
+}
+
+#navbarMain #navbarMobile .dropdown .dropdown-menu li:hover{
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* NAVBAR MAIN CONTAINER */
+
+nav .courseTitleChapter p{
+  margin: 0;
+}
+nav.navbar {
+  background-color: #2b2b2b;
+  border: none;
+  border-radius: 0;
+  margin-bottom: 0;
+  min-height: auto;
+  padding: 0;
+}
+
+nav.navbar#navbarBottom {
+  background-color: #618eb5;
+  /*
+  padding-top: 15px;
+  padding-bottom: 15px;
+  */ }
+
+/* end NAVBAR MAIN CONTAINER */
+.navbar-header {
+  float: none;
+  width: 100%; }
+
+/* NAVBAR LEFT SECTION/HEADER - LOGO, TITLE */
+.navbar-toggler{
+  position: relative;
+  top: -4px;
+  border: none;
+  opacity: .5;
+}
+.navbar-toggler:hover{
+  opacity: 1;
+}
+.navbar-toggler:focus{
+  outline: none;
+}
+
+.navbar-header .navbar-brand {
+  color: #fff;
+  padding: 0 40px;
+  height: 80px;
+  margin-top: 0;
+  margin-bottom: 0;
+  position: relative;
+  right: 0;
+  top: 0;
+  float: left; }
+
+.navbar-header .title-container {
+  float: left;
+  margin-left: 15px !important;
+}
+
+.navbar-header #titleMain {
+  display: inline-block;
+  position: relative;
+  margin-right: 10px; }
+
+.navbar-header .navmenu {
+  color: #fff;
+  line-height: 36px; }
+
+/* end NAVBAR LEFT SECTION/HEADER - LOGO, TITLE */
+/*LEFT NAVBAR*/
+.left-nav {
+  float: left;
+  height: calc(100vh - 50px);
+  position: relative;
+  width: 16%;
+  max-width: 230px;
+  display: flex;
+  flex-flow: column; }
+
+.left-nav-text#subTitle {
+  font-size: 22px;
+  line-height: 0; }
+
+.left-nav-drop#navbarMobile li {
+  font-size: 18px; }
+
+/*end LEFT NAVBAR*/
+
+@media only screen and (min-width: 768px) {
+  .navbar-collapse.collapse {
+    /*display:  none !important; REMOVED FOR BOOTSTRAP 4*/ }
+  .navbar-collapse.collapse.in {
+    display: block !important; } }
+
+/* end COLLAPSABLE PART OF NAV BAR - MOBILE LINK LIST */
+/* COLLAPSABLE PART OF NAV BAR - CONTAINER */
+.navbar-collapse {
+  border: none;
+  background-color: #cccccc;
+  color: #fff;
+  font-size: 16px;
+  text-align: center; }
+
+.navbar-collapse.collapsing .navbar-nav,
+.navbar-collapse.in .navbar-nav {
+  width: 100%; }
+
+
+/* end COLLAPSABLE PART OF NAV BAR -  END CONTAINER */
+/* COLLAPSABLE PART OF NAV BAR - LINK LIST ON RIGHT */
+.page-assist {
+  margin-right: 0; }
+
+.page-assist > li > a:active,
+.page-assist > li > a:focus,
+.page-assist > li > a:hover {
+  background-color: #2b2b2b; }
+
+/* COLLAPSABLE PART OF NAV BAR - LINK LIST ON RIGHT */
+.page-assist > li > a {
+  color: #fff !important;
+  line-height: 50px;
+  font-weight: 600;
+  padding: 0;
+  font-size: 28px; }
+
+.page-assist > li > a:focus,
+.page-assist > li > a:hover {
+  color: #fff; }
+
+.page-assist > .active > a,
+.page-assist > .active > a:focus,
+.page-assist > .active > a:hover {
+  color: #fff; }
+
+/* end COLLAPSABLE PART OF NAV BAR - LINK LIST ON RIGHT */
+/* COLLAPSABLE PART OF NAV BAR - MOBILE NAV DROPDOWM */
+.navbar-collapse > .nav > li {
+  font-size: 22px; }
+
+/* end COLLAPSABLE PART OF NAV BAR - MOBILE NAV DROPDOWM */
+/* COLLAPSABLE PART OF NAV BAR - BOTTOM NAV BAR */
+.navbar-collapse #nav-items-bottom-row > li {
+  color: #fff; }
+
+/* end COLLAPSABLE PART OF NAV BAR - BOTTOM NAV BAR */
+/* INDIVIDUAL MENU ITEMS */
+#navbarMobile{
+  width: 100%;
+  margin: 0 auto;
+}
+
+#navbarMobile li {
+  cursor: pointer;
+  width: 100%; }
+
+li.courseTitleChapter {
+  display: block; }
+
+li.courseTitleChapterSelected {
+  background-color: #2b2b2b; }
+
+/* end INDIVIDUAL MENU ITEMS */
+/* COLLAPSABLE PART OF NAV BAR - BOTTOM NAV BAR */
+.navbar-collapse #nav-items-bottom-row > li {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  cursor: pointer; }
+
+/* end COLLAPSABLE PART OF NAV BAR - BOTTOM NAV BAR */
+/*  NAVIGATION TABBED */
+.tabbed{
+  background: #fff !important;
+}
+
+.tabbed #navbarMobile {
+  display: flex;
+  flex-flow: row;
+  position: relative;
+  width: 100% !important;
+  max-width: 1450px;
+  margin: 0 auto;
+}
+
+.tabbed #navbarMobile li{
+  display: inline-block;
+  background: #fff;
+  color: #000;
+  font-weight: 600;
+  line-height: 50px;
+  height: 50px;
+  position: relative;
+  padding: 0px 10px 0px 20px !important;
+  font-size: 14px;
+}
+
+.tabbed #navbarMobile li.courseTitleChapterSelected {
+  background: #fff;
+  border-bottom: 3px solid #fff;
+}
+
+.tabbed #navbarMobile li:not(:first-child):after
+{
+  content: "/";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  font-weight: 100;
+  font-size: 30px;
+  color: #8f9193;
+}
+
+@media (max-width: 1350px) {
+  .tabbed #navbarMobile li{
+    font-size: 13px;
+  }
+}
+
+@media (min-width: 767px) {
+  .tabbed{
+    display: block;
+  }
+}
+
+@media (max-width: 767px) {
+  .tabbed{
+    background: #2b2b2b !important;
+  }
+
+  .tabbed #navbarMobile {
+    display: block;
+    width: 100% !important;
+    margin: 0 auto;
+  }
+  .tabbed #navbarMobile li{
+    background: #2b2b2b;
+    color: #fff;
+    font-weight: 200;
+    line-height: 20px;
+    height: 30px;
+    position: relative;
+  }
+
+  .tabbed #navbarMobile li.courseTitleChapterSelected {
+    background: #ccc;
+  }
+
+  .tabbed #navbarMobile li:not(:first-child):after
+  {
+    content: "";
+  }
+}
+
+/* END NAVIGATION TABBED */
+/* LEFT NAVIGATION MENU */
+#navbar-left {
+  position: fixed;
+  left: 250px;
+  width: 250px;
+  height: 100%;
+  z-index: 10;
+  margin-left: -250px;
+}
+
+
+  /* MOBILE STATES */
+  @media only screen and (min-width: 768px) {
+    .logo-mobile {
+      display: none;
+      }
+    }
+
+  @media only screen and (max-width: 1200px) {
+    .navbar-collapse > ul > li {
+      padding: 5px 0;
+      }
+    }
+
+  @media only screen and (max-width: 992px) {
+    nav.navbar .container {
+      padding: 0;
+    }
+    nav.navbar .container .mobile-container{
+      padding: 0;
+    }
+    nav.navbar .container .navbar-toggler{
+      top: -1px;
+    }
+    #titleMainMobile{
+      font-size: 17px;
+    }
+    #subTitleMobile{
+      font-size: 17px;
+    }
+  }
+
+  @media only screen and (max-width: 768px) {
+    .navbar-header .navbar-brand {
+      padding-left: 0;
+    }
+    .navbar-default .navbar-collapse {
+      background-color: #618eb5;
+      }
+    }
+
+    .chapterSelected {
+      color: #ffffff;
+      font-size: 1.2em; 
+    }
+
+    .chapterNotSelected {
+      color: #ffffff;
+      font-size: 1.2em;
+    }
+
+    .chapterTitle {
+      cursor: pointer;
+    }

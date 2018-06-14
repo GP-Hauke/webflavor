@@ -113,7 +113,7 @@ function initAssessments(assessmentsContentXML) {
           i4: currentAnswer.find("i4").text(),
           v6: currentAnswer.find("v6").text(),
           dr4: currentAnswer.find("dr4").text(),
-          dr2: currentAnswer.find("dr4").text()
+          dr2: currentAnswer.find("dr2").text()
         };
         assessmentObj.questionsAnswers.answers.push(answer);
       });
@@ -140,7 +140,7 @@ function launchAssessment(id, clickTarget) {
 
   if(activeAssessment === 0) {
     $("#modalContainer .assessment-container").append("<div class='selection-screen row'></div>");
-    $("#modalContainer .selection-screen").append("<div class='col-md-12'><p>Think you know your lineup? Let’s see if you can find the best vehicle for the customer.</p><p>First, select the brand you want to view. We’ll give you 10 questions that includes two customer requests. You’ll be given a choice between two vehicles. The vehicles could be different models or the same model at different trim levels. Select the one that best suits your customer’s needs.</p><p>Think fast! You’ll only have 10 seconds to answer! You’ll get 10 points for each correct answer, and bonus points for how quickly you answer. There are 1,000 total points possible. See if you can get them all!</p><p>When you're ready, click the <span class='bolded'>brand button</span> and get started.</p></div>");
+    $("#modalContainer .selection-screen").append("<div class='col-md-12'><p>Think you know your lineup? Let’s see whether you can find the best vehicle for the customer.</p><p>First, select the brand you want to view. We’ll give you 10 questions that includes two customer requests. You’ll be given a choice between two vehicles. The vehicles could be different models or the same model at different trim levels. Select the vehicle that best suits your customer’s needs.</p><p>Think fast! After you read the question, a 10 second timer will start! You’ll get 10 points for each correct answer, and bonus points for how quickly you answer. There are 1,000 total points possible. See if you can get them all!</p><p>When you're ready, choose a brand and click <span class='bolded'>Let's Play</span> and get started.</p></div>");
 
     $("#modalContainer .selection-screen").append("<div class='col-md-4'><button class='d-block mx-auto btn-game buick'><img class='img-fluid' src='dir/media/img/assets/game/game_branch_buick.jpg' alt=''></button></div>");
 
@@ -178,7 +178,7 @@ function openIntroScreen(id) {
     return;
   }
 
-  //courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions = shuffle(courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions);
+  courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions = shuffle(courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions);
   localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(courseData));
 
   $("#modalContainer .assessment-container").append("<div class='intro-screen "+style+"'></div>");
@@ -450,15 +450,15 @@ function startAssessment(id) {
           phrasedCriterion = "Base Price";
           correct = unselectedAnswerData.model;
           incorrect = selectedAnswersData[0].model;
-          incorrectAttr = selectedAnswersData[0].basePrice;
-          correctAttr = unselectedAnswerData.basePrice;
+          incorrectAttr = selectedAnswersData[0].basePrice.toLocaleString();
+          correctAttr = unselectedAnswerData.basePrice.toLocaleString();
 
           if(parseFloat(selectedAnswersData[0].basePrice) < parseFloat(unselectedAnswerData.basePrice)) {
             correctlyAnswered = true;
             correct = selectedAnswersData[0].model;
             incorrect = unselectedAnswerData.model;
-            incorrectAttr = unselectedAnswerData.basePrice;
-            correctAttr = selectedAnswersData[0].basePrice;
+            incorrectAttr = unselectedAnswerData.basePrice.toLocaleString();
+            correctAttr = selectedAnswersData[0].basePrice.toLocaleString();
           }
         }
 
@@ -576,7 +576,7 @@ function startAssessment(id) {
           }
 
           feedbackDetailsIncorrect = "The <span class='bolded'>"+incorrect+"</span> doesn't offer <span class='bolded'>"+phrasedCriterion+"</span>";
-          feedbackDetailsCorrect = "The <span class='bolded'>"+correct+"</span> offers <span class='bolded'>"+phrasedCriterion+"</span>";
+          feedbackDetailsCorrect = "The <span class='bolded'>"+correct+"</span> has <span class='bolded'>"+phrasedCriterion+"</span>";
         }
 
         else if(criterion === "connectedNavigation") {
@@ -691,10 +691,17 @@ function startAssessment(id) {
         courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions[qIndex].PASSED = "true";
         localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(courseData));
 
-        var tempScore = 10;
-        if(time <= 10){
-          tempScore = Math.round(10 + ((10 - time) * 10));
+        var adjustedTime = 17.5 - time;
+        if(adjustedTime > 10) {
+          adjustedTime = 10;
+        }else if(adjustedTime < 1) {
+          adjustedTime = 1;
         }
+        var tempScore = 100;
+        if(adjustedTime <= 10){
+          tempScore = Math.round((adjustedTime * 10));
+        }
+
         courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions[qIndex].SCORE = tempScore;
         courseData.assessmentData.assessments[activeAssessment].score += tempScore
 
@@ -702,8 +709,13 @@ function startAssessment(id) {
           $(selectedAnswers[i]).append("<div class='viewed-overlay'><img src='dir/media/img/icon_viewed.png'></div>");
         }
 
+        var firstVehicle = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.answersFiltered[0].model;
 
-        $("#modalContainer .assessment-content").append("<div class='feedback-container'><p class='feedback-details'>"+feedbackDetailsIncorrect+"</p><p class='feedback-details'>"+feedbackDetailsCorrect+"</p><p>"+feedback+" +"+tempScore+" points</p><button class='btn-ok'>GO</button></div>");
+        if(firstVehicle == correct){
+          $("#modalContainer .assessment-content").append("<div class='feedback-container'><p class='feedback-details'>"+feedbackDetailsCorrect+"</p><p class='feedback-details'>"+feedbackDetailsIncorrect+"</p><p>"+feedback+" +"+tempScore+" points</p><button class='btn-ok'>GO</button></div>");
+        }else{
+          $("#modalContainer .assessment-content").append("<div class='feedback-container'><p class='feedback-details'>"+feedbackDetailsIncorrect+"</p><p class='feedback-details'>"+feedbackDetailsCorrect+"</p><p>"+feedback+" +"+tempScore+" points</p><button class='btn-ok'>GO</button></div>");
+        }
 
         $("#modalContainer .btn-ok").click(function() {
           courseData.assessmentData.assessments[activeAssessment].currentQuestionIndex += 1;
@@ -729,9 +741,17 @@ function startAssessment(id) {
         qIndex = undefined;
         aIndex = undefined;
 
+        var firstVehicle = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.answersFiltered[0].model;
+
+        if(firstVehicle == correct){
+          $("#modalContainer .assessment-content").append("<div class='feedback-container'><p class='feedback-details'>"+feedbackDetailsCorrect+"</p><p class='feedback-details'>"+feedbackDetailsIncorrect+"</p><p>"+feedback+" +0 points</p><button class='btn-ok'>GO</button></div>");
+        }else{
+          $("#modalContainer .assessment-content").append("<div class='feedback-container'><p class='feedback-details'>"+feedbackDetailsIncorrect+"</p><p class='feedback-details'>"+feedbackDetailsCorrect+"</p><p>"+feedback+" +0 points</p><button class='btn-ok'>GO</button></div>");
+        }
+
+
         /* TODO: make this modular so answerTries is a setting and triggers the "try again" prompt only if answerTris > 1 */
         /*if(answerTries === 2) {*/
-        $("#modalContainer .assessment-content").append("<div class='feedback-container'><p class='feedback-details'>"+feedbackDetailsIncorrect+"</p><p class='feedback-details'>"+feedbackDetailsCorrect+"</p><p>"+feedback+" +0 points</p><button class='btn-ok'>GO</button></div>");
 
         $("#modalContainer .btn-ok").click(function() {
           courseData.assessmentData.assessments[activeAssessment].currentQuestionIndex += 1;
@@ -747,22 +767,6 @@ function startAssessment(id) {
             startAssessment(activeAssessment);
           }
         });
-
-        /*} else {
-
-        $("#modalContainer .assessment-content").append("<div class='feedback incorrect'><p>That is not correct. Click here to try again.</p></div>");
-
-        $("#modalContainer .feedback.incorrect").click(function() {
-        $("#modalContainer .assessment-content .feedback.incorrect").remove();
-        $("#modalContainer .assessment-content .btn-try-again").remove();
-
-        for(var i = 0; i < $("#modalContainer .answer-container").length; i++) {
-        $($("#modalContainer .answer-container")[i]).click({questionIndex: questionIndex, answerIndex: i}, selectAnswer).removeClass("selected").addClass("initial");
-      }
-
-      $("#modalContainer .btn-submit-answer").removeClass("hide");
-    });
-  }*/
     }
     }
   }
@@ -770,9 +774,9 @@ function startAssessment(id) {
 //Timer used in countdown and scoring
   var timingInterval = setInterval(function(){
     time += .1;
-    var timeLeft = (10 - time).toFixed(1);
+    var timeLeft = (17.5 - time).toFixed(1);
 
-    if(timeLeft >= 0){
+    if(timeLeft >= 0 && timeLeft <= 10){
       var timeLeft = Math.abs(timeLeft);
       $("#modalContainer .assessment-content h3 span").html("<span> " +timeLeft+ " seconds</span>");
     }
@@ -830,7 +834,7 @@ function endAssessment(activeAssessment) {
 
   $("#modalContainer .finish-screen").append("<p>"+gameFeedback+"</p>");
 
-  $("#modalContainer .finish-screen").append("<p>Remember, you can come back and play as much as you want. Whether you need a quick refresher or are still learning all the vehicles in your lineup, this game can provide insight into the variety of quality vehicles offered in your inventory.</p>");
+  $("#modalContainer .finish-screen").append("<pNo matter how well you did, there’s always the chance for improvement. See whether you can beat your score! You can do it! Come on, give it another shot!</p>");
 
   $("#modalContainer .finish-screen").append("<p>Click <span class='bolded'>PLAY AGAIN</span> if you want to play again, or <span class='bolded'>CLOSE</span> to exit.</p>");
 
@@ -936,7 +940,6 @@ function filterAnswersCharacteristic(activeAssessment, filterParam, answersFilte
   var filter = filterParam.filter;
   var value = filterParam.value;
   var answersFiltered = [];
-
 
   for(var i = 0; i < answersFilteredParam.length; i++){
 

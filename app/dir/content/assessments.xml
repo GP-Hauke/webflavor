@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <assessments questionsGiven="10">
-  <version>0.0.4</version>
+  <version>0.0.5</version>
   <!--  -->
   <assessment id="1" type="" completed="false" title="Match Features to Wants Game - Buick">
     <introText>
       <![CDATA[<p>With all the questions, play with these assumptions:</p>
       <ul>
-        <li>Most recent model year</li>
-        <li>Lowest trim level</li>
-        <li>No dealer or factory incentives</li>
-        <li>All seats up for trunk/cargo space</li>
+        <li>Vehicles are the most recent model year.</li>
+        <li>Unless otherwise stated, vehicles have automatic transmissions.</li>
+        <li>There are no dealer or factory incentives.</li>
+        <li>All the seats are up when considering trunk/cargo space.</li>
+        <li>The customers want the best option (most legroom, most headroom, highest horsepower, highest gas mileage, lowest base price).</li>
+        <li>There are no add-on packages included.</li>
       </ul>
-      <p>Try to get them all right! Then come back and play again. The questions and answers will change!</p>
+      <p>Try to get all 10 right! Once you’ve selected a vehicle, hit <span class="bolded">SUBMIT</span>. Then review the feedback.  Take all the time you need to look at the questions and answer options before clicking <span class="bolded">GO</span>.</p>
+      <p>See how well you did. Then, come back again and do better. The questions and answers will change!</p>
       <p>Click <span class='bolded'>NEXT</span> to begin.</p>]]>
     </introText>
 
@@ -65,7 +68,7 @@
             </filters>
           </type>
           <questionTitle><![CDATA[]]></questionTitle>
-          <questionBody><![CDATA[The customer wants a Buick that gets at least 25 MPG and offers a heated steering wheel. Which Buick offers a heated steering wheel?]]></questionBody>
+          <questionBody><![CDATA[The customer wants a Buick that gets at least 25 mpg and that offers a heated steering wheel. Which Buick offers a heated steering wheel?]]></questionBody>
           <imgSrc><![CDATA[]]></imgSrc>
         </question>
 
@@ -78,7 +81,7 @@
             </filters>
           </type>
           <questionTitle><![CDATA[]]></questionTitle>
-          <questionBody><![CDATA[The customer needs a vehicle that gets at least 35 inches of rear leg room and offers Connected Navigation. Which vehicle offers Connected Navigation? ]]></questionBody>
+          <questionBody><![CDATA[The customer needs a vehicle that has at least 35 inches of rear-seat legroom and that offers Connected Navigation. Which vehicle offers Connected Navigation?]]></questionBody>
           <imgSrc><![CDATA[]]></imgSrc>
         </question>
 
@@ -104,7 +107,7 @@
             </filters>
           </type>
           <questionTitle><![CDATA[]]></questionTitle>
-          <questionBody><![CDATA[The customer loves the Buick Encore for it’s great gas mileage but wants heated seats. Which Encore offers heated seats?]]></questionBody>
+          <questionBody><![CDATA[The customer loves the Buick Encore for its great gas mileage but wants heated seats. Which Encore offers heated seats?]]></questionBody>
           <imgSrc><![CDATA[]]></imgSrc>
         </question>
 
@@ -129,7 +132,7 @@
             </filters>
           </type>
           <questionTitle><![CDATA[]]></questionTitle>
-          <questionBody><![CDATA[ The customer wants a Buick that offers remote start? Which Buick offers remote start?]]></questionBody>
+          <questionBody><![CDATA[The customer wants a Buick that offers remote start. Which Buick offers remote start?]]></questionBody>
           <imgSrc><![CDATA[]]></imgSrc>
         </question>
 
@@ -142,7 +145,7 @@
             </filters>
           </type>
           <questionTitle><![CDATA[]]></questionTitle>
-          <questionBody><![CDATA[The customer needs a vehicle that has a moonroof or sunroof and gets at least 25 MPG combined. Which vehicle gets the best MPG?]]></questionBody>
+          <questionBody><![CDATA[The customer needs a vehicle that has a moon roof or sunroof and gets at least 25 mpg combined. Which vehicle gets the best mpg?]]></questionBody>
           <imgSrc><![CDATA[]]></imgSrc>
         </question>
 
@@ -156,7 +159,7 @@
             </filters>
           </type>
           <questionTitle><![CDATA[]]></questionTitle>
-          <questionBody><![CDATA[The customer wants a vehicle that has heated steering wheel and at least 35 inches of headroom. Which has the most interior headroom? ]]></questionBody>
+          <questionBody><![CDATA[The customer wants a vehicle that has a heated steering wheel and at least 35 inches of headroom. Which has the most interior headroom? ]]></questionBody>
           <imgSrc><![CDATA[]]></imgSrc>
         </question>
 
@@ -182,7 +185,7 @@
             </filters>
           </type>
           <questionTitle><![CDATA[]]></questionTitle>
-          <questionBody><![CDATA[The customer wants a vehicle with at least 35 inches of rear leg room and has heated seats. Which vehicle has heated seats? ]]></questionBody>
+          <questionBody><![CDATA[The customer wants a vehicle with at least 35 inches of rear-seat legroom  and has heated seats. Which vehicle has heated seats? ]]></questionBody>
           <imgSrc><![CDATA[]]></imgSrc>
         </question>
 
@@ -195,7 +198,7 @@
             </filters>
           </type>
           <questionTitle><![CDATA[]]></questionTitle>
-          <questionBody><![CDATA[The customer needs a vehicle with Connected Navigation that has at least 35 inches of headroom. Which vehicle offers Connected Navigation?]]></questionBody>
+          <questionBody><![CDATA[The customer needs a vehicle with Connected Navigation and at least 35 inches of headroom. Which vehicle offers Connected Navigation?]]></questionBody>
           <imgSrc><![CDATA[]]></imgSrc>
         </question>
 
@@ -208,7 +211,7 @@
             </filters>
           </type>
           <questionTitle><![CDATA[]]></questionTitle>
-          <questionBody><![CDATA[The customer wants a vehicle that has a moonroof or sunroof and heated seats. Which vehicle offers a heated seats?]]></questionBody>
+          <questionBody><![CDATA[The customer wants a vehicle that has a moon roof or sunroof, and heated seats. Which vehicle offers heated seats?]]></questionBody>
           <imgSrc><![CDATA[]]></imgSrc>
         </question>
 
@@ -235,27 +238,13 @@
             </filters>
           </type>
           <questionTitle><![CDATA[]]></questionTitle>
-          <questionBody><![CDATA[The customer wants a vehicle with remote start and that has at least 30 cubic feet of cargo space. Which vehicle has remote start?]]></questionBody>
+          <questionBody><![CDATA[The customer wants a vehicle with remote start and at least 30 cubic feet of cargo space. Which vehicle has remote start?]]></questionBody>
           <imgSrc><![CDATA[]]></imgSrc>
         </question>
-
-        <question type="characteristic" required="false" answered="false" passed="false" >
-          <type>
-            <criterion>remoteStart</criterion>
-            <characteristic>yes</characteristic>
-            <filters hasFilters="true">
-              <filter type="attribute" compare="minimum" value="30">cargoVol</filter>
-            </filters>
-          </type>
-          <questionTitle><![CDATA[]]></questionTitle>
-          <questionBody><![CDATA[The customer wants a vehicle with remote start and that has at least 30 cubic feet of cargo space. Which vehicle has remote start?]]></questionBody>
-          <imgSrc><![CDATA[]]></imgSrc>
-        </question>
-
       </questions>
       <answers>
         <answer correct="">
-          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-Buick-Regal-GS-(base).png]]></modelImgSrc>
+          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-Buick-Regal-GS-(base).jpg]]></modelImgSrc>
           <brand><![CDATA[2018 Buick]]></brand>
           <base><![CDATA[Regal]]></base>
           <model><![CDATA[Regal GS]]></model>
@@ -281,7 +270,7 @@
         </answer>
 
         <answer correct="">
-          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-Buick-Regal-Sportback-(base).png]]></modelImgSrc>
+          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-Buick-Regal-Sportback-(base).jpg]]></modelImgSrc>
           <brand><![CDATA[2018 Buick]]></brand>
           <base><![CDATA[Regal]]></base>
           <model><![CDATA[Regal Sportback]]></model>
@@ -305,7 +294,7 @@
         </answer>
 
         <answer correct="">
-          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-Buick-Regal-Sportback-Essence.png]]></modelImgSrc>
+          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-Buick-Regal-Sportback-Essence.jpg]]></modelImgSrc>
           <brand><![CDATA[2018 Buick]]></brand>
           <base><![CDATA[Regal]]></base>
           <model><![CDATA[Regal Sportback Essence]]></model>
@@ -329,7 +318,7 @@
         </answer>
 
         <answer correct="">
-          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-Buick-Regal-TourX-(base).png]]></modelImgSrc>
+          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-Buick-Regal-TourX-(base).jpg]]></modelImgSrc>
           <brand><![CDATA[2018 Buick]]></brand>
           <base><![CDATA[Regal]]></base>
           <model><![CDATA[Regal TourX]]></model>
@@ -353,7 +342,7 @@
         </answer>
 
         <answer correct="">
-          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-Buick-Regal-TourX-Essence-AWD.png]]></modelImgSrc>
+          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-Buick-Regal-TourX-Essence-AWD.jpg]]></modelImgSrc>
           <brand><![CDATA[2018 Buick]]></brand>
           <base><![CDATA[Regal]]></base>
           <model><![CDATA[Regal TourX Essence AWD]]></model>
@@ -377,7 +366,7 @@
         </answer>
 
         <answer correct="">
-          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-Buick-LaCrosse-(base).png]]></modelImgSrc>
+          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-Buick-LaCrosse-(base).jpg]]></modelImgSrc>
           <brand><![CDATA[2018 Buick]]></brand>
           <base><![CDATA[LaCrosse]]></base>
           <model><![CDATA[LaCrosse]]></model>
@@ -401,7 +390,7 @@
         </answer>
 
         <answer correct="">
-          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-Buick-LaCrosse-Avenir.png]]></modelImgSrc>
+          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-Buick-LaCrosse-Avenir.jpg]]></modelImgSrc>
           <brand><![CDATA[2018 Buick]]></brand>
           <base><![CDATA[LaCrosse]]></base>
           <model><![CDATA[LaCrosse Avenir]]></model>
@@ -425,7 +414,7 @@
         </answer>
 
         <answer correct="">
-          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-Buick-LaCrosse-Essence-V-6.png]]></modelImgSrc>
+          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-Buick-LaCrosse-Essence-V-6.jpg]]></modelImgSrc>
           <brand><![CDATA[2018 Buick]]></brand>
           <base><![CDATA[LaCrosse]]></base>
           <model><![CDATA[LaCrosse Essence V-6]]></model>
@@ -449,7 +438,7 @@
         </answer>
 
         <answer correct="">
-          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-Buick-Cascada-(base).png]]></modelImgSrc>
+          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-Buick-Cascada-(base).jpg]]></modelImgSrc>
           <brand><![CDATA[2018 Buick]]></brand>
           <base><![CDATA[Cascada]]></base>
           <model><![CDATA[Cascada]]></model>
@@ -473,7 +462,7 @@
         </answer>
 
         <answer correct="">
-          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-Buick-Cascada-SportTouring.png]]></modelImgSrc>
+          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-Buick-Cascada-SportTouring.jpg]]></modelImgSrc>
           <brand><![CDATA[2018 Buick]]></brand>
           <base><![CDATA[Cascada]]></base>
           <model><![CDATA[Cascada Sport Touring]]></model>
@@ -497,7 +486,7 @@
         </answer>
 
         <answer correct="">
-          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-Buick-Encore-Preferred.png]]></modelImgSrc>
+          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-Buick-Encore-Preferred.jpg]]></modelImgSrc>
           <brand><![CDATA[2018 Buick]]></brand>
           <base><![CDATA[Encore]]></base>
           <model><![CDATA[Encore Preferred]]></model>
@@ -521,7 +510,7 @@
         </answer>
 
         <answer correct="">
-          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-Buick-Encore-SportTouring.png]]></modelImgSrc>
+          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-Buick-Encore-SportTouring.jpg]]></modelImgSrc>
           <brand><![CDATA[2018 Buick]]></brand>
           <base><![CDATA[Encore]]></base>
           <model><![CDATA[Encore Sport Touring]]></model>
@@ -545,7 +534,7 @@
         </answer>
 
         <answer correct="">
-          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-Buick-Encore-Premium.png]]></modelImgSrc>
+          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-Buick-Encore-Premium.jpg]]></modelImgSrc>
           <brand><![CDATA[2018 Buick]]></brand>
           <base><![CDATA[Encore]]></base>
           <model><![CDATA[Encore Premium]]></model>
@@ -569,7 +558,7 @@
         </answer>
 
         <answer correct="">
-          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-Buick-Envision-(base).png]]></modelImgSrc>
+          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-Buick-Envision-(base).jpg]]></modelImgSrc>
           <brand><![CDATA[2018 Buick]]></brand>
           <base><![CDATA[Envision]]></base>
           <model><![CDATA[Envision]]></model>
@@ -593,7 +582,7 @@
         </answer>
 
         <answer correct="">
-          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-Buick-Envision-Essence.png]]></modelImgSrc>
+          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-Buick-Envision-Essence.jpg]]></modelImgSrc>
           <brand><![CDATA[2018 Buick]]></brand>
           <base><![CDATA[Envision]]></base>
           <model><![CDATA[Envision Essence]]></model>
@@ -627,12 +616,15 @@
     <introText>
       <![CDATA[<p>With all the questions, play with these assumptions:</p>
       <ul>
-        <li>Most recent model year</li>
-        <li>Lowest trim level</li>
-        <li>No dealer or factory incentives</li>
-        <li>All seats up for trunk/cargo space</li>
+        <li>Vehicles are the most recent model year.</li>
+        <li>Unless otherwise stated, vehicles have automatic transmissions.</li>
+        <li>There are no dealer or factory incentives.</li>
+        <li>All the seats are up when considering trunk/cargo space.</li>
+        <li>The customers want the best option (most legroom, most headroom, highest horsepower, highest gas mileage, lowest base price).</li>
+        <li>There are no add-on packages included.</li>
       </ul>
-      <p>Try to get them all right! Then come back and play again. The questions and answers will change!</p>
+      <p>Try to get all 10 right! Once you’ve selected a vehicle, hit <span class="bolded">SUBMIT</span>. Then review the feedback.  Take all the time you need to look at the questions and answer options before clicking <span class="bolded">GO</span>.</p>
+      <p>See how well you did. Then, come back again and do better. The questions and answers will change!</p>
       <p>Click <span class='bolded'>NEXT</span> to begin.</p>]]>
     </introText>
 
@@ -686,7 +678,7 @@
             </filters>
           </type>
           <questionTitle><![CDATA[]]></questionTitle>
-          <questionBody><![CDATA[The customer wants a GMC Canyon that offers Connected Navigation? Which Canyon offers Connected Navigation?]]></questionBody>
+          <questionBody><![CDATA[The customer wants a GMC Canyon that offers Connected Navigation. Which Canyon offers Connected Navigation?]]></questionBody>
           <imgSrc><![CDATA[]]></imgSrc>
         </question>
 
@@ -725,7 +717,7 @@
             </filters>
           </type>
           <questionTitle><![CDATA[]]></questionTitle>
-          <questionBody><![CDATA[The customer needs a GMC that offers third-row seating but gets good gas mileage. Which GMC gets the best MPG?]]></questionBody>
+          <questionBody><![CDATA[The customer needs a GMC that offers third-row seating and gets good gas mileage. Which GMC gets the best mpg?]]></questionBody>
           <imgSrc><![CDATA[]]></imgSrc>
         </question>
 
@@ -752,7 +744,7 @@
             </filters>
           </type>
           <questionTitle><![CDATA[]]></questionTitle>
-          <questionBody><![CDATA[The customer needs a GMC that has a moonroof or sunroof and gets at least 21 MPG combined. Which vehicle gets the best MPG?]]></questionBody>
+          <questionBody><![CDATA[The customer needs a GMC that has a moon roof or sunroof, and gets at least 21 mpg combined. Which vehicle gets the best mpg?]]></questionBody>
           <imgSrc><![CDATA[]]></imgSrc>
         </question>
 
@@ -766,7 +758,7 @@
             </filters>
           </type>
           <questionTitle><![CDATA[]]></questionTitle>
-          <questionBody><![CDATA[The customer wants a vehicle that has heated steering wheel and at least 40 inches of headroom. Which has the most interior headroom?]]></questionBody>
+          <questionBody><![CDATA[The customer wants a vehicle that has a heated steering wheel and at least 40 inches of headroom. Which has the most interior headroom? ]]></questionBody>
           <imgSrc><![CDATA[]]></imgSrc>
         </question>
 
@@ -793,7 +785,7 @@
             </filters>
           </type>
           <questionTitle><![CDATA[]]></questionTitle>
-          <questionBody><![CDATA[The customer wants a vehicle with at least 35 inches of rear leg room and has heated seats. Which vehicle has heated seats?]]></questionBody>
+          <questionBody><![CDATA[The customer wants a vehicle with at least 35 inches of rear-seat legroom and that has heated seats. Which vehicle has heated seats?]]></questionBody>
           <imgSrc><![CDATA[]]></imgSrc>
         </question>
 
@@ -832,7 +824,7 @@
             </filters>
           </type>
           <questionTitle><![CDATA[]]></questionTitle>
-          <questionBody><![CDATA[The customer needs third-row seating and at least 30 inches of rear leg room. Which vehicle offers third-row seating?]]></questionBody>
+          <questionBody><![CDATA[The customer needs third-row seating and at least 30 inches of rear-seat legroom. Which vehicle offers third-row seating?]]></questionBody>
           <imgSrc><![CDATA[]]></imgSrc>
         </question>
 
@@ -845,7 +837,7 @@
             </filters>
           </type>
           <questionTitle><![CDATA[]]></questionTitle>
-          <questionBody><![CDATA[The customer needs a vehicle that gets at least 25MPG and offers Connected Navigation. Which vehicle offers Connected Navigation?]]></questionBody>
+          <questionBody><![CDATA[The customer needs a vehicle that gets at least 25 mpg and offers Connected Navigation. Which vehicle offers Connected Navigation?]]></questionBody>
           <imgSrc><![CDATA[]]></imgSrc>
         </question>
 
@@ -879,7 +871,7 @@
       </questions>
       <answers>
         <answer correct="">
-          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-GMC-Acadia-(base).png]]></modelImgSrc>
+          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-GMC-Acadia-(base).jpg]]></modelImgSrc>
           <brand><![CDATA[2018 GMC]]></brand>
           <base><![CDATA[Acadia]]></base>
           <model><![CDATA[Acadia]]></model>
@@ -905,7 +897,7 @@
         </answer>
 
         <answer correct="">
-          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-GMC-Acadia-All-Terrain.png]]></modelImgSrc>
+          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-GMC-Acadia-All-Terrain.jpg]]></modelImgSrc>
           <brand><![CDATA[2018 GMC]]></brand>
           <base><![CDATA[Acadia]]></base>
           <model><![CDATA[Acadia All Terrain]]></model>
@@ -931,7 +923,7 @@
         </answer>
 
         <answer correct="">
-          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-GMC-Acadia-Denali.png]]></modelImgSrc>
+          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-GMC-Acadia-Denali.jpg]]></modelImgSrc>
           <brand><![CDATA[2018 GMC]]></brand>
           <base><![CDATA[Acadia]]></base>
           <model><![CDATA[Acadia Denali]]></model>
@@ -957,7 +949,7 @@
         </answer>
 
         <answer correct="">
-          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-GMC-Terrain-BASE.png]]></modelImgSrc>
+          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-GMC-Terrain-BASE.jpg]]></modelImgSrc>
           <brand><![CDATA[2018 GMC]]></brand>
           <base><![CDATA[Terrain]]></base>
           <model><![CDATA[Terrain]]></model>
@@ -983,7 +975,7 @@
         </answer>
 
         <answer correct="">
-          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-GMC-Terrain-XLTDiesel.png]]></modelImgSrc>
+          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-GMC-Terrain-XLTDiesel.jpg]]></modelImgSrc>
           <brand><![CDATA[2018 GMC]]></brand>
           <base><![CDATA[Terrain]]></base>
           <model><![CDATA[Terrain SLT Diesel]]></model>
@@ -1009,7 +1001,7 @@
         </answer>
 
         <answer correct="">
-          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-GMC-YukonSLE2WD.png]]></modelImgSrc>
+          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-GMC-YukonSLE2WD.jpg]]></modelImgSrc>
           <brand><![CDATA[2018 GMC]]></brand>
           <base><![CDATA[Yukon]]></base>
           <model><![CDATA[Yukon SLE 2WD]]></model>
@@ -1035,7 +1027,7 @@
         </answer>
 
         <answer correct="">
-          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-GMC-Yukon-XL-Denali.png]]></modelImgSrc>
+          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-GMC-Yukon-XL-Denali.jpg]]></modelImgSrc>
           <brand><![CDATA[2018 GMC]]></brand>
           <base><![CDATA[Yukon]]></base>
           <model><![CDATA[Yukon XL Denali]]></model>
@@ -1061,7 +1053,7 @@
         </answer>
 
         <answer correct="">
-          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-GMC-Canyon-(base-EXcab).png]]></modelImgSrc>
+          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-GMC-Canyon-(base-EXcab).jpg]]></modelImgSrc>
           <brand><![CDATA[2018 GMC]]></brand>
           <base><![CDATA[Yukon]]></base>
           <model><![CDATA[Canyon]]></model>
@@ -1087,7 +1079,7 @@
         </answer>
 
         <answer correct="">
-          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-GMC-CanyonDenaliCrewCab.png]]></modelImgSrc>
+          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-GMC-CanyonDenaliCrewCab.jpg]]></modelImgSrc>
           <brand><![CDATA[2018 GMC]]></brand>
           <base><![CDATA[Canyon]]></base>
           <model><![CDATA[Canyon Denali Crew Cab]]></model>
@@ -1113,7 +1105,7 @@
         </answer>
 
         <answer correct="">
-          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-GMC-Sierra-1500-SLEcrewcab.png]]></modelImgSrc>
+          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-GMC-Sierra-1500-SLEcrewcab.jpg]]></modelImgSrc>
           <brand><![CDATA[2018 GMC]]></brand>
           <base><![CDATA[Sierra]]></base>
           <model><![CDATA[Sierra 1500 SLE]]></model>
@@ -1139,7 +1131,7 @@
         </answer>
 
         <answer correct="">
-          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-GMC-Sierra-1500-DENALI-CrewCab.png]]></modelImgSrc>
+          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-GMC-Sierra-1500-DENALI-CrewCab.jpg]]></modelImgSrc>
           <brand><![CDATA[2018 GMC]]></brand>
           <base><![CDATA[Sierra]]></base>
           <model><![CDATA[Sierra 1500 Denali]]></model>
@@ -1165,7 +1157,7 @@
         </answer>
 
         <answer correct="">
-          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-GMC-Sierra-1500-base-CrewCab.png]]></modelImgSrc>
+          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-GMC-Sierra-1500-base-CrewCab.jpg]]></modelImgSrc>
           <brand><![CDATA[2018 GMC]]></brand>
           <base><![CDATA[Sierra]]></base>
           <model><![CDATA[Sierra 1500]]></model>
@@ -1202,17 +1194,34 @@
     <introText>
       <![CDATA[<p>With all the questions, play with these assumptions:</p>
       <ul>
-        <li>Most recent model year</li>
-        <li>Lowest trim level</li>
-        <li>No dealer or factory incentives</li>
-        <li>All seats up for trunk/cargo space</li>
+        <li>Vehicles are the most recent model year.</li>
+        <li>Unless otherwise stated, vehicles have automatic transmissions.</li>
+        <li>There are no dealer or factory incentives.</li>
+        <li>All the seats are up when considering trunk/cargo space.</li>
+        <li>The customers want the best option (most legroom, most headroom, highest horsepower, highest gas mileage, lowest base price).</li>
+        <li>There are no add-on packages included.</li>
       </ul>
-      <p>Try to get them all right! Then come back and play again. The questions and answers will change!</p>
+      <p>Try to get all 10 right! Once you’ve selected a vehicle, hit <span class="bolded">SUBMIT</span>. Then review the feedback.  Take all the time you need to look at the questions and answer options before clicking <span class="bolded">GO</span>.</p>
+      <p>See how well you did. Then, come back again and do better. The questions and answers will change!</p>
       <p>Click <span class='bolded'>NEXT</span> to begin.</p>]]>
     </introText>
 
     <questionAnswer required="false" answered="false" passed="false">
       <questions>
+        <question type="attribute" required="false" answered="false" passed="false">
+          <type>
+            <criterion>horsePower</criterion>
+            <characteristic></characteristic>
+            <filters hasFilters="true">
+              <filter type="attribute" compare="minimum" value="250">horsePower</filter>
+              <filter type="characteristic" compare="" value="yes">dr2</filter>
+            </filters>
+          </type>
+          <questionTitle><![CDATA[]]></questionTitle>
+          <questionBody><![CDATA[The customer wants a vehicle that has two doors and has at least 250 horsepower. Which vehicle has the highest horsepower? ]]></questionBody>
+          <imgSrc><![CDATA[]]></imgSrc>
+        </question>
+
         <question type="attribute" required="false" answered="false" passed="false">
           <type>
             <criterion>basePrice</criterion>
@@ -1275,7 +1284,7 @@
             </filters>
           </type>
           <questionTitle><![CDATA[]]></questionTitle>
-          <questionBody><![CDATA[The customer likes the Chevrolet Equinox but needs it to get good gas mileage. Which Equinox gets the best gas mileage (MPG)?]]></questionBody>
+          <questionBody><![CDATA[The customer likes the Chevrolet Equinox but needs it to get good gas mileage. Which Equinox gets the best gas mileage (mpg)?]]></questionBody>
           <imgSrc><![CDATA[]]></imgSrc>
         </question>
 
@@ -1288,21 +1297,7 @@
             </filters>
           </type>
           <questionTitle><![CDATA[]]></questionTitle>
-          <questionBody><![CDATA[The customer likes the look of the Chevrolet Cruze but also wants Connected Navigation. Which Cruze offers Connected Navigation]]></questionBody>
-          <imgSrc><![CDATA[]]></imgSrc>
-        </question>
-
-        <question type="attribute" required="false" answered="false" passed="false">
-          <type>
-            <criterion>horsePower</criterion>
-            <characteristic></characteristic>
-            <filters hasFilters="true">
-              <filter type="attribute" compare="minimum" value="250">horsePower</filter>
-              <filter type="characteristic" compare="" value="yes">dr2</filter>
-            </filters>
-          </type>
-          <questionTitle><![CDATA[]]></questionTitle>
-          <questionBody><![CDATA[The customer wants a vehicle that has two doors and has at least 250 horsepower. Which vehicle has the highest horsepower? ]]></questionBody>
+          <questionBody><![CDATA[The customer likes the look of the Chevrolet Cruze but also wants Connected Navigation. Which Cruze offers Connected Navigation?]]></questionBody>
           <imgSrc><![CDATA[]]></imgSrc>
         </question>
 
@@ -1315,7 +1310,7 @@
             </filters>
           </type>
           <questionTitle><![CDATA[]]></questionTitle>
-          <questionBody><![CDATA[The customer needs third-row seating and at least 30 inches of rear leg room. Which vehicle offers third-row seating?]]></questionBody>
+          <questionBody><![CDATA[The customer needs third-row seating and at least 30 inches of rear-seat legroom. Which vehicle offers third-row seating?]]></questionBody>
           <imgSrc><![CDATA[]]></imgSrc>
         </question>
 
@@ -1328,7 +1323,7 @@
             </filters>
           </type>
           <questionTitle><![CDATA[]]></questionTitle>
-          <questionBody><![CDATA[The customer needs a vehicle that gets at least 25MPG and offers Connected Navigation. Which vehicle offers Connected Navigation? ]]></questionBody>
+          <questionBody><![CDATA[The customer needs a vehicle that gets at least 25 mpg and offers Connected Navigation. Which vehicle offers Connected Navigation?]]></questionBody>
           <imgSrc><![CDATA[]]></imgSrc>
         </question>
 
@@ -1381,7 +1376,7 @@
             </filters>
           </type>
           <questionTitle><![CDATA[]]></questionTitle>
-          <questionBody><![CDATA[The customer needs a vehicle that has a moonroof or sunroof and gets at least 25 MPG combined. Which vehicle gets the best MPG?]]></questionBody>
+          <questionBody><![CDATA[The customer needs a vehicle that has a moon roof or sunroof and gets at least 25 mpg combined. Which vehicle gets the best mpg?]]></questionBody>
           <imgSrc><![CDATA[]]></imgSrc>
         </question>
 
@@ -1395,7 +1390,7 @@
             </filters>
           </type>
           <questionTitle><![CDATA[]]></questionTitle>
-          <questionBody><![CDATA[The customer wants a vehicle that has heated steering wheel and at least 35 inches of headroom. Which has the most interior headroom? ]]></questionBody>
+          <questionBody><![CDATA[The customer wants a vehicle that has a heated steering wheel and at least 35 inches of headroom. Which has the most interior headroom?]]></questionBody>
           <imgSrc><![CDATA[]]></imgSrc>
         </question>
 
@@ -1422,7 +1417,7 @@
             </filters>
           </type>
           <questionTitle><![CDATA[]]></questionTitle>
-          <questionBody><![CDATA[The customer wants a vehicle with at least 35 inches of rear leg room and has heated seats. Which vehicle has heated seats?]]></questionBody>
+          <questionBody><![CDATA[The customer wants a vehicle with at least 35 inches of rear-seat legroom and that has heated seats. Which vehicle has heated seats?]]></questionBody>
           <imgSrc><![CDATA[]]></imgSrc>
         </question>
 
@@ -1481,7 +1476,7 @@
       </questions>
       <answers>
         <answer correct="">
-          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-Chevrolet-Spark-(base-CVT).png]]></modelImgSrc>
+          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-Chevrolet-Spark-(base-CVT).jpg]]></modelImgSrc>
           <brand><![CDATA[2018 Chevrolet]]></brand>
           <base><![CDATA[Spark]]></base>
           <model><![CDATA[Spark]]></model>
@@ -1508,7 +1503,7 @@
         </answer>
 
         <answer correct="">
-          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-Chevrolet-Spark-ACTIV.png]]></modelImgSrc>
+          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-Chevrolet-Spark-ACTIV.jpg]]></modelImgSrc>
           <brand><![CDATA[2018 Chevrolet]]></brand>
           <base><![CDATA[Spark]]></base>
           <model><![CDATA[Spark ACTIV]]></model>
@@ -1535,7 +1530,7 @@
         </answer>
 
         <answer correct="">
-          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-Chevrolet-Sonic-Sedan-(base-automatic).png]]></modelImgSrc>
+          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-Chevrolet-Sonic-Sedan-(base-automatic).jpg]]></modelImgSrc>
           <brand><![CDATA[2018 Chevrolet]]></brand>
           <base><![CDATA[Sonic]]></base>
           <model><![CDATA[Sonic Sedan]]></model>
@@ -1562,7 +1557,7 @@
         </answer>
 
         <answer correct="">
-          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-Chevrolet-Sonic-Sedan-LS.png]]></modelImgSrc>
+          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-Chevrolet-Sonic-Sedan-LS.jpg]]></modelImgSrc>
           <brand><![CDATA[2018 Chevrolet]]></brand>
           <base><![CDATA[Sonic]]></base>
           <model><![CDATA[Sonic Sedan]]></model>
@@ -1589,7 +1584,7 @@
         </answer>
 
         <answer correct="">
-          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-Chevrolet-Sonic-Hatchback-Premier.png]]></modelImgSrc>
+          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-Chevrolet-Sonic-Hatchback-Premier.jpg]]></modelImgSrc>
           <brand><![CDATA[2018 Chevrolet]]></brand>
           <base><![CDATA[Sonic]]></base>
           <model><![CDATA[Sonic Hatchback Premier]]></model>
@@ -1616,7 +1611,7 @@
         </answer>
 
         <answer correct="">
-          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-Chevrolet-Cruze-L-Sedan-(base-auto).png]]></modelImgSrc>
+          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-Chevrolet-Cruze-L-Sedan-(base-auto).jpg]]></modelImgSrc>
           <brand><![CDATA[2018 Chevrolet]]></brand>
           <base><![CDATA[Cruze]]></base>
           <model><![CDATA[Cruze L Sedan]]></model>
@@ -1643,7 +1638,7 @@
         </answer>
 
         <answer correct="">
-          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-Chevrolet-Cruze-LT-Sedan-(diesel-auto).png]]></modelImgSrc>
+          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-Chevrolet-Cruze-LT-Sedan-(diesel-auto).jpg]]></modelImgSrc>
           <brand><![CDATA[2018 Chevrolet]]></brand>
           <base><![CDATA[Cruze]]></base>
           <model><![CDATA[Cruze LT Sedan]]></model>
@@ -1670,7 +1665,7 @@
         </answer>
 
         <answer correct="">
-          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-Chevrolet-Cruze-LT-Hatch-Diesel-auto.png]]></modelImgSrc>
+          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-Chevrolet-Cruze-LT-Hatch-Diesel-auto.jpg]]></modelImgSrc>
           <brand><![CDATA[2018 Chevrolet]]></brand>
           <base><![CDATA[Cruze]]></base>
           <model><![CDATA[Cruze Hatchback LT Redline]]></model>
@@ -1697,7 +1692,7 @@
         </answer>
 
         <answer correct="">
-          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-Chevrolet-Malibu-(base-auto).png]]></modelImgSrc>
+          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-Chevrolet-Malibu-(base-auto).jpg]]></modelImgSrc>
           <brand><![CDATA[2018 Chevrolet]]></brand>
           <base><![CDATA[Malibu]]></base>
           <model><![CDATA[Malibu]]></model>
@@ -1724,7 +1719,7 @@
         </answer>
 
         <answer correct="">
-          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-Chevrolet-Malibu-Premier.png]]></modelImgSrc>
+          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-Chevrolet-Malibu-Premier.jpg]]></modelImgSrc>
           <brand><![CDATA[2018 Chevrolet]]></brand>
           <base><![CDATA[Malibu]]></base>
           <model><![CDATA[Malibu Premier]]></model>
@@ -1751,7 +1746,7 @@
         </answer>
 
         <answer correct="">
-          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-Chevrolet-Impala-(base-2.5L).png]]></modelImgSrc>
+          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-Chevrolet-Impala-(base-2.5L).jpg]]></modelImgSrc>
           <brand><![CDATA[2018 Chevrolet]]></brand>
           <base><![CDATA[Impala]]></base>
           <model><![CDATA[Impala]]></model>
@@ -1778,7 +1773,7 @@
         </answer>
 
         <answer correct="">
-          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-Chevrolet-Impala-LT.png]]></modelImgSrc>
+          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-Chevrolet-Impala-LT.jpg]]></modelImgSrc>
           <brand><![CDATA[2018 Chevrolet]]></brand>
           <base><![CDATA[Impala]]></base>
           <model><![CDATA[Impala LT]]></model>
@@ -1805,7 +1800,7 @@
         </answer>
 
         <answer correct="">
-          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-Chevrolet-Trax-(base).png]]></modelImgSrc>
+          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-Chevrolet-Trax-(base).jpg]]></modelImgSrc>
           <brand><![CDATA[2018 Chevrolet]]></brand>
           <base><![CDATA[Trax]]></base>
           <model><![CDATA[Trax]]></model>
@@ -1832,7 +1827,7 @@
         </answer>
 
         <answer correct="">
-          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-Chevrolet-Equinox-15L-FWD.png]]></modelImgSrc>
+          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-Chevrolet-Equinox-15L-FWD.jpg]]></modelImgSrc>
           <brand><![CDATA[2018 Chevrolet]]></brand>
           <base><![CDATA[Equinox]]></base>
           <model><![CDATA[Equinox]]></model>
@@ -1859,7 +1854,7 @@
         </answer>
 
         <answer correct="">
-          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-Chevrolet-Equinox-Premier-3LZ-Diesel.png]]></modelImgSrc>
+          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-Chevrolet-Equinox-Premier-3LZ-Diesel.jpg]]></modelImgSrc>
           <brand><![CDATA[2018 Chevrolet]]></brand>
           <base><![CDATA[Equinox]]></base>
           <model><![CDATA[Equinox Premier 3LZ Diesel]]></model>
@@ -1886,7 +1881,7 @@
         </answer>
 
         <answer correct="">
-          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-Chevrolet-Traverse-(base).png]]></modelImgSrc>
+          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-Chevrolet-Traverse-(base).jpg]]></modelImgSrc>
           <brand><![CDATA[2018 Chevrolet]]></brand>
           <base><![CDATA[Traverse]]></base>
           <!-- ATTRIBUTES -->
@@ -1913,7 +1908,7 @@
         </answer>
 
         <answer correct="">
-          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-Chevrolet-Traverse-RS.png]]></modelImgSrc>
+          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-Chevrolet-Traverse-RS.jpg]]></modelImgSrc>
           <brand><![CDATA[2018 Chevrolet]]></brand>
           <base><![CDATA[Traverse]]></base>
           <model><![CDATA[Traverse RS]]></model>
@@ -1940,7 +1935,7 @@
         </answer>
 
         <answer correct="">
-          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-Chevrolet-Colorado-(base-auto-ExCab).png]]></modelImgSrc>
+          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-Chevrolet-Colorado-(base-auto-ExCab).jpg]]></modelImgSrc>
           <brand><![CDATA[2018 Chevrolet]]></brand>
           <base><![CDATA[Colorado]]></base>
           <model><![CDATA[Colorado]]></model>
@@ -1967,7 +1962,7 @@
         </answer>
 
         <answer correct="">
-          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-Chevrolet-Colorado-CrewCabLT-Diesel.png]]></modelImgSrc>
+          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-Chevrolet-Colorado-CrewCabLT-Diesel.jpg]]></modelImgSrc>
           <brand><![CDATA[2018 Chevrolet]]></brand>
           <base><![CDATA[Colorado]]></base>
           <model><![CDATA[Colorado Crew Cab LT Diesel]]></model>
@@ -1994,7 +1989,7 @@
         </answer>
 
         <answer correct="">
-          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-Chevrolet-Silverado-1500-(base-double_cab).png]]></modelImgSrc>
+          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-Chevrolet-Silverado-1500-(base-double_cab).jpg]]></modelImgSrc>
           <brand><![CDATA[2018 Chevrolet]]></brand>
           <base><![CDATA[Silverado]]></base>
           <model><![CDATA[Silverado 1500]]></model>
@@ -2021,7 +2016,7 @@
         </answer>
 
         <answer correct="">
-          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-Chevrolet-Silverado-1500-HighCountry-2WD-Crew-Short.png]]></modelImgSrc>
+          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-Chevrolet-Silverado-1500-HighCountry-2WD-Crew-Short.jpg]]></modelImgSrc>
           <brand><![CDATA[2018 Chevrolet]]></brand>
           <base><![CDATA[Silverado]]></base>
           <model><![CDATA[Silverado 1500 High Country]]></model>
@@ -2048,7 +2043,7 @@
         </answer>
 
         <answer correct="">
-          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-Chevrolet-Camaro-2SS-Coupe.png]]></modelImgSrc>
+          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-Chevrolet-Camaro-2SS-Coupe.jpg]]></modelImgSrc>
           <brand><![CDATA[2018 Chevrolet]]></brand>
           <base><![CDATA[Camaro]]></base>
           <model><![CDATA[Camaro 2SS Coupe]]></model>
@@ -2075,7 +2070,7 @@
         </answer>
 
         <answer correct="">
-          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-Chevrolet-Camaro2LTCoupe.png]]></modelImgSrc>
+          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-Chevrolet-Camaro2LTCoupe.jpg]]></modelImgSrc>
           <brand><![CDATA[2018 Chevrolet]]></brand>
           <base><![CDATA[Camaro]]></base>
           <model><![CDATA[Camaro 2LT Coupe]]></model>
@@ -2102,7 +2097,7 @@
         </answer>
 
         <answer correct="">
-          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-Chevrolet-Camaro-Coupe-(base-auto).png]]></modelImgSrc>
+          <modelImgSrc><![CDATA[dir/media/img/assets/game/2018-Chevrolet-Camaro-Coupe-(base-auto).jpg]]></modelImgSrc>
           <brand><![CDATA[2018 Chevrolet]]></brand>
           <base><![CDATA[Camaro]]></base>
           <model><![CDATA[Camaro Coupe]]></model>

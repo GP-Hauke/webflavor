@@ -345,7 +345,7 @@ function loadContent(param){
       setupAssessment();
     }
     else if(component == 'dragAndDrop'){
-      setupDragDrop(xml);
+      initDragDrops(xml);
     }
     else if(component == 'hotspot'){
       setupHotSpot(xml);

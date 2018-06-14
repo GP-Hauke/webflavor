@@ -18,7 +18,7 @@ module.exports = function(grunt){
       build: {
 
         cwd: 'app',
-        src: ['**', '!**/components/*.js', '!**/api/**', '!**/component/**', '!**src/js/*.js'],
+        src: ['**', '!**/components/*.js', '!**/api/**', '!**/component/**'],
         dest: 'dist',
         expand: true,
 
@@ -123,7 +123,7 @@ module.exports = function(grunt){
         src: [ 'dist' ]
       },
       finishbuild: {
-        src: ['dist/src/vendors/*/']
+        src: ['dist/src/vendors/*/', 'dist/src/js/*.js', '!dist/src/js/functions.js']
       }
     },
 
@@ -156,7 +156,7 @@ module.exports = function(grunt){
         },
         files: {
           'dist/src/components/components.js': [ 'app/src/components/*.js' ],
-          'dist/src/js/functions.js': [ 'app/src/js/*.js' ],
+          'dist/src/js/functions.js': [ 'dist/src/js/*.js' ],
           'dist/src/js/api/api.js': [ 'app/src/js/api/*.js' ],
           'dist/src/vendors/vendors.min.js': ['app/src/vendors/jquery/jquery-3.2.1.min.js', 'app/src/vendors/bootstrap/js/bootstrap.min.js', 'app/src/vendors/**/*.min.js']
         }
@@ -222,7 +222,19 @@ module.exports = function(grunt){
             }
           ]
       }
-    }
+    },
+
+    preprocess : {
+        options: {
+            inline: true,
+            context : {
+                DEBUG: false
+            }
+        },
+        js : {
+            src: 'dist/src/js/interface_functions.js'
+        }
+    },
   });
 
   grunt.loadNpmTasks('grunt-contrib-copy');
@@ -235,12 +247,13 @@ module.exports = function(grunt){
   grunt.loadNpmTasks('grunt-contrib-compress');
   grunt.loadNpmTasks('grunt-convert');
   grunt.loadNpmTasks('grunt-cleanempty');
+  grunt.loadNpmTasks('grunt-preprocess');
 
-  grunt.registerTask('test', ['convert:jsonconvert']);
+  grunt.registerTask('test', ['preprocess']);
 
   grunt.registerTask(
     'build',
     'Compiles all of the assets and copies the files to the build directory.',
-    [ 'clean:rebuild', 'convert:xml2json', 'copy:build', 'uglify', 'cssmin', 'useminPrepare', 'usemin', 'copy:vendors', 'clean:finishbuild', 'compress', 'connect']
+    [ 'clean:rebuild', 'convert:xml2json', 'copy:build', 'preprocess', 'uglify', 'cssmin', 'useminPrepare', 'usemin', 'copy:vendors', 'clean:finishbuild', 'compress', 'connect']
   );
 }
