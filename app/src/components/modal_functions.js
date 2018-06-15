@@ -8,7 +8,9 @@ function openModal(modalType, assessmentID, clickTarget) {
     case 'glossary':
       $('#modalContainer').html(getGlossary());
       glossaryNavigate();
-
+      break;
+    case 'resources':
+      $('#modalContainer').html(getResources());
       break;
     case 'help':
       $('#modalContainer').html(getHelpPage());
@@ -120,6 +122,29 @@ function glossaryNavigate(){
 }
 
 /* end NEW GLOSSARY METHOD USING XML */
+
+function getResources() {
+  var glossary = '<div class="modal fade" id="resourcesModal" tabindex="-1" role="dialog" aria-labelledby="resourcesModalLabel"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header"><div class="modal-title-wrapper"><h4 class="modal-title" id="resourcesModalLabel">RESOURCES</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><img src="dir/media/img/btn_close_glossary.png" alt="close the resources"></span></button></div></div><div class="modal-body">';
+
+
+  for(i = 0; i < courseData.resources.items.length; i++){
+
+    var term = courseData.resources.items[i].term;
+    var def = courseData.resources.items[i].definition;
+    var name = courseData.resources.items[i].name;
+    var source = courseData.resources.items[i].source;
+
+
+    var resourceItem = '<div class="gloss-item""><h5>'+term+'</h5><p>'+ def +'</p><a target="blank" href="'+source+'" class="bolded">'+ name +'</a></div>'
+
+    glossary += resourceItem;
+  }
+
+  glossary += '</div></div></div></div>';
+  return glossary;
+
+}
+
 
 function getHelpPage() {
   var html = '<div class="modal fade" id="helpModal" tabindex="-1" role="dialog" aria-labelledby=""><div class="modal-dialog" style="max-width:none" role="document"><div class="modal-content"><div class="modal-header"><h4 class="modal-title" id="helpModalLabel">HELP</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><img src="dir/media/img/btn_close_help.png" alt="close the help page"></span></button></div><div class="modal-body"><div class="help-section"><h5>NAVIGATION</h5><div class="help-item"><h6>TABLE OF CONTENTS</h6><img src="dir/media/img/help_toc.png" alt="t.o.c. icon"/><p>Use this to navigate to different pages in the course.</p></div><div class="help-item"><h6>CONTENT AREA</h6><p>Content will appear here. Follow the on-screen instructions for videos or interactives. Some pages may scroll.</p></div><div class="help-item"><h6>PAGE COUNT</h6><img src="dir/media/img/help_page_count.png" alt="page count screen shot"/><p>Check your progress through the course.</p></div><div class="help-item"><h6>BACK/NEXT BUTTONS</h6><img src="dir/media/img/help_back_next.png" alt="page count screen shot"/><p>Use these buttons to move forward or backward in the course.</p></div></div><div class="help-section"><h5>HELP</h5><div class="help-item"><h6>HELP</h6><img src="dir/media/img/help_help.png" alt="page count screen shot"/><p>This page describes how to use the course.</p></div></div></div></div></div></div>';

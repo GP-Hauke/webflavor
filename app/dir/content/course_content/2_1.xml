@@ -7,12 +7,17 @@
     <![CDATA[
     <div class="row">
       <div class="col-md-12">
-        <p>Please Match the following cities with their states. Complete the task by dragging and dropping the items into their correct spots. Correct answers will turn green, while the wrong answers will turn red. Good luck!</p>
+        <p>Please Match the following cities with their states. Complete the task by dragging and dropping the items into their correct spots. Correct answers will turn green, while the wrong answers will turn red. <span class="bolded">You must attempt the game before advancing to the next page!</span> Good luck!</p>
       </div>
     </div>]]>
   </content>
 
   <drag_drop completed="false">
+    <gate lock="true">
+      <chapter>2</chapter>
+      <page>1</page>
+      <lock>1</lock>
+    </gate>
     <matchings>
       <pair>
         <drag>Washington DC</drag>

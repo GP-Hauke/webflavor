@@ -1,11 +1,11 @@
 /* GLOSSARY MODAL */
-#glossaryModal.modal {
+#resourcesModal.modal {
   overflow-y: hidden !important; }
 
-#glossaryModal.modal .modal-dialog {
+#resourcesModal.modal .modal-dialog {
   margin: 0; }
 
-#glossaryModal .modal-header {
+#resourcesModal .modal-header {
   background-color: #2b2b2b;
   position: absolute;
   width: 100%;
@@ -13,31 +13,35 @@
   display: block;
   border-radius: 0; }
 
-#glossaryModal.modal .modal-body {
-  padding-top: 120px;
+#resourcesModal.modal .modal-body {
+  padding-top: 65px;
   overflow-y: scroll; }
 
-#glossaryModal.modal .modal-body .gloss-item {
+#resourcesModal.modal .modal-body .gloss-item {
   border-bottom: 1px solid #cbc3c0;
   padding: 20px 0; }
 
-#glossaryModal .modal-title-wrapper {
+#resourcesModal.modal .modal-body .gloss-item p {
+  margin:0;
+}
+
+#resourcesModal .modal-title-wrapper {
   display: block;
   width: 100%; }
 
-#glossaryModal .modal-title {
+#resourcesModal .modal-title {
   display: inline-block;
   height: 100%;
   font-size: 30px;
   color: #000;
 }
 
-#glossaryModal .letterHeading {
+#resourcesModal .letterHeading {
   font-size: 30px;
   border-bottom: none;
   padding-bottom: 0; }
 
-#glossaryModal .alphabet {
+#resourcesModal .alphabet {
   display: block;
   width: 100%;
   text-align: center;
@@ -46,7 +50,7 @@
   margin-left: -10px;
 }
 
-#glossaryModal .alphabet a {
+#resourcesModal .alphabet a {
   text-decoration: none;
   font-size: 22px;
   font-weight: 400;
@@ -54,7 +58,7 @@
   opacity: .2;
   letter-spacing: 5px; }
 
-#glossaryModal .alphabet a:hover {
+#resourcesModal .alphabet a:hover {
   opacity: 1;
   font-weight: 600; }
 

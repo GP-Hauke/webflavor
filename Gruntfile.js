@@ -235,6 +235,35 @@ module.exports = function(grunt){
             src: 'dist/src/js/interface_functions.js'
         }
     },
+
+    xmlpoke: {
+      upperCaseTheY: {
+        options: {
+          xpath: '/x/text()',
+          value: function (node) { return number(node.nodeValue) + 1; }
+        },
+        files: {
+          'dist/example.xml': 'dist/example.xml',
+        },
+      },
+    },
+
+    bump: {
+      options: {
+        files: ['dist/dir/content/settings.xml'],
+        updateConfigs: [],
+        commit: false,
+        createTag: true,
+        tagName: 'v%version%',
+        tagMessage: 'Version %VERSION%',
+        push: false,
+        pushTo: 'upstream',
+        globalReplace: false,
+        prereleaseName: false,
+        metadata: '',
+        regExp: false
+      }
+    },
   });
 
   grunt.loadNpmTasks('grunt-contrib-copy');
@@ -248,8 +277,10 @@ module.exports = function(grunt){
   grunt.loadNpmTasks('grunt-convert');
   grunt.loadNpmTasks('grunt-cleanempty');
   grunt.loadNpmTasks('grunt-preprocess');
+  grunt.loadNpmTasks('grunt-xmlpoke');
+  grunt.loadNpmTasks('grunt-bump');
 
-  grunt.registerTask('test', ['preprocess']);
+  grunt.registerTask('test', ['bump']);
 
   grunt.registerTask(
     'build',

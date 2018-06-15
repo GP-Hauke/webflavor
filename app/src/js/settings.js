@@ -129,6 +129,34 @@ function addGlossaryToLocalStorage(xml) {
 }
 /*end ADD GLOSSARY TO LOCAL STORAGE */
 
+/* ADD GLOSSARY ITEMS TO LOCAL STORAGE */
+function addResourcesToLocalStorage(xml) {
+  var storage = localStorage.getItem(LOCAL_COURSE_DATA_ID);
+  var tempStorage = JSON.parse(storage);
+
+  tempStorage.resources = {"items":[]}
+
+  var itemsXML = $(xml).find("item");
+  var items = [];
+
+  for(var hl = 0; hl < itemsXML.length; hl++) {
+    item = {};
+
+    item.term = $(itemsXML[hl]).find('term').text();
+    item.definition = $(itemsXML[hl]).find('definition').text();
+    item.source = $(itemsXML[hl]).find('source').text();
+    item.name = $(itemsXML[hl]).find('name').text();
+    items.push(item);
+  }
+
+  tempStorage.resources.items = items;
+
+
+
+  localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(tempStorage));
+}
+/*end ADD GLOSSARY TO LOCAL STORAGE */
+
 
 function addSplashToLocalStorage(xml) {
   var storage = localStorage.getItem(LOCAL_COURSE_DATA_ID);
@@ -277,8 +305,13 @@ function loadInterfaceStyles() {
   });
 
   $(".add-theme-path-head").attr("href", function () {
+    $(this).attr("href").replace("theme-path", courseData.THEME_PATH);
+
     return $(this).attr("href").replace("theme-path", courseData.THEME_PATH);
+
+
   });
+
 }
 
 function loadContentStyles() {

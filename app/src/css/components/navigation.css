@@ -352,7 +352,7 @@ li.courseTitleChapterSelected {
 
     .chapterSelected {
       color: #ffffff;
-      font-size: 1.2em; 
+      font-size: 1.2em;
     }
 
     .chapterNotSelected {
@@ -363,3 +363,21 @@ li.courseTitleChapterSelected {
     .chapterTitle {
       cursor: pointer;
     }
+
+#headerLinks li:not(:last-child){
+  margin-right: 20px;
+}
+
+#headerLinks li a{
+  font-size: 20px;
+  font-weight: 500;
+  opacity: .7;
+}
+
+#headerLinks li a:hover,
+#headerLinks li a:active,
+#headerLinks li a:focus{
+  opacity: 1;
+  text-decoration: none;
+  background: none;
+}

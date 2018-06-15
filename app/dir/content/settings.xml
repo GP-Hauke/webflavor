@@ -4,7 +4,7 @@
   <courseTitle><![CDATA[HTML TEMPLATE]]></courseTitle>
   <courseSubTitle><![CDATA[WEBFLAVOR COURSE]]></courseSubTitle>
   <version>0.0.7</version>
-  <theme>gm_selling_skills</theme> <!-- active -->
+  <theme>maroon</theme> <!-- active -->
   <cookieName>cookie_gm_ssmftw</cookieName>
   <!--
   completionMethod values:
@@ -22,11 +22,9 @@
   <menuStyle>tab</menuStyle>
   <!-- COMPONENTS: Used components on the course -->
   <!-- valid values: "true", "false"-->
-  <hasSplashPage>true</hasSplashPage>
-  <hasGlossary>false</hasGlossary>
-  <hasResources>false</hasResources>
-  <hasCards>false</hasCards>
-  <hasStrings>false</hasStrings>
+  <hasSplashPage>false</hasSplashPage>
+  <hasGlossary>true</hasGlossary>
+  <hasResources>true</hasResources>
   <hasAssessments>true</hasAssessments>
   <hasDragDrops>true</hasDragDrops>
   <hasHotspots>true</hasHotspots>

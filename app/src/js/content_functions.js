@@ -348,7 +348,7 @@ function loadContent(param){
       initDragDrops(xml);
     }
     else if(component == 'hotspot'){
-      setupHotSpot(xml);
+      initHotspot(xml);
     }
 
 

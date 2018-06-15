@@ -8,32 +8,38 @@ function initDragDrops(dragDropContentXML) {
 
   courseData.dragDropData.VERSION = $(dragDropContentXML).find("version").text();
 
-  courseData.dragDropData.dragDrops = [];
+  //courseData.dragDropData.dragDrops = [];
 
-  for(var i = 0; i < $(dragDropContentXML).find("drag_drop").length; i++) {
-    var currentDragDrop = $(dragDropContentXML).find("drag_drop")[i];
+  var currentDragDrop = $(dragDropContentXML).find("drag_drop");
 
-    var dragDropObj = {
-      id: parseFloat($(currentDragDrop).attr("id")),
-      completed: $(currentDragDrop).attr("completed"),
-      score: 0,
-      title: $(currentDragDrop).attr("title"),
-      matchings: []
+  courseData.dragDropData = {
+    completed: $(currentDragDrop).attr("completed"),
+    score: 0,
+    matchings: []
+  };
+
+  $(currentDragDrop).find("pair").each(function() {
+    var currentPair = $(this);
+
+    var pair = {
+      drag: currentPair.find("drag").text(),
+      drop: currentPair.find("drop").text()
     };
+    courseData.dragDropData.matchings.push(pair);
+  });
 
-    $(currentDragDrop).find("pair").each(function() {
-      var currentPair = $(this);
-
-      var pair = {
-        drag: currentPair.find("drag").text(),
-        drop: currentPair.find("drop").text()
-      };
-      dragDropObj.matchings.push(pair);
-    });
-    courseData.dragDropData.dragDrops.push(dragDropObj);
+  var currentGate = $(dragDropContentXML).find("gate");
+  if(currentGate.attr("lock") == "true"){
+    courseData.dragDropData.gate = {
+      chapter: currentGate.find("chapter").text(),
+      page: currentGate.find("page").text(),
+      lock: currentGate.find("lock").text()
+    }
   }
-  localStorage.setItem(window.parent.LOCAL_COURSE_DATA_ID, JSON.stringify(courseData));
+
+  localStorage.setItem(window.parent.LOCAL_COURSE_DATA_ID,  JSON.stringify(courseData));
   setupDragDrop();
+
 }
 
 function setupDragDrop(){
@@ -45,12 +51,12 @@ function setupDragDrop(){
   var leftContainerHtml = '<div class="col-md-6 left">';
   var rightContainerHtml = '<div class="col-md-6 right">';
 
-  for(var i = 0; i < dragDropData.dragDrops[0].matchings.length; i++){
+  for(var i = 0; i < dragDropData.matchings.length; i++){
     var holderID = 'holder' + i;
     var draggableID = 'p' + i;
-    var draggableText = dragDropData.dragDrops[0].matchings[i].drag;
+    var draggableText = dragDropData.matchings[i].drag;
     var droppableID = 't' + i;
-    var droppableText = dragDropData.dragDrops[0].matchings[i].drop;
+    var droppableText = dragDropData.matchings[i].drop;
 
     var draggable = '<div class="item-container holder" id="'+ holderID +'" ondrop="drop_handler(event);" ondragover="dragover_handler(event);"><p class="draggable" id="'+ draggableID +'" draggable="true" ondragstart="dragstart_handler(event);" >'+ draggableText +'</p></div>';
 
@@ -131,6 +137,13 @@ function submitDragDrop(){
   var courseData = JSON.parse(localStorage.getItem(window.parent.LOCAL_COURSE_DATA_ID));
   var score = 0;
 
+  if(courseData.dragDropData.gate != null) {
+    var chapter = courseData.dragDropData.gate.chapter;
+    var page = courseData.dragDropData.gate.page;
+    var lock = courseData.dragDropData.gate.lock;
+    window.parent.openLock(chapter, page, lock);
+  }
+
   var answers = $('#dragAndDrop .right').children();
   for(var i = 0; i < answers.length; i++){
     var answerID = answers[i].id;
@@ -153,10 +166,10 @@ function submitDragDrop(){
       $('#'+matchID).addClass('wrong');
     }
   }
-  courseData.dragDropData.dragDrops[0].completed = true;
-  courseData.dragDropData.dragDrops[0].score = score;
+  courseData.dragDropData.completed = true;
+  courseData.dragDropData.score = score;
   localStorage.setItem(window.parent.LOCAL_COURSE_DATA_ID, JSON.stringify(courseData));
-  var percentage = courseData.dragDropData.dragDrops[0].matchings.length;
+  var percentage = courseData.dragDropData.matchings.length;
   var correctPercentage = score / percentage;
   correctPercentage = parseFloat(correctPercentage.toFixed(0));
   var gameFeedback;
@@ -175,6 +188,7 @@ function submitDragDrop(){
 
   gameFeedback += " <span> Total Score: +"+score+" points</span.>";
 
+
   $('#dragAndDrop .feedback').html(gameFeedback+'<a onclick="setupDragDrop();" class="btn btn-reversed ">Restart</a><a onclick="submitDragDrop();" class="btn btn-default-main">Submit</a>');
   $('#dragAndDrop .feedback').after('');
   $('#dragAndDrop .btn-reversed').on({
@@ -191,7 +205,7 @@ function submitDragDrop(){
       $(this).next().addClass('btn-default-main');
       $(this).next().removeClass('btn-reversed');
     }
-  })
+  });
 }
 
 // DRAG AND DROP CORE FUNCTIONALITY
@@ -222,20 +236,4 @@ function drop_handler(ev) {
 
   $(dragId).removeClass('correct');
   $(dragId).removeClass('wrong');
-
-  /*
-  if($(ev.target).hasClass('holder')){
-  $(dragId).removeClass('correct');
-  $(dragId).removeClass('wrong');
-}
-else if(dragVal.charAt(1) == dropVal.charAt(1)){
-$(dragId).addClass('correct');
-$(dragId).removeClass('wrong');
-
-}
-else{
-$(dragId).addClass('wrong');
-$(dragId).removeClass('correct');
-}
-*/
 }

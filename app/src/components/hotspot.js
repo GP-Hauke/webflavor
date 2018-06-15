@@ -26,12 +26,13 @@ function initHotspot(hotspotContentXML) {
 
 
   localStorage.setItem(window.parent.LOCAL_COURSE_DATA_ID, JSON.stringify(courseData));
+  setupHotSpot();
+
 }
 
 
 
-function setupHotSpot(xml){
-  initHotspot(xml);
+function setupHotSpot(){
 
   var courseData = JSON.parse(localStorage.getItem(window.parent.LOCAL_COURSE_DATA_ID));
 

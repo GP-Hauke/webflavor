@@ -1,0 +1,81 @@
+/*------------ NAVIGATION STYLES ------------*/
+/*Navigation Main Color*/
+nav.navbar {
+  background-color: #0193cf;
+}
+
+/*Navigation Secondary Color*/
+.navbar-collapse {
+  border: none;
+  background-color: #618eb5;
+}
+
+/*Navigation Current Page*/
+li.courseTitleChapterSelected {
+  background-color: #0193cf;
+}
+
+/*  Navigation Tabs Verion */
+.tabbed{
+  background: #fff !important;
+}
+
+.tabbed #navbarMobile {
+  max-width: 1450px;
+}
+
+.tabbed #navbarMobile li{
+  background: #fff;
+  color: #0193cf;
+  font-weight: 600;
+  line-height: 50px;
+  height: 50px;
+  font-size: 14px;
+}
+
+.tabbed #navbarMobile li.courseTitleChapterSelected {
+  background: #fff;
+  border-bottom: 3px solid #0193cf;
+}
+
+@media (max-width: 767px) {
+  .tabbed{
+    background: #0193cf !important;
+  }
+
+  .tabbed #navbarMobile {
+    display: block;
+    width: 100% !important;
+    margin: 0 auto;
+  }
+  .tabbed #navbarMobile li{
+    background: #0193cf;
+    color: #fff;
+    font-weight: 200;
+    line-height: 30px;
+    height: 30px;
+    position: relative;
+  }
+
+  .tabbed #navbarMobile li.courseTitleChapterSelected {
+    background: #618eb5;
+  }
+}
+
+/*Dropdown Navigation*/
+#navbarMain #navbarMobile .dropdown .dropdown-menu li{
+  background: #f7f7f7;
+  border: 2px solid transparent;
+  width: 100%;
+  display: block;
+  font-weight: 500;
+  margin-bottom: 1px;
+}
+
+#navbarMain #navbarMobile .dropdown .dropdown-menu li a{
+  color: #0193cf;
+}
+
+#navbarMain #navbarMobile .dropdown .dropdown-menu li:hover{
+  font-weight: 600;
+}

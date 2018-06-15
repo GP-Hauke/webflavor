@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+
+  <item>
+    <term><![CDATA[GP Strategies]]></term>
+    <definition><![CDATA[this resource is used to browse GP Strategies home web page.]]></definition>
+    <source><![CDATA[https://www.gpstrategies.com]]></source>
+    <name><![CDATA[www.gpstrategies.com]]></name>
+  </item>
+
+  <item>
+    <term><![CDATA[General Motors]]></term>
+    <definition><![CDATA[this resource is used to browse General Motors home web page.]]></definition>
+    <source><![CDATA[https://www.generalmotors.com]]></source>
+    <name><![CDATA[www.generalmotors.com]]></name>
+  </item>
+
+  <item>
+    <term><![CDATA[Buick]]></term>
+    <definition><![CDATA[this resource is used to browse Buick home web page.]]></definition>
+    <source><![CDATA[https://www.buick.com]]></source>
+    <name><![CDATA[www.buick.com]]></name>
+  </item>
+
+  <item>
+    <term><![CDATA[GMC]]></term>
+    <definition><![CDATA[this resource is used to browse GMC home web page.]]></definition>
+    <source><![CDATA[https://www.gmc.com]]></source>
+    <name><![CDATA[www.gmc.com]]></name>
+  </item>
+
+</resources>

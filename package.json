@@ -4,6 +4,7 @@
   "dependencies": {},
   "devDependencies": {
     "grunt": "^1.0.3",
+    "grunt-bump": "^0.8.0",
     "grunt-cleanempty": "^1.0.4",
     "grunt-contrib-clean": "^1.1.0",
     "grunt-contrib-compress": "^1.4.3",
@@ -15,6 +16,7 @@
     "grunt-convert": "^0.1.12",
     "grunt-preprocess": "^5.1.0",
     "grunt-replace": "^1.0.1",
-    "grunt-usemin": "^3.1.1"
+    "grunt-usemin": "^3.1.1",
+    "grunt-xmlpoke": "^0.10.1"
   }
 }

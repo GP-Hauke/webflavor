@@ -53,7 +53,7 @@ function loadXMLData() {
   courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
 
   if(courseData.HAS_RESOURCES === 'true' && resourcesLoaded === false) {
-    GetInterfaceXML("dir/content/course_resources.xml");
+    GetInterfaceXML("dir/content/resources.xml");
     return;
   }
 
@@ -96,12 +96,7 @@ function GetInterfaceXML(args) {
       initSettings(xml); // function lives in settings.js
       loadXMLData();
 
-    } else if(args.indexOf("course_resources") != -1) {
-      resourcesLoaded = true;
-      buildReources(xml);
-      loadXMLData();
-
-    } else if(args.indexOf("navigation") != -1) {
+    }else if(args.indexOf("navigation") != -1) {
       navigationLoaded = true;
       addNavToLocalStorage(xml);
       buildInterface();
@@ -117,16 +112,15 @@ function GetInterfaceXML(args) {
       initAssessments(xml); // lives in assessment_functions.js
       loadXMLData();
 
-    }else if(args.indexOf("strings") != -1) {
-      stringsLoaded = true;
-      buildStrings(xml);
-    }
-    else if(args.indexOf("glossary") != -1) {
+    }else if(args.indexOf("glossary") != -1) {
       glossaryLoaded = true;
       addGlossaryToLocalStorage(xml);
       loadXMLData();
-    }
-    else if(args.indexOf("splash") != -1) {
+    }else if(args.indexOf("resources") != -1) {
+      resourcesLoaded = true;
+      addResourcesToLocalStorage(xml);
+      loadXMLData();
+    }else if(args.indexOf("splash") != -1) {
       splashLoaded = true;
       addSplashToLocalStorage(xml);
       loadXMLData();
@@ -218,6 +212,7 @@ function checkXMLLoadingComplete() {
       $('#btnGlossary').click(function(){openModal('glossary');});
     }
     $('#btnHelpModal').click(function(){openModal('help');});
+    $('#btnResources').click(function(){openModal('resources');});
 
     $("#mainContainer").css("opacity",1);
     $("body").css("opacity",1);
@@ -827,6 +822,7 @@ function checkLock(chapter,page) {
 
 function openLock(chapter,page,lock) {
   if(lock >= courseData.chapters[chapter].pages[page].locks.length) {
+    console.log("true");
     return;
   }
 
