@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <splash>
-  <title><![CDATA[Selling Skills]]></title>
-  <caption><![CDATA[MATCH FEATURES TO WANTS AND NEEDS]]></caption>
-  <introduction><![CDATA[Knowing your lineup is your bread and butter. It pushes the conversations, builds rapport and ultimately puts the customer in the perfect vehicle. That means satisfation and great first step in building customers for life.
+  <title><![CDATA[HTML TEMPLATE]]></title>
+  <caption><![CDATA[WEBFLAVOR COURSE]]></caption>
+  <introduction><![CDATA[The following is the HTML WebFlavor Template for web based courses and learning. This demo course outlines many components that can be used in different HTML courses built from this template.
   <br>
   <br>
-  This game will help you learn the ins and outs of every new vehicle in your brand line-up. Click the button to start playing.]]>
+  Games, interactives, gating, assessments, and more are all included. Click <span class="bolded">Begin Course</span> to start.]]>
   </introduction>
 </splash>

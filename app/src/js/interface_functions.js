@@ -870,7 +870,7 @@ function calculateHeight() {
 
   //  $("#contentContainer").css({height:$(window).height() - 1, paddingTop:$("#navbar").height()});
   //$("#contentContainer").css({height:$(window).height() - 1});
-  $("#contentContainer").css({height:$(window).height()-51});
+  $("#contentContainer").css({height:$(window).height()-151});
 
   //---------------DEPRICATED AFTER REMOVING IFRAMES---------------
   //$("#contentFrame").css({height:$("#contentContainer").height()});

@@ -1,5 +1,6 @@
 
 .card {
+  perspective: 1500px;
   position: relative;
   height: 450px;
   border: 0;
@@ -12,9 +13,11 @@
   box-shadow: 0 1.50px 40px rgba(0, 0, 0, 0.15);
   height: 450px;
   width: 100%;
+  transition: all 800ms ease;
   position: absolute;
   top: 0;
   left: 0;
+  backface-visibility: hidden;
 }
 
 .card__side--front {
@@ -25,6 +28,15 @@
 
 .card__side--back {
   z-index: -1;
+  transform: rotateY(180deg);
+}
+
+.card:hover .card__side--front {
+  transform: rotateY(-180deg);
+}
+
+.card:hover .card__side--back {
+  transform: rotateY(0deg);
 }
 
 .card__cta {
@@ -40,4 +52,24 @@
   font-size: 35px;
   font-weight: 100;
   text-align: center;
+}
+
+a.show-more {
+  font-family: 'GMGlobalSansCond';
+  font-size: 20px;
+  border: 1px solid #fff;
+  color: #ffffff !important;
+  padding: 5px;
+  border-radius: 8px;
+  opacity: .5;
+  display: block;
+  width: 80%;
+  margin: 0 auto;
+}
+
+a.show-more:hover,
+a.show-more:active,
+a.show-more:focus {
+  text-decoration: none;
+  opacity:1;
 }

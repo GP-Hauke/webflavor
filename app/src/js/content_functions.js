@@ -336,6 +336,11 @@ function loadContent(param){
     $('#pageContent').append(titleHTML);
     $('#pageContent').append($(xml).find('content').text());
 
+    var completion = $(xml).find("content").attr("completion");
+    if(completion){
+      $('#pageContainer').addClass("completion");
+    }
+
     //CERTAIN PAGES NEED SPECIFIC METHODS RUN FOR THE COMPONENTS
     //MUST BE RUN AFTER THE CONTENT HAS LOADED
     //MOVED FROM HTML BODY onLoad="" TO HERE DUE TO ASYNC
