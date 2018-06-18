@@ -13,9 +13,9 @@
   </chapter>
 
   <chapter>
-    <title><![CDATA[COURSE COMPLETION]]></title>
+    <title><![CDATA[FLIP CARD COMPONENT]]></title>
     <pages>
-      <page gated="false" locks="0" audio=""><![CDATA[COURSE COMPLETION]]></page>
+      <page gated="false" locks="0" audio=""><![CDATA[FLIP CARD COMPONENT]]></page>
     </pages>
   </chapter>
 
@@ -31,6 +31,13 @@
     <title><![CDATA[HOT SPOT COMPONENT]]></title>
     <pages>
       <page gated="false" locks="0" audio=""><![CDATA[HOT SPOT COMPONENT]]></page>
+    </pages>
+  </chapter>
+
+  <chapter>
+    <title><![CDATA[COURSE COMPLETION]]></title>
+    <pages>
+      <page gated="false" locks="0" audio=""><![CDATA[COURSE COMPLETION]]></page>
     </pages>
   </chapter>
 

@@ -2,6 +2,7 @@
 @import "interactives/assessment.css";
 @import "interactives/hotspot.css";
 @import "interactives/ctr.css";
+@import "interactives/card.css";
 
 @import "components/splash.css";
 @import "components/help.css";
@@ -98,11 +99,7 @@ h2.section-title {
   font-style: italic;
 }
 
-#splashPageModal .modal-dialog .modal-content{
-  background-image: url('../../../dir/media/img/assets/bg_completion.jpg');
-  height: 800px;
-  background-repeat: no-repeat;
-}
+
 
 .page-container.completion {
   background: url(../../dir/media/img/assets/bg_completion.jpg) center center/cover no-repeat fixed; }

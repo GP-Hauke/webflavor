@@ -27,52 +27,14 @@
     <!-- build:js ../../components/components.js -->
     <script type="text/javascript" src="../modal_functions.js"></script>
     <script type="text/javascript" src="../ctr.js"></script>
-    <script type="text/javascript" src="../card.js"></script>
     <!-- endbuild -->
 
     <link type="text/css" rel="stylesheet" href="../../css/default.css"/>
     <link type="text/css" rel="stylesheet" href="../../../theme-path/theme.css" class="add-theme-path-head"/>
-
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-
-    <script>
-    CSSPlugin.defaultTransformPerspective = 1000;
-
-//we set the backface
-TweenMax.set($(".cardBack"), {rotationY:-180});
-
-$.each($(".cardCont"), function(i,element) {
-
-var frontCard = $(this).children(".cardFront"),
-    backCard = $(this).children(".cardBack"),
-    tl = new TimelineMax({paused:true});
-
-tl
-  .to(frontCard, 1, {rotationY:180})
-  .to(backCard, 1, {rotationY:0},0)
-  .to(element, .5, {z:50},0)
-  .to(element, .5, {z:0},.5);
-
-element.animation = tl;
-
-});
-
-$(".cardCont").hover(elOver, elOut);
-
-function elOver() {
-  this.animation.play();
-}
-
-function elOut() {
-  this.animation.reverse();
-}
-
-    </script>
   </head>
-  <body style="overflow:auto;" onload="loadContent('1_0'); loadContentStyles(); initCommonFunctions();">
+  <body style="overflow:auto;" onload="loadContent('4_0'); loadContentStyles(); initCommonFunctions();">
 
-    <div id="pageContainer" class="page-container container">
+    <div id="pageContainer" class="page-container completion container">
       <div id="pageContent">
 
       </div>

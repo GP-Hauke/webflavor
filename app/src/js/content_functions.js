@@ -350,6 +350,9 @@ function loadContent(param){
     else if(component == 'hotspot'){
       initHotspot(xml);
     }
+    else if(component == 'cards'){
+      initCards(xml);
+    }
 
 
     var courseData = JSON.parse(localStorage.getItem(window.parent.LOCAL_COURSE_DATA_ID));

@@ -16,9 +16,8 @@ module.exports = function(grunt){
 
     copy: {
       build: {
-
         cwd: 'app',
-        src: ['**', '!**/components/*.js', '!**/api/**', '!**/component/**'],
+        src: ['**', '!**/components/*.js', '!**/api/**', '!**/component/**', '!**/themes/*/'],
         dest: 'dist',
         expand: true,
 
@@ -56,48 +55,34 @@ module.exports = function(grunt){
             return true;
           }
 
-          else if(require('path').dirname(filepath) == "app\\src\\vendors\\create_js"){
+          else if(require('path').relative(require('path').dirname(filepath), 'app\\dir\\themes') == '..'){
+            var dir = require('path').dirname(filepath)
+            var json = grunt.file.readJSON('settings.json');
+
+            var required = 'app\\dir\\themes\\'+json.settings.theme;
+
+            if(dir != required){
+              return false;
+
+            }
+          }
+
+          else if(require('path').dirname(filepath) == "app\\dir\\themes"){
             var path = require('path').basename(filepath)
             var json = grunt.file.readJSON('settings.json');
 
-            if(json.settings.vendors.createJS == 'false'){
+            if(path != json.settings.theme){
               return false;
             }
           }
 
-          else if(require('path').dirname(filepath) == "app\\src\\vendors\\flip_card"){
-            var path = require('path').basename(filepath)
+          else if(require('path').relative(require('path').dirname(filepath), 'app\\src\\vendors') == '..'){
+            var dir = require('path').dirname(filepath).split(require('path').sep)
             var json = grunt.file.readJSON('settings.json');
 
-            if(json.settings.vendors.flipCard == 'false'){
-              return false;
-            }
-          }
-
-          else if(require('path').dirname(filepath) == "app\\src\\vendors\\font_awesome"){
-            var path = require('path').basename(filepath)
-            var json = grunt.file.readJSON('settings.json');
-
-            if(json.settings.vendors.fontAwesome == 'false'){
-              return false;
-            }
-          }
-
-          else if(require('path').dirname(filepath) == "app\\src\\vendors\\glyphicons"){
-            var path = require('path').basename(filepath)
-            var json = grunt.file.readJSON('settings.json');
-
-            if(json.settings.vendors.glyphicons == 'false'){
-              return false;
-            }
-          }
-
-          else if(require('path').dirname(filepath) == "app\\src\\vendors\\signals"){
-            var path = require('path').basename(filepath)
-            var json = grunt.file.readJSON('settings.json');
-
-            if(json.settings.vendors.signals == 'false'){
-              grunt.log.oklns("WORKED");
+            //var required = 'app\\dir\\themes\\'+json.settings.theme;
+            var folder = dir[dir.length -1];
+            if(json.settings.vendors[folder] == "false"){
               return false;
             }
           }
@@ -108,12 +93,12 @@ module.exports = function(grunt){
 
       vendors: {
         files: [
-            {
-              expand: true,
-              src: ['dist/src/vendors/**/*.ttf','dist/src/vendors/**/*.otf','dist/src/vendors/**/*.eot','dist/src/vendors/**/*.svg','dist/src/vendors/**/*.woff','dist/src/vendors/**/*.woff2'],
-              dest: 'dist/src/vendors',
-              flatten: true
-            }
+          {
+            expand: true,
+            src: ['dist/src/vendors/**/*.ttf','dist/src/vendors/**/*.otf','dist/src/vendors/**/*.eot','dist/src/vendors/**/*.svg','dist/src/vendors/**/*.woff','dist/src/vendors/**/*.woff2'],
+            dest: 'dist/src/vendors',
+            flatten: true
+          }
         ]
       }
     },
@@ -128,25 +113,25 @@ module.exports = function(grunt){
     },
 
     cssmin: {
-        target: {
-          files: [{
-            expand: true,
-            cwd: 'dist/dir/themes',
-            src: ['**/theme.css'],
-            dest: 'dist/dir/themes',
-            ext: '.css'
-          },
-          {
-            expand: true,
-            cwd: 'dist/src/css',
-            src: ['default.css'],
-            dest: 'dist/src/css',
-            ext: '.css'
-          },
-          {
-            'dist/src/vendors/vendors.min.css': ['dist/src/vendors/**/*.min.css']
-          }]
-        }
+      target: {
+        files: [{
+          expand: true,
+          cwd: 'dist/dir/themes',
+          src: ['**/theme.css'],
+          dest: 'dist/dir/themes',
+          ext: '.css'
+        },
+        {
+          expand: true,
+          cwd: 'dist/src/css',
+          src: ['default.css'],
+          dest: 'dist/src/css',
+          ext: '.css'
+        },
+        {
+          'dist/src/vendors/vendors.min.css': ['dist/src/vendors/**/*.min.css']
+        }]
+      }
     },
 
     uglify: {
@@ -189,10 +174,10 @@ module.exports = function(grunt){
           archive: 'dist/scorm_package.zip'
         },
         files: [{
-           src: ['**/*'],
-           cwd: 'dist/',
-           expand: true
-       }]
+          src: ['**/*'],
+          cwd: 'dist/',
+          expand: true
+        }]
       }
     },
 
@@ -201,39 +186,39 @@ module.exports = function(grunt){
         explicitArray: false,
       },
       xml2json: {
-          files: [
-            {
-              expand: true,
-              cwd: 'app/dir/content/',
-              src: ['settings.xml'],
-              dest: '',
-              ext: '.json'
-            }
-          ]
+        files: [
+          {
+            expand: true,
+            cwd: 'app/dir/content/',
+            src: ['settings.xml'],
+            dest: '',
+            ext: '.json'
+          }
+        ]
       },
       jsonconvert: {
-          files: [
-            {
-              expand: true,
-              cwd: 'app/dir/content/',
-              src: ['*.xml'],
-              dest: 'xmlJson',
-              ext: '.json'
-            }
-          ]
+        files: [
+          {
+            expand: true,
+            cwd: 'app/dir/content/',
+            src: ['*.xml'],
+            dest: 'xmlJson',
+            ext: '.json'
+          }
+        ]
       }
     },
 
     preprocess : {
-        options: {
-            inline: true,
-            context : {
-                DEBUG: false
-            }
-        },
-        js : {
-            src: 'dist/src/js/interface_functions.js'
+      options: {
+        inline: true,
+        context : {
+          DEBUG: false
         }
+      },
+      js : {
+        src: 'dist/src/js/interface_functions.js'
+      }
     },
 
     xmlpoke: {

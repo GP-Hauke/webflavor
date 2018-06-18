@@ -36,3 +36,32 @@
 
 .splash-page img {
   cursor: pointer; }
+
+#splashPageModal .modal-dialog .modal-content{
+  background-image: url('../../../dir/media/img/assets/bg_completion.jpg');
+  background-size: cover;
+  background-position: center;
+
+  height: 800px;
+  background-repeat: no-repeat;
+}
+
+#splashPageModal .splashTitle{
+  margin: 0;
+  padding: 40px 0 0 60px;
+}
+
+@media (max-width: 900px) {
+
+  #beginCourse{
+    font-size: 18px;
+  }
+
+}
+
+@media (max-width: 768px) {
+  #splashPageModal .splashTitle{
+    margin: 0;
+    padding: 30px;
+  }
+}

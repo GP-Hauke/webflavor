@@ -22,7 +22,7 @@
   <menuStyle>tab</menuStyle>
   <!-- COMPONENTS: Used components on the course -->
   <!-- valid values: "true", "false"-->
-  <hasSplashPage>false</hasSplashPage>
+  <hasSplashPage>true</hasSplashPage>
   <hasGlossary>true</hasGlossary>
   <hasResources>true</hasResources>
   <hasAssessments>true</hasAssessments>
@@ -48,9 +48,9 @@
   <!-- VENDORS: Used vendors in the course -->
   <!-- valid values: "true", "false"-->
   <vendors>
-    <createJS>false</createJS>
-    <flipCard>false</flipCard>
-    <fontAwesome>true</fontAwesome>
+    <create_js>false</create_js>
+    <flip_card>false</flip_card>
+    <font_awesome>true</font_awesome>
     <glyphicons>true</glyphicons>
   </vendors>
 </settings>

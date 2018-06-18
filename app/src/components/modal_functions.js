@@ -66,7 +66,7 @@ function getSplashPage() {
   var intro = courseData.splash.introduction;
 
 
-  var html = '<div class="modal" id="splashPageModal" tabindex="-1" role="dialog" aria-labelledby="splashPageModalLabel"><div class="modal-dialog" role="document" style="max-width: 1000px"><div class="modal-content"><div class="row"><div class="col-md-5 col"><h3>'+title+'</h3><h1>'+caption+'</h1><p>'+intro+'</p> <a id="beginCourse" class="btn btn-default d-block mx-auto" role="button">Begin Course</a></div></div></div></div></div><audio autoplay><source src="dir/media/audio/0.mp3"/></audio>';
+  var html = '<div class="modal" id="splashPageModal" tabindex="-1" role="dialog" aria-labelledby="splashPageModalLabel"><div class="modal-dialog" role="document" style="max-width: 1000px"><div class="modal-content"><div class="row"><div class="col-md-5 col splashTitle"><h3>'+title+'</h3><h1>'+caption+'</h1><p>'+intro+'</p> <a id="beginCourse" class="btn btn-default d-block mx-auto" role="button">Begin Course</a></div></div></div></div></div><audio autoplay><source src="dir/media/audio/0.mp3"/></audio>';
 
   return html;
 }

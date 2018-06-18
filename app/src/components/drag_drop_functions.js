@@ -48,8 +48,8 @@ function setupDragDrop(){
   var courseData = JSON.parse(localStorage.getItem(window.parent.LOCAL_COURSE_DATA_ID));
   var dragDropData= courseData.dragDropData;
 
-  var leftContainerHtml = '<div class="col-md-6 left">';
-  var rightContainerHtml = '<div class="col-md-6 right">';
+  var leftContainerHtml = '<div class="col-6 left">';
+  var rightContainerHtml = '<div class="col-6 right">';
 
   for(var i = 0; i < dragDropData.matchings.length; i++){
     var holderID = 'holder' + i;
