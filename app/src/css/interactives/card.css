@@ -18,7 +18,7 @@
 }
 
 .card__side--front {
-  background: rgba(0, 48, 86, 1);
+  background: rgba(43, 43, 43, 1);
   z-index: 1;
   color: white;
 }

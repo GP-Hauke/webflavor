@@ -184,7 +184,6 @@ function checkXMLLoadingComplete() {
       var goToPage = courseData.localBookmarkingStorage;
 
       currentChapter = goToPage.chapter;
-
       currentPage = goToPage.page;
 
     } else {
@@ -193,6 +192,7 @@ function checkXMLLoadingComplete() {
       if(bm && bm != "" && bm.indexOf("_")) {
         if(!isNaN(parseInt(bm.split("_")[0],10))) {
           currentChapter = parseInt(bm.split("_")[0],10);
+
         }
 
         if(!isNaN(parseInt(bm.split("_")[1],10))) {
@@ -205,7 +205,7 @@ function checkXMLLoadingComplete() {
     loadPage();
 
     enforcedShow($("#mainContainer"));
-    if(courseData.HAS_SPLASH_PAGE === 'true' && currentChapter === 0 && currentPage === 0) {
+    if(courseData.HAS_SPLASH_PAGE === 'true' && currentChapter === 1 && currentPage === 0) {
       openModal('splashPage');
     }
     if(courseData.HAS_GLOSSARY === 'true') {
@@ -241,6 +241,7 @@ function resumeYes() {
 
 function resumeNo() {
   $("#resumeFrame").hide();
+
   openPage(0,0)
 }
 
@@ -268,13 +269,13 @@ function buildTopNav() {
         mobileMenuButton = '<li id="courseTitleChapter'+i+'" class="courseTitleChapter dropdown"><p data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">'+courseData.chapters[i].title+'</p><ul class="dropdown-menu">';
 
         for(var j = 0; j < courseData.chapters[i].pages.length; j++) {
-          mobileMenuButton = mobileMenuButton + '<li onclick = "openPage('+i+','+j+')"><p>'+courseData.chapters[i].pages[j].title+'</p></li>';
+          mobileMenuButton = mobileMenuButton + '<li onclick = "openPage('+eval(i+1)+','+j+')"><p>'+courseData.chapters[i].pages[j].title+'</p></li>';
         }
 
         mobileMenuButton = mobileMenuButton + '</ul></li>';
 
       } else {
-        mobileMenuButton = '<li class="courseTitleChapter" id="courseTitleChapter'+i+'" onclick="openPage('+i+',0)"><p>'+courseData.chapters[i].title+'</p></li>';
+        mobileMenuButton = '<li class="courseTitleChapter" id="courseTitleChapter'+i+'" onclick="openPage('+eval(i+1)+',0)"><p>'+courseData.chapters[i].title+'</p></li>';
       }
 
       mobileNav = mobileNav + mobileMenuButton;
@@ -536,10 +537,10 @@ function buildNoneNav() {
 }
 
 function openPage(c,p) {
-  if(!checkLock(c,p)) {
+  if(!checkLock(c -1 ,p)) {
     return;
   }
-  currentChapter = c;
+  currentChapter = c - 1;
   currentPage = p;
   loadPage();
 }
@@ -560,7 +561,6 @@ function nextPage() {
 
       currentPage++;
       //courseData.localBookmarkingStorage.page += 1;
-
       loadPage();
 
     }
@@ -570,6 +570,7 @@ function nextPage() {
         pageIsLoading=false;
         return;
       }
+
 
       do {
         currentChapter++;
@@ -618,7 +619,14 @@ function loadPage() {
   pageIsLoading = false;
   $("body").scrollTop(0);
 
-  document.getElementById("contentFrame").src="src/components/content/"+courseData.chapters[currentChapter].pages[currentPage].file+".html";
+  //document.getElementById("contentFrame").src="src/components/content/"+courseData.chapters[currentChapter].pages[currentPage].file+".html";
+
+  $.get("src/components/content/content.html", function(data, status){
+    $("#contentContainer").html(data);
+
+    loadContent(eval(currentChapter+1)+'_'+currentPage);
+  });
+
 
   $(".footer-nav").html(getFooterNav());
 }
@@ -813,6 +821,7 @@ function checkLock(chapter,page) {
       }
 
       if(courseData.chapters[i].pages[j].gated && courseData.chapters[i].pages[j].locks.toString().indexOf("0")!=-1 && courseData.chapters[i].isActive=="true") {
+
         return false;
       }
     }
@@ -822,7 +831,6 @@ function checkLock(chapter,page) {
 
 function openLock(chapter,page,lock) {
   if(lock >= courseData.chapters[chapter].pages[page].locks.length) {
-    console.log("true");
     return;
   }
 
@@ -861,11 +869,13 @@ function calculateHeight() {
   //  console.log($("#navbar").height());
 
   //  $("#contentContainer").css({height:$(window).height() - 1, paddingTop:$("#navbar").height()});
-  $("#contentContainer").css({height:$(window).height() - 1});
+  //$("#contentContainer").css({height:$(window).height() - 1});
+  $("#contentContainer").css({height:$(window).height()-51});
 
-  //  $("#contentFrame").css({height:$("#contentContainer").height()});
-  $("#contentFrame").css({height:$("#contentContainer").height() - $("#navbar").height(), top:$("#navbar").height()});
-  //  $("#contentFrame").css({height:$("#contentContainer").height() - 7});
+  //---------------DEPRICATED AFTER REMOVING IFRAMES---------------
+  //$("#contentFrame").css({height:$("#contentContainer").height()});
+  //$("#contentFrame").css({height:$("#contentContainer").height() - $("#navbar").height(), top:$("#navbar").height()});
+  //$("#contentFrame").css({height:$("#contentContainer").height() - 7});
 
   $("#audioBar").width($("#mainContainer").width()-216-$("#navBtns").width());
 }

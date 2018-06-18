@@ -266,7 +266,6 @@ function tallyActions() {
 function setupAssessment() {
 
   var courseData = JSON.parse(localStorage.getItem(window.parent.LOCAL_COURSE_DATA_ID));
-  console.log("setupassessment");
   var assessmentID = parseInt($(".btn-assess").attr("id").substring(13,15), 10) - 1;
 
   if(assessmentID === 0){

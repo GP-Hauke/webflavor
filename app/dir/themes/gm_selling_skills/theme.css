@@ -50,3 +50,7 @@ h1#pageTitle {
 footer.footer {
   background-color: rgba(154, 154, 154, 0.9);
 }
+
+.card__side--front {
+  background: rgba(0, 48, 86, 1);
+}
