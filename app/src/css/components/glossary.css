@@ -48,11 +48,13 @@
 
 #glossaryModal .alphabet a {
   text-decoration: none;
-  font-size: 22px;
+  font-size: 19px;
   font-weight: 400;
   color: black;
   opacity: .2;
-  letter-spacing: 5px; }
+  letter-spacing: 5px;
+  color: white;
+}
 
 #glossaryModal .alphabet a:hover {
   opacity: 1;
@@ -63,4 +65,8 @@
 .modal-header .close {
   padding: 0;
   padding-right: 1rem;
+}
+
+#glossaryModal .modal-header h4{
+  color: white;
 }

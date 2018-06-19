@@ -4,7 +4,7 @@
   <courseTitle><![CDATA[HTML TEMPLATE]]></courseTitle>
   <courseSubTitle><![CDATA[WEBFLAVOR COURSE]]></courseSubTitle>
   <version>0.0.7</version>
-  <theme>maroon</theme> <!-- active -->
+  <theme>gm_selling_skills</theme> <!-- active -->
   <cookieName>cookie_gm_ssmftw</cookieName>
   <!--
   completionMethod values:

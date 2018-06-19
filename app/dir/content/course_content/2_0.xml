@@ -6,39 +6,30 @@
     <![CDATA[
     <div class="row">
       <div class="col-sm-12">
-        <p id="sectionComplete">Click each card to flip it over and see more information about the topic.</p>
+        <p id="sectionComplete">Hover over each card to flip it over and see more information about the topic.</p>
       </div>
-    </div>
+    </div>]]>
+  </content>
 
-    <div class="row">
-      <div class="col-md-3 col-sm-6 margin-below">
-        <div class="cardCont">
-          <div class="cardBack"><p>BACK SIDE<p></div>
-          <div class="cardFront"><h4>FRONT SIDE</h4></div>
-        </div>
-      </div>
+  <cards completed="false">
+    <card>
+      <front><![CDATA[FRONT SIDE]]></front>
+      <back><![CDATA[back]]></back>
+    </card>
 
-      <div class="col-md-3 col-sm-6 margin-below">
-        <div class="cardCont">
-          <div class="cardBack"><p>BACK SIDE<p></div>
-          <div class="cardFront"><h4>FRONT SIDE</h4></div>
-        </div>
-      </div>
+    <card>
+      <front><![CDATA[FRONT SIDE]]></front>
+      <back><![CDATA[back]]></back>
+    </card>
 
-      <div class="col-md-3 col-sm-6 margin-below">
-        <div class="cardCont">
-          <div class="cardBack"><p>BACK SIDE<p></div>
-          <div class="cardFront"><h4>FRONT SIDE</h4></div>
-        </div>
-      </div>
+    <card>
+      <front><![CDATA[FRONT SIDE]]></front>
+      <back><![CDATA[back]]></back>
+    </card>
 
-      <div class="col-md-3 col-sm-6 margin-below">
-        <div class="cardCont">
-          <div class="cardBack"><p>BACK SIDE<p></div>
-          <div class="cardFront"><h4>FRONT SIDE</h4></div>
-        </div>
-      </div>
-    </div>
-  ]]>
-</content>
+    <card>
+      <front><![CDATA[FRONT SIDE]]></front>
+      <back><![CDATA[back]]></back>
+    </card>
+  </cards>
 </page>

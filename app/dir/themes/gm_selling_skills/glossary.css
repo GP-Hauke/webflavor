@@ -11,4 +11,13 @@
 
 /*Glossary Modal Alphabet*/
 #glossaryModal .alphabet a {
+  font-size: 22px;
+}
+
+#resourcesModal .modal-header {
+  background-color: #618eb5;
+}
+
+#resourcesModal .modal-header h4{
+  color: white;
 }
