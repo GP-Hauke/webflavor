@@ -4,7 +4,7 @@ function initDragDrops(dragDropContentXML) {
     location.reload();
   }
 
-  var courseData = JSON.parse(localStorage.getItem(window.parent.LOCAL_COURSE_DATA_ID));
+  var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
 
   courseData.dragDropData.VERSION = $(dragDropContentXML).find("version").text();
 
@@ -37,7 +37,7 @@ function initDragDrops(dragDropContentXML) {
     }
   }
 
-  localStorage.setItem(window.parent.LOCAL_COURSE_DATA_ID,  JSON.stringify(courseData));
+  localStorage.setItem(LOCAL_COURSE_DATA_ID,  JSON.stringify(courseData));
   setupDragDrop();
 
 }
@@ -45,7 +45,7 @@ function initDragDrops(dragDropContentXML) {
 function setupDragDrop(){
   $('#dragAndDrop').remove();
 
-  var courseData = JSON.parse(localStorage.getItem(window.parent.LOCAL_COURSE_DATA_ID));
+  var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
   var dragDropData= courseData.dragDropData;
 
   var leftContainerHtml = '<div class="col-6 left">';
@@ -134,14 +134,14 @@ function shuffleDrops(){
 }
 
 function submitDragDrop(){
-  var courseData = JSON.parse(localStorage.getItem(window.parent.LOCAL_COURSE_DATA_ID));
+  var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
   var score = 0;
 
   if(courseData.dragDropData.gate != null) {
     var chapter = courseData.dragDropData.gate.chapter;
     var page = courseData.dragDropData.gate.page;
     var lock = courseData.dragDropData.gate.lock;
-    window.parent.openLock(chapter, page, lock);
+    openLock(chapter, page, lock);
   }
 
   var answers = $('#dragAndDrop .right').children();
@@ -168,7 +168,7 @@ function submitDragDrop(){
   }
   courseData.dragDropData.completed = true;
   courseData.dragDropData.score = score;
-  localStorage.setItem(window.parent.LOCAL_COURSE_DATA_ID, JSON.stringify(courseData));
+  localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(courseData));
   var percentage = courseData.dragDropData.matchings.length;
   var correctPercentage = score / percentage;
   correctPercentage = parseFloat(correctPercentage.toFixed(0));

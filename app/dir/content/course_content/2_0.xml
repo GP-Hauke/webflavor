@@ -10,65 +10,35 @@
       </div>
     </div>
 
-    <div class="row margin-below">
-      <div class="col-md-4">
-        <div class="card">
-          <div class="card__side card__side--front">
-            <div class="card__cta">
-              <h4>Open Ended</h4>
-              <a class="show-more" target="_blank">Click for More</a>
-            </div>
-          </div>
-          <div class="card__side card__side--back ">
-            <div class="card__cta">
-              <p class="top-paragraph ">Uncover and discover a customer’s wants and needs by asking open-ended questions.</p>
-              <p class="top-paragraph ">These questions start with who, what, when, where, why and how. </p>
-              <p class="top-paragraph ">Use them during the needs awareness / meet and greet phase and the information search / needs analysis phase.</p>
-            </div>
-          </div>
+    <div class="row">
+      <div class="col-md-3 col-sm-6 margin-below">
+        <div class="cardCont">
+          <div class="cardBack"><p>BACK SIDE<p></div>
+          <div class="cardFront"><h4>FRONT SIDE</h4></div>
         </div>
       </div>
 
-      <div class="col-md-4">
-        <div class="card">
-          <div class="card__side card__side--front">
-            <div class="card__cta">
-              <h4>Either/Or</h4>
-              <a class="show-more" target="_blank">Click for More</a>
-            </div>
-          </div>
-
-          <div class="card__side card__side--back ">
-            <div class="card__cta">
-              <p class="top-paragraph ">Either/or questions help you narrow down what a customer is looking for. </p>
-              <p class="top-paragraph ">When you ask these questions, you typically give your customer two choices.</p>
-              <p class="top-paragraph ">Use them during the needs awareness / needs analysis phase or presentation / evaluate choices phases.</p>
-            </div>
-          </div>
+      <div class="col-md-3 col-sm-6 margin-below">
+        <div class="cardCont">
+          <div class="cardBack"><p>BACK SIDE<p></div>
+          <div class="cardFront"><h4>FRONT SIDE</h4></div>
         </div>
       </div>
 
-      <div class="col-md-4 margin-below">
-        <div class="card">
-          <div class="card__side card__side--front">
-            <div class="card__cta">
-              <h4>Closed</h4>
-              <a class="show-more" target="_blank">Click for More</a>
-            </div>
-          </div>
+      <div class="col-md-3 col-sm-6 margin-below">
+        <div class="cardCont">
+          <div class="cardBack"><p>BACK SIDE<p></div>
+          <div class="cardFront"><h4>FRONT SIDE</h4></div>
+        </div>
+      </div>
 
-          <div class="card__side card__side--back ">
-            <div class="card__cta">
-              <p class="top-paragraph ">Closed questions are valuable for getting exact answers or for fact-finding. (For example, “Do you have insurance?”)</p>
-              <p class="top-paragraph ">They help move a sale forward during the presentation / evaluate choices phase.</p>
-              <p class="top-paragraph ">Asking yes questions helps warm up a customer to saying yes. Use yes questions throughout the sales process.</p>
-            </div>
-          </div>
+      <div class="col-md-3 col-sm-6 margin-below">
+        <div class="cardCont">
+          <div class="cardBack"><p>BACK SIDE<p></div>
+          <div class="cardFront"><h4>FRONT SIDE</h4></div>
         </div>
       </div>
     </div>
-
-
-    ]]>
-  </content>
+  ]]>
+</content>
 </page>

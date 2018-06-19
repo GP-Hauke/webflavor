@@ -4,7 +4,7 @@ function initHotspot(hotspotContentXML) {
     location.reload();
   }
 
-  var courseData = JSON.parse(localStorage.getItem(window.parent.LOCAL_COURSE_DATA_ID));
+  var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
 
   courseData.hotspotData.VERSION = $(hotspotContentXML).find("version").text();
 
@@ -25,7 +25,7 @@ function initHotspot(hotspotContentXML) {
   });
 
 
-  localStorage.setItem(window.parent.LOCAL_COURSE_DATA_ID, JSON.stringify(courseData));
+  localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(courseData));
   setupHotSpot();
 
 }
@@ -34,7 +34,7 @@ function initHotspot(hotspotContentXML) {
 
 function setupHotSpot(){
 
-  var courseData = JSON.parse(localStorage.getItem(window.parent.LOCAL_COURSE_DATA_ID));
+  var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
 
 
   var html ='<div class="row margin-below"><div class="col-md-12"><div id="hotSpot"><img class="hotSpot-img" src="../../../dir/media/img/assets/City-Map.jpg">';

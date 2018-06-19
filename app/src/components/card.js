@@ -1,12 +1,34 @@
 function initCards(){
-  $('.card').click(function(){
-    var frontIndex = $(this).find('.card__side--front').css('z-index');
-    var backIndex = $(this).find('.card__side--back').css('z-index');
 
-    frontIndex *= -1;
-    backIndex *= -1;
+  CSSPlugin.defaultTransformPerspective = 1000;
 
-    $(this).find('.card__side--front').css('z-index', frontIndex);
-    $(this).find('.card__side--back').css('z-index', backIndex);
+  //we set the backface
+  TweenMax.set($(".cardBack"), {rotationY:-180});
+
+  $.each($(".cardCont"), function(i,element) {
+
+  	var frontCard = $(this).children(".cardFront"),
+        backCard = $(this).children(".cardBack"),
+        tl = new TimelineMax({paused:true});
+
+  	tl
+  		.to(frontCard, 1, {rotationY:180})
+  		.to(backCard, 1, {rotationY:0},0)
+  		.to(element, .5, {z:50},0)
+  		.to(element, .5, {z:0},.5);
+
+  	element.animation = tl;
+
   });
+
+  $(".cardCont").hover(elOver, elOut);
+
+  function elOver() {
+      this.animation.play();
+  }
+
+  function elOut() {
+      this.animation.reverse();
+  }
+
 }
