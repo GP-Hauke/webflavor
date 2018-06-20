@@ -36,8 +36,6 @@ function setupCards(){
 
   var size = 12/cardNum;
 
-  console.log(size);
-
   for(var i = 0; i < cardNum; i ++){
     var back = courseData.cardsData.cards[i].back;
     var front = courseData.cardsData.cards[i].front;
@@ -48,9 +46,6 @@ function setupCards(){
   }
 
   html += '</div>';
-
-  console.log(html);
-
   $('#pageContent').append(html);
 
 

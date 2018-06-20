@@ -222,32 +222,53 @@ module.exports = function(grunt){
     },
 
     xmlpoke: {
-      upperCaseTheY: {
+      settings: {
         options: {
-          xpath: '/x/text()',
-          value: function (node) { return number(node.nodeValue) + 1; }
+          replacements: [
+          {
+            xpath: '/settings/cookieName/text()',
+            value: function (node) {
+              var json = grunt.file.readJSON('settings.json');
+              return "cookie_"+json.settings.cookieName;
+            }
+          }]
         },
         files: {
-          'dist/example.xml': 'dist/example.xml',
+          'dist/dir/content/settings.xml': 'dist/dir/content/settings.xml',
         },
       },
-    },
 
-    bump: {
-      options: {
-        files: ['dist/dir/content/settings.xml'],
-        updateConfigs: [],
-        commit: false,
-        createTag: true,
-        tagName: 'v%version%',
-        tagMessage: 'Version %VERSION%',
-        push: false,
-        pushTo: 'upstream',
-        globalReplace: false,
-        prereleaseName: false,
-        metadata: '',
-        regExp: false
-      }
+      sco01: {
+        options: {
+          replacements: [
+          {
+            xpath: '/lom/general/catalogentry/catalog/text()',
+            value: function (node) {
+              var json = grunt.file.readJSON('settings.json');
+              return "cookie_"+json.settings.cookieName;
+            }
+          }]
+        },
+        files: {
+          'dist/sco01.xml': 'dist/sco01.xml',
+        },
+      },
+
+      version: {
+        options: {
+          replacements: [
+          {
+            xpath: '/settings/version/text()',
+            value: function (node) {
+              var json = grunt.file.readJSON('settings.json');
+              return (parseFloat(node.nodeValue)+0.1).toFixed(2).toString();
+            }
+          }]
+        },
+        files: {
+          'dist/dir/content/settings.xml': 'dist/dir/content/settings.xml',
+        },
+      },
     },
   });
 
@@ -265,11 +286,14 @@ module.exports = function(grunt){
   grunt.loadNpmTasks('grunt-xmlpoke');
   grunt.loadNpmTasks('grunt-bump');
 
-  grunt.registerTask('test', ['bump']);
+  grunt.registerTask('test', ['xmlpoke:version']);
 
   grunt.registerTask(
     'build',
     'Compiles all of the assets and copies the files to the build directory.',
     [ 'clean:rebuild', 'convert:xml2json', 'copy:build', 'preprocess', 'uglify', 'cssmin', 'useminPrepare', 'usemin', 'copy:vendors', 'clean:finishbuild', 'compress', 'connect']
   );
+
+  grunt.registerTask('init', ['xmlpoke:settings']);
+
 }
