@@ -90,6 +90,15 @@ function populateStorage(xml, tempStorage) {
     }
   }
 
+  if($(xml).find("hasThumbnails").text() === "true") {
+    if(tempStorage === null || tempStorage.thumbnailsData === undefined) {
+      courseStorageObj.thumbnailsData = {};
+
+    } else {
+      courseStorageObj.thumbnailsData = tempStorage.thumbnailsData;
+    }
+  }
+
   if($(xml).find("hasGlossary").text() === "true") {
     if(tempStorage === null || tempStorage.glossary === undefined) {
       courseStorageObj.glossary = {};

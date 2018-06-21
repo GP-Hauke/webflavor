@@ -13,35 +13,35 @@
 
   <cards completed="false" class="col-md-3 col-sm-6">
     <card>
-      <front><![CDATA[<h4>Open Ended</h4>]]></front>
-      <back><![CDATA[<p>Uncover and discover a customer’s wants and needs by asking open-ended questions.
+      <front><![CDATA[<h4>Nullam Nisi</h4>]]></front>
+      <back><![CDATA[<p>Curabitur accumsan, orci mostie cond aliquam, eros eros elementum ex.
         <br>
         <br>
-        These questions start with who, what, when, where, why and how.</p>]]></back>
+        Pellentesque id arcu sed est vulputate consequat nec id dolor.</p>]]></back>
     </card>
 
     <card>
-      <front><![CDATA[<h4>Either/Or</h4>]]></front>
-      <back><![CDATA[<p>Either/or questions help you narrow down what a customer is looking for.
+      <front><![CDATA[<h4>Curabitur</h4>]]></front>
+      <back><![CDATA[<p>Fermentum et venenatis in, vulputate sit amet diam
       <br>
       <br>
-      When you ask these questions, you typically give your customer two choices.</p>]]></back>
+      Ut a tortor turpis. Aliquam quis enim at metus commodo hendrerit sit amet eu nisi.</p>]]></back>
     </card>
 
     <card>
-      <front><![CDATA[<h4>Closed</h4>]]></front>
-      <back><![CDATA[<p>Closed questions are valuable for getting exact answers or for fact-finding. (For example, “Do you have insurance?”)
+      <front><![CDATA[<h4>Diam Fames</h4>]]></front>
+      <back><![CDATA[<p>Cras id diam dolor. Suspendisse in mi in turpis fringilla rhoncus. Curabitur ultricies condimentum est, vitae ultrices.
       <br>
       <br>
-      They help move a sale forward during the presentation / evaluate choices phase.</p>]]></back>
+      Morbi quis malesuada elit. Ut tristique dolor non rutrum bibendum. Sed eleifend.</p>]]></back>
     </card>
 
     <card>
-      <front><![CDATA[<h4>Neither</h4>]]></front>
-      <back><![CDATA[<p>Find out and discover a customer’s wants and needs by not asking questions.
+      <front><![CDATA[<h4>Sed Magna</h4>]]></front>
+      <back><![CDATA[<p>Nullam nec nisl risus. Morbi in ex quis enim bibendum varius.
       <br>
       <br>
-      These questions start with not asking them.</p>]]></back>
+      Pellentesque habitant morbi tristique senectus.</p>]]></back>
     </card>
   </cards>
 </page>

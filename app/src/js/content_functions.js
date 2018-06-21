@@ -358,6 +358,9 @@ function loadContent(param){
     else if(component == 'cards'){
       initCards(xml);
     }
+    else if(component == 'thumbnails'){
+      initThumbnails(xml);
+    }
 
 
     var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));

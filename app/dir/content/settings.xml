@@ -28,6 +28,7 @@
   <hasAssessments>true</hasAssessments>
   <hasDragDrops>true</hasDragDrops>
   <hasHotspots>true</hasHotspots>
+  <hasThumbnails>true</hasThumbnails>
 
   <bookmarking>
     <hasLocalBookmarking>false</hasLocalBookmarking>

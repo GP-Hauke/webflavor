@@ -1,73 +1,72 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <page type="content">
   <title>12</title>
-  <component></component>
+  <component>thumbnails</component>
   <content>
     <![CDATA[
     <div class="row">
       <div class="col-sm-12">
         <p id="sectionComplete">The following is an example of curated content using thumbnail feature of the WebFlavor Template.</p>
       </div>
-    </div>
-
-
-    <div class="row margin-below">
-      <div class="col-md-3">
-        <div class="thumbnail" id="">
-          <a target="_blank" onclick="completeLink(this);" href="https://www.marketing91.com/prospecting/" class="top-paragraph link">
-            <div class="img-container">
-              <img class="img-zoom" src="dir/media/img/assets/2_1.jpg" alt="">
-            </div>
-            <div class="caption">
-              <div class="caption-title"><span>What is Prospecting?</span></div>
-              <p>The author of <span class="link-look">this article</span> suggests that top salespeople spend most of their time prospecting rather than working deals, even when business is good.</p>
-            </div>
-          </a>
-        </div>
-      </div>
-
-      <div class="col-md-3">
-        <div class="thumbnail" id="">
-          <a target="_blank" onclick="completeLink(this);" href="http://www.autodealermonthly.com/channel/dps-office/article/story/2006/11/selling-never-stops-increasing-your-personal-market-share-through-outside-prospecting.aspx" class="top-paragraph link">
-            <div class="img-container">
-              <img class="img-zoom" src="dir/media/img/assets/2_2.jpg" alt="">
-            </div>
-            <div class="caption">
-              <div class="caption-title"><span>The Prospecting Mindset</span></div>
-              <p>Prospecting can happen anywhere, any time. So it pays—literally!—to be prepared when you’re out and about. <span class="link-look">This article</span> outlines some tactics for prospecting in your free time.</p>
-            </div>
-          </a>
-        </div>
-      </div>
-
-      <div class="col-md-3">
-        <div class="thumbnail" id="">
-          <a target="_blank" onclick="completeLink(this);" href="https://www.salestactics.org/how-much-time-should-you-spend-prospecting/" class="top-paragraph link">
-            <div class="img-container">
-              <img class="img-zoom" src="dir/media/img/assets/2_3.jpg" alt="">
-            </div>
-            <div class="caption">
-              <div class="caption-title"><span>Prospecting: Early and Often</span></div>
-              <p><span class="bolded">Q:</span> How much time should you spend prospecting? <span class="bolded">A:</span> More than you are now. The author of <span class="link-look">this article</span> breaks down how to spend your time prospecting.</p>
-            </div>
-          </a>
-        </div>
-      </div>
-
-      <div class="col-md-3">
-        <div class="thumbnail">
-          <a target="_blank" onclick="completeLink(this);" href="http://www.autonews.com/article/20160404/RETAIL07/304049996/cash-drives-sales-staff-into-the-service-lane" class="top-paragraph link">
-            <div class="img-container">
-              <img class="img-zoom" src="dir/media/img/assets/2_4.jpg" alt="">
-            </div>
-            <div class="caption">
-              <div class="caption-title"><span>At your ‘Service’</span></div>
-              <p><span class="link-look">This article</span> focuses on the $100 incentive a dealership gave its consultants, but the real takeaway is this: Develop a relationship with Service customers. It’s a reliable way to build your book of business.</p>
-            </div>
-          </a>
-        </div>
-      </div>
     </div>]]>
   </content>
 
+  <thumbnails completed="false" class="col-md-3 col-sm-6">
+    <thumbnail>
+      <img><![CDATA[dir/media/img/assets/3_1.jpg]]></img>
+      <url><![CDATA[https://www.gpstrategies.com/]]></url>
+      <heading><![CDATA[Lorem Ipsum]]></heading>
+      <caption><![CDATA[Morbi quis malesuada elit. Ut <span class="link-look">tristique dolor</span> non rutrum bibendum. Sed eleifend magna at nulla maximus dictum. Cras id diam dolor.]]></caption>
+    </thumbnail>
+
+    <thumbnail>
+      <img><![CDATA[dir/media/img/assets/3_2.jpg]]></img>
+      <url><![CDATA[https://www.gpstrategies.com/]]></url>
+      <heading><![CDATA[Suspendisse]]></heading>
+      <caption><![CDATA[<span class="link-look">Aliquam quis</span> enim at metus commodo hendrerit sit amet eu nisi. Proin sagittis euismod risus vel fringilla. Suspendisse non leo ut erat euismod.]]></caption>
+    </thumbnail>
+
+    <thumbnail>
+      <img><![CDATA[dir/media/img/assets/3_3.jpg]]></img>
+      <url><![CDATA[https://www.gpstrategies.com/]]></url>
+      <heading><![CDATA[Lacus Lorem]]></heading>
+      <caption><![CDATA[Curabitur accumsan, orci molestie <span class="link-look">condimentum aliquamenim</span> , eros eros elementum ex, in commodo lacus lorem ac nisl. Pellentesque id arcu sed est vulputate.]]></caption>
+    </thumbnail>
+
+    <thumbnail>
+      <img><![CDATA[dir/media/img/assets/3_4.jpg]]></img>
+      <url><![CDATA[https://www.gpstrategies.com/]]></url>
+      <heading><![CDATA[Morbi Quis]]></heading>
+      <caption><![CDATA[Morbi quis malesuada elit. Ut <span class="link-look">tristique dolor</span> non rutrum bibendum. Sed eleifend magna at nulla maximus dictum. Cras id diam dolor.]]></caption>
+    </thumbnail>
+
+    <thumbnail>
+      <img><![CDATA[dir/media/img/assets/3_5.jpg]]></img>
+      <url><![CDATA[https://www.gpstrategies.com/]]></url>
+      <heading><![CDATA[Maecenas]]></heading>
+      <caption><![CDATA[Maecenas venenatis magna, vel pellentesque <span class="link-look">enim scelerisque</span>  erat ultricies. Quisque fringilla, nulla sed ornare tincidunt, neque velit finibus.]]></caption>
+    </thumbnail>
+
+    <thumbnail>
+      <img><![CDATA[dir/media/img/assets/3_6.jpg]]></img>
+      <url><![CDATA[https://www.gpstrategies.com/]]></url>
+      <heading><![CDATA[LNulla Oranre]]></heading>
+      <caption><![CDATA[Maecenas venenatis magna, vel pellentesque <span class="link-look">enim scelerisque</span>  erat ultricies. Quisque fringilla, nulla sed ornare tincidunt, neque velit finibus.]]></caption>
+    </thumbnail>
+
+    <thumbnail>
+      <img><![CDATA[dir/media/img/assets/3_7.jpg]]></img>
+      <url><![CDATA[https://www.gpstrategies.com/]]></url>
+      <heading><![CDATA[Fringilla]]></heading>
+      <caption><![CDATA[<span class="link-look">Aliquam quis</span> enim at metus commodo hendrerit sit amet eu nisi. Proin sagittis euismod risus vel fringilla. Suspendisse non leo ut erat euismod.]]></caption>
+    </thumbnail>
+
+    <thumbnail>
+      <img><![CDATA[dir/media/img/assets/3_8.jpg]]></img>
+      <url><![CDATA[https://www.gpstrategies.com/]]></url>
+      <heading><![CDATA[Arcus Sed]]></heading>
+      <caption><![CDATA[Curabitur accumsan, orci molestie <span class="link-look">condimentum aliquamenim</span> , eros eros elementum ex, in commodo lacus lorem ac nisl. Pellentesque id arcu sed est vulputate.]]></caption>
+    </thumbnail>
+
+  </thumbnails>
 </page>
