@@ -9,6 +9,7 @@ function initCards(dragDropContentXML) {
 
   courseData.cardsData = {
     completed: $(currentCardComponent).attr("completed"),
+    class: $(currentCardComponent).attr("class"),
     cards: []
   };
 
@@ -40,7 +41,11 @@ function setupCards(){
     var back = courseData.cardsData.cards[i].back;
     var front = courseData.cardsData.cards[i].front;
 
-    var cardHTML = '<div class="col-md-'+size+' col-sm-6 margin-below"><div class="cardCont"><div class="cardBack"><p>'+back+'<p></div><div class="cardFront"><h4>'+front+'</h4></div></div></div>';
+    var cardWidth = "col-md-"+size+" col-sm-6";
+    if(courseData.cardsData.class != null){
+      cardWidth = courseData.cardsData.class;
+    }
+    var cardHTML = '<div class="'+cardWidth+' margin-below"><div class="cardCont"><div class="cardBack">'+back+'</div><div class="cardFront">'+front+'</div></div></div>';
 
     html += cardHTML;
   }

@@ -333,13 +333,14 @@ function loadContent(param){
     var titleSize = $(xml).find("title").text();
     var titleHTML = '<div class="row"><div class="col-sm-'+titleSize+'"><h1 id="pageTitle"></h1><div class="page-number"></div></div></div>';
 
-    $('#pageContent').append(titleHTML);
-    $('#pageContent').append($(xml).find('content').text());
-
     var completion = $(xml).find("content").attr("completion");
     if(completion){
       $('#pageContainer').addClass("completion");
+      titleHTML = '<div class="row"><div class="col-sm-'+titleSize+'"><h1 id="pageTitle"></h1></div></div>';
     }
+
+    $('#pageContent').append(titleHTML);
+    $('#pageContent').append($(xml).find('content').text());
 
     //CERTAIN PAGES NEED SPECIFIC METHODS RUN FOR THE COMPONENTS
     //MUST BE RUN AFTER THE CONTENT HAS LOADED

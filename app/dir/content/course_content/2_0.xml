@@ -11,25 +11,37 @@
     </div>]]>
   </content>
 
-  <cards completed="false">
+  <cards completed="false" class="col-md-3 col-sm-6">
     <card>
-      <front><![CDATA[FRONT SIDE]]></front>
-      <back><![CDATA[back]]></back>
+      <front><![CDATA[<h4>Open Ended</h4>]]></front>
+      <back><![CDATA[<p>Uncover and discover a customer’s wants and needs by asking open-ended questions.
+        <br>
+        <br>
+        These questions start with who, what, when, where, why and how.</p>]]></back>
     </card>
 
     <card>
-      <front><![CDATA[FRONT SIDE]]></front>
-      <back><![CDATA[back]]></back>
+      <front><![CDATA[<h4>Either/Or</h4>]]></front>
+      <back><![CDATA[<p>Either/or questions help you narrow down what a customer is looking for.
+      <br>
+      <br>
+      When you ask these questions, you typically give your customer two choices.</p>]]></back>
     </card>
 
     <card>
-      <front><![CDATA[FRONT SIDE]]></front>
-      <back><![CDATA[back]]></back>
+      <front><![CDATA[<h4>Closed</h4>]]></front>
+      <back><![CDATA[<p>Closed questions are valuable for getting exact answers or for fact-finding. (For example, “Do you have insurance?”)
+      <br>
+      <br>
+      They help move a sale forward during the presentation / evaluate choices phase.</p>]]></back>
     </card>
 
     <card>
-      <front><![CDATA[FRONT SIDE]]></front>
-      <back><![CDATA[back]]></back>
+      <front><![CDATA[<h4>Neither</h4>]]></front>
+      <back><![CDATA[<p>Find out and discover a customer’s wants and needs by not asking questions.
+      <br>
+      <br>
+      These questions start with not asking them.</p>]]></back>
     </card>
   </cards>
 </page>

@@ -14,7 +14,7 @@
 
   <drag_drop completed="false">
     <gate lock="true">
-      <chapter>2</chapter>
+      <chapter>4</chapter>
       <page>1</page>
       <lock>1</lock>
     </gate>

@@ -315,7 +315,7 @@ function loadInterfaceStyles() {
 }
 
 function loadContentStyles() {
-  var courseData = JSON.parse(localStorage.getItem(window.parent.LOCAL_COURSE_DATA_ID));
+  var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
   $(".add-theme-path").attr("src", function () {
     return $(this).attr("src").replace("theme-path", courseData.THEME_PATH);
   });

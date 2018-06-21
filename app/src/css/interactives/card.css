@@ -18,7 +18,9 @@
   transform: translateY(-50%);
 }
 
-.cardCont p{
+.cardCont .cardBack p{
+  font-size: 17px;
+  padding: 20px;
   text-align: center;
   position: relative;
   top: 50%;
