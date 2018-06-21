@@ -1,32 +1,51 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<page type="content">
-  <title>6</title>
-  <component>none</component>
-  <content completion="true">
+<page type="assessment">
+  <title>12</title>
+  <component>hotspot</component>
+  <content>
     <![CDATA[
     <div class="row">
-      <div class="col-sm-6">
-        <p id="sectionComplete">Please select the <span class="bolded">Complete for Credit</span> button below to receive credit for this course.</p>
-      </div>
-    </div>
-
-    <div class="row margin-below">
-      <div class="offset-1 col-sm-4">
-        <a class="btn btn-default d-block mx-auto btn-complete" id="btnComplete" role="button" onclick="setComplete()">Complete for Credit</a>
-      </div>
-    </div>
-
-    <div class="row">
-
-      <div class="col-sm-6">
-        <p class="top-paragraph">You are among the first to take this course. We would appreciate your feedback.</p>
-      </div>
-    </div>
-
-    <div class="row margin-below">
-      <div class="offset-1 col-sm-4">
-        <a class="btn btn-default d-block mx-auto" href="https://www.surveymonkey.com/r/B29CSP2" target="_blank" role="button">Take Survey</a>
+      <div class="col-md-12">
+        <p class="top-paragraph">Keeping a few things in mind before you hit the road will help enhance the customer experience and make your demo drive a success.</p>
+        <p class="top-paragraph">Click each button to reveal best practices for conducting a demo drive.</p>
       </div>
     </div>]]>
   </content>
+
+  <hotspot completed="false">
+    <spot>
+      <label><![CDATA[1]]></label>
+      <popup>
+        <![CDATA[
+        <ul>
+          <li>Ask your Sales Manager about recommended routes.</li>
+          <li>Include a variety of speed zones. Make sure there are stretches that allow the customer to drive more than 45 mph.</li><li>Alternate your route as needed.</li>
+        </ul>]]>
+      </popup>
+    </spot>
+
+    <spot>
+      <label><![CDATA[2]]></label>
+      <popup>
+        <![CDATA[
+        <ul>
+          <li>Be flexible on the drive. Your customer may want a longer or shorter drive than planned.</li>
+          <li>Ask your manager how to handle these situations.</li>
+          <li>If the customer wants a shorter drive, know how to return to the dealership quuickly using streets with varied speeds that will still enhance the drive.</li>
+        </ul>]]>
+      </popup>
+    </spot>
+
+    <spot>
+      <label><![CDATA[3]]></label>
+      <popup>
+        <![CDATA[
+          <ul>
+          <li>Know your drive.</li>
+          <li>Shadow a live demo drive with an experienced consultant and a customer.</li>
+          <li>Play the role of a customer and let an experienced consultant show you how he or she conducts a demo drive.</li>
+        </ul>]]>
+      </popup>
+    </spot>
+  </hotspot>
 </page>

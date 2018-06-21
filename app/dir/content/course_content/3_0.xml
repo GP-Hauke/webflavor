@@ -1,43 +1,73 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<page type="assessment">
+<page type="content">
   <title>12</title>
-  <component>dragAndDrop</component>
-
+  <component></component>
   <content>
     <![CDATA[
     <div class="row">
-      <div class="col-md-12">
-        <p><span class="bolded">Now that you have viewed this page, you can advance to the next.</span> Please Match the following cities with their states. Complete the task by dragging and dropping the items into their correct spots. Correct answers will turn green, while the wrong answers will turn red. Good luck!</p>
+      <div class="col-sm-12">
+        <p id="sectionComplete">The following is an example of curated content using thumbnail feature of the WebFlavor Template.</p>
+      </div>
+    </div>
+
+
+    <div class="row margin-below">
+      <div class="col-md-3">
+        <div class="thumbnail" id="">
+          <a target="_blank" onclick="completeLink(this);" href="https://www.marketing91.com/prospecting/" class="top-paragraph link">
+            <div class="img-container">
+              <img class="img-zoom" src="dir/media/img/assets/2_1.jpg" alt="">
+            </div>
+            <div class="caption">
+              <div class="caption-title"><span>What is Prospecting?</span></div>
+              <p>The author of <span class="link-look">this article</span> suggests that top salespeople spend most of their time prospecting rather than working deals, even when business is good.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="thumbnail" id="">
+          <a target="_blank" onclick="completeLink(this);" href="http://www.autodealermonthly.com/channel/dps-office/article/story/2006/11/selling-never-stops-increasing-your-personal-market-share-through-outside-prospecting.aspx" class="top-paragraph link">
+            <div class="img-container">
+              <img class="img-zoom" src="dir/media/img/assets/2_2.jpg" alt="">
+            </div>
+            <div class="caption">
+              <div class="caption-title"><span>The Prospecting Mindset</span></div>
+              <p>Prospecting can happen anywhere, any time. So it pays—literally!—to be prepared when you’re out and about. <span class="link-look">This article</span> outlines some tactics for prospecting in your free time.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="thumbnail" id="">
+          <a target="_blank" onclick="completeLink(this);" href="https://www.salestactics.org/how-much-time-should-you-spend-prospecting/" class="top-paragraph link">
+            <div class="img-container">
+              <img class="img-zoom" src="dir/media/img/assets/2_3.jpg" alt="">
+            </div>
+            <div class="caption">
+              <div class="caption-title"><span>Prospecting: Early and Often</span></div>
+              <p><span class="bolded">Q:</span> How much time should you spend prospecting? <span class="bolded">A:</span> More than you are now. The author of <span class="link-look">this article</span> breaks down how to spend your time prospecting.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="thumbnail">
+          <a target="_blank" onclick="completeLink(this);" href="http://www.autonews.com/article/20160404/RETAIL07/304049996/cash-drives-sales-staff-into-the-service-lane" class="top-paragraph link">
+            <div class="img-container">
+              <img class="img-zoom" src="dir/media/img/assets/2_4.jpg" alt="">
+            </div>
+            <div class="caption">
+              <div class="caption-title"><span>At your ‘Service’</span></div>
+              <p><span class="link-look">This article</span> focuses on the $100 incentive a dealership gave its consultants, but the real takeaway is this: Develop a relationship with Service customers. It’s a reliable way to build your book of business.</p>
+            </div>
+          </a>
+        </div>
       </div>
     </div>]]>
   </content>
 
-  <drag_drop completed="false">
-    <matchings>
-      <pair>
-        <drag>Bloomington</drag>
-        <drop>Indiana</drop>
-      </pair>
-      <pair>
-        <drag>Louisville</drag>
-        <drop>Kentucky</drop>
-      </pair>
-      <pair>
-        <drag>Chicago</drag>
-        <drop>Illinois</drop>
-      </pair>
-      <pair>
-        <drag>Miami</drag>
-        <drop>Florida</drop>
-      </pair>
-      <pair>
-        <drag>New York</drag>
-        <drop>New York</drop>
-      </pair>
-      <pair>
-        <drag>Seattle</drag>
-        <drop>Washington</drop>
-      </pair>
-    </matchings>
-  </drag_drop>
 </page>

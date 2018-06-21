@@ -625,6 +625,7 @@ function loadPage() {
     $("#contentContainer").html(data);
 
     loadContent(eval(currentChapter+1)+'_'+currentPage);
+    $('#navbarMobile li').eq(currentChapter).addClass('courseTitleChapterSelected');
   });
 
 

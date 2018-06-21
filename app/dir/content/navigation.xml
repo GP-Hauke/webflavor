@@ -20,6 +20,13 @@
   </chapter>
 
   <chapter>
+    <title><![CDATA[CURATED CONTENT]]></title>
+    <pages>
+      <page gated="false" locks="0" audio=""><![CDATA[CURATED CONTENT]]></page>
+    </pages>
+  </chapter>
+
+  <chapter>
     <title><![CDATA[DRAG AND DROP COMPONENT]]></title>
     <pages>
       <page gated="true" locks="0" audio=""><![CDATA[CITIES AND STATES]]></page>

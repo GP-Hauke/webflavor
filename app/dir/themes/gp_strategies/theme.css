@@ -5,6 +5,7 @@
 @import "glossary.css";
 @import "help.css";
 @import "dragdrop.css";
+@import "text.css";
 
 /*----------- SPLASH PAGE STYLES -----------*/
 #splashPageModal .modal-dialog .modal-content{
@@ -16,34 +17,10 @@
   color: #0193cf;
 }
 
-
 /*------------ BASIC STYLES ------------*/
 body {
   font-family: "GMGlobalSansCond" !important;
   text-rendering: optimizeLegibility;
-}
-
-/*Page Titles*/
-h1#pageTitle {
-  font-weight: 600;
-  color: #0193cf;
-  font-size: 26px;
-  text-transform: uppercase;
-}
-
-/*Page Numbers*/
-.page-number {
-  font-weight: 600;
-  font-size: 18px;
-  color: #0193cf;
-}
-
-/*Page Content Text*/
-.page-container p,
-.page-container ul > li {
-  font-weight: 100;
-  font-size: 20px;
-  color: #333;
 }
 
 /*Footer Navigation*/

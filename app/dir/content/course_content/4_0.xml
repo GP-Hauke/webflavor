@@ -1,51 +1,43 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <page type="assessment">
   <title>12</title>
-  <component>hotspot</component>
+  <component>dragAndDrop</component>
+
   <content>
     <![CDATA[
     <div class="row">
       <div class="col-md-12">
-        <p class="top-paragraph">Keeping a few things in mind before you hit the road will help enhance the customer experience and make your demo drive a success.</p>
-        <p class="top-paragraph">Click each button to reveal best practices for conducting a demo drive.</p>
+        <p><span class="bolded">Now that you have viewed this page, you can advance to the next.</span> Please Match the following cities with their states. Complete the task by dragging and dropping the items into their correct spots. Correct answers will turn green, while the wrong answers will turn red. Good luck!</p>
       </div>
     </div>]]>
   </content>
 
-  <hotspot completed="false">
-    <spot>
-      <label><![CDATA[1]]></label>
-      <popup>
-        <![CDATA[
-        <ul>
-          <li>Ask your Sales Manager about recommended routes.</li>
-          <li>Include a variety of speed zones. Make sure there are stretches that allow the customer to drive more than 45 mph.</li><li>Alternate your route as needed.</li>
-        </ul>]]>
-      </popup>
-    </spot>
-
-    <spot>
-      <label><![CDATA[2]]></label>
-      <popup>
-        <![CDATA[
-        <ul>
-          <li>Be flexible on the drive. Your customer may want a longer or shorter drive than planned.</li>
-          <li>Ask your manager how to handle these situations.</li>
-          <li>If the customer wants a shorter drive, know how to return to the dealership quuickly using streets with varied speeds that will still enhance the drive.</li>
-        </ul>]]>
-      </popup>
-    </spot>
-
-    <spot>
-      <label><![CDATA[3]]></label>
-      <popup>
-        <![CDATA[
-          <ul>
-          <li>Know your drive.</li>
-          <li>Shadow a live demo drive with an experienced consultant and a customer.</li>
-          <li>Play the role of a customer and let an experienced consultant show you how he or she conducts a demo drive.</li>
-        </ul>]]>
-      </popup>
-    </spot>
-  </hotspot>
+  <drag_drop completed="false">
+    <matchings>
+      <pair>
+        <drag>Bloomington</drag>
+        <drop>Indiana</drop>
+      </pair>
+      <pair>
+        <drag>Louisville</drag>
+        <drop>Kentucky</drop>
+      </pair>
+      <pair>
+        <drag>Chicago</drag>
+        <drop>Illinois</drop>
+      </pair>
+      <pair>
+        <drag>Miami</drag>
+        <drop>Florida</drop>
+      </pair>
+      <pair>
+        <drag>New York</drag>
+        <drop>New York</drop>
+      </pair>
+      <pair>
+        <drag>Seattle</drag>
+        <drop>Washington</drop>
+      </pair>
+    </matchings>
+  </drag_drop>
 </page>
