@@ -1,47 +1,72 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <page type="content">
   <title>12</title>
-  <component>cards</component>
+  <component>thumbnails</component>
   <content>
     <![CDATA[
     <div class="row">
       <div class="col-sm-12">
-        <p id="sectionComplete">Hover over each card to flip it over and see more information about the topic.</p>
+        <p id="sectionComplete">The following is an example of curated content using the dynamic thumbnail component of the WebFlavor Template.</p>
       </div>
     </div>]]>
   </content>
 
-  <cards completed="false" class="col-md-3 col-sm-6">
-    <card>
-      <front><![CDATA[<h4>Nullam Nisi</h4>]]></front>
-      <back><![CDATA[<p>Curabitur accumsan, orci mostie cond aliquam, eros eros elementum ex.
-        <br>
-        <br>
-        Pellentesque id arcu sed est vulputate consequat nec id dolor.</p>]]></back>
-    </card>
+  <thumbnails completed="false" class="col-md-3 col-sm-6">
+    <thumbnail>
+      <img><![CDATA[dir/media/img/assets/3_1.jpg]]></img>
+      <url><![CDATA[https://www.gpstrategies.com/]]></url>
+      <heading><![CDATA[Lorem Ipsum]]></heading>
+      <caption><![CDATA[Morbi quis malesuada elit. Ut <span class="link-look">tristique dolor</span> non rutrum bibendum. Sed eleifend magna at nulla maximus dictum. Cras id diam dolor.]]></caption>
+    </thumbnail>
 
-    <card>
-      <front><![CDATA[<h4>Curabitur</h4>]]></front>
-      <back><![CDATA[<p>Fermentum et venenatis in, vulputate sit amet diam
-      <br>
-      <br>
-      Ut a tortor turpis. Aliquam quis enim at metus commodo hendrerit sit amet eu nisi.</p>]]></back>
-    </card>
+    <thumbnail>
+      <img><![CDATA[dir/media/img/assets/3_2.jpg]]></img>
+      <url><![CDATA[https://www.gpstrategies.com/]]></url>
+      <heading><![CDATA[Suspendisse]]></heading>
+      <caption><![CDATA[<span class="link-look">Aliquam quis</span> enim at metus commodo hendrerit sit amet eu nisi. Proin sagittis euismod risus vel fringilla. Suspendisse non leo ut erat euismod.]]></caption>
+    </thumbnail>
 
-    <card>
-      <front><![CDATA[<h4>Diam Fames</h4>]]></front>
-      <back><![CDATA[<p>Cras id diam dolor. Suspendisse in mi in turpis fringilla rhoncus. Curabitur ultricies condimentum est, vitae ultrices.
-      <br>
-      <br>
-      Morbi quis malesuada elit. Ut tristique dolor non rutrum bibendum. Sed eleifend.</p>]]></back>
-    </card>
+    <thumbnail>
+      <img><![CDATA[dir/media/img/assets/3_3.jpg]]></img>
+      <url><![CDATA[https://www.gpstrategies.com/]]></url>
+      <heading><![CDATA[Lacus Lorem]]></heading>
+      <caption><![CDATA[Curabitur accumsan, orci molestie <span class="link-look">condimentum aliquamenim</span> , eros eros elementum ex, in commodo lacus lorem ac nisl. Pellentesque id arcu sed est vulputate.]]></caption>
+    </thumbnail>
 
-    <card>
-      <front><![CDATA[<h4>Sed Magna</h4>]]></front>
-      <back><![CDATA[<p>Nullam nec nisl risus. Morbi in ex quis enim bibendum varius.
-      <br>
-      <br>
-      Pellentesque habitant morbi tristique senectus.</p>]]></back>
-    </card>
-  </cards>
+    <thumbnail>
+      <img><![CDATA[dir/media/img/assets/3_4.jpg]]></img>
+      <url><![CDATA[https://www.gpstrategies.com/]]></url>
+      <heading><![CDATA[Morbi Quis]]></heading>
+      <caption><![CDATA[Morbi quis malesuada elit. Ut <span class="link-look">tristique dolor</span> non rutrum bibendum. Sed eleifend magna at nulla maximus dictum. Cras id diam dolor.]]></caption>
+    </thumbnail>
+
+    <thumbnail>
+      <img><![CDATA[dir/media/img/assets/3_5.jpg]]></img>
+      <url><![CDATA[https://www.gpstrategies.com/]]></url>
+      <heading><![CDATA[Maecenas]]></heading>
+      <caption><![CDATA[Maecenas venenatis magna, vel pellentesque <span class="link-look">enim scelerisque</span>  erat ultricies. Quisque fringilla, nulla sed ornare tincidunt, neque velit finibus.]]></caption>
+    </thumbnail>
+
+    <thumbnail>
+      <img><![CDATA[dir/media/img/assets/3_6.jpg]]></img>
+      <url><![CDATA[https://www.gpstrategies.com/]]></url>
+      <heading><![CDATA[LNulla Oranre]]></heading>
+      <caption><![CDATA[Maecenas venenatis magna, vel pellentesque <span class="link-look">enim scelerisque</span>  erat ultricies. Quisque fringilla, nulla sed ornare tincidunt, neque velit finibus.]]></caption>
+    </thumbnail>
+
+    <thumbnail>
+      <img><![CDATA[dir/media/img/assets/3_7.jpg]]></img>
+      <url><![CDATA[https://www.gpstrategies.com/]]></url>
+      <heading><![CDATA[Fringilla]]></heading>
+      <caption><![CDATA[<span class="link-look">Aliquam quis</span> enim at metus commodo hendrerit sit amet eu nisi. Proin sagittis euismod risus vel fringilla. Suspendisse non leo ut erat euismod.]]></caption>
+    </thumbnail>
+
+    <thumbnail>
+      <img><![CDATA[dir/media/img/assets/3_8.jpg]]></img>
+      <url><![CDATA[https://www.gpstrategies.com/]]></url>
+      <heading><![CDATA[Arcus Sed]]></heading>
+      <caption><![CDATA[Curabitur accumsan, orci molestie <span class="link-look">condimentum aliquamenim</span> , eros eros elementum ex, in commodo lacus lorem ac nisl. Pellentesque id arcu sed est vulputate.]]></caption>
+    </thumbnail>
+
+  </thumbnails>
 </page>

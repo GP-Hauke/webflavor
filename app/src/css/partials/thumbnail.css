@@ -16,7 +16,7 @@
   width: 100%;
   position: relative;
   background: transparent;*/
-  box-shadow: 0 0.5px 40px rgba(0, 0, 0, 0.55);
+  box-shadow: 0 0px 40px rgba(0, 0, 0, 0.55);
 }
 
 .thumbnail .img-zoom {

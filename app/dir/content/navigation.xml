@@ -13,16 +13,23 @@
   </chapter>
 
   <chapter>
-    <title><![CDATA[FLIP CARD COMPONENT]]></title>
+    <title><![CDATA[CURATED CONTENT]]></title>
     <pages>
-      <page gated="false" locks="0" audio=""><![CDATA[FLIP CARD COMPONENT]]></page>
+      <page gated="false" locks="0" audio=""><![CDATA[CURATED CONTENT]]></page>
     </pages>
   </chapter>
 
   <chapter>
-    <title><![CDATA[CURATED CONTENT]]></title>
+    <title><![CDATA[VIDEO & AUDIO]]></title>
     <pages>
-      <page gated="false" locks="0" audio=""><![CDATA[CURATED CONTENT]]></page>
+      <page gated="false" locks="0" audio=""><![CDATA[VIDEO & AUDIO]]></page>
+    </pages>
+  </chapter>
+
+  <chapter>
+    <title><![CDATA[FLIP CARD COMPONENT]]></title>
+    <pages>
+      <page gated="false" locks="0" audio=""><![CDATA[FLIP CARD COMPONENT]]></page>
     </pages>
   </chapter>
 

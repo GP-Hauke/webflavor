@@ -19,6 +19,7 @@ function initThumbnails(dragDropContentXML) {
     var thumbnail = {
       img: currentThumbnail.find("img").text(),
       url: currentThumbnail.find("url").text(),
+      onclickFunction: currentThumbnail.find("url").attr("onclickFunction"),
       heading: currentThumbnail.find("heading").text(),
       caption: currentThumbnail.find("caption").text()
     };
@@ -33,7 +34,7 @@ function setupThumbnails(){
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
   var thumbnailNum = courseData.thumbnailsData.thumbnails.length;
 
-  var html = '<div class="row margin-below">';
+  var html = '<div class="row">';
 
   var size = 12/thumbnailNum;
 
@@ -47,7 +48,13 @@ function setupThumbnails(){
     if(courseData.thumbnailsData.class != null){
       thumbnailWidth = courseData.thumbnailsData.class;
     }
-    var thumbnailHTML = '<div class="'+thumbnailWidth+'"><div class="thumbnail" id=""><a target="_blank" onclick="completeLink(this);" href="'+url+'" class="top-paragraph link"><div class="img-container"><img class="img-zoom" src="'+img+'" alt=""></div><div class="caption"><div class="caption-title"><span>'+
+
+    var href = "href";
+    if(courseData.thumbnailsData.thumbnails[i].onclickFunction == "true"){
+      href = "onclick";
+    }
+
+    var thumbnailHTML = '<div class="'+thumbnailWidth+'"><div class="thumbnail" id=""><a target="_blank" '+href+'="'+url+'" class="top-paragraph link"><div class="img-container"><img class="img-zoom" src="'+img+'" alt=""></div><div class="caption"><div class="caption-title"><span>'+
     heading+'</span></div><p>'+caption+'</p></div></a></div></div>';
 
     html += thumbnailHTML;

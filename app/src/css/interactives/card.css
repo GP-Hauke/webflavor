@@ -29,8 +29,7 @@
 
 .cardFront, .cardBack
 {
-  box-shadow: 0 1.50px 40px rgba(0, 0, 0, 0.15);
-
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.15);
   border-radius: 3px;
   position:absolute;
   width:100%;
@@ -42,7 +41,10 @@
   -ms-backface-visibility: hidden;
 }
 
-.cardBack
-{
+.cardFront{
+  //box-shadow: 0 0 40px rgba(0, 0, 0, 0.35);
+}
+
+.cardBack{
   background:#fff;
 }

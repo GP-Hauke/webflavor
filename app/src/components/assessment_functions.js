@@ -139,7 +139,7 @@ function launchAssessment(id, clickTarget) {
   return; else {*/
 
   if(activeAssessment === 0) {
-    $("#modalContainer .assessment-container").append("<div class='selection-screen row'></div>");
+    $("#modalContainer .assessment-container").append("<img class='exitBtn' alt='exit button' src='dir/media/img/assets/game/exitBtn.jpg'><div class='selection-screen row'></div>");
     $("#modalContainer .selection-screen").append("<div class='col-md-12'><p>Think you know your lineup? Let’s see whether you can find the best vehicle for the customer.</p><p>First, select the brand you want to view. We’ll give you 10 questions that includes two customer requests. You’ll be given a choice between two vehicles. The vehicles could be different models or the same model at different trim levels. Select the vehicle that best suits your customer’s needs.</p><p>Think fast! After you read the question, a 10 second timer will start! You’ll get 10 points for each correct answer, and bonus points for how quickly you answer. There are 1,000 total points possible. See if you can get them all!</p><p>When you're ready, choose a brand and click <span class='bolded'>Let's Play</span> and get started.</p></div>");
 
     $("#modalContainer .selection-screen").append("<div class='col-md-4'><button class='d-block mx-auto btn-game buick'><img class='img-fluid' src='dir/media/img/assets/game/game_branch_buick.jpg' alt=''></button></div>");
@@ -161,6 +161,11 @@ function launchAssessment(id, clickTarget) {
       openIntroScreen(2);
     });
 
+    $("#assessmentModal .assessment-container .exitBtn").click(function() {
+      clearInterval(window.timingInterval);
+      $('.modal').modal('hide');
+    });
+
   } else {
     openIntroScreen(3);
   }
@@ -168,6 +173,7 @@ function launchAssessment(id, clickTarget) {
 }
 
 function openIntroScreen(id) {
+  clearPreviousScore(id);
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
   var activeAssessment = id;
   var style = courseData.assessmentData.assessments[activeAssessment].style;
@@ -181,14 +187,20 @@ function openIntroScreen(id) {
   courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions = shuffle(courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions);
   localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(courseData));
 
-  $("#modalContainer .assessment-container").append("<div class='intro-screen "+style+"'></div>");
+  $("#modalContainer .assessment-container").append("<img class='backBtn'  src='dir/media/img/assets/game/backBtn.jpg' alt='back'><div class='intro-screen "+style+"'></div>");
   $("#modalContainer .intro-screen").append(courseData.assessmentData.assessments[activeAssessment].introText);
   $("#modalContainer .intro-screen").append("<button class='btn-start'>NEXT</button>");
 
-  $("#modalContainer .btn-start").click(function() {
-    $(".intro-screen").remove();
-    startAssessment(activeAssessment);
+  $("#assessmentModal .assessment-container .backBtn").click(function() {
+    $("#assessmentModal .assessment-container").empty();
+    clearInterval(window.timingInterval);
+    launchAssessment(0,null);
   });
+
+  $("#modalContainer .btn-start").click(function() {
+  $(".intro-screen").remove();
+  startAssessment(activeAssessment);
+});
 }
 
 function startAssessment(id) {
@@ -317,7 +329,7 @@ function startAssessment(id) {
     }
 
     else {
-      clearInterval(timingInterval);
+      clearInterval(window.timingInterval);
 
       $("#modalContainer .answer-container").off();
       $("#modalContainer .btn-submit-answer").addClass("d-none");
@@ -772,7 +784,7 @@ function startAssessment(id) {
   }
 
 //Timer used in countdown and scoring
-  var timingInterval = setInterval(function(){
+  window.timingInterval = setInterval(function(){
     time += .1;
     var timeLeft = (17.5 - time).toFixed(1);
 
@@ -780,12 +792,12 @@ function startAssessment(id) {
       var timeLeft = Math.abs(timeLeft);
       $("#modalContainer .assessment-content h3 span").html("<span> " +timeLeft+ " seconds</span>");
     }
-  }, 100)
+  }, 100);
 }
 
 function endAssessment(activeAssessment) {
   if(startBtn !== undefined) {
-    startBtn.append("<div class='viewed-overlay'><img src='../../../dir/media/img/icon_viewed.png'></div>");
+    $('#startBtn').attr('src', 'dir/media/img/assets/game/completeBtn.png');
   }
 
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
@@ -1015,4 +1027,17 @@ function orderAnswers(activeAssessment, answersFiltered, criterion, value){
   }
 
   courseData.assessmentData.assessments[activeAssessment].questionsAnswers.answersFiltered = answersFiltered;
+}
+
+function clearPreviousScore(activeAssessment){
+  clearInterval(window.timingInterval);
+  var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
+  var questionsNum = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions.length;
+  courseData.assessmentData.assessments[activeAssessment].currentQuestionIndex = 0;
+  courseData.assessmentData.assessments[activeAssessment].score = 0;
+  for(var i = 0; i < questionsNum; i++){
+    courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions[i].SCORE = 0;
+  }
+
+  localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(courseData));
 }

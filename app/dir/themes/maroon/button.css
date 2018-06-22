@@ -23,3 +23,7 @@
   outline: 0;
   color: #000000 !important;
 }
+
+#hotSpot .hotSpot-spot{
+  background: rgb(99, 33, 33, .8);
+}

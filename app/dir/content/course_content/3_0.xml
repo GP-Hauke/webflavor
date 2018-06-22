@@ -6,67 +6,23 @@
     <![CDATA[
     <div class="row">
       <div class="col-sm-12">
-        <p id="sectionComplete">The following is an example of curated content using thumbnail feature of the WebFlavor Template.</p>
+        <p>The following is an example of curated content using thumbnail feature of the WebFlavor Template.</p>
       </div>
     </div>]]>
   </content>
-
-  <thumbnails completed="false" class="col-md-3 col-sm-6">
+  <thumbnails completed="false" class="col-md-6 col-sm-6">
     <thumbnail>
-      <img><![CDATA[dir/media/img/assets/3_1.jpg]]></img>
-      <url><![CDATA[https://www.gpstrategies.com/]]></url>
-      <heading><![CDATA[Lorem Ipsum]]></heading>
-      <caption><![CDATA[Morbi quis malesuada elit. Ut <span class="link-look">tristique dolor</span> non rutrum bibendum. Sed eleifend magna at nulla maximus dictum. Cras id diam dolor.]]></caption>
+      <img><![CDATA[dir/media/img/assets/poster.jpg]]></img>
+      <url onclickFunction="true"><![CDATA[openVideoModal('dir/media/videos/animation.mp4');]]></url>
+      <heading><![CDATA[Video]]></heading>
+      <caption><![CDATA[<span class="link-look">Click here</span> to view the video in the HTML modal popup window that is a component of WebFlavor. This feature can be implemented on any element that can be clicked, and the modal will open automatically]]></caption>
     </thumbnail>
 
     <thumbnail>
-      <img><![CDATA[dir/media/img/assets/3_2.jpg]]></img>
-      <url><![CDATA[https://www.gpstrategies.com/]]></url>
-      <heading><![CDATA[Suspendisse]]></heading>
-      <caption><![CDATA[<span class="link-look">Aliquam quis</span> enim at metus commodo hendrerit sit amet eu nisi. Proin sagittis euismod risus vel fringilla. Suspendisse non leo ut erat euismod.]]></caption>
+      <img><![CDATA[dir/media/img/assets/red.jpg]]></img>
+      <url onclickFunction="true"><![CDATA[openAudioModal('dir/media/audio/bruce.mp3');]]></url>
+      <heading><![CDATA[Audio]]></heading>
+      <caption><![CDATA[<span class="link-look">Click here</span> to listen to the audio in the HTML modal popup window that is a component of WebFlavor. This feature can be implemented on any element that can be clicked, and the modal will open automatically]]></caption>
     </thumbnail>
-
-    <thumbnail>
-      <img><![CDATA[dir/media/img/assets/3_3.jpg]]></img>
-      <url><![CDATA[https://www.gpstrategies.com/]]></url>
-      <heading><![CDATA[Lacus Lorem]]></heading>
-      <caption><![CDATA[Curabitur accumsan, orci molestie <span class="link-look">condimentum aliquamenim</span> , eros eros elementum ex, in commodo lacus lorem ac nisl. Pellentesque id arcu sed est vulputate.]]></caption>
-    </thumbnail>
-
-    <thumbnail>
-      <img><![CDATA[dir/media/img/assets/3_4.jpg]]></img>
-      <url><![CDATA[https://www.gpstrategies.com/]]></url>
-      <heading><![CDATA[Morbi Quis]]></heading>
-      <caption><![CDATA[Morbi quis malesuada elit. Ut <span class="link-look">tristique dolor</span> non rutrum bibendum. Sed eleifend magna at nulla maximus dictum. Cras id diam dolor.]]></caption>
-    </thumbnail>
-
-    <thumbnail>
-      <img><![CDATA[dir/media/img/assets/3_5.jpg]]></img>
-      <url><![CDATA[https://www.gpstrategies.com/]]></url>
-      <heading><![CDATA[Maecenas]]></heading>
-      <caption><![CDATA[Maecenas venenatis magna, vel pellentesque <span class="link-look">enim scelerisque</span>  erat ultricies. Quisque fringilla, nulla sed ornare tincidunt, neque velit finibus.]]></caption>
-    </thumbnail>
-
-    <thumbnail>
-      <img><![CDATA[dir/media/img/assets/3_6.jpg]]></img>
-      <url><![CDATA[https://www.gpstrategies.com/]]></url>
-      <heading><![CDATA[LNulla Oranre]]></heading>
-      <caption><![CDATA[Maecenas venenatis magna, vel pellentesque <span class="link-look">enim scelerisque</span>  erat ultricies. Quisque fringilla, nulla sed ornare tincidunt, neque velit finibus.]]></caption>
-    </thumbnail>
-
-    <thumbnail>
-      <img><![CDATA[dir/media/img/assets/3_7.jpg]]></img>
-      <url><![CDATA[https://www.gpstrategies.com/]]></url>
-      <heading><![CDATA[Fringilla]]></heading>
-      <caption><![CDATA[<span class="link-look">Aliquam quis</span> enim at metus commodo hendrerit sit amet eu nisi. Proin sagittis euismod risus vel fringilla. Suspendisse non leo ut erat euismod.]]></caption>
-    </thumbnail>
-
-    <thumbnail>
-      <img><![CDATA[dir/media/img/assets/3_8.jpg]]></img>
-      <url><![CDATA[https://www.gpstrategies.com/]]></url>
-      <heading><![CDATA[Arcus Sed]]></heading>
-      <caption><![CDATA[Curabitur accumsan, orci molestie <span class="link-look">condimentum aliquamenim</span> , eros eros elementum ex, in commodo lacus lorem ac nisl. Pellentesque id arcu sed est vulputate.]]></caption>
-    </thumbnail>
-
   </thumbnails>
 </page>

@@ -47,8 +47,18 @@ function openContentModal(heading, content) {
   $('.modal').modal();
 }
 
-function openVidModal(heading,vidSrc,posterSrc) {
-  $('#modalContainer').html("<div class='modal fade' id='vidModal' tabindex='-1' role='dialog' aria-labelledby='vidModalLabel'><div class='modal-dialog' role='document'><div class='modal-content'><div class='modal-header'><button type='button' class='close' data-dismiss='modal' aria-label='Close'><span aria-hidden='true'><img src='"+pathStr+"/media/img/btn_close.png' alt='close the modal'></span></button><h4 class='modal-title' id=''>"+heading+"</h4></div><div class='modal-body clearfix'><video id='' src='"+vidSrc+"' preload='none' controls poster='"+posterSrc+"'>Sorry, your browser doesn't support embedded videos, but don't worry, you can <a href=''>download it</a> and watch it with your favorite video player!</video></div></div></div></div>");
+function openVideoModal(src) {
+  $('#modalContainer').html("<div class='modal fade' id='videoModal' tabindex='-1' role='dialog' aria-labelledby='videoModalLabel'><div class='modal-dialog' role='document'><div class='modal-content'><div class='modal-header'><button type='button' class='close' data-dismiss='modal' aria-label='Close'><span aria-hidden='true'><img src='dir/media/img/btn_close.png' alt='close the modal'></span></button></div><div class='modal-body clearfix'><video controls autoplay>Sorry, your browser doesn't support embedded videos. <source src='"+src+"' type='video/mp4'></video></div></div></div></div>");
+
+  $('.modal').on('hidden.bs.modal', function (e) {
+    $('#modalContainer').html('');
+  });
+
+  $('.modal').modal();
+}
+
+function openAudioModal(src) {
+  $('#modalContainer').html("<div class='modal fade' id='audioModal' tabindex='-1' role='dialog' aria-labelledby='audioModalLabel'><div class='modal-dialog' role='document'><div class='modal-content'><div class='modal-header'><button type='button' class='close' data-dismiss='modal' aria-label='Close'><span aria-hidden='true'><img src='dir/media/img/btn_close.png' alt='close the modal'></span></button></div><div class='modal-body clearfix'><audio controls><source src='"+src+"' type='audio/mp3'>Your browser does not support the audio element.</audio></div></div></div></div>");
 
   $('.modal').on('hidden.bs.modal', function (e) {
     $('#modalContainer').html('');
