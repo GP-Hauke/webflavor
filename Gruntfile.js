@@ -1,4 +1,13 @@
 /*
+------------ GRUNT INIT SCRIPT CONTENTS ------------
+-[xmlpoke:settings] - Updates version number in setings.xml
+-[xmlpoke:sco01] - Cleans (deletes) dist folder for new build
+-[xmlpoke:imsmanifest] - Converts settings.xml to JSON file to be used in Grunt
+------------ END GRUNT INIT SCRIPT CONTENTS ------------
+*/
+
+
+/*
 ------------ GRUNT BUILD SCRIPT CONTENTS ------------
 -[xmlpoke:verion] - Updates version number in setings.xml
 -[clean:rebuild] - Cleans (deletes) dist folder for new build
@@ -247,28 +256,94 @@ module.exports = function(grunt){
             xpath: '/settings/cookieName/text()',
             value: function (node) {
               var json = grunt.file.readJSON('settings.json');
-              return "cookie_"+json.settings.cookieName;
+              return "cookie_"+json.settings.cookies;
             }
           }]
         },
         files: {
-          'dist/dir/content/settings.xml': 'dist/dir/content/settings.xml',
+          'app/dir/content/settings.xml': 'app/dir/content/settings.xml',
         },
       },
 
       sco01: {
         options: {
+          namespaces: {
+            'w':'http://www.imsglobal.org/xsd/imsmd_rootv1p2p1',
+          },
           replacements: [
           {
-            xpath: '/lom/general/catalogentry/catalog/text()',
+            xpath: '/w:lom/w:general/w:catalogentry/w:catalog/text()',
             value: function (node) {
               var json = grunt.file.readJSON('settings.json');
-              return "cookie_"+json.settings.cookieName;
+              return json.settings.cookies;
+            }
+          },
+          {
+            xpath: '/w:lom/w:general/w:catalogentry/w:entry/w:langstring/text()',
+            value: function (node) {
+              var json = grunt.file.readJSON('settings.json');
+              return json.settings.courseTitle +": "+json.settings.courseSubTitle;
+            }
+          },
+          {
+            xpath: '/w:lom/w:general/w:title/w:langstring/text()',
+            value: function (node) {
+              var json = grunt.file.readJSON('settings.json');
+              return json.settings.courseTitle +": "+json.settings.courseSubTitle;
             }
           }]
         },
         files: {
-          'dist/sco01.xml': 'dist/sco01.xml',
+          'app/sco01.xml': 'app/sco01.xml',
+        },
+      },
+
+      imsmanifest: {
+        options: {
+          namespaces: {
+            'w':'http://www.imsproject.org/xsd/imscp_rootv1p1p2',
+            'w2':'http://www.imsglobal.org/xsd/imsmd_rootv1p2p1',
+            'w3':'http://www.imsproject.org/xsd/imscp_rootv1p1p2'
+          },
+          replacements: [
+          {
+            xpath: '/w:manifest/@identifier',
+            value: function (node) {
+              var json = grunt.file.readJSON('settings.json');
+              return json.settings.cookies;
+            }
+          },
+          {
+            xpath: '/w:manifest/w:metadata/w2:lom/w2:general/w2:catalogentry/w2:entry/w2:langstring/text()',
+            value: function (node) {
+              var json = grunt.file.readJSON('settings.json');
+              return json.settings.cookies;
+            }
+          },
+          {
+            xpath: '/w:manifest/w:metadata/w2:lom/w2:general/w2:title/w2:langstring/text()',
+            value: function (node) {
+              var json = grunt.file.readJSON('settings.json');
+              return json.settings.courseTitle +": "+json.settings.courseSubTitle;
+            }
+          },
+          {
+            xpath: '/w:manifest/w3:organizations/w3:organization/w3:title/text()',
+            value: function (node) {
+              var json = grunt.file.readJSON('settings.json');
+              return json.settings.courseTitle +": "+json.settings.courseSubTitle;
+            }
+          },
+          {
+            xpath: '/w:manifest/w3:organizations/w3:organization/w3:item/w3:title/text()',
+            value: function (node) {
+              var json = grunt.file.readJSON('settings.json');
+              return json.settings.courseTitle +": "+json.settings.courseSubTitle;
+            }
+          }]
+        },
+        files: {
+          'app/imsmanifest.xml': 'app/imsmanifest.xml',
         },
       },
 
@@ -304,11 +379,17 @@ module.exports = function(grunt){
   grunt.loadNpmTasks('grunt-xmlpoke');
   grunt.loadNpmTasks('grunt-bump');
 
-  grunt.registerTask('test', ['xmlpoke:version']);
+  grunt.registerTask('test', ['xmlpoke:settings']);
 
   grunt.registerTask(
     'build',
     'Compiles all of the assets and copies the files to the build directory.',
     ['xmlpoke:version', 'clean:rebuild', 'convert:xml2json', 'copy:build', 'preprocess', 'uglify', 'cssmin', 'useminPrepare', 'usemin', 'copy:vendors', 'clean:finishbuild', 'compress', 'connect']
+  );
+
+  grunt.registerTask(
+    'init',
+    'Compiles all of the assets and copies the files to the build directory.',
+    ['xmlpoke:settings','xmlpoke:sco01','xmlpoke:imsmanifest']
   );
 }

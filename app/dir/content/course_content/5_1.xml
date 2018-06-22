@@ -7,37 +7,36 @@
     <![CDATA[
     <div class="row">
       <div class="col-md-12">
-        <p>Please Match the following cities with their states. Complete the task by dragging and dropping the items into their correct spots. Correct answers will turn green, while the wrong answers will turn red. <span class="bolded">You must attempt the game before advancing to the next page!</span> Good luck!</p>
+        <p><span class="bolded">Now that you have viewed this page, you can advance to the next.</span> Please Match the following cities with their states. Complete the task by dragging and dropping the items into their correct spots. Correct answers will turn green, while the wrong answers will turn red. Good luck!</p>
       </div>
     </div>]]>
   </content>
 
   <drag_drop completed="false">
-    <gate lock="true">
-      <chapter>4</chapter>
-      <page>1</page>
-      <lock>1</lock>
-    </gate>
     <matchings>
       <pair>
-        <drag>Washington DC</drag>
-        <drop>United States</drop>
+        <drag>Bloomington</drag>
+        <drop>Indiana</drop>
       </pair>
       <pair>
-        <drag>Paris</drag>
-        <drop>France</drop>
+        <drag>Louisville</drag>
+        <drop>Kentucky</drop>
       </pair>
       <pair>
-        <drag>Tokyo</drag>
-        <drop>Japan</drop>
+        <drag>Chicago</drag>
+        <drop>Illinois</drop>
       </pair>
       <pair>
-        <drag>London</drag>
-        <drop>England</drop>
+        <drag>Miami</drag>
+        <drop>Florida</drop>
       </pair>
       <pair>
-        <drag>Rio</drag>
-        <drop>Brazil</drop>
+        <drag>New York</drag>
+        <drop>New York</drop>
+      </pair>
+      <pair>
+        <drag>Seattle</drag>
+        <drop>Washington</drop>
       </pair>
     </matchings>
   </drag_drop>

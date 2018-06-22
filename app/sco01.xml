@@ -2,13 +2,13 @@
 <lom xmlns="http://www.imsglobal.org/xsd/imsmd_rootv1p2p1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  xsi:schemaLocation="http://www.imsglobal.org/xsd/imsmd_rootv1p2p1 imsmd_rootv1p2p1.xsd">
   <general>
     <catalogentry>
-      <catalog>gm_ssmftw</catalog>
+      <catalog>---- COOKIE_NAME_HERE ----</catalog>
       <entry>
-        <langstring>Selling Skills: Match Features to Wants</langstring>
+        <langstring>---- COURSE: TITLE HERE ----</langstring>
       </entry>
     </catalogentry>
     <title>
-      <langstring>Selling Skills: Match Features to Wants</langstring>
+      <langstring>---- COURSE: TITLE HERE ----</langstring>
     </title>
     <description>
       <langstring></langstring>

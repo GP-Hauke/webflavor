@@ -205,7 +205,7 @@ function checkXMLLoadingComplete() {
     loadPage();
 
     enforcedShow($("#mainContainer"));
-    if(courseData.HAS_SPLASH_PAGE === 'true' && currentChapter === 1 && currentPage === 0) {
+    if(courseData.HAS_SPLASH_PAGE === 'true' && currentChapter === 1 && currentPage === 1) {
       openModal('splashPage');
     }
     if(courseData.HAS_GLOSSARY === 'true') {
@@ -624,7 +624,7 @@ function loadPage() {
   $.get("src/components/content/content.html", function(data, status){
     $("#contentContainer").html(data);
 
-    loadContent(eval(currentChapter+1)+'_'+currentPage);
+    loadContent(eval(currentChapter+1)+'_'+eval(currentPage+1));
     $('#navbarMobile li').eq(currentChapter).addClass('courseTitleChapterSelected');
   });
 
@@ -831,6 +831,7 @@ function checkLock(chapter,page) {
 }
 
 function openLock(chapter,page,lock) {
+
   if(lock >= courseData.chapters[chapter].pages[page].locks.length) {
     return;
   }
