@@ -3,7 +3,7 @@
   <courseStorageID>GM_Selling_Skills_Match_Features_to_Wants</courseStorageID>
   <courseTitle><![CDATA[HTML TEMPLATE]]></courseTitle>
   <courseSubTitle><![CDATA[WEBFLAVOR COURSE]]></courseSubTitle>
-  <version>0.0.7</version>
+  <version>1.3</version>
   <theme>maroon</theme> <!-- active -->
   <cookieName>cookie_gm_ssmftw</cookieName>
   <!--
@@ -32,7 +32,7 @@
 
   <bookmarking>
     <hasLocalBookmarking>false</hasLocalBookmarking>
-    <bookmarkingStorageID></bookmarkingStorageID>
+    <bookmarkingStorageID/>
   </bookmarking>
 
   <trackActions>true</trackActions>
@@ -42,8 +42,8 @@
 
   <pageCount>
     <countPages>false</countPages>
-    <pageCountStorageID></pageCountStorageID>
-    <totalPages></totalPages>
+    <pageCountStorageID/>
+    <totalPages/>
   </pageCount>
 
   <!-- VENDORS: Used vendors in the course -->

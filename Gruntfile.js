@@ -1,3 +1,21 @@
+/*
+------------ GRUNT BUILD SCRIPT CONTENTS ------------
+-[xmlpoke:verion] - Updates version number in setings.xml
+-[clean:rebuild] - Cleans (deletes) dist folder for new build
+-[convert:xml2json] - Converts settings.xml to JSON file to be used in Grunt
+-[copy:build] - Copies over core files that are not minified/concatenated
+-[preprocess] - Removes localStorage.clear() line used in development
+-[uglify] - Concatenates JS files and copies them into dist folder
+-[cssmin] - Minifies CSS files and copies them into dist folder
+-[useminPrepare] - Preprocessor for usemin
+-[usemin] - Changes all HTML link tags to the new dist version
+-[copy:vendors] - Copies over only needed vendors
+-[clean:finishbuild] - Deletes uneeded files from dist folder
+-[compress] - Creates scorm_package.zip file for LMS
+-[connect] - Starts localhost:9000 to test build version
+------------ END GRUNT BUILD SCRIPT CONTENTS ------------
+*/
+
 module.exports = function(grunt){
 
   grunt.initConfig({
@@ -261,12 +279,12 @@ module.exports = function(grunt){
             xpath: '/settings/version/text()',
             value: function (node) {
               var json = grunt.file.readJSON('settings.json');
-              return (parseFloat(node.nodeValue)+0.1).toFixed(2).toString();
+              return (parseFloat(node.nodeValue)+0.1).toFixed(1).toString();
             }
           }]
         },
         files: {
-          'dist/dir/content/settings.xml': 'dist/dir/content/settings.xml',
+          'app/dir/content/settings.xml': 'app/dir/content/settings.xml',
         },
       },
     },
@@ -291,9 +309,6 @@ module.exports = function(grunt){
   grunt.registerTask(
     'build',
     'Compiles all of the assets and copies the files to the build directory.',
-    [ 'clean:rebuild', 'convert:xml2json', 'copy:build', 'preprocess', 'uglify', 'cssmin', 'useminPrepare', 'usemin', 'copy:vendors', 'clean:finishbuild', 'compress', 'connect']
+    ['xmlpoke:version', 'clean:rebuild', 'convert:xml2json', 'copy:build', 'preprocess', 'uglify', 'cssmin', 'useminPrepare', 'usemin', 'copy:vendors', 'clean:finishbuild', 'compress', 'connect']
   );
-
-  grunt.registerTask('init', ['xmlpoke:settings']);
-
 }

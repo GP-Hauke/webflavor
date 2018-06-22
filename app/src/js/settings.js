@@ -3,30 +3,18 @@ var LOCAL_COURSE_DATA_ID;
 function initSettings(xml) {
   LOCAL_COURSE_DATA_ID = $(xml).find("courseStorageID").text();
 
-  /*var localStorageLen = JSON.stringify(localStorage).length;
-  console.log("localStorageLen ", localStorageLen);
+  var localStorageSize = ((JSON.stringify(localStorage).length * 2) / 1048576).toFixed(4);
+  console.log("localStorage in megabytes: ", localStorageSize);
 
-  var l = 1;
-  localStorage.setItem(l, "x");
+  var currentVersion = $(xml).find("version").text();
 
-  for(var i = 0; i < 100000; i++) {
-  console.log("uh oh... ", i);
-  var ls = localStorage.getItem(l);
-  var templs = JSON.stringify(ls);
-}*/
+  var tempStorage = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
 
-var localStorageSize = ((JSON.stringify(localStorage).length * 2) / 1048576).toFixed(4);
-console.log("localStorage in megabytes: ", localStorageSize);
+  if(tempStorage === null || tempStorage.SETTINGS_VERSION !== currentVersion) {
+    console.log("localStorage has reloaded");
+    populateStorage(xml, tempStorage);
 
-var currentVersion = $(xml).find("version").text();
-
-var tempStorage = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
-
-if(tempStorage === null || tempStorage.SETTINGS_VERSION !== currentVersion) {
-
-  populateStorage(xml, tempStorage);
-
-}
+  }
 }
 
 function populateStorage(xml, tempStorage) {
