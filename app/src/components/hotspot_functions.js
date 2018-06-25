@@ -12,6 +12,7 @@ function initHotspot(hotspotContentXML) {
 
   courseData.hotspotData.hotspot = {
     completed: $(currentHotspot).attr("completed"),
+    img: $(currentHotspot).find("img").text(),
     spots: []
   };
 
@@ -36,8 +37,8 @@ function setupHotSpot(){
 
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
 
-
-  var html ='<div class="row"><div class="col-md-12"><div id="hotSpot"><img class="hotSpot-img" src="dir/media/img/assets/City-Map.jpg">';
+  var img = courseData.hotspotData.hotspot.img;
+  var html ='<div class="row"><div class="col-md-12"><div id="hotSpot"><img class="hotSpot-img" src="'+img+'">';
 
   for(var i = 0; i < courseData.hotspotData.hotspot.spots.length; i++){
     var label = courseData.hotspotData.hotspot.spots[i].label;

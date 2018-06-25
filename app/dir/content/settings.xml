@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <settings>
-  <version>2.7</version>
+  <version>4.9</version>
   <theme>maroon</theme>
   <courseStorageID>HTML_Template_WebFlavor</courseStorageID>
   <courseTitle><![CDATA[HTML Template]]></courseTitle>
   <courseSubTitle><![CDATA[WebFlavor Course]]></courseSubTitle>
   <cookies>html_tw</cookies>
   <cookieName>----COOKIE_NAME_HERE----</cookieName>
+
   <!--
   completionMethod values:
   page_view: course will automatically register completion upon viewing all pages
@@ -24,8 +25,10 @@
   <!-- COMPONENTS: Used components on the course -->
   <!-- valid values: "true", "false"-->
   <hasSplashPage>false</hasSplashPage>
-  <hasGlossary>true</hasGlossary>
   <hasResources>true</hasResources>
+  <hasGlossary>true</hasGlossary>
+  <hasHelp>true</hasHelp>
+
   <hasAssessments>true</hasAssessments>
   <hasDragDrops>true</hasDragDrops>
   <hasHotspots>true</hasHotspots>

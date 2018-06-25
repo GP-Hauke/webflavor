@@ -31,6 +31,7 @@ function populateStorage(xml, tempStorage) {
   courseStorageObj.HAS_STRINGS = $(xml).find("hasStrings").text();
   courseStorageObj.HAS_GLOSSARY = $(xml).find("hasGlossary").text();
   courseStorageObj.HAS_RESOURCES = $(xml).find("hasResources").text();
+  courseStorageObj.HAS_HELP = $(xml).find("hasHelp").text();
   courseStorageObj.HAS_SPLASH_PAGE = $(xml).find("hasSplashPage").text();
 
   /* if course is loaded for first time or hasCards was set to true for first time, cardData will be undefined, so set it here as stub. if course had been loaded previously with hasCards set to true, copy card data from previous localStorage. */

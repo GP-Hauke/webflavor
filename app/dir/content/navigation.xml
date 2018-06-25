@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <course translatePanel="false" useNextPrevLabel="false">
   <headerLinks included="true"> <!-- valid values: "true", "false" -->
-    <headerLink href="#" itemId="btnResources" target=""><![CDATA[RESOURCES]]></headerLink>
-    <headerLink href="#" itemId="btnGlossary" target=""><![CDATA[GLOSSARY]]></headerLink>
-    <headerLink href="#" itemId="btnHelpModal" target=""><![CDATA[?]]></headerLink>
+    <!-- HEADER LINKS DEPRICATED. MADE DYNAMIC IN INTERFACE_FUNCTIONS -->
   </headerLinks>
   <chapter>
     <title><![CDATA[VEHICLE GAME]]></title>

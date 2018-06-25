@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<page type="assessment">
+<page>
   <title>12</title>
   <component>dragAndDrop</component>
 
@@ -14,7 +14,7 @@
 
   <drag_drop completed="false">
     <gate lock="true">
-      <chapter>4</chapter>
+      <chapter>5</chapter>
       <page>1</page>
       <lock>1</lock>
     </gate>

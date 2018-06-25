@@ -221,6 +221,11 @@ function dragover_handler(ev) {
     ev.preventDefault();
     return;
   }
+  else if($(ev.target).hasClass('draggable')){
+    ev.dataTransfer.dropEffect = "move"
+    ev.preventDefault();
+    return;
+  }
 }
 
 function drop_handler(ev) {
@@ -231,6 +236,26 @@ function drop_handler(ev) {
 
   var dragId = "#"+dragVal;
   var dropId = "#"+dropVal;
+
+  if(dropVal.charAt(0) == 'p'){
+    var tempDropId = dropId;
+    dropId = '#'+$(dropId).parent('.item-container').attr('id');
+
+    var index = $(tempDropId).parent('.item-container').index();
+
+
+    if($(dragId).parent().parent().hasClass('right')){
+      $(dragId).parent('.item-container').append($(tempDropId));
+    }
+    else{
+      for(var i = index; i < index + $('.right').children().length; i++){
+        if($('.right').children().eq(i % $('.right').children().length).children().length == 0){
+          $('.right').children().eq(i % $('.right').children().length).append($(tempDropId));
+          break;
+        }
+      }
+    }
+  }
 
   $(dropId).append($(dragId));
 

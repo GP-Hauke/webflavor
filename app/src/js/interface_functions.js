@@ -286,15 +286,21 @@ function buildTopNav() {
     // END MOBILE NAV DRAWER
 
     // HEADER LINKS
-    if(courseData.headerLinks.included === "true") {
-      var headerLinks = "";
-      for(var i = 0; i < courseData.headerLinks.links.length; i++) {
-        var headerLinkEl = '<li><a id="'+courseData.headerLinks.links[i].id+'" href="'+courseData.headerLinks.links[i].href+'" target="'+courseData.headerLinks.links[i].target+'">'+courseData.headerLinks.links[i].title+'</a></li>';
-        headerLinks = headerLinks + headerLinkEl;
-      }
-      $("#headerLinks").append(headerLinks);
+    var headerLinks = "";
+    if(courseData.HAS_RESOURCES === "true"){
+      var headerLinkEl = '<li><a id="btnResources" href="#" target="">RESOURCES</a></li>';
+      headerLinks = headerLinks + headerLinkEl;
     }
-    // END HEADER LINKS
+    if(courseData.HAS_GLOSSARY === "true"){
+      var headerLinkEl = '<li><a id="btnGlossary" href="#" target="">GLOSSARY</a></li>';
+      headerLinks = headerLinks + headerLinkEl;
+    }
+    if(courseData.HAS_HELP === "true"){
+      var headerLinkEl = '<li><a id="btnHelpModal" href="#" target="">?</a></li>';
+      headerLinks = headerLinks + headerLinkEl;
+    }
+    $("#headerLinks").append(headerLinks);
+        // END HEADER LINKS
 
     // BOTTOM NAV
     var bottomNav = '<div class="container"><div id="navbarBottomCollapse" class="navbar-collapse collapse"><ul id="nav-items-bottom-row" class="nav nav-justified">';
@@ -872,7 +878,7 @@ function calculateHeight() {
 
   //  $("#contentContainer").css({height:$(window).height() - 1, paddingTop:$("#navbar").height()});
   //$("#contentContainer").css({height:$(window).height() - 1});
-  $("#contentContainer").css({height:$(window).height()-151});
+  $("#contentContainer").css({height:$(window).height()-($('#navContainer').height()+$('.footer').height())});
 
   //---------------DEPRICATED AFTER REMOVING IFRAMES---------------
   //$("#contentFrame").css({height:$("#contentContainer").height()});
