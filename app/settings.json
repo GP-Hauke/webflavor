@@ -1,0 +1,45 @@
+{
+  "settings": {
+    "theme": "maroon",
+
+    "courseTitle": "Selling Skills",
+    "courseSubTitle": "Test Course",
+
+    "completionMethod": "assessment",
+    "menuPlacement": "top",
+    "menuStyle": "tab",
+
+    "hasSplashPage": "false",
+    "hasResources": "true",
+    "hasGlossary": "true",
+    "hasHelp": "true",
+    "hasAssessments": "true",
+    "hasDragDrops": "true",
+    "hasHotspots": "true",
+    "hasThumbnails": "true",
+
+    "bookmarking": {
+      "hasLocalBookmarking": "false",
+      "bookmarkingStorageID": ""
+    },
+
+    "trackActions": "true",
+    "linkTracking": {
+      "trackLinks": "true"
+    },
+
+    "pageCount": {
+      "countPages": "false",
+      "pageCountStorageID": "",
+      "totalPages": ""
+    },
+
+    "vendors": {
+      "create_js": "false",
+      "tweenmax": "true",
+      "flip_card": "false",
+      "font_awesome": "true",
+      "glyphicons": "true"
+    }
+  }
+}
