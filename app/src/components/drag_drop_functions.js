@@ -244,17 +244,9 @@ function drop_handler(ev) {
     var index = $(tempDropId).parent('.item-container').index();
 
 
-    if($(dragId).parent().parent().hasClass('right')){
-      $(dragId).parent('.item-container').append($(tempDropId));
-    }
-    else{
-      for(var i = index; i < index + $('.right').children().length; i++){
-        if($('.right').children().eq(i % $('.right').children().length).children().length == 0){
-          $('.right').children().eq(i % $('.right').children().length).append($(tempDropId));
-          break;
-        }
-      }
-    }
+    $(dragId).parent('.item-container').append($(tempDropId));
+
+
   }
 
   $(dropId).append($(dragId));
