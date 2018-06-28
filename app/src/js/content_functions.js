@@ -1,5 +1,5 @@
 function updatePagination() {
-  var currChap = currentChapter + 1;
+  var currChap = currentChapter;
   //var totalChaps = parseInt(totalPages);
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
   var totalChaps = courseData.chapters.length;
