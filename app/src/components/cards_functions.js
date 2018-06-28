@@ -27,8 +27,6 @@ function initCards(dragDropContentXML) {
   setupCards();
 }
 
-
-
 function setupCards(){
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
   var cardNum = courseData.cardsData.cards.length;
@@ -45,7 +43,7 @@ function setupCards(){
     if(courseData.cardsData.class != null){
       cardWidth = courseData.cardsData.class;
     }
-    var cardHTML = '<div class="'+cardWidth+' margin-below"><div class="cardCont"><div class="cardBack">'+back+'</div><div class="cardFront">'+front+'</div></div></div>';
+    var cardHTML = '<div class="'+cardWidth+' margin-below"><div class="cardCont"><div class="cardBack">'+back+'<a class="showMore back" href="#">Back</a></div><div class="cardFront">'+front+'<a class="showMore front" href="#">Show More</a></div></div></div>';
 
     html += cardHTML;
   }
@@ -75,14 +73,13 @@ function setupCards(){
 
   });
 
-  $(".cardCont").hover(elOver, elOut);
 
-  function elOver() {
-      this.animation.play();
-  }
 
-  function elOut() {
-      this.animation.reverse();
-  }
+  $(".front").click(function() {
+    this.closest(".cardCont").animation.play();
+  });
 
+  $(".back").click(function() {
+      this.closest(".cardCont").animation.reverse();
+  });
 }
