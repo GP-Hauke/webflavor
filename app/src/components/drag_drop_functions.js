@@ -211,7 +211,8 @@ function submitDragDrop(){
 // DRAG AND DROP CORE FUNCTIONALITY
 function dragstart_handler(ev) {
   // Add the target element's id to the data transfer object
-  ev.dataTransfer.setData("text/plain", ev.target.id);
+  console.log(ev.dataTransfer);
+  ev.dataTransfer.setData("text", ev.target.id);
   ev.dropEffect = "move";
 }
 
@@ -244,17 +245,9 @@ function drop_handler(ev) {
     var index = $(tempDropId).parent('.item-container').index();
 
 
-    if($(dragId).parent().parent().hasClass('right')){
-      $(dragId).parent('.item-container').append($(tempDropId));
-    }
-    else{
-      for(var i = index; i < index + $('.right').children().length; i++){
-        if($('.right').children().eq(i % $('.right').children().length).children().length == 0){
-          $('.right').children().eq(i % $('.right').children().length).append($(tempDropId));
-          break;
-        }
-      }
-    }
+    $(dragId).parent('.item-container').append($(tempDropId));
+
+
   }
 
   $(dropId).append($(dragId));
