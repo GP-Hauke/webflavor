@@ -211,7 +211,8 @@ function submitDragDrop(){
 // DRAG AND DROP CORE FUNCTIONALITY
 function dragstart_handler(ev) {
   // Add the target element's id to the data transfer object
-  ev.dataTransfer.setData("text/plain", ev.target.id);
+  console.log(ev.dataTransfer);
+  ev.dataTransfer.setData("text", ev.target.id);
   ev.dropEffect = "move";
 }
 
