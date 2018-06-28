@@ -361,6 +361,9 @@ function loadContent(param){
     else if(component == 'thumbnails'){
       initThumbnails(xml);
     }
+    else if(component == 'knowledgeCheck'){
+      initKnowledgeCheck(xml);
+    }
 
 
     var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));

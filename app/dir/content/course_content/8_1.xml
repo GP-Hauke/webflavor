@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<page>
+  <title>12</title>
+  <component>knowledgeCheck</component>
+  <content>
+    <![CDATA[
+    <div class="row">
+      <div class="col-md-12">
+        <p class="top-paragraph">The following is a knowledge check to test your understanding of the course so far. You must attempt the quiz before advancing.</p>
+      </div>
+    </div>]]>
+  </content>
+
+  <knowledgeCheck score="true" completed="false" title="Review">
+    <question>
+      <body>The question body goes in this element. What answer is right?</body>
+      <answers>
+        <answer>Not this one</answer>
+        <answer>Not this one</answer>
+        <answer correct="true">RIGHT ANSWER</answer>
+        <answer>Not this one</answer>
+      </answers>
+    </question>
+
+    <question>
+      <body>The question body goes in this element. What answer is right?</body>
+      <answers>
+        <answer correct="true">RIGHT ANSWER</answer>
+        <answer>Not this one</answer>
+        <answer>Not this one</answer>
+        <answer>Not this one</answer>
+      </answers>
+    </question>
+
+    <question>
+      <body>The question body goes in this element. What answer is right?</body>
+      <answers>
+        <answer>Not this one</answer>
+        <answer correct="true">RIGHT ANSWER</answer>
+        <answer>Not this one</answer>
+        <answer>Not this one</answer>
+      </answers>
+    </question>
+
+    <question>
+      <body>The question body goes in this element. What answer is right?</body>
+      <answers>
+        <answer>Not this one</answer>
+        <answer>Not this one</answer>
+        <answer>Not this one</answer>
+        <answer correct="true">RIGHT ANSWER</answer>
+      </answers>
+    </question>
+  </knowledgeCheck>
+</page>

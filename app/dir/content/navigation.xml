@@ -34,8 +34,8 @@
   <chapter>
     <title><![CDATA[DRAG AND DROP COMPONENT]]></title>
     <pages>
-      <page gated="true" locks="0" audio=""><![CDATA[CITIES AND STATES]]></page>
-      <page gated="true" locks="1" audio=""><![CDATA[CITIES AND COUNTRIES]]></page>
+      <page gated="false" locks="0" audio=""><![CDATA[CITIES AND STATES]]></page>
+      <page gated="false" locks="1" audio=""><![CDATA[CITIES AND COUNTRIES]]></page>
     </pages>
   </chapter>
 
@@ -50,6 +50,13 @@
     <title><![CDATA[COURSE COMPLETION]]></title>
     <pages>
       <page gated="false" locks="0" audio=""><![CDATA[COURSE COMPLETION]]></page>
+    </pages>
+  </chapter>
+
+  <chapter>
+    <title><![CDATA[KNOWLEDGE CHECK]]></title>
+    <pages>
+      <page gated="false" locks="0" audio=""><![CDATA[KNOWLEDGE CHECK]]></page>
     </pages>
   </chapter>
 </course>
