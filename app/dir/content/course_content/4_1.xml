@@ -6,12 +6,12 @@
     <![CDATA[
     <div class="row">
       <div class="col-sm-12">
-        <p id="sectionComplete">Hover over each card to flip it over and see more information about the topic.</p>
+        <p id="sectionComplete">Click each card to flip it over and see more information about the topic.</p>
       </div>
     </div>]]>
   </content>
 
-  <cards completed="false" class="col-md-3 col-sm-6">
+  <cards completed="false" class="col-md-3 col-sm-6" hasButton="true">
     <card>
       <front><![CDATA[<h4>Nullam Nisi</h4>]]></front>
       <back><![CDATA[<p>Curabitur accumsan, orci mostie cond aliquam, eros eros elementum ex.

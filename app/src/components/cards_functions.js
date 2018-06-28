@@ -9,6 +9,7 @@ function initCards(dragDropContentXML) {
 
   courseData.cardsData = {
     completed: $(currentCardComponent).attr("completed"),
+    hasButton: $(currentCardComponent).attr("hasButton"),
     class: $(currentCardComponent).attr("class"),
     cards: []
   };
@@ -43,7 +44,13 @@ function setupCards(){
     if(courseData.cardsData.class != null){
       cardWidth = courseData.cardsData.class;
     }
-    var cardHTML = '<div class="'+cardWidth+' margin-below"><div class="cardCont"><div class="cardBack">'+back+'<a class="showMore back" href="#">Back</a></div><div class="cardFront">'+front+'<a class="showMore front" href="#">Show More</a></div></div></div>';
+
+    if(courseData.cardsData.hasButton == "true"){
+      var cardHTML = '<div class="'+cardWidth+' margin-below"><div class="cardCont"><div class="cardBack">'+back+'<a class="showMore back" href="#">Back</a></div><div class="cardFront">'+front+'<a class="showMore front" href="#">Show More</a></div></div></div>';
+    }
+    else{
+      var cardHTML = '<div class="'+cardWidth+' margin-below"><div class="cardCont"><div class="cardBack">'+back+'</div><div class="cardFront">'+front+'</div></div></div>';
+    }
 
     html += cardHTML;
   }
@@ -74,12 +81,30 @@ function setupCards(){
   });
 
 
+  if(courseData.cardsData.hasButton == "true"){
+    $(".front").click(function() {
+      this.closest(".cardCont").animation.play();
+    });
 
-  $(".front").click(function() {
-    this.closest(".cardCont").animation.play();
-  });
+    $(".back").click(function() {
+        this.closest(".cardCont").animation.reverse();
+    });
+  }
+  else{
+    $(".cardFront").hover(function(){
+      $(this).css('cursor','pointer');
+    });
 
-  $(".back").click(function() {
-      this.closest(".cardCont").animation.reverse();
-  });
+    $(".cardBack").hover(function(){
+      $(this).css('cursor','pointer');
+    });
+
+    $(".cardFront").click(function() {
+      this.closest(".cardCont").animation.play();
+    });
+
+    $(".cardBack").click(function() {
+        this.closest(".cardCont").animation.reverse();
+    });
+  }
 }
