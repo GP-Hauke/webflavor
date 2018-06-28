@@ -207,7 +207,13 @@ li.courseTitleChapter {
   display: block; }
 
 li.courseTitleChapterSelected {
-  background-color: #2b2b2b; }
+  background-color: #2b2b2b;
+}
+li.courseTitleGated {
+  opacity: .35; }
+
+li.courseTitleGatedPage {
+  opacity: .35; }
 
 /* end INDIVIDUAL MENU ITEMS */
 /* COLLAPSABLE PART OF NAV BAR - BOTTOM NAV BAR */

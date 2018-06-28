@@ -141,7 +141,7 @@ function submitDragDrop(){
     var chapter = courseData.dragDropData.gate.chapter;
     var page = courseData.dragDropData.gate.page;
     var lock = courseData.dragDropData.gate.lock;
-    openLock(chapter-1, page, lock);
+    openLock(chapter, page, lock);
   }
 
   var answers = $('#dragAndDrop .right').children();
