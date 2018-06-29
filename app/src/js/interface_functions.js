@@ -46,7 +46,7 @@ function initInterface() {
 
 function loadXMLData() {
   if(settingsLoaded === false) {
-    GetInterfaceXML("dir/content/settings.xml");
+    GetInterfaceXML("settings.json");
     return;
   }
 

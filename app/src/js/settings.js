@@ -1,41 +1,40 @@
 var LOCAL_COURSE_DATA_ID;
 
-function initSettings(xml) {
-  LOCAL_COURSE_DATA_ID = $(xml).find("courseStorageID").text();
+function initSettings(json) {
+  LOCAL_COURSE_DATA_ID = json.settings.courseStorageID;
 
   var localStorageSize = ((JSON.stringify(localStorage).length * 2) / 1048576).toFixed(4);
   console.log("localStorage in megabytes: ", localStorageSize);
 
-  var currentVersion = $(xml).find("version").text();
+  var currentVersion = json.settings.version;
 
   var tempStorage = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
 
   if(tempStorage === null || tempStorage.SETTINGS_VERSION !== currentVersion) {
     console.log("localStorage has reloaded");
-    populateStorage(xml, tempStorage);
+    populateStorage(json, tempStorage);
 
   }
 }
 
-function populateStorage(xml, tempStorage) {
+function populateStorage(json, tempStorage) {
   var courseStorageObj = {};
-  courseStorageObj.TITLE = $(xml).find("courseTitle").text();
-  courseStorageObj.SUB_TITLE = $(xml).find("courseSubTitle").text();
-  courseStorageObj.SETTINGS_VERSION = $(xml).find("version").text();
-  courseStorageObj.THEME = $(xml).find("theme").text();
+  courseStorageObj.TITLE = json.settings.courseTitle;
+  courseStorageObj.SUB_TITLE = json.settings.courseSubTitle;
+  courseStorageObj.SETTINGS_VERSION = json.settings.version;
+  courseStorageObj.THEME = json.settings.theme;
   courseStorageObj.THEME_PATH = "dir/themes/" + courseStorageObj.THEME;
-  courseStorageObj.COOKIE_NAME = $(xml).find("cookieName").text();
-  courseStorageObj.MENU_PLACEMENT = $(xml).find("menuPlacement").text();
-  courseStorageObj.MENU_STYLE = $(xml).find("menuStyle").text();
-  courseStorageObj.COMPLETION_METHOD = $(xml).find("completionMethod").text();
-  courseStorageObj.HAS_STRINGS = $(xml).find("hasStrings").text();
-  courseStorageObj.HAS_GLOSSARY = $(xml).find("hasGlossary").text();
-  courseStorageObj.HAS_RESOURCES = $(xml).find("hasResources").text();
-  courseStorageObj.HAS_HELP = $(xml).find("hasHelp").text();
-  courseStorageObj.HAS_SPLASH_PAGE = $(xml).find("hasSplashPage").text();
+  courseStorageObj.COOKIE_NAME = json.settings.cookieName;
+  courseStorageObj.MENU_PLACEMENT = json.settings.menuPlacement;
+  courseStorageObj.MENU_STYLE = json.settings.menuStyle;
+  courseStorageObj.COMPLETION_METHOD = json.settings.completionMethod;
+  courseStorageObj.HAS_GLOSSARY = json.settings.hasGlossary;
+  courseStorageObj.HAS_RESOURCES = json.settings.hasResources;
+  courseStorageObj.HAS_HELP = json.settings.hasHelp;
+  courseStorageObj.HAS_SPLASH_PAGE = json.settings.hasSplashPage;
 
   /* if course is loaded for first time or hasCards was set to true for first time, cardData will be undefined, so set it here as stub. if course had been loaded previously with hasCards set to true, copy card data from previous localStorage. */
-  if($(xml).find("hasCards").text() === "true") {
+  if(json.settings.hasCards === "true") {
     if(tempStorage === null || tempStorage.cardData === undefined) {
       courseStorageObj.cardData = {};
 
@@ -44,15 +43,15 @@ function populateStorage(xml, tempStorage) {
     }
   }
 
-  courseStorageObj.HAS_LOCAL_BOOKMARKING = $(xml).find("hasLocalBookmarking").text();
+  courseStorageObj.HAS_LOCAL_BOOKMARKING = json.settings.bookmarking.hasLocalBookmarking;
 
-  courseStorageObj.COUNT_PAGES = $(xml).find("countPages").text();
+  courseStorageObj.COUNT_PAGES = json.settings.pageCount.countPages;
   if(courseStorageObj.COUNT_PAGES == "true") {
     var pageCountObj = {"pagesTotal":0,"pagesVisited":0,"pageIds":[]};
     courseStorageObj.pageCount = pageCountObj;
   }
 
-  if($(xml).find("hasAssessments").text() === "true") {
+  if(json.settings.hasAssessments === "true") {
     if(tempStorage === null || tempStorage.assessmentData === undefined) {
       courseStorageObj.assessmentData = {};
 
@@ -61,7 +60,7 @@ function populateStorage(xml, tempStorage) {
     }
   }
 
-  if($(xml).find("hasDragDrops").text() === "true") {
+  if(json.settings.hasDragDrops === "true") {
     if(tempStorage === null || tempStorage.dragDropData === undefined) {
       courseStorageObj.dragDropData = {};
 
@@ -70,7 +69,7 @@ function populateStorage(xml, tempStorage) {
     }
   }
 
-  if($(xml).find("hasHotspots").text() === "true") {
+  if(json.settings.hasHotspots === "true") {
     if(tempStorage === null || tempStorage.hotspotData === undefined) {
       courseStorageObj.hotspotData = {};
 
@@ -79,7 +78,7 @@ function populateStorage(xml, tempStorage) {
     }
   }
 
-  if($(xml).find("hasThumbnails").text() === "true") {
+  if(json.settings.hasThumbnails === "true") {
     if(tempStorage === null || tempStorage.thumbnailsData === undefined) {
       courseStorageObj.thumbnailsData = {};
 
@@ -88,7 +87,7 @@ function populateStorage(xml, tempStorage) {
     }
   }
 
-  if($(xml).find("hasGlossary").text() === "true") {
+  if(json.settings.hasGlossary === "true") {
     if(tempStorage === null || tempStorage.glossary === undefined) {
       courseStorageObj.glossary = {};
 
