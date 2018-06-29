@@ -199,6 +199,10 @@ nav.navbar#navbarBottom {
   margin: 0 auto;
 }
 
+#navbarMobile .nav-link{
+  color: #2b2b2b;
+}
+
 #navbarMobile li {
   cursor: pointer;
   width: 100%; }

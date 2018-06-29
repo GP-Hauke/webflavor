@@ -266,7 +266,7 @@ function buildTopNav() {
 
       if(courseData.chapters[i].pages.length > 1) {
 
-        mobileMenuButton = '<li id="courseTitleChapter'+i+'" class="courseTitleChapter dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><p >'+courseData.chapters[i].title+'</p><ul class="dropdown-menu">';
+        mobileMenuButton = '<li id="courseTitleChapter'+i+'" class="courseTitleChapter dropdown"><p class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'+courseData.chapters[i].title+'</p><ul class="dropdown-menu">';
 
         for(var j = 0; j < courseData.chapters[i].pages.length; j++) {
           mobileMenuButton = mobileMenuButton + '<li onclick = "openPage('+eval(i+1)+','+eval(j+1)+')"><p>'+courseData.chapters[i].pages[j].title+'</p></li>';

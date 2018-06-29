@@ -91,3 +91,7 @@ li.courseTitleChapterSelected {
     width: 70%;
   }
 }
+
+#navbarMobile .nav-link{
+  color: #632121;
+}
