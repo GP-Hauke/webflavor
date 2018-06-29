@@ -11,7 +11,7 @@
     </div>]]>
   </content>
 
-  <knowledgeCheck scored="true" completed="false" title="Review">
+  <knowledgeCheck id="1" scored="true" completed="false" title="Review">
     <gate lock="true">
       <chapter>7</chapter>
       <page>1</page>
@@ -21,10 +21,10 @@
     <question>
       <body>The question body goes in this element. What answer is right?</body>
       <answers>
-        <answer>Not this one</answer>
-        <answer>Not this one</answer>
+        <answer>A</answer>
+        <answer>L</answer>
         <answer correct="true">RIGHT ANSWER</answer>
-        <answer>Not this one</answer>
+        <answer>K</answer>
       </answers>
     </question>
 
@@ -32,28 +32,28 @@
       <body>The question body goes in this element. What answer is right?</body>
       <answers>
         <answer correct="true">RIGHT ANSWER</answer>
-        <answer>Not this one</answer>
-        <answer>Not this one</answer>
-        <answer>Not this one</answer>
+        <answer>Y</answer>
+        <answer>T</answer>
+        <answer>S</answer>
       </answers>
     </question>
 
     <question>
       <body>The question body goes in this element. What answer is right?</body>
       <answers>
-        <answer>Not this one</answer>
+        <answer>W</answer>
         <answer correct="true">RIGHT ANSWER</answer>
-        <answer>Not this one</answer>
-        <answer>Not this one</answer>
+        <answer>C</answer>
+        <answer>M</answer>
       </answers>
     </question>
 
     <question>
       <body>The question body goes in this element. What answer is right?</body>
       <answers>
-        <answer>Not this one</answer>
-        <answer>Not this one</answer>
-        <answer>Not this one</answer>
+        <answer>Q</answer>
+        <answer>A</answer>
+        <answer>O</answer>
         <answer correct="true">RIGHT ANSWER</answer>
       </answers>
     </question>
