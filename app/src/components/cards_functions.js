@@ -66,22 +66,23 @@ function setupCards(){
 
   $.each($(".cardCont"), function(i,element) {
 
-  	var frontCard = $(this).children(".cardFront"),
+    var frontCard = $(this).children(".cardFront"),
         backCard = $(this).children(".cardBack"),
         tl = new TimelineMax({paused:true});
 
-  	tl
-  		.to(frontCard, 1, {rotationY:180})
-  		.to(backCard, 1, {rotationY:0},0)
-  		.to(element, .5, {z:50},0)
-  		.to(element, .5, {z:0},.5);
+    tl
+      .to(frontCard, 1, {rotationY:180})
+      .to(backCard, 1, {rotationY:0},0)
+      .to(element, .5, {z:50},0)
+      .to(element, .5, {z:0},.5);
 
-  	element.animation = tl;
+    element.animation = tl;
+
+    $(element).click({thisCard: element}, showBack);
 
   });
 
-
-  if(courseData.cardsData.hasButton == "true"){
+  /*if(courseData.cardsData.hasButton == "true"){
     $(".front").click(function() {
       this.closest(".cardCont").animation.play();
     });
@@ -90,7 +91,9 @@ function setupCards(){
         this.closest(".cardCont").animation.reverse();
     });
   }
-  else{
+  else*/
+
+  if(courseData.cardsData.hasButton == "false") {
     $(".cardFront").hover(function(){
       $(this).css('cursor','pointer');
     });
@@ -107,4 +110,18 @@ function setupCards(){
         this.closest(".cardCont").animation.reverse();
     });
   }
+}
+
+function showBack(evt) {
+  var card = evt.data.thisCard;
+  card.animation.play();
+  $(card).unbind("click", showBack);
+  $(card).click({thisCard: card}, showFront);
+}
+
+function showFront(evt) {
+  var card = evt.data.thisCard;
+  card.animation.reverse();
+  $(card).unbind("click", showFront);
+  $(card).click({thisCard: card}, showBack);
 }
