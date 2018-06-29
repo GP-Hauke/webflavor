@@ -78,22 +78,20 @@ function setupCards(){
 
     element.animation = tl;
 
-    $(element).click({thisCard: element}, showBack);
+    //$(element).click({thisCard: element}, showBack);
 
   });
 
-  /*if(courseData.cardsData.hasButton == "true"){
+  if(courseData.cardsData.hasButton == "true"){
     $(".front").click(function() {
-      this.closest(".cardCont").animation.play();
+      $(this).closest(".cardCont")[0].animation.play();
     });
 
     $(".back").click(function() {
-        this.closest(".cardCont").animation.reverse();
+        $(this).closest(".cardCont")[0].animation.reverse();
     });
   }
-  else*/
-
-  if(courseData.cardsData.hasButton == "false") {
+  else if(courseData.cardsData.hasButton == "false") {
     $(".cardFront").hover(function(){
       $(this).css('cursor','pointer');
     });
@@ -103,11 +101,11 @@ function setupCards(){
     });
 
     $(".cardFront").click(function() {
-      this.closest(".cardCont").animation.play();
+      $(this).closest(".cardCont")[0].animation.play();
     });
 
     $(".cardBack").click(function() {
-        this.closest(".cardCont").animation.reverse();
+        $(this).closest(".cardCont")[0].animation.reverse();
     });
   }
 }
