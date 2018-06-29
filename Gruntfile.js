@@ -488,7 +488,7 @@ module.exports = function(grunt){
     }
     grunt.log.oklns('HTML Created')
     grunt.task.run('htmlhint');
-    //grunt.task.run('clean:validate');
+    grunt.task.run('clean:validate');
   });
 
 
