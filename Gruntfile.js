@@ -14,6 +14,7 @@
 -[clean:rebuild] - Cleans (deletes) dist folder for new build
 -[convert:xml2json] - Converts settings.xml to JSON file to be used in Grunt
 -[copy:build] - Copies over core files that are not minified/concatenated
+-[validateHTML] - Copies over core files that are not minified/concatenated
 -[preprocess] - Removes localStorage.clear() line used in development
 -[uglify] - Concatenates JS files and copies them into dist folder
 -[cssmin] - Minifies CSS files and copies them into dist folder
@@ -164,6 +165,9 @@ module.exports = function(grunt){
       },
       finishbuild: {
         src: ['dist/src/vendors/*/', 'dist/src/js/*.js', '!dist/src/js/functions.js', 'dist/src/components/*.js', '!dist/src/components/components.js', 'settings.json']
+      },
+      validate: {
+        src: ['dist/dir/content/course_content/*', '!dist/dir/content/course_content/*.xml']
       }
     },
 
@@ -244,9 +248,9 @@ module.exports = function(grunt){
         files: [
           {
             expand: true,
-            cwd: 'app/dir/content',
-            src: ['settings.xml'],
-            dest: '',
+            cwd: 'dist/dir/content/course_content',
+            src: ['*.xml'],
+            dest: 'dist/dir/content/course_content',
             ext: '.json'
           }
         ]
@@ -380,6 +384,15 @@ module.exports = function(grunt){
         src: ['app/**/*.xml']
       },
     },
+
+    htmlhint: {
+      html1: {
+        options: {
+          'tag-pair': true
+        },
+        src: ['dist/dir/content/course_content/*.html']
+      }
+    }
   });
 
   grunt.loadNpmTasks('grunt-contrib-copy');
@@ -395,6 +408,7 @@ module.exports = function(grunt){
   grunt.loadNpmTasks('grunt-preprocess');
   grunt.loadNpmTasks('grunt-xmlpoke');
   grunt.loadNpmTasks('grunt-xml-validator');
+  grunt.loadNpmTasks('grunt-htmlhint');
 
   grunt.registerTask('version', function(key, value) {
     var settingsFile = "app/settings.json";
@@ -447,12 +461,10 @@ module.exports = function(grunt){
     grunt.file.write(settingsFile, JSON.stringify(json, null, 2));
   });
 
-  grunt.registerTask('test', ['xmlpoke:sco01']);
-
   grunt.registerTask(
     'build',
     'Compiles all of the assets and copies the files to the build directory.',
-    ['xml_validator', 'version', 'clean:rebuild', 'copy:build', 'preprocess', 'uglify', 'cssmin', 'useminPrepare', 'usemin', 'copy:vendors', 'clean:finishbuild', 'compress', 'connect']
+    ['xml_validator', 'version', 'clean:rebuild', 'copy:build', 'validate', 'preprocess', 'uglify', 'cssmin', 'useminPrepare', 'usemin', 'copy:vendors', 'clean:finishbuild', 'compress', 'connect']
   );
 
   grunt.registerTask(
@@ -460,4 +472,28 @@ module.exports = function(grunt){
     'Compiles all of the assets and copies the files to the build directory.',
     ['settings','xmlpoke:sco01','xmlpoke:imsmanifest']
   );
+
+  grunt.registerTask('validate', function(key, value) {
+    var libxmljs = require("libxmljs");
+    var settingsFile = "validate.html";
+
+    var pages = grunt.file.expand(["dist/dir/content/course_content/*.xml"]);
+
+    for(var i = 0; i < pages.length; i++){
+      var xml = grunt.file.read(pages[i]);
+      var xmlDoc = libxmljs.parseXml(xml);
+      var html = xmlDoc.get('//content').text();
+
+      grunt.file.write(pages[i].substring(0, pages[i].length - 3) + 'html', html);
+    }
+    grunt.log.oklns('HTML Created')
+    grunt.task.run('htmlhint');
+    //grunt.task.run('clean:validate');
+  });
+
+
+
+
+  grunt.registerTask('test', ['htmlhint']);
+
 }
