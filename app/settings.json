@@ -1,8 +1,8 @@
 {
   "settings": {
     "theme": "maroon",
-    "courseTitle": "Selling Skills",
-    "courseSubTitle": "Test Course",
+    "courseTitle": "HTML Template",
+    "courseSubTitle": "WebFlavor",
     "completionMethod": "assessment",
     "menuPlacement": "top",
     "menuStyle": "tab",
@@ -35,6 +35,6 @@
       "glyphicons": "true"
     },
     "courseStorageID": "courseStorageID",
-    "version": "NaN"
+    "version": "0"
   }
 }
