@@ -1,22 +1,26 @@
+/* GENERIC NAVIGATION STYLES*/
 #navbar .navbar-brand{
   padding: 0;
   position: relative;
   top: -4px;
   margin: 0
 }
-
 #navbar .logo-mobile{
   padding: 0;
   position: relative;
   top: -1px;
   margin: 0;
 }
-
 #navbar-left > #navbar {
-  margin-top: 90px; }
-
+  margin-top: 90px;
+}
 #navContainer .container {
-  position: relative; }
+  position: relative;
+}
+
+#navbarMain.default #navbarMobile .dropdown .dropdown-menu li{
+  background: #ccc;
+}
 
 #navbarMain #navbarMobile .dropdown .dropdown-menu li{
   z-index: 100;
@@ -29,64 +33,38 @@
   margin-right: auto;
   font-weight: 500;
   margin-bottom: 1px;
-
 }
-
-#navbarMain #navbarMobile .dropdown .dropdown-menu li p{
-}
-
-#navbarMain #navbarMobile .dropdown p{
+.default #navbarMobile .dropdown p{
   margin: 0;
+  color: #fff;
 }
-
 #navbarMain #navbarMobile .dropdown .dropdown-menu li:after{
   content: "" !important;
 }
-
 #navbarMobile .dropdown .dropdown-menu{
   border: none;
 }
-
-.tabbed #navbarMobile .dropdown .dropdown-menu{
-  z-index: 100;
-  padding: 0;
-  margin: 0;
-  border: none;
-  position: relative;
-  top: 5px;
-  left: -5%;
-  top: 10px !important;
-  background: none;
-}
-
 #navbarMobile .dropdown .dropdown-menu{
   padding: 0;
 }
-
 #navbarMobile .dropdown .dropdown-menu li{
   background: #2b2b2b;
 }
-
 #navbarMain #navbarMobile .dropdown .dropdown-menu li a{
   color: #000;
 }
-
 #navbarMain #navbarMobile .dropdown p{
-  color: #fff;
   padding: 0;
 }
-
 #navbarMain #navbarMobile .dropdown .dropdown-menu li a:hover{
   text-decoration: none;
 }
-
 #navbarMain #navbarMobile .dropdown .dropdown-menu li:hover{
   text-decoration: none;
   font-weight: 600;
 }
 
 /* NAVBAR MAIN CONTAINER */
-
 nav .courseTitleChapter p{
   margin: 0;
 }
@@ -98,18 +76,15 @@ nav.navbar {
   min-height: auto;
   padding: 0;
 }
-
 nav.navbar#navbarBottom {
   background-color: #618eb5;
-  /*
-  padding-top: 15px;
-  padding-bottom: 15px;
-  */ }
+}
 
 /* end NAVBAR MAIN CONTAINER */
 .navbar-header {
   float: none;
-  width: 100%; }
+  width: 100%;
+}
 
 /* NAVBAR LEFT SECTION/HEADER - LOGO, TITLE */
 .navbar-toggler{
@@ -124,7 +99,6 @@ nav.navbar#navbarBottom {
 .navbar-toggler:focus{
   outline: none;
 }
-
 .navbar-header .navbar-brand {
   color: #fff;
   padding: 0 40px;
@@ -134,21 +108,21 @@ nav.navbar#navbarBottom {
   position: relative;
   right: 0;
   top: 0;
-  float: left; }
-
+  float: left;
+}
 .navbar-header .title-container {
   float: left;
   margin-left: 15px !important;
 }
-
 .navbar-header #titleMain {
   display: inline-block;
   position: relative;
-  margin-right: 10px; }
-
+  margin-right: 10px;
+}
 .navbar-header .navmenu {
   color: #fff;
-  line-height: 36px; }
+  line-height: 36px;
+}
 
 /* end NAVBAR LEFT SECTION/HEADER - LOGO, TITLE */
 /*LEFT NAVBAR*/
@@ -159,22 +133,25 @@ nav.navbar#navbarBottom {
   width: 16%;
   max-width: 230px;
   display: flex;
-  flex-flow: column; }
-
+  flex-flow: column;
+}
 .left-nav-text#subTitle {
   font-size: 22px;
-  line-height: 0; }
-
+  line-height: 0;
+}
 .left-nav-drop#navbarMobile li {
-  font-size: 18px; }
-
+  font-size: 18px;
+}
 /*end LEFT NAVBAR*/
 
 @media only screen and (min-width: 768px) {
   .navbar-collapse.collapse {
-    /*display:  none !important; REMOVED FOR BOOTSTRAP 4*/ }
+    /*display:  none !important; REMOVED FOR BOOTSTRAP 4*/
+  }
   .navbar-collapse.collapse.in {
-    display: block !important; } }
+    display: block !important;
+  }
+}
 
 /* end COLLAPSABLE PART OF NAV BAR - MOBILE LINK LIST */
 /* COLLAPSABLE PART OF NAV BAR - CONTAINER */
@@ -183,13 +160,12 @@ nav.navbar#navbarBottom {
   background-color: #cccccc;
   color: #fff;
   font-size: 16px;
-  text-align: center; }
-
+  text-align: center;
+}
 .navbar-collapse.collapsing .navbar-nav,
 .navbar-collapse.in .navbar-nav {
-  width: 100%; }
-
-
+  width: 100%;
+}
 /* end COLLAPSABLE PART OF NAV BAR -  END CONTAINER */
 /* COLLAPSABLE PART OF NAV BAR - LINK LIST ON RIGHT */
 .page-assist {
@@ -262,7 +238,40 @@ li.courseTitleGatedPage {
   cursor: pointer; }
 
 /* end COLLAPSABLE PART OF NAV BAR - BOTTOM NAV BAR */
-/*  NAVIGATION TABBED */
+
+/* LEFT NAVIGATION MENU */
+#navbar-left {
+  position: fixed;
+  left: 250px;
+  width: 250px;
+  height: 100%;
+  z-index: 10;
+  margin-left: -250px;
+}
+
+#headerLinks li:not(:last-child){
+  margin-right: 20px;
+}
+
+#headerLinks li a{
+  font-size: 20px;
+  font-weight: 500;
+  opacity: .7;
+}
+
+#headerLinks li a:hover,
+#headerLinks li a:active,
+#headerLinks li a:focus{
+  opacity: 1;
+  text-decoration: none;
+  background: none;
+}
+
+.navbar-fixed-left .toggled{
+  left: 0px !important;
+}
+
+/* ----- TABBED NAVIGATION STYLES -----*/
 .tabbed{
   background: #fff !important;
 }
@@ -286,7 +295,6 @@ li.courseTitleGatedPage {
   padding: 0px 10px 0px 20px !important;
   font-size: 14px;
   border-bottom: 3px solid transparent;
-
 }
 
 .tabbed #navbarMobile li p{
@@ -311,6 +319,18 @@ li.courseTitleGatedPage {
   font-weight: 100;
   font-size: 30px;
   color: #8f9193;
+}
+
+.tabbed #navbarMobile .dropdown .dropdown-menu{
+  z-index: 100;
+  padding: 0;
+  margin: 0;
+  border: none;
+  position: relative;
+  top: 20px;
+  left: -5%;
+  top: 0px !important;
+  background: none;
 }
 
 @media (max-width: 1350px) {
@@ -350,91 +370,14 @@ li.courseTitleGatedPage {
   }
 }
 
-/* END NAVIGATION TABBED */
-/* LEFT NAVIGATION MENU */
-#navbar-left {
-  position: fixed;
-  left: 250px;
-  width: 250px;
-  height: 100%;
-  z-index: 10;
-  margin-left: -250px;
+/* ----- LEFT NAVIGATION STYLES -----*/
+.leftNav #navbarMobile .courseTitleChapter p{
+  font-size: 22px;
+  font-weight: 100;
+  padding: 6px 0 6px 0 !important;
 }
 
-
-  /* MOBILE STATES */
-  @media only screen and (min-width: 768px) {
-    .logo-mobile {
-      display: none;
-      }
-    }
-
-  @media only screen and (max-width: 1200px) {
-    .navbar-collapse > ul > li {
-      padding: 5px 0;
-      }
-    }
-
-  @media only screen and (max-width: 992px) {
-    nav.navbar .container {
-      padding: 0;
-    }
-    nav.navbar .container .mobile-container{
-      padding: 0;
-    }
-    nav.navbar .container .navbar-toggler{
-      top: -1px;
-    }
-    #titleMainMobile{
-      font-size: 17px;
-    }
-    #subTitleMobile{
-      font-size: 17px;
-    }
-  }
-
-  @media only screen and (max-width: 768px) {
-    .navbar-header .navbar-brand {
-      padding-left: 0;
-    }
-    .navbar-default .navbar-collapse {
-      background-color: #618eb5;
-      }
-    }
-
-    .chapterSelected {
-      color: #ffffff;
-      font-size: 1.2em;
-    }
-
-    .chapterNotSelected {
-      color: #ffffff;
-      font-size: 1.2em;
-    }
-
-    .chapterTitle {
-      cursor: pointer;
-    }
-
-#headerLinks li:not(:last-child){
-  margin-right: 20px;
-}
-
-#headerLinks li a{
-  font-size: 20px;
-  font-weight: 500;
-  opacity: .7;
-}
-
-#headerLinks li a:hover,
-#headerLinks li a:active,
-#headerLinks li a:focus{
-  opacity: 1;
-  text-decoration: none;
-  background: none;
-}
-
-.navbar-fixed-left #navbarMain{
+.leftNav #navbarMain{
   position: fixed;
   left: -400px;
   top: 50px;
@@ -444,12 +387,117 @@ li.courseTitleGatedPage {
   transition: all 500ms ease;
 }
 
-.navbar-fixed-left .toggled{
-  left: 0px !important;
+/* ----- MOBILE STATES ----- */
+@media only screen and (min-width: 768px) {
+  .logo-mobile {
+    display: none;
+    }
+  }
+
+@media only screen and (max-width: 1200px) {
+  .navbar-collapse > ul > li {
+    padding: 5px 0;
+    }
+  }
+
+@media only screen and (max-width: 992px) {
+  nav.navbar .container {
+    padding: 0;
+  }
+  nav.navbar .container .mobile-container{
+    padding: 0;
+  }
+  nav.navbar .container .navbar-toggler{
+    top: -1px;
+  }
+  #titleMainMobile{
+    font-size: 17px;
+  }
+  #subTitleMobile{
+    font-size: 17px;
+  }
 }
 
-.leftNav #navbarMobile .courseTitleChapter p{
-  font-size: 22px;
-  font-weight: 100;
-  padding: 6px 0 6px 0 !important;
+@media only screen and (max-width: 768px) {
+  .navbar-header .navbar-brand {
+    padding-left: 0;
+  }
+  .navbar-default .navbar-collapse {
+    background-color: #618eb5;
+    }
+  }
+
+  .chapterSelected {
+    color: #ffffff;
+    font-size: 1.2em;
+  }
+
+  .chapterNotSelected {
+    color: #ffffff;
+    font-size: 1.2em;
+  }
+
+  .chapterTitle {
+    cursor: pointer;
+  }
+
+
+/*-------------------------------/*
+
+/*------------ NAVIGATION STYLES ------------*/
+/*Navigation Secondary Color*/
+.navbar-collapse {
+  border: none;
+}
+/*  Navigation Tabs Verion */
+.tabbed #navbarMobile {
+  max-width: 1450px;
+}
+.tabbed #navbarMobile li{
+  font-weight: 600;
+  height: 50px;
+  font-size: 14px;
+}
+/*Dropdown Navigation*/
+#navbarMain #navbarMobile .dropdown .dropdown-menu li{
+  border: 2px solid transparent;
+  width: 100%;
+  display: block;
+  font-weight: 500;
+  margin-bottom: 1px;
+}
+#navbarMain #navbarMobile .dropdown .dropdown-menu li:hover{
+  font-weight: 600;
+}
+@media (max-width: 767px) {
+  .tabbed #navbarMobile {
+    display: block;
+    width: 100% !important;
+    margin: 0 auto;
+  }
+  .tabbed #navbarMobile li{
+
+    font-weight: 200;
+    line-height: 30px;
+    height: 30px;
+    position: relative;
+  }
+
+  .tabbed #navbarMobile li.courseTitleChapterSelected {
+  }
+
+  /*Dropdown Navigation*/
+  .tabbed #navbarMobile .dropdown .dropdown-menu{
+    border: none;
+  }
+
+  /*Dropdown Navigation*/
+  #navbarMain.tabbed #navbarMobile .dropdown .dropdown-menu li{
+    width: 70%;
+  }
+}
+
+#navbarMain.tabbed #navbarMobile .dropdown .nav-link{
+  height: 47px;
+  line-height: 47px;
 }

@@ -329,6 +329,9 @@ function buildTopNav() {
         $('#navbarMain').addClass('tabbed');
         $('.navbar .container').addClass('navbar-expand-md');
       }
+      else{
+        $('#navbarMain').addClass('default');
+      }
     }
 
     bottomNav = bottomNav + '</ul></div></div>';
@@ -413,6 +416,13 @@ function buildLeftNav() {
 
     $("#navbarMobile").append(mobileNav);
     // END MOBILE NAV DRAWER
+
+    if(courseData.HAS_MENU_LOGO == "true"){
+      $('#navbar .navbar-brand').append('<img src="'+courseData.THEME_PATH+'/img/logo.png" alt="logo">')
+    }
+
+    $('#navbarMain').addClass('default');
+
 
     $("#navbarMain").on('hidden.bs.collapse', function () {
       calculateHeight();
