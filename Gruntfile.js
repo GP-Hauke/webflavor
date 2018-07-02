@@ -45,7 +45,7 @@ module.exports = function(grunt){
     copy: {
       build: {
         cwd: 'app',
-        src: ['**', '!**/api/**', '!**/themes/*/'],
+        src: ['**', '!**/themes/*/'],
         dest: 'dist',
         expand: true,
 
@@ -201,7 +201,6 @@ module.exports = function(grunt){
         files: {
           'dist/src/components/components.js': [ 'dist/src/components/*.js' ],
           'dist/src/js/functions.js': [ 'dist/src/js/*.js' ],
-          'dist/src/js/api/api.js': [ 'app/src/js/api/*.js' ],
           'dist/src/vendors/vendors.min.js': ['dist/src/vendors/jquery/jquery-3.2.1.min.js', 'dist/src/vendors/bootstrap/js/bootstrap.min.js', 'dist/src/vendors/**/*.min.js']
         }
       }

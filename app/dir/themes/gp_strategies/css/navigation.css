@@ -72,7 +72,15 @@ li.courseTitleChapterSelected {
   margin-bottom: 1px;
 }
 
+.tabbed #navbarMobile .courseTitleChapter{
+  color: #0193cf;
+}
+
 #navbarMain #navbarMobile .dropdown .dropdown-menu li a{
+  color: #0193cf;
+}
+
+.tabbed #navbarMobile .courseTitleChapter{
   color: #0193cf;
 }
 

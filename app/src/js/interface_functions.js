@@ -355,8 +355,6 @@ function buildTopNav() {
   var notSelectedClass = "menuItemNotSelected";
 }
 
-
-
 function buildLeftNav() {
 
   var navMarkup = '';
@@ -369,18 +367,8 @@ function buildLeftNav() {
     $('#subTitle').html(courseData.SUB_TITLE);
     $('#subTitleMobile').html(courseData.SUB_TITLE);
 
-    $('#contentFrame').css('width', '87.5%');
-    // HEADER LINKS
-    if(courseData.headerLinks.included === "true") {
-      var headerLinks = "";
-      for(var i = 0; i < courseData.headerLinks.links.length; i++) {
-        var headerLinkEl = '<li><a id="'+courseData.headerLinks.links[i].id+'" href="'+courseData.headerLinks.links[i].href+'" target="'+courseData.headerLinks.links[i].target+'">'+courseData.headerLinks.links[i].title+'</a></li>';
-        headerLinks = headerLinks + headerLinkEl;
-      }
-      $("#headerLinks").append(headerLinks);
-    }
-    // END HEADER LINKS
 
+    // MOBILE NAV DRAWER
     // MOBILE NAV DRAWER
     var mobileNav = '';
 
@@ -390,21 +378,38 @@ function buildLeftNav() {
 
       if(courseData.chapters[i].pages.length > 1) {
 
-        mobileMenuButton = '<li><button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse'+i+'" aria-expanded="false" aria-controls="collapseExample">'+courseData.chapters[i].title+'</button><div class="collapse" id="collapse'+i+'"><ul class="">';
+        mobileMenuButton = '<li id="courseTitleChapter'+i+'" class="courseTitleChapter dropdown"><p class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'+courseData.chapters[i].title+'</p><ul class="dropdown-menu">';
 
         for(var j = 0; j < courseData.chapters[i].pages.length; j++) {
-          mobileMenuButton = mobileMenuButton + '<li><a href="javascript:openPage('+i+','+j+')">'+courseData.chapters[i].pages[j].title+'</a></li>';
+          mobileMenuButton = mobileMenuButton + '<li onclick = "openPage('+eval(i+1)+','+eval(j+1)+')"><p>'+courseData.chapters[i].pages[j].title+'</p></li>';
         }
 
-        mobileMenuButton = mobileMenuButton + '</ul></div></li>';
+        mobileMenuButton = mobileMenuButton + '</ul></li>';
 
       } else {
-        mobileMenuButton = '<li class="courseTitleChapter" id="courseTitleChapter'+i+'" onclick="openPage('+i+',0)">'+courseData.chapters[i].title+'</li>';
+        mobileMenuButton = '<li class="courseTitleChapter" id="courseTitleChapter'+i+'" onclick="openPage('+eval(i+1)+',1)"><p>'+courseData.chapters[i].title+'</p></li>';
       }
 
       mobileNav = mobileNav + mobileMenuButton;
 
     }
+
+    // HEADER LINKS
+    var headerLinks = "";
+    if(courseData.HAS_RESOURCES === "true"){
+      var headerLinkEl = '<li><a id="btnResources" href="#" target="">RESOURCES</a></li>';
+      headerLinks = headerLinks + headerLinkEl;
+    }
+    if(courseData.HAS_GLOSSARY === "true"){
+      var headerLinkEl = '<li><a id="btnGlossary" href="#" target="">GLOSSARY</a></li>';
+      headerLinks = headerLinks + headerLinkEl;
+    }
+    if(courseData.HAS_HELP === "true"){
+      var headerLinkEl = '<li><a id="btnHelpModal" href="#" target="">?</a></li>';
+      headerLinks = headerLinks + headerLinkEl;
+    }
+    $("#headerLinks").append(headerLinks);
+        // END HEADER LINKS
 
     $("#navbarMobile").append(mobileNav);
     // END MOBILE NAV DRAWER
@@ -418,6 +423,10 @@ function buildLeftNav() {
   });
 
   var notSelectedClass = "menuItemNotSelected";
+}
+
+function leftNav(){
+  $(".navbar-fixed-left #navbarMain").toggleClass('toggled');
 }
 
 function buildNoneNav() {
@@ -522,6 +531,8 @@ function loadPage() {
     loadContent(eval(currentChapter)+'_'+eval(currentPage));
     $("#navbarMobile .courseTitleChapter").removeClass("courseTitleChapterSelected");
     $("#navbarMobile .courseTitleChapter").eq(currentChapter-1).addClass('courseTitleChapterSelected');
+    $(".navbar-fixed-left #navbarMain").removeClass('toggled');
+
   });
 
 

@@ -30,7 +30,6 @@ li.courseTitleChapterSelected {
   font-weight: 600;
   height: 50px;
   font-size: 14px;
-
 }
 
 .tabbed #navbarMobile li.courseTitleChapterSelected {
@@ -38,14 +37,19 @@ li.courseTitleChapterSelected {
   border-bottom: 3px solid #632121;
 }
 
+.tabbed #navbarMobile .dropdown .dropdown-menu li{
+  background: #f7f7f7 !important;
+}
+
 /*Dropdown Navigation*/
 #navbarMain #navbarMobile .dropdown .dropdown-menu li{
-  background: #f7f7f7;
+  background: #b77979;
   border: 2px solid transparent;
   width: 100%;
   display: block;
   font-weight: 500;
   margin-bottom: 1px;
+  margin: 0;
 }
 
 #navbarMain #navbarMobile .dropdown .dropdown-menu li a{
@@ -90,6 +94,14 @@ li.courseTitleChapterSelected {
     background: #d14040;
     width: 70%;
   }
+}
+
+.tabbed #navbarMobile .courseTitleChapter{
+  color: #632121;
+}
+
+.tabbed #navbarMobile .courseTitleChapter p{
+  color: #632121 !important;
 }
 
 #navbarMobile .nav-link{

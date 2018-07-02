@@ -4,9 +4,12 @@
     "courseTitle": "HTML Template",
     "courseSubTitle": "WebFlavor",
     "completionMethod": "assessment",
-    "menuPlacement": "top",
+
+    "menuPlacement": "left",
     "menuStyle": "tab",
     "hasMenuLogo": "true",
+    "hasHeader": "true",
+
     "hasSplashPage": "false",
     "hasResources": "true",
     "hasGlossary": "true",
@@ -15,19 +18,23 @@
     "hasDragDrops": "true",
     "hasHotspots": "true",
     "hasThumbnails": "true",
+
     "bookmarking": {
       "hasLocalBookmarking": "false",
       "bookmarkingStorageID": ""
     },
+
     "trackActions": "true",
     "linkTracking": {
       "trackLinks": "true"
     },
+
     "pageCount": {
       "countPages": "false",
       "pageCountStorageID": "",
       "totalPages": ""
     },
+
     "vendors": {
       "create_js": "false",
       "tweenmax": "true",
@@ -35,6 +42,7 @@
       "font_awesome": "true",
       "glyphicons": "true"
     },
+
     "courseStorageID": "courseStorageID",
     "version": "0"
   }

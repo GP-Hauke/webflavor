@@ -76,6 +76,14 @@ li.courseTitleChapterSelected {
   color: #003056;
 }
 
+.tabbed #navbarMobile .courseTitleChapter{
+  color: #003056;
+}
+
+.tabbed #navbarMobile .courseTitleChapter{
+  color: #003056;
+}
+
 #navbarMain #navbarMobile .dropdown .dropdown-menu li:hover{
   font-weight: 600;
 }
