@@ -7,7 +7,29 @@ function initKnowledgeCheck(knowledgeCheckXML) {
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
   var currentKnowledgeCheck = $(knowledgeCheckXML).find("knowledgeCheck");
 
-  courseData.knowledgeCheckData = {
+  var currentID = $(currentKnowledgeCheck).attr("id")
+
+  if(courseData.knowledgeCheckData != null){
+    for(var i=0; i < courseData.knowledgeCheckData.knowledgeChecks.length; i++){
+      if(courseData.knowledgeCheckData.knowledgeChecks[i].id == currentID){
+        var id = getKnowledgeCheckIndex(currentID);
+        //console.log("KnowledgeCheck Loaded Previously");
+        setupKnowledgeCheck(id);
+        return;
+      }
+    }
+  }
+  else{
+    //console.log("KnowledgeCheck Initialized");
+    courseData.knowledgeCheckData = {
+      totalScore : 0,
+      completed : false,
+      knowledgeChecks : []
+    };
+  }
+
+  var knowledgeCheck = {
+    id: $(currentKnowledgeCheck).attr("id"),
     completed: $(currentKnowledgeCheck).attr("completed"),
     scored: $(currentKnowledgeCheck).attr("scored"),
     score: 0,
@@ -17,7 +39,7 @@ function initKnowledgeCheck(knowledgeCheckXML) {
 
   var currentGate = $(knowledgeCheckXML).find("gate");
   if(currentGate.attr("lock") == "true"){
-    courseData.knowledgeCheckData.gate = {
+    knowledgeCheck.gate = {
       chapter: currentGate.find("chapter").text(),
       page: currentGate.find("page").text(),
       lock: currentGate.find("lock").text()
@@ -29,7 +51,8 @@ function initKnowledgeCheck(knowledgeCheckXML) {
 
     var question = {
       body: currentQuestion.find("body").text(),
-      answers: []
+      answers: [],
+      correct: false
     };
 
     currentQuestion.find("answer").each(function() {
@@ -37,33 +60,40 @@ function initKnowledgeCheck(knowledgeCheckXML) {
 
       var answer = {
         correct: currentAnswer.attr("correct"),
+        selected: false,
         body: currentAnswer.text()
       };
 
       question.answers.push(answer);
     });
 
-    courseData.knowledgeCheckData.questions.push(question);
+    knowledgeCheck.questions.push(question);
   });
 
+  courseData.knowledgeCheckData.knowledgeChecks.push(knowledgeCheck);
+
   localStorage.setItem(LOCAL_COURSE_DATA_ID,  JSON.stringify(courseData));
-  setupKnowledgeCheck();
+
+  var id = getKnowledgeCheckIndex(currentID);
+  setupKnowledgeCheck(id);
+
 }
 
-function setupKnowledgeCheck(){
+function setupKnowledgeCheck(id){
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
-  var knowledgeCheckData= courseData.knowledgeCheckData;
+
+  var currentKnowledgeCheck= courseData.knowledgeCheckData.knowledgeChecks[id];
 
   var questionBody = "";
   var answerBody = "";
 
   var questionHTML = "";
-  for(var i = 0; i < knowledgeCheckData.questions.length; i++){
+  for(var i = 0; i < currentKnowledgeCheck.questions.length; i++){
     var answersHTML = "";
-    questionBody = knowledgeCheckData.questions[i].body;
+    questionBody = currentKnowledgeCheck.questions[i].body;
 
-    for(var j = 0; j < knowledgeCheckData.questions[i].answers.length; j++){
-      answerBody = knowledgeCheckData.questions[i].answers[j].body;
+    for(var j = 0; j < currentKnowledgeCheck.questions[i].answers.length; j++){
+      answerBody = currentKnowledgeCheck.questions[i].answers[j].body;
 
       answersHTML += '<div><input type="radio" name="question-'+i+'-answers" id="question-'+i+'-answers-'+j+'" value="'+j+'" /><label for="question-'+i+'-answers-'+j+'">'+answerBody+'</label></div>';
     }
@@ -71,38 +101,54 @@ function setupKnowledgeCheck(){
     questionHTML += '<li><p>'+questionBody+'</p>' + answersHTML + '</li>';
   }
 
-  var title= courseData.knowledgeCheckData.title;
-  var html = '<div class="row margin-below"><div id="knowledgeCheck" class="col-md-7 mx-auto"><form id="myForm"><h3>'+title+'</h3>' + questionHTML + '<a id="submitKnowledge" class="btn btn-default" onclick="submitAnswers()">Submit Answers</a></form></div></div>';
+  var title= currentKnowledgeCheck.title;
+  var html = '<div class="row margin-below"><div id="knowledgeCheck" class="col-md-7 mx-auto"><form id="myForm"><h3>'+title+'</h3>' + questionHTML + '<div id="feedback"></div><a id="submitKnowledge" class="btn btn-default" onclick="submitAnswers('+id+')">Submit Answers</a></form></div></div>';
 
   $("#pageContent").append(html);
+
+  if(currentKnowledgeCheck.completed == true){
+    //console.log("KnowledgeCheck Completed Previously");
+    $('#submitKnowledge').remove();
+    endKnowledgeCheck(id);
+  }
 }
 
-function submitAnswers(){
+function submitAnswers(id){
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
-  var knowledgeCheckData = courseData.knowledgeCheckData;
+  var currentKnowledgeCheck = courseData.knowledgeCheckData.knowledgeChecks[id];
 
   var selected = $('#knowledgeCheck form li input:checked');
-  var answers = [];
 
-  if(selected.length != knowledgeCheckData.questions.length){
-    $('#knowledgeCheck').append('<p class="invalid feedback">Please answer <span class="bolded">all questions.</span></p>');
-    return;
-  }
+  for(var i = 0; i < selected.length; i++){
+    var selectedAnswer = selected.eq(i).siblings('label').html();
 
-  $('#submitKnowledge').remove();
-
-  for(var i = 0; i < knowledgeCheckData.questions.length; i++){
-    for(var j = 0; j < knowledgeCheckData.questions[i].answers.length; j++){
-      if(knowledgeCheckData.questions[i].answers[j].correct == "true"){
-        answers.push(knowledgeCheckData.questions[i].answers[j].body);
+    for(var j = 0; j < currentKnowledgeCheck.questions[i].answers.length; j++){
+      var answer = currentKnowledgeCheck.questions[i].answers[j];
+      if(answer.correct == "true"){
+        if(answer.body == selectedAnswer){
+          currentKnowledgeCheck.questions[i].correct = true;
+        }
       }
     }
   }
 
-  var totalCorrect = 0;
+  if(selected.length != currentKnowledgeCheck.questions.length){
+    if($('#knowledgeCheck .invalid').length == 0){
+      console.log($('#submitKnowledge'));
+      $('#feedback').append('<p class="invalid feedback">Please answer <span class="bolded">all questions.</span></p>');
+      return;
+    }
+    else{
+      return;
+    }
+  }
 
-  for(var i = 0; i < selected.length; i++){
-    if(selected.eq(i).siblings('label').html() != answers[i]){
+  $('#submitKnowledge').remove();
+
+  currentKnowledgeCheck.completed = true;
+  var totalCorrect = 0;
+  for(var i = 0; i < currentKnowledgeCheck.questions.length; i++){
+    if(currentKnowledgeCheck.questions[i].correct == false){
       $('#knowledgeCheck form li').eq(i).addClass("wrong");
     }
     else{
@@ -110,18 +156,48 @@ function submitAnswers(){
       totalCorrect += 1;
     }
   }
+  currentKnowledgeCheck.score = totalCorrect;
+  courseData.knowledgeCheckData.totalScore += totalCorrect;
 
-  var feedback = '<p class="feedback">You scored a <span class="bolded">'+totalCorrect+' out of '+selected.length+'</span></p>';
+  localStorage.setItem(LOCAL_COURSE_DATA_ID,  JSON.stringify(courseData));
+
+  endKnowledgeCheck(id);
+}
+
+function endKnowledgeCheck(id){
+  var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
+  var currentKnowledgeCheck = courseData.knowledgeCheckData.knowledgeChecks[id];
+
+  for(var i = 0; i < currentKnowledgeCheck.questions.length; i++){
+    if(currentKnowledgeCheck.questions[i].correct == false){
+      $('#knowledgeCheck form li').eq(i).addClass("wrong");
+    }
+    else{
+      $('#knowledgeCheck form li').eq(i).removeClass("wrong");
+    }
+  }
+
+  var feedback = '<p class="feedback">You scored a <span class="bolded">'+currentKnowledgeCheck.score+' out of '+currentKnowledgeCheck.questions.length+'</span></p>';
   $('#knowledgeCheck .invalid').remove();
-  $('#knowledgeCheck').append(feedback);
+  $('#feedback').append(feedback);
 
-  if(courseData.knowledgeCheckData.gate != null) {
-    var chapter = courseData.knowledgeCheckData.gate.chapter;
-    var page = courseData.knowledgeCheckData.gate.page;
-    var lock = courseData.knowledgeCheckData.gate.lock;
+  if(currentKnowledgeCheck.gate != null) {
+    var chapter = currentKnowledgeCheck.gate.chapter;
+    var page = currentKnowledgeCheck.gate.page;
+    var lock = currentKnowledgeCheck.gate.lock;
     openLock(chapter, page, lock);
   }
 
-  courseData.knowledgeCheckData.score = totalCorrect;
   localStorage.setItem(LOCAL_COURSE_DATA_ID,  JSON.stringify(courseData));
+  console.log(courseData.knowledgeCheckData.totalScore);
+}
+
+function getKnowledgeCheckIndex(currentID){
+  var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
+
+  for(var i = 0; i < courseData.knowledgeCheckData.knowledgeChecks.length; i++){
+    if(courseData.knowledgeCheckData.knowledgeChecks[i].id == currentID){
+      return i;
+    }
+  }
 }

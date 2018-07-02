@@ -47,9 +47,16 @@
   </chapter>
 
   <chapter>
-    <title><![CDATA[KNOWLEDGE CHECK]]></title>
+    <title><![CDATA[KNOWLEDGE CHECK I]]></title>
     <pages>
-      <page gated="true" locks="1" audio=""><![CDATA[KNOWLEDGE CHECK]]></page>
+      <page gated="false" locks="0" audio=""><![CDATA[REVIEW I]]></page>
+    </pages>
+  </chapter>
+
+  <chapter>
+    <title><![CDATA[KNOWLEDGE CHECK II]]></title>
+    <pages>
+      <page gated="false" locks="0" audio=""><![CDATA[REVIEW I]]></page>
     </pages>
   </chapter>
 
