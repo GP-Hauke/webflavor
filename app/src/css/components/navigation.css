@@ -5,6 +5,13 @@
   margin: 0
 }
 
+#navbar .logo-mobile{
+  padding: 0;
+  position: relative;
+  top: -1px;
+  margin: 0;
+}
+
 #navbar-left > #navbar {
   margin-top: 90px; }
 
