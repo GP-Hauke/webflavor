@@ -25,14 +25,14 @@
   </chapter>
 
   <chapter>
-    <title><![CDATA[FLIP CARD COMPONENT]]></title>
+    <title><![CDATA[FLIP CARDS]]></title>
     <pages>
-      <page gated="false" locks="0" audio=""><![CDATA[FLIP CARD COMPONENT]]></page>
+      <page gated="false" locks="0" audio=""><![CDATA[FLIP CARDS]]></page>
     </pages>
   </chapter>
 
   <chapter>
-    <title><![CDATA[DRAG AND DROP COMPONENT]]></title>
+    <title><![CDATA[DRAG AND DROPS]]></title>
     <pages>
       <page gated="false" locks="0" audio=""><![CDATA[CITIES AND STATES]]></page>
       <page gated="false" locks="1" audio=""><![CDATA[CITIES AND COUNTRIES]]></page>
@@ -40,23 +40,17 @@
   </chapter>
 
   <chapter>
-    <title><![CDATA[HOT SPOT COMPONENT]]></title>
+    <title><![CDATA[HOT SPOTS]]></title>
     <pages>
       <page gated="false" locks="0" audio=""><![CDATA[HOT SPOT COMPONENT]]></page>
     </pages>
   </chapter>
 
   <chapter>
-    <title><![CDATA[KNOWLEDGE CHECK I]]></title>
+    <title><![CDATA[KNOWLEDGE CHECKS]]></title>
     <pages>
       <page gated="false" locks="0" audio=""><![CDATA[REVIEW I]]></page>
-    </pages>
-  </chapter>
-
-  <chapter>
-    <title><![CDATA[KNOWLEDGE CHECK II]]></title>
-    <pages>
-      <page gated="false" locks="0" audio=""><![CDATA[REVIEW I]]></page>
+      <page gated="false" locks="0" audio=""><![CDATA[REVIEW II]]></page>
     </pages>
   </chapter>
 

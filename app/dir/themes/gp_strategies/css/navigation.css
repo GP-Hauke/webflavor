@@ -79,3 +79,7 @@ li.courseTitleChapterSelected {
 #navbarMain #navbarMobile .dropdown .dropdown-menu li:hover{
   font-weight: 600;
 }
+
+#navbarMobile .nav-link{
+  color: #0193cf;
+}

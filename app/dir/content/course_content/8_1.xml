@@ -1,61 +1,31 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <page>
-  <title>12</title>
-  <component>knowledgeCheck</component>
-  <content>
+  <title>6</title>
+  <component>none</component>
+  <content completion="true">
     <![CDATA[
     <div class="row">
-      <div class="col-md-12">
-        <p class="top-paragraph">The following is a knowledge check to test your understanding of the course so far. You must attempt the quiz before advancing.</p>
+      <div class="col-sm-6">
+        <p id="sectionComplete">Please select the <span class="bolded">Complete for Credit</span> button below to receive credit for this course.</p>
+      </div>
+    </div>
+
+    <div class="row margin-below">
+      <div class="offset-1 col-sm-4">
+        <a class="btn btn-default d-block mx-auto btn-complete" id="btnComplete" role="button" onclick="setComplete()">Complete for Credit</a>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6">
+        <p class="top-paragraph">You are among the first to take this course. We would appreciate your feedback.</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="offset-1 col-sm-4">
+        <a class="btn btn-default d-block mx-auto" href="https://www.gpstrategies.com" target="_blank" role="button">Take Survey</a>
       </div>
     </div>]]>
   </content>
-
-  <knowledgeCheck id="2" scored="true" completed="false" title="Review II">
-    <gate lock="true">
-      <chapter>7</chapter>
-      <page>1</page>
-      <lock>1</lock>
-    </gate>
-
-    <question>
-      <body>Nam ac tortor a velit pulvinar fermentum id sit amet massa. Etiam sed magna vehicula?</body>
-      <answers>
-        <answer correct="true">RIGHT ANSWER</answer>
-        <answer>P</answer>
-        <answer>L</answer>
-        <answer>H</answer>
-      </answers>
-    </question>
-
-    <question>
-      <body>Nulla commodo est ligula, luctus cursus nibh commodo non. Duis quis varius nisl?</body>
-      <answers>
-        <answer correct="true">RIGHT ANSWER</answer>
-        <answer>Z</answer>
-        <answer>G</answer>
-        <answer>H</answer>
-      </answers>
-    </question>
-
-    <question>
-      <body>ras elementum tempor nibh, in auctor eros facilisis at. Curabitur maximus nulla sed ante tempor?</body>
-      <answers>
-        <answer>L</answer>
-        <answer correct="true">RIGHT ANSWER</answer>
-        <answer>O</answer>
-        <answer>B</answer>
-      </answers>
-    </question>
-
-    <question>
-      <body>Donec pellentesque dapibus libero, at tempor mauris efficitur fermentum?</body>
-      <answers>
-        <answer>C</answer>
-        <answer>A</answer>
-        <answer>X</answer>
-        <answer correct="true">RIGHT ANSWER</answer>
-      </answers>
-    </question>
-  </knowledgeCheck>
 </page>
