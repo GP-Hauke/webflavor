@@ -331,6 +331,7 @@ function loadContent(param){
   $.get(arg)
   .done(function(xml) {
     var titleSize = $(xml).find("title").text();
+
     var titleHTML = '<div class="row"><div class="col-sm-'+titleSize+'"><h1 id="pageTitle"></h1><div class="page-number"></div></div></div>';
 
     var completion = $(xml).find("content").attr("completion");

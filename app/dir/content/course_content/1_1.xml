@@ -2,6 +2,7 @@
 <page>
   <!-- Size can be a number from 1-12 representing how much of the window it takes up. 12 being the full width, 6 being half, 4 being a third, etc... -->
   <title>12</title>
+
   <!--Component: if game/dragAndDrop/hotspot components are on the page -->
   <component>game</component>
   <content>

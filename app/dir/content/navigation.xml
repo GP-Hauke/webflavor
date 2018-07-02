@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<course translatePanel="false" useNextPrevLabel="false">
+<course>
   <headerLinks included="true"> <!-- valid values: "true", "false" -->
     <!-- HEADER LINKS DEPRICATED. MADE DYNAMIC IN INTERFACE_FUNCTIONS -->
   </headerLinks>
