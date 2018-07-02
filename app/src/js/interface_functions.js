@@ -333,6 +333,11 @@ function buildTopNav() {
 
     bottomNav = bottomNav + '</ul></div></div>';
 
+    if(courseData.HAS_MENU_LOGO == "true"){
+      $('#navLogo').append('<img src="'+courseData.THEME_PATH+'/img/logo.png" alt="logo">')
+    }
+
+
     $("#navbarMain").on('hidden.bs.collapse', function () {
       calculateHeight();
     });

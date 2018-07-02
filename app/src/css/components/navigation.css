@@ -1,3 +1,10 @@
+#navbar .navbar-brand{
+  padding: 0;
+  position: relative;
+  top: -4px;
+  margin: 0
+}
+
 #navbar-left > #navbar {
   margin-top: 90px; }
 

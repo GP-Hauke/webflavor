@@ -6,6 +6,7 @@
     "completionMethod": "assessment",
     "menuPlacement": "top",
     "menuStyle": "tab",
+    "hasMenuLogo": "true",
     "hasSplashPage": "false",
     "hasResources": "true",
     "hasGlossary": "true",

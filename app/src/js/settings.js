@@ -13,7 +13,6 @@ function initSettings(json) {
   if(tempStorage === null || tempStorage.SETTINGS_VERSION !== currentVersion) {
     console.log("localStorage has reloaded");
     populateStorage(json, tempStorage);
-
   }
 }
 
@@ -27,6 +26,7 @@ function populateStorage(json, tempStorage) {
   courseStorageObj.COOKIE_NAME = json.settings.cookieName;
   courseStorageObj.MENU_PLACEMENT = json.settings.menuPlacement;
   courseStorageObj.MENU_STYLE = json.settings.menuStyle;
+  courseStorageObj.HAS_MENU_LOGO = json.settings.hasMenuLogo;
   courseStorageObj.COMPLETION_METHOD = json.settings.completionMethod;
   courseStorageObj.HAS_GLOSSARY = json.settings.hasGlossary;
   courseStorageObj.HAS_RESOURCES = json.settings.hasResources;
