@@ -5,7 +5,7 @@
     "courseSubTitle": "WebFlavor",
     "completionMethod": "assessment",
 
-    "menuPlacement": "top",
+    "menuPlacement": "left",
     "menuStyle": "tab",
     "hasMenuLogo": "true",
     "hasHeader": "true",
