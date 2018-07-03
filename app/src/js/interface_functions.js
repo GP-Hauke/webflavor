@@ -275,7 +275,7 @@ function buildTopNav() {
         mobileMenuButton = mobileMenuButton + '</ul></li>';
 
       } else {
-        mobileMenuButton = '<li class="courseTitleChapter" id="courseTitleChapter'+i+'" onclick="openPage('+eval(i+1)+',1)"><p>'+courseData.chapters[i].title+'</p></li>';
+        mobileMenuButton = '<li class="courseTitleChapter" id="courseTitleChapter'+i+'" onclick="openPage('+eval(i+1)+',1)"><p class="nav-link">'+courseData.chapters[i].title+'</p></li>';
       }
 
       mobileNav = mobileNav + mobileMenuButton;
@@ -649,6 +649,20 @@ function updateNavigation() {
 
       console.log("Chapter: " + eval(i+1) + " -- Page: " + eval(j+1));
       console.log(!checkLock(eval(i+1),eval(j+1)));
+
+      if(!checkLock(eval(i+1),eval(j+1))){
+        //If Multiple Pages of a Chapter
+        if(j > 0){
+          $('#courseTitleChapter'+i +' .dropdown-menu li p').eq(j).addClass('courseTitleGatedPage');
+        }
+        else{
+          $('#courseTitleChapter'+i + ' .nav-link').addClass('courseTitleGated');
+        }
+      }
+      else{
+        $('#courseTitleChapter'+i + ' .nav-link').removeClass('courseTitleGated');
+        $('#courseTitleChapter'+i +' .dropdown-menu li p').eq(j).removeClass('courseTitleGatedPage');
+      }
 
 /*
       if(!checkLock(eval(i+1), eval(j+1))){

@@ -13,7 +13,7 @@
   <chapter>
     <title><![CDATA[CURATED CONTENT]]></title>
     <pages>
-      <page gated="false" locks="0" audio=""><![CDATA[CURATED CONTENT]]></page>
+      <page gated="true" locks="0" audio=""><![CDATA[CURATED CONTENT]]></page>
     </pages>
   </chapter>
 
@@ -27,7 +27,7 @@
   <chapter>
     <title><![CDATA[FLIP CARDS]]></title>
     <pages>
-      <page gated="true" locks="0" audio=""><![CDATA[FLIP CARDS]]></page>
+      <page gated="false" locks="0" audio=""><![CDATA[FLIP CARDS]]></page>
     </pages>
   </chapter>
 
