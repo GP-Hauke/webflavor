@@ -325,7 +325,7 @@ function buildTopNav() {
 
       bottomNav = bottomNav + menuButton;
 
-      if(courseData.MENU_STYLE === 'tab') {
+      if(courseData.MENU_STYLE === 'tab' && courseData.MENU_PLACEMENT === 'top') {
         $('#navbarMain').addClass('tabbed');
         $('.navbar .container').addClass('navbar-expand-md');
       }
@@ -422,7 +422,6 @@ function buildLeftNav() {
     }
 
     $('#navbarMain').addClass('default');
-
 
     $("#navbarMain").on('hidden.bs.collapse', function () {
       calculateHeight();
@@ -648,22 +647,28 @@ function updateNavigation() {
         singlePage = true;
       }
 
-      if(locked){
+      console.log("Chapter: " + eval(i+1) + " -- Page: " + eval(j+1));
+      console.log(!checkLock(eval(i+1),eval(j+1)));
+
+/*
+      if(!checkLock(eval(i+1), eval(j+1))){
+        console.log(i+1 +" "+ j+1);
         if(singlePage){
-          $('#courseTitleChapter'+i +' .dropdown-menu li').eq(j).addClass('courseTitleGatedPage');
+          $('#courseTitleChapter'+i +' .dropdown-menu li p').eq(j).addClass('courseTitleGatedPage');
         }
         else{
-          $('#courseTitleChapter'+i).addClass('courseTitleGated');
+          $('#courseTitleChapter'+i + ' p').addClass('courseTitleGated');
         }
       }
       else{
         $('#courseTitleChapter'+i).removeClass('courseTitleGated');
         $('#courseTitleChapter'+i +' .dropdown-menu li').eq(j).removeClass('courseTitleGatedPage');
       }
+*/
+    }
 
-      if(courseData.chapters[i].pages[j].gated && courseData.chapters[i].pages[j].locks.toString().indexOf("0")!=-1 && courseData.chapters[i].isActive=="true") {
-        locked = true;
-      }
+    if(courseData.chapters[i].pages.length==$('#courseTitleChapter'+i +' .dropdown-menu li .courseTitleGatedPage').length){
+      $('#courseTitleChapter'+i + ' p').addClass('courseTitleGated');
     }
 
     if(completeCount == courseData.chapters[i].pages.length) {
@@ -803,6 +808,8 @@ function calculateHeight() {
   //$("#contentFrame").css({height:$("#contentContainer").height() - 7});
 
   $("#audioBar").width($("#mainContainer").width()-216-$("#navBtns").width());
+  $('.leftNav #navbarMain').css({height:$(window).height()-($('#navContainer').height()+$('.footer').height())});
+
 }
 
 /* GETTERS */
