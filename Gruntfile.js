@@ -419,9 +419,9 @@ module.exports = function(grunt){
     var json = grunt.file.readJSON(settingsFile); //get file as json object
     currentVersion = json.settings.version;
 
-    grunt.log.oklns("VERSION: " + currentVersion);
-
     json.settings.version = (parseFloat(currentVersion)+0.1).toFixed(1).toString();
+    grunt.log.oklns("VERSION: " + json.settings.version);
+
     grunt.file.write(settingsFile, JSON.stringify(json, null, 2));
   });
 
