@@ -1,7 +1,7 @@
 # "WebFlavor" Course Template
-### Documentation – v. 2.0
+### Documentation – v. 3.0
 Created: 06/09/2017
-Last modified: 12/19/2017
+Last modified: 07/05/2018
 By: Hauke Bahr
 
 ## Contents
@@ -12,28 +12,28 @@ By: Hauke Bahr
 5. Settings
 6. HTML Grid Layout
 
-## Introduction
+## 1. Introduction
 The purpose and goal of this template is to provide a way to quickly create custom HTML courses that are versatile and flexible. Developers with a good understanding of the prerequisite skills (see below) will be able to create custom HTML courses that can accommodate any design, interactions, media objects, size and whatever other features the requirements specify. All those features can be added, modified, replaced or removed easily
 
-## Prerequisite Skills
+## 2. Prerequisite Skills
 In order to modify the content of the course, the user needs to have an intermediate understanding of XML, HTML, and the Bootstrap CSS framework. Specifically, the user needs to know how to modify an existing XML document - including addition, removal, and changes of nodes – and how to modify HTML documents that are built upon the “Bootstrap” grid framework. Details will be described in this document.
 
-## Folder Structure
+## 3. Folder Structure
 
+```
 app
 +---dir
 ¦   +---content
 ¦   ¦   +---course_content
 ¦   ¦
-¦   +---css
-¦   ¦   +---default
-¦   ¦   +---themes
-¦   ¦    
 ¦   +---media
-¦       +---audio
-¦       +---fonts
-¦       +---img
-¦       +---video
+¦   ¦   +---audio
+¦   ¦   +---fonts
+¦   ¦   +---img
+¦   ¦   +---video
+¦   ¦
+¦   +---themes
+¦       +---maroon
 ¦
 ¦
 +---src
@@ -42,14 +42,18 @@ app
     ¦   +---content
     ¦   +---navigation
     ¦
+    +---css
+    ¦   +---components
+    ¦   +---interactives
+    ¦   +---partials
+    ¦
     +---js
     ¦   +---api
     ¦
-    +---lms
     +---vendors
+```
 
-
-## Quick Reference:
+## 4. Quick Reference:
 This section will go into a little more detail about the folder structure and explain which files to modify to make changes to an existing course or create a new course from the template.
 
 ### Top-Level Files:
@@ -90,7 +94,7 @@ This section will go into a little more detail about the folder structure and ex
 
 ---
 
-## Settings
+## 5.  Settings
 
 **settings.xml** is the heart of the template. As mentioned it is contained in dir/content. It determines and controls a range of settings and features in the template and should be the first file to be modified (after the top level files **sco01.xml and imsmanifest.xml** as described above). This section will explain the nodes in settings.xml in detail.
 
@@ -125,7 +129,7 @@ This section will go into a little more detail about the folder structure and ex
 **bookmarking**: This was used in a course that had a launch page that branched off into different courses. The launch page kept track of which pages in which of the branched courses had been visited. Can be disregarded unless a similar setup is required.
 
 
-## HTML Grid Layout – Powered by Bootstrap
+## 6. HTML Grid Layout – Powered by Bootstrap
 
 **Basics**
 
@@ -133,7 +137,7 @@ The layout of the entire course is built as a grid of content elements that auto
 
 * **Note:** The pertinent parts of Bootstrap that are used in the course will be described here. For complete documentation of Bootstrap, see http://getbootstrap.com/. For complete and specific documentation of the grid system utilized in the course, see http://getbootstrap.com/css/#grid.
 
-Bootstrap arranges content elements in rows and columns, where each row can have a varying number of content elements divisible by 12. The rows and columns are defined and created by using specific HTML tags and CSS classes in the HTML document.  
+Bootstrap arranges content elements in rows and columns, where each row can have a varying number of content elements divisible by 12. The rows and columns are defined and created by using specific HTML tags and CSS classes in the HTML document.
 
 Bootstrap divides every row up into twelve columns. Each content element can take up any number of these columns. For example, you can have one content item that spans all twelve columns – i.e. the entire width of the content area – or you can have four content items, each taking up three columns, or three content items where two take up five columns and one takes up two columns or any other combination that is divisible by 12. To illustrate this, let’s look at some code examples:
 
@@ -142,10 +146,10 @@ Firstly, rows are represented in the HTML by div elements with the class name ro
 ```
 <div class="container">
   <div class=”row”>
-  		…  
-  </div>  
-  <div class=”row”>  
-  		…  
+  		…
+  </div>
+  <div class=”row”>
+  		…
   </div>
 </div>
 ```
@@ -169,9 +173,9 @@ To illustrate how these elements work, let’s first look at some of the class n
  Let’s look at examples:
 
 ```
- <div class="container">  
-  <div class=”row”>   
-    <div class=”col-xs-12”> … </div>  
+ <div class="container">
+  <div class=”row”>
+    <div class=”col-xs-12”> … </div>
   </div>
  </div>
 ```
@@ -179,16 +183,16 @@ In this example, the markup defines one column that will occupy all 12 column sp
 
 ```
 <div class="container">
- <div class=”row”>  
+ <div class=”row”>
   <div class=”col-lg-4”>
     …
-  </div>  
+  </div>
   <div class=”col-lg-5”>
     …
   </div>
   <div class=”col-lg-3”>
     …
-  </div>  
+  </div>
  </div>
 </div>
 ```
@@ -199,7 +203,7 @@ Disregarding additional CSS that would define the design of the elements, the ab
 
 * **Note:** Bootstrap will add gutters (horizontal and vertical spaces) between the elements. They are not displayed here for simplicity.
 
-Keeping in mind the examples above, let’s look at the specific viewport width values that are defined by the "xs", "sm", "md", "lg" parts of the CSS class names.  
+Keeping in mind the examples above, let’s look at the specific viewport width values that are defined by the "xs", "sm", "md", "lg" parts of the CSS class names.
 
 **xs:** No specified width - the element will be displayed occupying the number of column spaces specified by the number part of the CSS class on all screens, from large computer screens to “extra small” device screens.
 
@@ -211,13 +215,13 @@ Keeping in mind the examples above, let’s look at the specific viewport width 
 
 **Combining Class Names**
 
-The class names described above can be combined to get even more control over how content elements flow on the page across different devices.  
+The class names described above can be combined to get even more control over how content elements flow on the page across different devices.
 
 Example:
 
 ```
-<div class="container">  
- <div class=”row”>   
+<div class="container">
+ <div class=”row”>
   <div class=”col-lg-4 col-md-4 col-sm-3 col-xs-12”>
     …
   </div>
@@ -226,7 +230,7 @@ Example:
   </div>
   <div class=”col-lg-3 col-md-4 col-sm-3 col-xs-12”>
     …
-  </div>  
+  </div>
  </div>
 </div>
 ```
