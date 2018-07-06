@@ -19,12 +19,12 @@ In order to modify the content of the course, the user needs to have an intermed
 ## 3. Setup & Configuration
 Once you have a local clone of the project repository, you can move to setup and configuration.
 
-###3.1 **Install Development Tools**
+### 3.1 Install Development Tools
 Open your editor command or terminal tool to the framework development location and enter the following.
 *   **npm install**  (Set up the node packages required for development)
 *   **npm install** –g grunt  (Install Grunt's command functions, only installed once)
 
-###3.2 **Configure the Project**
+### 3.2 Configure the Project
 *   In **app/dir/themes** add a new theme folder (naming convention: all lower case, underscores instead of spaces. E.g. gm_selling_skills)
 
 *   In **app/settings.json** and set the following fields:
