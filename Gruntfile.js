@@ -489,7 +489,15 @@ module.exports = function(grunt){
     grunt.task.run('clean:validate');
   });
 
+  grunt.registerTask('update', function(key, value) {
+    var pages = grunt.file.expand(["dist/dir/content/course_content/*.xml"]);
 
+    for(var i = 0; i < pages.length; i++){
+      var path = require('path').basename(pages[i])
+      grunt.log.oklns(path.substring(0, path.length - 4))
+
+    }
+  });
 
 
   grunt.registerTask('test', ['validate']);

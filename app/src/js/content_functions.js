@@ -341,7 +341,6 @@ function loadContent(param){
     var completion = $(xml).find("content").attr("completion");
     if(completion){
       $('#pageContainer').addClass("completion");
-      titleHTML = '<div class="row"><div class="col-sm-'+titleSize+'"><h1 id="pageTitle"></h1></div></div>';
     }
 
     $('#pageContent').append($(xml).find('content').text());
@@ -376,7 +375,9 @@ function loadContent(param){
 
 
     var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
-    updatePagination();
+    if($(xml).find("title").attr("pagination") == "true"){
+      updatePagination();
+    }
 
     if(courseData.COUNT_PAGES == 'true') {
       registerPageVisit(LOCAL_COURSE_DATA_ID, pageID); // lives in tracking_functions.js

@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <page>
-  <title included="true">12</title>
-  <component>dragAndDrop</component>
-
+  <title included="true" pagination="true">12</title>
+  <component>hotspot</component>
   <content>
     <![CDATA[
     <div class="row">

@@ -9,6 +9,7 @@
     "hasMenuLogo": "true",
     "hasHeader": "true",
     "hasFooter": "true",
+    "hasPagination": "false",
     "hasSplashPage": "false",
     "hasResources": "true",
     "hasGlossary": "true",

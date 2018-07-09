@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <page>
-  <title included="true">12</title>
-  <component>knowledgeCheck</component>
-  <content>
+  <title included="true" pagination="false">6</title>
+  <component>none</component>
+  <content completion="true">
     <![CDATA[
     <div class="row">
       <div class="col-md-12">
