@@ -65,10 +65,15 @@ function setupThumbnails(){
     var href = "href";
     if(courseData.thumbnailsData.thumbnails[i].onclickFunction == "true"){
       href = "onclick";
+
+      var thumbnailHTML = '<div class="'+thumbnailWidth+'"><div class="thumbnail" id=""><a id="thumb'+i+'" target="_blank" '+href+'="'+url+'" class="top-paragraph link"><div class="img-container"><img class="img-zoom" src="'+img+'" alt=""></div><div class="caption"><div class="caption-title"><span>'+
+      heading+'</span></div><p>'+caption+'</p></div></a></div></div>';
     }
 
-    var thumbnailHTML = '<div class="'+thumbnailWidth+'"><div class="thumbnail" id=""><a id="thumb'+i+'" onclick="checkThumbCompletion(this);" target="_blank" '+href+'="'+url+'" class="top-paragraph link"><div class="img-container"><img class="img-zoom" src="'+img+'" alt=""></div><div class="caption"><div class="caption-title"><span>'+
-    heading+'</span></div><p>'+caption+'</p></div></a></div></div>';
+    else {
+      var thumbnailHTML = '<div class="'+thumbnailWidth+'"><div class="thumbnail" id=""><a id="thumb'+i+'" onclick="checkThumbCompletion(this);" target="_blank" '+href+'="'+url+'" class="top-paragraph link"><div class="img-container"><img class="img-zoom" src="'+img+'" alt=""></div><div class="caption"><div class="caption-title"><span>'+
+      heading+'</span></div><p>'+caption+'</p></div></a></div></div>';
+    }
 
     html += thumbnailHTML;
   }

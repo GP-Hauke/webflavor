@@ -105,3 +105,84 @@ h2.section-title {
 
 .page-container.completion {
   background: url(../../dir/media/img/assets/bg_completion.jpg) center center/cover no-repeat fixed; }
+
+
+
+  .carousel-item .btn-primary {
+    border: none;
+    background-color: #003056;
+    color: #fff !important;
+    width: 100%;
+    white-space: normal !important;
+    margin: 5px 0;
+  }
+
+  .carousel-item .inner-item {
+    overflow: hidden;
+    margin: 0px !important;
+  }
+
+  .carousel-inner {
+    min-height: 550px;
+  }
+
+  .carousel-item {
+    padding: 0 5%;
+  }
+
+  .carousel-intro-img{
+    margin-bottom: 15px;
+  }
+
+  .carousel-intro-img-smiths{
+    background-image: url(../../dir/media/img/assets/smiths-intro.png);
+    height: 300px;
+    width: 100%;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+  }
+
+  .carousel-intro-img-elizabeth{
+    background-image: url(../../dir/media/img/assets/elizabeth-intro.png);
+    height: 300px;
+    width: 100%;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+  }
+
+  .carousel-intro-img-why{
+    background-image: url(../../dir/media/img/assets/why-this-worked.png);
+    height: 300px;
+    width: 100%;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+  }
+
+  .carousel-intro-img-exterior{
+    background-image: url(../../dir/media/img/assets/exterior.png);
+    height: 300px;
+    width: 100%;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+  }
+
+  .carousel-intro-img-sharon{
+    background-image: url(../../dir/media/img/assets/sharon-large.png);
+    height: 300px;
+    width: 100%;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+  }
+
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 5% !important;
+  }
+
+  .carousel-control-prev-icon {
+   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23003056' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
+  }
+
+  .carousel-control-next-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23003056' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
+  }

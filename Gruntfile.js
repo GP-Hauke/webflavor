@@ -473,18 +473,17 @@ module.exports = function(grunt){
   );
 
   grunt.registerTask('validate', function(key, value) {
-    var libxmljs = require("libxmljs");
-    var settingsFile = "validate.html";
-
+    var xmldoc = require('xmldoc');
     var pages = grunt.file.expand(["dist/dir/content/course_content/*.xml"]);
 
     for(var i = 0; i < pages.length; i++){
       var xml = grunt.file.read(pages[i]);
-      var xmlDoc = libxmljs.parseXml(xml);
-      var html = xmlDoc.get('//content').text();
+      var xmlDoc = new xmldoc.XmlDocument(xml);
+      var html = xmlDoc.valueWithPath("content");
 
       grunt.file.write(pages[i].substring(0, pages[i].length - 3) + 'html', html);
     }
+
     grunt.log.oklns('HTML Created')
     grunt.task.run('htmlhint');
     grunt.task.run('clean:validate');
@@ -493,6 +492,6 @@ module.exports = function(grunt){
 
 
 
-  grunt.registerTask('test', ['htmlhint']);
+  grunt.registerTask('test', ['validate']);
 
 }

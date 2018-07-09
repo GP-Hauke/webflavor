@@ -37,14 +37,8 @@ function openModal(modalType, assessmentID, clickTarget) {
   $('.modal').modal();
 }
 
-function openContentModal(heading, content) {
-  $('#modalContainer').html('<div class="modal fade" id="contentModal" tabindex="-1" role="dialog" aria-labelledby="contentModalLabel"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><img src="'+pathStr+'/resouces/img/btn_close.png" alt="close the modal"></span></button><h4 class="modal-title" id="">'+heading+'</h4></div><div class="modal-body clearfix">'+content+'</div></div></div></div>');
-
-  $('.modal').on('hidden.bs.modal', function (e) {
-    $('#modalContainer').html('');
-  });
-
-  $('.modal').modal();
+function openContentModal(content) {
+  $('#modalContainer').html(content);
 }
 
 function openVideoModal(src) {

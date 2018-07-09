@@ -369,6 +369,11 @@ function loadContent(param){
       initKnowledgeCheck(xml);
     }
 
+    var modal = $(xml).find('modal').text();
+    if(modal != null){
+      openContentModal(modal);
+    }
+
 
     var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
     updatePagination();
