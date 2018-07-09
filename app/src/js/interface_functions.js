@@ -58,6 +58,7 @@ function loadXMLData() {
   }
 
   if(courseData.MENU_PLACEMENT !== 'none' && navigationLoaded === false) {
+    getNavigationData();
     GetInterfaceXML("dir/content/navigation.xml");
     return;
   }
@@ -300,7 +301,7 @@ function buildTopNav() {
       headerLinks = headerLinks + headerLinkEl;
     }
     $("#headerLinks").append(headerLinks);
-        // END HEADER LINKS
+    // END HEADER LINKS
 
     // BOTTOM NAV
     var bottomNav = '<div class="container"><div id="navbarBottomCollapse" class="navbar-collapse collapse"><ul id="nav-items-bottom-row" class="nav nav-justified">';
@@ -353,7 +354,7 @@ function buildTopNav() {
 
     loadInterfaceStyles();
 
-    });
+  });
 
   var notSelectedClass = "menuItemNotSelected";
 }
@@ -412,7 +413,7 @@ function buildLeftNav() {
       headerLinks = headerLinks + headerLinkEl;
     }
     $("#headerLinks").append(headerLinks);
-        // END HEADER LINKS
+    // END HEADER LINKS
 
     $("#navbarMobile").append(mobileNav);
     // END MOBILE NAV DRAWER
@@ -661,55 +662,55 @@ function updateNavigation() {
         $('#courseTitleChapter'+i +' .dropdown-menu li p').eq(j).removeClass('courseTitleGatedPage');
       }
 
-/*
+      /*
       if(!checkLock(eval(i+1), eval(j+1))){
-        console.log(i+1 +" "+ j+1);
-        if(singlePage){
-          $('#courseTitleChapter'+i +' .dropdown-menu li p').eq(j).addClass('courseTitleGatedPage');
-        }
-        else{
-          $('#courseTitleChapter'+i + ' p').addClass('courseTitleGated');
-        }
-      }
-      else{
-        $('#courseTitleChapter'+i).removeClass('courseTitleGated');
-        $('#courseTitleChapter'+i +' .dropdown-menu li').eq(j).removeClass('courseTitleGatedPage');
-      }
+      console.log(i+1 +" "+ j+1);
+      if(singlePage){
+      $('#courseTitleChapter'+i +' .dropdown-menu li p').eq(j).addClass('courseTitleGatedPage');
+    }
+    else{
+    $('#courseTitleChapter'+i + ' p').addClass('courseTitleGated');
+  }
+}
+else{
+$('#courseTitleChapter'+i).removeClass('courseTitleGated');
+$('#courseTitleChapter'+i +' .dropdown-menu li').eq(j).removeClass('courseTitleGatedPage');
+}
 */
-    }
+}
 
-    if(courseData.chapters[i].pages.length==$('#courseTitleChapter'+i +' .dropdown-menu li .courseTitleGatedPage').length){
-      $('#courseTitleChapter'+i + ' p').addClass('courseTitleGated');
-    }
+if(courseData.chapters[i].pages.length==$('#courseTitleChapter'+i +' .dropdown-menu li .courseTitleGatedPage').length){
+  $('#courseTitleChapter'+i + ' p').addClass('courseTitleGated');
+}
 
-    if(completeCount == courseData.chapters[i].pages.length) {
-      $("#chapter"+i).removeClass("chapterIncomplete").addClass("chapterComplete");
-    }
-  }
+if(completeCount == courseData.chapters[i].pages.length) {
+  $("#chapter"+i).removeClass("chapterIncomplete").addClass("chapterComplete");
+}
+}
 
 
-  $("#mi"+currentChapter+"_"+currentPage).removeClass("menuItemNotSelected").removeClass("menuItemNotActive").removeClass("menuItemVisited").addClass("menuItemSelected");
+$("#mi"+currentChapter+"_"+currentPage).removeClass("menuItemNotSelected").removeClass("menuItemNotActive").removeClass("menuItemVisited").addClass("menuItemSelected");
 
-  if(currentPage == 1 && currentChapter == 1) {
-    $("#prevBtn").hide();
-    $("#nextBtn").show();
+if(currentPage == 1 && currentChapter == 1) {
+  $("#prevBtn").hide();
+  $("#nextBtn").show();
 
-  } else if(currentChapter == courseData.chapters.length && currentPage == courseData.chapters[currentChapter-1].pages.length) {
-    $("#prevBtn").show();
-    $("#nextBtn").hide();
+} else if(currentChapter == courseData.chapters.length && currentPage == courseData.chapters[currentChapter-1].pages.length) {
+  $("#prevBtn").show();
+  $("#nextBtn").hide();
 
-  } else {
-    $("#prevBtn").show();
-    $("#nextBtn").show();
-  }
+} else {
+  $("#prevBtn").show();
+  $("#nextBtn").show();
+}
 
-  if(courseData.chapters[currentChapter-1].pages[currentPage-1].gated && courseData.chapters[currentChapter-1].pages[currentPage-1].locks.toString().indexOf("0")!=-1) {
-    $("#nextBtn").hide();
-  }
+if(courseData.chapters[currentChapter-1].pages[currentPage-1].gated && courseData.chapters[currentChapter-1].pages[currentPage-1].locks.toString().indexOf("0")!=-1) {
+  $("#nextBtn").hide();
+}
 
-  if($(".footer-nav") !== null) {
-    $(".footer-nav").html(getFooterNav());
-  }
+if($(".footer-nav") !== null) {
+  $(".footer-nav").html(getFooterNav());
+}
 }
 
 function activateChapter(active,deactive,titleIndex) {
@@ -833,4 +834,8 @@ function getFooterHeight() {
 
 function closeCourse() {
   top.window.close();
+}
+
+function getNavigationData(){
+
 }
