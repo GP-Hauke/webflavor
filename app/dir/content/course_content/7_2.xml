@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <page>
-  <title>12</title>
+  <title included="true">12</title>
   <component>knowledgeCheck</component>
   <content>
     <![CDATA[

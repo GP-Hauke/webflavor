@@ -330,9 +330,13 @@ function loadContent(param){
 
   $.get(arg)
   .done(function(xml) {
-    var titleSize = $(xml).find("title").text();
 
-    var titleHTML = '<div class="row"><div class="col-sm-'+titleSize+'"><h1 id="pageTitle"></h1><div class="page-number"></div></div></div>';
+    if($(xml).find("title").attr("included") == "true"){
+      var titleSize = $(xml).find("title").text();
+      var titleHTML = '<div class="row"><div class="col-sm-'+titleSize+'"><h1 id="pageTitle"></h1><div class="page-number"></div></div></div>';
+      $('#pageContent').append(titleHTML);
+    }
+
 
     var completion = $(xml).find("content").attr("completion");
     if(completion){
@@ -340,7 +344,6 @@ function loadContent(param){
       titleHTML = '<div class="row"><div class="col-sm-'+titleSize+'"><h1 id="pageTitle"></h1></div></div>';
     }
 
-    $('#pageContent').append(titleHTML);
     $('#pageContent').append($(xml).find('content').text());
 
     //CERTAIN PAGES NEED SPECIFIC METHODS RUN FOR THE COMPONENTS
