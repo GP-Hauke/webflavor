@@ -647,9 +647,6 @@ function updateNavigation() {
         singlePage = true;
       }
 
-      console.log("Chapter: " + eval(i+1) + " -- Page: " + eval(j+1));
-      console.log(!checkLock(eval(i+1),eval(j+1)));
-
       if(!checkLock(eval(i+1),eval(j+1))){
         //If Multiple Pages of a Chapter
         if(j > 0){
@@ -814,7 +811,7 @@ function calculateHeight() {
 
   //  $("#contentContainer").css({height:$(window).height() - 1, paddingTop:$("#navbar").height()});
   //$("#contentContainer").css({height:$(window).height() - 1});
-  $("#contentContainer").css({height:$(window).height()-($('#navContainer').height()+$('.footer').height())});
+  $("#contentContainer").css({height:$(window).height()-($('#navContainer').height()+getFooterHeight())});
 
   //---------------DEPRICATED AFTER REMOVING IFRAMES---------------
   //$("#contentFrame").css({height:$("#contentContainer").height()});
@@ -822,12 +819,15 @@ function calculateHeight() {
   //$("#contentFrame").css({height:$("#contentContainer").height() - 7});
 
   $("#audioBar").width($("#mainContainer").width()-216-$("#navBtns").width());
-  $('.leftNav #navbarMain').css({height:$(window).height()-($('#navContainer').height()+$('.footer').height())});
+  $('.leftNav #navbarMain').css({height:$(window).height()-($('#navContainer').height()+getFooterHeight())});
 
 }
 
 /* GETTERS */
 function getFooterHeight() {
+  if($('footer').height() == null){
+    return 0;
+  }
   return $('footer').height();
 }
 

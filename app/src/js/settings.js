@@ -28,6 +28,7 @@ function populateStorage(json, tempStorage) {
   courseStorageObj.MENU_STYLE = json.settings.menuStyle;
   courseStorageObj.HAS_MENU_LOGO = json.settings.hasMenuLogo;
   courseStorageObj.COMPLETION_METHOD = json.settings.completionMethod;
+  courseStorageObj.HAS_FOOTER = json.settings.hasFooter;
   courseStorageObj.HAS_GLOSSARY = json.settings.hasGlossary;
   courseStorageObj.HAS_RESOURCES = json.settings.hasResources;
   courseStorageObj.HAS_HELP = json.settings.hasHelp;
@@ -95,7 +96,9 @@ function populateStorage(json, tempStorage) {
       courseStorageObj.glossary = tempStorage.glossary;
     }
   }
-
+  if(json.settings.hasFooter === "false") {
+    $('.footer').remove();
+  }
 
   localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(courseStorageObj));
 }
