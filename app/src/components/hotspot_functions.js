@@ -11,16 +11,29 @@ function initHotspot(hotspotContentXML) {
   var currentHotspot = $(hotspotContentXML).find("hotspot");
 
   courseData.hotspotData.hotspot = {
-    completed: $(currentHotspot).attr("completed"),
+    completed: false,
+    completion: {},
+    score: 0,
     img: $(currentHotspot).find("img").text(),
     spots: []
+  };
+
+  if(currentHotspot.find("completion").attr("gated") == "true"){
+  courseData.hotspotData.hotspot.completion = {
+    gate : {
+      chapter: currentHotspot.find("chapter").text(),
+      page: currentHotspot.find("page").text(),
+      lock: currentHotspot.find("lock").text()
+      }
+    }
   };
 
   $(currentHotspot).find("spot").each(function() {
     var currentSpot = $(this);
     spot ={
       label:currentSpot.find('label').text(),
-      popup:currentSpot.find('popup').text()
+      popup:currentSpot.find('popup').text(),
+      completed: false
     }
     courseData.hotspotData.hotspot.spots.push(spot);
   });
@@ -28,9 +41,7 @@ function initHotspot(hotspotContentXML) {
 
   localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(courseData));
   setupHotSpot();
-
 }
-
 
 
 function setupHotSpot(){
@@ -60,10 +71,12 @@ function setupHotSpot(){
   $('#hotSpot .hotSpot-spot').click(function(){
 
     var spotID = $(this).attr("id").substr($(this).attr("id").length - 1);
+    var popupHTML = courseData.hotspotData.hotspot.spots[spotID].popup;
 
-
-    var popupHTML =     courseData.hotspotData.hotspot.spots[spotID].popup;
-
+    if(courseData.hotspotData.hotspot.spots[spotID].completed == false){
+      courseData.hotspotData.hotspot.spots[spotID].completed = true;
+      courseData.hotspotData.hotspot.score += 1;
+    }
 
     $('#hotSpot .hotSpot-popup').empty();
     $('#hotSpot .hotSpot-popup').append('<a class="hotSpot-close">x</a>' + popupHTML);
@@ -72,5 +85,16 @@ function setupHotSpot(){
     $('#hotSpot .hotSpot-popup .hotSpot-close').click(function(){
       $('#hotSpot .hotSpot-popup').css('display','none');
     });
+
+    if(courseData.hotspotData.hotspot.score >= courseData.hotspotData.hotspot.spots.length){
+      courseData.hotspotData.hotspot.completed = true;
+      if(courseData.hotspotData.hotspot.completion.gate != null) {
+        var chapter = courseData.hotspotData.hotspot.completion.gate.chapter;
+        var page = courseData.hotspotData.hotspot.completion.gate.page;
+        var lock = courseData.hotspotData.hotspot.completion.gate.lock;
+        openLock(chapter, page, lock);
+      }
+    }
+    localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(courseData));
   });
 }

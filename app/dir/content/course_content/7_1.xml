@@ -11,12 +11,14 @@
     </div>]]>
   </content>
 
-  <knowledgeCheck id="1" scored="true" completed="false" title="Review">
-    <gate lock="true">
-      <chapter>7</chapter>
-      <page>1</page>
-      <lock>1</lock>
-    </gate>
+  <knowledgeCheck id="1" scored="true" title="Review">
+    <completion gated="true">
+      <gate>
+        <chapter>7</chapter>
+        <page>1</page>
+        <lock>1</lock>
+      </gate>
+    </completion>
 
     <question>
       <body>The question body goes in this element. What answer is right?</body>

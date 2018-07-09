@@ -11,7 +11,15 @@
     </div>]]>
   </content>
 
-  <thumbnails completed="false" class="col-md-3 col-sm-6">
+  <thumbnails class="col-md-3 col-sm-6">
+    <completion gated="true">
+      <gate>
+        <chapter>2</chapter>
+        <page>1</page>
+        <lock>1</lock>
+      </gate>
+    </completion>
+
     <thumbnail>
       <img><![CDATA[dir/media/img/assets/3_5.jpg]]></img>
       <url><![CDATA[https://www.gpstrategies.com/]]></url>

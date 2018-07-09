@@ -12,7 +12,16 @@
     </div>]]>
   </content>
 
-  <drag_drop completed="false">
+  <drag_drop>
+    <completion gated="true">
+      <minimumScore>30</minimumScore>
+      <gate>
+        <chapter>5</chapter>
+        <page>1</page>
+        <lock>1</lock>
+      </gate>
+    </completion>
+
     <matchings>
       <pair>
         <drag>Bloomington</drag>

@@ -6,7 +6,7 @@
   <chapter>
     <title><![CDATA[VEHICLE GAME]]></title>
     <pages>
-      <page gated="false" locks="0" audio=""><![CDATA[VEHICLE GAME]]></page>
+      <page gated="true" locks="0" audio=""><![CDATA[VEHICLE GAME]]></page>
     </pages>
   </chapter>
 
@@ -20,21 +20,21 @@
   <chapter>
     <title><![CDATA[VIDEO & AUDIO]]></title>
     <pages>
-      <page gated="false" locks="0" audio=""><![CDATA[VIDEO & AUDIO]]></page>
+      <page gated="true" locks="0" audio=""><![CDATA[VIDEO & AUDIO]]></page>
     </pages>
   </chapter>
 
   <chapter>
     <title><![CDATA[FLIP CARDS]]></title>
     <pages>
-      <page gated="false" locks="0" audio=""><![CDATA[FLIP CARDS]]></page>
+      <page gated="true" locks="1" audio=""><![CDATA[FLIP CARDS]]></page>
     </pages>
   </chapter>
 
   <chapter>
     <title><![CDATA[DRAG AND DROPS]]></title>
     <pages>
-      <page gated="true" locks="0" audio=""><![CDATA[CITIES AND STATES]]></page>
+      <page gated="true" locks="1" audio=""><![CDATA[CITIES AND STATES]]></page>
       <page gated="true" locks="1" audio=""><![CDATA[CITIES AND COUNTRIES]]></page>
     </pages>
   </chapter>
@@ -42,22 +42,22 @@
   <chapter>
     <title><![CDATA[HOT SPOTS]]></title>
     <pages>
-      <page gated="false" locks="0" audio=""><![CDATA[HOT SPOT COMPONENT]]></page>
+      <page gated="true" locks="1" audio=""><![CDATA[HOT SPOT COMPONENT]]></page>
     </pages>
   </chapter>
 
   <chapter>
     <title><![CDATA[KNOWLEDGE CHECKS]]></title>
     <pages>
-      <page gated="false" locks="0" audio=""><![CDATA[REVIEW I]]></page>
-      <page gated="false" locks="0" audio=""><![CDATA[REVIEW II]]></page>
+      <page gated="true" locks="1" audio=""><![CDATA[REVIEW I]]></page>
+      <page gated="true" locks="1" audio=""><![CDATA[REVIEW II]]></page>
     </pages>
   </chapter>
 
   <chapter>
     <title><![CDATA[COURSE COMPLETION]]></title>
     <pages>
-      <page gated="false" locks="0" audio=""><![CDATA[COURSE COMPLETION]]></page>
+      <page gated="true" locks="1" audio=""><![CDATA[COURSE COMPLETION]]></page>
     </pages>
   </chapter>
 </course>

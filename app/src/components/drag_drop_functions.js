@@ -13,9 +13,15 @@ function initDragDrops(dragDropContentXML) {
   var currentDragDrop = $(dragDropContentXML).find("drag_drop");
 
   courseData.dragDropData = {
-    completed: $(currentDragDrop).attr("completed"),
+    completed: false,
+    completion: {},
     score: 0,
     matchings: []
+  };
+
+
+  courseData.dragDropData.completion = {
+    minimumScore: $(currentDragDrop).find("completion").find("minimumScore").text()
   };
 
   $(currentDragDrop).find("pair").each(function() {
@@ -28,9 +34,9 @@ function initDragDrops(dragDropContentXML) {
     courseData.dragDropData.matchings.push(pair);
   });
 
-  var currentGate = $(dragDropContentXML).find("gate");
-  if(currentGate.attr("lock") == "true"){
-    courseData.dragDropData.gate = {
+  var currentGate = $(dragDropContentXML).find("completion");
+  if(currentGate.attr("gated") == "true"){
+    courseData.dragDropData.completion.gate = {
       chapter: currentGate.find("chapter").text(),
       page: currentGate.find("page").text(),
       lock: currentGate.find("lock").text()
@@ -137,13 +143,6 @@ function submitDragDrop(){
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
   var score = 0;
 
-  if(courseData.dragDropData.gate != null) {
-    var chapter = courseData.dragDropData.gate.chapter;
-    var page = courseData.dragDropData.gate.page;
-    var lock = courseData.dragDropData.gate.lock;
-    openLock(chapter, page, lock);
-  }
-
   var answers = $('#dragAndDrop .right').children();
   for(var i = 0; i < answers.length; i++){
     var answerID = answers[i].id;
@@ -166,7 +165,17 @@ function submitDragDrop(){
       $('#'+matchID).addClass('wrong');
     }
   }
-  courseData.dragDropData.completed = true;
+
+  if(score >= parseInt(courseData.dragDropData.completion.minimumScore)){
+    courseData.dragDropData.completed = true;
+    if(courseData.dragDropData.completion.gate != null) {
+      var chapter = courseData.dragDropData.completion.gate.chapter;
+      var page = courseData.dragDropData.completion.gate.page;
+      var lock = courseData.dragDropData.completion.gate.lock;
+      openLock(chapter, page, lock);
+    }
+  }
+
   courseData.dragDropData.score = score;
   localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(courseData));
   var percentage = courseData.dragDropData.matchings.length;
@@ -211,7 +220,6 @@ function submitDragDrop(){
 // DRAG AND DROP CORE FUNCTIONALITY
 function dragstart_handler(ev) {
   // Add the target element's id to the data transfer object
-  console.log(ev.dataTransfer);
   ev.dataTransfer.setData("text", ev.target.id);
   ev.dropEffect = "move";
 }

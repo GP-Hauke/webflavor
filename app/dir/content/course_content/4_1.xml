@@ -11,7 +11,15 @@
     </div>]]>
   </content>
 
-  <cards completed="false" class="col-md-3 col-sm-6" hasButton="true">
+  <cards class="col-md-3 col-sm-6" hasButton="true">
+    <completion gated="true">
+      <gate>
+        <chapter>4</chapter>
+        <page>1</page>
+        <lock>1</lock>
+      </gate>
+    </completion>
+
     <card>
       <front><![CDATA[<h4>Nullam Nisi</h4>]]></front>
       <back><![CDATA[<p>Curabitur accumsan, orci mostie cond aliquam, eros eros elementum ex.

@@ -8,7 +8,7 @@
     "menuStyle": "tab",
     "hasMenuLogo": "true",
     "hasHeader": "true",
-    "hasFooter": "false",
+    "hasFooter": "true",
     "hasSplashPage": "false",
     "hasResources": "true",
     "hasGlossary": "true",

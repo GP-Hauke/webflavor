@@ -8,18 +8,31 @@ function initCards(dragDropContentXML) {
   var currentCardComponent = $(dragDropContentXML).find("cards");
 
   courseData.cardsData = {
-    completed: $(currentCardComponent).attr("completed"),
+    completed: false,
+    completion: {},
+    score: 0,
     hasButton: $(currentCardComponent).attr("hasButton"),
     class: $(currentCardComponent).attr("class"),
     cards: []
   };
+
+  if(currentCardComponent.find("completion").attr("gated") == "true"){
+    courseData.cardsData.completion = {
+      gate : {
+        chapter: currentCardComponent.find("chapter").text(),
+        page: currentCardComponent.find("page").text(),
+        lock: currentCardComponent.find("lock").text()
+      }
+    };
+  }
 
   $(currentCardComponent).find("card").each(function() {
     var currentCard = $(this);
 
     var card = {
       front: currentCard.find("front").text(),
-      back: currentCard.find("back").text()
+      back: currentCard.find("back").text(),
+      completed: false
     };
     courseData.cardsData.cards.push(card);
   });
@@ -46,10 +59,10 @@ function setupCards(){
     }
 
     if(courseData.cardsData.hasButton == "true"){
-      var cardHTML = '<div class="'+cardWidth+' margin-below"><div class="cardCont"><div class="cardBack">'+back+'<a class="showMore back" href="#">Back</a></div><div class="cardFront">'+front+'<a class="showMore front" href="#">Show More</a></div></div></div>';
+      var cardHTML = '<div class="'+cardWidth+' margin-below"><div class="cardCont" id="card'+i+'"><div class="cardBack">'+back+'<a class="showMore back" href="#">Back</a></div><div class="cardFront">'+front+'<a class="showMore front" href="#">Show More</a></div></div></div>';
     }
     else{
-      var cardHTML = '<div class="'+cardWidth+' margin-below"><div class="cardCont"><div class="cardBack">'+back+'</div><div class="cardFront">'+front+'</div></div></div>';
+      var cardHTML = '<div class="'+cardWidth+' margin-below"><div class="cardCont" id="card'+i+'"><div class="cardBack">'+back+'</div><div class="cardFront">'+front+'</div></div></div>';
     }
 
     html += cardHTML;
@@ -84,6 +97,9 @@ function setupCards(){
 
   if(courseData.cardsData.hasButton == "true"){
     $(".front").click(function() {
+      var id = $(this).closest('.cardCont').attr("id");
+      id = id.substr($("#"+id).attr("id").length - 1);
+      checkCardsCompletion(id);
       $(this).closest(".cardCont")[0].animation.play();
     });
 
@@ -101,6 +117,10 @@ function setupCards(){
     });
 
     $(".cardFront").click(function() {
+      var id = $(this).closest('.cardCont').attr("id");
+      id = id.substr($("#"+id).attr("id").length - 1);
+      console.log(id);
+      checkCardsCompletion(id);
       $(this).closest(".cardCont")[0].animation.play();
     });
 
@@ -122,4 +142,25 @@ function showFront(evt) {
   card.animation.reverse();
   $(card).unbind("click", showFront);
   $(card).click({thisCard: card}, showBack);
+}
+
+function checkCardsCompletion(id){
+  var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
+
+  var cardsID = id;
+  if(courseData.cardsData.cards[cardsID].completed == false){
+    courseData.cardsData.cards[cardsID].completed = true;
+    courseData.cardsData.score += 1;
+    localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(courseData));
+  }
+
+  if(courseData.cardsData.score >= courseData.cardsData.cards.length){
+    courseData.cardsData.completed = true;
+    if(courseData.cardsData.completion.gate != null) {
+      var chapter = courseData.cardsData.completion.gate.chapter;
+      var page = courseData.cardsData.completion.gate.page;
+      var lock = courseData.cardsData.completion.gate.lock;
+      openLock(chapter, page, lock);
+    }
+  }
 }

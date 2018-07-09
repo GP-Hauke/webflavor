@@ -30,20 +30,22 @@ function initKnowledgeCheck(knowledgeCheckXML) {
 
   var knowledgeCheck = {
     id: $(currentKnowledgeCheck).attr("id"),
-    completed: $(currentKnowledgeCheck).attr("completed"),
+    completed: false,
+    completion: {},
     scored: $(currentKnowledgeCheck).attr("scored"),
     score: 0,
     title: $(currentKnowledgeCheck).attr("title"),
     questions: []
   };
 
-  var currentGate = $(knowledgeCheckXML).find("gate");
-  if(currentGate.attr("lock") == "true"){
-    knowledgeCheck.gate = {
-      chapter: currentGate.find("chapter").text(),
-      page: currentGate.find("page").text(),
-      lock: currentGate.find("lock").text()
-    }
+  if($(currentKnowledgeCheck).find("completion").attr("gated") == "true"){
+    knowledgeCheck.completion = {
+      gate : {
+        chapter: $(currentKnowledgeCheck).find("chapter").text(),
+        page: $(currentKnowledgeCheck).find("page").text(),
+        lock: $(currentKnowledgeCheck).find("lock").text()
+      }
+    };
   }
 
   $(currentKnowledgeCheck).find("question").each(function() {
@@ -167,6 +169,7 @@ function submitAnswers(id){
 function endKnowledgeCheck(id){
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
   var currentKnowledgeCheck = courseData.knowledgeCheckData.knowledgeChecks[id];
+  currentKnowledgeCheck.completed = true;
 
   for(var i = 0; i < currentKnowledgeCheck.questions.length; i++){
     if(currentKnowledgeCheck.questions[i].correct == false){
@@ -181,15 +184,14 @@ function endKnowledgeCheck(id){
   $('#knowledgeCheck .invalid').remove();
   $('#feedback').append(feedback);
 
-  if(currentKnowledgeCheck.gate != null) {
-    var chapter = currentKnowledgeCheck.gate.chapter;
-    var page = currentKnowledgeCheck.gate.page;
-    var lock = currentKnowledgeCheck.gate.lock;
+  if(currentKnowledgeCheck.completion.gate != null) {
+    var chapter = currentKnowledgeCheck.completion.gate.chapter;
+    var page = currentKnowledgeCheck.completion.gate.page;
+    var lock = currentKnowledgeCheck.completion.gate.lock;
     openLock(chapter, page, lock);
   }
 
   localStorage.setItem(LOCAL_COURSE_DATA_ID,  JSON.stringify(courseData));
-  console.log(courseData.knowledgeCheckData.totalScore);
 }
 
 function getKnowledgeCheckIndex(currentID){

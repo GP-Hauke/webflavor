@@ -12,11 +12,13 @@
   </content>
 
   <knowledgeCheck id="2" scored="true" completed="false" title="Review II">
-    <gate lock="true">
-      <chapter>7</chapter>
-      <page>1</page>
-      <lock>1</lock>
-    </gate>
+    <completion gated="true">
+      <gate>
+        <chapter>7</chapter>
+        <page>2</page>
+        <lock>1</lock>
+      </gate>
+    </completion>
 
     <question>
       <body>Nam ac tortor a velit pulvinar fermentum id sit amet massa. Etiam sed magna vehicula?</body>

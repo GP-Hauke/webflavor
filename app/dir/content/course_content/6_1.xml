@@ -11,7 +11,15 @@
     </div>]]>
   </content>
 
-  <hotspot completed="false">
+  <hotspot>
+    <completion gated="true">
+      <gate>
+        <chapter>6</chapter>
+        <page>1</page>
+        <lock>1</lock>
+      </gate>
+    </completion>
+
     <img><![CDATA[dir/media/img/assets/City-Map.jpg]]></img>
     <spot>
       <label><![CDATA[1]]></label>
