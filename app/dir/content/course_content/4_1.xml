@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <page>
   <title included="true" pagination="true">12</title>
-  <component>cards</component>
+  <component></component>
   <content>
     <![CDATA[
     <div class="row margin-below">

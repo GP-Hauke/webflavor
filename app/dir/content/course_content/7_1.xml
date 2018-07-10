@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <page>
   <title included="true" pagination="true">12</title>
-  <component>knowledgeCheck</component>
+  <component>hotspot</component>
   <content>
     <![CDATA[
     <div class="row">
