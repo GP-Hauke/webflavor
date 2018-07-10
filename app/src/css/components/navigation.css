@@ -32,12 +32,34 @@
   margin-left: auto;
   margin-right: auto;
   font-weight: 500;
-  margin-bottom: 1px;
+  margin-bottom: 0px !important;
+  border: none !important;
 }
+
+
+
 .default #navbarMobile .dropdown p{
   margin: 0;
   color: #fff;
+  padding: .5rem 1rem;
 }
+
+.default #navbarMobile .courseTitleChapterSelected p{
+  margin: 0;
+  color: #fff;
+}
+
+
+.default #navbarMobile .courseTitleChapter{
+  padding: 0 !important;
+}
+
+.default #navbarMobile .courseTitleChapter p{
+  margin: 0;
+  color: #fff;
+  padding: .5rem 1rem !important;
+}
+
 #navbarMain #navbarMobile .dropdown .dropdown-menu li:after{
   content: "" !important;
 }
@@ -324,43 +346,6 @@ p.courseTitleGatedPage {
   background: none;
 }
 
-@media (max-width: 1350px) {
-  .tabbed #navbarMobile li{
-    font-size: 13px;
-  }
-}
-
-@media (min-width: 767px) {
-  .tabbed{
-    display: block;
-  }
-}
-
-@media (max-width: 767px) {
-  .tabbed{
-    background: #2b2b2b !important;
-  }
-
-  .tabbed #navbarMobile {
-    display: block;
-    width: 100% !important;
-    margin: 0 auto;
-  }
-  .tabbed #navbarMobile li{
-    background: #2b2b2b;
-    color: #fff;
-    font-weight: 200;
-    line-height: 20px;
-    height: 30px;
-    position: relative;
-  }
-
-  .tabbed #navbarMobile li:not(:first-child):after
-  {
-    content: "";
-  }
-}
-
 /* ----- LEFT NAVIGATION STYLES -----*/
 .leftNav #navbarMobile .courseTitleChapter p{
   font-size: 22px;
@@ -441,7 +426,7 @@ p.courseTitleGatedPage {
 }
 /*  Navigation Tabs Verion */
 .tabbed #navbarMobile {
-  max-width: 1450px;
+  max-width: 1650px;
 }
 .tabbed #navbarMobile li{
   font-weight: 600;
@@ -459,35 +444,81 @@ p.courseTitleGatedPage {
 #navbarMain #navbarMobile .dropdown .dropdown-menu li:hover{
   font-weight: 600;
 }
+
+
+#navbarMain.tabbed #navbarMobile .dropdown .nav-link{
+  height: 47px;
+  line-height: 47px;
+}
+
+@media (max-width: 1350px) {
+  .tabbed #navbarMobile li{
+    font-size: 13px;
+  }
+}
+
+@media (min-width: 768px) {
+  .tabbed{
+    display: block;
+  }
+}
+
 @media (max-width: 767px) {
+
   .tabbed #navbarMobile {
     display: block;
     width: 100% !important;
     margin: 0 auto;
   }
   .tabbed #navbarMobile li{
-
     font-weight: 200;
     line-height: 30px;
     height: 30px;
     position: relative;
   }
 
-  .tabbed #navbarMobile li.courseTitleChapterSelected {
+  .tabbed #navbarMobile li p{
+    padding: 0 !important;
+    line-height: 30px !important;
   }
 
-  /*Dropdown Navigation*/
-  .tabbed #navbarMobile .dropdown .dropdown-menu{
-    border: none;
+  .tabbed #navbarMobile .dropdown-menu{
+    left: 0 !important;
   }
 
-  /*Dropdown Navigation*/
-  #navbarMain.tabbed #navbarMobile .dropdown .dropdown-menu li{
-    width: 70%;
+  .tabbed #navbarMobile .dropdown-menu li p{
+    background: #fff !important;
+    color: #2b2b2b;
   }
-}
 
-#navbarMain.tabbed #navbarMobile .dropdown .nav-link{
-  height: 47px;
-  line-height: 47px;
+  .tabbed #navbarMobile .dropdown p{
+    margin: 0;
+    color: #fff;
+    padding: .5rem 1rem;
+  }
+
+  .tabbed #navbarMobile .courseTitleChapter{
+    padding: 0 !important;
+    background: #2b2b2b;
+  }
+
+  .tabbed #navbarMobile .courseTitleChapter p{
+    margin: 0;
+    color: #fff;
+    padding: .5rem 1rem !important;
+  }
+
+  .tabbed #navbarMobile .courseTitleChapterSelected p{
+    color: #2b2b2b
+  }
+
+  .tabbed #navbarMobile li:not(:first-child):after
+  {
+    content: "";
+  }
+
+  .tabbed #navbarMobile li{
+    width: 100%;
+  }
+
 }

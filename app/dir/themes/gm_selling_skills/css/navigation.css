@@ -7,7 +7,8 @@ nav.navbar {
 /*Navigation Secondary Color*/
 .navbar-collapse {
   border: none;
-  background-color: #618eb5;
+  background-color: #003000
+;
 }
 
 /*Navigation Current Page*/
@@ -28,7 +29,6 @@ li.courseTitleChapterSelected {
   background: #fff;
   color: #003056;
   font-weight: 600;
-  line-height: 50px;
   height: 50px;
   font-size: 14px;
 }
@@ -38,33 +38,13 @@ li.courseTitleChapterSelected {
   border-bottom: 3px solid #003056;
 }
 
-@media (max-width: 767px) {
-  .tabbed{
-    background: #003056 !important;
-  }
-
-  .tabbed #navbarMobile {
-    display: block;
-    width: 100% !important;
-    margin: 0 auto;
-  }
-  .tabbed #navbarMobile li{
-    background: #003056;
-    color: #fff;
-    font-weight: 200;
-    line-height: 30px;
-    height: 30px;
-    position: relative;
-  }
-
-  .tabbed #navbarMobile li.courseTitleChapterSelected {
-    background: #618eb5;
-  }
+.tabbed #navbarMobile .dropdown .dropdown-menu li{
+  background: #f7f7f7 !important;
 }
 
 /*Dropdown Navigation*/
 #navbarMain #navbarMobile .dropdown .dropdown-menu li{
-  background: #f7f7f7;
+  background: #3271a3;
   border: 2px solid transparent;
   width: 100%;
   display: block;
@@ -76,18 +56,45 @@ li.courseTitleChapterSelected {
   color: #003056;
 }
 
-.tabbed #navbarMobile .courseTitleChapter{
-  color: #003056;
-}
-
-.tabbed #navbarMobile .courseTitleChapter{
-  color: #003056;
-}
-
 #navbarMain #navbarMobile .dropdown .dropdown-menu li:hover{
   font-weight: 600;
 }
 
+
+.tabbed #navbarMobile .courseTitleChapter{
+  color: #003056;
+}
+
+.tabbed #navbarMobile .courseTitleChapter p{
+  color: #003056 !important;
+}
+
 #navbarMobile .nav-link{
   color: #003056;
+}
+
+@media (max-width: 767px) {
+
+  .tabbed #navbarMobile .dropdown-menu li p{
+    background: #fff !important;
+    color: #003056 !important;
+  }
+
+  .tabbed #navbarMobile .dropdown p{
+    color: #fff;
+  }
+
+  .tabbed #navbarMobile .courseTitleChapter{
+    background: #003056;
+    color: #fff;
+  }
+
+  .tabbed #navbarMobile .courseTitleChapter p{
+    color: #fff !important;
+  }
+
+  .tabbed #navbarMobile .courseTitleChapterSelected p{
+    color: #003056 !important;
+  }
+
 }
