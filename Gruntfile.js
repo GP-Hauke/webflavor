@@ -454,7 +454,7 @@ module.exports = function(grunt){
     grunt.log.oklns("Cookie: "['green'].bold + cookie.yellow);
 
 
-    json.settings.courseStorageID = courseTitle;
+    json.settings.courseStorageID = cookie;
     json.settings.version = "1.0";
     json.settings.cookieName = cookie;
     grunt.file.write(settingsFile, JSON.stringify(json, null, 2));
