@@ -27,7 +27,6 @@ function populateStorage(json, tempStorage) {
   courseStorageObj.MENU_PLACEMENT = json.settings.menuPlacement;
   courseStorageObj.MENU_STYLE = json.settings.menuStyle;
   courseStorageObj.HAS_MENU_LOGO = json.settings.hasMenuLogo;
-  courseStorageObj.HAS_PAGINATION = json.settings.hasPagination;
   courseStorageObj.COMPLETION_METHOD = json.settings.completionMethod;
   courseStorageObj.HAS_FOOTER = json.settings.hasFooter;
   courseStorageObj.HAS_GLOSSARY = json.settings.hasGlossary;
