@@ -79,6 +79,24 @@ function populateStorage(json, tempStorage) {
     }
   }
 
+  if(json.settings.hasKnowledgeChecks === "true") {
+    if(tempStorage === null || tempStorage.knowledgeCheckData === undefined) {
+      courseStorageObj.knowledgeCheckData = {};
+
+    } else {
+      courseStorageObj.knowledgeCheckData = tempStorage.knowledgeCheckData;
+    }
+  }
+
+  if(json.settings.hasFlipCards === "true") {
+    if(tempStorage === null || tempStorage.flipCardData === undefined) {
+      courseStorageObj.flipCardData = {};
+
+    } else {
+      courseStorageObj.flipCardData = tempStorage.flipCardData;
+    }
+  }
+
   if(json.settings.hasThumbnails === "true") {
     if(tempStorage === null || tempStorage.thumbnailsData === undefined) {
       courseStorageObj.thumbnailsData = {};

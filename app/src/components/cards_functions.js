@@ -1,32 +1,54 @@
 //INITIALIZE AND RENDER CARDS
-function initCards(dragDropContentXML) {
+function initCards(flipCardContentXML) {
   if(localStorage === "undefined") {
     location.reload();
   }
 
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
-  var currentCardComponent = $(dragDropContentXML).find("cards");
+  var currentFlipCardComponent = $(flipCardContentXML).find("cards");
+  var currentID = $(currentFlipCardComponent).attr("id")
 
-  courseData.cardsData = {
+  if(courseData.flipCardData.flipCards != null){
+    for(var i=0; i < courseData.flipCardData.flipCards.length; i++){
+      if(courseData.flipCardData.flipCards[i].id == currentID){
+        var id = getFlipCardIndex(currentID);
+        console.log("FlipCard Loaded Previously");
+        setupFlipCards(id);
+        return;
+      }
+    }
+  }
+
+  else{
+    console.log("FlipCard Initialized");
+    courseData.flipCardData = {
+      id: $(currentFlipCardComponent).attr("id"),
+      completed: false,
+      flipCards: []
+    }
+  }
+
+  var flipCard = {
+    id: $(currentFlipCardComponent).attr("id"),
     completed: false,
     completion: {},
     score: 0,
-    hasButton: $(currentCardComponent).attr("hasButton"),
-    class: $(currentCardComponent).attr("class"),
+    hasButton: $(currentFlipCardComponent).attr("hasButton"),
+    class: $(currentFlipCardComponent).attr("class"),
     cards: []
   };
 
-  if(currentCardComponent.find("completion").attr("gated") == "true"){
-    courseData.cardsData.completion = {
+  if(currentFlipCardComponent.find("completion").attr("gated") == "true"){
+    flipCard.completion = {
       gate : {
-        chapter: currentCardComponent.find("chapter").text(),
-        page: currentCardComponent.find("page").text(),
-        lock: currentCardComponent.find("lock").text()
+        chapter: currentFlipCardComponent.find("chapter").text(),
+        page: currentFlipCardComponent.find("page").text(),
+        lock: currentFlipCardComponent.find("lock").text()
       }
     };
   }
 
-  $(currentCardComponent).find("card").each(function() {
+  $(currentFlipCardComponent).find("card").each(function() {
     var currentCard = $(this);
 
     var card = {
@@ -34,31 +56,33 @@ function initCards(dragDropContentXML) {
       back: currentCard.find("back").text(),
       completed: false
     };
-    courseData.cardsData.cards.push(card);
+    flipCard.cards.push(card);
   });
 
+  courseData.flipCardData.flipCards.push(flipCard);
   localStorage.setItem(LOCAL_COURSE_DATA_ID,  JSON.stringify(courseData));
-  setupCards();
+  var id = getFlipCardIndex(currentID);
+  setupFlipCards(id);
 }
 
-function setupCards(){
+function setupFlipCards(id){
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
-  var cardNum = courseData.cardsData.cards.length;
+  var cardNum = courseData.flipCardData.flipCards[id].cards.length;
 
   var html = '<div class="row">';
 
   var size = 12/cardNum;
 
   for(var i = 0; i < cardNum; i ++){
-    var back = courseData.cardsData.cards[i].back;
-    var front = courseData.cardsData.cards[i].front;
+    var back = courseData.flipCardData.flipCards[id].cards[i].back;
+    var front = courseData.flipCardData.flipCards[id].cards[i].front;
 
     var cardWidth = "col-md-"+size+" col-sm-6";
-    if(courseData.cardsData.class != null){
-      cardWidth = courseData.cardsData.class;
+    if(courseData.flipCardData.flipCards[id].class != null){
+      cardWidth = courseData.flipCardData.flipCards[id].class;
     }
 
-    if(courseData.cardsData.hasButton == "true"){
+    if(courseData.flipCardData.flipCards[id].hasButton == "true"){
       var cardHTML = '<div class="'+cardWidth+' margin-below"><div class="cardCont" id="card'+i+'"><div class="cardBack">'+back+'<a class="showMore back" href="#">Back</a></div><div class="cardFront">'+front+'<a class="showMore front" href="#">Show More</a></div></div></div>';
     }
     else{
@@ -95,11 +119,11 @@ function setupCards(){
 
   });
 
-  if(courseData.cardsData.hasButton == "true"){
+  if(courseData.flipCardData.flipCards[id].hasButton == "true"){
     $(".front").click(function() {
-      var id = $(this).closest('.cardCont').attr("id");
-      id = id.substr($("#"+id).attr("id").length - 1);
-      checkCardsCompletion(id);
+      var cardID = $(this).closest('.cardCont').attr("id");
+      cardID = cardID.substr($("#"+cardID).attr("id").length - 1);
+      checkCardsCompletion(id, cardID);
       $(this).closest(".cardCont")[0].animation.play();
     });
 
@@ -107,7 +131,7 @@ function setupCards(){
         $(this).closest(".cardCont")[0].animation.reverse();
     });
   }
-  else if(courseData.cardsData.hasButton == "false") {
+  else if(courseData.flipCardData.flipCards[id].hasButton == "false") {
     $(".cardFront").hover(function(){
       $(this).css('cursor','pointer');
     });
@@ -117,16 +141,26 @@ function setupCards(){
     });
 
     $(".cardFront").click(function() {
-      var id = $(this).closest('.cardCont').attr("id");
-      id = id.substr($("#"+id).attr("id").length - 1);
+      var cardID = $(this).closest('.cardCont').attr("id");
+      cardID = cardID.substr($("#"+cardID).attr("id").length - 1);
       console.log(id);
-      checkCardsCompletion(id);
+      checkCardsCompletion(id, cardID);
       $(this).closest(".cardCont")[0].animation.play();
     });
 
     $(".cardBack").click(function() {
         $(this).closest(".cardCont")[0].animation.reverse();
     });
+  }
+}
+
+function getFlipCardIndex(currentID){
+  var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
+
+  for(var i = 0; i < courseData.flipCardData.flipCards.length; i++){
+    if(courseData.flipCardData.flipCards[i].id == currentID){
+      return i;
+    }
   }
 }
 
@@ -144,22 +178,23 @@ function showFront(evt) {
   $(card).click({thisCard: card}, showBack);
 }
 
-function checkCardsCompletion(id){
+function checkCardsCompletion(id, cardsID){
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
 
-  var cardsID = id;
-  if(courseData.cardsData.cards[cardsID].completed == false){
-    courseData.cardsData.cards[cardsID].completed = true;
-    courseData.cardsData.score += 1;
+  if(courseData.flipCardData.flipCards[id].cards[cardsID].completed == false){
+    courseData.flipCardData.flipCards[id].cards[cardsID].completed = true;
+    courseData.flipCardData.flipCards[id].score += 1;
     localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(courseData));
   }
 
-  if(courseData.cardsData.score >= courseData.cardsData.cards.length){
-    courseData.cardsData.completed = true;
-    if(courseData.cardsData.completion.gate != null) {
-      var chapter = courseData.cardsData.completion.gate.chapter;
-      var page = courseData.cardsData.completion.gate.page;
-      var lock = courseData.cardsData.completion.gate.lock;
+  if(courseData.flipCardData.flipCards[id].score >= courseData.flipCardData.flipCards[id].cards.length){
+    courseData.flipCardData.flipCards[id].completed = true;
+    localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(courseData));
+    console.log("FlipCard Completed");
+    if(courseData.flipCardData.flipCards[id].completion.gate != null) {
+      var chapter = courseData.flipCardData.flipCards[id].completion.gate.chapter;
+      var page = courseData.flipCardData.flipCards[id].completion.gate.page;
+      var lock = courseData.flipCardData.flipCards[id].completion.gate.lock;
       openLock(chapter, page, lock);
     }
   }

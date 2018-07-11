@@ -11,7 +11,7 @@
     </div>]]>
   </content>
 
-  <drag_drop>
+  <drag_drop id="1">
     <completion gated="true">
       <minimumScore>30</minimumScore>
       <gate>

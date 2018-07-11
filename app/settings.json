@@ -4,20 +4,27 @@
     "courseTitle": "HTML Template",
     "courseSubTitle": "WebFlavor",
     "completionMethod": "assessment",
+
     "menuPlacement": "top",
     "menuStyle": "tab",
     "hasMenuLogo": "true",
+
     "hasHeader": "true",
     "hasFooter": "true",
     "hasPagination": "false",
+
     "hasSplashPage": "false",
     "hasResources": "true",
     "hasGlossary": "true",
     "hasHelp": "true",
+
     "hasAssessments": "true",
+    "hasKnowledgeChecks": "true",
+    "hasFlipCards": "true",
     "hasDragDrops": "true",
     "hasHotspots": "true",
     "hasThumbnails": "true",
+
     "bookmarking": {
       "hasLocalBookmarking": "false",
       "bookmarkingStorageID": ""
