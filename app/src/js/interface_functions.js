@@ -40,26 +40,22 @@ function initInterface() {
   });
 
   StartLMS();
-
-  loadXMLData();
+  initializeSettings();
 }
 
-function loadXMLData() {
+function initializeSettings(){
   if(settingsLoaded === false) {
     GetInterfaceXML("settings.json");
     return;
   }
+}
+
+function loadXMLData() {
 
   courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
 
   if(courseData.HAS_RESOURCES === 'true' && resourcesLoaded === false) {
     GetInterfaceXML("dir/content/resources.xml");
-    return;
-  }
-
-  if(courseData.MENU_PLACEMENT !== 'none' && navigationLoaded === false) {
-    getNavigationData();
-    GetInterfaceXML("dir/content/navigation.xml");
     return;
   }
 
@@ -84,6 +80,7 @@ function loadXMLData() {
 
   } else {
     checkXMLLoadingComplete();
+    return;
   }
 }
 
@@ -91,17 +88,9 @@ function GetInterfaceXML(args) {
   $.get(args)
 
   .done(function(xml) {
-
     if(args.indexOf("settings") != -1) {
       settingsLoaded = true;
       initSettings(xml); // function lives in settings.js
-      loadXMLData();
-
-    }else if(args.indexOf("navigation") != -1) {
-      navigationLoaded = true;
-      addNavToLocalStorage(xml);
-      buildInterface();
-      loadXMLData();
 
     } else if(args.indexOf("card_content") != -1) {
       cardContentLoaded = true;
@@ -130,6 +119,9 @@ function GetInterfaceXML(args) {
 }
 
 function buildInterface() {
+  console.log("Building Interface...");
+
+  courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
   var pageCount = 0;
 
   document.title = courseData.TITLE;
@@ -146,6 +138,10 @@ function buildInterface() {
     courseData.pageCount.pagesTotal = totalPages;
     localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(courseData));
   }
+  console.log("GATED 4: ");
+  console.log(courseData.chapters[3].pages[0]);
+  console.log(courseData);
+  updateNavigation();
 }
 
 function buildShellUI() {
@@ -176,6 +172,7 @@ function buildStrings(xml) {
 }
 
 function checkXMLLoadingComplete() {
+
   if(courseData.chapters !== null) {
 
     // if strings.xml is used, populate html here, e.g.:
@@ -465,7 +462,6 @@ function nextPage() {
 
   pageIsLoading = true;
 
-
   if(courseData.chapters[currentChapter-1].pages[currentPage-1].count != activePageCount) {
     if(currentPage < courseData.chapters[currentChapter-1].pages.length) {
       if(!checkLock(currentChapter, currentPage + 1)) {
@@ -517,6 +513,7 @@ function prevPage() {
 }
 
 function loadPage() {
+
   //console.log("loadPage("+currentChapter+","+currentPage+")");
   try {
     stopAudio();
@@ -623,7 +620,7 @@ function getPageTitle() {
 }
 
 function updateNavigation() {
-  //console.log("updateNavigation()");
+  console.log("updateNavigation()");
 
   var notSelectedClass = "menuItemNotSelected";
   activePageCount = 0;
@@ -647,11 +644,11 @@ function updateNavigation() {
       if(courseData.chapters[i].pages.length > 1){
         singlePage = true;
       }
-
       if(!checkLock(eval(i+1),eval(j+1))){
         //If Multiple Pages of a Chapter
         if(j > 0){
           $('#courseTitleChapter'+i +' .dropdown-menu li p').eq(j).addClass('courseTitleGatedPage');
+          console.log("Gated: " + i + " " + j);
         }
         else{
           $('#courseTitleChapter'+i + ' .nav-link').addClass('courseTitleGated');
@@ -732,16 +729,15 @@ function activateChapter(active,deactive,titleIndex) {
 }
 
 function checkLock(chapter,page) {
-  //console.log("checkLock("+chapter+","+page+")");
+
   for(var i = 0; i < chapter; i++) {
     for(var j = 0; j < courseData.chapters[i].pages.length; j++) {
       if(i == chapter - 1 && j == page - 1) {
         break;
       }
 
-
       if(courseData.chapters[i].pages[j].gated && courseData.chapters[i].pages[j].locks.toString().indexOf("0")!=-1 && courseData.chapters[i].isActive=="true") {
-
+        console.log("HERE");
         return false;
       }
     }

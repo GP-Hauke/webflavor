@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <page>
-  <title included="true" pagination="false">6</title>
+  <title>
+    <chapterTitle><![CDATA[COMPLETION]]></chapterTitle>
+    <pageTitle><![CDATA[COMPLETION]]></pageTitle>
+    <included>true</included>
+    <pagination>false</pagination>
+    <size>6</size>
+    <gated locks="0">false</gated>
+  </title>
+
   <component>none</component>
   <content completion="true">
     <![CDATA[

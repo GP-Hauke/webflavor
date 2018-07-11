@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <page>
-  <title included="true" pagination="true">12</title>
+  <title>
+    <chapterTitle><![CDATA[HOT SPOTS]]></chapterTitle>
+    <pageTitle><![CDATA[HOT SPOTS]]></pageTitle>
+    <included>true</included>
+    <pagination>true</pagination>
+    <size>12</size>
+    <gated locks="0">false</gated>
+  </title>
+
   <component>hotspot</component>
   <content>
     <![CDATA[

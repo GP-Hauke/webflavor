@@ -327,12 +327,12 @@ function onAssessmentDone(param1, param2){
 
 function loadContent(param){
   var arg = 'dir/content/course_content/' + param +'.xml';
-
   $.get(arg)
   .done(function(xml) {
+    $('#pageContent').empty();
 
-    if($(xml).find("title").attr("included") == "true"){
-      var titleSize = $(xml).find("title").text();
+    if($(xml).find("title").find("included").text() == "true"){
+      var titleSize = $(xml).find("title").find("size").text();
       var titleHTML = '<div class="row"><div class="col-sm-'+titleSize+'"><h1 id="pageTitle"></h1><div class="page-number"></div></div></div>';
       $('#pageContent').append(titleHTML);
     }
@@ -375,7 +375,7 @@ function loadContent(param){
 
 
     var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
-    if($(xml).find("title").attr("pagination") == "true"){
+    if($(xml).find("title").find("pagination").text() == "true"){
       updatePagination();
     }
 

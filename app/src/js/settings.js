@@ -33,6 +33,8 @@ function populateStorage(json, tempStorage) {
   courseStorageObj.HAS_RESOURCES = json.settings.hasResources;
   courseStorageObj.HAS_HELP = json.settings.hasHelp;
   courseStorageObj.HAS_SPLASH_PAGE = json.settings.hasSplashPage;
+  courseStorageObj.CONTENTS = json.settings.contents;
+  courseStorageObj.TEST_FINISHED = false;
 
   /* if course is loaded for first time or hasCards was set to true for first time, cardData will be undefined, so set it here as stub. if course had been loaded previously with hasCards set to true, copy card data from previous localStorage. */
   if(json.settings.hasCards === "true") {
@@ -119,6 +121,8 @@ function populateStorage(json, tempStorage) {
   }
 
   localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(courseStorageObj));
+  getNavigationData();
+  loadXMLData();
 }
 
 /* ADD GLOSSARY ITEMS TO LOCAL STORAGE */
@@ -175,7 +179,6 @@ function addResourcesToLocalStorage(xml) {
 }
 /*end ADD GLOSSARY TO LOCAL STORAGE */
 
-
 function addSplashToLocalStorage(xml) {
   var storage = localStorage.getItem(LOCAL_COURSE_DATA_ID);
   var tempStorage = JSON.parse(storage);
@@ -188,132 +191,164 @@ function addSplashToLocalStorage(xml) {
   localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(tempStorage));
 }
 
-
-function addNavToLocalStorage(xml) {
-  var storage = localStorage.getItem(LOCAL_COURSE_DATA_ID);
-  var tempStorage = JSON.parse(storage);
-
-  var useNextPrevLabelXML = xml.getElementsByTagName("course")[0].getAttribute("useNextPrevLabel");
-
-  if(useNextPrevLabelXML == "true") {
-    tempStorage.USE_PREV_NEXT_LBL = true;
-  }
-
-  tempStorage.headerLinks = {"included":$(xml).find("headerLinks").attr("included"), "links":[]}
-
-  if(tempStorage.headerLinks.included === "true") {
-    var headerlinksXML = $(xml).find("headerLink");
-    var headerLinks = [];
-
-    for(var hl = 0; hl < headerlinksXML.length; hl++) {
-      headerlink = {};
-      headerlink.title = $(headerlinksXML[hl]).text();
-      headerlink.href = $(headerlinksXML[hl]).attr("href");
-      headerlink.id = $(headerlinksXML[hl]).attr("itemId");
-      headerlink.target = $(headerlinksXML[hl]).attr("target");
-      headerLinks.push(headerlink);
-    }
-
-    tempStorage.headerLinks.links = headerLinks;
-  }
-
-  var chapters = [];
+function getNavigationData(){
+  var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
+  var contents = courseData.CONTENTS;
   var pageCount = 0;
+  var loadingComplete = false;
+  var pageTotal = 0;
+  var xmlArray = [];
+  courseData.chapters = new Array(contents.length);
 
-  var pm = GetPathmark();
-  if(pm && pm != "" && pm.indexOf("]") != -1) {
-    if(pm.indexOf(":") != -1) {
-      pm = pm.split(":");
-
-    } else {
-      pm = [pm];
+  for (var i = 0; i < contents.length; i++) {
+    courseData.chapters[i] = {
+      title: null,
+      titleIndex: -1,
+      isActive: true,
+      pages: []
     }
-  } else {
-    pm = "";
+    courseData.chapters[i].pages = new Array(contents[i].length);
+
+    for (var j = 0; j < contents[i].length; j++) {
+      pageTotal += 1;
+      courseData.chapters[i].pages[j] = {
+        title: null,
+        file: contents[i][j],
+        gated: false,
+        locks: [0],
+        audio: "",
+        video: false
+      }
+
+      xmlArray.push({
+        page: contents[i][j],
+        completed: false
+      });
+    }
   }
+  courseData.PAGE_TOTAL = pageTotal;
+  activePageCount = pageTotal;
+  courseData.TEST_CONTENTS = xmlArray;
 
-  var chapterXML = $(xml).find("chapter");
+  localStorage.setItem(LOCAL_COURSE_DATA_ID,  JSON.stringify(courseData));
+  getChapterData();
+}
 
-  for(var i = 0; i < chapterXML.length; i++) {
-    var chp = {};
+function getChapterData(){
+  var tempData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
+  var activeCount = 0;
+  for(var i = 0; i < tempData.chapters.length; i++){
+    for(var j = 0; j < tempData.chapters[i].pages.length; j++){
+      activeCount += 1;
+      var arg = 'dir/content/course_content/' + tempData.chapters[i].pages[j].file +'.xml';
+      $.ajax({
+          url: arg,
+          type: 'GET',
+          chapterIndex: i,
+          pageIndex: j,
+          activeCount: activeCount,
+          success: function(xml) {
+            var pathMark = GetPathmark();
 
-    chp.title = $(chapterXML[i]).find("title").text()
+            if(this.pageIndex == 0){
 
-    if(pm && pm != "" && pm[i] != undefined) {
-      var active = "false";
-      if(pm[i].split("}")[0].split("]")[0] == "1") {
-        active = "true";
-      }
+              tempData.chapters[this.chapterIndex].title = $(xml).find("title").find("chapterTitle").text();
 
-      chp.isActive = active;
-      chp.titleIndex = pm[i].split("}")[0].split("]")[1];
+              if(pathMark && pathMark != "" && pathMark[i] != undefined) {
+                var active = "false";
+                if(pathMark[i].split("}")[0].split("]")[0] == "1") {
+                  active = "true";
+                }
 
-    } else {
-      chp.isActive = "true";
-      chp.titleIndex =- 1;
+                tempData.chapters[this.chapterIndex].isActive = active;
+                tempData.chapters[this.chapterIndex].titleIndex = pathMark[i].split("}")[0].split("]")[1];
+
+              }
+              //No Scorm Interaction
+              else {
+                tempData.chapters[this.chapterIndex].isActive = "true";
+                tempData.chapters[this.chapterIndex].titleIndex =- 1;
+              }
+            }
+
+            var splitPathMark;
+            if(pathMark && pathMark != "" && pathMark[i] != undefined) {
+              splitPathMark = pathMark[i].split("}")[1].split(";");
+            }
+
+            tempData.chapters[this.chapterIndex].pages[this.pageIndex].title = $(xml).find("title").find("pageTitle").text();
+            if($(xml).find("title").find("gated").text() == "true"){
+              tempData.chapters[this.chapterIndex].pages[this.pageIndex].gated = true;
+            }
+            
+            tempData.chapters[this.chapterIndex].pages[this.pageIndex].locks = [0];
+            tempData.chapters[this.chapterIndex].pages[this.pageIndex].audio = false;
+            tempData.chapters[this.chapterIndex].pages[this.pageIndex].video = false;
+            tempData.chapters[this.chapterIndex].pages[this.pageIndex].count = this.activeCount;
+
+            if(splitPathMark && splitPathMark[j]) {
+              if(splitPathMark[j].indexOf(",") != -1) {
+                var tpm = splitPathMark[j].split(",");
+                splitPathMark[j] = tpm;
+
+              } else {
+                splitPathMark[j] = [splitPathMark[j]];
+              }
+                tempData.chapters[this.chapterIndex].pages[this.pageIndex].locks[0] = parseInt(splitPathMark[j][0],10);
+            }
+
+            for(var l = 0; l < parseInt($(xml).find("title").find("gated").attr("locks"), 10); l++) {
+              if(splitPathMark && splitPathMark[j][l+1]) {
+                  tempData.chapters[this.chapterIndex].pages[this.pageIndex].locks.push(parseInt(splitPathMark[j][l+1],10));
+              } else {
+                  tempData.chapters[this.chapterIndex].pages[this.pageIndex].locks.push(0);
+              }
+            }
+
+
+            localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(tempData));
+
+            //console.log(tempData.chapters[this.chapterIndex].pages[this.pageIndex].title);
+          },
+          complete: function(){
+            var current = tempData.chapters[this.chapterIndex].pages[this.pageIndex].file;
+
+            tempData.TEST_CONTENTS.forEach(function(item, index){
+              if(item.page == current){
+                item.completed = true;
+              }
+
+            });
+
+            for(var i = 0; i < tempData.TEST_CONTENTS.length; i++){
+              if(tempData.TEST_CONTENTS[i].completed != true){
+                tempData.TEST_FINISHED = false;
+                break;
+              }
+              else{
+                tempData.TEST_FINISHED = true;
+              }
+            }
+            if(tempData.TEST_FINISHED){
+              console.log("Navigation loading completed:");
+              //RUN REST OF INITALIZE LOCALSTORAGE DATA
+              navigationLoaded = true;
+              buildInterface();
+              loadXMLData();
+            }
+          }
+      });
     }
-
-    chp.pages = new Array();
-    var lpm;
-    if(pm && pm != "" && pm[i] != undefined) {
-      lpm = pm[i].split("}")[1].split(";");
-    }
-
-    var pageXML = chapterXML[i].getElementsByTagName("pages")[0].getElementsByTagName("page");
-
-    for(var j = 0; j < pageXML.length; j++) {
-      pageCount++;
-
-      var pg = new Object;
-
-      pg.title = pageXML[j].childNodes[0].nodeValue;
-
-      pg.gated = (pageXML[j].getAttribute("gated") == "true") ? true : false;
-
-      pg.audio = "";
-      pg.video = false;
-
-      if(pageXML[j].getAttribute("audio")) {
-        pg.audio = pageXML[j].getAttribute("audio");
-      }
-
-      if(pageXML[j].getAttribute("video") && pageXML[j].getAttribute("video") == "true") {
-        pg.video = true;
-      }
-
-      pg.locks = [0];
-
-      if(lpm && lpm[j]) {
-        if(lpm[j].indexOf(",") != -1) {
-          var tpm = lpm[j].split(",");
-          lpm[j] = tpm;
-
-        } else {
-          lpm[j] = [lpm[j]];
-        }
-        pg.locks[0] = parseInt(lpm[j][0],10);
-      }
-
-      for(var l = 0; l < parseInt(pageXML[j].getAttribute("locks"), 10); l++) {
-        if(lpm && lpm[j][l+1]) {
-          pg.locks.push(parseInt(lpm[j][l+1],10));
-
-        } else {
-          pg.locks.push(0);
-        }
-      }
-
-      pg.file = i + "_" + j;
-      pg.count = pageCount;
-      chp.pages.push(pg);
-    }
-    chapters.push(chp);
   }
+}
 
-  tempStorage.chapters = chapters;
-  // console.log("tempStorage ", tempStorage);
-
-  localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(tempStorage));
+function checkContentComplete(xmlArray){
+  xmlArray.forEach(function(item) {
+    if(item.completed != true){
+      return false;
+    }
+  });
+  return true;
 }
 
 function loadInterfaceStyles() {
@@ -326,8 +361,6 @@ function loadInterfaceStyles() {
     $(this).attr("href").replace("theme-path", courseData.THEME_PATH);
 
     return $(this).attr("href").replace("theme-path", courseData.THEME_PATH);
-
-
   });
 
 }
