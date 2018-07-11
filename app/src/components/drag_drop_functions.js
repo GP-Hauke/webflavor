@@ -5,23 +5,35 @@ function initDragDrops(dragDropContentXML) {
   }
 
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
-
-  courseData.dragDropData.VERSION = $(dragDropContentXML).find("version").text();
-
-  //courseData.dragDropData.dragDrops = [];
-
   var currentDragDrop = $(dragDropContentXML).find("drag_drop");
+  var currentID = $(currentDragDrop).attr("id")
 
-  courseData.dragDropData = {
+  if(courseData.dragDropData.dragDrops != null){
+    for(var i=0; i < courseData.dragDropData.dragDrops.length; i++){
+      if(courseData.dragDropData.dragDrops[i].id == currentID){
+        var id = getDragDropIndex(currentID);
+        console.log("DragDrop Loaded Previously");
+        setupDragDrop(id);
+        return;
+      }
+    }
+  }
+
+  else{
+    console.log("DragDrop Initialized");
+    courseData.dragDropData = {
+      completed: false,
+      dragDrops: []
+    };
+  }
+
+  var dragDrop = {
+    id: $(currentDragDrop).attr("id"),
     completed: false,
-    completion: {},
-    score: 0,
+    completion: {
+      minimumScore: $(currentDragDrop).find("completion").find("minimumScore").text()
+    },
     matchings: []
-  };
-
-
-  courseData.dragDropData.completion = {
-    minimumScore: $(currentDragDrop).find("completion").find("minimumScore").text()
   };
 
   $(currentDragDrop).find("pair").each(function() {
@@ -31,28 +43,29 @@ function initDragDrops(dragDropContentXML) {
       drag: currentPair.find("drag").text(),
       drop: currentPair.find("drop").text()
     };
-    courseData.dragDropData.matchings.push(pair);
+    dragDrop.matchings.push(pair);
   });
 
   var currentGate = $(dragDropContentXML).find("completion");
   if(currentGate.attr("gated") == "true"){
-    courseData.dragDropData.completion.gate = {
+    dragDrop.completion.gate = {
       chapter: currentGate.find("chapter").text(),
       page: currentGate.find("page").text(),
       lock: currentGate.find("lock").text()
     }
   }
-
+  courseData.dragDropData.dragDrops.push(dragDrop);
   localStorage.setItem(LOCAL_COURSE_DATA_ID,  JSON.stringify(courseData));
-  setupDragDrop();
+  var id = getDragDropIndex(currentID);
+  setupDragDrop(id);
 
 }
 
-function setupDragDrop(){
+function setupDragDrop(id){
   $('#dragAndDrop').remove();
 
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
-  var dragDropData= courseData.dragDropData;
+  var dragDropData = courseData.dragDropData.dragDrops[id];
 
   var leftContainerHtml = '<div class="col-6 left">';
   var rightContainerHtml = '<div class="col-6 right">';
@@ -75,7 +88,7 @@ function setupDragDrop(){
   leftContainerHtml += '</div>';
   rightContainerHtml += '</div>';
 
-  var submitBtn = '</div><div class="row btn-row"><p class="feedback"><a onclick="setupDragDrop();" class="btn btn-reversed btn-restart">Restart</a><a onclick="submitDragDrop();" class="btn btn-default-main">Submit</a></p></div>';
+  var submitBtn = '</div><div class="row btn-row"><p class="feedback"><a onclick="setupDragDrop('+id+');" class="btn btn-reversed btn-restart">Restart</a><a onclick="submitDragDrop('+id+');" class="btn btn-default-main">Submit</a></p></div>';
 
   var html = '<div id="dragAndDrop"><div class="row">' + leftContainerHtml + rightContainerHtml + submitBtn;
 
@@ -139,7 +152,7 @@ function shuffleDrops(){
   return;
 }
 
-function submitDragDrop(){
+function submitDragDrop(id){
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
   var score = 0;
 
@@ -166,19 +179,20 @@ function submitDragDrop(){
     }
   }
 
-  if(score >= parseInt(courseData.dragDropData.completion.minimumScore)){
-    courseData.dragDropData.completed = true;
-    if(courseData.dragDropData.completion.gate != null) {
-      var chapter = courseData.dragDropData.completion.gate.chapter;
-      var page = courseData.dragDropData.completion.gate.page;
-      var lock = courseData.dragDropData.completion.gate.lock;
+  if(score >= parseInt(courseData.dragDropData.dragDrops[id].completion.minimumScore)){
+    console.log("DragDrop Completed");
+    courseData.dragDropData.dragDrops[id].completed = true;
+    if(courseData.dragDropData.dragDrops[id].completion.gate != null) {
+      var chapter = courseData.dragDropData.dragDrops[id].completion.gate.chapter;
+      var page = courseData.dragDropData.dragDrops[id].completion.gate.page;
+      var lock = courseData.dragDropData.dragDrops[id].completion.gate.lock;
       openLock(chapter, page, lock);
     }
   }
 
-  courseData.dragDropData.score = score;
+  courseData.dragDropData.dragDrops[id].score = score;
   localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(courseData));
-  var percentage = courseData.dragDropData.matchings.length;
+  var percentage = courseData.dragDropData.dragDrops[id].matchings.length;
   var correctPercentage = score / percentage;
   correctPercentage = parseFloat(correctPercentage.toFixed(0));
   var gameFeedback;
@@ -215,6 +229,16 @@ function submitDragDrop(){
       $(this).next().removeClass('btn-reversed');
     }
   });
+}
+
+function getDragDropIndex(currentID){
+  var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
+
+  for(var i = 0; i < courseData.dragDropData.dragDrops.length; i++){
+    if(courseData.dragDropData.dragDrops[i].id == currentID){
+      return i;
+    }
+  }
 }
 
 // DRAG AND DROP CORE FUNCTIONALITY

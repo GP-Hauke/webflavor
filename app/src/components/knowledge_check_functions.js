@@ -9,18 +9,18 @@ function initKnowledgeCheck(knowledgeCheckXML) {
 
   var currentID = $(currentKnowledgeCheck).attr("id")
 
-  if(courseData.knowledgeCheckData != null){
+  if(courseData.knowledgeCheckData.knowledgeChecks != null){
     for(var i=0; i < courseData.knowledgeCheckData.knowledgeChecks.length; i++){
       if(courseData.knowledgeCheckData.knowledgeChecks[i].id == currentID){
         var id = getKnowledgeCheckIndex(currentID);
-        //console.log("KnowledgeCheck Loaded Previously");
+        console.log("KnowledgeCheck Loaded Previously");
         setupKnowledgeCheck(id);
         return;
       }
     }
   }
   else{
-    //console.log("KnowledgeCheck Initialized");
+    console.log("KnowledgeCheck Initialized");
     courseData.knowledgeCheckData = {
       totalScore : 0,
       completed : false,
