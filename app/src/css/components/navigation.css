@@ -446,11 +446,6 @@ p.courseTitleGatedPage {
 }
 
 
-#navbarMain.tabbed #navbarMobile .dropdown .nav-link{
-  height: 47px;
-  line-height: 47px;
-}
-
 @media (max-width: 1350px) {
   .tabbed #navbarMobile li{
     font-size: 13px;
