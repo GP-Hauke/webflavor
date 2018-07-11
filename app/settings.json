@@ -13,7 +13,7 @@
     "hasFooter": "true",
     "hasPagination": "false",
 
-    "hasSplashPage": "false",
+    "hasSplashPage": "true",
     "hasResources": "true",
     "hasGlossary": "true",
     "hasHelp": "true",

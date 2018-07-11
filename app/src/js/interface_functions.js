@@ -58,7 +58,6 @@ function loadXMLData() {
   }
 
   if(courseData.MENU_PLACEMENT !== 'none' && navigationLoaded === false) {
-    getNavigationData();
     GetInterfaceXML("dir/content/navigation.xml");
     return;
   }
@@ -180,6 +179,7 @@ function checkXMLLoadingComplete() {
 
     // if strings.xml is used, populate html here, e.g.:
     //    $("#mainMenuLabel").html(strings[0]);
+    loadPage();
 
     if(courseData.HAS_LOCAL_BOOKMARKING == 'true') {
       var goToPage = courseData.localBookmarkingStorage;
@@ -203,12 +203,7 @@ function checkXMLLoadingComplete() {
 
     }
 
-    loadPage();
 
-    enforcedShow($("#mainContainer"));
-    if(courseData.HAS_SPLASH_PAGE === 'true' && currentChapter === 1 && currentPage === 1) {
-      openModal('splashPage');
-    }
     if(courseData.HAS_GLOSSARY === 'true') {
       $('#btnGlossary').click(function(){openModal('glossary');});
     }
@@ -219,6 +214,11 @@ function checkXMLLoadingComplete() {
     $("body").css("opacity",1);
     $("body").focus();
   }
+
+
+
+  enforcedShow($("#mainContainer"));
+
 }
 
 function enforcedShow(elem) {
@@ -542,10 +542,12 @@ function loadPage() {
     $("#navbarMobile .courseTitleChapter").removeClass("courseTitleChapterSelected");
     $("#navbarMobile .courseTitleChapter").eq(currentChapter-1).addClass('courseTitleChapterSelected');
     $(".navbar-fixed-left #navbarMain").removeClass('toggled');
-
+    console.log("done");
   });
 
-
+  if(courseData.HAS_SPLASH_PAGE === 'true' && currentChapter === 1 && currentPage === 1) {
+    openModal('splashPage');
+  }
   $(".footer-nav").html(getFooterNav());
 }
 
@@ -834,8 +836,4 @@ function getFooterHeight() {
 
 function closeCourse() {
   top.window.close();
-}
-
-function getNavigationData(){
-
 }

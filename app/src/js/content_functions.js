@@ -369,7 +369,7 @@ function loadContent(param){
     }
 
     var modal = $(xml).find('modal').text();
-    if(modal != null){
+    if(modal != ""){
       openContentModal(modal);
     }
 
