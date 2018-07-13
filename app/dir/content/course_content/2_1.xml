@@ -6,7 +6,7 @@
     <included>true</included>
     <pagination>true</pagination>
     <size>12</size>
-    <gated locks="0">false</gated>
+    <gated locks="0">true</gated>
   </title>
 
   <component>thumbnails</component>

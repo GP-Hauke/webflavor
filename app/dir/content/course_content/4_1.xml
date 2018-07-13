@@ -6,7 +6,7 @@
     <included>true</included>
     <pagination>true</pagination>
     <size>12</size>
-    <gated locks="0">true</gated>
+    <gated locks="0">false</gated>
   </title>
 
   <component></component>
@@ -43,46 +43,46 @@
     </div>
 
     <script type="text/javascript">
-  $('.carousel-control-prev').hide();
-  $('#ElizabethCarousel').carousel({
-      wrap: false
-    }).on('slid.bs.carousel', function () {
-    curSlide = $('#ElizabethCarousel .active');
-    if(curSlide.is( ':first-child' )) {
-      $('#ElizabethCarousel .carousel-control-prev').hide();
-      return;
-    } else {
-      $('#ElizabethCarousel .carousel-control-prev').show();
-    }
-    if (curSlide.is( ':last-child' )) {
-      $('#ElizabethCarousel .carousel-control-next').hide();
-      return;
-    } else {
-      $('#ElizabethCarousel .carousel-control-next').show();
-    }
-  });
-  $('#smithsCarousel').carousel({
-      wrap: false
-    }).on('slid.bs.carousel', function () {
-    curSlide = $('#smithsCarousel .active');
-    if(curSlide.is( ':first-child' )) {
-      $('#smithsCarousel .carousel-control-prev').hide();
-      return;
-    } else {
-      $('#smithsCarousel .carousel-control-prev').show();
-    }
-    if (curSlide.is( ':last-child' )) {
-      $('#smithsCarousel .carousel-control-next').hide();
-      return;
-    } else {
-      $('#smithsCarousel .carousel-control-next').show();
-    }
-  });
-  function showFeedback(num) {
-    $('.feedback').hide();
-    $('#feedback_'+num).show();
-  }
-  </script>
+      $('.carousel-control-prev').hide();
+      $('#ElizabethCarousel').carousel({
+          wrap: false
+        }).on('slid.bs.carousel', function () {
+        curSlide = $('#ElizabethCarousel .active');
+        if(curSlide.is( ':first-child' )) {
+          $('#ElizabethCarousel .carousel-control-prev').hide();
+          return;
+        } else {
+          $('#ElizabethCarousel .carousel-control-prev').show();
+        }
+        if (curSlide.is( ':last-child' )) {
+          $('#ElizabethCarousel .carousel-control-next').hide();
+          return;
+        } else {
+          $('#ElizabethCarousel .carousel-control-next').show();
+        }
+      });
+      $('#smithsCarousel').carousel({
+          wrap: false
+        }).on('slid.bs.carousel', function () {
+        curSlide = $('#smithsCarousel .active');
+        if(curSlide.is( ':first-child' )) {
+          $('#smithsCarousel .carousel-control-prev').hide();
+          return;
+        } else {
+          $('#smithsCarousel .carousel-control-prev').show();
+        }
+        if (curSlide.is( ':last-child' )) {
+          $('#smithsCarousel .carousel-control-next').hide();
+          return;
+        } else {
+          $('#smithsCarousel .carousel-control-next').show();
+        }
+      });
+      function showFeedback(num) {
+        $('.feedback').hide();
+        $('#feedback_'+num).show();
+      }
+      </script>
     ]]>
   </content>
 

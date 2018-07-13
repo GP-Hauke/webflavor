@@ -69,7 +69,6 @@ function getSplashPage() {
   var caption = courseData.splash.caption;
   var intro = courseData.splash.introduction;
 
-
   var html = '<div class="modal" id="splashPageModal" tabindex="-1" role="dialog" aria-labelledby="splashPageModalLabel"><div class="modal-dialog" role="document" style="max-width: 1000px"><div class="modal-content"><div class="row"><div class="col-md-5 col splashTitle"><h3>'+title+'</h3><h1>'+caption+'</h1><p>'+intro+'</p> <a id="beginCourse" class="btn btn-default d-block mx-auto" role="button">Begin Course</a></div></div></div></div></div><audio autoplay><source src="dir/media/audio/0.mp3"/></audio>';
 
   return html;
@@ -128,7 +127,7 @@ function glossaryNavigate(){
 /* end NEW GLOSSARY METHOD USING XML */
 
 function getResources() {
-  var glossary = '<div class="modal fade" id="resourcesModal" tabindex="-1" role="dialog" aria-labelledby="resourcesModalLabel"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header"><div class="modal-title-wrapper"><h4 class="modal-title" id="resourcesModalLabel">RESOURCES</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><img src="dir/media/img/btn_close_glossary.png" alt="close the resources"></span></button></div></div><div class="modal-body">';
+  var resources = '<div class="modal fade" id="resourcesModal" tabindex="-1" role="dialog" aria-labelledby="resourcesModalLabel"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header"><div class="modal-title-wrapper"><h4 class="modal-title" id="resourcesModalLabel">RESOURCES</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><img src="dir/media/img/btn_close_glossary.png" alt="close the resources"></span></button></div></div><div class="modal-body">';
 
 
   for(i = 0; i < courseData.resources.items.length; i++){
@@ -141,11 +140,11 @@ function getResources() {
 
     var resourceItem = '<div class="gloss-item""><h5>'+term+'</h5><p>'+ def +'</p><a target="blank" href="'+source+'" class="bolded">'+ name +'</a></div>'
 
-    glossary += resourceItem;
+    resources += resourceItem;
   }
 
-  glossary += '</div></div></div></div>';
-  return glossary;
+  resources += '</div></div></div></div>';
+  return resources;
 
 }
 

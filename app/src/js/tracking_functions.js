@@ -261,14 +261,3 @@ function setCookie(cookieName, cookieValue, cookieLife) {
     document.cookie = escape(cookieName) + "=" + escape(cookieValue) + ";path=/";
   }
 }
-
-function registerPageVisit(courseDataId, pageId) {
-  var courseData = JSON.parse(localStorage.getItem(courseDataId));
-
-  if(courseData.pageCount.pageIds.indexOf(pageId) == -1) {
-    courseData.pageCount.pageIds.push(pageId);
-    courseData.pageCount.pagesVisited++;
-  }
-
-  localStorage.setItem(courseDataId, JSON.stringify(courseData));
-}

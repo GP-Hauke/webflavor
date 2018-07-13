@@ -116,7 +116,6 @@ function setupDragDrop(id){
 
 function shuffleDrags(){
   var draggables = $('.left').children();
-
   var j, x;
   for (var i = draggables.length - 1; i > 0; i--) {
     j = Math.floor(Math.random() * (i + 1));
@@ -155,6 +154,8 @@ function shuffleDrops(){
 function submitDragDrop(id){
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
   var score = 0;
+  var minScore = parseInt(courseData.dragDropData.dragDrops[id].completion.minimumScore);
+
 
   var answers = $('#dragAndDrop .right').children();
   for(var i = 0; i < answers.length; i++){
@@ -179,7 +180,7 @@ function submitDragDrop(id){
     }
   }
 
-  if(score >= parseInt(courseData.dragDropData.dragDrops[id].completion.minimumScore)){
+  if(score >= minScore){
     console.log("DragDrop Completed");
     courseData.dragDropData.dragDrops[id].completed = true;
     if(courseData.dragDropData.dragDrops[id].completion.gate != null) {

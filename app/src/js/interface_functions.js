@@ -9,6 +9,7 @@ var cardContentLoaded = false;
 var stringsLoaded = false;
 var assessmentsLoaded = false;
 var splashLoaded = false;
+var splashViewed = false;
 
 var totalPages;
 var activePageCount;
@@ -17,14 +18,14 @@ var currentPage;
 var pageIsLoading = false;
 var resources;
 var strings = [];
-
+var checkingXMLCompleteAlready = false;
 var cookieName = "cookieName";
 
 var muted = false;
 var volume = .6;
 
 function initInterface() {
-
+  //console.log("initInterface()");
   // @if DEBUG
   localStorage.clear();
   // @endif
@@ -44,13 +45,14 @@ function initInterface() {
 }
 
 function initializeSettings(){
-  if(settingsLoaded === false) {
-    GetInterfaceXML("settings.json");
-    return;
-  }
+  //console.log("initializeSettings()");
+
+  GetInterfaceXML("settings.json");
+  return;
 }
 
 function loadXMLData() {
+  //console.log("loadXMLData()");
 
   courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
 
@@ -79,12 +81,18 @@ function loadXMLData() {
     return;
 
   } else {
-    checkXMLLoadingComplete();
+
+    if(!checkingXMLCompleteAlready){
+      checkingXMLCompleteAlready = true;
+      checkXMLLoadingComplete();
+    }
     return;
   }
 }
 
 function GetInterfaceXML(args) {
+  //console.log("GetInterfaceXML");
+
   $.get(args)
 
   .done(function(xml) {
@@ -119,7 +127,7 @@ function GetInterfaceXML(args) {
 }
 
 function buildInterface() {
-  console.log("Building Interface...");
+  //console.log("Building Interface...");
 
   courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
   var pageCount = 0;
@@ -133,18 +141,11 @@ function buildInterface() {
   currentPage = 1;
 
   buildShellUI();
-
-  if(courseData.COUNT_PAGES === 'true') {
-    courseData.pageCount.pagesTotal = totalPages;
-    localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(courseData));
-  }
-  console.log("GATED 4: ");
-  console.log(courseData.chapters[3].pages[0]);
-  console.log(courseData);
   updateNavigation();
 }
 
 function buildShellUI() {
+  //console.log("buildShellUI()");
 
   if(courseData.MENU_PLACEMENT === 'top') {
     buildTopNav();
@@ -164,30 +165,16 @@ function buildReources(xml) {
   resources = new Glossary(xml);
 }
 
-function buildStrings(xml) {
-  for(var i = 0; i < xml.getElementsByTagName("string").length; i++) {
-    strings.push(xml.getElementsByTagName("string")[i].childNodes[0].nodeValue);
-  }
-  checkXMLLoadingComplete();
-}
-
 function checkXMLLoadingComplete() {
+  //console.log("checkXMLLoadingComplete()");
 
   if(courseData.chapters !== null) {
-
     // if strings.xml is used, populate html here, e.g.:
     //    $("#mainMenuLabel").html(strings[0]);
 
-    if(courseData.HAS_LOCAL_BOOKMARKING == 'true') {
-      var goToPage = courseData.localBookmarkingStorage;
+    var bm = GetBookmark();
 
-      currentChapter = goToPage.chapter;
-      currentPage = goToPage.page;
-
-    } else {
-      var bm = GetBookmark();
-      //      console.log("bm ", bm);
-      if(bm && bm != "" && bm.indexOf("_")) {
+    if(bm && bm != "" && bm.indexOf("_")) {
         if(!isNaN(parseInt(bm.split("_")[0],10))) {
           currentChapter = parseInt(bm.split("_")[0],10);
 
@@ -198,17 +185,15 @@ function checkXMLLoadingComplete() {
         }
       }
 
-    }
-
-    loadPage();
-
-    enforcedShow($("#mainContainer"));
-    if(courseData.HAS_SPLASH_PAGE === 'true' && currentChapter === 1 && currentPage === 1) {
+    if(!splashViewed && courseData.HAS_SPLASH_PAGE === 'true' && currentChapter === 1 && currentPage === 1) {
+      splashViewed = true;
       openModal('splashPage');
     }
+
     if(courseData.HAS_GLOSSARY === 'true') {
       $('#btnGlossary').click(function(){openModal('glossary');});
     }
+
     $('#btnHelpModal').click(function(){openModal('help');});
     $('#btnResources').click(function(){openModal('resources');});
 
@@ -216,6 +201,12 @@ function checkXMLLoadingComplete() {
     $("body").css("opacity",1);
     $("body").focus();
   }
+
+
+
+  enforcedShow($("#mainContainer"));
+  loadPage();
+
 }
 
 function enforcedShow(elem) {
@@ -345,8 +336,8 @@ function buildTopNav() {
       $('#navbar .navbar-brand').append('<img src="'+courseData.THEME_PATH+'/img/logo.png" alt="logo">')
     }
 
-    var width = $('#navbarMobile li.courseTitleChapter').css("width");
-    $('#navbarMobile li.courseTitleChapter').css("max-width", width);
+    //var width = $('#navbarMobile li.courseTitleChapter').css("width");
+    //$('#navbarMobile li.courseTitleChapter').css("max-width", width);
 
 
     loadInterfaceStyles();
@@ -449,13 +440,15 @@ function openPage(c,p) {
   if(!checkLock(c, p)) {
     return;
   }
+
   currentChapter = c;
   currentPage = p;
   loadPage();
 }
 
 function nextPage() {
-  //console.log("nextPage()");
+
+
   if(pageIsLoading) {
     return;
   }
@@ -465,6 +458,7 @@ function nextPage() {
   if(courseData.chapters[currentChapter-1].pages[currentPage-1].count != activePageCount) {
     if(currentPage < courseData.chapters[currentChapter-1].pages.length) {
       if(!checkLock(currentChapter, currentPage + 1)) {
+
         pageIsLoading = false;
         return;
       }
@@ -476,6 +470,7 @@ function nextPage() {
 
     else {
       if(!checkLock(currentChapter + 1, 1)) {
+
         pageIsLoading = false;
         return;
       }
@@ -487,8 +482,6 @@ function nextPage() {
       currentPage = 1;
       loadPage();
     }
-
-
   }
 }
 
@@ -513,8 +506,8 @@ function prevPage() {
 }
 
 function loadPage() {
+  //console.log("loadPage()");
 
-  //console.log("loadPage("+currentChapter+","+currentPage+")");
   try {
     stopAudio();
     if(courseData.chapters[currentChapter].pages[currentPage].audio != "") {
@@ -527,23 +520,18 @@ function loadPage() {
   catch(e){}
 
   openLock(currentChapter,currentPage,0);
+
   pageIsLoading = false;
   $("body").scrollTop(0);
 
   //document.getElementById("contentFrame").src="src/components/content/"+courseData.chapters[currentChapter].pages[currentPage].file+".html";
 
-  $.get("src/components/content/content.html", function(data, status){
-    $("#contentContainer").html(data);
-
-    loadContent(eval(currentChapter)+'_'+eval(currentPage));
-    $("#navbarMobile .courseTitleChapter").removeClass("courseTitleChapterSelected");
-    $("#navbarMobile .courseTitleChapter").eq(currentChapter-1).addClass('courseTitleChapterSelected');
-    $(".navbar-fixed-left #navbarMain").removeClass('toggled');
-
-  });
-
-
+  loadContent(eval(currentChapter)+'_'+eval(currentPage));
+  $("#navbarMobile .courseTitleChapter").removeClass("courseTitleChapterSelected");
+  $("#navbarMobile .courseTitleChapter").eq(currentChapter-1).addClass('courseTitleChapterSelected');
+  $(".navbar-fixed-left #navbarMain").removeClass('toggled');
   $(".footer-nav").html(getFooterNav());
+
 }
 
 function updateProgressTime() {
@@ -620,13 +608,15 @@ function getPageTitle() {
 }
 
 function updateNavigation() {
-  console.log("updateNavigation()");
-
+  var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
+  //console.log("Update navigation");
+  //console.log(courseData.chapters);
   var notSelectedClass = "menuItemNotSelected";
   activePageCount = 0;
 
   var locked = false;
   var singlePage = false;
+  var previousLocks = false;
 
   for(var i = 0; i < courseData.chapters.length; i++) {
     singlePage = false;
@@ -639,75 +629,66 @@ function updateNavigation() {
     }
 
     var completeCount = 0;
+
     for(var j = 0; j < courseData.chapters[i].pages.length; j++) {
       activePageCount += 1;
       if(courseData.chapters[i].pages.length > 1){
         singlePage = true;
       }
+
+      //console.log("!checkLock("+eval(i+1)+","+eval(j+1)+"):  " + !checkLock(eval(i+1),eval(j+1)));
       if(!checkLock(eval(i+1),eval(j+1))){
         //If Multiple Pages of a Chapter
+
         if(j > 0){
           $('#courseTitleChapter'+i +' .dropdown-menu li p').eq(j).addClass('courseTitleGatedPage');
-          console.log("Gated: " + i + " " + j);
+          previousLocks = true;
         }
         else{
           $('#courseTitleChapter'+i + ' .nav-link').addClass('courseTitleGated');
+          if(previousLocks){
+            $('#courseTitleChapter'+i +' .dropdown-menu li p').addClass('courseTitleGatedPage');
+          }
+          previousLocks = true;
         }
       }
       else{
         $('#courseTitleChapter'+i + ' .nav-link').removeClass('courseTitleGated');
         $('#courseTitleChapter'+i +' .dropdown-menu li p').eq(j).removeClass('courseTitleGatedPage');
       }
-
-      /*
-      if(!checkLock(eval(i+1), eval(j+1))){
-      console.log(i+1 +" "+ j+1);
-      if(singlePage){
-      $('#courseTitleChapter'+i +' .dropdown-menu li p').eq(j).addClass('courseTitleGatedPage');
     }
-    else{
-    $('#courseTitleChapter'+i + ' p').addClass('courseTitleGated');
+
+    if(courseData.chapters[i].pages.length==$('#courseTitleChapter'+i +' .dropdown-menu li .courseTitleGatedPage').length){
+      $('#courseTitleChapter'+ i + ' .nav-link').addClass('courseTitleGated');
+    }
+
+    if(completeCount == courseData.chapters[i].pages.length) {
+      $("#chapter"+i).removeClass("chapterIncomplete").addClass("chapterComplete");
+    }
   }
-}
-else{
-$('#courseTitleChapter'+i).removeClass('courseTitleGated');
-$('#courseTitleChapter'+i +' .dropdown-menu li').eq(j).removeClass('courseTitleGatedPage');
-}
-*/
-}
 
-if(courseData.chapters[i].pages.length==$('#courseTitleChapter'+i +' .dropdown-menu li .courseTitleGatedPage').length){
-  $('#courseTitleChapter'+i + ' p').addClass('courseTitleGated');
-}
+  $("#mi"+currentChapter+"_"+currentPage).removeClass("menuItemNotSelected").removeClass("menuItemNotActive").removeClass("menuItemVisited").addClass("menuItemSelected");
 
-if(completeCount == courseData.chapters[i].pages.length) {
-  $("#chapter"+i).removeClass("chapterIncomplete").addClass("chapterComplete");
-}
-}
+  if(currentPage == 1 && currentChapter == 1) {
+    $("#prevBtn").hide();
+    $("#nextBtn").show();
 
+  } else if(currentChapter == courseData.chapters.length && currentPage == courseData.chapters[currentChapter-1].pages.length) {
+    $("#prevBtn").show();
+    $("#nextBtn").hide();
 
-$("#mi"+currentChapter+"_"+currentPage).removeClass("menuItemNotSelected").removeClass("menuItemNotActive").removeClass("menuItemVisited").addClass("menuItemSelected");
+  } else {
+    $("#prevBtn").show();
+    $("#nextBtn").show();
+  }
 
-if(currentPage == 1 && currentChapter == 1) {
-  $("#prevBtn").hide();
-  $("#nextBtn").show();
+  if(courseData.chapters[currentChapter-1].pages[currentPage-1].gated && courseData.chapters[currentChapter-1].pages[currentPage-1].locks.toString().indexOf("0")!=-1) {
+    $("#nextBtn").hide();
+  }
 
-} else if(currentChapter == courseData.chapters.length && currentPage == courseData.chapters[currentChapter-1].pages.length) {
-  $("#prevBtn").show();
-  $("#nextBtn").hide();
-
-} else {
-  $("#prevBtn").show();
-  $("#nextBtn").show();
-}
-
-if(courseData.chapters[currentChapter-1].pages[currentPage-1].gated && courseData.chapters[currentChapter-1].pages[currentPage-1].locks.toString().indexOf("0")!=-1) {
-  $("#nextBtn").hide();
-}
-
-if($(".footer-nav") !== null) {
-  $(".footer-nav").html(getFooterNav());
-}
+  if($(".footer-nav") !== null) {
+    $(".footer-nav").html(getFooterNav());
+  }
 }
 
 function activateChapter(active,deactive,titleIndex) {
@@ -729,6 +710,7 @@ function activateChapter(active,deactive,titleIndex) {
 }
 
 function checkLock(chapter,page) {
+  var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
 
   for(var i = 0; i < chapter; i++) {
     for(var j = 0; j < courseData.chapters[i].pages.length; j++) {
@@ -737,7 +719,6 @@ function checkLock(chapter,page) {
       }
 
       if(courseData.chapters[i].pages[j].gated && courseData.chapters[i].pages[j].locks.toString().indexOf("0")!=-1 && courseData.chapters[i].isActive=="true") {
-        console.log("HERE");
         return false;
       }
     }
@@ -746,14 +727,30 @@ function checkLock(chapter,page) {
 }
 
 function openLock(chapter,page,lock) {
+  var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
+
   //console.log("openLock("+chapter+","+page+","+lock+")");
   if(lock >= courseData.chapters[chapter-1].pages[page-1].locks.length) {
     return;
   }
 
   courseData.chapters[chapter-1].pages[page-1].locks[lock] = 1;
+
+  localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(courseData));
+
   updateNavigation();
   CreatePathmarks();
+}
+
+function registerPageVisit(pageId) {
+  var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
+
+  if(courseData.pageCount.pageIds.indexOf(pageId) == -1) {
+    courseData.pageCount.pageIds.push(pageId);
+    courseData.pageCount.pagesVisited++;
+  }
+
+  localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(courseData));
 }
 
 /* AUDIO FUNCITONS */
@@ -830,8 +827,4 @@ function getFooterHeight() {
 
 function closeCourse() {
   top.window.close();
-}
-
-function getNavigationData(){
-
 }

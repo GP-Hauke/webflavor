@@ -3,36 +3,26 @@
     "theme": "maroon",
     "courseTitle": "HTML Template",
     "courseSubTitle": "WebFlavor",
-    "completionMethod": "assessment",
+
     "menuPlacement": "top",
     "menuStyle": "tab",
     "hasMenuLogo": "true",
-    "hasHeader": "true",
     "hasFooter": "true",
-    "hasPagination": "false",
+
     "hasSplashPage": "false",
     "hasResources": "true",
     "hasGlossary": "true",
     "hasHelp": "true",
+
     "hasAssessments": "true",
     "hasKnowledgeChecks": "true",
     "hasFlipCards": "true",
     "hasDragDrops": "true",
     "hasHotspots": "true",
     "hasThumbnails": "true",
-    "bookmarking": {
-      "hasLocalBookmarking": "false",
-      "bookmarkingStorageID": ""
-    },
-    "trackActions": "true",
-    "linkTracking": {
-      "trackLinks": "true"
-    },
-    "pageCount": {
-      "countPages": "false",
-      "pageCountStorageID": "",
-      "totalPages": ""
-    },
+
+    "hasCountPages": "true",
+
     "vendors": {
       "create_js": "false",
       "tweenmax": "true",
@@ -40,19 +30,18 @@
       "font_awesome": "true",
       "glyphicons": "true"
     },
+
     "courseStorageID": "courseStorageID",
-    "version": "1.1",
+    "version": "2.6",
     "contents": [
       ["1_1"],
       ["2_1"],
       ["3_1"],
       ["4_1"],
       ["5_1"],
-      ["6_1",
-      "6_2"],
+      ["6_1", "6_2"],
       ["7_1"],
-      ["8_1",
-      "8_2"],
+      ["8_1", "8_2"],
       ["9_1"]
     ]
   }

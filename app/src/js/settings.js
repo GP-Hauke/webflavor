@@ -14,6 +14,10 @@ function initSettings(json) {
     console.log("localStorage has reloaded");
     populateStorage(json, tempStorage);
   }
+  else{
+    buildInterface();
+    loadXMLData();
+  }
 }
 
 function populateStorage(json, tempStorage) {
@@ -27,14 +31,17 @@ function populateStorage(json, tempStorage) {
   courseStorageObj.MENU_PLACEMENT = json.settings.menuPlacement;
   courseStorageObj.MENU_STYLE = json.settings.menuStyle;
   courseStorageObj.HAS_MENU_LOGO = json.settings.hasMenuLogo;
-  courseStorageObj.COMPLETION_METHOD = json.settings.completionMethod;
   courseStorageObj.HAS_FOOTER = json.settings.hasFooter;
   courseStorageObj.HAS_GLOSSARY = json.settings.hasGlossary;
   courseStorageObj.HAS_RESOURCES = json.settings.hasResources;
   courseStorageObj.HAS_HELP = json.settings.hasHelp;
   courseStorageObj.HAS_SPLASH_PAGE = json.settings.hasSplashPage;
-  courseStorageObj.CONTENTS = json.settings.contents;
-  courseStorageObj.TEST_FINISHED = false;
+  courseStorageObj.CONTENTS = {
+    toc: json.settings.contents,
+    completed: []
+  };
+
+  courseStorageObj.SETTINGS_LOADED = false;
 
   /* if course is loaded for first time or hasCards was set to true for first time, cardData will be undefined, so set it here as stub. if course had been loaded previously with hasCards set to true, copy card data from previous localStorage. */
   if(json.settings.hasCards === "true") {
@@ -46,9 +53,7 @@ function populateStorage(json, tempStorage) {
     }
   }
 
-  courseStorageObj.HAS_LOCAL_BOOKMARKING = json.settings.bookmarking.hasLocalBookmarking;
-
-  courseStorageObj.COUNT_PAGES = json.settings.pageCount.countPages;
+  courseStorageObj.COUNT_PAGES = json.settings.hasCountPages;
   if(courseStorageObj.COUNT_PAGES == "true") {
     var pageCountObj = {"pagesTotal":0,"pagesVisited":0,"pageIds":[]};
     courseStorageObj.pageCount = pageCountObj;
@@ -193,7 +198,7 @@ function addSplashToLocalStorage(xml) {
 
 function getNavigationData(){
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
-  var contents = courseData.CONTENTS;
+  var contents = courseData.CONTENTS.toc;
   var pageCount = 0;
   var loadingComplete = false;
   var pageTotal = 0;
@@ -228,7 +233,8 @@ function getNavigationData(){
   }
   courseData.PAGE_TOTAL = pageTotal;
   activePageCount = pageTotal;
-  courseData.TEST_CONTENTS = xmlArray;
+  courseData.pageCount.pagesTotal = pageTotal;
+  courseData.CONTENTS.completed = xmlArray;
 
   localStorage.setItem(LOCAL_COURSE_DATA_ID,  JSON.stringify(courseData));
   getChapterData();
@@ -280,7 +286,7 @@ function getChapterData(){
             if($(xml).find("title").find("gated").text() == "true"){
               tempData.chapters[this.chapterIndex].pages[this.pageIndex].gated = true;
             }
-            
+
             tempData.chapters[this.chapterIndex].pages[this.pageIndex].locks = [0];
             tempData.chapters[this.chapterIndex].pages[this.pageIndex].audio = false;
             tempData.chapters[this.chapterIndex].pages[this.pageIndex].video = false;
@@ -313,26 +319,28 @@ function getChapterData(){
           complete: function(){
             var current = tempData.chapters[this.chapterIndex].pages[this.pageIndex].file;
 
-            tempData.TEST_CONTENTS.forEach(function(item, index){
+            tempData.CONTENTS.completed.forEach(function(item, index){
               if(item.page == current){
                 item.completed = true;
               }
 
             });
 
-            for(var i = 0; i < tempData.TEST_CONTENTS.length; i++){
-              if(tempData.TEST_CONTENTS[i].completed != true){
-                tempData.TEST_FINISHED = false;
+            for(var i = 0; i < tempData.CONTENTS.completed.length; i++){
+              if(tempData.CONTENTS.completed[i].completed != true){
+                tempData.SETTINGS_LOADED = false;
                 break;
               }
               else{
-                tempData.TEST_FINISHED = true;
+                tempData.SETTINGS_LOADED = true;
               }
             }
-            if(tempData.TEST_FINISHED){
-              console.log("Navigation loading completed:");
+            if(tempData.SETTINGS_LOADED){
+              //console.log("Navigation loading completed:");
               //RUN REST OF INITALIZE LOCALSTORAGE DATA
               navigationLoaded = true;
+              settingsLoaded = true;
+
               buildInterface();
               loadXMLData();
             }

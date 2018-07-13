@@ -52,6 +52,7 @@ function populateCards() {
           var content = courseData.cardData.cardContent[clickDataIndex].popupContent;
 
           courseData.cardData.cardContent[clickDataIndex].actions[0].executed = "true";
+
           localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(courseData));
 
           openContentModal(heading, content);
@@ -78,6 +79,7 @@ function populateCards() {
           var img = courseData.cardData.cardContent[clickDataIndex].imgStr;
 
           courseData.cardData.cardContent[clickDataIndex].actions[0].executed = "true";
+
           localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(courseData));
 
           openPageModal(heading, content, img);
@@ -105,6 +107,7 @@ function populateCards() {
           var clickDataIndex = cardNum - 1;
 
           courseData.cardData.cardContent[clickDataIndex].actions[0].executed = "true";
+
           localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(courseData));
         });
 
@@ -129,6 +132,7 @@ function populateCards() {
           var posterSrc = courseData.cardData.cardContent[clickDataIndex].posterSrc;
 
           courseData.cardData.cardContent[clickDataIndex].actions[0].executed = "true";
+
           localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(courseData));
 
           openVidModal(heading, vidSrc, posterSrc);
@@ -342,6 +346,10 @@ function loadContent(param){
     if(completion){
       $('#pageContainer').addClass("completion");
     }
+    else{
+      $('#pageContainer').removeClass("completion");
+
+    }
 
     $('#pageContent').append($(xml).find('content').text());
 
@@ -369,7 +377,7 @@ function loadContent(param){
     }
 
     var modal = $(xml).find('modal').text();
-    if(modal != null){
+    if(modal != ""){
       openContentModal(modal);
     }
 
@@ -380,7 +388,8 @@ function loadContent(param){
     }
 
     if(courseData.COUNT_PAGES == 'true') {
-      registerPageVisit(LOCAL_COURSE_DATA_ID, pageID); // lives in tracking_functions.js
+      registerPageVisit(param); // lives in tracking_functions.js
+
     }
 
     if(courseData.cardData !== undefined) {

@@ -478,6 +478,8 @@ p.courseTitleGatedPage {
 
   .tabbed #navbarMobile .dropdown-menu{
     left: 0 !important;
+    top: 0 !important;
+
   }
 
   .tabbed #navbarMobile .dropdown-menu li p{

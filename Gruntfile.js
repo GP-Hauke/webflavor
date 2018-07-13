@@ -38,7 +38,7 @@ module.exports = function(grunt){
       }
     },
 
-    usemin:{
+    usemin: {
       html:['dist/**/*.html']
     },
 
@@ -66,20 +66,11 @@ module.exports = function(grunt){
               if(json.settings.hasResources == 'false'){
                 return false;
               }
-            }else if(path == 'card_content.xml'){
-              if(json.settings.hasCards == 'false'){
-                return false;
-              }
             }else if(path == 'assessments.xml'){
               if(json.settings.hasAssessments == 'false'){
                 return false;
               }
-            }else if(path == 'drag_drops.xml'){
-              if(json.settings.hasDragDrops == 'false'){
-                return false;
-              }
             }
-
             return true;
           }
 
@@ -91,7 +82,6 @@ module.exports = function(grunt){
 
             if(dir != required){
               return false;
-
             }
           }
 
@@ -124,6 +114,11 @@ module.exports = function(grunt){
                 return false;
               }
             }
+            else if(path == 'flip_cards_functions.js'){
+              if(json.settings.hasFlipCards == 'false'){
+                return false;
+              }
+            }
             else if(path == 'drag_drop_functions.js'){
               if(json.settings.hasDragDrops == 'false'){
                 return false;
@@ -134,12 +129,16 @@ module.exports = function(grunt){
                 return false;
               }
             }
+            else if(path == 'knowledge_check_functions.js'){
+              if(json.settings.hasKnowledgeChecks == 'false'){
+                return false;
+              }
+            }
             else if(path == 'thumbnails_functions.js'){
               if(json.settings.hasThumbnails == 'false'){
                 return false;
               }
             }
-
             return true;
           }
 
@@ -256,7 +255,7 @@ module.exports = function(grunt){
       }
     },
 
-    preprocess : {
+    preprocess: {
       options: {
         inline: true,
         context : {
@@ -491,14 +490,31 @@ module.exports = function(grunt){
 
   grunt.registerTask('update', function(key, value) {
     var pages = grunt.file.expand(["dist/dir/content/course_content/*.xml"]);
+    var lastChapter = "";
+    var currentChapter = "";
+    var contents = [];
+    var currentXML = "";
 
     for(var i = 0; i < pages.length; i++){
       var path = require('path').basename(pages[i])
-      grunt.log.oklns(path.substring(0, path.length - 4))
+      //grunt.log.oklns(path.substring(0, path.length - 4))
+      currentChapter = path.substr(0, path.indexOf('_'));
+      currentXML = path.substr(0, path.indexOf('.'));
+
+      if(currentChapter != lastChapter){
+          contents[currentChapter - 1] = [];
+      }
+
+      contents[currentChapter - 1].push(currentXML);
+      lastChapter = currentChapter;
 
     }
-  });
 
+    var json = grunt.file.readJSON('app/settings.json'); //get file as json object
+
+    json.settings.contents = contents;
+    grunt.file.write('app/settings.json', JSON.stringify(json, null, 2));
+  });
 
   grunt.registerTask('test', ['validate']);
 

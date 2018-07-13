@@ -6,7 +6,7 @@
     <included>true</included>
     <pagination>true</pagination>
     <size>12</size>
-    <gated locks="0">false</gated>
+    <gated locks="1">true</gated>
   </title>
 
   <component>dragAndDrop</component>
@@ -25,7 +25,7 @@
       <minimumScore>30</minimumScore>
 
       <gate>
-        <chapter>5</chapter>
+        <chapter>6</chapter>
         <page>2</page>
         <lock>1</lock>
       </gate>
