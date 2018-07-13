@@ -19,7 +19,7 @@
     </div>]]>
   </layout>
 
-  <drag_drop id="1">
+  <dragAndDrop id="1">
     <completion gated="false">
       <minimumScore>30</minimumScore>
       <gate>
@@ -55,5 +55,5 @@
         <drop>Washington</drop>
       </pair>
     </matchings>
-  </drag_drop>
+  </dragAndDrop>
 </page>

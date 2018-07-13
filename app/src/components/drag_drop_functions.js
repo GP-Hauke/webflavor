@@ -1,11 +1,11 @@
 //INITIALIZE AND RENDER DRAG AND DROP
-function initDragDrops(dragDropContentXML) {
+function initDragDrops(dragDropContentXML, elementID) {
   if(localStorage === "undefined") {
     location.reload();
   }
 
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
-  var currentDragDrop = $(dragDropContentXML).find("drag_drop");
+  var currentDragDrop = $(dragDropContentXML).find("dragAndDrop");
   var currentID = $(currentDragDrop).attr("id")
 
   if(courseData.dragDropData.dragDrops != null){
@@ -13,7 +13,7 @@ function initDragDrops(dragDropContentXML) {
       if(courseData.dragDropData.dragDrops[i].id == currentID){
         var id = getDragDropIndex(currentID);
         console.log("DragDrop Loaded Previously");
-        setupDragDrop(id);
+        setupDragDrop(id, elementID);
         return;
       }
     }
@@ -57,11 +57,11 @@ function initDragDrops(dragDropContentXML) {
   courseData.dragDropData.dragDrops.push(dragDrop);
   localStorage.setItem(LOCAL_COURSE_DATA_ID,  JSON.stringify(courseData));
   var id = getDragDropIndex(currentID);
-  setupDragDrop(id);
+  setupDragDrop(id, elementID);
 
 }
 
-function setupDragDrop(id){
+function setupDragDrop(id, elementID){
   $('#dragAndDrop').remove();
 
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
@@ -88,12 +88,25 @@ function setupDragDrop(id){
   leftContainerHtml += '</div>';
   rightContainerHtml += '</div>';
 
-  var submitBtn = '</div><div class="row btn-row"><p class="feedback"><a onclick="setupDragDrop('+id+');" class="btn btn-reversed btn-restart">Restart</a><a onclick="submitDragDrop('+id+');" class="btn btn-default-main">Submit</a></p></div>';
+  var submitBtn = '</div><div class="row btn-row"><p class="feedback"><a class="btn btn-reversed btn-restart">Restart</a><a class="btn btn-default-main btn-submit">Submit</a></p></div>';
 
   var html = '<div id="dragAndDrop"><div class="row">' + leftContainerHtml + rightContainerHtml + submitBtn;
 
+  if(elementID != null){
+    $("#"+elementID).empty();
+    $("#"+elementID).html(html);
+  }
+  else{
+    $("#pageContent").append(html);
+  }
 
-  $("#pageContent").append(html);
+  $(".btn-restart").click(function(){
+    setupDragDrop(id, elementID);
+  });
+  $(".btn-submit").click(function(){
+    submitDragDrop(id, elementID);
+  });
+
   $('#dragAndDrop .btn-reversed').on({
     mouseenter: function () {
       $(this).removeClass('btn-reversed');
@@ -151,7 +164,7 @@ function shuffleDrops(){
   return;
 }
 
-function submitDragDrop(id){
+function submitDragDrop(id, elementID){
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
   var score = 0;
   var minScore = parseInt(courseData.dragDropData.dragDrops[id].completion.minimumScore);
@@ -161,8 +174,16 @@ function submitDragDrop(id){
   for(var i = 0; i < answers.length; i++){
     var answerID = answers[i].id;
 
+
     if($('#'+answerID).find('p')[0] == null){
-      $('#dragAndDrop .feedback').html('Finish dragging items to their correct location.<a onclick="setupDragDrop();" class="btn btn-reversed">Restart</a><a onclick="submitDragDrop();" class="btn btn-default-main">Submit</a>')
+      $('#dragAndDrop .feedback').html('Finish dragging items to their correct location.<a class="btn btn-reversed btn-restart">Restart</a><a class="btn btn-default-main btn-submit">Submit</a>')
+
+      $(".btn-restart").click(function(){
+        setupDragDrop(id, elementID);
+      });
+      $(".btn-submit").click(function(){
+        submitDragDrop(id, elementID);
+      });
       return;
     }
   }
@@ -213,8 +234,14 @@ function submitDragDrop(id){
   gameFeedback += " <span> Total Score: +"+score+" points</span.>";
 
 
-  $('#dragAndDrop .feedback').html(gameFeedback+'<a onclick="setupDragDrop();" class="btn btn-reversed ">Restart</a><a onclick="submitDragDrop();" class="btn btn-default-main">Submit</a>');
+  $('#dragAndDrop .feedback').html(gameFeedback+'<a class="btn btn-restart btn-reversed ">Restart</a><a  class="btn btn-default-main btn-submit">Submit</a>');
   $('#dragAndDrop .feedback').after('');
+  $(".btn-restart").click(function(){
+    setupDragDrop(id, elementID);
+  });
+  $(".btn-submit").click(function(){
+    submitDragDrop(id, elementID);
+  });
   $('#dragAndDrop .btn-reversed').on({
     mouseenter: function () {
       $(this).removeClass('btn-reversed');

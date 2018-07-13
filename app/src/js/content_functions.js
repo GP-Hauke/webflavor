@@ -384,13 +384,15 @@ function loadContent(param){
     var components = $(xml).find("components");
 
     $(components).find("text").each(function() {
-      var currentQuestion = $(this);
       var textID = $(this).attr("id");
       var textContent = $(this).text();
       $("#"+textID).append(textContent);
     });
 
-
+    $(components).find("dragAndDrop").each(function() {
+      var dragAndDropID = $(this).attr("id");
+      initDragDrops(xml, dragAndDropID);
+    });
 
 
     var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
