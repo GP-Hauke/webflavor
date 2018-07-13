@@ -1,71 +1,68 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <page>
   <title>
-    <chapterTitle><![CDATA[KNOWLEDGE CHECKS]]></chapterTitle>
-    <pageTitle><![CDATA[REVIEW I]]></pageTitle>
+    <chapterTitle><![CDATA[HOT SPOTS]]></chapterTitle>
+    <pageTitle><![CDATA[HOT SPOTS]]></pageTitle>
     <included>true</included>
-    <pagination>false</pagination>
+    <pagination>true</pagination>
     <size>12</size>
     <gated locks="0">false</gated>
   </title>
 
-  <component>knowledgeCheck</component>
-  <content>
+  <component>hotspot</component>
+  <layout>
     <![CDATA[
     <div class="row">
       <div class="col-md-12">
-        <p class="top-paragraph">The following is a knowledge check to test your understanding of the course so far. You must attempt the quiz before advancing.</p>
+        <p class="top-paragraph">Click each button to reveal more information in the Hot Spot component.</p>
       </div>
     </div>]]>
-  </content>
+  </layout>
 
-  <knowledgeCheck id="1" scored="true" title="Review">
+  <hotspot id="1">
     <completion gated="true">
       <gate>
-        <chapter>7</chapter>
+        <chapter>6</chapter>
         <page>1</page>
         <lock>1</lock>
       </gate>
     </completion>
 
-    <question>
-      <body>The question body goes in this element. What answer is right?</body>
-      <answers>
-        <answer>A</answer>
-        <answer>L</answer>
-        <answer correct="true">RIGHT ANSWER</answer>
-        <answer>K</answer>
-      </answers>
-    </question>
+    <img><![CDATA[dir/media/img/assets/City-Map.jpg]]></img>
+    <spot>
+      <label><![CDATA[1]]></label>
+      <popup>
+        <![CDATA[
+        <ul>
+          <li>Vix debitis lucilius ut, quo id porro timeam honestatis.</li>
+          <li>Vim exerci mandamus cu, sonet molestiae cu pri.</li>
+          <li>Fuisset instructior vel ne, ubique malorum legendos sit et.</li>
+        </ul>]]>
+      </popup>
+    </spot>
 
-    <question>
-      <body>The question body goes in this element. What answer is right?</body>
-      <answers>
-        <answer correct="true">RIGHT ANSWER</answer>
-        <answer>Y</answer>
-        <answer>T</answer>
-        <answer>S</answer>
-      </answers>
-    </question>
+    <spot>
+      <label><![CDATA[2]]></label>
+      <popup>
+        <![CDATA[
+        <ul>
+          <li>At eum detracto maluisset elaboraret, nec putent appareat in.</li>
+          <li>Elit ubique sensibus nec in.</li>
+          <li>Sea ad cibo illud, mea ex mutat perpetua.</li>
+        </ul>]]>
+      </popup>
+    </spot>
 
-    <question>
-      <body>The question body goes in this element. What answer is right?</body>
-      <answers>
-        <answer>W</answer>
-        <answer correct="true">RIGHT ANSWER</answer>
-        <answer>C</answer>
-        <answer>M</answer>
-      </answers>
-    </question>
-
-    <question>
-      <body>The question body goes in this element. What answer is right?</body>
-      <answers>
-        <answer>Q</answer>
-        <answer>A</answer>
-        <answer>O</answer>
-        <answer correct="true">RIGHT ANSWER</answer>
-      </answers>
-    </question>
-  </knowledgeCheck>
+    <spot>
+      <label><![CDATA[3]]></label>
+      <popup>
+        <![CDATA[
+        <ul>
+          <li>Vim duis consul nemore eu, ad libris molestie principes sed.</li>
+          <li>Id verear volumus recteque eam.</li>
+          <li> Omnium nostrud tacimates sea eu, ius ad fabulas pertinacia, fastidii quaerendum mea ex.</li>
+        </ul>]]>
+      </popup>
+    </spot>
+  </hotspot>
 </page>

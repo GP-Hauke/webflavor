@@ -351,7 +351,7 @@ function loadContent(param){
 
     }
 
-    $('#pageContent').append($(xml).find('content').text());
+    $('#pageContent').append($(xml).find('layout').text());
 
     //CERTAIN PAGES NEED SPECIFIC METHODS RUN FOR THE COMPONENTS
     //MUST BE RUN AFTER THE CONTENT HAS LOADED
@@ -380,6 +380,17 @@ function loadContent(param){
     if(modal != ""){
       openContentModal(modal);
     }
+
+    var components = $(xml).find("components");
+
+    $(components).find("text").each(function() {
+      var currentQuestion = $(this);
+      var textID = $(this).attr("id");
+      var textContent = $(this).text();
+      $("#"+textID).append(textContent);
+    });
+
+
 
 
     var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));

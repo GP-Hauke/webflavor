@@ -10,14 +10,14 @@
   </title>
 
   <component>knowledgeCheck</component>
-  <content>
+  <layout>
     <![CDATA[
     <div class="row">
       <div class="col-md-12">
         <p class="top-paragraph">The following is a knowledge check to test your understanding of the course so far. You must attempt the quiz before advancing.</p>
       </div>
     </div>]]>
-  </content>
+  </layout>
 
   <knowledgeCheck id="2" scored="true" completed="false" title="Review II">
     <completion gated="true">

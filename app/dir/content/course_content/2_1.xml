@@ -1,87 +1,43 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <page>
   <title>
-    <chapterTitle><![CDATA[CURATED CONTENT]]></chapterTitle>
-    <pageTitle><![CDATA[CURATED CONTENT]]></pageTitle>
+    <chapterTitle><![CDATA[VEHICLE GAME]]></chapterTitle>
+    <pageTitle><![CDATA[VEHICLE GAME]]></pageTitle>
     <included>true</included>
     <pagination>true</pagination>
     <size>12</size>
-    <gated locks="0">true</gated>
+    <gated locks="0">false</gated>
   </title>
 
-  <component>thumbnails</component>
-  <content>
+  <component>assessment</component>
+  <layout>
     <![CDATA[
-    <div class="row">
-      <div class="col-sm-12">
-        <p id="sectionComplete">The following is an example of curated content using the dynamic thumbnail component of the WebFlavor Template.</p>
+    <div class="row margin-below">
+      <div class="col-md-6">
+        <p class="top-paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <ul>
+          <li>Consectetur</li>
+          <li>Dolore</li>
+          <li>Lorem Culpa</li>
+          <li>Labore et</li>
+          <li>Ofiicia</li>
+        </ul>
+        <p class="top-paragraph">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
       </div>
-    </div>]]>
-  </content>
+      <div id="btnAssessment1" class="col-md-offset-1 col-md-6 btn-assess">
+        <div class="block summary">
+          <img id="startBtn" class="img-fluid" src="dir/media/img/assets/game/startBtn.png" alt="game launch button"/>
+        </div>
+      </div>
+    </div>
 
-  <thumbnails class="col-md-3 col-sm-6">
-    <completion gated="true">
-      <gate>
-        <chapter>2</chapter>
-        <page>1</page>
-        <lock>1</lock>
-      </gate>
-    </completion>
+    <div class="row margin-below">
+      <div class="col-md-6">
+        <p class="top-paragraph"><span class="bolded">Extended text for scroll bar view </span>Mei lorem consequat necessitatibus ad, vim ex noluisse persecuti. Summo mucius electram ut pro, quaeque vocibus duo ex. Ius id habemus accusata. Mei eleifend deseruisse id, duo eirmod omnesque legendos ut, ius an illud aliquip voluptua.Mei ad rebum altera possit. Mei eu quidam hendrerit reprehendunt. Eu iudico aliquid corrumpit sed. Nam ut perfecto conceptam, cum ei ignota habemus percipit. Mea te nisl laudem. Posse fuisset voluptatibus vis id, alii summo democritum te pro.</p>
+        <p class="top-paragraph">Tamquam consulatu ius ex. Animal vivendum mnesarchum nec ut. Eu habeo definitiones has. Et vix elit vocibus, illud errem abhorreant eu mei. Sed ut fuisset nominavi.Est vivendum sapientem interpretaris an, eos ex dolor ponderum hendrerit, ius no persecuti efficiendi. Commune dissentias adversarium eu mei, id illum mediocrem usu. Tempor libris his an. Id pri atomorum repudiandae, ad elit indoctum vim, id brute partem consequuntur vel. Et duo dicta iisque.</p>
+      </div>
+    </div>
 
-    <thumbnail>
-      <img><![CDATA[dir/media/img/assets/3_5.jpg]]></img>
-      <url><![CDATA[https://www.gpstrategies.com/]]></url>
-      <heading><![CDATA[Maecenas]]></heading>
-      <caption><![CDATA[Maecenas venenatis magna, vel pellentesque <span class="link-look">enim scelerisque</span>  erat ultricies. Quisque fringilla, nulla sed ornare tincidunt, neque velit finibus.]]></caption>
-    </thumbnail>
-
-    <thumbnail>
-      <img><![CDATA[dir/media/img/assets/3_6.jpg]]></img>
-      <url><![CDATA[https://www.gpstrategies.com/]]></url>
-      <heading><![CDATA[LNulla Oranre]]></heading>
-      <caption><![CDATA[Maecenas venenatis magna, vel pellentesque <span class="link-look">enim scelerisque</span>  erat ultricies. Quisque fringilla, nulla sed ornare tincidunt, neque velit finibus.]]></caption>
-    </thumbnail>
-
-    <thumbnail>
-      <img><![CDATA[dir/media/img/assets/3_7.jpg]]></img>
-      <url><![CDATA[https://www.gpstrategies.com/]]></url>
-      <heading><![CDATA[Fringilla]]></heading>
-      <caption><![CDATA[<span class="link-look">Aliquam quis</span> enim at metus commodo hendrerit sit amet eu nisi. Proin sagittis euismod risus vel fringilla. Suspendisse non leo ut erat euismod.]]></caption>
-    </thumbnail>
-
-    <thumbnail>
-      <img><![CDATA[dir/media/img/assets/3_8.jpg]]></img>
-      <url><![CDATA[https://www.gpstrategies.com/]]></url>
-      <heading><![CDATA[Arcus Sed]]></heading>
-      <caption><![CDATA[Curabitur accumsan, orci molestie <span class="link-look">condimentum aliquamenim</span> , eros eros elementum ex, in commodo lacus lorem ac nisl. Pellentesque id arcu sed est vulputate.]]></caption>
-    </thumbnail>
-
-    <thumbnail>
-      <img><![CDATA[dir/media/img/assets/3_1.jpg]]></img>
-      <url><![CDATA[https://www.gpstrategies.com/]]></url>
-      <heading><![CDATA[Lorem Ipsum]]></heading>
-      <caption><![CDATA[Morbi quis malesuada elit. Ut <span class="link-look">tristique dolor</span> non rutrum bibendum. Sed eleifend magna at nulla maximus dictum. Cras id diam dolor.]]></caption>
-    </thumbnail>
-
-    <thumbnail>
-      <img><![CDATA[dir/media/img/assets/3_2.jpg]]></img>
-      <url><![CDATA[https://www.gpstrategies.com/]]></url>
-      <heading><![CDATA[Suspendisse]]></heading>
-      <caption><![CDATA[<span class="link-look">Aliquam quis</span> enim at metus commodo hendrerit sit amet eu nisi. Proin sagittis euismod risus vel fringilla. Suspendisse non leo ut erat euismod.]]></caption>
-    </thumbnail>
-
-    <thumbnail>
-      <img><![CDATA[dir/media/img/assets/3_3.jpg]]></img>
-      <url><![CDATA[https://www.gpstrategies.com/]]></url>
-      <heading><![CDATA[Lacus Lorem]]></heading>
-      <caption><![CDATA[Curabitur accumsan, orci molestie <span class="link-look">condimentum aliquamenim</span> , eros eros elementum ex, in commodo lacus lorem ac nisl. Pellentesque id arcu sed est vulputate.]]></caption>
-    </thumbnail>
-
-    <thumbnail>
-      <img><![CDATA[dir/media/img/assets/3_4.jpg]]></img>
-      <url><![CDATA[https://www.gpstrategies.com/]]></url>
-      <heading><![CDATA[Morbi Quis]]></heading>
-      <caption><![CDATA[Morbi quis malesuada elit. Ut <span class="link-look">tristique dolor</span> non rutrum bibendum. Sed eleifend magna at nulla maximus dictum. Cras id diam dolor.]]></caption>
-    </thumbnail>
-  </thumbnails>
+    ]]>
+  </layout>
 </page>

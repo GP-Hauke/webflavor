@@ -34,6 +34,45 @@ ul {
   margin-bottom: 20px;
 }
 
+div[class^="col"] {
+  overflow: hidden;
+}
+
+
+.color1{
+  height: 300px;
+  opacity: .75;
+  background: maroon;
+}
+.color2{
+  height: 300px;
+  opacity: .75;
+  background: #ad6969;
+}
+.color3{
+  height: 300px;
+  opacity: .75;
+  background: #917575;
+}
+.color4{
+  height: 300px;
+  opacity: .75;
+  background: #963131;
+}
+.color5{
+  height: 300px;
+  opacity: .75;
+  background: #8c3f3f;
+}
+.color1-outline{
+  height: 300px;
+  border: 2px solid maroon;
+  padding: 7px;
+}
+.size2{
+  height: 610px;;
+}
+
 @media only screen and (max-width: 768px) {
   .page-container {
     padding-left: 15px !important;

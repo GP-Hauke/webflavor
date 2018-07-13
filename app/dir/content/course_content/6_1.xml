@@ -1,59 +1,64 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <page>
   <title>
-    <chapterTitle><![CDATA[DRAG AND DROPS]]></chapterTitle>
-    <pageTitle><![CDATA[CITIES AND STATES]]></pageTitle>
+    <chapterTitle><![CDATA[FLIP CARDS]]></chapterTitle>
+    <pageTitle><![CDATA[FLIP CARDS]]></pageTitle>
     <included>true</included>
     <pagination>true</pagination>
     <size>12</size>
     <gated locks="0">false</gated>
   </title>
 
-  <component>dragAndDrop</component>
-  <content>
+  <component>cards</component>
+
+  <layout>
     <![CDATA[
     <div class="row">
-      <div class="col-md-12">
-        <p><span class="bolded">Now that you have viewed this page, you can advance to the next.</span> Please Match the following cities with their states. Complete the task by dragging and dropping the items into their correct spots. Correct answers will turn green, while the wrong answers will turn red. Good luck!</p>
+      <div class="col-sm-12">
+        <p>Flip Cards are another interactive component that can be implemented through the WebFlavor Template</p>
       </div>
     </div>]]>
-  </content>
+  </layout>
 
-  <drag_drop id="1">
-    <completion gated="false">
-      <minimumScore>30</minimumScore>
+  <cards class="col-md-3 col-sm-6" hasButton="true">
+    <completion gated="true">
       <gate>
-        <chapter>6</chapter>
+        <chapter>4</chapter>
         <page>1</page>
         <lock>1</lock>
       </gate>
     </completion>
 
-    <matchings>
-      <pair>
-        <drag>Bloomington</drag>
-        <drop>Indiana</drop>
-      </pair>
-      <pair>
-        <drag>Louisville</drag>
-        <drop>Kentucky</drop>
-      </pair>
-      <pair>
-        <drag>Chicago</drag>
-        <drop>Illinois</drop>
-      </pair>
-      <pair>
-        <drag>Miami</drag>
-        <drop>Florida</drop>
-      </pair>
-      <pair>
-        <drag>New York</drag>
-        <drop>New York</drop>
-      </pair>
-      <pair>
-        <drag>Seattle</drag>
-        <drop>Washington</drop>
-      </pair>
-    </matchings>
-  </drag_drop>
+    <card>
+      <front><![CDATA[<h4>Nullam Nisi</h4>]]></front>
+      <back><![CDATA[<p>Curabitur accumsan, orci mostie cond aliquam, eros eros elementum ex.
+        <br>
+        <br>
+        Pellentesque id arcu sed est vulputate consequat nec id dolor.</p>]]></back>
+    </card>
+
+    <card>
+      <front><![CDATA[<h4>Curabitur</h4>]]></front>
+      <back><![CDATA[<p>Fermentum et venenatis in, vulputate sit amet diam
+      <br>
+      <br>
+      Ut a tortor turpis. Aliquam quis enim at metus commodo hendrerit sit amet eu nisi.</p>]]></back>
+    </card>
+
+    <card>
+      <front><![CDATA[<h4>Diam Fames</h4>]]></front>
+      <back><![CDATA[<p>Cras id diam dolor. Suspendisse in mi in turpis fringilla rhoncus. Curabitur ultricies condimentum est, vitae ultrices.
+      <br>
+      <br>
+      Morbi quis malesuada elit. Ut tristique dolor non rutrum bibendum. Sed eleifend.</p>]]></back>
+    </card>
+
+    <card>
+      <front><![CDATA[<h4>Sed Magna</h4>]]></front>
+      <back><![CDATA[<p>Nullam nec nisl risus. Morbi in ex quis enim bibendum varius.
+      <br>
+      <br>
+      Pellentesque habitant morbi tristique senectus.</p>]]></back>
+    </card>
+  </cards>
 </page>

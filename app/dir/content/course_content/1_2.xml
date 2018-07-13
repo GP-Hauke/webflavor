@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<page>
+  <title>
+    <chapterTitle><![CDATA[TEMPLATE GRID]]></chapterTitle>
+    <pageTitle><![CDATA[DEMO GRID]]></pageTitle>
+    <included>true</included>
+    <pagination>true</pagination>
+    <size>12</size>
+    <gated locks="0">false</gated>
+  </title>
+
+  <component>none</component>
+  <layout>
+    <![CDATA[
+    <div class="row">
+      <div class="col-md-12"><p>After the grid is created, components can be inserted into their appropriate places on the grid layout. The first Component is the Text-Component.</p></div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-5 p-0"><div id="text-1" class="color1-outline m-1"></div></div>
+
+      <div class="col-md-3 p-0"><div id="text-2" class="color1-outline m-1"></div></div>
+
+      <div class="col-md-4 p-0"><div class="color4 m-1"></div></div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="row">
+          <div class="col-md-12 p-0"><div class="color1 size2 m-1"></div></div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="row">
+          <div class="col-md-6 p-0"><div class="color2 m-1"></div></div>
+
+          <div class="col-md-6 p-0"><div id="text-3" class="color1-outline m-1"></div></div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 p-0"><div id="text-4" class="color1-outline m-1"></div></div>
+
+          <div class="col-md-6 p-0"><div class="color3 m-1"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row margin-below">
+      <div class="col-md-12 p-0"><div id="text-5" class="color1-outline m-1"></div></div>
+    </div>
+    ]]>
+  </layout>
+
+  <components>
+    <text id="text-1"><![CDATA[<p>velit ut tortor pretium viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare suspendisse sed nisi lacus sed viverra tellus in hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras tincidunt lobortis feugiat vivamus at augue eget arcu dictum varius duis at consectetur lorem donec massa sapien faucibus et molestie ac feugiat sed lectus vestibulum mattis ullamcorper velit</p>]]></text>
+
+    <text id="text-2"><![CDATA[<p>tincidunt lobortis feugiat vivamus at augue eget arcu dictum varius duis at consectetur lorem donec massa sapien faucibus et molestie ac feugiat sed lectus vestibulum mattis ullamcorper velit sed ullamcorper morbi tincidunt</p>]]></text>
+
+
+    <text id="text-3"><![CDATA[<p>vitae semper quis lectus nulla at volutpat diam ut venenatis tellus in metus vulputate eu scelerisque felis imperdiet proin fermentum leo vel orci porta non pulvinar neque laoreet suspendisse interdum consectetur</p>]]></text>
+
+
+    <text id="text-4"><![CDATA[<p>vitae semper quis lectus nulla at volutpat diam ut venenatis tellus in metus vulputate eu scelerisque felis imperdiet proin fermentum leo vel orci porta non pulvinar neque laoreet suspendisse interdum consectetur</p>]]></text>
+
+    <text id="text-5"><![CDATA[<p>vitae semper quis lectus nulla at volutpat diam ut venenatis tellus in metus vulputate eu scelerisque felis imperdiet proin fermentum leo vel orci porta non pulvinar neque laoreet suspendisse interdum consectetur libero id faucibus nisl tincidunt eget nullam non nisi est sit amet facilisis magna etiam tempor orci eu lobortis elementum nibh tellus molestie nunc non blandit massa enim nec dui nunc mattis enim ut tellus elementum sagittis vitae et leo duis ut diam quam nulla porttitor massa id neque aliquam vestibulum morbi blandit cursus risus at ultrices mi tempus onsectetur libero id faucibus nisl tincidunt eget nullam non nisi est sit amet facilisis magna etiam tempor orci eu lobortis elementum nibh tellus molestie nunc non blandit massa enim nec dui nunc mattis enim ut tellus elementum sagittis vitae et leo duis ut diam quam nulla porttitor massa id neque aliquam vestibulum morbi blandit cursus risus at ultrices mi tempus onsectetur libero id faucibus nisl tincidunt eget nullam non nisi est sit amet facilisis magna etiam tempor orci eu lobortis elementum nibh tellus molestie nunc non blandit massa</p>]]></text>
+  </components>
+</page>

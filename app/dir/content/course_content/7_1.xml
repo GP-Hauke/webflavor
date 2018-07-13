@@ -1,26 +1,27 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <page>
   <title>
-    <chapterTitle><![CDATA[HOT SPOTS]]></chapterTitle>
-    <pageTitle><![CDATA[HOT SPOTS]]></pageTitle>
+    <chapterTitle><![CDATA[DRAG AND DROPS]]></chapterTitle>
+    <pageTitle><![CDATA[CITIES AND STATES]]></pageTitle>
     <included>true</included>
     <pagination>true</pagination>
     <size>12</size>
     <gated locks="0">false</gated>
   </title>
 
-  <component>hotspot</component>
-  <content>
+  <component>dragAndDrop</component>
+  <layout>
     <![CDATA[
     <div class="row">
       <div class="col-md-12">
-        <p class="top-paragraph">Click each button to reveal more information in the Hot Spot component.</p>
+        <p><span class="bolded">Now that you have viewed this page, you can advance to the next.</span> Please Match the following cities with their states. Complete the task by dragging and dropping the items into their correct spots. Correct answers will turn green, while the wrong answers will turn red. Good luck!</p>
       </div>
     </div>]]>
-  </content>
+  </layout>
 
-  <hotspot id="1">
-    <completion gated="true">
+  <drag_drop id="1">
+    <completion gated="false">
+      <minimumScore>30</minimumScore>
       <gate>
         <chapter>6</chapter>
         <page>1</page>
@@ -28,41 +29,31 @@
       </gate>
     </completion>
 
-    <img><![CDATA[dir/media/img/assets/City-Map.jpg]]></img>
-    <spot>
-      <label><![CDATA[1]]></label>
-      <popup>
-        <![CDATA[
-        <ul>
-          <li>Vix debitis lucilius ut, quo id porro timeam honestatis.</li>
-          <li>Vim exerci mandamus cu, sonet molestiae cu pri.</li>
-          <li>Fuisset instructior vel ne, ubique malorum legendos sit et.</li>
-        </ul>]]>
-      </popup>
-    </spot>
-
-    <spot>
-      <label><![CDATA[2]]></label>
-      <popup>
-        <![CDATA[
-        <ul>
-          <li>At eum detracto maluisset elaboraret, nec putent appareat in.</li>
-          <li>Elit ubique sensibus nec in.</li>
-          <li>Sea ad cibo illud, mea ex mutat perpetua.</li>
-        </ul>]]>
-      </popup>
-    </spot>
-
-    <spot>
-      <label><![CDATA[3]]></label>
-      <popup>
-        <![CDATA[
-        <ul>
-          <li>Vim duis consul nemore eu, ad libris molestie principes sed.</li>
-          <li>Id verear volumus recteque eam.</li>
-          <li> Omnium nostrud tacimates sea eu, ius ad fabulas pertinacia, fastidii quaerendum mea ex.</li>
-        </ul>]]>
-      </popup>
-    </spot>
-  </hotspot>
+    <matchings>
+      <pair>
+        <drag>Bloomington</drag>
+        <drop>Indiana</drop>
+      </pair>
+      <pair>
+        <drag>Louisville</drag>
+        <drop>Kentucky</drop>
+      </pair>
+      <pair>
+        <drag>Chicago</drag>
+        <drop>Illinois</drop>
+      </pair>
+      <pair>
+        <drag>Miami</drag>
+        <drop>Florida</drop>
+      </pair>
+      <pair>
+        <drag>New York</drag>
+        <drop>New York</drop>
+      </pair>
+      <pair>
+        <drag>Seattle</drag>
+        <drop>Washington</drop>
+      </pair>
+    </matchings>
+  </drag_drop>
 </page>
