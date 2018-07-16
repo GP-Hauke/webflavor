@@ -20,7 +20,7 @@
     </div>]]>
   </layout>
 
-  <cards class="col-md-3 col-sm-6" hasButton="true">
+  <flipCard id="flipCard-old" class="col-md-3 col-sm-6" hasButton="true">
     <completion gated="true">
       <gate>
         <chapter>4</chapter>
@@ -60,5 +60,5 @@
       <br>
       Pellentesque habitant morbi tristique senectus.</p>]]></back>
     </card>
-  </cards>
+  </flipCard>
 </page>

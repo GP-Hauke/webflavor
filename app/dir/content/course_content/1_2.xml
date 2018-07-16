@@ -17,47 +17,56 @@
     </div>
 
     <div class="row">
-      <div class="col-md-5 p-0"><div id="text-1" class="color1-outline m-1"></div></div>
+      <div class="col-md-4 p-0"><div id="text-1" class="color1-outline m-1"></div></div>
+      <div class="col-md-8 p-0"><div id="dragAndDrop-2" class="color1-outline m-1"></div></div>
+    </div>
 
-      <div class="col-md-3 p-0"><div id="text-2" class="color1-outline m-1"></div></div>
-
-      <div class="col-md-4 p-0"><div class="color4 m-1"></div></div>
+    <div class="row margin">
+      <div class="col-md-12 p-0"><div id="flipCard-1" class="color1-outline m-1" style="height:420px"></div></div>
     </div>
 
     <div class="row">
       <div class="col-md-8">
         <div class="row">
-          <div class="col-md-12 p-0"><div id="dragAndDrop_1" class="color1-outline size2 m-1"></div></div>
+          <div class="col-md-12 p-0"><div id="dragAndDrop-1" class="color1-outline size2 m-1"></div></div>
         </div>
       </div>
       <div class="col-md-4">
         <div class="row">
-          <div class="col-md-12 p-0"><div id="text-3" class="color1-outline m-1"></div></div>
+          <div class="col-md-12 p-0"><div id="hotspot-2" class="color1-outline m-1"></div></div>
         </div>
         <div class="row">
-          <div class="col-md-12 p-0"><div class="color3 m-1"></div></div>
+          <div class="col-md-12 p-0"><div id="text-4" class="color1-outline m-1"></div></div>
         </div>
       </div>
     </div>
 
-    <div class="row margin-below">
-      <div class="col-md-12 p-0"><div id="text-4" class="color1-outline m-1"></div></div>
+    <div class="row margin">
+      <div class="col-md-6 p-0"><div id="hotspot-1" style="height:420px" class="color1-outline m-1"></div></div>
+
+      <div class="col-md-6 p-0"><div id="flipCard-2" class="color1-outline m-1" style="height:420px"></div></div>
     </div>
     ]]>
   </layout>
 
   <components>
-    <text id="text-1"><![CDATA[<p>velit ut tortor pretium viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare suspendisse sed nisi lacus sed viverra tellus in hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras tincidunt lobortis feugiat vivamus at augue eget arcu dictum varius duis at consectetur lorem donec massa sapien faucibus et molestie ac feugiat sed lectus vestibulum mattis ullamcorper velit</p>]]></text>
+    <text id="text-1">
+      <![CDATA[<p>velit ut tortor pretium viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare suspendisse sed nisi lacus sed viverra tellus in hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras tincidunt lobortis feugiat vivamus at augue eget arcu </p>]]>
+    </text>
 
-    <text id="text-2"><![CDATA[<p>tincidunt lobortis feugiat vivamus at augue eget arcu dictum varius duis at consectetur lorem donec massa sapien faucibus et molestie ac feugiat sed lectus vestibulum mattis ullamcorper velit sed ullamcorper morbi tincidunt</p>]]></text>
+    <text id="text-2">
+      <![CDATA[<p>tincidunt lobortis feugiat vivamus at augue eget arcu dictum varius duis at consectetur lorem donec massa sapien faucibus et molestie ac feugiat sed lectus vestibulum mattis ullamcorper velit sed ullamcorper morbi tincidunt</p>]]>
+    </text>
 
+    <text id="text-3">
+      <![CDATA[<p>vitae semper quis lectus nulla at volutpat diam ut venenatis tellus in metus vulputate eu scelerisque felis imperdiet proin fermentum leo vel orci porta non pulvinar neque laoreet suspendisse interdum consectetur</p>]]>
+    </text>
 
-    <text id="text-3"><![CDATA[<p>vitae semper quis lectus nulla at volutpat diam ut venenatis tellus in metus vulputate eu scelerisque felis imperdiet proin fermentum leo vel orci porta non pulvinar neque laoreet suspendisse interdum consectetur</p>]]></text>
+    <text id="text-4">
+      <![CDATA[<p>velit ut tortor pretium viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare suspendisse sed nisi lacus sed viverra tellus in hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras tincidunt lobortis feugiat vivamus at augue eget arcu habitasse platea dictumst </p>]]>
+    </text>
 
-
-    <text id="text-4"><![CDATA[<p>vitae semper quis lectus nulla at volutpat diam ut venenatis tellus in metus vulputate eu scelerisque felis imperdiet proin fermentum leo vel orci porta non pulvinar neque laoreet suspendisse interdum consectetur libero id faucibus nisl tincidunt eget nullam non nisi est sit amet facilisis magna etiam tempor orci eu lobortis elementum nibh tellus molestie nunc non blandit massa enim nec dui nunc mattis enim ut tellus elementum sagittis vitae et leo duis ut diam quam nulla porttitor massa id neque aliquam vestibulum morbi blandit cursus risus at ultrices mi tempus onsectetur libero id faucibus nisl tincidunt eget nullam non nisi est sit amet facilisis magna etiam tempor orci eu lobortis elementum nibh tellus molestie nunc non blandit massa enim nec dui nunc mattis enim ut tellus elementum sa libero id faucibus nisl tincidunt eget nu]]></text>
-
-    <dragAndDrop id="dragAndDrop_1">
+    <dragAndDrop id="dragAndDrop-1">
       <completion gated="false">
         <minimumScore>30</minimumScore>
       </completion>
@@ -97,5 +106,158 @@
         </pair>
       </matchings>
     </dragAndDrop>
+
+    <dragAndDrop id="dragAndDrop-2">
+      <completion gated="false">
+        <minimumScore>30</minimumScore>
+      </completion>
+
+      <matchings>
+        <pair>
+          <drag>Grand Canyon</drag>
+          <drop>Arizona</drop>
+        </pair>
+        <pair>
+          <drag>Statue of Liberty</drag>
+          <drop>New York</drop>
+        </pair>
+        <pair>
+          <drag>Willis Tower</drag>
+          <drop>Chicago</drop>
+        </pair>
+      </matchings>
+    </dragAndDrop>
+
+    <flipCard id="flipCard-1" class="col-md-3 col-sm-6" hasButton="true">
+      <card>
+        <front><![CDATA[<h4>Nullam Nisi</h4>]]></front>
+        <back><![CDATA[<p>Curabitur accumsan, orci mostie cond aliquam, eros eros elementum ex.
+          <br>
+          <br>
+          Pellentesque id arcu sed est vulputate consequat nec id dolor.</p>]]></back>
+      </card>
+
+      <card>
+        <front><![CDATA[<h4>Curabitur</h4>]]></front>
+        <back><![CDATA[<p>Fermentum et venenatis in, vulputate sit amet diam
+        <br>
+        <br>
+        Ut a tortor turpis. Aliquam quis enim at metus commodo hendrerit sit amet eu nisi.</p>]]></back>
+      </card>
+
+      <card>
+        <front><![CDATA[<h4>Diam Fames</h4>]]></front>
+        <back><![CDATA[<p>Cras id diam dolor. Suspendisse in mi in turpis fringilla rhoncus. Curabitur ultricies condimentum est, vitae ultrices.
+        <br>
+        <br>
+        Morbi quis malesuada elit. Ut tristique dolor non rutrum bibendum. Sed eleifend.</p>]]></back>
+      </card>
+
+      <card>
+        <front><![CDATA[<h4>Sed Magna</h4>]]></front>
+        <back><![CDATA[<p>Nullam nec nisl risus. Morbi in ex quis enim bibendum varius.
+        <br>
+        <br>
+        Pellentesque habitant morbi tristique senectus.</p>]]></back>
+      </card>
+    </flipCard>
+
+    <flipCard id="flipCard-2" class="col-md-6 col-sm-6" hasButton="true">
+      <card>
+        <front><![CDATA[<h4>Nullam Nisi</h4>]]></front>
+        <back><![CDATA[<p>Curabitur accumsan, orci mostie cond aliquam, eros eros elementum ex.
+          <br>
+          <br>
+          Pellentesque id arcu sed est vulputate consequat nec id dolor.</p>]]></back>
+      </card>
+
+      <card>
+        <front><![CDATA[<h4>Curabitur</h4>]]></front>
+        <back><![CDATA[<p>Fermentum et venenatis in, vulputate sit amet diam
+        <br>
+        <br>
+        Ut a tortor turpis. Aliquam quis enim at metus commodo hendrerit sit amet eu nisi.</p>]]></back>
+      </card>
+    </flipCard>
+
+    <hotspot id="hotspot-1">
+      <img><![CDATA[dir/media/img/assets/City-Map.jpg]]></img>
+      <spot>
+        <label><![CDATA[1]]></label>
+        <popup>
+          <![CDATA[
+          <ul>
+            <li>Vix debitis lucilius ut, quo id porro timeam honestatis.</li>
+            <li>Vim exerci mandamus cu, sonet molestiae cu pri.</li>
+            <li>Fuisset instructior vel ne, ubique malorum legendos sit et.</li>
+          </ul>]]>
+        </popup>
+      </spot>
+
+      <spot>
+        <label><![CDATA[2]]></label>
+        <popup>
+          <![CDATA[
+          <ul>
+            <li>At eum detracto maluisset elaboraret, nec putent appareat in.</li>
+            <li>Elit ubique sensibus nec in.</li>
+            <li>Sea ad cibo illud, mea ex mutat perpetua.</li>
+          </ul>]]>
+        </popup>
+      </spot>
+
+      <spot>
+        <label><![CDATA[3]]></label>
+        <popup>
+          <![CDATA[
+          <ul>
+            <li>Vim duis consul nemore eu, ad libris molestie principes sed.</li>
+            <li>Id verear volumus recteque eam.</li>
+            <li> Omnium nostrud tacimates sea eu, ius ad fabulas pertinacia, fastidii quaerendum mea ex.</li>
+          </ul>]]>
+        </popup>
+      </spot>
+    </hotspot>
+
+    <hotspot id="hotspot-2">
+      <img><![CDATA[dir/media/img/assets/City-Map.jpg]]></img>
+      <spot>
+        <label><![CDATA[1]]></label>
+        <popup>
+          <![CDATA[
+          <ul>
+            <li>Vix</li>
+            <li>Vim</li>
+            <li>Fuisset</li>
+          </ul>]]>
+        </popup>
+      </spot>
+
+      <spot>
+        <label><![CDATA[2]]></label>
+        <popup>
+          <![CDATA[
+          <ul>
+            <li>At eum</li>
+            <li>Elit u</li>
+            <li>Sea ad.</li>
+          </ul>]]>
+        </popup>
+      </spot>
+
+      <spot>
+        <label><![CDATA[3]]></label>
+        <popup>
+          <![CDATA[
+          <ul>
+            <li>Vim duis </li>
+            <li>Id verear</li>
+            <li> Omnium </li>
+          </ul>]]>
+        </popup>
+      </spot>
+    </hotspot>
+
   </components>
+
 </page>

@@ -1,11 +1,15 @@
 //INITIALIZE AND RENDER CARDS
-function initCards(flipCardContentXML) {
+function initCards(flipCardContentXML, elementID) {
   if(localStorage === "undefined") {
     location.reload();
   }
 
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
-  var currentFlipCardComponent = $(flipCardContentXML).find("cards");
+
+  var currentFlipCardComponent = $(flipCardContentXML).find('flipCard[id="'+elementID+'"]');
+  if(currentFlipCardComponent.length == 0){
+    var currentFlipCardComponent = $(flipCardContentXML).find('flipCard');
+  }
   var currentID = $(currentFlipCardComponent).attr("id")
 
   if(courseData.flipCardData.flipCards != null){
@@ -13,7 +17,7 @@ function initCards(flipCardContentXML) {
       if(courseData.flipCardData.flipCards[i].id == currentID){
         var id = getFlipCardIndex(currentID);
         console.log("FlipCard Loaded Previously");
-        setupFlipCards(id);
+        setupFlipCards(id, elementID);
         return;
       }
     }
@@ -62,10 +66,10 @@ function initCards(flipCardContentXML) {
   courseData.flipCardData.flipCards.push(flipCard);
   localStorage.setItem(LOCAL_COURSE_DATA_ID,  JSON.stringify(courseData));
   var id = getFlipCardIndex(currentID);
-  setupFlipCards(id);
+  setupFlipCards(id, elementID);
 }
 
-function setupFlipCards(id){
+function setupFlipCards(id, elementID){
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
   var cardNum = courseData.flipCardData.flipCards[id].cards.length;
 
@@ -93,7 +97,13 @@ function setupFlipCards(id){
   }
 
   html += '</div>';
-  $('#pageContent').append(html);
+  if(elementID != null){
+    $("#"+elementID).empty();
+    $("#"+elementID).html(html);
+  }
+  else{
+    $('#pageContent').append(html);
+  }
 
 
   CSSPlugin.defaultTransformPerspective = 1000;

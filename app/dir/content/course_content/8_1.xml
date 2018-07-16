@@ -19,7 +19,7 @@
     </div>]]>
   </layout>
 
-  <hotspot id="1">
+  <hotspot id="hotspot-old">
     <completion gated="true">
       <gate>
         <chapter>6</chapter>

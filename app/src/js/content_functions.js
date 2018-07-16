@@ -394,6 +394,15 @@ function loadContent(param){
       initDragDrops(xml, dragAndDropID);
     });
 
+    $(components).find("flipCard").each(function() {
+      var flipCardID = $(this).attr("id");
+      initCards(xml, flipCardID);
+    });
+
+    $(components).find("hotspot").each(function() {
+      var hotspotID = $(this).attr("id");
+      initHotspot(xml, hotspotID);
+    });
 
     var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
     if($(xml).find("title").find("pagination").text() == "true"){

@@ -1,11 +1,14 @@
 //INITIALIZE AND RENDER DRAG AND DROP
-function initHotspot(hotspotContentXML) {
+function initHotspot(hotspotContentXML, elementID) {
   if(localStorage === "undefined") {
     location.reload();
   }
 
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
-  var currentHotspot = $(hotspotContentXML).find("hotspot");
+  var currentHotspot = $(hotspotContentXML).find('hotspot[id="'+elementID+'"]');
+  if(currentHotspot.length == 0){
+    currentHotspot = $(hotspotContentXML).find('hotspot');
+  }
   var currentID = $(currentHotspot).attr("id");
 
   if(courseData.hotspotData.hotspots != null){
@@ -13,7 +16,7 @@ function initHotspot(hotspotContentXML) {
       if(courseData.hotspotData.hotspots[i].id == currentID){
         var id = getHotspotIndex(currentID);
         console.log("Hotspot Loaded Previously");
-        setupHotSpot(id);
+        setupHotSpot(id,elementID);
         return;
       }
     }
@@ -61,12 +64,11 @@ function initHotspot(hotspotContentXML) {
 
   localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(courseData));
   var id = getHotspotIndex(currentID);
-  setupHotSpot(id);
+  setupHotSpot(id,elementID);
 }
 
 
-function setupHotSpot(id){
-
+function setupHotSpot(id, elementID){
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
 
   var img = courseData.hotspotData.hotspots[id].img;
@@ -80,7 +82,13 @@ function setupHotSpot(id){
   html += '<div class="hotSpot-popup"></div></div></div>';
 
 
-  $("#pageContent").append(html);
+  if(elementID != null){
+    $("#"+elementID).empty();
+    $("#"+elementID).html(html);
+  }
+  else{
+    $('#pageContent').append(html);
+  }
 
   var popup_1 = "<ul><li>Ask your Sales Manager about recommended routes.</li><li>Include a variety of speed zones. Make sure there are stretches that allow the customer to drive more than 45 mph.</li><li>Alternate your route as needed.</li></ul>";
 
@@ -89,7 +97,7 @@ function setupHotSpot(id){
   var popup_3 = "<ul><li>Know your drive.</li><li>Shadow a live demo drive with an experienced consultant and a customer.</li><li>Play the role of a customer and let an experienced consultant show you how he or she conducts a demo drive.</li></ul>";
 
 
-  $('#hotSpot .hotSpot-spot').click(function(){
+  $('#' + elementID + ' .hotSpot-spot').click(function(){
 
     var spotID = $(this).attr("id").substr($(this).attr("id").length - 1);
     var popupHTML = courseData.hotspotData.hotspots[id].spots[spotID].popup;
@@ -99,12 +107,12 @@ function setupHotSpot(id){
       courseData.hotspotData.hotspots[id].score += 1;
     }
 
-    $('#hotSpot .hotSpot-popup').empty();
-    $('#hotSpot .hotSpot-popup').append('<a class="hotSpot-close">x</a>' + popupHTML);
-    $('#hotSpot .hotSpot-popup').css('display','block');
+    $('#' + elementID + ' .hotSpot-popup').empty();
+    $('#' + elementID + ' .hotSpot-popup').append('<a class="hotSpot-close">x</a>' + popupHTML);
+    $('#' + elementID + ' .hotSpot-popup').css('display','block');
 
-    $('#hotSpot .hotSpot-popup .hotSpot-close').click(function(){
-      $('#hotSpot .hotSpot-popup').css('display','none');
+    $('#' + elementID + ' .hotSpot-popup .hotSpot-close').click(function(){
+      $('#' + elementID + ' .hotSpot-popup').css('display','none');
     });
 
     if(courseData.hotspotData.hotspots[id].score >= courseData.hotspotData.hotspots[id].spots.length){

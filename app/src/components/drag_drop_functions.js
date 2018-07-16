@@ -5,7 +5,10 @@ function initDragDrops(dragDropContentXML, elementID) {
   }
 
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
-  var currentDragDrop = $(dragDropContentXML).find("dragAndDrop");
+  var currentDragDrop = $(dragDropContentXML).find('dragAndDrop[id="'+elementID+'"]');
+  if(currentDragDrop.length == 0){
+    currentDragDrop = $(dragDropContentXML).find('dragAndDrop');
+  }
   var currentID = $(currentDragDrop).attr("id")
 
   if(courseData.dragDropData.dragDrops != null){
@@ -62,8 +65,10 @@ function initDragDrops(dragDropContentXML, elementID) {
 }
 
 function setupDragDrop(id, elementID){
-  $('#dragAndDrop').remove();
-
+  if(elementID == null){
+    $('#dragAndDrop').remove();
+  }
+  $('#'+elementID).empty();
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
   var dragDropData = courseData.dragDropData.dragDrops[id];
 
@@ -71,10 +76,10 @@ function setupDragDrop(id, elementID){
   var rightContainerHtml = '<div class="col-6 right">';
 
   for(var i = 0; i < dragDropData.matchings.length; i++){
-    var holderID = 'holder' + i;
-    var draggableID = 'p' + i;
+    var holderID = elementID+'_holder' + i;
+    var draggableID = elementID+'_p' + i;
     var draggableText = dragDropData.matchings[i].drag;
-    var droppableID = 't' + i;
+    var droppableID = elementID+'_t' + i;
     var droppableText = dragDropData.matchings[i].drop;
 
     var draggable = '<div class="item-container holder" id="'+ holderID +'" ondrop="drop_handler(event);" ondragover="dragover_handler(event);"><p class="draggable" id="'+ draggableID +'" draggable="true" ondragstart="dragstart_handler(event);" >'+ draggableText +'</p></div>';
@@ -123,12 +128,12 @@ function setupDragDrop(id, elementID){
 
     }
   })
-  shuffleDrags();
-  shuffleDrops();
+  shuffleDrags(elementID);
+  shuffleDrops(elementID);
 }
 
-function shuffleDrags(){
-  var draggables = $('.left').children();
+function shuffleDrags(elementID){
+  var draggables = $("#"+elementID + ' .left').children();
   var j, x;
   for (var i = draggables.length - 1; i > 0; i--) {
     j = Math.floor(Math.random() * (i + 1));
@@ -137,16 +142,16 @@ function shuffleDrags(){
     draggables[j] = x;
   }
 
-  $('.left').empty();
+  $("#"+elementID + ' .left').empty();
 
   for(var i = 0; i < draggables.length; i++){
-    $('.left').append(draggables[i]);
+    $("#"+elementID + ' .left').append(draggables[i]);
   }
   return;
 }
 
-function shuffleDrops(){
-  var droppables = $('.right').children();
+function shuffleDrops(elementID){
+  var droppables = $("#"+elementID + ' .right').children();
 
   var j, x;
   for (var i = droppables.length - 1; i > 0; i--) {
@@ -156,10 +161,10 @@ function shuffleDrops(){
     droppables[j] = x;
   }
 
-  $('.right').empty();
+  $("#"+elementID + ' .right').empty();
 
   for(var i = 0; i < droppables.length; i++){
-    $('.right').append(droppables[i]);
+    $("#"+elementID + ' .right').append(droppables[i]);
   }
   return;
 }
@@ -170,13 +175,13 @@ function submitDragDrop(id, elementID){
   var minScore = parseInt(courseData.dragDropData.dragDrops[id].completion.minimumScore);
 
 
-  var answers = $('#dragAndDrop .right').children();
+  var answers = $("#"+elementID + ' .right').children();
   for(var i = 0; i < answers.length; i++){
     var answerID = answers[i].id;
 
 
     if($('#'+answerID).find('p')[0] == null){
-      $('#dragAndDrop .feedback').html('Finish dragging items to their correct location.<a class="btn btn-reversed btn-restart">Restart</a><a class="btn btn-default-main btn-submit">Submit</a>')
+      $("#"+elementID + ' .feedback').html('Finish dragging items to their correct location.<a class="btn btn-reversed btn-restart">Restart</a><a class="btn btn-default-main btn-submit">Submit</a>')
 
       $(".btn-restart").click(function(){
         setupDragDrop(id, elementID);
@@ -191,8 +196,10 @@ function submitDragDrop(id, elementID){
   for(var i = 0; i < answers.length; i++){
     var answerID = answers[i].id;
     var matchID = $('#'+answerID).find('p')[0].id;
+    var answerTemp = answerID.substr(answerID.indexOf("_") + 2);
+    var matchTemp = matchID.substr(matchID.indexOf("_") + 2);
 
-    if(answerID.charAt(1) == matchID.charAt(1)){
+    if(answerTemp == matchTemp){
       $('#'+matchID).addClass('correct');
       score += 10;
     }
@@ -234,8 +241,8 @@ function submitDragDrop(id, elementID){
   gameFeedback += " <span> Total Score: +"+score+" points</span.>";
 
 
-  $('#dragAndDrop .feedback').html(gameFeedback+'<a class="btn btn-restart btn-reversed ">Restart</a><a  class="btn btn-default-main btn-submit">Submit</a>');
-  $('#dragAndDrop .feedback').after('');
+  $("#"+elementID + ' .feedback').html(gameFeedback+'<a class="btn btn-restart btn-reversed ">Restart</a><a  class="btn btn-default-main btn-submit">Submit</a>');
+  $("#"+elementID + ' .feedback').after('');
   $(".btn-restart").click(function(){
     setupDragDrop(id, elementID);
   });
@@ -298,16 +305,14 @@ function drop_handler(ev) {
   var dragId = "#"+dragVal;
   var dropId = "#"+dropVal;
 
-  if(dropVal.charAt(0) == 'p'){
+  var tempVal = dropVal.substr(dropVal.indexOf("_") + 1);
+
+  if(tempVal.charAt(0) == 'p'){
     var tempDropId = dropId;
     dropId = '#'+$(dropId).parent('.item-container').attr('id');
 
     var index = $(tempDropId).parent('.item-container').index();
-
-
     $(dragId).parent('.item-container').append($(tempDropId));
-
-
   }
 
   $(dropId).append($(dragId));
