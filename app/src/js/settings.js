@@ -105,11 +105,11 @@ function populateStorage(json, tempStorage) {
   }
 
   if(json.settings.hasThumbnails === "true") {
-    if(tempStorage === null || tempStorage.thumbnailsData === undefined) {
-      courseStorageObj.thumbnailsData = {};
+    if(tempStorage === null || tempStorage.thumbnailData === undefined) {
+      courseStorageObj.thumbnailData = {};
 
     } else {
-      courseStorageObj.thumbnailsData = tempStorage.thumbnailsData;
+      courseStorageObj.thumbnailData = tempStorage.thumbnailData;
     }
   }
 

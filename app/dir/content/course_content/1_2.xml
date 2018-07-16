@@ -17,6 +17,11 @@
     </div>
 
     <div class="row">
+      <div class="col-md-3 p-0"><div id="thumbnail-2" class="color1-outline m-1"></div></div>
+      <div class="col-md-9 p-0"><div id="text-4" class="color1-outline m-1"></div></div>
+    </div>
+
+    <div class="row">
       <div class="col-md-4 p-0"><div id="text-1" class="color1-outline m-1"></div></div>
       <div class="col-md-8 p-0"><div id="dragAndDrop-2" class="color1-outline m-1"></div></div>
     </div>
@@ -47,7 +52,7 @@
       <div class="col-md-6 p-0"><div id="flipCard-2" class="color1-outline m-1" style="height:420px"></div></div>
     </div>
 
-    <div class="row margin-below">
+    <div class="row">
       <div class="col-md-4">
         <div class="col-md-12 p-0"><div id="knowledgeCheck-2" class="color1-outline m-1 size2"></div></div>
       </div>
@@ -56,6 +61,10 @@
           <div class="col-md-12 p-0"><div id="knowledgeCheck-1" class="color1-outline size2 m-1"></div></div>
         </div>
       </div>
+    </div>
+
+    <div class="row margin-below">
+      <div class="col-md-12 p-0"><div style="height: 350px" id="thumbnail-1" class="color1-outline m-1"></div></div>
     </div>
     ]]>
   </layout>
@@ -71,6 +80,10 @@
 
     <text id="text-3">
       <![CDATA[<p>velit ut tortor pretium viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare suspendisse sed nisi lacus sed viverra tellus in hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras tincidunt lobortis feugiat vivamus at augue eget arcu habitasse platea dictumst </p>]]>
+    </text>
+
+    <text id="text-4">
+      <![CDATA[<p>vSed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui?</p>]]>
     </text>
 
     <dragAndDrop id="dragAndDrop-1">
@@ -308,6 +321,45 @@
         </answers>
       </question>
     </knowledgeCheck>
+
+    <thumbnails id="thumbnail-1">
+      <thumbnail>
+        <img><![CDATA[dir/media/img/assets/3_5.jpg]]></img>
+        <url><![CDATA[https://www.gpstrategies.com/]]></url>
+        <heading><![CDATA[Maecenas]]></heading>
+        <caption><![CDATA[Maecenas venenatis magna, vel pellentesque <span class="link-look">enim scelerisque</span>  erat ultricies. Quisque fringilla, nulla sed ornare tincidunt, neque velit finibus.]]></caption>
+      </thumbnail>
+
+      <thumbnail>
+        <img><![CDATA[dir/media/img/assets/3_6.jpg]]></img>
+        <url><![CDATA[https://www.gpstrategies.com/]]></url>
+        <heading><![CDATA[LNulla Oranre]]></heading>
+        <caption><![CDATA[Maecenas venenatis magna, vel pellentesque <span class="link-look">enim scelerisque</span>  erat ultricies. Quisque fringilla, nulla sed ornare tincidunt, neque velit finibus.]]></caption>
+      </thumbnail>
+
+      <thumbnail>
+        <img><![CDATA[dir/media/img/assets/3_7.jpg]]></img>
+        <url><![CDATA[https://www.gpstrategies.com/]]></url>
+        <heading><![CDATA[Fringilla]]></heading>
+        <caption><![CDATA[<span class="link-look">Aliquam quis</span> enim at metus commodo hendrerit sit amet eu nisi. Proin sagittis euismod risus vel fringilla. Suspendisse non leo ut erat euismod.]]></caption>
+      </thumbnail>
+
+      <thumbnail>
+        <img><![CDATA[dir/media/img/assets/3_8.jpg]]></img>
+        <url><![CDATA[https://www.gpstrategies.com/]]></url>
+        <heading><![CDATA[Arcus Sed]]></heading>
+        <caption><![CDATA[Curabitur accumsan, orci molestie <span class="link-look">condimentum aliquamenim</span> , eros eros elementum ex, in commodo lacus lorem ac nisl. Pellentesque id arcu sed est vulputate.]]></caption>
+      </thumbnail>
+    </thumbnails>
+
+    <thumbnails id="thumbnail-2">
+      <thumbnail>
+        <img><![CDATA[dir/media/img/assets/3_6.jpg]]></img>
+        <url><![CDATA[https://www.gpstrategies.com/]]></url>
+        <heading><![CDATA[Maecenas]]></heading>
+        <caption><![CDATA[Quisque fringilla, nulla sed ornare tincidunt, neque velit finibus.]]></caption>
+      </thumbnail>
+    </thumbnails>
   </components>
 
 </page>

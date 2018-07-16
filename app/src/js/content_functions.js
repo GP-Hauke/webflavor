@@ -342,7 +342,7 @@ function loadContent(param){
     }
 
 
-    var completion = $(xml).find("content").attr("completion");
+    var completion = $(xml).find("layout").attr("completion");
     if(completion){
       $('#pageContainer').addClass("completion");
     }
@@ -402,6 +402,11 @@ function loadContent(param){
     $(components).find("hotspot").each(function() {
       var hotspotID = $(this).attr("id");
       initHotspot(xml, hotspotID);
+    });
+
+    $(components).find("thumbnails").each(function() {
+      var thumbnailID = $(this).attr("id");
+      initThumbnails(xml, thumbnailID);
     });
 
     $(components).find("knowledgeCheck").each(function() {
