@@ -17,6 +17,10 @@
   }
 }
 
+#dragAndDrop .row{
+  width: 100%;
+}
+
 #dragAndDrop .item-container{
   height: 50px;
   background: #f7f7f7;
@@ -73,10 +77,7 @@
 }
 
 #dragAndDrop .btn-row{
-  float: right;
-  margin-right: 1;
-  margin-top: 20px;
-  margin-right: -10px;
+
 }
 
 #dragAndDrop .btn-default-main{
@@ -103,8 +104,34 @@
 
 #dragAndDrop .feedback{
   font-size: 24px;
+  float: right;
+  margin-right: 3%;
 }
 
 #dragAndDrop .feedback span{
   font-weight: 600;
+}
+
+@media (max-width: 900px) {
+  #dragAndDrop .item-container p{
+    font-size: 16px;
+  }
+
+  #dragAndDrop .item-container{
+    font-size: 16px;
+  }
+
+  #dragAndDrop .feedback{
+    font-size: 18px;
+  }
+
+  #dragAndDrop .btn-default-main{
+    font-size: 20px;
+    padding: 5px;
+  }
+
+  #dragAndDrop .btn-reversed{
+    font-size: 20px;
+    padding: 5px;
+  }
 }

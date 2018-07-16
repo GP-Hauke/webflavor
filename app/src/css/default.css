@@ -64,11 +64,17 @@ div[class^="col"] {
   opacity: .75;
   background: #8c3f3f;
 }
-.color1-outline{
-  height: 300px;
+.outline{
   border: 1px solid maroon;
+  height: 100%;
   padding: 7px;
+  margin: 5px;
 }
+
+div[class^="col"] {
+  margin: 5px 0 5px 0;
+}
+
 .size2{
   height: 610px;;
 }

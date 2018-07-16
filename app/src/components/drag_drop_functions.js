@@ -93,9 +93,9 @@ function setupDragDrop(id, elementID){
   leftContainerHtml += '</div>';
   rightContainerHtml += '</div>';
 
-  var submitBtn = '</div><div class="row btn-row"><p class="feedback"><a class="btn btn-reversed btn-restart">Restart</a><a class="btn btn-default-main btn-submit">Submit</a></p></div>';
+  var submitBtn = '</div><p class="feedback"><a class="btn btn-reversed btn-restart">Restart</a><a class="btn btn-default-main btn-submit">Submit</a></p>';
 
-  var html = '<div id="dragAndDrop"><div class="row">' + leftContainerHtml + rightContainerHtml + submitBtn;
+  var html = '<div id="dragAndDrop" class="container"><div class="row">' + leftContainerHtml + rightContainerHtml + submitBtn;
 
   if(elementID != null){
     $("#"+elementID).empty();
@@ -125,7 +125,6 @@ function setupDragDrop(id, elementID){
       $(this).removeClass('btn-default-main');
       $(this).next().addClass('btn-default-main');
       $(this).next().removeClass('btn-reversed');
-
     }
   })
   shuffleDrags(elementID);
@@ -188,6 +187,22 @@ function submitDragDrop(id, elementID){
       });
       $(".btn-submit").click(function(){
         submitDragDrop(id, elementID);
+      });
+
+      $('#dragAndDrop .btn-reversed').on({
+        mouseenter: function () {
+          $(this).removeClass('btn-reversed');
+          $(this).addClass('btn-default-main');
+          $(this).next().removeClass('btn-default-main');
+          $(this).next().addClass('btn-reversed');
+
+        },
+        mouseleave: function () {
+          $(this).addClass('btn-reversed');
+          $(this).removeClass('btn-default-main');
+          $(this).next().addClass('btn-default-main');
+          $(this).next().removeClass('btn-reversed');
+        }
       });
       return;
     }

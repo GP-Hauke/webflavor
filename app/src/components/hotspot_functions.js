@@ -72,14 +72,14 @@ function setupHotSpot(id, elementID){
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
 
   var img = courseData.hotspotData.hotspots[id].img;
-  var html ='<div class="row"><div class="col-md-12"><div id="hotSpot"><img class="hotSpot-img" src="'+img+'">';
+  var html ='<div id="hotSpot"><img class="hotSpot-img" src="'+img+'">';
 
   for(var i = 0; i < courseData.hotspotData.hotspots[id].spots.length; i++){
     var label = courseData.hotspotData.hotspots[id].spots[i].label;
     html += '<div id="spot-'+i+'" class="hotSpot-spot circle-'+label+'">'+label+'</div>';
   }
 
-  html += '<div class="hotSpot-popup"></div></div></div>';
+  html += '<div class="hotSpot-popup"></div>';
 
 
   if(elementID != null){
