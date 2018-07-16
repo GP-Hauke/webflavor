@@ -36,15 +36,26 @@
           <div class="col-md-12 p-0"><div id="hotspot-2" class="color1-outline m-1"></div></div>
         </div>
         <div class="row">
-          <div class="col-md-12 p-0"><div id="text-4" class="color1-outline m-1"></div></div>
+          <div class="col-md-12 p-0"><div id="text-2" class="color1-outline m-1"></div></div>
         </div>
       </div>
     </div>
 
-    <div class="row margin">
+    <div class="row">
       <div class="col-md-6 p-0"><div id="hotspot-1" style="height:420px" class="color1-outline m-1"></div></div>
 
       <div class="col-md-6 p-0"><div id="flipCard-2" class="color1-outline m-1" style="height:420px"></div></div>
+    </div>
+
+    <div class="row margin-below">
+      <div class="col-md-4">
+        <div class="col-md-12 p-0"><div id="knowledgeCheck-2" class="color1-outline m-1 size2"></div></div>
+      </div>
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-md-12 p-0"><div id="knowledgeCheck-1" class="color1-outline size2 m-1"></div></div>
+        </div>
+      </div>
     </div>
     ]]>
   </layout>
@@ -55,14 +66,10 @@
     </text>
 
     <text id="text-2">
-      <![CDATA[<p>tincidunt lobortis feugiat vivamus at augue eget arcu dictum varius duis at consectetur lorem donec massa sapien faucibus et molestie ac feugiat sed lectus vestibulum mattis ullamcorper velit sed ullamcorper morbi tincidunt</p>]]>
+      <![CDATA[<p>velit ut tortor pretium viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare suspendisse sed nisi lacus sed viverra tellus in hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras tincidunt lobortis feugiat vivamus at augue eget arcu habitasse platea dictumst </p>]]>
     </text>
 
     <text id="text-3">
-      <![CDATA[<p>vitae semper quis lectus nulla at volutpat diam ut venenatis tellus in metus vulputate eu scelerisque felis imperdiet proin fermentum leo vel orci porta non pulvinar neque laoreet suspendisse interdum consectetur</p>]]>
-    </text>
-
-    <text id="text-4">
       <![CDATA[<p>velit ut tortor pretium viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare suspendisse sed nisi lacus sed viverra tellus in hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras tincidunt lobortis feugiat vivamus at augue eget arcu habitasse platea dictumst </p>]]>
     </text>
 
@@ -258,6 +265,49 @@
       </spot>
     </hotspot>
 
+    <knowledgeCheck id="knowledgeCheck-1" scored="true" title="Review II">
+      <question>
+        <body>The question body goes in this element. What answer is right?</body>
+        <answers>
+          <answer>A</answer>
+          <answer>L</answer>
+          <answer correct="true">RIGHT ANSWER</answer>
+          <answer>K</answer>
+        </answers>
+      </question>
+
+      <question>
+        <body>The question body goes in this element. What answer is right?</body>
+        <answers>
+          <answer correct="true">RIGHT ANSWER</answer>
+          <answer>Y</answer>
+          <answer>T</answer>
+          <answer>S</answer>
+        </answers>
+      </question>
+    </knowledgeCheck>
+
+    <knowledgeCheck id="knowledgeCheck-2" scored="true" title="Review I">
+      <question>
+        <body>What answer is right?</body>
+        <answers>
+          <answer>A</answer>
+          <answer>L</answer>
+          <answer correct="true">RIGHT ANSWER</answer>
+          <answer>K</answer>
+        </answers>
+      </question>
+
+      <question>
+        <body>What answer is right?</body>
+        <answers>
+          <answer>P</answer>
+          <answer correct="true">RIGHT ANSWER</answer>
+          <answer>K</answer>
+          <answer>V</answer>
+        </answers>
+      </question>
+    </knowledgeCheck>
   </components>
 
 </page>
