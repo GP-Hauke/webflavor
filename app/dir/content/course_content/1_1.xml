@@ -13,39 +13,60 @@
   <layout>
     <![CDATA[
     <div class="row">
-      <div class="col-md-12"><p>The WebFlavor HTML Template uses Bootstrap Grid for layout. To place ineractives, text and other components in the correct place within a specific page, the Grid must be used. The following is a blank grid template showing the mixed columns/rows that it can produce for a course.</p></div>
+      <div class="col-md-12"><p>After the grid is created, components can be inserted into their appropriate places on the grid layout. The first Component is the Text-Component.</p></div>
     </div>
 
     <div class="row">
-      <div class="col-md-5 p-0"><div class="color1 m-1"></div></div>
-      <div class="col-md-3 p-0"><div class="color2 m-1"></div></div>
-      <div class="col-md-4 p-0"><div class="color3 m-1"></div></div>
+      <div class="col-6 col-md-3 p-0"><div class="color1 m-1"></div></div>
+      <div class="col-6 col-md-9 p-0"><div class="color2 m-1"></div></div>
     </div>
 
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-6 col-md-4 p-0"><div class="color3 m-1"></div></div>
+      <div class="col-6 col-md-8 p-0"><div class="color4 m-1"></div></div>
+    </div>
+
+    <div class="row margin">
+      <div class="col-12 col-md-12 p-0"><div class="color5 m-1" style="height:420px"></div></div>
+    </div>
+
+    <div class="row">
+      <div class="col-12 col-md-8">
         <div class="row">
-          <div class="col-md-12 p-0"><div class="color5 size2 m-1"></div></div>
+          <div class="col-md-12 p-0"><div class="color1 size2 m-1"></div></div>
         </div>
       </div>
-      <div class="col-md-6">
+      <div class="col-12 col-md-4">
         <div class="row">
-          <div class="col-md-6 p-0"><div class="color4 m-1"></div></div>
-          <div class="col-md-6 p-0"><div class="color2 m-1"></div></div>
+
+          <div class="col-6 col-md-12 p-0"><div class="color2 m-1"></div></div>
+          <div class="col-6 col-md-12 p-0"><div class="color3 m-1"></div></div>
         </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12 col-md-6 p-0"><div style="height:420px" class="color4 m-1"></div></div>
+
+      <div class="col-12 col-md-6 p-0"><div class="color5 m-1" style="height:420px"></div></div>
+    </div>
+
+    <div class="row">
+      <div class="col-12 col-md-4">
         <div class="row">
-          <div class="col-md-6 p-0"><div class="color2 m-1"></div></div>
-          <div class="col-md-6 p-0"><div class="color4 m-1"></div></div>
+          <div class="col-md-12 p-0"><div class="color1 m-1 size2"></div></div>
+        </div>
+      </div>
+      <div class="col-12 col-md-8">
+        <div class="row">
+          <div class="col-md-12 p-0"><div class="color2 size2 m-1"></div></div>
         </div>
       </div>
     </div>
 
     <div class="row margin-below">
-      <div class="col-md-12 p-0"><div class="color3 m-1"></div></div>
+      <div class="col-12 col-md-12 p-0"><div class="color3 m-1"></div></div>
     </div>
     ]]>
   </layout>
-
-
-
 </page>

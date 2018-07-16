@@ -9,56 +9,62 @@
     <gated locks="0">false</gated>
   </title>
 
-  <component>cards</component>
-
   <layout>
     <![CDATA[
     <div class="row">
       <div class="col-sm-12">
         <p>Flip Cards are another interactive component that can be implemented through the WebFlavor Template</p>
       </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div id="flipCard-page-1"></div>
+      </div>
     </div>]]>
   </layout>
 
-  <flipCard id="flipCard-old" class="col-md-3 col-sm-6" hasButton="true">
-    <completion gated="true">
-      <gate>
-        <chapter>4</chapter>
-        <page>1</page>
-        <lock>1</lock>
-      </gate>
-    </completion>
+  <components>
+    <flipCard id="flipCard-page-1" hasButton="true">
+      <completion gated="true">
+        <gate>
+          <chapter>4</chapter>
+          <page>1</page>
+          <lock>1</lock>
+        </gate>
+      </completion>
 
-    <card>
-      <front><![CDATA[<h4>Nullam Nisi</h4>]]></front>
-      <back><![CDATA[<p>Curabitur accumsan, orci mostie cond aliquam, eros eros elementum ex.
+      <card>
+        <front><![CDATA[<h4>Nullam Nisi</h4>]]></front>
+        <back><![CDATA[<p>Curabitur accumsan, orci mostie cond aliquam, eros eros elementum ex.
+          <br>
+          <br>
+          Pellentesque id arcu sed est vulputate consequat nec id dolor.</p>]]></back>
+      </card>
+
+      <card>
+        <front><![CDATA[<h4>Curabitur</h4>]]></front>
+        <back><![CDATA[<p>Fermentum et venenatis in, vulputate sit amet diam
         <br>
         <br>
-        Pellentesque id arcu sed est vulputate consequat nec id dolor.</p>]]></back>
-    </card>
+        Ut a tortor turpis. Aliquam quis enim at metus commodo hendrerit sit amet eu nisi.</p>]]></back>
+      </card>
 
-    <card>
-      <front><![CDATA[<h4>Curabitur</h4>]]></front>
-      <back><![CDATA[<p>Fermentum et venenatis in, vulputate sit amet diam
-      <br>
-      <br>
-      Ut a tortor turpis. Aliquam quis enim at metus commodo hendrerit sit amet eu nisi.</p>]]></back>
-    </card>
+      <card>
+        <front><![CDATA[<h4>Diam Fames</h4>]]></front>
+        <back><![CDATA[<p>Cras id diam dolor. Suspendisse in mi in turpis fringilla rhoncus. Curabitur ultricies condimentum est, vitae ultrices.
+        <br>
+        <br>
+        Morbi quis malesuada elit. Ut tristique dolor non rutrum bibendum. Sed eleifend.</p>]]></back>
+      </card>
 
-    <card>
-      <front><![CDATA[<h4>Diam Fames</h4>]]></front>
-      <back><![CDATA[<p>Cras id diam dolor. Suspendisse in mi in turpis fringilla rhoncus. Curabitur ultricies condimentum est, vitae ultrices.
-      <br>
-      <br>
-      Morbi quis malesuada elit. Ut tristique dolor non rutrum bibendum. Sed eleifend.</p>]]></back>
-    </card>
-
-    <card>
-      <front><![CDATA[<h4>Sed Magna</h4>]]></front>
-      <back><![CDATA[<p>Nullam nec nisl risus. Morbi in ex quis enim bibendum varius.
-      <br>
-      <br>
-      Pellentesque habitant morbi tristique senectus.</p>]]></back>
-    </card>
-  </flipCard>
+      <card>
+        <front><![CDATA[<h4>Sed Magna</h4>]]></front>
+        <back><![CDATA[<p>Nullam nec nisl risus. Morbi in ex quis enim bibendum varius.
+        <br>
+        <br>
+        Pellentesque habitant morbi tristique senectus.</p>]]></back>
+      </card>
+    </flipCard>
+  </components>
 </page>

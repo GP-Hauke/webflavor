@@ -9,63 +9,62 @@
     <gated locks="0">false</gated>
   </title>
 
-  <component>knowledgeCheck</component>
   <layout>
     <![CDATA[
     <div class="row">
       <div class="col-md-12">
         <p class="top-paragraph">The following is a knowledge check to test your understanding of the course so far. You must attempt the quiz before advancing.</p>
       </div>
-    </div>]]>
+    </div>
+
+    <div class="row margin-below">
+      <div class="col-md-7 mx-auto p-0"><div id="knowledgeCheck-page-1"></div></div>
+    </div>
+    ]]>
   </layout>
 
-  <knowledgeCheck id="1" scored="true" title="Review">
-    <completion gated="true">
-      <gate>
-        <chapter>7</chapter>
-        <page>1</page>
-        <lock>1</lock>
-      </gate>
-    </completion>
+  <components>
+    <knowledgeCheck id="knowledgeCheck-page-1" scored="true" title="Review I">
+      <question>
+        <body>The question body goes in this element. What answer is right?</body>
+        <answers>
+          <answer>P</answer>
+          <answer>O</answer>
+          <answer correct="true">RIGHT ANSWER</answer>
+          <answer>I</answer>
+        </answers>
+      </question>
 
-    <question>
-      <body>The question body goes in this element. What answer is right?</body>
-      <answers>
-        <answer>A</answer>
-        <answer>L</answer>
-        <answer correct="true">RIGHT ANSWER</answer>
-        <answer>K</answer>
-      </answers>
-    </question>
+      <question>
+        <body>The question body goes in this element. What answer is right?</body>
+        <answers>
+          <answer correct="true">RIGHT ANSWER</answer>
+          <answer>R</answer>
+          <answer>E</answer>
+          <answer>W</answer>
+        </answers>
+      </question>
 
-    <question>
-      <body>The question body goes in this element. What answer is right?</body>
-      <answers>
-        <answer correct="true">RIGHT ANSWER</answer>
-        <answer>Y</answer>
-        <answer>T</answer>
-        <answer>S</answer>
-      </answers>
-    </question>
+      <question>
+        <body>The question body goes in this element. What answer is right?</body>
+        <answers>
+          <answer>Q</answer>
+          <answer>A</answer>
+          <answer correct="true">RIGHT ANSWER</answer>
+          <answer>J</answer>
+        </answers>
+      </question>
 
-    <question>
-      <body>The question body goes in this element. What answer is right?</body>
-      <answers>
-        <answer>W</answer>
-        <answer correct="true">RIGHT ANSWER</answer>
-        <answer>C</answer>
-        <answer>M</answer>
-      </answers>
-    </question>
+      <question>
+        <body>The question body goes in this element. What answer is right?</body>
+        <answers>
+          <answer correct="true">RIGHT ANSWER</answer>
+          <answer>Y</answer>
+          <answer>T</answer>
+          <answer>S</answer>
+        </answers>
+      </question>
+    </knowledgeCheck>
 
-    <question>
-      <body>The question body goes in this element. What answer is right?</body>
-      <answers>
-        <answer>Q</answer>
-        <answer>A</answer>
-        <answer>O</answer>
-        <answer correct="true">RIGHT ANSWER</answer>
-      </answers>
-    </question>
-  </knowledgeCheck>
+  </components>
 </page>

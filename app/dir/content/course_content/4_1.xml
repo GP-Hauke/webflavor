@@ -9,28 +9,37 @@
     <gated locks="0">false</gated>
   </title>
 
-  <component>thumbnails</component>
   <layout>
     <![CDATA[
     <div class="row">
       <div class="col-sm-12">
         <p>The following is an example of curated content using thumbnail feature of the WebFlavor Template.</p>
       </div>
-    </div>]]>
-  </layout>
-  <thumbnails completed="false" class="col-md-6 col-sm-6">
-    <thumbnail>
-      <img><![CDATA[dir/media/img/assets/poster.jpg]]></img>
-      <url onclickFunction="true"><![CDATA[openVideoModal('dir/media/videos/animation.mp4');]]></url>
-      <heading><![CDATA[Video]]></heading>
-      <caption><![CDATA[<span class="link-look">Click here</span> to view the video in the HTML modal popup window that is a component of WebFlavor. This feature can be implemented on any element that can be clicked, and the modal will open automatically]]></caption>
-    </thumbnail>
+    </div>
 
-    <thumbnail>
-      <img><![CDATA[dir/media/img/assets/red.jpg]]></img>
-      <url onclickFunction="true"><![CDATA[openAudioModal('dir/media/audio/bruce.mp3');]]></url>
-      <heading><![CDATA[Audio]]></heading>
-      <caption><![CDATA[<span class="link-look">Click here</span> to listen to the audio in the HTML modal popup window that is a component of WebFlavor. This feature can be implemented on any element that can be clicked, and the modal will open automatically]]></caption>
-    </thumbnail>
-  </thumbnails>
+    <div class="row">
+      <div class="col-sm-12">
+        <div id="thumbnail-page-3"></div>
+      </div>
+    </div>
+    ]]>
+  </layout>
+
+  <components>
+    <thumbnails id="thumbnail-page-3">
+      <thumbnail>
+        <img><![CDATA[dir/media/img/assets/poster.jpg]]></img>
+        <url onclickFunction="true"><![CDATA[openVideoModal('dir/media/videos/animation.mp4');]]></url>
+        <heading><![CDATA[Video]]></heading>
+        <caption><![CDATA[<span class="link-look">Click here</span> to view the video in the HTML modal popup window that is a component of WebFlavor. This feature can be implemented on any element that can be clicked, and the modal will open automatically]]></caption>
+      </thumbnail>
+
+      <thumbnail>
+        <img><![CDATA[dir/media/img/assets/red.jpg]]></img>
+        <url onclickFunction="true"><![CDATA[openAudioModal('dir/media/audio/bruce.mp3');]]></url>
+        <heading><![CDATA[Audio]]></heading>
+        <caption><![CDATA[<span class="link-look">Click here</span> to listen to the audio in the HTML modal popup window that is a component of WebFlavor. This feature can be implemented on any element that can be clicked, and the modal will open automatically]]></caption>
+      </thumbnail>
+    </thumbnails>
+  </components>
 </page>

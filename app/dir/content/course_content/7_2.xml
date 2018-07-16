@@ -9,49 +9,55 @@
     <gated locks="1">false</gated>
   </title>
 
-  <component>dragAndDrop</component>
-
   <layout>
     <![CDATA[
     <div class="row">
       <div class="col-md-12">
         <p>Please Match the following cities with their states. Complete the task by dragging and dropping the items into their correct spots. Correct answers will turn green, while the wrong answers will turn red. <span class="bolded">You must attempt the game before advancing to the next page!</span> Good luck!</p>
       </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div id="dragAndDrop-page-2"></div>
+      </div>
     </div>]]>
   </layout>
 
-  <dragAndDrop id="2">
-    <completion gated="true">
-      <minimumScore>30</minimumScore>
+  <components>
+    <dragAndDrop id="dragAndDrop-page-2">
+      <completion gated="true">
+        <minimumScore>30</minimumScore>
 
-      <gate>
-        <chapter>6</chapter>
-        <page>2</page>
-        <lock>1</lock>
-      </gate>
-    </completion>
+        <gate>
+          <chapter>6</chapter>
+          <page>2</page>
+          <lock>1</lock>
+        </gate>
+      </completion>
 
-    <matchings>
-      <pair>
-        <drag>Washington DC</drag>
-        <drop>United States</drop>
-      </pair>
-      <pair>
-        <drag>Paris</drag>
-        <drop>France</drop>
-      </pair>
-      <pair>
-        <drag>Tokyo</drag>
-        <drop>Japan</drop>
-      </pair>
-      <pair>
-        <drag>London</drag>
-        <drop>England</drop>
-      </pair>
-      <pair>
-        <drag>Rio</drag>
-        <drop>Brazil</drop>
-      </pair>
-    </matchings>
-  </dragAndDrop>
+      <matchings>
+        <pair>
+          <drag>Washington DC</drag>
+          <drop>United States</drop>
+        </pair>
+        <pair>
+          <drag>Paris</drag>
+          <drop>France</drop>
+        </pair>
+        <pair>
+          <drag>Tokyo</drag>
+          <drop>Japan</drop>
+        </pair>
+        <pair>
+          <drag>London</drag>
+          <drop>England</drop>
+        </pair>
+        <pair>
+          <drag>Rio</drag>
+          <drop>Brazil</drop>
+        </pair>
+      </matchings>
+    </dragAndDrop>
+  </components>
 </page>

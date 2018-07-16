@@ -6,54 +6,58 @@
     <included>true</included>
     <pagination>true</pagination>
     <size>12</size>
-    <gated locks="0">false</gated>
+    <gated locks="1">false</gated>
   </title>
 
-  <component>dragAndDrop</component>
   <layout>
     <![CDATA[
     <div class="row">
       <div class="col-md-12">
-        <p><span class="bolded">Now that you have viewed this page, you can advance to the next.</span> Please Match the following cities with their states. Complete the task by dragging and dropping the items into their correct spots. Correct answers will turn green, while the wrong answers will turn red. Good luck!</p>
+        <p>Please Match the following cities with their states. Complete the task by dragging and dropping the items into their correct spots. Correct answers will turn green, while the wrong answers will turn red. <span class="bolded">You must attempt the game before advancing to the next page!</span> Good luck!</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div id="dragAndDrop-page-2"></div>
       </div>
     </div>]]>
   </layout>
 
-  <dragAndDrop id="1">
-    <completion gated="false">
-      <minimumScore>30</minimumScore>
-      <gate>
-        <chapter>6</chapter>
-        <page>1</page>
-        <lock>1</lock>
-      </gate>
-    </completion>
+  <components>
+    <dragAndDrop id="dragAndDrop-page-2">
+      <completion gated="true">
+        <minimumScore>30</minimumScore>
 
-    <matchings>
-      <pair>
-        <drag>Bloomington</drag>
-        <drop>Indiana</drop>
-      </pair>
-      <pair>
-        <drag>Louisville</drag>
-        <drop>Kentucky</drop>
-      </pair>
-      <pair>
-        <drag>Chicago</drag>
-        <drop>Illinois</drop>
-      </pair>
-      <pair>
-        <drag>Miami</drag>
-        <drop>Florida</drop>
-      </pair>
-      <pair>
-        <drag>New York</drag>
-        <drop>New York</drop>
-      </pair>
-      <pair>
-        <drag>Seattle</drag>
-        <drop>Washington</drop>
-      </pair>
-    </matchings>
-  </dragAndDrop>
+        <gate>
+          <chapter>6</chapter>
+          <page>2</page>
+          <lock>1</lock>
+        </gate>
+      </completion>
+
+      <matchings>
+        <pair>
+          <drag>Lexington</drag>
+          <drop>Kentucky</drop>
+        </pair>
+        <pair>
+          <drag>Bloomington</drag>
+          <drop>Indiana</drop>
+        </pair>
+        <pair>
+          <drag>Chicago</drag>
+          <drop>Illinois</drop>
+        </pair>
+        <pair>
+          <drag>Portland</drag>
+          <drop>Oregon</drop>
+        </pair>
+        <pair>
+          <drag>Dallas</drag>
+          <drop>Texas</drop>
+        </pair>
+      </matchings>
+    </dragAndDrop>
+  </components>
 </page>

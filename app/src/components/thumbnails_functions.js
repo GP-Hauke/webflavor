@@ -86,7 +86,7 @@ function setupThumbnails(id, elementID){
     var heading = courseData.thumbnailData.thumbnails[id].thumbs[i].heading;
     var caption = courseData.thumbnailData.thumbnails[id].thumbs[i].caption;
 
-    var thumbnailWidth = "col-md-"+size;
+    var thumbnailWidth = "col-6 col-sm-"+size;
 
     var href = "href";
     if(courseData.thumbnailData.thumbnails[id].thumbs[i].onclickFunction == "true"){
@@ -140,7 +140,6 @@ function checkThumbCompletion(evt){
 
 function getThumbnailIndex(currentID){
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
-  console.log(courseData.thumbnailData);
   for(var i = 0; i < courseData.thumbnailData.thumbnails.length; i++){
     if(courseData.thumbnailData.thumbnails[i].id == currentID){
       return i;

@@ -81,10 +81,7 @@ function setupFlipCards(id, elementID){
     var back = courseData.flipCardData.flipCards[id].cards[i].back;
     var front = courseData.flipCardData.flipCards[id].cards[i].front;
 
-    var cardWidth = "col-md-"+size+" col-sm-6";
-    if(courseData.flipCardData.flipCards[id].class != null){
-      cardWidth = courseData.flipCardData.flipCards[id].class;
-    }
+    var cardWidth = "col-8 mx-auto col-md-"+size;
 
     if(courseData.flipCardData.flipCards[id].hasButton == "true"){
       var cardHTML = '<div class="'+cardWidth+' margin-below"><div class="cardCont" id="card'+i+'"><div class="cardBack">'+back+'<a class="showMore back" href="#">Back</a></div><div class="cardFront">'+front+'<a class="showMore front" href="#">Show More</a></div></div></div>';

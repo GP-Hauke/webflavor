@@ -9,60 +9,60 @@
     <gated locks="0">false</gated>
   </title>
 
-  <component>hotspot</component>
   <layout>
     <![CDATA[
     <div class="row">
       <div class="col-md-12">
         <p class="top-paragraph">Click each button to reveal more information in the Hot Spot component.</p>
       </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-8 mx-auto">
+        <div id="hotspot-page-1"></div>
+      </div>
     </div>]]>
   </layout>
 
-  <hotspot id="hotspot-old">
-    <completion gated="true">
-      <gate>
-        <chapter>6</chapter>
-        <page>1</page>
-        <lock>1</lock>
-      </gate>
-    </completion>
+  <components>
+    <hotspot id="hotspot-page-1">
+      <img><![CDATA[dir/media/img/assets/City-Map.jpg]]></img>
+      <spot>
+        <label><![CDATA[1]]></label>
+        <popup>
+          <![CDATA[
+          <ul>
+            <li>Vix debitis lucilius ut, quo id porro timeam honestatis.</li>
+            <li>Vim exerci mandamus cu, sonet molestiae cu pri.</li>
+            <li>Fuisset instructior vel ne, ubique malorum legendos sit et.</li>
+          </ul>]]>
+        </popup>
+      </spot>
 
-    <img><![CDATA[dir/media/img/assets/City-Map.jpg]]></img>
-    <spot>
-      <label><![CDATA[1]]></label>
-      <popup>
-        <![CDATA[
-        <ul>
-          <li>Vix debitis lucilius ut, quo id porro timeam honestatis.</li>
-          <li>Vim exerci mandamus cu, sonet molestiae cu pri.</li>
-          <li>Fuisset instructior vel ne, ubique malorum legendos sit et.</li>
-        </ul>]]>
-      </popup>
-    </spot>
+      <spot>
+        <label><![CDATA[2]]></label>
+        <popup>
+          <![CDATA[
+          <ul>
+            <li>At eum detracto maluisset elaboraret, nec putent appareat in.</li>
+            <li>Elit ubique sensibus nec in.</li>
+            <li>Sea ad cibo illud, mea ex mutat perpetua.</li>
+          </ul>]]>
+        </popup>
+      </spot>
 
-    <spot>
-      <label><![CDATA[2]]></label>
-      <popup>
-        <![CDATA[
-        <ul>
-          <li>At eum detracto maluisset elaboraret, nec putent appareat in.</li>
-          <li>Elit ubique sensibus nec in.</li>
-          <li>Sea ad cibo illud, mea ex mutat perpetua.</li>
-        </ul>]]>
-      </popup>
-    </spot>
+      <spot>
+        <label><![CDATA[3]]></label>
+        <popup>
+          <![CDATA[
+          <ul>
+            <li>Vim duis consul nemore eu, ad libris molestie principes sed.</li>
+            <li>Id verear volumus recteque eam.</li>
+            <li> Omnium nostrud tacimates sea eu, ius ad fabulas pertinacia, fastidii quaerendum mea ex.</li>
+          </ul>]]>
+        </popup>
+      </spot>
+    </hotspot>
 
-    <spot>
-      <label><![CDATA[3]]></label>
-      <popup>
-        <![CDATA[
-        <ul>
-          <li>Vim duis consul nemore eu, ad libris molestie principes sed.</li>
-          <li>Id verear volumus recteque eam.</li>
-          <li> Omnium nostrud tacimates sea eu, ius ad fabulas pertinacia, fastidii quaerendum mea ex.</li>
-        </ul>]]>
-      </popup>
-    </spot>
-  </hotspot>
+  </components>
 </page>
