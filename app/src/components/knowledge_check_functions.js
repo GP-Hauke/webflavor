@@ -146,7 +146,6 @@ function submitAnswers(id, elementID){
 
   if(selected.length != currentKnowledgeCheck.questions.length){
     if($('#'+elementID + ' .invalid').length == 0){
-      console.log(elementID);
       $('#'+elementID+' .feedback').append('<p class="invalid feedback">Please answer <span class="bolded">all questions.</span></p>');
       return;
     }
