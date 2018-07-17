@@ -26,14 +26,8 @@
 
   <components>
     <dragAndDrop id="dragAndDrop-page-2">
-      <completion gated="true">
+      <completion gated="">
         <minimumScore>30</minimumScore>
-
-        <gate>
-          <chapter>6</chapter>
-          <page>2</page>
-          <lock>1</lock>
-        </gate>
       </completion>
 
       <matchings>

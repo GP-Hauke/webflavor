@@ -19,21 +19,15 @@
 
     <div class="row">
       <div class="col-md-12">
-        <div id="dragAndDrop-page-2"></div>
+        <div id="dragAndDrop-page-1"></div>
       </div>
     </div>]]>
   </layout>
 
   <components>
-    <dragAndDrop id="dragAndDrop-page-2">
-      <completion gated="true">
+    <dragAndDrop id="dragAndDrop-page-1">
+      <completion gated="">
         <minimumScore>30</minimumScore>
-
-        <gate>
-          <chapter>6</chapter>
-          <page>2</page>
-          <lock>1</lock>
-        </gate>
       </completion>
 
       <matchings>

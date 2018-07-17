@@ -173,7 +173,6 @@ function submitDragDrop(id, elementID){
   var score = 0;
   var minScore = parseInt(courseData.dragDropData.dragDrops[id].completion.minimumScore);
 
-
   var answers = $("#"+elementID + ' .right').children();
   for(var i = 0; i < answers.length; i++){
     var answerID = answers[i].id;
@@ -232,6 +231,8 @@ function submitDragDrop(id, elementID){
       var lock = courseData.dragDropData.dragDrops[id].completion.gate.lock;
       openLock(chapter, page, lock);
     }
+    localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(courseData));
+
   }
 
   courseData.dragDropData.dragDrops[id].score = score;

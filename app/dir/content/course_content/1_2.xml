@@ -13,57 +13,63 @@
   <layout>
     <![CDATA[
     <div class="row">
-      <div class="col-md-12"><p>After the grid is created, components can be inserted into their appropriate places on the grid layout. The first Component is the Text-Component.</p></div>
+      <div class="col-md-12"><p>After the grid is created, components can be inserted into their appropriate places on the grid layout. If a developer doesn't wish to use the pre-developed components, then he/she can still code in HTML in the layout element. This text block is raw HTML example. Else, the following components are available for use: <span class="bolded">Text - Drag And Drop - Thumbnails - Flip Cards - Hot Spots - Knowledge Checks</span> To see what the page would look like without in a real course without the grid borders: <a onclick="removeDemoOutline()" style="padding: 3px; font-size:16px" class="btn btn-default">Click Here</a></p></div>
     </div>
 
     <div class="row">
-      <div class="col-12 col-md-3 p-0"><div id="text-1" class="outline"></div></div>
+      <div class="col-12 col-md-3 p-0"><div id="text-1" class="componentContainer outline"></div></div>
 
-      <div class="col-12 col-md-9 p-0"><div id="dragAndDrop-2" class="outline"></div></div>
+      <div class="col-12 col-md-9 p-0"><div id="dragAndDrop-2" class="componentContainer outline"></div></div>
     </div>
 
     <div class="row">
-      <div class="col-12 col-md-4 p-0"><div id="thumbnail-2" class="outline"></div></div>
+      <div class="col-12 col-md-4 p-0"><div id="thumbnail-2" class="componentContainer outline"></div></div>
 
-      <div class="col-12 col-md-8 p-0"><div id="text-2" class="outline"></div></div>
+      <div class="col-12 col-md-8 p-0"><div id="text-2" class="componentContainer outline"></div></div>
     </div>
 
     <div class="row">
-      <div class="col-12 col-md-12 p-0"><div id="flipCard-1" class="outline"></div></div>
+      <div class="col-12 col-md-12 p-0"><div id="flipCard-1" class="componentContainer outline"></div></div>
     </div>
 
     <div class="row">
-      <div class="col-12 col-md-8 p-0"><div id="hotspot-1" class="outline"></div></div>
+      <div class="col-12 col-md-8 p-0"><div id="hotspot-1" class="componentContainer outline"></div></div>
 
       <div class="col-12 col-md-4 p-0">
         <div class="row">
-          <div class="col-6 col-md-12 inner-col"><div id="text-3" class="outline"></div></div>
-          <div class="col-6 col-md-12 inner-col"><div id="flipCard-2" class="outline"></div></div>
+          <div class="col-6 col-md-12 inner-col-top"><div id="text-3" class="componentContainer outline"></div></div>
+          <div class="col-6 col-md-12 inner-col-bottom"><div id="flipCard-2" class="componentContainer outline"></div></div>
         </div>
       </div>
     </div>
 
     <div class="row">
-      <div class="col-12 col-md-4 p-0"><div id="knowledgeCheck-2" class="outline"></div></div>
+      <div class="col-12 col-md-4 p-0"><div id="knowledgeCheck-2" class="componentContainer outline"></div></div>
 
-      <div class="col-12 col-md-8 p-0"><div id="dragAndDrop-1" class="outline"></div></div>
+      <div class="col-12 col-md-8 p-0"><div id="dragAndDrop-1" class="componentContainer outline"></div></div>
     </div>
 
     <div class="row">
       <div class="col-12 col-md-4 p-0">
         <div class="row">
-          <div class="col-6 col-md-12 inner-col"><div id="text-4" class="outline"></div></div>
-          <div class="col-6 col-md-12 inner-col"><div id="hotspot-2" class="outline"></div></div>
+          <div class="col-6 col-md-12 inner-col-top"><div id="text-4" class="componentContainer outline"></div></div>
+          <div class="col-6 col-md-12 inner-col-bottom"><div id="hotspot-2" class="componentContainer outline"></div></div>
         </div>
       </div>
 
-      <div class="col-12 col-md-8 p-0"><div id="knowledgeCheck-1" class="outline"></div></div>
+      <div class="col-12 col-md-8 p-0"><div id="knowledgeCheck-1" class="componentContainer outline"></div></div>
     </div>
 
     <div class="row margin-below">
-      <div class="col-12 col-md-8 p-0"><div id="thumbnail-1" class="outline m-1"></div></div>
-      <div class="col-12 col-md-4 p-0"><div id="text-5" class="outline m-1"></div></div>
+      <div class="col-12 col-md-8 p-0"><div id="thumbnail-1" class="componentContainer outline"></div></div>
+      <div class="col-12 col-md-4 p-0"><div id="text-5" class="componentContainer outline"></div></div>
     </div>
+
+    <script type="text/javascript">
+      function removeDemoOutline(){
+        $(".componentContainer").toggleClass("outline");
+      }
+    </script>
     ]]>
   </layout>
 
