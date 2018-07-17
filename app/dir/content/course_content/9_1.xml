@@ -4,7 +4,7 @@
     <chapterTitle><![CDATA[CLICK TO REVEAL]]></chapterTitle>
     <pageTitle><![CDATA[CLICK TO REVEAL]]></pageTitle>
     <included>true</included>
-    <pagination>false</pagination>
+    <pagination>true</pagination>
     <size>12</size>
     <gated locks="0">false</gated>
   </title>
@@ -13,7 +13,7 @@
     <![CDATA[
     <div class="row">
       <div class="col-md-12">
-        <p class="top-paragraph">The following is a Click to Reveal (CTR) component. The CTR boxes can contain any HTML a developer wants, which includes images and normal text. Using the Bootstrap Grid classes in the <layout> element, the CTR component can be placed anywhere. The placement of the reveal-section, can also be modified to be: Right, Left, T</p>
+        <p class="top-paragraph">The following is a Click to Reveal (CTR) component. The CTR boxes can contain any HTML a developer wants, which includes images and normal text. Using the Bootstrap Grid classes in the <layout> element, the CTR component can be placed anywhere. The placement of the reveal-section, can also be modified to be: Right, Left, Top</p>
       </div>
     </div>
 
@@ -58,7 +58,7 @@
 
   <components>
     <!-- POSITION: Right, Left, Top, Bottom -->
-    <ctr id="ctr-1" position="right">
+    <Ctr id="ctr-1" position="right">
       <section>
         <click><![CDATA[<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore?</p>]]></click>
         <reveal><![CDATA[<p>veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur...</p>]]></reveal>
@@ -68,49 +68,48 @@
         <click><![CDATA[<p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?</p>]]></click>
         <reveal><![CDATA[<img src="dir/media/img/assets/check.png" alt="checkmark">]]></reveal>
       </section>
-    </ctr>
+    </Ctr>
 
-    <ctr id="ctr-2" position="right">
+    <Ctr id="ctr-2" position="right">
       <section>
         <click><![CDATA[<img src="dir/media/img/assets/settings.png "settings">]]></click>
         <reveal><![CDATA[<p>Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae...</p>]]></reveal>
       </section>
-    </ctr>
+    </Ctr>
 
-    <ctr id="ctr-3" position="right">
+    <Ctr id="ctr-3" position="right">
       <section>
         <click><![CDATA[<p>facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente dlectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat</p>]]></click>
         <reveal><![CDATA[<p>vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis...</p>]]></reveal>
       </section>
-    </ctr>
+    </Ctr>
 
-    <ctr id="ctr-4" position="right">
+    <Ctr id="ctr-4" position="right">
       <section>
         <click><![CDATA[<p>Position: Right</p>]]></click>
         <reveal><![CDATA[<p>veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>]]></reveal>
       </section>
-    </ctr>
+    </Ctr>
 
-    <ctr id="ctr-5" position="bottom">
+    <Ctr id="ctr-5" position="bottom">
       <section>
         <click><![CDATA[<p>Position: Bottom</p>]]></click>
         <reveal><![CDATA[<p>veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>]]></reveal>
       </section>
-    </ctr>
+    </Ctr>
 
-    <ctr id="ctr-6" position="top">
+    <Ctr id="ctr-6" position="top">
       <section>
         <click><![CDATA[<p>Position: Top</p>]]></click>
         <reveal><![CDATA[<p>veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>]]></reveal>
       </section>
-    </ctr>
+    </Ctr>
 
-    <ctr id="ctr-7" position="left">
+    <Ctr id="ctr-7" position="left">
       <section>
         <click><![CDATA[<p>Position: Left</p>]]></click>
         <reveal><![CDATA[<p>veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>]]></reveal>
       </section>
-    </ctr>
-  
+    </Ctr>
   </components>
 </page>

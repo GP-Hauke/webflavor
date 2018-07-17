@@ -26,7 +26,7 @@
   </layout>
 
   <components>
-    <thumbnails id="thumbnail-page-3">
+    <Thumbnails id="thumbnail-page-3">
       <thumbnail>
         <img><![CDATA[dir/media/img/assets/poster.jpg]]></img>
         <url onclickFunction="true"><![CDATA[openVideoModal('dir/media/videos/animation.mp4');]]></url>
@@ -40,6 +40,6 @@
         <heading><![CDATA[Audio]]></heading>
         <caption><![CDATA[<span class="link-look">Click here</span> to listen to the audio in the HTML modal popup window that is a component of WebFlavor. This feature can be implemented on any element that can be clicked, and the modal will open automatically]]></caption>
       </thumbnail>
-    </thumbnails>
+    </Thumbnails>
   </components>
 </page>

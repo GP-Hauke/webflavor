@@ -13,19 +13,30 @@
     <![CDATA[
     <div class="row">
       <div class="col-md-12">
-        <p class="top-paragraph">Click each button to reveal more information in the Hot Spot component.</p>
+        <p class="top-paragraph">The following is a Hot Spot component. Hot Spots allow a developer to map spots on a image with popup information that can be any HTML he/she wants to use. The component requires an image, and dynamically adds the spots onto the image with the correct popup content. To adjust the location of the spots on the image, the developer has to adjust the CSS of the spots which are absolute positioning based on percentages relative to the container, which allows for responsiveness.</p>
       </div>
     </div>
 
-    <div class="row">
-      <div class="col-md-8 mx-auto">
+    <div class="row margin-below">
+      <div class="col-md-8">
         <div id="hotspot-page-1"></div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="row">
+          <div class="col-md-12">
+            <p>Both of the components on the page are Hot Spots with the same content. This shows the responsiveness built into the component that allows for its use on mobile devices. The Hot Spots can be placed in to the grid in unique ways for different user experiences.</p>
+          </div>
+          <div class="col-md-12">
+            <div id="hotspot-page-2"></div>
+          </div>
+        </div>
       </div>
     </div>]]>
   </layout>
 
   <components>
-    <hotspot id="hotspot-page-1">
+    <Hotspot id="hotspot-page-1">
       <img><![CDATA[dir/media/img/assets/City-Map.jpg]]></img>
       <spot>
         <label><![CDATA[1]]></label>
@@ -62,7 +73,46 @@
           </ul>]]>
         </popup>
       </spot>
-    </hotspot>
+    </Hotspot>
+
+    <Hotspot id="hotspot-page-2">
+      <img><![CDATA[dir/media/img/assets/City-Map-2.jpg]]></img>
+      <spot>
+        <label><![CDATA[1]]></label>
+        <popup>
+          <![CDATA[
+          <ul>
+            <li>Vix debitis</li>
+            <li>Vim exerce</li>
+            <li>Fuisset</li>
+          </ul>]]>
+        </popup>
+      </spot>
+
+      <spot>
+        <label><![CDATA[2]]></label>
+        <popup>
+          <![CDATA[
+          <ul>
+            <li>Detracto</li>
+            <li>Elit</li>
+            <li>Sea ad</li>
+          </ul>]]>
+        </popup>
+      </spot>
+
+      <spot>
+        <label><![CDATA[3]]></label>
+        <popup>
+          <![CDATA[
+          <ul>
+            <li>Vim duis</li>
+            <li>Id verear</li>
+            <li>Omnium </li>
+          </ul>]]>
+        </popup>
+      </spot>
+    </Hotspot>
 
   </components>
 </page>

@@ -24,7 +24,7 @@
   </layout>
 
   <components>
-    <knowledgeCheck id="knowledgeCheck-page-2" scored="true" title="Review II">
+    <KnowledgeCheck id="knowledgeCheck-page-2" scored="true" title="Review II">
       <question>
         <body>The question body goes in this element. What answer is right?</body>
         <answers>
@@ -64,7 +64,7 @@
           <answer>S</answer>
         </answers>
       </question>
-    </knowledgeCheck>
+    </KnowledgeCheck>
 
   </components>
 </page>

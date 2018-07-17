@@ -1,14 +1,14 @@
 //INITIALIZE AND RENDER CARDS
-function initCards(flipCardContentXML, elementID) {
+function initFlipCard(flipCardContentXML, elementID) {
   if(localStorage === "undefined") {
     location.reload();
   }
 
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
 
-  var currentFlipCardComponent = $(flipCardContentXML).find('flipCard[id="'+elementID+'"]');
+  var currentFlipCardComponent = $(flipCardContentXML).find('FlipCard[id="'+elementID+'"]');
   if(currentFlipCardComponent.length == 0){
-    var currentFlipCardComponent = $(flipCardContentXML).find('flipCard');
+    var currentFlipCardComponent = $(flipCardContentXML).find('FlipCard');
   }
   var currentID = $(currentFlipCardComponent).attr("id")
 
@@ -70,10 +70,13 @@ function initCards(flipCardContentXML, elementID) {
 }
 
 function setupFlipCards(id, elementID){
+
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
   var cardNum = courseData.flipCardData.flipCards[id].cards.length;
 
-  var html = '<div class="row">';
+  var html = '<div class="row"></div>';
+  $("#"+elementID).empty();
+  $("#"+elementID).html(html);
 
   var size = 12/cardNum;
 
@@ -90,73 +93,63 @@ function setupFlipCards(id, elementID){
       var cardHTML = '<div class="'+cardWidth+' margin-below"><div class="cardCont" id="card'+i+'"><div class="cardBack">'+back+'</div><div class="cardFront">'+front+'</div></div></div>';
     }
 
-    html += cardHTML;
-  }
+    $("#"+elementID + " .row").append(cardHTML);
 
-  html += '</div>';
-  if(elementID != null){
-    $("#"+elementID).empty();
-    $("#"+elementID).html(html);
-  }
-  else{
-    $('#pageContent').append(html);
-  }
+    CSSPlugin.defaultTransformPerspective = 1000;
 
+    //we set the backface
+    TweenMax.set($(".cardBack"), {rotationY:-180});
 
-  CSSPlugin.defaultTransformPerspective = 1000;
+    $.each($(".cardCont"), function(i,element) {
 
-  //we set the backface
-  TweenMax.set($(".cardBack"), {rotationY:-180});
+      var frontCard = $(this).children(".cardFront"),
+          backCard = $(this).children(".cardBack"),
+          tl = new TimelineMax({paused:true});
 
-  $.each($(".cardCont"), function(i,element) {
+      tl
+        .to(frontCard, 1, {rotationY:180})
+        .to(backCard, 1, {rotationY:0},0)
+        .to(element, .5, {z:50},0)
+        .to(element, .5, {z:0},.5);
 
-    var frontCard = $(this).children(".cardFront"),
-        backCard = $(this).children(".cardBack"),
-        tl = new TimelineMax({paused:true});
+      element.animation = tl;
 
-    tl
-      .to(frontCard, 1, {rotationY:180})
-      .to(backCard, 1, {rotationY:0},0)
-      .to(element, .5, {z:50},0)
-      .to(element, .5, {z:0},.5);
+      //$(element).click({thisCard: element}, showBack);
 
-    element.animation = tl;
-
-    //$(element).click({thisCard: element}, showBack);
-
-  });
-
-  if(courseData.flipCardData.flipCards[id].hasButton == "true"){
-    $(".front").click(function() {
-      var cardID = $(this).closest('.cardCont').attr("id");
-      cardID = cardID.substr($("#"+cardID).attr("id").length - 1);
-      checkCardsCompletion(id, cardID);
-      $(this).closest(".cardCont")[0].animation.play();
     });
 
-    $(".back").click(function() {
-        $(this).closest(".cardCont")[0].animation.reverse();
-    });
-  }
-  else if(courseData.flipCardData.flipCards[id].hasButton == "false") {
-    $(".cardFront").hover(function(){
-      $(this).css('cursor','pointer');
-    });
+    if(courseData.flipCardData.flipCards[id].hasButton == "true"){
+      $("#"+elementID+ " .front").click(function() {
+        var cardID = $(this).closest('.cardCont').attr("id");
+        cardID = cardID.substr($("#"+cardID).attr("id").length - 1);
+        checkCardsCompletion(id, cardID);
+        $(this).closest(".cardCont")[0].animation.play();
+      });
 
-    $(".cardBack").hover(function(){
-      $(this).css('cursor','pointer');
-    });
+      $("#"+elementID+ " .back").click(function() {
+          $(this).closest(".cardCont")[0].animation.reverse();
+      });
+    }
+    else if(courseData.flipCardData.flipCards[id].hasButton == "false") {
+      $("#"+elementID+ " .cardFront").hover(function(){
+        $(this).css('cursor','pointer');
+      });
 
-    $(".cardFront").click(function() {
-      var cardID = $(this).closest('.cardCont').attr("id");
-      cardID = cardID.substr($("#"+cardID).attr("id").length - 1);
-      checkCardsCompletion(id, cardID);
-      $(this).closest(".cardCont")[0].animation.play();
-    });
+      $("#"+elementID+ " .cardBack").hover(function(){
+        $(this).css('cursor','pointer');
+      });
 
-    $(".cardBack").click(function() {
-        $(this).closest(".cardCont")[0].animation.reverse();
-    });
+      $("#"+elementID+ " .cardFront").click(function() {
+        var cardID = $(this).closest('.cardCont').attr("id");
+        cardID = cardID.substr($("#"+cardID).attr("id").length - 1);
+        checkCardsCompletion(id, cardID);
+        $(this).closest(".cardCont")[0].animation.play();
+      });
+
+      $("#"+elementID+ " .cardBack").click(function() {
+          $(this).closest(".cardCont")[0].animation.reverse();
+      });
+    }
   }
 }
 

@@ -353,6 +353,7 @@ function loadContent(param){
 
     $('#pageContent').append($(xml).find('layout').text());
 
+
     //CERTAIN PAGES NEED SPECIFIC METHODS RUN FOR THE COMPONENTS
     //MUST BE RUN AFTER THE CONTENT HAS LOADED
     //MOVED FROM HTML BODY onLoad="" TO HERE DUE TO ASYNC
@@ -368,42 +369,12 @@ function loadContent(param){
 
     var components = $(xml).find("components");
 
-    $(components).find("text").each(function() {
-      var textID = $(this).attr("id");
-      var textContent = $(this).text();
-      $("#"+textID).append(textContent);
-    });
-
-    $(components).find("dragAndDrop").each(function() {
-      var dragAndDropID = $(this).attr("id");
-      initDragDrops(xml, dragAndDropID);
-    });
-
-    $(components).find("flipCard").each(function() {
-      var flipCardID = $(this).attr("id");
-      initCards(xml, flipCardID);
-    });
-
-    $(components).find("hotspot").each(function() {
-      var hotspotID = $(this).attr("id");
-      initHotspot(xml, hotspotID);
-    });
-
-    $(components).find("thumbnails").each(function() {
-      var thumbnailID = $(this).attr("id");
-      initThumbnails(xml, thumbnailID);
-    });
-
-    $(components).find("knowledgeCheck").each(function() {
-      var knowledgeCheckID = $(this).attr("id");
-      initKnowledgeCheck(xml, knowledgeCheckID);
-    });
-
-    $(components).find("ctr").each(function() {
-      var ctrID = $(this).attr("id");
-      initCTR(xml, ctrID);
-    });
-
+    components.children().each(function(){
+      var type = $(this)[0].tagName;
+      var componentID = $(this).attr("id");
+      var method = "init" + type;
+      window[method](xml, componentID);
+    })
 
     var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
     if($(xml).find("title").find("pagination").text() == "true"){

@@ -25,7 +25,7 @@
   </layout>
 
   <components>
-    <dragAndDrop id="dragAndDrop-page-1">
+    <DragAndDrop id="dragAndDrop-page-1">
       <completion gated="">
         <minimumScore>30</minimumScore>
       </completion>
@@ -52,6 +52,6 @@
           <drop>Texas</drop>
         </pair>
       </matchings>
-    </dragAndDrop>
+    </DragAndDrop>
   </components>
 </page>

@@ -74,27 +74,27 @@
   </layout>
 
   <components>
-    <text id="text-1">
+    <Text id="text-1">
       <![CDATA[<p style="margin:0">velit ut tortor pretium viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare suspendisse sed nisi lacus sed viverra tellus in hac habitasse platea dictumst vestibulum rhoncus</p>]]>
-    </text>
+    </Text>
 
-    <text id="text-2">
+    <Text id="text-2">
       <![CDATA[<p style="margin:0">faucibus nisl tincidunt eget nullam non nisi est sit amet facilisis magna etiam tempor orci eu lobortis elementum nibh tellus molestie nunc non blandit massa enim nec dui nunc mattis enim ut tellus elementum sagittis vitae et leo duis ut diam quam nulla porttitor massa id neque aliquam vestibulum morbi blandit cursus risus at ultrices mi tempus imperdiet nulla malesuada pellentesque elit eget gravida cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus mauris vitae ultricies leo integer malesuada nunc vel risus commodo viverra maecenas accumsan lacus vel facilisis volutpat est velit egestas dui id ornare arcu odio ut sem nulus commodo viverra maecenas accumsan lacus vel facilisis volutpat est velit egestas dui id ornare arcu odio ut sem nulla pharetra diam sit am</p>]]>
-    </text>
+    </Text>
 
-    <text id="text-3">
+    <Text id="text-3">
       <![CDATA[<p style="margin:0">lamcorper malesuada proin libero nunc consequat interdum varius sit amet mattis vulputate enim nulla aliquet</p>]]>
-    </text>
+    </Text>
 
-    <text id="text-4">
-      <![CDATA[<p>vSed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur</p>]]>
-    </text>
+    <Text id="text-4">
+      <![CDATA[<p style="margin:0">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur</p>]]>
+    </Text>
 
-    <text id="text-5">
-      <![CDATA[<p>vSed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur  inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur<</p>]]>
-    </text>
+    <Text id="text-5">
+      <![CDATA[<p style="margin:0">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur  inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur</p>]]>
+    </Text>
 
-    <dragAndDrop id="dragAndDrop-1">
+    <DragAndDrop id="dragAndDrop-1">
       <completion gated="false">
         <minimumScore>30</minimumScore>
       </completion>
@@ -133,9 +133,9 @@
           <drop>Cardinals</drop>
         </pair>
       </matchings>
-    </dragAndDrop>
+    </DragAndDrop>
 
-    <dragAndDrop id="dragAndDrop-2">
+    <DragAndDrop id="dragAndDrop-2">
       <completion gated="false">
         <minimumScore>30</minimumScore>
       </completion>
@@ -158,9 +158,9 @@
           <drop>San Francisco</drop>
         </pair>
       </matchings>
-    </dragAndDrop>
+    </DragAndDrop>
 
-    <flipCard id="flipCard-1" class="col-md-3 col-sm-6" hasButton="true">
+    <FlipCard id="flipCard-1" class="col-md-3 col-sm-6" hasButton="true">
       <card>
         <front><![CDATA[<h4>Nullam Nisi</h4>]]></front>
         <back><![CDATA[<p>Curabitur accumsan, orci mostie cond aliquam, eros eros elementum ex.
@@ -192,9 +192,9 @@
         <br>
         Pellentesque habitant morbi tristique senectus.</p>]]></back>
       </card>
-    </flipCard>
+    </FlipCard>
 
-    <flipCard id="flipCard-2" class="col-md-6 col-sm-6" hasButton="true">
+    <FlipCard id="flipCard-2" class="col-md-6 col-sm-6" hasButton="true">
       <card>
         <front><![CDATA[<h4>Curabitur</h4>]]></front>
         <back><![CDATA[<p>Fermentum et venenatis in, vulputate sit amet diam
@@ -202,9 +202,9 @@
         <br>
         Ut a tortor turpis. Aliquam quis enim at metus commodo hendrerit sit amet eu nisi.</p>]]></back>
       </card>
-    </flipCard>
+    </FlipCard>
 
-    <hotspot id="hotspot-1">
+    <Hotspot id="hotspot-1">
       <img><![CDATA[dir/media/img/assets/City-Map.jpg]]></img>
       <spot>
         <label><![CDATA[1]]></label>
@@ -241,9 +241,9 @@
           </ul>]]>
         </popup>
       </spot>
-    </hotspot>
+    </Hotspot>
 
-    <hotspot id="hotspot-2">
+    <Hotspot id="hotspot-2">
       <img><![CDATA[dir/media/img/assets/City-Map.jpg]]></img>
       <spot>
         <label><![CDATA[1]]></label>
@@ -280,9 +280,9 @@
           </ul>]]>
         </popup>
       </spot>
-    </hotspot>
+    </Hotspot>
 
-    <knowledgeCheck id="knowledgeCheck-1" scored="true" title="Review II">
+    <KnowledgeCheck id="knowledgeCheck-1" scored="true" title="Review II">
       <question>
         <body>The question body goes in this element. What answer is right?</body>
         <answers>
@@ -302,9 +302,9 @@
           <answer>S</answer>
         </answers>
       </question>
-    </knowledgeCheck>
+    </KnowledgeCheck>
 
-    <knowledgeCheck id="knowledgeCheck-2" scored="true" title="Review I">
+    <KnowledgeCheck id="knowledgeCheck-2" scored="true" title="Review I">
       <question>
         <body>What answer is right?</body>
         <answers>
@@ -324,9 +324,9 @@
           <answer>V</answer>
         </answers>
       </question>
-    </knowledgeCheck>
+    </KnowledgeCheck>
 
-    <thumbnails id="thumbnail-1">
+    <Thumbnails id="thumbnail-1">
       <thumbnail>
         <img><![CDATA[dir/media/img/assets/3_5.jpg]]></img>
         <url><![CDATA[https://www.gpstrategies.com/]]></url>
@@ -354,16 +354,16 @@
         <heading><![CDATA[Arcus Sed]]></heading>
         <caption><![CDATA[Curabitur accumsan, orci molestie <span class="link-look">condimentum aliquamenim</span> , eros eros elementum ex, in commodo lacus lorem ac nisl. Pellentesque id arcu sed est vulputate.]]></caption>
       </thumbnail>
-    </thumbnails>
+    </Thumbnails>
 
-    <thumbnails id="thumbnail-2">
+    <Thumbnails id="thumbnail-2">
       <thumbnail>
         <img><![CDATA[dir/media/img/assets/3_6.jpg]]></img>
         <url><![CDATA[https://www.gpstrategies.com/]]></url>
         <heading><![CDATA[Maecenas]]></heading>
         <caption><![CDATA[Quisque fringilla, nulla sed ornare tincidunt, neque velit finibus.]]></caption>
       </thumbnail>
-    </thumbnails>
+    </Thumbnails>
   </components>
 
 </page>

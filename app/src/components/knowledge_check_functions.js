@@ -5,9 +5,9 @@ function initKnowledgeCheck(knowledgeCheckXML, elementID) {
   }
 
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
-  var currentKnowledgeCheck = $(knowledgeCheckXML).find('knowledgeCheck[id="'+elementID+'"]');
+  var currentKnowledgeCheck = $(knowledgeCheckXML).find('KnowledgeCheck[id="'+elementID+'"]');
   if(currentKnowledgeCheck.length == 0){
-    currentKnowledgeCheck = $(knowledgeCheckXML).find('knowledgeCheck');
+    currentKnowledgeCheck = $(knowledgeCheckXML).find('KnowledgeCheck');
   }
   var currentID = $(currentKnowledgeCheck).attr("id")
 

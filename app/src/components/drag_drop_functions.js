@@ -1,13 +1,13 @@
 //INITIALIZE AND RENDER DRAG AND DROP
-function initDragDrops(dragDropContentXML, elementID) {
+function initDragAndDrop(dragDropContentXML, elementID) {
   if(localStorage === "undefined") {
     location.reload();
   }
 
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
-  var currentDragDrop = $(dragDropContentXML).find('dragAndDrop[id="'+elementID+'"]');
+  var currentDragDrop = $(dragDropContentXML).find('DragAndDrop[id="'+elementID+'"]');
   if(currentDragDrop.length == 0){
-    currentDragDrop = $(dragDropContentXML).find('dragAndDrop');
+    currentDragDrop = $(dragDropContentXML).find('DragAndDrop');
   }
   var currentID = $(currentDragDrop).attr("id")
 

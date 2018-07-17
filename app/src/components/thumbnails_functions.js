@@ -5,9 +5,9 @@ function initThumbnails(thumbnailContentXML, elementID) {
   }
 
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
-  var currentThumbnailComponent = $(thumbnailContentXML).find('thumbnails[id="'+elementID+'"]');
+  var currentThumbnailComponent = $(thumbnailContentXML).find('Thumbnails[id="'+elementID+'"]');
   if(currentThumbnailComponent.length == 0){
-    currentThumbnailComponent = $(thumbnailContentXML).find('thumbnails');
+    currentThumbnailComponent = $(thumbnailContentXML).find('Thumbnails');
   }
   var currentID = $(currentThumbnailComponent).attr("id");
 

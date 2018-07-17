@@ -5,9 +5,9 @@ function initHotspot(hotspotContentXML, elementID) {
   }
 
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
-  var currentHotspot = $(hotspotContentXML).find('hotspot[id="'+elementID+'"]');
+  var currentHotspot = $(hotspotContentXML).find('Hotspot[id="'+elementID+'"]');
   if(currentHotspot.length == 0){
-    currentHotspot = $(hotspotContentXML).find('hotspot');
+    currentHotspot = $(hotspotContentXML).find('Hotspot');
   }
   var currentID = $(currentHotspot).attr("id");
 

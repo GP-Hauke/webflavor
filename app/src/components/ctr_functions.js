@@ -1,28 +1,28 @@
-function initCTR(CTRContentXML, elementID) {
+function initCtr(CtrContentXML, elementID) {
   if(localStorage === "undefined") {
     location.reload();
   }
 
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
-  var currentCTR = $(CTRContentXML).find('ctr[id="'+elementID+'"]');
-  if(currentCTR.length == 0){
-    currentCTR = $(CTRContentXML).find('ctr');
+  var currentCtr = $(CtrContentXML).find('Ctr[id="'+elementID+'"]');
+  if(currentCtr.length == 0){
+    currentCtr = $(CtrContentXML).find('Ctr');
   }
-  var currentID = $(currentCTR).attr("id");
+  var currentID = $(currentCtr).attr("id");
 
   if(courseData.ctrData.ctrs != null){
     for(var i=0; i < courseData.ctrData.ctrs.length; i++){
       if(courseData.ctrData.ctrs[i].id == currentID){
-        var id = getCTRIndex(currentID);
-        console.log("CTR Loaded Previously");
-        setupCTR(id, elementID);
+        var id = getCtrIndex(currentID);
+        console.log("Ctr Loaded Previously");
+        setupCtr(id, elementID);
         return;
       }
     }
   }
 
   else{
-    console.log("CTR Initialized");
+    console.log("Ctr Initialized");
     courseData.ctrData = {
       completed: false,
       ctrs: []
@@ -30,25 +30,25 @@ function initCTR(CTRContentXML, elementID) {
   }
 
   var ctr = {
-    id: $(currentCTR).attr("id"),
+    id: $(currentCtr).attr("id"),
     completed: false,
     completion: {},
     score: 0,
-    position: currentCTR.attr("position"),
+    position: currentCtr.attr("position"),
     sections: []
   };
 
-  if(currentCTR.find("completion").attr("gated") == "true"){
+  if(currentCtr.find("completion").attr("gated") == "true"){
   ctr.completion = {
     gate : {
-      chapter: currentCTR.find("chapter").text(),
-      page: currentCTR.find("page").text(),
-      lock: currentCTR.find("lock").text()
+      chapter: currentCtr.find("chapter").text(),
+      page: currentCtr.find("page").text(),
+      lock: currentCtr.find("lock").text()
       }
     }
   };
 
-  $(currentCTR).find("section").each(function() {
+  $(currentCtr).find("section").each(function() {
     var section ={
       click:$(this).find('click').text(),
       reveal:$(this).find('reveal').text(),
@@ -61,11 +61,11 @@ function initCTR(CTRContentXML, elementID) {
 
 
   localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(courseData));
-  var id = getCTRIndex(currentID);
-  setupCTR(id,elementID);
+  var id = getCtrIndex(currentID);
+  setupCtr(id,elementID);
 }
 
-function setupCTR(id, elementID){
+function setupCtr(id, elementID){
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
 
   var num = courseData.ctrData.ctrs[id].sections.length;
@@ -91,7 +91,7 @@ function setupCTR(id, elementID){
       reveal.css({"display":"block"});
       var sectionID = parent.attr('id');
       sectionID = sectionID.substr(sectionID.length-1, sectionID.length);
-      checkCardsCompletion(id, sectionID)
+      checkCTRCompletion(id, sectionID)
     });
 
   }
@@ -139,7 +139,7 @@ function setupCTR(id, elementID){
   }
 }
 
-function getCTRIndex(currentID){
+function getCtrIndex(currentID){
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
 
   for(var i = 0; i < courseData.ctrData.ctrs.length; i++){
@@ -149,7 +149,7 @@ function getCTRIndex(currentID){
   }
 }
 
-function checkCardsCompletion(id, sectionID){
+function checkCTRCompletion(id, sectionID){
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
 
   if(courseData.ctrData.ctrs[id].sections[sectionID].completed == false){
@@ -163,7 +163,7 @@ function checkCardsCompletion(id, sectionID){
   if(courseData.ctrData.ctrs[id].score >= courseData.ctrData.ctrs[id].sections.length){
     courseData.ctrData.ctrs[id].completed = true;
     localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(courseData));
-    console.log("CTR Completed");
+    console.log("Ctr Completed");
     if(courseData.ctrData.ctrs[id].completion.gate != null) {
       var chapter = courseData.ctrData.ctrs[id].completion.gate.chapter;
       var page = courseData.ctrData.ctrs[id].completion.gate.page;
@@ -173,6 +173,6 @@ function checkCardsCompletion(id, sectionID){
   }
 }
 
-function setCTRInteractions(){
+function setCtrInteractions(){
 
 }
