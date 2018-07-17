@@ -39,7 +39,7 @@
       </div>
     </div>
 
-    <div class="row">
+    <div class="row margin-below">
       <div class="col-md-3">
         <div id="ctr-4"></div>
       </div>
@@ -53,7 +53,6 @@
         <div id="ctr-7"></div>
       </div>
     </div>
-
     ]]>
   </layout>
 
@@ -112,6 +111,6 @@
         <reveal><![CDATA[<p>veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>]]></reveal>
       </section>
     </ctr>
-
+  
   </components>
 </page>

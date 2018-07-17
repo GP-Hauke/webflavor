@@ -72,20 +72,32 @@ function setupCTR(id, elementID){
   var position = courseData.ctrData.ctrs[id].position;
   var colNum = 12/num;
 
-  var html = '<div class="row"><div class="col-md-12 mx-auto p-0"><div id=""><div id="ctr"><div class="row">';
+  var html = '<div class="row"><div class="col-md-12 mx-auto p-0"><div id=""><div class="ctr"><div class="row"></div></div></div></div></div>';
+
+  $('#'+elementID).append(html);
+
 
   for(var i = 0; i < courseData.ctrData.ctrs[id].sections.length; i++){
     var click = courseData.ctrData.ctrs[id].sections[i].click;
     var reveal = courseData.ctrData.ctrs[id].sections[i].reveal;
 
-    var sectionHtml = '<div class="col-md-'+colNum+' p-0"><div class="ctr-wrapper ctr-clickable"><div class="click">'+click+'</div></div><div class="ctr-wrapper"><div class="reveal">'+reveal+'</div></div></div>';
+    var sectionHtml = '<div class="col-md-'+colNum+' p-0" id="'+elementID+'-'+i+'"><div class="ctr-wrapper '+elementID+'-section-'+i+'"><div class="click">'+click+'</div></div><div class="ctr-wrapper"><div class="reveal">'+reveal+'</div></div></div>';
 
-    html += sectionHtml;
+    $('#'+elementID + ' .ctr .row').append(sectionHtml);
+
+    $("."+elementID+"-section-"+i).click(function(){
+      var parent = $(this).parent();
+      var reveal = parent.find(".reveal");
+      reveal.css({"display":"block"});
+      var sectionID = parent.attr('id');
+      sectionID = sectionID.substr(sectionID.length-1, sectionID.length);
+      checkCardsCompletion(id, sectionID)
+    });
+
   }
 
 
-  html += '</div></div></div></div></div>';
-  $('#'+elementID).append(html);
+  //$('#'+elementID).append(html);
 
   //DEFAULT POSITION IS RIGHT
   var click = $('#'+elementID+ ' .click').parent();
@@ -125,16 +137,6 @@ function setupCTR(id, elementID){
       "height": "50%"
     });
   }
-
-  $(".ctr-clickable").click(function(){
-
-    var parent = $(this).parent();
-    var reveal = parent.find(".reveal");
-    reveal.css({"display":"block"});
-    //$(this).css({"right": "0"});
-
-  });
-
 }
 
 function getCTRIndex(currentID){
@@ -145,4 +147,32 @@ function getCTRIndex(currentID){
       return i;
     }
   }
+}
+
+function checkCardsCompletion(id, sectionID){
+  var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
+
+  if(courseData.ctrData.ctrs[id].sections[sectionID].completed == false){
+    courseData.ctrData.ctrs[id].sections[sectionID].completed = true;
+    courseData.ctrData.ctrs[id].score += 1;
+    localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(courseData));
+  }
+  //console.log("ID" + id);
+  //console.log(courseData.ctrData.ctrs[id].sections.length);
+
+  if(courseData.ctrData.ctrs[id].score >= courseData.ctrData.ctrs[id].sections.length){
+    courseData.ctrData.ctrs[id].completed = true;
+    localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(courseData));
+    console.log("CTR Completed");
+    if(courseData.ctrData.ctrs[id].completion.gate != null) {
+      var chapter = courseData.ctrData.ctrs[id].completion.gate.chapter;
+      var page = courseData.ctrData.ctrs[id].completion.gate.page;
+      var lock = courseData.ctrData.ctrs[id].completion.gate.lock;
+      openLock(chapter, page, lock);
+    }
+  }
+}
+
+function setCTRInteractions(){
+
 }

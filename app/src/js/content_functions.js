@@ -404,6 +404,7 @@ function loadContent(param){
       initCTR(xml, ctrID);
     });
 
+
     var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
     if($(xml).find("title").find("pagination").text() == "true"){
       updatePagination();

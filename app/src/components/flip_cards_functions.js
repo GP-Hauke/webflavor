@@ -150,7 +150,6 @@ function setupFlipCards(id, elementID){
     $(".cardFront").click(function() {
       var cardID = $(this).closest('.cardCont').attr("id");
       cardID = cardID.substr($("#"+cardID).attr("id").length - 1);
-      console.log(id);
       checkCardsCompletion(id, cardID);
       $(this).closest(".cardCont")[0].animation.play();
     });

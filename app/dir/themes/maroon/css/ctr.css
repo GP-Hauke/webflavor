@@ -1,12 +1,12 @@
-#ctr .click{
+.ctr .click{
   background: #632121;
   color: #fff;
 }
 
-#ctr .click p{
+.ctr .click p{
   color: #fff;
 }
 
-#ctr .reveal{
+.ctr .reveal{
   background: #eee;
 }
