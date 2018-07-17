@@ -113,6 +113,15 @@ function populateStorage(json, tempStorage) {
     }
   }
 
+  if(json.settings.hasCTR === "true") {
+    if(tempStorage === null || tempStorage.ctrData === undefined) {
+      courseStorageObj.ctrData = {};
+
+    } else {
+      courseStorageObj.ctrData = tempStorage.ctrData;
+    }
+  }
+
   if(json.settings.hasGlossary === "true") {
     if(tempStorage === null || tempStorage.glossary === undefined) {
       courseStorageObj.glossary = {};

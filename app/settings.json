@@ -17,6 +17,7 @@
     "hasDragDrops": "true",
     "hasHotspots": "true",
     "hasThumbnails": "true",
+    "hasCTR": "true",
     "hasCountPages": "true",
     "vendors": {
       "create_js": "false",
@@ -26,10 +27,11 @@
       "glyphicons": "true"
     },
     "courseStorageID": "courseStorageID",
-    "version": "2.8",
+    "version": "3.0",
     "contents": [
       [
-        "1_1", "1_2"
+        "1_1",
+        "1_2"
       ],
       [
         "2_1"
@@ -47,16 +49,21 @@
         "6_1"
       ],
       [
-        "7_1", "7_2"
+        "7_1",
+        "7_2"
       ],
       [
         "8_1"
       ],
       [
-        "9_1", "9_2"
+        "9_1"
       ],
       [
-        "10_1"
+        "10_1",
+        "10_2"
+      ],
+      [
+        "11_1"
       ]
     ]
   }

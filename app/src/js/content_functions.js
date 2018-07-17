@@ -360,21 +360,6 @@ function loadContent(param){
     if(component == 'game'){
       setupAssessment();
     }
-    else if(component == 'dragAndDrop'){
-      initDragDrops(xml);
-    }
-    else if(component == 'hotspot'){
-      initHotspot(xml);
-    }
-    else if(component == 'cards'){
-      initCards(xml);
-    }
-    else if(component == 'thumbnails'){
-      initThumbnails(xml);
-    }
-    else if(component == 'knowledgeCheck'){
-      initKnowledgeCheck(xml);
-    }
 
     var modal = $(xml).find('modal').text();
     if(modal != ""){
@@ -412,6 +397,11 @@ function loadContent(param){
     $(components).find("knowledgeCheck").each(function() {
       var knowledgeCheckID = $(this).attr("id");
       initKnowledgeCheck(xml, knowledgeCheckID);
+    });
+
+    $(components).find("ctr").each(function() {
+      var ctrID = $(this).attr("id");
+      initCTR(xml, ctrID);
     });
 
     var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
