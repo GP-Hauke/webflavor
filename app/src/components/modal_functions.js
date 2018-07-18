@@ -52,6 +52,7 @@ function openVideoModal(src) {
 }
 
 function openAudioModal(src) {
+  console.log(src);
   $('#modalContainer').html("<div class='modal fade' id='audioModal' tabindex='-1' role='dialog' aria-labelledby='audioModalLabel'><div class='modal-dialog' role='document'><div class='modal-content'><div class='modal-header'><button type='button' class='close' data-dismiss='modal' aria-label='Close'><span aria-hidden='true'><img src='dir/media/img/btn_close.png' alt='close the modal'></span></button></div><div class='modal-body clearfix'><audio controls><source src='"+src+"' type='audio/mp3'>Your browser does not support the audio element.</audio></div></div></div></div>");
 
   $('.modal').on('hidden.bs.modal', function (e) {

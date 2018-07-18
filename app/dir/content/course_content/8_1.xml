@@ -37,7 +37,7 @@
 
   <components>
     <Hotspot id="hotspot-page-1">
-      <img><![CDATA[dir/media/img/assets/City-Map.jpg]]></img>
+      <img><![CDATA[dir/media/img/assets/City-Map-2.jpg]]></img>
       <spot>
         <label><![CDATA[1]]></label>
         <popup>
@@ -76,7 +76,7 @@
     </Hotspot>
 
     <Hotspot id="hotspot-page-2">
-      <img><![CDATA[dir/media/img/assets/City-Map-2.jpg]]></img>
+      <img><![CDATA[dir/media/img/assets/City-Map.jpg]]></img>
       <spot>
         <label><![CDATA[1]]></label>
         <popup>

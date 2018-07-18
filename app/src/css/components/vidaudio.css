@@ -5,6 +5,9 @@ video{
 audio{
   width: 100%;
   display: block;
+}
+
+#modalContainer audio{
   position: relative;
   top: 35%;
   transform: translateY(-50%);
@@ -58,4 +61,20 @@ button.close:focus{
   position: relative;
   top: 35%;
   transform: translateY(-50%);
+}
+
+.embeded-vidAud{
+  width: 100%;
+  margin: 0 auto;
+}
+
+.playBtnOverlay{
+  cursor: pointer;
+  position:absolute;
+  left:0;
+  right:0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+
 }

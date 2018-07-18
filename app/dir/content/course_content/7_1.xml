@@ -13,7 +13,7 @@
     <![CDATA[
     <div class="row">
       <div class="col-md-12">
-        <p>Please Match the following cities with their states. Complete the task by dragging and dropping the items into their correct spots. Correct answers will turn green, while the wrong answers will turn red. <span class="bolded">You must attempt the game before advancing to the next page!</span> Good luck!</p>
+        <p class="top-paragraph">The following is a Drag and Drop component. The Drag and Drop component automatically pairs up the matchings and displays correct and incorrect answers when the answers are submitted. Users can restart at any time, but they cannot submit incomplete results.</p>
       </div>
     </div>
 
@@ -21,11 +21,52 @@
       <div class="col-md-12">
         <div id="dragAndDrop-page-1"></div>
       </div>
-    </div>]]>
+    </div>
+
+
+    <div class="row">
+      <div class="col-md-6">
+        <div id="dragAndDrop-page-2"></div>
+      </div>
+
+      <div class="col-md-6">
+        <p>With the score being kept track of, a minimum score can be set so that until the user reaches that score, the component will still be listed as not completed in the localStorage. If this is tied to gating, which is stubbed out in the development as well, then it is potential to not let a user proceed in the course until getting a certain score on the Drag and Drop.</p>
+      </div>
+    </div>
+    ]]>
   </layout>
 
   <components>
     <DragAndDrop id="dragAndDrop-page-1">
+      <completion gated="">
+        <minimumScore>30</minimumScore>
+      </completion>
+
+      <matchings>
+        <pair>
+          <drag>Lexington</drag>
+          <drop>Kentucky</drop>
+        </pair>
+        <pair>
+          <drag>Bloomington</drag>
+          <drop>Indiana</drop>
+        </pair>
+        <pair>
+          <drag>Chicago</drag>
+          <drop>Illinois</drop>
+        </pair>
+        <pair>
+          <drag>Portland</drag>
+          <drop>Oregon</drop>
+        </pair>
+        <pair>
+          <drag>Dallas</drag>
+          <drop>Texas</drop>
+        </pair>
+      </matchings>
+    </DragAndDrop>
+
+    <DragAndDrop id="dragAndDrop-page-2">
       <completion gated="">
         <minimumScore>30</minimumScore>
       </completion>

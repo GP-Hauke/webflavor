@@ -122,6 +122,15 @@ function populateStorage(json, tempStorage) {
     }
   }
 
+  if(json.settings.hasVideoAudio === "true") {
+    if(tempStorage === null || tempStorage.videoAudioData === undefined) {
+      courseStorageObj.videoAudioData = {};
+
+    } else {
+      courseStorageObj.videoAudioData = tempStorage.videoAudioData;
+    }
+  }
+
   if(json.settings.hasGlossary === "true") {
     if(tempStorage === null || tempStorage.glossary === undefined) {
       courseStorageObj.glossary = {};

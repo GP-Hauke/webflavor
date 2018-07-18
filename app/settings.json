@@ -18,6 +18,7 @@
     "hasHotspots": "true",
     "hasThumbnails": "true",
     "hasCTR": "true",
+    "hasVideoAudio": "true",
     "hasCountPages": "true",
     "vendors": {
       "create_js": "false",

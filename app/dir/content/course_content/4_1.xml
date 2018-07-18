@@ -13,33 +13,64 @@
     <![CDATA[
     <div class="row">
       <div class="col-sm-12">
-        <p>The following is an example of curated content using thumbnail feature of the WebFlavor Template.</p>
+        <p>The following is a Video/Audio component. This component can be used to display Video or Audio for the users. The component has the ability to be fully embeded into the page, or to display in a pop up modal for the user to view.</p>
+      </div>
+    </div>
+
+    <div class="row margin-below">
+      <div class="col-sm-6">
+        <div id="videoAudio-page-3"></div>
+      </div>
+      <div class="col-sm-6">
+        <div id="videoAudio-page-4"></div>
       </div>
     </div>
 
     <div class="row">
-      <div class="col-sm-12">
-        <div id="thumbnail-page-3"></div>
+      <div class="col-sm-6">
+        <div class="row">
+          <div class="col-sm-12">
+            <div id="videoAudio-page-2"></div>
+          </div>
+          <div class="col-sm-12">
+            <div id="videoAudio-page-1"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <p class="top-paragraph">To the left are the Audio/Video components that are of type embeded. Above are the pop up modal types of Audio/Video. For the popups, a play button overlay will automatically be placed on the image given as the poster. A developer can edit the play button for a different style.</p>
       </div>
     </div>
     ]]>
   </layout>
 
   <components>
-    <Thumbnails id="thumbnail-page-3">
-      <thumbnail>
-        <img><![CDATA[dir/media/img/assets/poster.jpg]]></img>
-        <url onclickFunction="true"><![CDATA[openVideoModal('dir/media/videos/animation.mp4');]]></url>
-        <heading><![CDATA[Video]]></heading>
-        <caption><![CDATA[<span class="link-look">Click here</span> to view the video in the HTML modal popup window that is a component of WebFlavor. This feature can be implemented on any element that can be clicked, and the modal will open automatically]]></caption>
-      </thumbnail>
+    <VideoAudio id="videoAudio-page-1">
+      <type>video</type>
+      <embeded>true</embeded>
+      <poster><![CDATA[dir/media/img/assets/poster.jpg]]></poster>
+      <source><![CDATA[dir/media/videos/animation.mp4]]></source>
+    </VideoAudio>
 
-      <thumbnail>
-        <img><![CDATA[dir/media/img/assets/red.jpg]]></img>
-        <url onclickFunction="true"><![CDATA[openAudioModal('dir/media/audio/bruce.mp3');]]></url>
-        <heading><![CDATA[Audio]]></heading>
-        <caption><![CDATA[<span class="link-look">Click here</span> to listen to the audio in the HTML modal popup window that is a component of WebFlavor. This feature can be implemented on any element that can be clicked, and the modal will open automatically]]></caption>
-      </thumbnail>
-    </Thumbnails>
+    <VideoAudio id="videoAudio-page-2">
+      <type>audio</type>
+      <embeded>true</embeded>
+      <poster><![CDATA[dir/media/img/assets/red.jpg]]></poster>
+      <source><![CDATA[dir/media/audio/bruce.mp3]]></source>
+    </VideoAudio>
+
+    <VideoAudio id="videoAudio-page-3">
+      <type>video</type>
+      <embeded>false</embeded>
+      <poster><![CDATA[dir/media/img/assets/poster.jpg]]></poster>
+      <source><![CDATA[dir/media/videos/animation.mp4]]></source>
+    </VideoAudio>
+
+    <VideoAudio id="videoAudio-page-4">
+      <type>audio</type>
+      <embeded>false</embeded>
+      <poster><![CDATA[dir/media/img/assets/red.jpg]]></poster>
+      <source><![CDATA[dir/media/audio/bruce.mp3]]></source>
+    </VideoAudio>
   </components>
 </page>
