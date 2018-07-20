@@ -17,50 +17,52 @@
     </div>
 
     <div class="row">
-      <div class="col-6 col-md-3 p-0"><div class="color1 m-1"></div></div>
-      <div class="col-6 col-md-9 p-0"><div class="color2 m-1"></div></div>
+      <div class="col-12 col-md-3 p-0"><div class="componentContainer color1"></div></div>
+
+      <div class="col-12 col-md-9 p-0"><div class="componentContainer color1"></div></div>
     </div>
 
     <div class="row">
-      <div class="col-6 col-md-4 p-0"><div class="color3 m-1"></div></div>
-      <div class="col-6 col-md-8 p-0"><div class="color4 m-1"></div></div>
-    </div>
+      <div class="col-12 col-md-4 p-0"><div class="componentContainer color1"></div></div>
 
-    <div class="row margin">
-      <div class="col-12 col-md-12 p-0"><div class="color5 m-1" style="height:420px"></div></div>
+      <div class="col-12 col-md-8 p-0"><div class="componentContainer color1"></div></div>
     </div>
 
     <div class="row">
-      <div class="col-12 col-md-8 p-0"><div class="color1 size2 m-1"></div></div>
-      <div class="col-12 col-md-4">
+      <div class="col-12 col-md-12 p-0"><div class="componentContainer color1"></div></div>
+    </div>
+
+    <div class="row">
+      <div class="col-12 col-md-8 p-0"><div class="componentContainer color1 size2"></div></div>
+
+      <div class="col-12 col-md-4 p-0">
         <div class="row">
-          <div class="col-6 col-md-12 p-0"><div class="color2 m-1"></div></div>
-          <div class="col-6 col-md-12 p-0"><div class="color3 m-1"></div></div>
+          <div class="col-6 col-md-12 inner-col-top"><div class="componentContainer color1"></div></div>
+          <div class="col-6 col-md-12 inner-col-bottom"><div class="componentContainer color1"></div></div>
         </div>
       </div>
     </div>
 
     <div class="row">
-      <div class="col-12 col-md-6 p-0"><div style="height:420px" class="color4 m-1"></div></div>
+      <div class="col-12 col-md-4 p-0"><div class="componentContainer color1"></div></div>
 
-      <div class="col-12 col-md-6 p-0"><div class="color5 m-1" style="height:420px"></div></div>
+      <div class="col-12 col-md-8 p-0"><div class="componentContainer color1"></div></div>
     </div>
 
     <div class="row">
-      <div class="col-12 col-md-4">
+      <div class="col-12 col-md-4 p-0">
         <div class="row">
-          <div class="col-md-12 p-0"><div class="color1 m-1 size2"></div></div>
+          <div class="col-6 col-md-12 inner-col-top"><div class="componentContainer color1"></div></div>
+          <div class="col-6 col-md-12 inner-col-bottom"><div class="componentContainer color1"></div></div>
         </div>
       </div>
-      <div class="col-12 col-md-8">
-        <div class="row">
-          <div class="col-md-12 p-0"><div class="color2 size2 m-1"></div></div>
-        </div>
-      </div>
+
+      <div class="col-12 col-md-8 p-0"><div class="componentContainer color1 size2"></div></div>
     </div>
 
     <div class="row margin-below">
-      <div class="col-12 col-md-12 p-0"><div class="color3 m-1"></div></div>
+      <div class="col-12 col-md-8 p-0"><div class="componentContainer color1"></div></div>
+      <div class="col-12 col-md-4 p-0"><div class="componentContainer color1"></div></div>
     </div>
     ]]>
   </layout>

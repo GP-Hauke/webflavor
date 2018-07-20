@@ -73,24 +73,16 @@
 
       <matchings>
         <pair>
-          <drag>Lexington</drag>
-          <drop>Kentucky</drop>
+          <drag>Red / Blue</drag>
+          <drop>Purple</drop>
         </pair>
         <pair>
-          <drag>Bloomington</drag>
-          <drop>Indiana</drop>
+          <drag>Blue / Yellow</drag>
+          <drop>Green</drop>
         </pair>
         <pair>
-          <drag>Chicago</drag>
-          <drop>Illinois</drop>
-        </pair>
-        <pair>
-          <drag>Portland</drag>
-          <drop>Oregon</drop>
-        </pair>
-        <pair>
-          <drag>Dallas</drag>
-          <drop>Texas</drop>
+          <drag>Yellow / Red</drag>
+          <drop>Orange</drop>
         </pair>
       </matchings>
     </DragAndDrop>

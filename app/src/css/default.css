@@ -65,27 +65,6 @@ div[class^="col"] .inner-col-bottom{
   opacity: .75;
   background: maroon;
 }
-.color2{
-  height: 300px;
-  opacity: .75;
-  background: #ad6969;
-}
-.color3{
-  height: 300px;
-  opacity: .75;
-  background: #917575;
-}
-.color4{
-  height: 300px;
-  opacity: .75;
-  background: #963131;
-}
-.color5{
-  height: 300px;
-  opacity: .75;
-  background: #8c3f3f;
-}
-
 .outline{
   border: 1px solid maroon;
 }
