@@ -809,7 +809,7 @@ function calculateHeight() {
 
 
   var navItemHeight = (($(window).height()-($('#navContainer').height()+getFooterHeight())) * .75)/ $('.courseTitleChapter').length;
-  $('.tabbed #navbarMobile .courseTitleChapter').css({height: navItemHeight});
+  //$('.tabbed #navbarMobile .courseTitleChapter').css({height: navItemHeight});
   //---------------DEPRICATED AFTER REMOVING IFRAMES---------------
   //$("#contentFrame").css({height:$("#contentContainer").height()});
   //$("#contentFrame").css({height:$("#contentContainer").height() - $("#navbar").height(), top:$("#navbar").height()});
