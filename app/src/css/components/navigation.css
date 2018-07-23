@@ -1,4 +1,8 @@
 /* GENERIC NAVIGATION STYLES*/
+.dropdown-menu {
+  min-width: 0rem;
+}
+
 #navbar .navbar-brand{
   padding: 0;
   position: relative;
@@ -230,6 +234,7 @@ nav.navbar#navbarBottom {
 #navbarMobile{
   width: 100%;
   margin: 0 auto;
+  background: #632121 ;
 }
 
 #navbarMobile .nav-link{

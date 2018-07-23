@@ -800,13 +800,16 @@ function unmuteAudio() {
 function calculateHeight() {
   // subtracting one pixel ensures that second scroll bar doesn't appear
   // adding padding to accommodate Bootstrap header nav
-  //  console.log("calculateHeight");
-  //  console.log($("#navbar").height());
+  // console.log("calculateHeight");
+  // console.log($("#navbar").height());
 
   //  $("#contentContainer").css({height:$(window).height() - 1, paddingTop:$("#navbar").height()});
   //$("#contentContainer").css({height:$(window).height() - 1});
   $("#contentContainer").css({height:$(window).height()-($('#navContainer').height()+getFooterHeight())});
 
+
+  var navItemHeight = (($(window).height()-($('#navContainer').height()+getFooterHeight())) * .75)/ $('.courseTitleChapter').length;
+  $('.tabbed #navbarMobile .courseTitleChapter').css({height: navItemHeight});
   //---------------DEPRICATED AFTER REMOVING IFRAMES---------------
   //$("#contentFrame").css({height:$("#contentContainer").height()});
   //$("#contentFrame").css({height:$("#contentContainer").height() - $("#navbar").height(), top:$("#navbar").height()});

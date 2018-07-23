@@ -489,7 +489,7 @@ module.exports = function(grunt){
   });
 
   grunt.registerTask('update', function(key, value) {
-    var pages = grunt.file.expand(["dist/dir/content/course_content/*.xml"]);
+    var pages = grunt.file.expand(["app/dir/content/course_content/*.xml"]);
     var lastChapter = "";
     var currentChapter = "";
     var contents = [];
