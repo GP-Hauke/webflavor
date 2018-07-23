@@ -23,11 +23,9 @@ function initKnowledgeCheck(knowledgeCheckXML, elementID) {
   }
   else{
     console.log("KnowledgeCheck Initialized");
-    courseData.knowledgeCheckData = {
-      totalScore : 0,
-      completed : false,
-      knowledgeChecks : []
-    };
+    courseData.knowledgeCheckData.totalScore = 0;
+    courseData.knowledgeCheckData.completed = 0;
+    courseData.knowledgeCheckData.knowledgeChecks = [];
   }
 
   var knowledgeCheck = {
@@ -157,6 +155,16 @@ function submitAnswers(id, elementID){
   $('#'+elementID+ ' .submitKnowledge').remove();
 
   currentKnowledgeCheck.completed = true;
+  courseData.knowledgeCheckData.completed += 1;
+  courseData.COMPLETED_INTERACTIVES += 1;
+
+  if(currentKnowledgeCheck.completion.gate != null) {
+    var chapter = currentKnowledgeCheck.completion.gate.chapter;
+    var page = currentKnowledgeCheck.completion.gate.page;
+    var lock = currentKnowledgeCheck.completion.gate.lock;
+    openLock(chapter, page, lock);
+  }
+
   var totalCorrect = 0;
   for(var i = 0; i < currentKnowledgeCheck.questions.length; i++){
     if(currentKnowledgeCheck.questions[i].correct == false){
@@ -180,6 +188,8 @@ function endKnowledgeCheck(id, elementID){
   var currentKnowledgeCheck = courseData.knowledgeCheckData.knowledgeChecks[id];
   currentKnowledgeCheck.completed = true;
 
+
+
   for(var i = 0; i < currentKnowledgeCheck.questions.length; i++){
     if(currentKnowledgeCheck.questions[i].correct == false){
       $('#'+elementID + ' form li').eq(i).addClass("wrong");
@@ -193,12 +203,6 @@ function endKnowledgeCheck(id, elementID){
   $('#'+elementID + ' .invalid').remove();
   $('#'+elementID +' .feedback').append(feedback);
 
-  if(currentKnowledgeCheck.completion.gate != null) {
-    var chapter = currentKnowledgeCheck.completion.gate.chapter;
-    var page = currentKnowledgeCheck.completion.gate.page;
-    var lock = currentKnowledgeCheck.completion.gate.lock;
-    openLock(chapter, page, lock);
-  }
 
   localStorage.setItem(LOCAL_COURSE_DATA_ID,  JSON.stringify(courseData));
 }

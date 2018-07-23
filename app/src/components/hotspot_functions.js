@@ -24,10 +24,8 @@ function initHotspot(hotspotContentXML, elementID) {
 
   else{
     console.log("Hotspot Initialized");
-    courseData.hotspotData = {
-      completed: false,
-      hotspots: []
-    };
+    courseData.hotspotData.completed = 0;
+    courseData.hotspotData.hotspots = [];
   }
 
   var hotspot = {
@@ -102,11 +100,6 @@ function setupHotSpot(id, elementID){
     var spotID = $(this).attr("id").substr($(this).attr("id").length - 1);
     var popupHTML = courseData.hotspotData.hotspots[id].spots[spotID].popup;
 
-    if(courseData.hotspotData.hotspots[id].spots[spotID].completed == false){
-      courseData.hotspotData.hotspots[id].spots[spotID].completed = true;
-      courseData.hotspotData.hotspots[id].score += 1;
-    }
-
     $('#' + elementID + ' .hotSpot-popup').empty();
     $('#' + elementID + ' .hotSpot-popup').append('<a class="hotSpot-close">x</a>' + popupHTML);
     $('#' + elementID + ' .hotSpot-popup').css('display','block');
@@ -115,18 +108,9 @@ function setupHotSpot(id, elementID){
       $('#' + elementID + ' .hotSpot-popup').css('display','none');
     });
 
-    if(courseData.hotspotData.hotspots[id].score >= courseData.hotspotData.hotspots[id].spots.length){
-      console.log("Hotspot Completed");
-      courseData.hotspotData.hotspots[id].completed = true;
-      if(courseData.hotspotData.hotspots[id].completion.gate != null) {
-        var chapter = courseData.hotspotData.hotspots[id].completion.gate.chapter;
-        var page = courseData.hotspotData.hotspots[id].completion.gate.page;
-        var lock = courseData.hotspotData.hotspots[id].completion.gate.lock;
-        openLock(chapter, page, lock);
-      }
-    }
-    localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(courseData));
+    checkHotspotCompletion(id, spotID);
   });
+
 }
 
 function getHotspotIndex(currentID){
@@ -137,4 +121,31 @@ function getHotspotIndex(currentID){
       return i;
     }
   }
+}
+
+function checkHotspotCompletion(id, spotID){
+  var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
+
+  console.log(id);
+  if(courseData.hotspotData.hotspots[id].spots[spotID].completed == false){
+    courseData.hotspotData.hotspots[id].spots[spotID].completed = true;
+    courseData.hotspotData.hotspots[id].score += 1;
+
+    if(courseData.hotspotData.hotspots[id].score >= courseData.hotspotData.hotspots[id].spots.length){
+      console.log("Hotspot Completed");
+      courseData.hotspotData.hotspots[id].completed = true;
+      courseData.hotspotData.completed += 1;
+      courseData.COMPLETED_INTERACTIVES += 1;
+      if(courseData.hotspotData.hotspots[id].completion.gate != null) {
+        var chapter = courseData.hotspotData.hotspots[id].completion.gate.chapter;
+        var page = courseData.hotspotData.hotspots[id].completion.gate.page;
+        var lock = courseData.hotspotData.hotspots[id].completion.gate.lock;
+        openLock(chapter, page, lock);
+      }
+    }
+  }
+
+
+  localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(courseData));
+
 }

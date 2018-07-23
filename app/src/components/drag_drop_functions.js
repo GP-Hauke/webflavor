@@ -24,10 +24,9 @@ function initDragAndDrop(dragDropContentXML, elementID) {
 
   else{
     console.log("DragDrop Initialized");
-    courseData.dragDropData = {
-      completed: false,
-      dragDrops: []
-    };
+    courseData.dragDropData.completed = 0;
+    courseData.dragDropData.dragDrops = [];
+
   }
 
   var dragDrop = {
@@ -222,9 +221,11 @@ function submitDragDrop(id, elementID){
     }
   }
 
-  if(score >= minScore){
+  if(score >= minScore && courseData.dragDropData.dragDrops[id].completed == false){
     console.log("DragDrop Completed");
     courseData.dragDropData.dragDrops[id].completed = true;
+    courseData.dragDropData.completed += 1;
+    courseData.COMPLETED_INTERACTIVES += 1;
     if(courseData.dragDropData.dragDrops[id].completion.gate != null) {
       var chapter = courseData.dragDropData.dragDrops[id].completion.gate.chapter;
       var page = courseData.dragDropData.dragDrops[id].completion.gate.page;

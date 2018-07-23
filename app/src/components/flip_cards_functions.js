@@ -25,11 +25,9 @@ function initFlipCard(flipCardContentXML, elementID) {
 
   else{
     console.log("FlipCard Initialized");
-    courseData.flipCardData = {
-      id: $(currentFlipCardComponent).attr("id"),
-      completed: false,
-      flipCards: []
-    }
+    courseData.flipCardData.id = $(currentFlipCardComponent).attr("id");
+    courseData.flipCardData.completed = 0;
+    courseData.flipCardData.flipCards =  [];
   }
 
   var flipCard = {
@@ -184,17 +182,19 @@ function checkCardsCompletion(id, cardsID){
     courseData.flipCardData.flipCards[id].cards[cardsID].completed = true;
     courseData.flipCardData.flipCards[id].score += 1;
     localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(courseData));
-  }
 
-  if(courseData.flipCardData.flipCards[id].score >= courseData.flipCardData.flipCards[id].cards.length){
-    courseData.flipCardData.flipCards[id].completed = true;
-    localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(courseData));
-    console.log("FlipCard Completed");
-    if(courseData.flipCardData.flipCards[id].completion.gate != null) {
-      var chapter = courseData.flipCardData.flipCards[id].completion.gate.chapter;
-      var page = courseData.flipCardData.flipCards[id].completion.gate.page;
-      var lock = courseData.flipCardData.flipCards[id].completion.gate.lock;
-      openLock(chapter, page, lock);
+    if(courseData.flipCardData.flipCards[id].score >= courseData.flipCardData.flipCards[id].cards.length){
+      courseData.flipCardData.flipCards[id].completed = true;
+      courseData.flipCardData.completed += 1;
+      courseData.COMPLETED_INTERACTIVES += 1;
+      localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(courseData));
+      console.log("FlipCard Completed");
+      if(courseData.flipCardData.flipCards[id].completion.gate != null) {
+        var chapter = courseData.flipCardData.flipCards[id].completion.gate.chapter;
+        var page = courseData.flipCardData.flipCards[id].completion.gate.page;
+        var lock = courseData.flipCardData.flipCards[id].completion.gate.lock;
+        openLock(chapter, page, lock);
+      }
     }
   }
 }

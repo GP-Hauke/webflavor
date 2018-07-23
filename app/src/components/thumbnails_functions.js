@@ -25,10 +25,8 @@ function initThumbnails(thumbnailContentXML, elementID) {
 
   else{
     console.log("Thumbnail Initialized");
-    courseData.thumbnailData = {
-      completed: false,
-      thumbnails: []
-    };
+    courseData.thumbnailData.completed = 0;
+    courseData.thumbnailData.thumbnails = [];
   }
 
   var thumbnail = {
@@ -76,7 +74,9 @@ function setupThumbnails(id, elementID){
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
   var thumbnailNum = courseData.thumbnailData.thumbnails[id].thumbs.length;
 
-  var html = '<div class="row">';
+  var html = '<div class="row"></div>';
+  $("#"+elementID).html(html);
+
 
   var size = 12/thumbnailNum;
 
@@ -97,45 +97,45 @@ function setupThumbnails(id, elementID){
     }
 
     else {
-      var thumbnailHTML = '<div class="'+thumbnailWidth+'"><div class="thumbnail" id=""><a id="thumb'+i+'" onclick="checkThumbCompletion(this);" target="_blank" '+href+'="'+url+'" class="top-paragraph link"><div class="img-container"><img class="img-zoom" src="'+img+'" alt=""></div><div class="caption"><div class="caption-title"><span>'+
+      var thumbnailHTML = '<div class="'+thumbnailWidth+'"><div class="thumbnail" id=""><a id="'+elementID+'-thumb-'+i+'" target="_blank" '+href+'="'+url+'" class="top-paragraph link"><div class="img-container"><img class="img-zoom" src="'+img+'" alt=""></div><div class="caption"><div class="caption-title"><span>'+
       heading+'</span></div><p>'+caption+'</p></div></a></div></div>';
     }
 
-    html += thumbnailHTML;
+    $("#"+elementID+ ' .row').append(thumbnailHTML);
+    $('#'+elementID+'-thumb-'+i).click(function(){
+
+      checkThumbCompletion(this, getThumbnailIndex(elementID));
+    });
   }
 
-  html += '</div>';
 
-  if(elementID != null){
-    $("#"+elementID).empty();
-    $("#"+elementID).html(html);
-  }
-  else{
-    $('#pageContent').append(html);
-  }
+
 }
 
-function checkThumbCompletion(evt){
+function checkThumbCompletion(evt, elementID){
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
-
   var id = $(evt).attr("id");
   id = id.substr($(evt).attr("id").length - 1);
   var thumbID = id;
-  if(courseData.thumbnailData.thumbnails[thumbID].completed == false){
-    courseData.thumbnailData.thumbnails[thumbID].completed = true;
-    courseData.thumbnailData.score += 1;
-    localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(courseData));
-  }
+  if(courseData.thumbnailData.thumbnails[elementID].thumbs[thumbID].completed == false){
+    courseData.thumbnailData.thumbnails[elementID].thumbs[thumbID].completed = true;
+    courseData.thumbnailData.thumbnails[elementID].score += 1;
 
-  if(courseData.thumbnailData.score >= courseData.thumbnailData.thumbnails.length){
-    courseData.thumbnailData.completed = true;
-    if(courseData.thumbnailData.completion.gate != null) {
-      var chapter = courseData.thumbnailData.completion.gate.chapter;
-      var page = courseData.thumbnailData.completion.gate.page;
-      var lock = courseData.thumbnailData.completion.gate.lock;
-      openLock(chapter, page, lock);
+    if(courseData.thumbnailData.thumbnails[elementID].score >= courseData.thumbnailData.thumbnails[elementID].thumbs.length){
+      courseData.thumbnailData.thumbnails[elementID].completed = true;
+      courseData.thumbnailData.completed += 1;
+      courseData.COMPLETED_INTERACTIVES += 1;
+      if(courseData.thumbnailData.thumbnails[elementID].completion.gate != null) {
+        var chapter = courseData.thumbnailData.thumbnails[elementID].completion.gate.chapter;
+        var page = courseData.thumbnailData.thumbnails[elementID].completion.gate.page;
+        var lock = courseData.thumbnailData.thumbnails[elementID].completion.gate.lock;
+        openLock(chapter, page, lock);
+      }
     }
   }
+
+  localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(courseData));
+
 }
 
 function getThumbnailIndex(currentID){

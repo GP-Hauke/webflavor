@@ -23,10 +23,8 @@ function initCtr(CtrContentXML, elementID) {
 
   else{
     console.log("Ctr Initialized");
-    courseData.ctrData = {
-      completed: false,
-      ctrs: []
-    };
+    courseData.ctrData.completed = 0;
+    courseData.ctrData.ctrs = [];
   }
 
   var ctr = {
@@ -152,25 +150,31 @@ function getCtrIndex(currentID){
 function checkCTRCompletion(id, sectionID){
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
 
+  console.log(id);
+
   if(courseData.ctrData.ctrs[id].sections[sectionID].completed == false){
     courseData.ctrData.ctrs[id].sections[sectionID].completed = true;
     courseData.ctrData.ctrs[id].score += 1;
     localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(courseData));
+
+    if(courseData.ctrData.ctrs[id].score >= courseData.ctrData.ctrs[id].sections.length){
+      courseData.ctrData.ctrs[id].completed = true;
+      courseData.ctrData.completed += 1;
+      courseData.COMPLETED_INTERACTIVES += 1;
+      localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(courseData));
+      console.log("Ctr Completed");
+      if(courseData.ctrData.ctrs[id].completion.gate != null) {
+        var chapter = courseData.ctrData.ctrs[id].completion.gate.chapter;
+        var page = courseData.ctrData.ctrs[id].completion.gate.page;
+        var lock = courseData.ctrData.ctrs[id].completion.gate.lock;
+        openLock(chapter, page, lock);
+      }
+    }
   }
   //console.log("ID" + id);
   //console.log(courseData.ctrData.ctrs[id].sections.length);
 
-  if(courseData.ctrData.ctrs[id].score >= courseData.ctrData.ctrs[id].sections.length){
-    courseData.ctrData.ctrs[id].completed = true;
-    localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(courseData));
-    console.log("Ctr Completed");
-    if(courseData.ctrData.ctrs[id].completion.gate != null) {
-      var chapter = courseData.ctrData.ctrs[id].completion.gate.chapter;
-      var page = courseData.ctrData.ctrs[id].completion.gate.page;
-      var lock = courseData.ctrData.ctrs[id].completion.gate.lock;
-      openLock(chapter, page, lock);
-    }
-  }
+
 }
 
 function setCtrInteractions(){

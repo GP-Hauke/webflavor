@@ -24,10 +24,9 @@ function initVideoAudio(videoAudioComponentXML, elementID) {
 
   else{
     console.log("Video/Audio Initialized");
-    courseData.videoAudioData = {
-      completed: false,
-      videoAudio: []
-    };
+    courseData.videoAudioData.completed = 0;
+    courseData.videoAudioData.videoAudio = [];
+
   }
 
   var videoAudio = {
@@ -58,35 +57,44 @@ function setupVideoAudio(id,elementID){
 
   if(embeded == "true"){
     if(type == "video"){
-      var html = '<video poster="'+poster+'" controls><source src="'+src+'" type="video/mp4">Your browser does not support the video tag.</video>';
+      var html = '<video id="'+elementID+'-video-embed" poster="'+poster+'" controls><source src="'+src+'" type="video/mp4">Your browser does not support the video tag.</video>';
     }
     else{
-      var html = '<audio controls><source src="'+src+'" type="audio/mp3">Your browser does not support the audio element.</audio>';
+      var html = '<audio id="'+elementID+'-audio-embed" controls><source src="'+src+'" type="audio/mp3">Your browser does not support the audio element.</audio>';
     }
   }
   else{
     //openAudioModal(src);
     //openVideoModal(src);
     if(type == "video"){
-      var html = '<img src="'+poster+'" alt="poster" class="embeded-vidAud"><img class="playBtnOverlay '+elementID+'-video" src="dir/media/img/play_overlay.png">';
+      var html = '<img src="'+poster+'" alt="poster" class="embeded-vidAud"><img id="'+elementID+'-video" class="playBtnOverlay" src="dir/media/img/play_overlay.png">';
     }
     else{
-      var html = '<img src="'+poster+'" alt="poster"  class="embeded-vidAud"><img class="playBtnOverlay '+elementID+'-audio" src="dir/media/img/play_overlay.png">';
+      var html = '<img src="'+poster+'" alt="poster"  class="embeded-vidAud"><img id="'+elementID+'-audio" class="playBtnOverlay" src="dir/media/img/play_overlay.png">';
     }
-
   }
-
-
 
   $("#"+elementID).empty();
   $("#"+elementID).append(html);
 
-  $('.'+elementID+'-audio').click(function(){
+  $('#'+elementID+'-audio').click(function(){
+    console.log("HERE");
     openAudioModal(src);
+    checkVideoAudioCompletion(getVideoAudioIndex(elementID));
   });
 
-  $('.'+elementID+'-video').click(function(){
+  $('#'+elementID+'-video').click(function(){
     openVideoModal(src);
+    checkVideoAudioCompletion(getVideoAudioIndex(elementID));
+  });
+
+  $('#'+elementID+'-audio-embed').on('play', function (e) {
+    checkVideoAudioCompletion(getVideoAudioIndex(elementID));
+
+  });
+
+  $('#'+elementID+'-video-embed').on('play', function (e) {
+    checkVideoAudioCompletion(getVideoAudioIndex(elementID));
   });
 
 
@@ -100,4 +108,25 @@ function getVideoAudioIndex(currentID){
       return i;
     }
   }
+}
+
+
+function checkVideoAudioCompletion(elementID){
+  var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
+
+  if(courseData.videoAudioData.videoAudio[elementID].completed == false){
+    courseData.videoAudioData.videoAudio[elementID].completed = true;
+    courseData.videoAudioData.completed += 1;
+    courseData.COMPLETED_INTERACTIVES += 1;
+
+    if(courseData.videoAudioData.videoAudio[elementID].completion.gate != null) {
+      var chapter = courseData.videoAudioData.videoAudio[elementID].completion.gate.chapter;
+      var page = courseData.videoAudioData.videoAudio[elementID].completion.gate.page;
+      var lock = courseData.videoAudioData.videoAudio[elementID].completion.gate.lock;
+      openLock(chapter, page, lock);
+    }
+  }
+
+  localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(courseData));
+
 }

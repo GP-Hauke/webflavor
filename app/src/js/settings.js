@@ -36,6 +36,8 @@ function populateStorage(json, tempStorage) {
   courseStorageObj.HAS_RESOURCES = json.settings.hasResources;
   courseStorageObj.HAS_HELP = json.settings.hasHelp;
   courseStorageObj.HAS_SPLASH_PAGE = json.settings.hasSplashPage;
+  courseStorageObj.TOTAL_INTERACTIVES = 0;
+  courseStorageObj.COMPLETED_INTERACTIVES = 0;
   courseStorageObj.CONTENTS = {
     toc: json.settings.contents,
     completed: []
@@ -46,7 +48,7 @@ function populateStorage(json, tempStorage) {
   /* if course is loaded for first time or hasCards was set to true for first time, cardData will be undefined, so set it here as stub. if course had been loaded previously with hasCards set to true, copy card data from previous localStorage. */
   if(json.settings.hasCards === "true") {
     if(tempStorage === null || tempStorage.cardData === undefined) {
-      courseStorageObj.cardData = {};
+      courseStorageObj.cardData = {TOTAL : 0};
 
     } else {
       courseStorageObj.cardData = tempStorage.cardData;
@@ -70,7 +72,7 @@ function populateStorage(json, tempStorage) {
 
   if(json.settings.hasDragDrops === "true") {
     if(tempStorage === null || tempStorage.dragDropData === undefined) {
-      courseStorageObj.dragDropData = {};
+      courseStorageObj.dragDropData = {TOTAL : 0};
 
     } else {
       courseStorageObj.dragDropData = tempStorage.dragDropData;
@@ -79,7 +81,7 @@ function populateStorage(json, tempStorage) {
 
   if(json.settings.hasHotspots === "true") {
     if(tempStorage === null || tempStorage.hotspotData === undefined) {
-      courseStorageObj.hotspotData = {};
+      courseStorageObj.hotspotData = {TOTAL : 0};
 
     } else {
       courseStorageObj.hotspotData = tempStorage.hotspotData;
@@ -88,7 +90,7 @@ function populateStorage(json, tempStorage) {
 
   if(json.settings.hasKnowledgeChecks === "true") {
     if(tempStorage === null || tempStorage.knowledgeCheckData === undefined) {
-      courseStorageObj.knowledgeCheckData = {};
+      courseStorageObj.knowledgeCheckData = {TOTAL : 0};
 
     } else {
       courseStorageObj.knowledgeCheckData = tempStorage.knowledgeCheckData;
@@ -97,7 +99,7 @@ function populateStorage(json, tempStorage) {
 
   if(json.settings.hasFlipCards === "true") {
     if(tempStorage === null || tempStorage.flipCardData === undefined) {
-      courseStorageObj.flipCardData = {};
+      courseStorageObj.flipCardData = {TOTAL : 0};
 
     } else {
       courseStorageObj.flipCardData = tempStorage.flipCardData;
@@ -106,7 +108,7 @@ function populateStorage(json, tempStorage) {
 
   if(json.settings.hasThumbnails === "true") {
     if(tempStorage === null || tempStorage.thumbnailData === undefined) {
-      courseStorageObj.thumbnailData = {};
+      courseStorageObj.thumbnailData = {TOTAL : 0};
 
     } else {
       courseStorageObj.thumbnailData = tempStorage.thumbnailData;
@@ -115,7 +117,7 @@ function populateStorage(json, tempStorage) {
 
   if(json.settings.hasCTR === "true") {
     if(tempStorage === null || tempStorage.ctrData === undefined) {
-      courseStorageObj.ctrData = {};
+      courseStorageObj.ctrData = {TOTAL : 0};
 
     } else {
       courseStorageObj.ctrData = tempStorage.ctrData;
@@ -124,7 +126,7 @@ function populateStorage(json, tempStorage) {
 
   if(json.settings.hasVideoAudio === "true") {
     if(tempStorage === null || tempStorage.videoAudioData === undefined) {
-      courseStorageObj.videoAudioData = {};
+      courseStorageObj.videoAudioData = {TOTAL : 0};
 
     } else {
       courseStorageObj.videoAudioData = tempStorage.videoAudioData;
@@ -139,6 +141,7 @@ function populateStorage(json, tempStorage) {
       courseStorageObj.glossary = tempStorage.glossary;
     }
   }
+
   if(json.settings.hasFooter === "false") {
     $('.footer').remove();
   }
@@ -272,6 +275,15 @@ function getChapterData(){
           pageIndex: j,
           activeCount: activeCount,
           success: function(xml) {
+
+          var components = $(xml).find("components");
+
+          components.children().each(function(){
+            var type = $(this)[0].tagName;
+            tempData = countInteractives(type, tempData)
+          });
+
+
             var pathMark = GetPathmark();
 
             if(this.pageIndex == 0){
@@ -351,6 +363,8 @@ function getChapterData(){
               }
               else{
                 tempData.SETTINGS_LOADED = true;
+                localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(tempData));
+
               }
             }
             if(tempData.SETTINGS_LOADED){
@@ -400,4 +414,38 @@ function loadContentStyles() {
   $(".add-theme-path-head").attr("href", function () {
     return $(this).attr("href").replace("theme-path", courseData.THEME_PATH);
   });
+}
+
+function countInteractives(interactive, tempData){
+  if(interactive == "Ctr"){
+    tempData.ctrData.TOTAL += 1;
+    tempData.TOTAL_INTERACTIVES += 1;
+  }
+  else if(interactive == "DragAndDrop"){
+    tempData.dragDropData.TOTAL += 1;
+    tempData.TOTAL_INTERACTIVES += 1;
+  }
+  else if(interactive == "FlipCard"){
+    tempData.flipCardData.TOTAL += 1;
+    tempData.TOTAL_INTERACTIVES += 1;
+  }
+  else if(interactive == "Hotspot"){
+    tempData.hotspotData.TOTAL += 1;
+    tempData.TOTAL_INTERACTIVES += 1;
+  }
+  else if(interactive == "KnowledgeCheck"){
+    tempData.knowledgeCheckData.TOTAL += 1;
+    tempData.TOTAL_INTERACTIVES += 1;
+  }
+  else if(interactive == "Thumbnails"){
+    tempData.thumbnailData.TOTAL += 1;
+    tempData.TOTAL_INTERACTIVES += 1;
+  }
+  else if(interactive == "VideoAudio"){
+    tempData.videoAudioData.TOTAL += 1;
+    tempData.TOTAL_INTERACTIVES += 1;
+  }
+
+
+  return tempData;
 }
