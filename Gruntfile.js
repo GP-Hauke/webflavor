@@ -23,7 +23,7 @@
 -[copy:vendors] - Copies over only needed vendors
 -[clean:finishbuild] - Deletes uneeded files from dist folder
 -[compress] - Creates scorm_package.zip file for LMS
--[connect] - Starts localhost:9000 to test build version
+-[browserSync] - Starts localhost to test build version
 ------------ END GRUNT BUILD SCRIPT CONTENTS ------------
 */
 
@@ -32,6 +32,7 @@ module.exports = function(grunt){
     pkg: grunt.file.readJSON('package.json'),
 
     browserSync: {
+      dev : {
         bsFiles: {
             src : 'app/**/*'
         },
@@ -42,6 +43,20 @@ module.exports = function(grunt){
             notify: false
 
         }
+      },
+
+      build : {
+        bsFiles: {
+            src : 'dist/**/*'
+        },
+        options: {
+            server: {
+                baseDir: "./dist"
+            },
+            notify: false
+
+        }
+      }
     },
 
     useminPrepare: {
@@ -58,7 +73,7 @@ module.exports = function(grunt){
     copy: {
       build: {
         cwd: 'app',
-        src: ['**', '!**/themes/*/'],
+        src: ['**', '!**/themes/*/**', '**/themes/gp_strategies/**'],
         dest: 'dist',
         expand: true,
 
@@ -85,26 +100,6 @@ module.exports = function(grunt){
               }
             }
             return true;
-          }
-
-          else if(require('path').relative(require('path').dirname(filepath), 'app\\dir\\themes') == '..'){
-            var dir = require('path').dirname(filepath)
-            var json = grunt.file.readJSON('app/settings.json');
-
-            var required = 'app\\dir\\themes\\'+json.settings.theme;
-
-            if(dir != required){
-              return false;
-            }
-          }
-
-          else if(require('path').dirname(filepath) == "app\\dir\\themes"){
-            var path = require('path').basename(filepath)
-            var json = grunt.file.readJSON('app/settings.json');
-
-            if(path != json.settings.theme){
-              return false;
-            }
           }
 
           else if(require('path').relative(require('path').dirname(filepath), 'app\\src\\vendors') == '..'){
@@ -236,9 +231,11 @@ module.exports = function(grunt){
       rebuild: {
         src: [ 'dist' ]
       },
+
       finishbuild: {
-        src: ['dist/src/vendors/*/', 'dist/src/js/*.js', '!dist/src/js/functions.js', 'dist/src/components/*.js', '!dist/src/components/components.js', 'settings.json']
+        src: ['dist/src/vendors/*/', 'dist/src/js/*.js', '!dist/src/js/functions.js', 'dist/src/components/*.js', '!dist/src/components/components.js', 'dist/**/**.css', 'dist/src/css/*/', '!dist/src/css/default.css', '!dist/**/theme.css', '!dist/src/vendors/vendors.min.css']
       },
+
       validate: {
         src: ['dist/dir/content/course_content/*', '!dist/dir/content/course_content/*.xml']
       }
@@ -486,7 +483,7 @@ module.exports = function(grunt){
     grunt.registerTask(
         'build',
         'Compiles all of the assets and copies the files to the build directory.',
-        ['xml_validator', 'version', 'clean:rebuild', 'copy:build', 'validate', 'preprocess', 'uglify', 'cssmin', 'useminPrepare', 'usemin', 'copy:vendors', 'clean:finishbuild', 'compress', 'connect']
+        ['xml_validator', 'version', 'clean:rebuild', 'build:theme', 'copy:build', 'validate', 'preprocess', 'uglify', 'cssmin', 'useminPrepare', 'usemin', 'copy:vendors', 'clean:finishbuild', 'compress', 'browserSync:build']
       );
 
     grunt.registerTask(
@@ -494,6 +491,15 @@ module.exports = function(grunt){
         'Compiles all of the assets and copies the files to the build directory.',
         ['settings','xmlpoke:sco01','xmlpoke:imsmanifest']
       );
+
+    grunt.registerTask('build:theme', function(key, value) {
+        var settingsFile = "app/settings.json";
+        var json = grunt.file.readJSON(settingsFile);
+        var theme = json.settings.theme;
+        var settingsFile = ['**', '!**/themes/*/**', '**/themes/'+theme+'/**'];
+        grunt.log.oklns('**/themes/'+theme+'/**');
+        grunt.config.set("copy.build.src", settingsFile);
+      });
 
     grunt.registerTask('version', function(key, value) {
         var settingsFile = "app/settings.json";
@@ -591,5 +597,7 @@ module.exports = function(grunt){
         grunt.file.write('app/settings.json', JSON.stringify(json, null, 2));
       });
 
-    grunt.registerTask('dev', ['browserSync']);
+    grunt.registerTask('dev', ['browserSync:dev']);
+
+    grunt.registerTask('test', ['build:theme', 'copy']);
 }
