@@ -1,7 +1,9 @@
 {
   "name": "WebFlavor",
   "version": "0.0.1",
-  "dependencies": {},
+  "dependencies": {
+    "grunt-browser-sync": "^2.2.0"
+  },
   "devDependencies": {
     "grunt": "^1.0.3",
     "grunt-cleanempty": "^1.0.4",

@@ -13,7 +13,7 @@
     <![CDATA[
     <div class="row">
       <div class="col-md-12">
-        <p class="top-paragraph">The following is a Click to Reveal (CTR) component. The CTR boxes can contain any HTML a developer wants, which includes images and normal text. Using the Bootstrap Grid classes in the <layout> element, the CTR component can be placed anywhere. The placement of the reveal-section, can also be modified to be: Right, Left, Top</p>
+        <p class="top-paragraph">The following is a Click to Reveal (CTR) component. The CTR boxes can contain any HTML a developer wants, which includes images and normal text. Using the Bootstrap Grid classes in the &lt;layout&gt; element, the CTR component can be placed anywhere. The placement of the reveal-section, can also be modified to be: Right, Left, Top</p>
       </div>
     </div>
 

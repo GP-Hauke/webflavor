@@ -31,6 +31,19 @@ module.exports = function(grunt){
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 
+    browserSync: {
+        bsFiles: {
+            src : 'app/**/*'
+        },
+        options: {
+            server: {
+                baseDir: "./app"
+            },
+            notify: false
+
+        }
+    },
+
     useminPrepare: {
       html: 'app/**/index.html',
       options: {
@@ -108,38 +121,99 @@ module.exports = function(grunt){
           else if(require('path').dirname(filepath) == "app\\src\\components"){
             var path = require('path').basename(filepath)
             var json = grunt.file.readJSON('app/settings.json');
+            var xmldoc = require('xmldoc');
+            var pages = grunt.file.expand(["app/dir/content/course_content/*.xml"]);
 
-            if(path == 'assessment_functions.js'){
-              if(json.settings.hasAssessments == 'false'){
-                return false;
+            var xmldoc = require('xmldoc');
+            for(var i = 0; i < pages.length; i++){
+              var xml = grunt.file.read(pages[i]);
+
+              var xmlDoc = new xmldoc.XmlDocument(xml);
+              if(path == 'drag_drop_functions.js'){
+                var content = xmlDoc.descendantWithPath("components.DragAndDrop");
+                if(content != null){
+                  if(content.toString().length > 0){
+                    grunt.log.oklns("INCLUDED: " + "Drag And Drops".cyan);
+                    return true;
+                    break;
+                  }
+                }
+              }
+
+              else if(path == 'flip_cards_functions.js'){
+                var content = xmlDoc.descendantWithPath("components.FlipCard");
+                if(content != null){
+                  if(content.toString().length > 0){
+                    grunt.log.oklns("INCLUDED: " + "Flip Cards".cyan);
+                    return true;
+                    break;
+                  }
+                }
+              }
+              else if(path == 'hotspot_functions.js'){
+                var content = xmlDoc.descendantWithPath("components.Hotspot");
+                if(content != null){
+                  if(content.toString().length > 0){
+                    grunt.log.oklns("INCLUDED: " + "Hot Spots".cyan);
+                    return true;
+                    break;
+                  }
+                }
+              }
+              else if(path == 'knowledge_check_functions.js'){
+                var content = xmlDoc.descendantWithPath("components.KnowledgeCheck");
+                if(content != null){
+                  if(content.toString().length > 0){
+                    grunt.log.oklns("INCLUDED: " + "Knowledge Checks".cyan);
+                    return true;
+                    break;
+                  }
+                }
+              }
+              else if(path == 'thumbnails_functions.js'){
+                var content = xmlDoc.descendantWithPath("components.Thumbnails");
+                if(content != null){
+                  if(content.toString().length > 0){
+                    grunt.log.oklns("INCLUDED: " + "Thumbnails".cyan);
+                    return true;
+                    break;
+                  }
+                }
+              }
+              else if(path == 'ctr_functions.js'){
+                var content = xmlDoc.descendantWithPath("components.Ctr");
+                if(content != null){
+                  if(content.toString().length > 0){
+                    grunt.log.oklns("INCLUDED: " + "CTRs".cyan);
+                    return true;
+                    break;
+                  }
+                }
+              }
+              else if(path == 'video_audio_functions.js'){
+                var content = xmlDoc.descendantWithPath("components.VideoAudio");
+                if(content != null){
+                  if(content.toString().length > 0){
+                    grunt.log.oklns("INCLUDED: " + "Video/Audio".cyan);
+                    return true;
+                    break;
+                  }
+                }
+              }
+              else if(path == 'modal_functions.js'){
+                return true;
+                break;
+              }
+              else if(path == 'text_functions.js'){
+                return true;
+                break;
+              }
+              else if(path == 'assessment_functions.js'){
+                return true;
+                break;
               }
             }
-            else if(path == 'flip_cards_functions.js'){
-              if(json.settings.hasFlipCards == 'false'){
-                return false;
-              }
-            }
-            else if(path == 'drag_drop_functions.js'){
-              if(json.settings.hasDragDrops == 'false'){
-                return false;
-              }
-            }
-            else if(path == 'hotspot.js'){
-              if(json.settings.hasHotspots == 'false'){
-                return false;
-              }
-            }
-            else if(path == 'knowledge_check_functions.js'){
-              if(json.settings.hasKnowledgeChecks == 'false'){
-                return false;
-              }
-            }
-            else if(path == 'thumbnails_functions.js'){
-              if(json.settings.hasThumbnails == 'false'){
-                return false;
-              }
-            }
-            return true;
+            return false;
           }
 
           return true;
@@ -274,67 +348,15 @@ module.exports = function(grunt){
             'w':'http://www.imsglobal.org/xsd/imsmd_rootv1p2p1',
           },
           replacements: [
-              {
-                xpath: '/w:lom/w:general/w:catalogentry/w:catalog/text()',
-                value: function (node) {
-                  var json = grunt.file.readJSON('app/settings.json');
-                  return json.settings.cookieName;
-                }
-              },
-              {
-                xpath: '/w:lom/w:general/w:catalogentry/w:entry/w:langstring/text()',
-                value: function (node) {
-                  var json = grunt.file.readJSON('app/settings.json');
-
-                  if(json.settings.courseSubTitle.length == 0){
-                    return json.settings.courseTitle;
-                  }
-
-                  return json.settings.courseTitle +": "+json.settings.courseSubTitle;
-                }
-              },
-              {
-                xpath: '/w:lom/w:general/w:title/w:langstring/text()',
-                value: function (node) {
-                  var json = grunt.file.readJSON('app/settings.json');
-
-                  if(json.settings.courseSubTitle.length == 0){
-                    return json.settings.courseTitle;
-                  }
-
-                  return json.settings.courseTitle +": "+json.settings.courseSubTitle;
-                }
-              }]
-          },
-        files: {
-          'app/sco01.xml': 'app/sco01.xml',
-        },
-      },
-
-      imsmanifest: {
-        options: {
-          namespaces: {
-            'w':'http://www.imsproject.org/xsd/imscp_rootv1p1p2',
-            'w2':'http://www.imsglobal.org/xsd/imsmd_rootv1p2p1',
-            'w3':'http://www.imsproject.org/xsd/imscp_rootv1p1p2'
-          },
-          replacements: [
             {
-              xpath: '/w:manifest/@identifier',
+              xpath: '/w:lom/w:general/w:catalogentry/w:catalog/text()',
               value: function (node) {
                 var json = grunt.file.readJSON('app/settings.json');
                 return json.settings.cookieName;
               }
             },
             {
-              xpath: '/w:manifest/w:metadata/w2:lom/w2:general/w2:catalogentry/w2:entry/w2:langstring/text()',
-              value: function (node) {
-                var json = grunt.file.readJSON('app/settings.json');
-                return json.settings.cookieName;
-              }
-            },
-            {
-              xpath: '/w:manifest/w:metadata/w2:lom/w2:general/w2:title/w2:langstring/text()',
+              xpath: '/w:lom/w:general/w:catalogentry/w:entry/w:langstring/text()',
               value: function (node) {
                 var json = grunt.file.readJSON('app/settings.json');
 
@@ -346,19 +368,7 @@ module.exports = function(grunt){
               }
             },
             {
-              xpath: '/w:manifest/w3:organizations/w3:organization/w3:title/text()',
-              value: function (node) {
-                var json = grunt.file.readJSON('app/settings.json');
-
-                if(json.settings.courseSubTitle.length == 0){
-                  return json.settings.courseTitle;
-                }
-
-                return json.settings.courseTitle +": "+json.settings.courseSubTitle;
-              }
-            },
-            {
-              xpath: '/w:manifest/w3:organizations/w3:organization/w3:item/w3:title/text()',
+              xpath: '/w:lom/w:general/w:title/w:langstring/text()',
               value: function (node) {
                 var json = grunt.file.readJSON('app/settings.json');
 
@@ -369,153 +379,217 @@ module.exports = function(grunt){
                 return json.settings.courseTitle +": "+json.settings.courseSubTitle;
               }
             }]
+          },
+          files: {
+            'app/sco01.xml': 'app/sco01.xml',
+          },
         },
 
-        files: {
-          'app/imsmanifest.xml': 'app/imsmanifest.xml',
+        imsmanifest: {
+          options: {
+            namespaces: {
+              'w':'http://www.imsproject.org/xsd/imscp_rootv1p1p2',
+              'w2':'http://www.imsglobal.org/xsd/imsmd_rootv1p2p1',
+              'w3':'http://www.imsproject.org/xsd/imscp_rootv1p1p2'
+            },
+            replacements: [
+              {
+                xpath: '/w:manifest/@identifier',
+                value: function (node) {
+                  var json = grunt.file.readJSON('app/settings.json');
+                  return json.settings.cookieName;
+                }
+              },
+              {
+                xpath: '/w:manifest/w:metadata/w2:lom/w2:general/w2:catalogentry/w2:entry/w2:langstring/text()',
+                value: function (node) {
+                  var json = grunt.file.readJSON('app/settings.json');
+                  return json.settings.cookieName;
+                }
+              },
+              {
+                xpath: '/w:manifest/w:metadata/w2:lom/w2:general/w2:title/w2:langstring/text()',
+                value: function (node) {
+                  var json = grunt.file.readJSON('app/settings.json');
+
+                  if(json.settings.courseSubTitle.length == 0){
+                    return json.settings.courseTitle;
+                  }
+
+                  return json.settings.courseTitle +": "+json.settings.courseSubTitle;
+                }
+              },
+              {
+                xpath: '/w:manifest/w3:organizations/w3:organization/w3:title/text()',
+                value: function (node) {
+                  var json = grunt.file.readJSON('app/settings.json');
+
+                  if(json.settings.courseSubTitle.length == 0){
+                    return json.settings.courseTitle;
+                  }
+
+                  return json.settings.courseTitle +": "+json.settings.courseSubTitle;
+                }
+              },
+              {
+                xpath: '/w:manifest/w3:organizations/w3:organization/w3:item/w3:title/text()',
+                value: function (node) {
+                  var json = grunt.file.readJSON('app/settings.json');
+
+                  if(json.settings.courseSubTitle.length == 0){
+                    return json.settings.courseTitle;
+                  }
+
+                  return json.settings.courseTitle +": "+json.settings.courseSubTitle;
+                }
+              }]
+            },
+
+            files: {
+              'app/imsmanifest.xml': 'app/imsmanifest.xml',
+            },
+          },
         },
-      },
-    },
 
-    xml_validator: {
-      your_target: {
-        src: ['app/**/*.xml']
-      },
-    },
-
-    htmlhint: {
-      html1: {
-        options: {
-          'tag-pair': true
+        xml_validator: {
+          your_target: {
+            src: ['app/**/*.xml']
+          },
         },
-        src: ['dist/dir/content/course_content/*.html']
-      }
-    }
-  });
 
-  grunt.loadNpmTasks('grunt-contrib-copy');
-  grunt.loadNpmTasks('grunt-contrib-clean');
-  grunt.loadNpmTasks('grunt-contrib-cssmin');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-contrib-concat');
-  grunt.loadNpmTasks('grunt-contrib-connect');
-  grunt.loadNpmTasks('grunt-usemin');
-  grunt.loadNpmTasks('grunt-contrib-compress');
-  grunt.loadNpmTasks('grunt-convert');
-  grunt.loadNpmTasks('grunt-cleanempty');
-  grunt.loadNpmTasks('grunt-preprocess');
-  grunt.loadNpmTasks('grunt-xmlpoke');
-  grunt.loadNpmTasks('grunt-xml-validator');
-  grunt.loadNpmTasks('grunt-htmlhint');
+        htmlhint: {
+          html1: {
+            options: {
+              'tag-pair': true
+            },
+            src: ['dist/dir/content/course_content/*.html']
+          }
+        }
+    });
 
-  grunt.registerTask('version', function(key, value) {
-    var settingsFile = "app/settings.json";
-    if (!grunt.file.exists(settingsFile)) {
-      grunt.log.error("file " + settingsFile + " not found");
-      return true; //return false to abort the execution
-    }
+    grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-contrib-connect');
+    grunt.loadNpmTasks('grunt-usemin');
+    grunt.loadNpmTasks('grunt-contrib-compress');
+    grunt.loadNpmTasks('grunt-convert');
+    grunt.loadNpmTasks('grunt-cleanempty');
+    grunt.loadNpmTasks('grunt-preprocess');
+    grunt.loadNpmTasks('grunt-xmlpoke');
+    grunt.loadNpmTasks('grunt-xml-validator');
+    grunt.loadNpmTasks('grunt-htmlhint');
+    grunt.loadNpmTasks('grunt-browser-sync');
 
-    var json = grunt.file.readJSON(settingsFile); //get file as json object
-    currentVersion = json.settings.version;
+    grunt.registerTask(
+        'build',
+        'Compiles all of the assets and copies the files to the build directory.',
+        ['xml_validator', 'version', 'clean:rebuild', 'copy:build', 'validate', 'preprocess', 'uglify', 'cssmin', 'useminPrepare', 'usemin', 'copy:vendors', 'clean:finishbuild', 'compress', 'connect']
+      );
 
-    json.settings.version = (parseFloat(currentVersion)+0.1).toFixed(1).toString();
-    grunt.log.oklns("VERSION: " + json.settings.version);
+    grunt.registerTask(
+        'init',
+        'Compiles all of the assets and copies the files to the build directory.',
+        ['settings','xmlpoke:sco01','xmlpoke:imsmanifest']
+      );
 
-    grunt.file.write(settingsFile, JSON.stringify(json, null, 2));
-  });
+    grunt.registerTask('version', function(key, value) {
+        var settingsFile = "app/settings.json";
+        if (!grunt.file.exists(settingsFile)) {
+          grunt.log.error("file " + settingsFile + " not found");
+          return true; //return false to abort the execution
+        }
 
-  grunt.registerTask('settings', function(key, value) {
-    var settingsFile = "app/settings.json";
-    if (!grunt.file.exists(settingsFile)) {
-      grunt.log.error("file " + settingsFile + " not found");
-      return true; //return false to abort the execution
-    }
+        var json = grunt.file.readJSON(settingsFile); //get file as json object
+        currentVersion = json.settings.version;
 
-    var json = grunt.file.readJSON(settingsFile); //get file as json object
-    var courseTitle = json.settings.courseTitle + " " + json.settings.courseSubTitle;
-    courseTitle = courseTitle.replace(/\s+/g, '_') + "_";
+        json.settings.version = (parseFloat(currentVersion)+0.1).toFixed(1).toString();
+        grunt.log.oklns("VERSION: " + json.settings.version);
 
-    var acronym = json.settings.courseTitle + " " + json.settings.courseSubTitle;
-    var matches = acronym.match(/\b(\w)/g);              // ['J','S','O','N']
-    var cookie = matches.join('').toLowerCase()+"_";
+        grunt.file.write(settingsFile, JSON.stringify(json, null, 2));
+      });
 
-    var possible = "abcdefghijklmnopqrstuvwxyz01234567890123456789";
+    grunt.registerTask('settings', function(key, value) {
+        var settingsFile = "app/settings.json";
+        if (!grunt.file.exists(settingsFile)) {
+          grunt.log.error("file " + settingsFile + " not found");
+          return true; //return false to abort the execution
+        }
 
-    for (var i = 0; i < 5; i++){
-      var r = possible.charAt(Math.floor(Math.random() * possible.length));
-      cookie += r;
-      courseTitle += r;
+        var json = grunt.file.readJSON(settingsFile); //get file as json object
+        var courseTitle = json.settings.courseTitle + " " + json.settings.courseSubTitle;
+        courseTitle = courseTitle.replace(/\s+/g, '_') + "_";
 
-    }
+        var acronym = json.settings.courseTitle + " " + json.settings.courseSubTitle;
+        var matches = acronym.match(/\b(\w)/g);              // ['J','S','O','N']
+        var cookie = matches.join('').toLowerCase()+"_";
 
-    grunt.log.oklns("VERSION: "['green'].bold + "1.0".yellow);
-    grunt.log.oklns("Course ID: "['green'].bold + courseTitle.yellow);
-    grunt.log.oklns("Cookie: "['green'].bold + cookie.yellow);
+        var possible = "abcdefghijklmnopqrstuvwxyz01234567890123456789";
+
+        for (var i = 0; i < 5; i++){
+          var r = possible.charAt(Math.floor(Math.random() * possible.length));
+          cookie += r;
+          courseTitle += r;
+
+        }
+
+        grunt.log.oklns("VERSION: "['green'].bold + "1.0".yellow);
+        grunt.log.oklns("Course ID: "['green'].bold + courseTitle.yellow);
+        grunt.log.oklns("Cookie: "['green'].bold + cookie.yellow);
 
 
-    json.settings.courseStorageID = cookie;
-    json.settings.version = "1.0";
-    json.settings.cookieName = cookie;
-    grunt.file.write(settingsFile, JSON.stringify(json, null, 2));
-  });
+        json.settings.courseStorageID = cookie;
+        json.settings.version = "1.0";
+        json.settings.cookieName = cookie;
+        grunt.file.write(settingsFile, JSON.stringify(json, null, 2));
+      });
 
-  grunt.registerTask(
-    'build',
-    'Compiles all of the assets and copies the files to the build directory.',
-    ['xml_validator', 'version', 'clean:rebuild', 'copy:build', 'validate', 'preprocess', 'uglify', 'cssmin', 'useminPrepare', 'usemin', 'copy:vendors', 'clean:finishbuild', 'compress', 'connect']
-  );
+    grunt.registerTask('validate', function(key, value) {
+        var xmldoc = require('xmldoc');
+        var pages = grunt.file.expand(["dist/dir/content/course_content/*.xml"]);
 
-  grunt.registerTask(
-    'init',
-    'Compiles all of the assets and copies the files to the build directory.',
-    ['settings','xmlpoke:sco01','xmlpoke:imsmanifest']
-  );
+        for(var i = 0; i < pages.length; i++){
+          var xml = grunt.file.read(pages[i]);
+          var xmlDoc = new xmldoc.XmlDocument(xml);
+          var html = xmlDoc.valueWithPath("layout");
 
-  grunt.registerTask('validate', function(key, value) {
-    var xmldoc = require('xmldoc');
-    var pages = grunt.file.expand(["dist/dir/content/course_content/*.xml"]);
+          grunt.file.write(pages[i].substring(0, pages[i].length - 3) + 'html', html);
+        }
 
-    for(var i = 0; i < pages.length; i++){
-      var xml = grunt.file.read(pages[i]);
-      var xmlDoc = new xmldoc.XmlDocument(xml);
-      var html = xmlDoc.valueWithPath("content");
+        grunt.log.oklns('HTML Created')
+        grunt.task.run('htmlhint');
+        grunt.task.run('clean:validate');
+      });
 
-      grunt.file.write(pages[i].substring(0, pages[i].length - 3) + 'html', html);
-    }
+    grunt.registerTask('update', function(key, value) {
+        var pages = grunt.file.expand(["app/dir/content/course_content/*.xml"]);
+        var lastChapter = "";
+        var currentChapter = "";
+        var contents = [];
+        var currentXML = "";
 
-    grunt.log.oklns('HTML Created')
-    grunt.task.run('htmlhint');
-    grunt.task.run('clean:validate');
-  });
+        for(var i = 0; i < pages.length; i++){
+          var path = require('path').basename(pages[i])
+          //grunt.log.oklns(path.substring(0, path.length - 4))
+          currentChapter = path.substr(0, path.indexOf('_'));
+          currentXML = path.substr(0, path.indexOf('.'));
 
-  grunt.registerTask('update', function(key, value) {
-    var pages = grunt.file.expand(["app/dir/content/course_content/*.xml"]);
-    var lastChapter = "";
-    var currentChapter = "";
-    var contents = [];
-    var currentXML = "";
+          if(currentChapter != lastChapter){
+            contents[currentChapter - 1] = [];
+          }
 
-    for(var i = 0; i < pages.length; i++){
-      var path = require('path').basename(pages[i])
-      //grunt.log.oklns(path.substring(0, path.length - 4))
-      currentChapter = path.substr(0, path.indexOf('_'));
-      currentXML = path.substr(0, path.indexOf('.'));
+          contents[currentChapter - 1].push(currentXML);
+          lastChapter = currentChapter;
 
-      if(currentChapter != lastChapter){
-          contents[currentChapter - 1] = [];
-      }
+        }
 
-      contents[currentChapter - 1].push(currentXML);
-      lastChapter = currentChapter;
+        var json = grunt.file.readJSON('app/settings.json'); //get file as json object
 
-    }
+        json.settings.contents = contents;
+        grunt.file.write('app/settings.json', JSON.stringify(json, null, 2));
+      });
 
-    var json = grunt.file.readJSON('app/settings.json'); //get file as json object
-
-    json.settings.contents = contents;
-    grunt.file.write('app/settings.json', JSON.stringify(json, null, 2));
-  });
-
-  grunt.registerTask('test', ['validate']);
-
+    grunt.registerTask('dev', ['browserSync']);
 }

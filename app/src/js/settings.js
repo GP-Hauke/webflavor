@@ -38,108 +38,18 @@ function populateStorage(json, tempStorage) {
   courseStorageObj.HAS_SPLASH_PAGE = json.settings.hasSplashPage;
   courseStorageObj.TOTAL_INTERACTIVES = 0;
   courseStorageObj.COMPLETED_INTERACTIVES = 0;
+  courseStorageObj.COUNT_PAGES = json.settings.hasCountPages;
+  courseStorageObj.SETTINGS_LOADED = false;
   courseStorageObj.CONTENTS = {
     toc: json.settings.contents,
     completed: []
   };
 
-  courseStorageObj.SETTINGS_LOADED = false;
 
   /* if course is loaded for first time or hasCards was set to true for first time, cardData will be undefined, so set it here as stub. if course had been loaded previously with hasCards set to true, copy card data from previous localStorage. */
-  if(json.settings.hasCards === "true") {
-    if(tempStorage === null || tempStorage.cardData === undefined) {
-      courseStorageObj.cardData = {TOTAL : 0};
-
-    } else {
-      courseStorageObj.cardData = tempStorage.cardData;
-    }
-  }
-
-  courseStorageObj.COUNT_PAGES = json.settings.hasCountPages;
   if(courseStorageObj.COUNT_PAGES == "true") {
     var pageCountObj = {"pagesTotal":0,"pagesVisited":0,"pageIds":[]};
     courseStorageObj.pageCount = pageCountObj;
-  }
-
-  if(json.settings.hasAssessments === "true") {
-    if(tempStorage === null || tempStorage.assessmentData === undefined) {
-      courseStorageObj.assessmentData = {};
-
-    } else {
-      courseStorageObj.assessmentData = tempStorage.assessmentData;
-    }
-  }
-
-  if(json.settings.hasDragDrops === "true") {
-    if(tempStorage === null || tempStorage.dragDropData === undefined) {
-      courseStorageObj.dragDropData = {TOTAL : 0};
-
-    } else {
-      courseStorageObj.dragDropData = tempStorage.dragDropData;
-    }
-  }
-
-  if(json.settings.hasHotspots === "true") {
-    if(tempStorage === null || tempStorage.hotspotData === undefined) {
-      courseStorageObj.hotspotData = {TOTAL : 0};
-
-    } else {
-      courseStorageObj.hotspotData = tempStorage.hotspotData;
-    }
-  }
-
-  if(json.settings.hasKnowledgeChecks === "true") {
-    if(tempStorage === null || tempStorage.knowledgeCheckData === undefined) {
-      courseStorageObj.knowledgeCheckData = {TOTAL : 0};
-
-    } else {
-      courseStorageObj.knowledgeCheckData = tempStorage.knowledgeCheckData;
-    }
-  }
-
-  if(json.settings.hasFlipCards === "true") {
-    if(tempStorage === null || tempStorage.flipCardData === undefined) {
-      courseStorageObj.flipCardData = {TOTAL : 0};
-
-    } else {
-      courseStorageObj.flipCardData = tempStorage.flipCardData;
-    }
-  }
-
-  if(json.settings.hasThumbnails === "true") {
-    if(tempStorage === null || tempStorage.thumbnailData === undefined) {
-      courseStorageObj.thumbnailData = {TOTAL : 0};
-
-    } else {
-      courseStorageObj.thumbnailData = tempStorage.thumbnailData;
-    }
-  }
-
-  if(json.settings.hasCTR === "true") {
-    if(tempStorage === null || tempStorage.ctrData === undefined) {
-      courseStorageObj.ctrData = {TOTAL : 0};
-
-    } else {
-      courseStorageObj.ctrData = tempStorage.ctrData;
-    }
-  }
-
-  if(json.settings.hasVideoAudio === "true") {
-    if(tempStorage === null || tempStorage.videoAudioData === undefined) {
-      courseStorageObj.videoAudioData = {TOTAL : 0};
-
-    } else {
-      courseStorageObj.videoAudioData = tempStorage.videoAudioData;
-    }
-  }
-
-  if(json.settings.hasGlossary === "true") {
-    if(tempStorage === null || tempStorage.glossary === undefined) {
-      courseStorageObj.glossary = {};
-
-    } else {
-      courseStorageObj.glossary = tempStorage.glossary;
-    }
   }
 
   if(json.settings.hasFooter === "false") {
@@ -151,7 +61,6 @@ function populateStorage(json, tempStorage) {
   loadXMLData();
 }
 
-/* ADD GLOSSARY ITEMS TO LOCAL STORAGE */
 function addGlossaryToLocalStorage(xml) {
   var storage = localStorage.getItem(LOCAL_COURSE_DATA_ID);
   var tempStorage = JSON.parse(storage);
@@ -175,9 +84,7 @@ function addGlossaryToLocalStorage(xml) {
 
   localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(tempStorage));
 }
-/*end ADD GLOSSARY TO LOCAL STORAGE */
 
-/* ADD GLOSSARY ITEMS TO LOCAL STORAGE */
 function addResourcesToLocalStorage(xml) {
   var storage = localStorage.getItem(LOCAL_COURSE_DATA_ID);
   var tempStorage = JSON.parse(storage);
@@ -203,7 +110,6 @@ function addResourcesToLocalStorage(xml) {
 
   localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(tempStorage));
 }
-/*end ADD GLOSSARY TO LOCAL STORAGE */
 
 function addSplashToLocalStorage(xml) {
   var storage = localStorage.getItem(LOCAL_COURSE_DATA_ID);
@@ -254,7 +160,9 @@ function getNavigationData(){
   }
   courseData.PAGE_TOTAL = pageTotal;
   activePageCount = pageTotal;
-  courseData.pageCount.pagesTotal = pageTotal;
+  if(courseData.COUNT_PAGES == true){
+    courseData.pageCount.pagesTotal = pageTotal;
+  }
   courseData.CONTENTS.completed = xmlArray;
 
   localStorage.setItem(LOCAL_COURSE_DATA_ID,  JSON.stringify(courseData));
@@ -418,30 +326,51 @@ function loadContentStyles() {
 
 function countInteractives(interactive, tempData){
   if(interactive == "Ctr"){
+    if(tempData.ctrData == null){
+      tempData.ctrData = {TOTAL: 0};
+    }
     tempData.ctrData.TOTAL += 1;
     tempData.TOTAL_INTERACTIVES += 1;
   }
   else if(interactive == "DragAndDrop"){
+    if(tempData.dragDropData == null){
+      tempData.dragDropData = {TOTAL: 0};
+    }
     tempData.dragDropData.TOTAL += 1;
     tempData.TOTAL_INTERACTIVES += 1;
   }
   else if(interactive == "FlipCard"){
+    if(tempData.flipCardData == null){
+      tempData.flipCardData = {TOTAL: 0};
+    }
     tempData.flipCardData.TOTAL += 1;
     tempData.TOTAL_INTERACTIVES += 1;
   }
   else if(interactive == "Hotspot"){
+    if(tempData.hotspotData == null){
+      tempData.hotspotData = {TOTAL: 0};
+    }
     tempData.hotspotData.TOTAL += 1;
     tempData.TOTAL_INTERACTIVES += 1;
   }
   else if(interactive == "KnowledgeCheck"){
+    if(tempData.knowledgeCheckData == null){
+      tempData.knowledgeCheckData = {TOTAL: 0};
+    }
     tempData.knowledgeCheckData.TOTAL += 1;
     tempData.TOTAL_INTERACTIVES += 1;
   }
   else if(interactive == "Thumbnails"){
+    if(tempData.thumbnailData == null){
+      tempData.thumbnailData = {TOTAL: 0};
+    }
     tempData.thumbnailData.TOTAL += 1;
     tempData.TOTAL_INTERACTIVES += 1;
   }
   else if(interactive == "VideoAudio"){
+    if(tempData.videoAudioData == null){
+      tempData.videoAudioData = {TOTAL: 0};
+    }
     tempData.videoAudioData.TOTAL += 1;
     tempData.TOTAL_INTERACTIVES += 1;
   }

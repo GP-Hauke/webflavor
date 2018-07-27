@@ -20,7 +20,6 @@ var resources;
 var strings = [];
 var checkingXMLCompleteAlready = false;
 var cookieName = "cookieName";
-
 var muted = false;
 var volume = .6;
 
@@ -528,8 +527,8 @@ function loadPage() {
 
   loadContent(eval(currentChapter)+'_'+eval(currentPage));
   $("#navbarMobile .courseTitleChapter").removeClass("courseTitleChapterSelected");
-  $("#navbarMobile .courseTitleChapter").eq(currentChapter-1).addClass('courseTitleChapterSelected');
   $(".navbar-fixed-left #navbarMain").removeClass('toggled');
+  $("#navbarMobile .courseTitleChapter").eq(currentChapter-1).addClass('courseTitleChapterSelected');
   $(".footer-nav").html(getFooterNav());
 
 }
@@ -544,7 +543,6 @@ function openAudioTranscript() {
 
 function pageLoaded() {
   //  console.log("pageLoaded");
-  //$("#courseTitle").html(chapters[currentChapter].title)
   SetBookmark(currentChapter,currentPage);
   calculateHeight();
 }
@@ -610,7 +608,6 @@ function getPageTitle() {
 function updateNavigation() {
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
   //console.log("Update navigation");
-  //console.log(courseData.chapters);
   var notSelectedClass = "menuItemNotSelected";
   activePageCount = 0;
 

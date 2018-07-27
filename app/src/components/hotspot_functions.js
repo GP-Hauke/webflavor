@@ -126,7 +126,6 @@ function getHotspotIndex(currentID){
 function checkHotspotCompletion(id, spotID){
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
 
-  console.log(id);
   if(courseData.hotspotData.hotspots[id].spots[spotID].completed == false){
     courseData.hotspotData.hotspots[id].spots[spotID].completed = true;
     courseData.hotspotData.hotspots[id].score += 1;

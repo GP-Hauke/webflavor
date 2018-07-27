@@ -11,14 +11,6 @@
     "hasResources": "true",
     "hasGlossary": "true",
     "hasHelp": "true",
-    "hasAssessments": "true",
-    "hasKnowledgeChecks": "true",
-    "hasFlipCards": "true",
-    "hasDragDrops": "true",
-    "hasHotspots": "true",
-    "hasThumbnails": "true",
-    "hasCTR": "true",
-    "hasVideoAudio": "true",
     "hasCountPages": "true",
     "vendors": {
       "create_js": "false",
@@ -28,7 +20,7 @@
       "glyphicons": "true"
     },
     "courseStorageID": "courseStorageID",
-    "version": "3.2",
+    "version": "8.7",
     "contents": [
       [
         "1_1",
@@ -65,6 +57,7 @@
       [
         "11_1"
       ]
-    ]
+    ],
+    "cookieName": "test_cookie_123"
   }
 }

@@ -9,7 +9,6 @@
     <gated locks="0">false</gated>
   </title>
 
-  <component>none</component>
   <layout>
     <![CDATA[
     <div class="row">
