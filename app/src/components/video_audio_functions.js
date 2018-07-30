@@ -1,5 +1,10 @@
 //INITIALIZE AND RENDER DRAG AND DROP
-function initVideoAudio(videoAudioComponentXML, elementID) {
+import * as Modal from '../components/modal_functions';
+
+var LOCAL_COURSE_DATA_ID;
+export function initVideoAudio(videoAudioComponentXML, elementID, localStorageID) {
+  LOCAL_COURSE_DATA_ID = localStorageID;
+
   if(localStorage === "undefined") {
     location.reload();
   }
@@ -47,7 +52,7 @@ function initVideoAudio(videoAudioComponentXML, elementID) {
   setupVideoAudio(id,elementID);
 }
 
-function setupVideoAudio(id,elementID){
+export function setupVideoAudio(id,elementID){
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
 
   var src = courseData.videoAudioData.videoAudio[id].source;
@@ -79,12 +84,12 @@ function setupVideoAudio(id,elementID){
 
   $('#'+elementID+'-audio').click(function(){
     console.log("HERE");
-    openAudioModal(src);
+    Modal.openAudioModal(src);
     checkVideoAudioCompletion(getVideoAudioIndex(elementID));
   });
 
   $('#'+elementID+'-video').click(function(){
-    openVideoModal(src);
+    Modal.openVideoModal(src);
     checkVideoAudioCompletion(getVideoAudioIndex(elementID));
   });
 
@@ -100,7 +105,7 @@ function setupVideoAudio(id,elementID){
 
 }
 
-function getVideoAudioIndex(currentID){
+export function getVideoAudioIndex(currentID){
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
 
   for(var i = 0; i < courseData.videoAudioData.videoAudio.length; i++){
@@ -111,7 +116,7 @@ function getVideoAudioIndex(currentID){
 }
 
 
-function checkVideoAudioCompletion(elementID){
+export function checkVideoAudioCompletion(elementID){
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
 
   if(courseData.videoAudioData.videoAudio[elementID].completed == false){

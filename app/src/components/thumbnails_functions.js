@@ -1,5 +1,8 @@
 //INITIALIZE AND RENDER CARDS
-function initThumbnails(thumbnailContentXML, elementID) {
+var LOCAL_COURSE_DATA_ID;
+
+export function initThumbnails(thumbnailContentXML, elementID, localStorageID) {
+  LOCAL_COURSE_DATA_ID = localStorageID;
   if(localStorage === "undefined") {
     location.reload();
   }
@@ -70,7 +73,7 @@ function initThumbnails(thumbnailContentXML, elementID) {
   setupThumbnails(id, elementID);
 }
 
-function setupThumbnails(id, elementID){
+export function setupThumbnails(id, elementID){
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
   var thumbnailNum = courseData.thumbnailData.thumbnails[id].thumbs.length;
 
@@ -112,7 +115,7 @@ function setupThumbnails(id, elementID){
 
 }
 
-function checkThumbCompletion(evt, elementID){
+export function checkThumbCompletion(evt, elementID){
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
   var id = $(evt).attr("id");
   id = id.substr($(evt).attr("id").length - 1);
@@ -138,7 +141,7 @@ function checkThumbCompletion(evt, elementID){
 
 }
 
-function getThumbnailIndex(currentID){
+export function getThumbnailIndex(currentID){
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
   for(var i = 0; i < courseData.thumbnailData.thumbnails.length; i++){
     if(courseData.thumbnailData.thumbnails[i].id == currentID){

@@ -1,9 +1,18 @@
+//////////////////////////////////////////////////////////////////////
+//
+//     Tracking JS
+//      - Communication with LMS
+//      - Responsible for Bookmarking
+//
+//////////////////////////////////////////////////////////////////////
+
 var TRACKING = "SCORM";
 var SCORM = "1.2";
 var setScore = -1;
 var mtmOpened = false;
+var cookieName = "test";
 
-function SetBookmark(c, p) {
+export function SetBookmark(c, p) {
   if(TRACKING == "SCORM") {
     if(getAPIHandle() == null) {
       return;
@@ -23,7 +32,7 @@ function SetBookmark(c, p) {
   }
 }
 
-function GetBookmark() {
+export function GetBookmark() {
   if(TRACKING=="SCORM") {
     if(getAPIHandle() == null){return;}
 
@@ -39,7 +48,7 @@ function GetBookmark() {
   }
 }
 
-function CreatePathmarks() {
+export function CreatePathmarks() {
   var s = "";
 
   for(var i = 0; i < courseData.chapters.length; i++) {
@@ -95,7 +104,7 @@ function CreatePathmarks() {
 
 }
 
-function GetPathmark() {
+export function GetPathmark() {
   if(TRACKING=="SCORM") {
     if(getAPIHandle() == null) {return;}
 
@@ -108,7 +117,7 @@ function GetPathmark() {
   return "";
 }
 
-function SetComplete() {
+export function SetComplete() {
   if(TRACKING=="SCORM") {
     if(getAPIHandle()==null){return;}
 
@@ -127,7 +136,7 @@ function SetComplete() {
   }
 }
 
-function SendScore(percent,REQUIRED_PERCENT) {
+export function SendScore(percent,REQUIRED_PERCENT) {
   if(percent >= REQUIRED_PERCENT) {
     openLock(currentChapter,currentPage,1)
   }
@@ -154,7 +163,7 @@ function SendScore(percent,REQUIRED_PERCENT) {
   }
 }
 
-function setInteraction(id,correctResponse,learnerResponse,result,description,type) {
+export function setInteraction(id,correctResponse,learnerResponse,result,description,type) {
   if(TRACKING=="SCORM" && SCORM=="2004") {
     doLMSSetValue("cmi.interactions."+id+".id",id);
     doLMSSetValue("cmi.interactions."+id+".type",type);
@@ -169,7 +178,7 @@ function setInteraction(id,correctResponse,learnerResponse,result,description,ty
   }
 }
 
-function ISODateString(d) {
+export function ISODateString(d) {
   function pad(n){return n<10 ? '0'+n : n}
   return d.getUTCFullYear()+'-'
     + pad(d.getUTCMonth()+1)+'-'
@@ -179,7 +188,7 @@ function ISODateString(d) {
     + pad(d.getUTCSeconds())
 }
 
-function StartLMS() {
+export function StartLMS() {
   try {
     if(getAPIHandle() == null) {
       TRACKING = "COOKIES";
@@ -214,7 +223,7 @@ function StartLMS() {
   } catch(e){TRACKING="COOKIES"}
 }
 
-function QuitLMS() {
+export function QuitLMS() {
   if(TRACKING=="SCORM") {
     if(SCORM=="2004") {
       doLMSSetValue("cmi.exit","suspend");
@@ -228,10 +237,10 @@ function QuitLMS() {
   }
 }
 
-function GetCookie(cookieName) {
-  search = cookieName + "="
+export function GetCookie(cookieName) {
+  var search = cookieName + "="
   if (document.cookie.length > 0) {
-    offset = document.cookie.indexOf(search)
+    var offset = document.cookie.indexOf(search)
 
     if (offset != -1) {
       offset += search.length;
@@ -249,7 +258,7 @@ function GetCookie(cookieName) {
   }
 }
 
-function setCookie(cookieName, cookieValue, cookieLife) {
+export function setCookie(cookieName, cookieValue, cookieLife) {
   expirationDate = new Date();
 
   if(cookieLife == null || cookieLife != -1) {

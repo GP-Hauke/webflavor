@@ -34,26 +34,26 @@ module.exports = function(grunt){
     browserSync: {
       dev : {
         bsFiles: {
-            src : 'app/**/*'
+          src : ['app/**/*', '!app/src/js/*.js']
         },
         options: {
-            server: {
-                baseDir: "./app"
-            },
-            notify: false
+          server: {
+            baseDir: "./app"
+          },
+          notify: false
 
         }
       },
 
       build : {
         bsFiles: {
-            src : 'dist/**/*'
+          src : 'dist/**/*'
         },
         options: {
-            server: {
-                baseDir: "./dist"
-            },
-            notify: false
+          server: {
+            baseDir: "./dist"
+          },
+          notify: false
 
         }
       }
@@ -73,10 +73,9 @@ module.exports = function(grunt){
     copy: {
       build: {
         cwd: 'app',
-        src: ['**', '!**/themes/*/**', '**/themes/gp_strategies/**'],
+        src: [],
         dest: 'dist',
         expand: true,
-
         filter: function(filepath){
           if(require('path').dirname(filepath) == "app\\dir\\content"){
             var path = require('path').basename(filepath)
@@ -95,126 +94,15 @@ module.exports = function(grunt){
                 return false;
               }
             }else if(path == 'assessments.xml'){
-              if(json.settings.hasAssessments == 'false'){
+              if(json.settings.hasVehicleGame == 'false'){
                 return false;
               }
             }
             return true;
           }
-
-          else if(require('path').relative(require('path').dirname(filepath), 'app\\src\\vendors') == '..'){
-            var dir = require('path').dirname(filepath).split(require('path').sep)
-            var json = grunt.file.readJSON('app/settings.json');
-
-            //var required = 'app\\dir\\themes\\'+json.settings.theme;
-            var folder = dir[dir.length -1];
-            if(json.settings.vendors[folder] == "false"){
-              return false;
-            }
-          }
-
-          else if(require('path').dirname(filepath) == "app\\src\\components"){
-            var path = require('path').basename(filepath)
-            var json = grunt.file.readJSON('app/settings.json');
-            var xmldoc = require('xmldoc');
-            var pages = grunt.file.expand(["app/dir/content/course_content/*.xml"]);
-
-            var xmldoc = require('xmldoc');
-            for(var i = 0; i < pages.length; i++){
-              var xml = grunt.file.read(pages[i]);
-
-              var xmlDoc = new xmldoc.XmlDocument(xml);
-              if(path == 'drag_drop_functions.js'){
-                var content = xmlDoc.descendantWithPath("components.DragAndDrop");
-                if(content != null){
-                  if(content.toString().length > 0){
-                    grunt.log.oklns("INCLUDED: " + "Drag And Drops".cyan);
-                    return true;
-                    break;
-                  }
-                }
-              }
-
-              else if(path == 'flip_cards_functions.js'){
-                var content = xmlDoc.descendantWithPath("components.FlipCard");
-                if(content != null){
-                  if(content.toString().length > 0){
-                    grunt.log.oklns("INCLUDED: " + "Flip Cards".cyan);
-                    return true;
-                    break;
-                  }
-                }
-              }
-              else if(path == 'hotspot_functions.js'){
-                var content = xmlDoc.descendantWithPath("components.Hotspot");
-                if(content != null){
-                  if(content.toString().length > 0){
-                    grunt.log.oklns("INCLUDED: " + "Hot Spots".cyan);
-                    return true;
-                    break;
-                  }
-                }
-              }
-              else if(path == 'knowledge_check_functions.js'){
-                var content = xmlDoc.descendantWithPath("components.KnowledgeCheck");
-                if(content != null){
-                  if(content.toString().length > 0){
-                    grunt.log.oklns("INCLUDED: " + "Knowledge Checks".cyan);
-                    return true;
-                    break;
-                  }
-                }
-              }
-              else if(path == 'thumbnails_functions.js'){
-                var content = xmlDoc.descendantWithPath("components.Thumbnails");
-                if(content != null){
-                  if(content.toString().length > 0){
-                    grunt.log.oklns("INCLUDED: " + "Thumbnails".cyan);
-                    return true;
-                    break;
-                  }
-                }
-              }
-              else if(path == 'ctr_functions.js'){
-                var content = xmlDoc.descendantWithPath("components.Ctr");
-                if(content != null){
-                  if(content.toString().length > 0){
-                    grunt.log.oklns("INCLUDED: " + "CTRs".cyan);
-                    return true;
-                    break;
-                  }
-                }
-              }
-              else if(path == 'video_audio_functions.js'){
-                var content = xmlDoc.descendantWithPath("components.VideoAudio");
-                if(content != null){
-                  if(content.toString().length > 0){
-                    grunt.log.oklns("INCLUDED: " + "Video/Audio".cyan);
-                    return true;
-                    break;
-                  }
-                }
-              }
-              else if(path == 'modal_functions.js'){
-                return true;
-                break;
-              }
-              else if(path == 'text_functions.js'){
-                return true;
-                break;
-              }
-              else if(path == 'assessment_functions.js'){
-                return true;
-                break;
-              }
-            }
-            return false;
-          }
-
           return true;
         }
       },
-
       vendors: {
         files: [
           {
@@ -229,11 +117,11 @@ module.exports = function(grunt){
 
     clean: {
       rebuild: {
-        src: [ 'dist' ]
+        src: [ 'dist']
       },
 
       finishbuild: {
-        src: ['dist/src/vendors/*/', 'dist/src/js/*.js', '!dist/src/js/functions.js', 'dist/src/components/*.js', '!dist/src/components/components.js', 'dist/**/**.css', 'dist/src/css/*/', '!dist/src/css/default.css', '!dist/**/theme.css', '!dist/src/vendors/vendors.min.css']
+        src: ['dist/src/vendors/*/', 'dist/**/**.css', 'dist/src/css/*/', '!dist/src/css/default.css', '!dist/**/theme.css', '!dist/src/vendors/vendors.min.css']
       },
 
       validate: {
@@ -269,8 +157,6 @@ module.exports = function(grunt){
           mangle: false
         },
         files: {
-          'dist/src/components/components.js': [ 'dist/src/components/*.js' ],
-          'dist/src/js/functions.js': [ 'dist/src/js/*.js' ],
           'dist/src/vendors/vendors.min.js': ['dist/src/vendors/jquery/jquery-3.2.1.min.js', 'dist/src/vendors/bootstrap/js/bootstrap.min.js', 'dist/src/vendors/**/*.min.js']
         }
       }
@@ -462,46 +348,46 @@ module.exports = function(grunt){
             src: ['dist/dir/content/course_content/*.html']
           }
         }
-    });
+      });
 
-    grunt.loadNpmTasks('grunt-contrib-copy');
-    grunt.loadNpmTasks('grunt-contrib-clean');
-    grunt.loadNpmTasks('grunt-contrib-cssmin');
-    grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.loadNpmTasks('grunt-contrib-concat');
-    grunt.loadNpmTasks('grunt-contrib-connect');
-    grunt.loadNpmTasks('grunt-usemin');
-    grunt.loadNpmTasks('grunt-contrib-compress');
-    grunt.loadNpmTasks('grunt-convert');
-    grunt.loadNpmTasks('grunt-cleanempty');
-    grunt.loadNpmTasks('grunt-preprocess');
-    grunt.loadNpmTasks('grunt-xmlpoke');
-    grunt.loadNpmTasks('grunt-xml-validator');
-    grunt.loadNpmTasks('grunt-htmlhint');
-    grunt.loadNpmTasks('grunt-browser-sync');
+      grunt.loadNpmTasks('grunt-contrib-copy');
+      grunt.loadNpmTasks('grunt-contrib-clean');
+      grunt.loadNpmTasks('grunt-contrib-cssmin');
+      grunt.loadNpmTasks('grunt-contrib-uglify');
+      grunt.loadNpmTasks('grunt-contrib-concat');
+      grunt.loadNpmTasks('grunt-contrib-connect');
+      grunt.loadNpmTasks('grunt-usemin');
+      grunt.loadNpmTasks('grunt-contrib-compress');
+      grunt.loadNpmTasks('grunt-convert');
+      grunt.loadNpmTasks('grunt-cleanempty');
+      grunt.loadNpmTasks('grunt-preprocess');
+      grunt.loadNpmTasks('grunt-xmlpoke');
+      grunt.loadNpmTasks('grunt-xml-validator');
+      grunt.loadNpmTasks('grunt-htmlhint');
+      grunt.loadNpmTasks('grunt-browser-sync');
 
-    grunt.registerTask(
+      grunt.registerTask(
         'build',
         'Compiles all of the assets and copies the files to the build directory.',
-        ['xml_validator', 'version', 'clean:rebuild', 'build:theme', 'copy:build', 'validate', 'preprocess', 'uglify', 'cssmin', 'useminPrepare', 'usemin', 'copy:vendors', 'clean:finishbuild', 'compress', 'browserSync:build']
+        ['xml_validator', 'version', 'preprocess', 'clean:rebuild', 'build:theme', 'copy:build', 'validate', 'uglify', 'cssmin', 'useminPrepare', 'usemin', 'copy:vendors', 'clean:finishbuild', 'compress', 'browserSync:build']
       );
 
-    grunt.registerTask(
+      grunt.registerTask(
         'init',
         'Compiles all of the assets and copies the files to the build directory.',
         ['settings','xmlpoke:sco01','xmlpoke:imsmanifest']
       );
 
-    grunt.registerTask('build:theme', function(key, value) {
+      grunt.registerTask('build:theme', function(key, value) {
         var settingsFile = "app/settings.json";
         var json = grunt.file.readJSON(settingsFile);
         var theme = json.settings.theme;
-        var settingsFile = ['**', '!**/themes/*/**', '**/themes/'+theme+'/**'];
-        grunt.log.oklns('**/themes/'+theme+'/**');
+        var settingsFile = ['**', '!**/themes/*/**', '**/themes/'+theme+'/**', '!**/src/js/*.js', '!**/src/components/*.js', '!**/*.js.map', '**/src/js/tracking_functions.js'];
+        grunt.log.oklns("THEME: " + theme.green);
         grunt.config.set("copy.build.src", settingsFile);
       });
 
-    grunt.registerTask('version', function(key, value) {
+      grunt.registerTask('version', function(key, value) {
         var settingsFile = "app/settings.json";
         if (!grunt.file.exists(settingsFile)) {
           grunt.log.error("file " + settingsFile + " not found");
@@ -517,7 +403,7 @@ module.exports = function(grunt){
         grunt.file.write(settingsFile, JSON.stringify(json, null, 2));
       });
 
-    grunt.registerTask('settings', function(key, value) {
+      grunt.registerTask('settings', function(key, value) {
         var settingsFile = "app/settings.json";
         if (!grunt.file.exists(settingsFile)) {
           grunt.log.error("file " + settingsFile + " not found");
@@ -552,7 +438,7 @@ module.exports = function(grunt){
         grunt.file.write(settingsFile, JSON.stringify(json, null, 2));
       });
 
-    grunt.registerTask('validate', function(key, value) {
+      grunt.registerTask('validate', function(key, value) {
         var xmldoc = require('xmldoc');
         var pages = grunt.file.expand(["dist/dir/content/course_content/*.xml"]);
 
@@ -569,7 +455,7 @@ module.exports = function(grunt){
         grunt.task.run('clean:validate');
       });
 
-    grunt.registerTask('update', function(key, value) {
+      grunt.registerTask('update', function(key, value) {
         var pages = grunt.file.expand(["app/dir/content/course_content/*.xml"]);
         var lastChapter = "";
         var currentChapter = "";
@@ -597,7 +483,15 @@ module.exports = function(grunt){
         grunt.file.write('app/settings.json', JSON.stringify(json, null, 2));
       });
 
-    grunt.registerTask('dev', ['browserSync:dev']);
+      grunt.registerTask('dev', ['browserSync:dev']);
 
-    grunt.registerTask('test', ['build:theme', 'copy']);
-}
+      grunt.registerTask('test', ['build:theme', 'copy']);
+    }
+
+    /*
+    grunt.registerTask(
+    'build',
+    'Compiles all of the assets and copies the files to the build directory.',
+    ['xml_validator', 'version', 'clean:rebuild', 'build:theme', 'copy:build', 'validate', 'preprocess', 'uglify', 'cssmin', 'useminPrepare', 'usemin', 'copy:vendors', 'clean:finishbuild', 'compress', 'browserSync:build']
+  );
+  */

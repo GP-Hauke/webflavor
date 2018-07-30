@@ -1,4 +1,7 @@
-function initCtr(CtrContentXML, elementID) {
+var LOCAL_COURSE_DATA_ID;
+
+export function initCtr(CtrContentXML, elementID,localStorageID) {
+  LOCAL_COURSE_DATA_ID = localStorageID;
   if(localStorage === "undefined") {
     location.reload();
   }
@@ -63,7 +66,7 @@ function initCtr(CtrContentXML, elementID) {
   setupCtr(id,elementID);
 }
 
-function setupCtr(id, elementID){
+export function setupCtr(id, elementID){
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
 
   var num = courseData.ctrData.ctrs[id].sections.length;
@@ -137,7 +140,7 @@ function setupCtr(id, elementID){
   }
 }
 
-function getCtrIndex(currentID){
+export function getCtrIndex(currentID){
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
 
   for(var i = 0; i < courseData.ctrData.ctrs.length; i++){
@@ -147,7 +150,7 @@ function getCtrIndex(currentID){
   }
 }
 
-function checkCTRCompletion(id, sectionID){
+export function checkCTRCompletion(id, sectionID){
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
 
   console.log(id);
@@ -177,6 +180,6 @@ function checkCTRCompletion(id, sectionID){
 
 }
 
-function setCtrInteractions(){
+export function setCtrInteractions(){
 
 }

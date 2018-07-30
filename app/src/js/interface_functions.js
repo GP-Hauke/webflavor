@@ -1,133 +1,26 @@
-var Signal;
+//////////////////////////////////////////////////////////////////////
+//
+//     Interface JS
+//      - Builds shell of course and interface
+//      - Controlls UI functions
+//
+//////////////////////////////////////////////////////////////////////
+
+import * as Content from './content_functions';
+import * as Modal from '../components/modal_functions';
+
+var LOCAL_COURSE_DATA_ID;
 var courseData;
-
-var settingsLoaded = false;
-var glossaryLoaded = false;
-var resourcesLoaded = false;
-var navigationLoaded = false;
-var cardContentLoaded = false;
-var stringsLoaded = false;
-var assessmentsLoaded = false;
-var splashLoaded = false;
-var splashViewed = false;
-
+var cookieName;
 var totalPages;
-var activePageCount;
-var currentChapter;
+var currentChapter
 var currentPage;
-var pageIsLoading = false;
-var resources;
-var strings = [];
-var checkingXMLCompleteAlready = false;
-var cookieName = "cookieName";
-var muted = false;
-var volume = .6;
+var activePageCount;
+var pageIsLoading;
 
-function initInterface() {
-  //console.log("initInterface()");
-  // @if DEBUG
-  localStorage.clear();
-  // @endif
-
-  //  Signal = signals.Signal;
-
-  $(window).resize(function() {
-    calculateHeight();
-  });
-
-  $(window).on("unload", function(){
-    QuitLMS();
-  });
-
-  StartLMS();
-  initializeSettings();
-}
-
-function initializeSettings(){
-  //console.log("initializeSettings()");
-
-  GetInterfaceXML("settings.json");
-  return;
-}
-
-function loadXMLData() {
-  //console.log("loadXMLData()");
-
-  courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
-
-  if(courseData.HAS_RESOURCES === 'true' && resourcesLoaded === false) {
-    GetInterfaceXML("dir/content/resources.xml");
-    return;
-  }
-
-  if(courseData.cardData !== undefined && cardContentLoaded === false) {
-    GetInterfaceXML("dir/content/card_content.xml");
-    return;
-  }
-
-  if(courseData.assessmentData !== undefined && assessmentsLoaded === false) {
-    GetInterfaceXML("dir/content/assessments.xml");
-    return;
-  }
-
-  if(courseData.HAS_GLOSSARY === 'true' && glossaryLoaded === false) {
-    GetInterfaceXML("dir/content/glossary.xml");
-    return;
-
-  }
-  if(courseData.HAS_SPLASH_PAGE === 'true' && splashLoaded === false){
-    GetInterfaceXML("dir/content/splash.xml");
-    return;
-
-  } else {
-
-    if(!checkingXMLCompleteAlready){
-      checkingXMLCompleteAlready = true;
-      checkXMLLoadingComplete();
-    }
-    return;
-  }
-}
-
-function GetInterfaceXML(args) {
-  //console.log("GetInterfaceXML");
-
-  $.get(args)
-
-  .done(function(xml) {
-    if(args.indexOf("settings") != -1) {
-      settingsLoaded = true;
-      initSettings(xml); // function lives in settings.js
-
-    } else if(args.indexOf("card_content") != -1) {
-      cardContentLoaded = true;
-      initCardContent(xml); // lives in card_content_functions.js
-      loadXMLData();
-
-    } else if(args.indexOf("assessments") != -1) {
-      assessmentsLoaded = true;
-      initAssessments(xml); // lives in assessment_functions.js
-      loadXMLData();
-
-    }else if(args.indexOf("glossary") != -1) {
-      glossaryLoaded = true;
-      addGlossaryToLocalStorage(xml);
-      loadXMLData();
-    }else if(args.indexOf("resources") != -1) {
-      resourcesLoaded = true;
-      addResourcesToLocalStorage(xml);
-      loadXMLData();
-    }else if(args.indexOf("splash") != -1) {
-      splashLoaded = true;
-      addSplashToLocalStorage(xml);
-      loadXMLData();
-    }
-  });
-}
-
-function buildInterface() {
+export function initInterface(id) {
   //console.log("Building Interface...");
-
+  LOCAL_COURSE_DATA_ID = id;
   courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
   var pageCount = 0;
 
@@ -140,10 +33,18 @@ function buildInterface() {
   currentPage = 1;
 
   buildShellUI();
-  updateNavigation();
+  enforcedShow($("#mainContainer"));
+  loadPage();
 }
 
-function buildShellUI() {
+export function enforcedShow(elem) {
+  elem.show();
+  if(elem.hasClass("hidden")) {
+    elem.removeClass("hidden");
+  }
+}
+
+export function buildShellUI() {
   //console.log("buildShellUI()");
 
   if(courseData.MENU_PLACEMENT === 'top') {
@@ -160,80 +61,7 @@ function buildShellUI() {
   }
 }
 
-function buildReources(xml) {
-  resources = new Glossary(xml);
-}
-
-function checkXMLLoadingComplete() {
-  //console.log("checkXMLLoadingComplete()");
-
-  if(courseData.chapters !== null) {
-    // if strings.xml is used, populate html here, e.g.:
-    //    $("#mainMenuLabel").html(strings[0]);
-
-    var bm = GetBookmark();
-
-    if(bm && bm != "" && bm.indexOf("_")) {
-        if(!isNaN(parseInt(bm.split("_")[0],10))) {
-          currentChapter = parseInt(bm.split("_")[0],10);
-
-        }
-
-        if(!isNaN(parseInt(bm.split("_")[1],10))) {
-          currentPage = parseInt(bm.split("_")[1],10);
-        }
-      }
-
-    if(!splashViewed && courseData.HAS_SPLASH_PAGE === 'true' && currentChapter === 1 && currentPage === 1) {
-      splashViewed = true;
-      openModal('splashPage');
-    }
-
-    if(courseData.HAS_GLOSSARY === 'true') {
-      $('#btnGlossary').click(function(){openModal('glossary');});
-    }
-
-    $('#btnHelpModal').click(function(){openModal('help');});
-    $('#btnResources').click(function(){openModal('resources');});
-
-    $("#mainContainer").css("opacity",1);
-    $("body").css("opacity",1);
-    $("body").focus();
-  }
-
-
-
-  enforcedShow($("#mainContainer"));
-  loadPage();
-
-}
-
-function enforcedShow(elem) {
-  elem.show();
-  if(elem.hasClass("hidden")) {
-    elem.removeClass("hidden");
-  }
-}
-
-function resumeYes() {
-  $("#resumeFrame").hide();
-
-  if(courseData.chapters[currentChapter].pages[currentPage].audio!="") {
-    $("#audioBar").show();
-    startAudio(courseData.chapters[currentChapter].pages[currentPage].audio);
-
-  } else {
-    $("#audioBar").hide();
-  }
-}
-
-function resumeNo() {
-  $("#resumeFrame").hide();
-
-  openPage(0,0)
-}
-
-function buildTopNav() {
+export function buildTopNav() {
 
   var navMarkup = '';
   $.get("src/components/navigation/nav.html", function(data) {
@@ -334,19 +162,20 @@ function buildTopNav() {
     if(courseData.HAS_MENU_LOGO == "true"){
       $('#navbar .navbar-brand').append('<img src="'+courseData.THEME_PATH+'/img/logo.png" alt="logo">')
     }
+    $('#btnGlossary').click(function(){Modal.openModal(LOCAL_COURSE_DATA_ID, 'glossary');});
+    $('#btnHelpModal').click(function(){Modal.openModal(LOCAL_COURSE_DATA_ID, 'help');});
+    $('#btnResources').click(function(){Modal.openModal(LOCAL_COURSE_DATA_ID, 'resources');});
+
+    updateNavigation();
 
     //var width = $('#navbarMobile li.courseTitleChapter').css("width");
     //$('#navbarMobile li.courseTitleChapter').css("max-width", width);
-
-
-    loadInterfaceStyles();
-
   });
 
   var notSelectedClass = "menuItemNotSelected";
 }
 
-function buildLeftNav() {
+export function buildLeftNav() {
 
   var navMarkup = '';
   $.get("src/components/navigation/navLeft.html", function(data) {
@@ -422,190 +251,18 @@ function buildLeftNav() {
   var notSelectedClass = "menuItemNotSelected";
 }
 
-function leftNav(){
+export function leftNav(){
   $(".navbar-fixed-left #navbarMain").toggleClass('toggled');
 }
 
-function buildNoneNav() {
+export function buildNoneNav() {
 
   loadInterfaceStyles();
   var notSelectedClass = "menuItemNotSelected";
 
 }
 
-function openPage(c,p) {
-  //console.log("---------openPage("+c+","+p+")---------");
-
-  if(!checkLock(c, p)) {
-    return;
-  }
-
-  currentChapter = c;
-  currentPage = p;
-  loadPage();
-}
-
-function nextPage() {
-
-
-  if(pageIsLoading) {
-    return;
-  }
-
-  pageIsLoading = true;
-
-  if(courseData.chapters[currentChapter-1].pages[currentPage-1].count != activePageCount) {
-    if(currentPage < courseData.chapters[currentChapter-1].pages.length) {
-      if(!checkLock(currentChapter, currentPage + 1)) {
-
-        pageIsLoading = false;
-        return;
-      }
-
-      currentPage++;
-      loadPage();
-
-    }
-
-    else {
-      if(!checkLock(currentChapter + 1, 1)) {
-
-        pageIsLoading = false;
-        return;
-      }
-
-      do {
-        currentChapter++;
-      }
-      while(courseData.chapters[currentChapter - 1].isActive == "false");
-      currentPage = 1;
-      loadPage();
-    }
-  }
-}
-
-function prevPage() {
-  //console.log("prevPage()");
-  if(courseData.chapters[currentChapter-1].pages[currentPage-1].count!=1) {
-
-    if(currentPage-1 != 0) {
-      currentPage--;
-      loadPage();
-
-    } else {
-      do {
-        currentChapter--;
-      }
-      while(courseData.chapters[currentChapter-1].isActive == "false");
-
-      currentPage = courseData.chapters[currentChapter-1].pages.length;
-      loadPage();
-    }
-  }
-}
-
-function loadPage() {
-  //console.log("loadPage()");
-
-  try {
-    stopAudio();
-    if(courseData.chapters[currentChapter].pages[currentPage].audio != "") {
-      $("#audioBar").show();
-      startAudio(courseData.chapters[currentChapter].pages[currentPage].audio);
-    } else {
-      $("#audioBar").hide();
-    }
-  }
-  catch(e){}
-
-  openLock(currentChapter,currentPage,0);
-
-  pageIsLoading = false;
-  $("body").scrollTop(0);
-
-  //document.getElementById("contentFrame").src="src/components/content/"+courseData.chapters[currentChapter].pages[currentPage].file+".html";
-
-  loadContent(eval(currentChapter)+'_'+eval(currentPage));
-  $("#navbarMobile .courseTitleChapter").removeClass("courseTitleChapterSelected");
-  $(".navbar-fixed-left #navbarMain").removeClass('toggled');
-  $("#navbarMobile .courseTitleChapter").eq(currentChapter-1).addClass('courseTitleChapterSelected');
-  $(".footer-nav").html(getFooterNav());
-
-}
-
-function updateProgressTime() {
-  $("#whiteProgBarAudio").css("width",((document.getElementById("pagePlayer").currentTime/document.getElementById("pagePlayer").duration)*100)+"%");
-}
-
-function openAudioTranscript() {
-  //  Popup("content/"+chapters[currentChapter].pages[currentPage].file+"_audioTran.html",800,600);
-}
-
-function pageLoaded() {
-  //  console.log("pageLoaded");
-  SetBookmark(currentChapter,currentPage);
-  calculateHeight();
-}
-
-function getFooterNav() {
-  //console.log("getFooterNav()");
-  if(currentChapter == courseData.chapters.length && currentPage == courseData.chapters[currentChapter-1].pages.length){
-    var hasLocks = true;
-  }
-  else if(currentPage < courseData.chapters[currentChapter-1].pages.length) {
-    var hasLocks = !checkLock(currentChapter, currentPage + 1);
-  }
-  else {
-    var hasLocks = !checkLock(currentChapter + 1, 1);
-  }
-
-  var nextBtnImgPath = '';
-  var backBtnImgPath = '';
-
-  // USE THIS TO DISPLAY CURRENT PAGE NUMBER AND TOTAL PAGES SEPARATED BY A DIVIDER
-  /*var footerNavHTML = '<span class="page-current">'+(currentChapter+1)+'</span>&nbsp;<span><img src="'+courseData.THEME_PATH+'/media/img/divider_pagination.png" alt="pagination divider"></span>&nbsp;<span class="page-total">'+parseInt(totalPages)+'</span>';*/
-
-  var footerNavHTML = '<span><img src="dir/media/img/btn_play_pause_inactive.png" alt="play/pause button"></span>';
-
-  /* current page is not the last page in the current chapter so display next button
-  OR current chapter is not the last chapter so display next button */
-  if(currentPage != courseData.chapters[currentChapter-1].pages.length || currentChapter != courseData.chapters.length) {
-    if(hasLocks) {
-      nextBtnImgPath = '/img/btn_next_inactive.png';
-    } else {
-      nextBtnImgPath = '/img/btn_next.png';
-    }
-
-    footerNavHTML = footerNavHTML + '<a class="next" href="#" onclick="nextPage();"><img src="dir/media'+nextBtnImgPath+'" alt="go to next page"></a>';
-
-  } else {
-    nextBtnImgPath = '/img/btn_next_inactive.png';
-
-    footerNavHTML = footerNavHTML + '<a class="next" href="#" onclick="nextPage();"><img src="dir/media'+nextBtnImgPath+'" alt="go to next page"></a>';
-
-  }
-
-  /* current page is not the first page in the current chapter so display back button
-  OR current chapter is not the first chapter so display back button */
-  if(currentPage != 1 || currentChapter != 1) {
-    backBtnImgPath = '/img/btn_back.png';
-
-    footerNavHTML = '<a class="back" href="#" onclick="prevPage();"><img src="dir/media'+backBtnImgPath+'" alt="go to previous page"></a>' + footerNavHTML;
-
-  } else {
-    backBtnImgPath = '/img/btn_back_inactive.png';
-
-    footerNavHTML = '<a class="back" href="#" onclick="prevPage();"><img src="dir/media/'+backBtnImgPath+'" alt="go to previous page"></a>' + footerNavHTML;
-  }
-
-  return footerNavHTML;
-}
-
-function getPageTitle() {
-  return courseData.chapters[currentChapter-1].pages[currentPage-1].title;
-}
-
-function updateNavigation() {
+export function updateNavigation() {
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
   //console.log("Update navigation");
   var notSelectedClass = "menuItemNotSelected";
@@ -683,12 +340,11 @@ function updateNavigation() {
     $("#nextBtn").hide();
   }
 
-  if($(".footer-nav") !== null) {
-    $(".footer-nav").html(getFooterNav());
-  }
+  $("#navbarMobile .courseTitleChapter").eq(currentChapter-1).addClass('courseTitleChapterSelected');
+
 }
 
-function activateChapter(active,deactive,titleIndex) {
+export function activateChapter(active,deactive,titleIndex) {
   //console.log("activateChapter()");
 
   for(var i = 0; i < active.length; i++) {
@@ -706,7 +362,7 @@ function activateChapter(active,deactive,titleIndex) {
   updateNavigation();
 }
 
-function checkLock(chapter,page) {
+export function checkLock(chapter,page) {
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
 
   for(var i = 0; i < chapter; i++) {
@@ -723,7 +379,7 @@ function checkLock(chapter,page) {
   return true;
 }
 
-function openLock(chapter,page,lock) {
+export function openLock(chapter,page,lock) {
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
 
   //console.log("openLock("+chapter+","+page+","+lock+")");
@@ -736,22 +392,80 @@ function openLock(chapter,page,lock) {
   localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(courseData));
 
   updateNavigation();
-  CreatePathmarks();
+  //CreatePathmarks();
 }
 
-function registerPageVisit(pageId) {
-  var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
+export function openPage(c,p) {
+  //console.log("---------openPage("+c+","+p+")---------");
 
-  if(courseData.pageCount.pageIds.indexOf(pageId) == -1) {
-    courseData.pageCount.pageIds.push(pageId);
-    courseData.pageCount.pagesVisited++;
+  if(!checkLock(c, p)) {
+    return;
   }
 
-  localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(courseData));
+  currentChapter = c;
+  currentPage = p;
+  loadPage();
+}
+
+export function nextPage() {
+  if(pageIsLoading) {
+    return;
+  }
+
+  pageIsLoading = true;
+
+  if(courseData.chapters[currentChapter-1].pages[currentPage-1].count != activePageCount) {
+    if(currentPage < courseData.chapters[currentChapter-1].pages.length) {
+      if(!checkLock(currentChapter, currentPage + 1)) {
+
+        pageIsLoading = false;
+        return;
+      }
+
+      currentPage++;
+      loadPage();
+
+    }
+
+    else {
+      if(!checkLock(currentChapter + 1, 1)) {
+
+        pageIsLoading = false;
+        return;
+      }
+
+      do {
+        currentChapter++;
+      }
+      while(courseData.chapters[currentChapter - 1].isActive == "false");
+      currentPage = 1;
+      loadPage();
+    }
+  }
+}
+
+export function prevPage() {
+  //console.log("prevPage()");
+  if(courseData.chapters[currentChapter-1].pages[currentPage-1].count!=1) {
+
+    if(currentPage-1 != 0) {
+      currentPage--;
+      loadPage();
+
+    } else {
+      do {
+        currentChapter--;
+      }
+      while(courseData.chapters[currentChapter-1].isActive == "false");
+
+      currentPage = courseData.chapters[currentChapter-1].pages.length;
+      loadPage();
+    }
+  }
 }
 
 /* AUDIO FUNCITONS */
-function startAudio(args) {
+export function startAudio(args) {
   document.getElementById("pagePlayer").src="media/audio/"+args;
   document.getElementById("pagePlayer").load();
   document.getElementById("pagePlayer").play();
@@ -759,19 +473,19 @@ function startAudio(args) {
   $("#pauseBtn").show();
 }
 
-function stopAudio() {
+export function stopAudio() {
   document.getElementById("pagePlayer").pause();
   $("#playBtn").show();
   $("#pauseBtn").hide();
 }
 
-function playAudio() {
+export function playAudio() {
   document.getElementById("pagePlayer").play();
   $("#playBtn").hide();
   $("#pauseBtn").show();
 }
 
-function changeVolume(args) {
+export function changeVolume(args) {
   volume = args/100;
   $("video").prop("volume",volume);
   $("audio").prop("volume",volume);
@@ -786,45 +500,107 @@ function changeVolume(args) {
   }catch(e){}
 }
 
-function muteAudio() {
+export function muteAudio() {
   $("#volumeSlider").toggle();
 }
 
-function unmuteAudio() {
+export function unmuteAudio() {
   $("#volumeSlider").toggle();
-}
-
-function calculateHeight() {
-  // subtracting one pixel ensures that second scroll bar doesn't appear
-  // adding padding to accommodate Bootstrap header nav
-  // console.log("calculateHeight");
-  // console.log($("#navbar").height());
-
-  //  $("#contentContainer").css({height:$(window).height() - 1, paddingTop:$("#navbar").height()});
-  //$("#contentContainer").css({height:$(window).height() - 1});
-  $("#contentContainer").css({height:$(window).height()-($('#navContainer').height()+getFooterHeight())});
-
-
-  var navItemHeight = (($(window).height()-($('#navContainer').height()+getFooterHeight())) * .75)/ $('.courseTitleChapter').length;
-  //$('.tabbed #navbarMobile .courseTitleChapter').css({height: navItemHeight});
-  //---------------DEPRICATED AFTER REMOVING IFRAMES---------------
-  //$("#contentFrame").css({height:$("#contentContainer").height()});
-  //$("#contentFrame").css({height:$("#contentContainer").height() - $("#navbar").height(), top:$("#navbar").height()});
-  //$("#contentFrame").css({height:$("#contentContainer").height() - 7});
-
-  $("#audioBar").width($("#mainContainer").width()-216-$("#navBtns").width());
-  $('.leftNav #navbarMain').css({height:$(window).height()-($('#navContainer').height()+getFooterHeight())});
-
 }
 
 /* GETTERS */
-function getFooterHeight() {
-  if($('footer').height() == null){
-    return 0;
+export function getFooterNav() {
+  //console.log("getFooterNav()");
+  if(currentChapter == courseData.chapters.length && currentPage == courseData.chapters[currentChapter-1].pages.length){
+    var hasLocks = true;
   }
-  return $('footer').height();
+  else if(currentPage < courseData.chapters[currentChapter-1].pages.length) {
+    var hasLocks = !checkLock(currentChapter, currentPage + 1);
+  }
+  else {
+    var hasLocks = !checkLock(currentChapter + 1, 1);
+  }
+
+  var nextBtnImgPath = '';
+  var backBtnImgPath = '';
+
+  // USE THIS TO DISPLAY CURRENT PAGE NUMBER AND TOTAL PAGES SEPARATED BY A DIVIDER
+  /*var footerNavHTML = '<span class="page-current">'+(currentChapter+1)+'</span>&nbsp;<span><img src="'+courseData.THEME_PATH+'/media/img/divider_pagination.png" alt="pagination divider"></span>&nbsp;<span class="page-total">'+parseInt(totalPages)+'</span>';*/
+
+  var footerNavHTML = '<span><img src="dir/media/img/btn_play_pause_inactive.png" alt="play/pause button"></span>';
+
+  /* current page is not the last page in the current chapter so display next button
+  OR current chapter is not the last chapter so display next button */
+  if(currentPage != courseData.chapters[currentChapter-1].pages.length || currentChapter != courseData.chapters.length) {
+    if(hasLocks) {
+      nextBtnImgPath = '/img/btn_next_inactive.png';
+    } else {
+      nextBtnImgPath = '/img/btn_next.png';
+    }
+
+    footerNavHTML = footerNavHTML + '<a class="next" href="#"><img src="dir/media'+nextBtnImgPath+'" alt="go to next page"></a>';
+
+  } else {
+    nextBtnImgPath = '/img/btn_next_inactive.png';
+
+    footerNavHTML = footerNavHTML + '<a class="next" href="#"><img src="dir/media'+nextBtnImgPath+'" alt="go to next page"></a>';
+
+  }
+
+  /* current page is not the first page in the current chapter so display back button
+  OR current chapter is not the first chapter so display back button */
+  if(currentPage != 1 || currentChapter != 1) {
+    backBtnImgPath = '/img/btn_back.png';
+
+    footerNavHTML = '<a class="back" href="#"><img src="dir/media'+backBtnImgPath+'" alt="go to previous page"></a>' + footerNavHTML;
+
+  } else {
+    backBtnImgPath = '/img/btn_back_inactive.png';
+
+    footerNavHTML = '<a class="back" href="#"><img src="dir/media/'+backBtnImgPath+'" alt="go to previous page"></a>' + footerNavHTML;
+  }
+
+  return footerNavHTML;
 }
 
-function closeCourse() {
+export function closeCourse() {
   top.window.close();
 }
+
+export function loadPage() {
+  //console.log("loadPage()");
+
+  try {
+    stopAudio();
+    if(courseData.chapters[currentChapter].pages[currentPage].audio != "") {
+      $("#audioBar").show();
+      startAudio(courseData.chapters[currentChapter].pages[currentPage].audio);
+    } else {
+      $("#audioBar").hide();
+    }
+  }
+  catch(e){}
+
+  openLock(currentChapter,currentPage,0);
+
+  pageIsLoading = false;
+  $("body").scrollTop(0);
+
+  //document.getElementById("contentFrame").src="src/components/content/"+courseData.chapters[currentChapter].pages[currentPage].file+".html";
+
+  Content.loadContent(currentChapter, currentPage, LOCAL_COURSE_DATA_ID);
+  $("#navbarMobile .courseTitleChapter").removeClass("courseTitleChapterSelected");
+  $(".navbar-fixed-left #navbarMain").removeClass('toggled');
+  $("#navbarMobile .courseTitleChapter").eq(currentChapter-1).addClass('courseTitleChapterSelected');
+  $(".footer-nav").html(getFooterNav());
+
+  $(".next").click(function(){
+    nextPage();
+  });
+
+  $(".back").click(function(){
+    prevPage();
+  });
+}
+
+window.openPage = openPage;

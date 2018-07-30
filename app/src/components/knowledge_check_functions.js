@@ -1,5 +1,8 @@
 //INITIALIZE AND RENDER CARDS
-function initKnowledgeCheck(knowledgeCheckXML, elementID) {
+var LOCAL_COURSE_DATA_ID;
+export function initKnowledgeCheck(knowledgeCheckXML, elementID, localStorageID) {
+  LOCAL_COURSE_DATA_ID = localStorageID;
+
   if(localStorage === "undefined") {
     location.reload();
   }
@@ -81,7 +84,7 @@ function initKnowledgeCheck(knowledgeCheckXML, elementID) {
 
 }
 
-function setupKnowledgeCheck(id, elementID){
+export function setupKnowledgeCheck(id, elementID){
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
 
   var currentKnowledgeCheck= courseData.knowledgeCheckData.knowledgeChecks[id];
@@ -124,7 +127,7 @@ function setupKnowledgeCheck(id, elementID){
   })
 }
 
-function submitAnswers(id, elementID){
+export function submitAnswers(id, elementID){
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
   var currentKnowledgeCheck = courseData.knowledgeCheckData.knowledgeChecks[id];
 
@@ -183,7 +186,7 @@ function submitAnswers(id, elementID){
   endKnowledgeCheck(id, elementID);
 }
 
-function endKnowledgeCheck(id, elementID){
+export function endKnowledgeCheck(id, elementID){
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
   var currentKnowledgeCheck = courseData.knowledgeCheckData.knowledgeChecks[id];
   currentKnowledgeCheck.completed = true;
@@ -207,7 +210,7 @@ function endKnowledgeCheck(id, elementID){
   localStorage.setItem(LOCAL_COURSE_DATA_ID,  JSON.stringify(courseData));
 }
 
-function getKnowledgeCheckIndex(currentID){
+export function getKnowledgeCheckIndex(currentID){
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
 
   for(var i = 0; i < courseData.knowledgeCheckData.knowledgeChecks.length; i++){

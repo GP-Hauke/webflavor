@@ -1,5 +1,8 @@
 //INITIALIZE AND RENDER CARDS
-function initFlipCard(flipCardContentXML, elementID) {
+var LOCAL_COURSE_DATA_ID;
+export function initFlipCard(flipCardContentXML, elementID, localStorageID) {
+  LOCAL_COURSE_DATA_ID = localStorageID;
+
   if(localStorage === "undefined") {
     location.reload();
   }
@@ -67,7 +70,7 @@ function initFlipCard(flipCardContentXML, elementID) {
   setupFlipCards(id, elementID);
 }
 
-function setupFlipCards(id, elementID){
+export function setupFlipCards(id, elementID){
 
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
   var cardNum = courseData.flipCardData.flipCards[id].cards.length;
@@ -151,7 +154,7 @@ function setupFlipCards(id, elementID){
   }
 }
 
-function getFlipCardIndex(currentID){
+export function getFlipCardIndex(currentID){
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
 
   for(var i = 0; i < courseData.flipCardData.flipCards.length; i++){
@@ -161,21 +164,21 @@ function getFlipCardIndex(currentID){
   }
 }
 
-function showBack(evt) {
+export function showBack(evt) {
   var card = evt.data.thisCard;
   card.animation.play();
   $(card).unbind("click", showBack);
   $(card).click({thisCard: card}, showFront);
 }
 
-function showFront(evt) {
+export function showFront(evt) {
   var card = evt.data.thisCard;
   card.animation.reverse();
   $(card).unbind("click", showFront);
   $(card).click({thisCard: card}, showBack);
 }
 
-function checkCardsCompletion(id, cardsID){
+export function checkCardsCompletion(id, cardsID){
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
 
   if(courseData.flipCardData.flipCards[id].cards[cardsID].completed == false){

@@ -1,5 +1,8 @@
 //INITIALIZE AND RENDER DRAG AND DROP
-function initHotspot(hotspotContentXML, elementID) {
+var LOCAL_COURSE_DATA_ID;
+export function initHotspot(hotspotContentXML, elementID, localStorageID) {
+  LOCAL_COURSE_DATA_ID = localStorageID;
+
   if(localStorage === "undefined") {
     location.reload();
   }
@@ -49,7 +52,7 @@ function initHotspot(hotspotContentXML, elementID) {
 
   $(currentHotspot).find("spot").each(function() {
     var currentSpot = $(this);
-    spot ={
+    var spot ={
       label:currentSpot.find('label').text(),
       popup:currentSpot.find('popup').text(),
       completed: false
@@ -65,8 +68,7 @@ function initHotspot(hotspotContentXML, elementID) {
   setupHotSpot(id,elementID);
 }
 
-
-function setupHotSpot(id, elementID){
+export function setupHotSpot(id, elementID){
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
 
   var img = courseData.hotspotData.hotspots[id].img;
@@ -113,7 +115,7 @@ function setupHotSpot(id, elementID){
 
 }
 
-function getHotspotIndex(currentID){
+export function getHotspotIndex(currentID){
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
 
   for(var i = 0; i < courseData.hotspotData.hotspots.length; i++){
@@ -123,7 +125,7 @@ function getHotspotIndex(currentID){
   }
 }
 
-function checkHotspotCompletion(id, spotID){
+export function checkHotspotCompletion(id, spotID){
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
 
   if(courseData.hotspotData.hotspots[id].spots[spotID].completed == false){

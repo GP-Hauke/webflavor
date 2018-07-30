@@ -1,5 +1,8 @@
 //INITIALIZE AND RENDER DRAG AND DROP
-function initDragAndDrop(dragDropContentXML, elementID) {
+var LOCAL_COURSE_DATA_ID;
+export function initDragAndDrop(dragDropContentXML, elementID, localStorageID) {
+  LOCAL_COURSE_DATA_ID = localStorageID;
+
   if(localStorage === "undefined") {
     location.reload();
   }
@@ -63,7 +66,7 @@ function initDragAndDrop(dragDropContentXML, elementID) {
 
 }
 
-function setupDragDrop(id, elementID){
+export function setupDragDrop(id, elementID){
   if(elementID == null){
     $('#dragAndDrop').remove();
   }
@@ -71,8 +74,16 @@ function setupDragDrop(id, elementID){
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
   var dragDropData = courseData.dragDropData.dragDrops[id];
 
-  var leftContainerHtml = '<div class="col-6 left">';
-  var rightContainerHtml = '<div class="col-6 right">';
+  var submitBtn = '</div><p class="feedback"><a class="btn btn-reversed btn-restart">Restart</a><a class="btn btn-default-main btn-submit">Submit</a></p>';
+  var leftContainerHtml = '<div class="col-6 left"></div>';
+  var rightContainerHtml = '<div class="col-6 right"></div>';
+  var html = '<div id="dragAndDrop" class="container"><div class="row">' + leftContainerHtml + rightContainerHtml + submitBtn;
+
+
+  if(elementID != null){
+    $("#"+elementID).empty();
+    $("#"+elementID).html(html);
+  }
 
   for(var i = 0; i < dragDropData.matchings.length; i++){
     var holderID = elementID+'_holder' + i;
@@ -85,24 +96,39 @@ function setupDragDrop(id, elementID){
 
     var droppable = '<div class="item-container" id="'+ droppableID +'" ondrop="drop_handler(event);" ondragover="dragover_handler(event);">'+ droppableText +'</div>';
 
-    leftContainerHtml += draggable;
-    rightContainerHtml += droppable;
+    $('.left').append(draggable);
+    $('.right').append(droppable);
+
+/*
+    $('#'+holderID).on('drop', function(event){
+      console.log("HERE");
+
+      drop_handler(event);
+    });
+
+    $('#'+holderID).on('dragover', function(event){
+      console.log("HERE");
+
+      dragover_handler(event);
+    });
+
+    $('#'+draggableID).on('dragstart', function(event){
+      console.log("HERE");
+
+      dragstart_handler(event);
+    });
+
+    */
+
   }
 
-  leftContainerHtml += '</div>';
-  rightContainerHtml += '</div>';
 
-  var submitBtn = '</div><p class="feedback"><a class="btn btn-reversed btn-restart">Restart</a><a class="btn btn-default-main btn-submit">Submit</a></p>';
 
-  var html = '<div id="dragAndDrop" class="container"><div class="row">' + leftContainerHtml + rightContainerHtml + submitBtn;
+/*    var draggable = '<div class="item-container holder" id="'+ holderID +'" ondrop="drop_handler(event);" ondragover="dragover_handler(event);"><p class="draggable" id="'+ draggableID +'" draggable="true" ondragstart="dragstart_handler(event);" >'+ draggableText +'</p></div>';
 
-  if(elementID != null){
-    $("#"+elementID).empty();
-    $("#"+elementID).html(html);
-  }
-  else{
-    $("#pageContent").append(html);
-  }
+    var droppable = '<div class="item-container" id="'+ droppableID +'" ondrop="drop_handler(event);" ondragover="dragover_handler(event);">'+ droppableText +'</div>';*/
+
+
 
   $(".btn-restart").click(function(){
     setupDragDrop(id, elementID);
@@ -130,7 +156,7 @@ function setupDragDrop(id, elementID){
   shuffleDrops(elementID);
 }
 
-function shuffleDrags(elementID){
+export function shuffleDrags(elementID){
   var draggables = $("#"+elementID + ' .left').children();
   var j, x;
   for (var i = draggables.length - 1; i > 0; i--) {
@@ -148,7 +174,7 @@ function shuffleDrags(elementID){
   return;
 }
 
-function shuffleDrops(elementID){
+export function shuffleDrops(elementID){
   var droppables = $("#"+elementID + ' .right').children();
 
   var j, x;
@@ -167,7 +193,7 @@ function shuffleDrops(elementID){
   return;
 }
 
-function submitDragDrop(id, elementID){
+export function submitDragDrop(id, elementID){
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
   var score = 0;
   var minScore = parseInt(courseData.dragDropData.dragDrops[id].completion.minimumScore);
@@ -283,7 +309,7 @@ function submitDragDrop(id, elementID){
   });
 }
 
-function getDragDropIndex(currentID){
+export function getDragDropIndex(currentID){
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
 
   for(var i = 0; i < courseData.dragDropData.dragDrops.length; i++){
@@ -294,13 +320,13 @@ function getDragDropIndex(currentID){
 }
 
 // DRAG AND DROP CORE FUNCTIONALITY
-function dragstart_handler(ev) {
+export function dragstart_handler(ev) {
   // Add the target element's id to the data transfer object
   ev.dataTransfer.setData("text", ev.target.id);
   ev.dropEffect = "move";
 }
 
-function dragover_handler(ev) {
+export function dragover_handler(ev) {
   if($(ev.target).hasClass('item-container')){
     ev.dataTransfer.dropEffect = "move"
     ev.preventDefault();
@@ -313,7 +339,7 @@ function dragover_handler(ev) {
   }
 }
 
-function drop_handler(ev) {
+export function drop_handler(ev) {
   ev.preventDefault();
   // Get the id of the target and add the moved element to the target's DOM
   var dragVal = ev.dataTransfer.getData("text");
@@ -337,3 +363,7 @@ function drop_handler(ev) {
   $(dragId).removeClass('correct');
   $(dragId).removeClass('wrong');
 }
+
+window.dragstart_handler = dragstart_handler;
+window.dragover_handler = dragover_handler;
+window.drop_handler = drop_handler;
