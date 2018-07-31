@@ -118,6 +118,7 @@ export function GetPathmark() {
 }
 
 export function SetComplete() {
+  console.log("Course Completed");
   if(TRACKING=="SCORM") {
     if(getAPIHandle()==null){return;}
 
@@ -270,3 +271,5 @@ export function setCookie(cookieName, cookieValue, cookieLife) {
     document.cookie = escape(cookieName) + "=" + escape(cookieValue) + ";path=/";
   }
 }
+
+window.setComplete = SetComplete;

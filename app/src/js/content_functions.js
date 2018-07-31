@@ -14,6 +14,7 @@ import * as KnowledgeCheck from '../components/knowledge_check_functions';
 import * as Text from '../components/text_functions';
 import * as Thumbnails from '../components/thumbnails_functions';
 import * as VideoAudio from '../components/video_audio_functions';
+import * as Modal from '../components/modal_functions';
 
 
 var LOCAL_COURSE_DATA_ID;
