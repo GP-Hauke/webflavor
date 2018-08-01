@@ -375,7 +375,6 @@ module.exports = function(grunt){
   grunt.loadNpmTasks('grunt-htmlhint');
   grunt.loadNpmTasks('grunt-browser-sync');
   grunt.loadNpmTasks('grunt-exec');
-  grunt.loadNpmTasks('grunt-webpack');
 
   grunt.registerTask('build',
     'Compiles all of the assets and copies the files to the build directory.',

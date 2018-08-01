@@ -69,7 +69,7 @@ export function openAudioModal(src) {
 export function getSplashPage() {
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
 
-
+  console.log(courseData);
   var title = courseData.splash.title;
   var caption = courseData.splash.caption;
   var intro = courseData.splash.introduction;

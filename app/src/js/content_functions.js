@@ -15,7 +15,7 @@ import * as Text from '../components/text_functions';
 import * as Thumbnails from '../components/thumbnails_functions';
 import * as VideoAudio from '../components/video_audio_functions';
 import * as Modal from '../components/modal_functions';
-
+import * as Tracking from './tracking_functions';
 
 var LOCAL_COURSE_DATA_ID;
 var currentChapter;
@@ -151,7 +151,7 @@ export function registerPageVisit(pageId) {
 
 export function pageLoaded() {
   //  console.log("pageLoaded");
-  //SetBookmark(currentChapter,currentPage);
+  Tracking.SetBookmark(currentChapter,currentPage);
   calculateHeight();
 }
 

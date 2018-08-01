@@ -8,6 +8,7 @@
 
 import * as Content from './content_functions';
 import * as Modal from '../components/modal_functions';
+import * as Tracking from './tracking_functions';
 
 var LOCAL_COURSE_DATA_ID;
 var courseData;
@@ -31,6 +32,25 @@ export function initInterface(id) {
   totalPages = pageCount;
   currentChapter = 1;
   currentPage = 1;
+
+  Tracking.SetCookieName(cookieName);
+
+  var bm = Tracking.GetBookmark();
+
+  if(bm && bm != "" && bm.indexOf("_")) {
+    if(!isNaN(parseInt(bm.split("_")[0],10))) {
+      currentChapter = parseInt(bm.split("_")[0],10);
+    }
+
+    if(!isNaN(parseInt(bm.split("_")[1],10))) {
+      currentPage = parseInt(bm.split("_")[1],10);
+
+    }
+  }
+
+  if(courseData.HAS_SPLASH_PAGE === 'true' && currentChapter === 1 && currentPage === 1) {
+    Modal.openModal(LOCAL_COURSE_DATA_ID, 'splashPage');
+  }
 
   buildShellUI();
   enforcedShow($("#mainContainer"));

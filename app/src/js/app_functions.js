@@ -71,6 +71,11 @@ function initLocalStorage() {
       console.log("localStorage has reloaded");
       populateStorage(json, tempStorage);
     }
+    else{
+      loadInterfaceStyles();
+      Interface.initInterface(LOCAL_COURSE_DATA_ID);
+      return;
+    }
   });
 }
 
@@ -158,8 +163,10 @@ function getNavigationData(){
   }
   courseData.PAGE_TOTAL = pageTotal;
   activePageCount = pageTotal;
-  courseData.pageCount.pagesTotal = pageTotal;
   courseData.CONTENTS.completed = xmlArray;
+  if(courseData.COUNT_PAGES == "true"){
+    courseData.pageCount.pagesTotal = pageTotal;
+  }
 
   localStorage.setItem(LOCAL_COURSE_DATA_ID,  JSON.stringify(courseData));
   getChapterData();

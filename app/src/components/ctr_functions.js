@@ -153,8 +153,6 @@ export function getCtrIndex(currentID){
 export function checkCTRCompletion(id, sectionID){
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
 
-  console.log(id);
-
   if(courseData.ctrData.ctrs[id].sections[sectionID].completed == false){
     courseData.ctrData.ctrs[id].sections[sectionID].completed = true;
     courseData.ctrData.ctrs[id].score += 1;

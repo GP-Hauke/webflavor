@@ -10,7 +10,11 @@ var TRACKING = "SCORM";
 var SCORM = "1.2";
 var setScore = -1;
 var mtmOpened = false;
-var cookieName = "test";
+var cookieName;
+
+export function SetCookieName(c){
+  cookieName = c;
+}
 
 export function SetBookmark(c, p) {
   if(TRACKING == "SCORM") {
@@ -245,13 +249,13 @@ export function GetCookie(cookieName) {
 
     if (offset != -1) {
       offset += search.length;
-      end = document.cookie.indexOf(";", offset);
+      var end = document.cookie.indexOf(";", offset);
 
       if (end == -1) {
         end = document.cookie.length;
       }
 
-      cookieValue = unescape(document.cookie.substring(offset, end))
+      var cookieValue = unescape(document.cookie.substring(offset, end))
 
       return cookieValue
     }
@@ -260,7 +264,7 @@ export function GetCookie(cookieName) {
 }
 
 export function setCookie(cookieName, cookieValue, cookieLife) {
-  expirationDate = new Date();
+  var expirationDate = new Date();
 
   if(cookieLife == null || cookieLife != -1) {
     cookieLife = 365*86400000;

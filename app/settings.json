@@ -13,15 +13,8 @@
     "hasGlossary": "true",
     "hasHelp": "true",
     "hasCountPages": "true",
-    "vendors": {
-      "create_js": "false",
-      "tweenmax": "true",
-      "flip_card": "false",
-      "font_awesome": "true",
-      "glyphicons": "true"
-    },
     "courseStorageID": "courseStorageID",
-    "version": "15.2",
+    "version": "15.9",
     "contents": [
       [
         "1_1",
