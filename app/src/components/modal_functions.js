@@ -1,5 +1,6 @@
 var LOCAL_COURSE_DATA_ID;
 var courseData;
+import * as Game from '../components/assessment_functions';
 
 export function openModal(localStorageID, modalType, assessmentID, clickTarget) {
   LOCAL_COURSE_DATA_ID = localStorageID;
@@ -21,7 +22,7 @@ export function openModal(localStorageID, modalType, assessmentID, clickTarget) 
       break;
     case 'assessment':
       $('#modalContainer').html(getAssessment());
-      launchAssessment(assessmentID, clickTarget);
+      Game.launchAssessment(assessmentID, clickTarget);
       break;
   }
 

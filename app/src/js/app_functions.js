@@ -8,6 +8,7 @@
 
 import * as Interface from './interface_functions';
 import * as Tracking from './tracking_functions';
+import * as Game from '../components/assessment_functions';
 
 var LOCAL_COURSE_DATA_ID;
 
@@ -101,6 +102,8 @@ function populateStorage(json, tempStorage) {
     completed: []
   };
 
+  courseStorageObj.HAS_VEHICLE_GAME = json.settings.hasVehicleGame;
+
   courseStorageObj.ctrData = {};
   courseStorageObj.dragDropData = {};
   courseStorageObj.flipCardData = {};
@@ -109,6 +112,7 @@ function populateStorage(json, tempStorage) {
   courseStorageObj.textData = {};
   courseStorageObj.thumbnailData = {};
   courseStorageObj.videoAudioData = {};
+  courseStorageObj.assessmentData = {};
 
 
   courseStorageObj.COUNT_PAGES = json.settings.hasCountPages;
@@ -285,7 +289,13 @@ function loadXMLData() {
     GetInterfaceXML("dir/content/splash.xml");
     return;
 
-  } else {
+  }
+
+  if(courseData.HAS_VEHICLE_GAME === 'true' && assessmentsLoaded === false) {
+    GetInterfaceXML("dir/content/assessments.xml");
+    return;
+  }
+ else {
 
     loadInterfaceStyles();
     Interface.initInterface(LOCAL_COURSE_DATA_ID);
@@ -314,6 +324,12 @@ function GetInterfaceXML(args) {
       splashLoaded = true;
       addSplashToLocalStorage(xml);
       loadXMLData();
+    }
+    else if(args.indexOf("assessments") != -1) {
+      assessmentsLoaded = true;
+      Game.initAssessments(LOCAL_COURSE_DATA_ID, xml); // lives in assessment_functions.js
+      loadXMLData();
+
     }
   });
 }

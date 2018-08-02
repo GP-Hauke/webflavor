@@ -1,11 +1,12 @@
 var startBtn;
+var LOCAL_COURSE_DATA_ID;
 
-function initAssessments(assessmentsContentXML) {
+export function initAssessments(localStorageID, assessmentsContentXML) {
+  LOCAL_COURSE_DATA_ID = localStorageID;
   /* ran into a case where localStorage wasn't available, throwing an error on startup. couldn't track down exact bug (possibly a race condition somewhere) so reloading page if localStorage isn't found. */
   if(localStorage === "undefined") {
     location.reload();
   }
-
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
 
   /* if course is loaded for first time, or assessment content xml was updated, initialize assessment data. otherwise do nothing. */
@@ -123,7 +124,7 @@ function initAssessments(assessmentsContentXML) {
   }
 }
 
-function launchAssessment(id, clickTarget) {
+export function launchAssessment(id, clickTarget) {
   startBtn = clickTarget;
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
   var activeAssessment = id;
@@ -172,7 +173,7 @@ function launchAssessment(id, clickTarget) {
   //  }
 }
 
-function openIntroScreen(id) {
+export function openIntroScreen(id) {
   clearPreviousScore(id);
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
   var activeAssessment = id;
@@ -203,7 +204,7 @@ function openIntroScreen(id) {
 });
 }
 
-function startAssessment(id) {
+export function startAssessment(id) {
   //LocalStorage - Assessment ID - Style
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
   var activeAssessment = id;
@@ -795,7 +796,7 @@ function startAssessment(id) {
   }, 100);
 }
 
-function endAssessment(activeAssessment) {
+export function endAssessment(activeAssessment) {
   if(startBtn !== undefined) {
     $('#startBtn').attr('src', 'dir/media/img/assets/game/completeBtn.png');
   }
@@ -874,7 +875,7 @@ function endAssessment(activeAssessment) {
   });
 }
 
-function retryChoice(id) {
+export function retryChoice(id) {
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
   var activeAssessment = id;
   var style = courseData.assessmentData.assessments[activeAssessment].style;
@@ -905,7 +906,7 @@ function retryChoice(id) {
   });
 }
 
-function shuffle(array) {
+export function shuffle(array) {
   var currentIndex = array.length, temporaryValue, randomIndex;
 
   // While there remain elements to shuffle...
@@ -921,7 +922,7 @@ function shuffle(array) {
   return array;
 }
 
-function filterAnswersAttribute(activeAssessment, filterParam, answersFilteredParam){
+export function filterAnswersAttribute(activeAssessment, filterParam, answersFilteredParam){
   var filter = filterParam.filter;
   var value = filterParam.value;
   var comparison = filterParam.compare;
@@ -947,7 +948,7 @@ function filterAnswersAttribute(activeAssessment, filterParam, answersFilteredPa
   return answersFiltered;
 }
 
-function filterAnswersCharacteristic(activeAssessment, filterParam, answersFilteredParam){
+export function filterAnswersCharacteristic(activeAssessment, filterParam, answersFilteredParam){
   var vehiclePassedFilter = true;
   var filter = filterParam.filter;
   var value = filterParam.value;
@@ -969,7 +970,7 @@ function filterAnswersCharacteristic(activeAssessment, filterParam, answersFilte
   return answersFiltered;
 }
 
-function sameAnswerCheck(activeAssessment, answersFiltered, criterion){
+export function sameAnswerCheck(activeAssessment, answersFiltered, criterion){
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
   var questionIndex = courseData.assessmentData.assessments[activeAssessment].currentQuestionIndex;
 
@@ -990,7 +991,7 @@ function sameAnswerCheck(activeAssessment, answersFiltered, criterion){
   }
 }
 
-function orderAnswers(activeAssessment, answersFiltered, criterion, value){
+export function orderAnswers(activeAssessment, answersFiltered, criterion, value){
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
   var questionsIndex = courseData.assessmentData.assessments[activeAssessment].currentQuestionIndex;
 
@@ -1029,7 +1030,7 @@ function orderAnswers(activeAssessment, answersFiltered, criterion, value){
   courseData.assessmentData.assessments[activeAssessment].questionsAnswers.answersFiltered = answersFiltered;
 }
 
-function clearPreviousScore(activeAssessment){
+export function clearPreviousScore(activeAssessment){
   clearInterval(window.timingInterval);
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
   var questionsNum = courseData.assessmentData.assessments[activeAssessment].questionsAnswers.questions.length;

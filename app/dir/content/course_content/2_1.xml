@@ -40,4 +40,8 @@
 
     ]]>
   </layout>
+
+  <components>
+    <Game>Placeholder for Vehicle Game</Game>
+  </components>
 </page>
