@@ -1,0 +1,514 @@
+//////////////////////////////////////////////////////////////////////
+//
+//     NAVIGATION SCSS
+//      - Styles for Navigation bar
+//
+//////////////////////////////////////////////////////////////////////
+
+.dropdown-menu {
+  min-width: 0rem;
+}
+
+.dropdown-link-wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+#navbar {
+  .navbar-brand {
+    padding: 0;
+    position: relative;
+    top: -4px;
+    margin: 0;
+  }
+  .logo-mobile {
+    padding: 0;
+    position: relative;
+    top: -1px;
+    margin: 0;
+  }
+}
+
+#navbar-left > #navbar {
+  margin-top: 90px;
+}
+
+#navContainer .container {
+  position: relative;
+}
+
+#navbarMain {
+  &.default #navbarMobile .dropdown .dropdown-menu li {
+    background: #ccc;
+  }
+  #navbarMobile .dropdown .dropdown-menu li {
+    z-index: 100;
+    text-align: center;
+    background: #efefef;
+    border: 2px solid transparent;
+    width: 75%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 500;
+    margin-bottom: 0px !important;
+    border: none !important;
+  }
+}
+
+.default #navbarMobile {
+  .dropdown p {
+    margin: 0;
+    color: #fff;
+    padding: .5rem 1rem;
+  }
+  .courseTitleChapterSelected p {
+    margin: 0;
+    color: #fff;
+  }
+  .courseTitleChapter {
+    padding: 0 !important;
+    p {
+      margin: 0;
+      color: #fff;
+      padding: .5rem 1rem !important;
+    }
+  }
+}
+
+#navbarMain #navbarMobile .dropdown .dropdown-menu li:after {
+  content: "" !important;
+}
+
+#navbarMobile .dropdown .dropdown-menu {
+  border: none;
+  padding: 0;
+  li {
+    background: #2b2b2b;
+  }
+}
+
+#navbarMain #navbarMobile .dropdown {
+  .dropdown-menu li a {
+    color: #000;
+  }
+  p {
+    padding: 0;
+  }
+  .dropdown-menu li {
+    a:hover {
+      text-decoration: none;
+    }
+    &:hover {
+      text-decoration: none;
+      font-weight: 600;
+    }
+  }
+}
+
+/* NAVBAR MAIN CONTAINER */
+nav {
+  .courseTitleChapter p {
+    margin: 0;
+  }
+  &.navbar {
+    background-color: #2b2b2b;
+    border: none;
+    border-radius: 0;
+    margin-bottom: 0;
+    min-height: auto;
+    padding: 0;
+    &#navbarBottom {
+      background-color: #618eb5;
+    }
+  }
+}
+
+.navbar-header {
+  float: none;
+  width: 100%;
+}
+
+/* NAVBAR LEFT SECTION/HEADER - LOGO, TITLE */
+.navbar-toggler {
+  position: relative;
+  top: -4px;
+  border: none;
+  opacity: .5;
+  &:hover {
+    opacity: 1;
+  }
+  &:focus {
+    outline: none;
+  }
+}
+
+.navbar-header {
+  .navbar-brand {
+    color: #fff;
+    padding: 0 40px;
+    height: 80px;
+    margin-top: 0;
+    margin-bottom: 0;
+    position: relative;
+    right: 0;
+    top: 0;
+    float: left;
+  }
+  .title-container {
+    float: left;
+    margin-left: 15px !important;
+  }
+  #titleMain {
+    display: inline-block;
+    position: relative;
+    margin-right: 10px;
+  }
+  .navmenu {
+    color: #fff;
+    line-height: 36px;
+  }
+}
+
+/*LEFT NAVBAR*/
+.left-nav {
+  float: left;
+  height: calc(100vh - 50px);
+  position: relative;
+  width: 16%;
+  max-width: 230px;
+  display: flex;
+  flex-flow: column;
+}
+
+.left-nav-text#subTitle {
+  font-size: 22px;
+  line-height: 0;
+}
+
+.left-nav-drop#navbarMobile li {
+  font-size: 18px;
+}
+
+@media only screen and (min-width: 768px) {
+  .navbar-collapse.collapse {
+    /*display:  none !important; REMOVED FOR BOOTSTRAP 4*/
+    &.in {
+      display: block !important;
+    }
+  }
+}
+
+/* COLLAPSABLE PART OF NAV BAR - CONTAINER */
+.navbar-collapse {
+  border: none;
+  background-color: #cccccc;
+  color: #fff;
+  font-size: 16px;
+  text-align: center;
+  &.collapsing .navbar-nav, &.in .navbar-nav {
+    width: 100%;
+  }
+}
+
+/* COLLAPSABLE PART OF NAV BAR - LINK LIST ON RIGHT */
+.page-assist {
+  margin-right: 0;
+  > {
+    li > a {
+      &:active, &:focus, &:hover {
+        background-color: #2b2b2b;
+      }
+      color: #fff !important;
+      line-height: 50px;
+      font-weight: 600;
+      padding: 0;
+      font-size: 28px;
+      &:focus, &:hover {
+        color: #fff;
+      }
+    }
+    .active > a {
+      color: #fff;
+      &:focus, &:hover {
+        color: #fff;
+      }
+    }
+  }
+}
+
+/* COLLAPSABLE PART OF NAV BAR - MOBILE NAV DROPDOWM */
+.navbar-collapse {
+  > .nav > li {
+    font-size: 22px;
+  }
+  #nav-items-bottom-row > li {
+    color: #fff;
+  }
+}
+
+/* COLLAPSABLE PART OF NAV BAR - BOTTOM NAV BAR */
+
+/* INDIVIDUAL MENU ITEMS */
+#navbarMobile {
+  width: 100%;
+  margin: 0 auto;
+  background: #632121;
+  .nav-link {
+    color: #2b2b2b;
+  }
+  li {
+    cursor: pointer;
+    width: 100%;
+  }
+}
+
+li {
+  &.courseTitleChapter {
+    display: block;
+  }
+  &.courseTitleChapterSelected {
+    background-color: #2b2b2b;
+  }
+}
+
+p {
+  &.courseTitleGated, &.courseTitleGatedPage {
+    opacity: .35;
+  }
+}
+
+/* COLLAPSABLE PART OF NAV BAR - BOTTOM NAV BAR */
+.navbar-collapse #nav-items-bottom-row > li {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  cursor: pointer;
+}
+
+/* LEFT NAVIGATION MENU */
+#headerLinks li {
+  &:not(:last-child) {
+    margin-right: 20px;
+  }
+  a {
+    font-size: 20px;
+    font-weight: 500;
+    opacity: .7;
+    &:hover, &:active, &:focus {
+      opacity: 1;
+      text-decoration: none;
+      background: none;
+    }
+  }
+}
+
+.navbar-fixed-left .toggled {
+  left: 0px !important;
+}
+
+/* TABBED NAVIGATION STYLES */
+.tabbed {
+  background: #fff !important;
+  #navbarMobile {
+    display: flex;
+    flex-flow: row;
+    position: relative;
+    width: 100% !important;
+    max-width: 1450px;
+    margin: 0 auto;
+    .courseTitleChapter {
+      display: inline-block;
+      background: #fff;
+      color: #000;
+      font-weight: 600;
+      height: 50px;
+      position: relative;
+      padding: 0px 10px 0px 20px !important;
+      font-size: 14px;
+      border-bottom: 3px solid transparent;
+    }
+    li {
+      p {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        line-height: 15px;
+      }
+      &.courseTitleChapterSelected {
+        background: #fff;
+        border-bottom: 3px solid #2b2b2b;
+      }
+      &:not(:first-child):after {
+        content: "/";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        font-weight: 100;
+        font-size: 30px;
+        color: #8f9193;
+      }
+    }
+    .dropdown .dropdown-menu {
+      z-index: 100;
+      padding: 0;
+      margin: 0;
+      border: none;
+      position: relative;
+      left: -5%;
+      top: 3px;
+      background: none;
+    }
+  }
+}
+
+/* LEFT NAVIGATION STYLES */
+.leftNav {
+  #navbarMobile .courseTitleChapter p {
+    font-size: 22px;
+    font-weight: 100;
+    padding: 6px 0 6px 0 !important;
+  }
+  #navbarMain {
+    position: fixed;
+    left: -400px;
+    top: 50px;
+    width: 400px;
+    z-index: 500;
+    transition: all 600ms ease;
+  }
+}
+
+/* MOBILE STATES */
+@media only screen and (min-width: 768px) {
+  .logo-mobile {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .navbar-collapse > ul > li {
+    padding: 5px 0;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  nav.navbar .container {
+    padding: 0;
+    .mobile-container {
+      padding: 0;
+    }
+    .navbar-toggler {
+      top: -1px;
+    }
+  }
+  #titleMainMobile, #subTitleMobile {
+    font-size: 17px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .navbar-header .navbar-brand {
+    padding-left: 0;
+  }
+  .navbar-default .navbar-collapse {
+    background-color: #618eb5;
+  }
+}
+
+.chapterSelected, .chapterNotSelected {
+  color: #ffffff;
+  font-size: 1.2em;
+}
+
+.chapterTitle {
+  cursor: pointer;
+}
+
+/*Navigation Secondary Color */
+.navbar-collapse {
+  border: none;
+}
+
+/*  Navigation Tabs Verion */
+.tabbed #navbarMobile {
+  max-width: 1650px;
+  li {
+    font-weight: 600;
+    height: 50px;
+    font-size: 14px;
+  }
+}
+
+/*Dropdown Navigation*/
+#navbarMain #navbarMobile .dropdown .dropdown-menu li {
+  border: 2px solid transparent;
+  width: 100%;
+  display: block;
+  font-weight: 500;
+  margin-bottom: 1px;
+  &:hover {
+    font-weight: 600;
+  }
+}
+
+@media (max-width: 1350px) {
+  .tabbed #navbarMobile li {
+    font-size: 13px;
+  }
+}
+
+@media (min-width: 768px) {
+  .tabbed {
+    display: block;
+  }
+}
+
+@media (max-width: 767px) {
+  .tabbed #navbarMobile {
+    display: block;
+    width: 100% !important;
+    margin: 0 auto;
+    li {
+      font-weight: 200;
+      line-height: 30px;
+      height: 30px;
+      position: relative;
+      p {
+        padding: 0 !important;
+        line-height: 30px !important;
+      }
+    }
+    .dropdown-menu {
+      left: 0 !important;
+      top: 0 !important;
+      li p {
+        background: #fff !important;
+        color: #2b2b2b;
+      }
+    }
+    .dropdown p {
+      margin: 0;
+      color: #fff;
+      padding: .5rem 1rem;
+    }
+    .courseTitleChapter {
+      padding: 0 !important;
+      background: #2b2b2b;
+      p {
+        margin: 0;
+        color: #fff;
+        padding: .5rem 1rem !important;
+      }
+    }
+    .courseTitleChapterSelected p {
+      color: #2b2b2b;
+    }
+    li {
+      &:not(:first-child):after {
+        content: "";
+      }
+      width: 100%;
+    }
+  }
+}

@@ -7,20 +7,14 @@
     "menuStyle": "tab",
     "hasMenuLogo": "true",
     "hasFooter": "true",
+    "hasVehicleGame": "true",
     "hasSplashPage": "false",
     "hasResources": "true",
     "hasGlossary": "true",
     "hasHelp": "true",
     "hasCountPages": "true",
-    "vendors": {
-      "create_js": "false",
-      "tweenmax": "true",
-      "flip_card": "false",
-      "font_awesome": "true",
-      "glyphicons": "true"
-    },
     "courseStorageID": "courseStorageID",
-    "version": "11.2",
+    "version": "18.3",
     "contents": [
       [
         "1_1",

@@ -1,0 +1,423 @@
+/*---- FONT IMPORTS ----*/
+@font-face {
+  font-family: "GMGlobalSansCond";
+  src: url("../../media/fonts/GMGlobalSansCond_1_ExtraLight.eot");
+  src: url("../../media/fonts/GMGlobalSansCond_1_ExtraLight.eot?#iefix") format("embedded-opentype"), url("../../media/fonts/GMGlobalSansCond_1_ExtraLight.woff") format("woff"), url("../../media/fonts/GMGlobalSansCond_1_ExtraLight.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+}
+@font-face {
+  font-family: "GMGlobalSansCond";
+  src: url("../../media/fonts/GMGlobalSansCond_4_Plain.eot");
+  src: url("../../media/fonts/GMGlobalSansCond_4_Plain.eot?#iefix") format("embedded-opentype"), url("../../media/fonts/GMGlobalSansCond_4_Plain.woff") format("woff"), url("../../media/fonts/GMGlobalSansCond_4_Plain.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "GMGlobalSansCond";
+  src: url("../../media/fonts/GMGlobalSansCond_6_Bold.eot");
+  src: url("../../media/fonts/GMGlobalSansCond_6_Bold.eot?#iefix") format("embedded-opentype"), url("../../media/fonts/GMGlobalSansCond_6_Bold.woff") format("woff"), url("../../media/fonts/GMGlobalSansCond_6_Bold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+/*---- ASSESSMENT STYLES ----*/
+#assessmentModal .retry-container.buick button {
+  background-color: #ef7521;
+}
+
+#assessmentModal .retry-container.chevy button {
+  background-color: #f4bc00;
+}
+
+#assessmentModal .retry-container.gmc button {
+  background-color: #e31837;
+}
+
+#assessmentModal .modal-content .intro-screen.buick button {
+  background-color: #ef7521;
+}
+
+#assessmentModal .modal-content .intro-screen.chevy button {
+  background-color: #f4bc00;
+}
+
+#assessmentModal .modal-content .intro-screen.gmc button {
+  background-color: #e31837;
+}
+
+#assessmentModal .assessment-content.buick .feedback-container button.btn-ok,
+#assessmentModal .assessment-content.buick .btn-submit-answer {
+  background-color: #ef7521;
+}
+
+#assessmentModal .assessment-content.chevy .feedback-container button.btn-ok,
+#assessmentModal .assessment-content.chevy .btn-submit-answer {
+  background-color: #f4bc00;
+}
+
+#assessmentModal .assessment-content.gmc .feedback-container button.btn-ok,
+#assessmentModal .assessment-content.gmc .btn-submit-answer {
+  background-color: #e31837;
+}
+
+#assessmentModal .finish-screen.buick button {
+  background-color: #ef7521;
+}
+
+#assessmentModal .finish-screen.chevy button {
+  background-color: #f4bc00;
+}
+
+#assessmentModal .finish-screen.gmc button {
+  background-color: #e31837;
+}
+
+#assessmentModal .assessment-content.buick .answer-container.selected .selected-bar {
+  background-color: #ef7521;
+}
+
+#assessmentModal .assessment-content.chevy .answer-container.selected .selected-bar {
+  background-color: #f4bc00;
+}
+
+#assessmentModal .assessment-content.gmc .answer-container .selected-bar {
+  background-color: #000;
+}
+
+#assessmentModal .assessment-content.gmc .answer-container.selected .selected-bar {
+  background-color: #e31837;
+}
+
+#assessmentModal .assessment-content.buick h3 {
+  color: #ef7521;
+}
+
+#assessmentModal .assessment-content.chevy h3 {
+  color: #f4bc00;
+}
+
+#assessmentModal .assessment-content.gmc h3 {
+  color: #e31837;
+}
+
+#assessmentModal .assessment-content.buick span {
+  color: #ef7521;
+}
+
+#assessmentModal .assessment-content.chevy span {
+  color: #f4bc00;
+}
+
+#assessmentModal .assessment-content.gmc span {
+  color: #e31837;
+}
+
+#assessmentModal .answer-container .brand-model-attr p.model {
+  color: #58595b;
+}
+
+#assessmentModal .assessment-content.buick .answer-container .brand-model-attr p.brand {
+  color: #ef7521;
+}
+
+#assessmentModal .assessment-content.chevy .answer-container .brand-model-attr > p.brand {
+  color: #f4bc00;
+}
+
+#assessmentModal .assessment-content.gmc .answer-container .brand-model-attr > p.brand {
+  color: #e31837;
+}
+
+#assessmentModal .assessment-content .feedback-container .feedback-details {
+  font-size: 20px;
+  line-height: 35px;
+}
+
+#assessmentModal .assessment-content .feedback-container .feedback-details span {
+  font-weight: 300;
+}
+
+/*------------ NAVIGATION STYLES ------------*/
+/*Navigation Main Color*/
+nav.navbar {
+  background-color: #0b661e;
+}
+
+/*Navigation Secondary Color*/
+.navbar-collapse {
+  border: none;
+  background-color: #d14040;
+}
+
+/*Navigation Current Page*/
+li.courseTitleChapterSelected {
+  background-color: #0b661e;
+}
+
+/*  Navigation Tabs Verion */
+.tabbed {
+  background: #fff !important;
+}
+
+.tabbed #navbarMobile {
+  max-width: 1700px;
+}
+
+.tabbed #navbarMobile li {
+  background: #fff;
+  color: #0b661e;
+  font-weight: 600;
+  height: 50px;
+  font-size: 14px;
+}
+
+.tabbed #navbarMobile li.courseTitleChapterSelected {
+  background: #fff;
+  border-bottom: 3px solid #0b661e;
+}
+
+.tabbed #navbarMobile .dropdown .dropdown-menu li {
+  background: #f7f7f7 !important;
+}
+
+/*Dropdown Navigation*/
+#navbarMain #navbarMobile .dropdown .dropdown-menu li {
+  background: #b77979;
+  border: 2px solid transparent;
+  width: 100%;
+  display: block;
+  font-weight: 500;
+  margin-bottom: 1px;
+}
+
+#navbarMain #navbarMobile .dropdown .dropdown-menu li a {
+  color: #0b661e;
+}
+
+#navbarMain #navbarMobile .dropdown .dropdown-menu li:hover {
+  font-weight: 600;
+}
+
+.tabbed #navbarMobile .courseTitleChapter {
+  color: #0b661e;
+}
+
+.tabbed #navbarMobile .courseTitleChapter p {
+  color: #0b661e !important;
+}
+
+#navbarMobile .nav-link {
+  color: #0b661e;
+}
+
+@media (max-width: 767px) {
+  .tabbed #navbarMobile .dropdown-menu li p {
+    background: #fff !important;
+    color: #0b661e !important;
+  }
+
+  .tabbed #navbarMobile .dropdown p {
+    color: #fff;
+  }
+
+  .tabbed #navbarMobile .courseTitleChapter {
+    background: #0b661e;
+    color: #fff;
+  }
+
+  .tabbed #navbarMobile .courseTitleChapter p {
+    color: #fff !important;
+  }
+
+  .tabbed #navbarMobile .courseTitleChapterSelected p {
+    color: #0b661e !important;
+  }
+}
+/*----------- BUTTON STYLES -----------*/
+.btn {
+  padding: 10px 16px;
+  border-radius: 0;
+}
+
+/*Default Button*/
+.btn-default {
+  font-family: "GMGlobalSansCond";
+  font-size: 20px;
+  border: 2px solid #0b661e;
+  background-color: #0b661e;
+  color: #ffffff !important;
+}
+
+.btn-default:hover,
+.btn-default:active,
+.btn-default:focus {
+  background-color: #fff;
+  border-color: #0b661e;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  outline: 0;
+  color: #0b661e !important;
+}
+
+#hotSpot .hotSpot-spot {
+  background: rgba(99, 33, 33, 0.8);
+}
+
+/*----------- GLOSSARY MODAL STYLES -----------*/
+/*Glossary Modal*/
+#glossaryModal .modal-header {
+  background-color: #d14040;
+}
+
+/*Glossary Modal Title*/
+#glossaryModal .modal-title {
+  color: #fff;
+}
+
+/*Glossary Modal Alphabet*/
+#glossaryModal .alphabet a {
+  font-size: 22px;
+}
+
+/*------------ HELP MODAL STYLES ------------*/
+/*Help Modal*/
+#helpModal.modal .modal-header {
+  background-color: #fff;
+}
+
+/*Help Modal Title*/
+#helpModal .modal-header .modal-title {
+  color: #0b661e;
+}
+
+/*Help Modal Headings*/
+#helpModal .modal-body .help-section h5 {
+  color: #0b661e;
+}
+
+#helpModal .modal-body .help-item h6 {
+  color: #000018;
+}
+
+/*----------- GLOSSARY MODAL STYLES -----------*/
+/*Glossary Modal*/
+#resourcesModal .modal-header {
+  background-color: #d14040;
+}
+
+/*Glossary Modal Title*/
+#resourcesModal .modal-title {
+  color: #fff;
+}
+
+/*Glossary Modal Alphabet*/
+/*----------- DRAG AND DROP STYLES -----------*/
+/*Draggable Items*/
+#dragAndDrop .item-container p {
+  background: #0b661e;
+  color: #fff;
+}
+
+/*Hover Button*/
+#dragAndDrop .btn-default-main {
+  border: 2px solid #0b661e;
+  background: #0b661e;
+  color: #fff;
+}
+
+/*Hover Button Seconday*/
+#dragAndDrop .btn-reversed {
+  border: 2px solid #0b661e;
+  background: #fff;
+  color: #0b661e;
+}
+
+a.download {
+  border: 2px solid #0b661e;
+  background-color: #0b661e;
+  color: #ffffff !important;
+}
+
+a.download:hover,
+a.download:active,
+a.download:focus {
+  color: #0b661e !important;
+}
+
+/*Page Titles*/
+h1#pageTitle {
+  font-weight: 600;
+  color: #0b661e;
+  font-size: 26px;
+  text-transform: uppercase;
+}
+
+/*Page Numbers*/
+.page-number {
+  font-weight: 600;
+  font-size: 18px;
+  color: #0b661e;
+}
+
+/*Page Content Text*/
+.page-container p,
+.page-container ul > li {
+  font-weight: 100;
+  font-size: 20px;
+  color: #333;
+}
+
+.thumbnail .caption-title > span {
+  color: #0b661e;
+}
+
+.ctr .click {
+  background: #0b661e;
+  color: #fff;
+}
+
+.ctr .click p {
+  color: #fff;
+}
+
+.ctr .reveal {
+  background: #eee;
+}
+
+/*----------- SPLASH PAGE STYLES -----------*/
+#splashPageModal .modal-dialog .modal-content {
+  font-family: "GMGlobalSansCond";
+  background-size: cover;
+  background-position: center;
+}
+
+#splashPageModal h1, h3 {
+  color: #0b661e;
+}
+
+/*------------ BASIC STYLES ------------*/
+body {
+  font-family: "GMGlobalSansCond" !important;
+  text-rendering: optimizeLegibility;
+}
+
+/*Footer Navigation*/
+footer.footer {
+  background-color: rgba(154, 154, 154, 0.9);
+}
+
+.cardFront {
+  background: #0b661e;
+}
+
+.color1 {
+  height: 300px;
+  opacity: 0.75;
+  background: #0b661e;
+}
+
+.outline {
+  border: 1px solid #0b661e;
+}
+
+/*# sourceMappingURL=theme.css.map */

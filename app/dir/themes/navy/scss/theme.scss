@@ -1,0 +1,51 @@
+$primary: #1a4791;
+$white: #ffffff;
+
+@import "typography.scss";
+@import "assessment.scss";
+@import "navigation.scss";
+@import "button.scss";
+@import "glossary.scss";
+@import "help.scss";
+@import "resources.scss";
+@import "dragdrop.scss";
+@import "text.scss";
+@import "ctr.scss";
+
+
+/*----------- SPLASH PAGE STYLES -----------*/
+#splashPageModal .modal-dialog .modal-content{
+  font-family: 'GMGlobalSansCond';
+  background-size: cover;
+  background-position: center;
+
+}
+
+#splashPageModal h1, h3{
+  color: $primary;
+}
+
+
+/*------------ BASIC STYLES ------------*/
+body {
+  font-family: "GMGlobalSansCond" !important;
+  text-rendering: optimizeLegibility;
+}
+
+/*Footer Navigation*/
+footer.footer {
+  background-color: rgba(154, 154, 154, 0.9);
+}
+
+.cardFront{
+  background:$primary;
+}
+
+.color1{
+  height: 300px;
+  opacity: .75;
+  background: $primary;
+}
+.outline{
+  border: 1px solid $primary;
+}

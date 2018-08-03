@@ -1,0 +1,373 @@
+//////////////////////////////////////////////////////////////////////
+//
+//     Vehicle Game  SCSS
+//      - Styles for video/audio
+//
+//////////////////////////////////////////////////////////////////////
+
+.viewed-overlay {
+  display: block;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  text-align: right;
+  position: absolute;
+  right: -10px;
+  top: -10px;
+}
+
+.btn-start, .btn-submit-answer, .btn-ok, .btn-game {
+  cursor: pointer;
+}
+
+#btnAssessment1 #startBtn {
+  width: 80%;
+  margin: 0 auto;
+  display: block;
+  filter: drop-shadow(0px 0.5px 28px rgba(0, 0, 0, 0.55));
+}
+
+#assessmentModal .assessment-container {
+  .backBtn {
+    position: absolute;
+    top: -40px;
+    left: -25px;
+    cursor: pointer;
+    opacity: .5;
+    &:hover {
+      opacity: 1;
+    }
+  }
+  .exitBtn {
+    &:hover {
+      opacity: 1;
+    }
+    position: absolute;
+    top: -40px;
+    right: -25px;
+    cursor: pointer;
+    opacity: .3;
+  }
+}
+
+#btnAssessment1 #startBtn:active {
+  transform: scale(0.975);
+  filter: drop-shadow(0px 0.5px 16px rgba(0, 0, 0, 0.55));
+}
+
+#assessmentModal {
+  .modal-dialog {
+    min-height: 700px;
+    border: 3px solid #2b2b2b;
+  }
+  .modal-content {
+    min-height: 700px;
+    padding: 55px;
+    p, h3 {
+      margin-bottom: 25px;
+    }
+    .selection-screen {
+      div:first-of-type {
+        margin-bottom: 50px;
+      }
+      button {
+        background-color: transparent;
+        border: none;
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+  }
+  .retry-container {
+    button {
+      padding: 0;
+      border: none;
+      padding: 20px 0;
+      width: 49%;
+      &:last-of-type {
+        float: right;
+      }
+    }
+    &.buick button, &.chevy button, &.gmc button {
+      background-color: #2b2b2b;
+    }
+  }
+  .modal-content .intro-screen {
+    button {
+      padding: 0;
+      border: none;
+      margin-bottom: 20px;
+      width: 100%;
+      padding: 20px 0;
+    }
+    &.buick button, &.chevy button, &.gmc button {
+      background-color: #2b2b2b;
+    }
+  }
+  .assessment-content h3 {
+    margin: 0 0 15px;
+    width: 100%;
+    span {
+      float: right;
+      font-size: 22px;
+      text-transform: lowercase;
+    }
+  }
+  .assessment-total {
+    text-align: center;
+    margin-top: -20px !important;
+  }
+  .assessment-content {
+    .answers {
+      padding-top: 30px;
+      /*  margin-left: 0;*/
+      /*  padding-left: 0;*/
+      list-style: none;
+      border-top: 1px solid #e2e2e2;
+      width: 100%;
+      /*ADDED for Bootstrap 4 to match width of previous version */
+    }
+    .answer-container {
+      position: relative;
+      cursor: pointer;
+      margin-bottom: 15px;
+      .unselected-box {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        background-color: transparent;
+      }
+      &.unselected .unselected-box {
+        background-color: rgba(250, 250, 250, 0.6);
+      }
+      .border-box {
+        border: 1px solid #e2e2e2;
+        img {
+          width: 100%;
+        }
+      }
+      .brand-model-attr {
+        padding: 0 20px 15px 20px;
+      }
+    }
+    &.gmc .answer-container .brand-model-attr {
+      background-color: #000;
+    }
+    .answer-container .brand-model-attr > p {
+      margin-bottom: 0;
+    }
+    &.gmc .answer-container .brand-model-attr > p {
+      &.brand, &.model {
+        display: inline-block;
+      }
+      &.brand {
+        padding-right: 5px;
+      }
+      &.model {
+        padding-left: 5px;
+        border-left: 1px solid #fff;
+      }
+      &.attr {
+        margin-top: 5px;
+        display: inline-block;
+      }
+    }
+    &.buick .answer-container .brand-model-attr > p.model, &.chevy .answer-container .brand-model-attr > p.model, &.buick .answer-container .brand-model-attr > p.attr, &.chevy .answer-container .brand-model-attr > p.attr {
+      display: inline;
+      float: left;
+      vertical-align: bottom;
+      line-height: 30px;
+    }
+    &.buick .answer-container .brand-model-attr > p.attr, &.chevy .answer-container .brand-model-attr > p.attr {
+      padding-left: 0px;
+    }
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .modal-dialog {
+    width: 800px;
+  }
+}
+
+
+.feedback-container {
+  width: 100%;
+}
+
+#assessmentModal {
+  .assessment-content {
+    button {
+      width: 100%;
+      padding: 20px 0;
+      border: none;
+    }
+    .feedback-container {
+      p {
+        display: inline-block;
+        margin-bottom: 0;
+        line-height: 60px;
+        width: 85%;
+      }
+      div {
+        float: right;
+        width: 15%;
+      }
+      button.btn-ok {
+        width: 60px;
+        height: 60px;
+        padding: 0;
+        border-radius: 50%;
+        float: right;
+      }
+    }
+    &.buick {
+      .feedback-container button.btn-ok, .btn-submit-answer {
+        background-color: #2b2b2b;
+      }
+    }
+    &.chevy {
+      .feedback-container button.btn-ok, .btn-submit-answer {
+        background-color: #2b2b2b;
+      }
+    }
+    &.gmc {
+      .feedback-container button.btn-ok, .btn-submit-answer {
+        background-color: #2b2b2b;
+      }
+    }
+    .answer-container .selected-bar {
+      height: 10px;
+      width: 100%;
+    }
+    &.buick {
+      .viewed-overlay {
+        display: block;
+        position: absolute;
+        top: -10px;
+        right: -10px;
+      }
+      .answer-container.selected .selected-bar {
+        background-color: #2b2b2b;
+      }
+    }
+    &.chevy .answer-container.selected .selected-bar {
+      background-color: #2b2b2b;
+    }
+    &.gmc .answer-container {
+      .selected-bar {
+        background-color: #000;
+      }
+      &.selected .selected-bar {
+        background-color: #2b2b2b;
+      }
+    }
+  }
+  .finish-screen {
+    button {
+      padding: 0;
+      border: none;
+      padding: 20px 0;
+      width: 49%;
+      &:last-of-type {
+        float: right;
+      }
+    }
+    &.buick button, &.chevy button, &.gmc button {
+      background-color: #2b2b2b;
+    }
+  }
+  .modal-content {
+    text-align: left;
+    h3 {
+      text-transform: uppercase;
+    }
+    p {
+      font-weight: 100;
+      font-size: 20px;
+    }
+  }
+  .retry-container button {
+    color: #fff;
+    font-size: 24px;
+  }
+  .intro-screen {
+    ul > li {
+      font-weight: 100;
+      font-size: 20px;
+    }
+    button {
+      color: #fff;
+      font-size: 24px;
+      font-weight: 100;
+    }
+  }
+  .assessment-content {
+    &.buick h3, &.chevy h3, &.gmc h3 {
+      color: #2b2b2b;
+    }
+  }
+  .answer-container .brand-model-attr p {
+    &.brand, &.model, &.attr {
+      text-transform: uppercase;
+    }
+    &.brand {
+      font-size: 18px;
+      font-weight: 100;
+    }
+    &.model {
+      color: #2b2b2b;
+      font-size: 17px;
+      font-weight: 400;
+    }
+    &.attr {
+      font-size: 13px;
+    }
+  }
+  .assessment-content {
+    &.buick .answer-container .brand-model-attr p.brand, &.chevy .answer-container .brand-model-attr > p.brand {
+      color: #2b2b2b;
+    }
+    &.gmc .answer-container .brand-model-attr {
+      > p {
+        &.brand {
+          color: #2b2b2b;
+          font-size: 16px;
+          font-weight: 600;
+        }
+        &.model {
+          color: #fff;
+          font-size: 17px;
+        }
+      }
+      p.attr {
+        color: #fff;
+      }
+    }
+    .feedback-container p {
+      font-size: 24px;
+      text-align: right;
+    }
+    button {
+      color: #fff;
+      font-size: 24px;
+      font-weight: 100;
+    }
+  }
+  .feedback > p {
+    color: #fff;
+  }
+  .assessment-content .feedback-container .feedback-details {
+    font-size: 20px;
+    line-height: 35px;
+    span {
+      font-weight: 600;
+    }
+  }
+  .finish-screen button {
+    color: #fff;
+    font-size: 24px;
+  }
+}
