@@ -96,8 +96,8 @@ export function setupDragDrop(id, elementID){
 
     var droppable = '<div class="item-container" id="'+ droppableID +'" ondrop="drop_handler(event);" ondragover="dragover_handler(event);">'+ droppableText +'</div>';
 
-    $('.left').append(draggable);
-    $('.right').append(droppable);
+    $("#"+elementID + ' .left').append(draggable);
+    $("#"+elementID + ' .right').append(droppable);
 
 /*
     $('#'+holderID).on('drop', function(event){
