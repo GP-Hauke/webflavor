@@ -128,7 +128,6 @@ function populateStorage(json, tempStorage) {
 
   localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(courseStorageObj));
   getNavigationData();
-  loadXMLData();
 }
 
 function getNavigationData(){
@@ -259,7 +258,7 @@ function getChapterData(){
               settingsLoaded = true;
 
               //buildInterface();
-              //this.loadXMLData();
+              loadXMLData();
             }
           }
       });
@@ -271,13 +270,9 @@ function loadXMLData() {
   //console.log("loadXMLData()");
   courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
 
+
   if(courseData.HAS_RESOURCES === 'true' && resourcesLoaded === false) {
     GetInterfaceXML("dir/content/resources.xml");
-    return;
-  }
-
-  if(courseData.cardData !== undefined && cardContentLoaded === false) {
-    GetInterfaceXML("dir/content/card_content.xml");
     return;
   }
 
@@ -297,7 +292,6 @@ function loadXMLData() {
     return;
   }
  else {
-
     loadInterfaceStyles();
     Interface.initInterface(LOCAL_COURSE_DATA_ID);
     return;
@@ -306,12 +300,7 @@ function loadXMLData() {
 
 function GetInterfaceXML(args) {
   $.get(args).done(function(xml) {
-    if(args.indexOf("card_content") != -1) {
-      cardContentLoaded = true;
-      initCardContent(xml); // lives in card_content_functions.js
-      loadXMLData();
-    }
-    else if(args.indexOf("glossary") != -1) {
+    if(args.indexOf("glossary") != -1) {
       glossaryLoaded = true;
       addGlossaryToLocalStorage(xml);
       loadXMLData();
@@ -330,7 +319,6 @@ function GetInterfaceXML(args) {
       assessmentsLoaded = true;
       Game.initAssessments(LOCAL_COURSE_DATA_ID, xml); // lives in assessment_functions.js
       loadXMLData();
-
     }
   });
 }
