@@ -171,12 +171,17 @@ export function pageLoaded() {
 }
 
 export function setComplete() {
-  SetComplete();
+  if(courseData.HAS_INTERACTIVE_COMPLETION == "true"){
+    if(courseData.INTERACTIVES_TOTAL != courseData.INTERACTIVES_COMPLETED){
+      var confirmMsg = "Please attempt <span class='bolded'>all interactives</span> within the course to be able to recieve";
+      $("#sectionComplete").html(confirmMsg);
+      return
+    }
+  }
 
+  Tracking.SetComplete();
   $("#btnComplete").hide();
-
   var confirmMsg = "Thank you for completing this course. Your training record will be updated.";
-
   $("#sectionComplete").text(confirmMsg);
 }
 
@@ -209,3 +214,5 @@ export function getFooterHeight() {
   }
   return $('footer').height();
 }
+
+window.setComplete = setComplete;

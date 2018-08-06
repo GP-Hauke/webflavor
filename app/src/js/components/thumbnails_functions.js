@@ -127,7 +127,7 @@ export function checkThumbCompletion(evt, elementID){
     if(courseData.thumbnailData.thumbnails[elementID].score >= courseData.thumbnailData.thumbnails[elementID].thumbs.length){
       courseData.thumbnailData.thumbnails[elementID].completed = true;
       courseData.thumbnailData.completed += 1;
-      courseData.COMPLETED_INTERACTIVES += 1;
+      courseData.INTERACTIVES_COMPLETED += 1;
       if(courseData.thumbnailData.thumbnails[elementID].completion.gate != null) {
         var chapter = courseData.thumbnailData.thumbnails[elementID].completion.gate.chapter;
         var page = courseData.thumbnailData.thumbnails[elementID].completion.gate.page;

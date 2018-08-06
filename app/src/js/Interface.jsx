@@ -619,4 +619,34 @@ export function loadPage() {
   });
 }
 
+export function calculateHeight() {
+  // subtracting one pixel ensures that second scroll bar doesn't appear
+  // adding padding to accommodate Bootstrap header nav
+  // console.log("calculateHeight");
+  // console.log($("#navbar").height());
+
+  //  $("#contentContainer").css({height:$(window).height() - 1, paddingTop:$("#navbar").height()});
+  //$("#contentContainer").css({height:$(window).height() - 1});
+  $("#contentContainer").css({height:$(window).height()-($('#navContainer').height()+getFooterHeight())});
+
+
+  var navItemHeight = (($(window).height()-($('#navContainer').height()+getFooterHeight())) * .75)/ $('.courseTitleChapter').length;
+  //$('.tabbed #navbarMobile .courseTitleChapter').css({height: navItemHeight});
+  //---------------DEPRICATED AFTER REMOVING IFRAMES---------------
+  //$("#contentFrame").css({height:$("#contentContainer").height()});
+  //$("#contentFrame").css({height:$("#contentContainer").height() - $("#navbar").height(), top:$("#navbar").height()});
+  //$("#contentFrame").css({height:$("#contentContainer").height() - 7});
+
+  $("#audioBar").width($("#mainContainer").width()-216-$("#navBtns").width());
+  $('.leftNav #navbarMain').css({height:$(window).height()-($('#navContainer').height()+getFooterHeight())});
+
+}
+
+export function getFooterHeight() {
+  if($('footer').height() == null){
+    return 0;
+  }
+  return $('footer').height();
+}
+
 window.openPage = openPage;

@@ -13,8 +13,9 @@
     "hasGlossary": "true",
     "hasHelp": "true",
     "hasCountPages": "true",
+    "hasInteractiveCompletion": "true",
     "courseStorageID": "courseStorageID",
-    "version": "18.3",
+    "version": "18.4",
     "contents": [
       [
         "1_1",

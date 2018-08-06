@@ -15,7 +15,6 @@ var LOCAL_COURSE_DATA_ID;
 var Signal;
 var courseData;
 
-
 var settingsLoaded = false;
 var glossaryLoaded = false;
 var resourcesLoaded = false;
@@ -97,7 +96,10 @@ function populateStorage(json, tempStorage) {
   courseStorageObj.HAS_RESOURCES = json.settings.hasResources;
   courseStorageObj.HAS_HELP = json.settings.hasHelp;
   courseStorageObj.HAS_SPLASH_PAGE = json.settings.hasSplashPage;
+  courseStorageObj.HAS_INTERACTIVE_COMPLETION = json.settings.hasInteractiveCompletion;
   courseStorageObj.SETTINGS_LOADED = false;
+  courseStorageObj.INTERACTIVES_TOTAL = 0;
+  courseStorageObj.INTERACTIVES_COMPLETED = 0;
   courseStorageObj.CONTENTS = {
     toc: json.settings.contents,
     completed: []
@@ -105,16 +107,14 @@ function populateStorage(json, tempStorage) {
 
   courseStorageObj.HAS_VEHICLE_GAME = json.settings.hasVehicleGame;
 
-  courseStorageObj.ctrData = {};
-  courseStorageObj.dragDropData = {};
-  courseStorageObj.flipCardData = {};
-  courseStorageObj.hotspotData = {};
-  courseStorageObj.knowledgeCheckData = {};
-  courseStorageObj.textData = {};
-  courseStorageObj.thumbnailData = {};
-  courseStorageObj.videoAudioData = {};
-  courseStorageObj.assessmentData = {};
-
+  courseStorageObj.ctrData = {TOTAL: 0};
+  courseStorageObj.dragDropData = {TOTAL: 0};
+  courseStorageObj.flipCardData = {TOTAL: 0};
+  courseStorageObj.hotspotData = {TOTAL: 0};
+  courseStorageObj.knowledgeCheckData = {TOTAL: 0};
+  courseStorageObj.thumbnailData = {TOTAL: 0};
+  courseStorageObj.videoAudioData = {TOTAL: 0};
+  courseStorageObj.assessmentData = {TOTAL: 0};
 
   courseStorageObj.COUNT_PAGES = json.settings.hasCountPages;
   if(courseStorageObj.COUNT_PAGES == "true") {
@@ -213,8 +213,6 @@ function getChapterData(){
               }
             }
 
-
-
             tempData.chapters[this.chapterIndex].pages[this.pageIndex].title = $(xml).find("title").find("pageTitle").text();
             if($(xml).find("title").find("gated").text() == "true"){
               tempData.chapters[this.chapterIndex].pages[this.pageIndex].gated = true;
@@ -226,10 +224,13 @@ function getChapterData(){
             tempData.chapters[this.chapterIndex].pages[this.pageIndex].count = this.activeCount;
             tempData.chapters[this.chapterIndex].pages[this.pageIndex].content = $(xml).find("layout").text();
 
-
+            var components = $(xml).find("components");
+            components.children().each(function(){
+              var type = $(this)[0].tagName;
+              tempData = countInteractives(type, tempData)
+            });
 
             localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(tempData));
-
             //console.log(tempData.chapters[this.chapterIndex].pages[this.pageIndex].title);
           },
           complete: function(){
@@ -419,4 +420,59 @@ function getFooterHeight() {
     return 0;
   }
   return $('footer').height();
+}
+
+function countInteractives(interactive, tempData){
+  if(interactive == "Ctr"){
+    if(tempData.ctrData == null){
+      tempData.ctrData = {TOTAL: 0};
+    }
+    tempData.ctrData.TOTAL += 1;
+    tempData.INTERACTIVES_TOTAL += 1;
+  }
+  else if(interactive == "DragAndDrop"){
+    if(tempData.dragDropData == null){
+      tempData.dragDropData = {TOTAL: 0};
+    }
+    tempData.dragDropData.TOTAL += 1;
+    tempData.INTERACTIVES_TOTAL += 1;
+  }
+  else if(interactive == "FlipCard"){
+    if(tempData.flipCardData == null){
+      tempData.flipCardData = {TOTAL: 0};
+    }
+    tempData.flipCardData.TOTAL += 1;
+    tempData.INTERACTIVES_TOTAL += 1;
+  }
+  else if(interactive == "Hotspot"){
+    if(tempData.hotspotData == null){
+      tempData.hotspotData = {TOTAL: 0};
+    }
+    tempData.hotspotData.TOTAL += 1;
+    tempData.INTERACTIVES_TOTAL += 1;
+  }
+  else if(interactive == "KnowledgeCheck"){
+    if(tempData.knowledgeCheckData == null){
+      tempData.knowledgeCheckData = {TOTAL: 0};
+    }
+    tempData.knowledgeCheckData.TOTAL += 1;
+    tempData.INTERACTIVES_TOTAL += 1;
+  }
+  else if(interactive == "Thumbnails"){
+    if(tempData.thumbnailData == null){
+      tempData.thumbnailData = {TOTAL: 0};
+    }
+    tempData.thumbnailData.TOTAL += 1;
+    tempData.INTERACTIVES_TOTAL += 1;
+  }
+  else if(interactive == "VideoAudio"){
+    if(tempData.videoAudioData == null){
+      tempData.videoAudioData = {TOTAL: 0};
+    }
+    tempData.videoAudioData.TOTAL += 1;
+    tempData.INTERACTIVES_TOTAL += 1;
+  }
+
+
+  return tempData;
 }

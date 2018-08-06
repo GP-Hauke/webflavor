@@ -251,7 +251,7 @@ export function submitDragDrop(id, elementID){
     console.log("DragDrop Completed");
     courseData.dragDropData.dragDrops[id].completed = true;
     courseData.dragDropData.completed += 1;
-    courseData.COMPLETED_INTERACTIVES += 1;
+    courseData.INTERACTIVES_COMPLETED += 1;
     if(courseData.dragDropData.dragDrops[id].completion.gate != null) {
       var chapter = courseData.dragDropData.dragDrops[id].completion.gate.chapter;
       var page = courseData.dragDropData.dragDrops[id].completion.gate.page;

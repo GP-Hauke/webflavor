@@ -122,7 +122,7 @@ export function checkVideoAudioCompletion(elementID){
   if(courseData.videoAudioData.videoAudio[elementID].completed == false){
     courseData.videoAudioData.videoAudio[elementID].completed = true;
     courseData.videoAudioData.completed += 1;
-    courseData.COMPLETED_INTERACTIVES += 1;
+    courseData.INTERACTIVES_COMPLETED += 1;
 
     if(courseData.videoAudioData.videoAudio[elementID].completion.gate != null) {
       var chapter = courseData.videoAudioData.videoAudio[elementID].completion.gate.chapter;

@@ -189,7 +189,7 @@ export function checkCardsCompletion(id, cardsID){
     if(courseData.flipCardData.flipCards[id].score >= courseData.flipCardData.flipCards[id].cards.length){
       courseData.flipCardData.flipCards[id].completed = true;
       courseData.flipCardData.completed += 1;
-      courseData.COMPLETED_INTERACTIVES += 1;
+      courseData.INTERACTIVES_COMPLETED += 1;
       localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(courseData));
       console.log("FlipCard Completed");
       if(courseData.flipCardData.flipCards[id].completion.gate != null) {

@@ -159,7 +159,7 @@ export function submitAnswers(id, elementID){
 
   currentKnowledgeCheck.completed = true;
   courseData.knowledgeCheckData.completed += 1;
-  courseData.COMPLETED_INTERACTIVES += 1;
+  courseData.INTERACTIVES_COMPLETED += 1;
 
   if(currentKnowledgeCheck.completion.gate != null) {
     var chapter = currentKnowledgeCheck.completion.gate.chapter;

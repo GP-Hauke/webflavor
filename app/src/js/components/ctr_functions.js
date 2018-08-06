@@ -161,7 +161,7 @@ export function checkCTRCompletion(id, sectionID){
     if(courseData.ctrData.ctrs[id].score >= courseData.ctrData.ctrs[id].sections.length){
       courseData.ctrData.ctrs[id].completed = true;
       courseData.ctrData.completed += 1;
-      courseData.COMPLETED_INTERACTIVES += 1;
+      courseData.INTERACTIVES_COMPLETED += 1;
       localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(courseData));
       console.log("Ctr Completed");
       if(courseData.ctrData.ctrs[id].completion.gate != null) {

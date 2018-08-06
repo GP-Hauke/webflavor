@@ -136,7 +136,7 @@ export function checkHotspotCompletion(id, spotID){
       console.log("Hotspot Completed");
       courseData.hotspotData.hotspots[id].completed = true;
       courseData.hotspotData.completed += 1;
-      courseData.COMPLETED_INTERACTIVES += 1;
+      courseData.INTERACTIVES_COMPLETED += 1;
       if(courseData.hotspotData.hotspots[id].completion.gate != null) {
         var chapter = courseData.hotspotData.hotspots[id].completion.gate.chapter;
         var page = courseData.hotspotData.hotspots[id].completion.gate.page;

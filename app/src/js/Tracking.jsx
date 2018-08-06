@@ -275,5 +275,3 @@ export function setCookie(cookieName, cookieValue, cookieLife) {
     document.cookie = escape(cookieName) + "=" + escape(cookieValue) + ";path=/";
   }
 }
-
-window.setComplete = SetComplete;
