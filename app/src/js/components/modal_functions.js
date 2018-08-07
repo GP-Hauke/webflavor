@@ -4,7 +4,7 @@ import * as Game from '../components/assessment_functions';
 
 export function openModal(localStorageID, modalType, assessmentID, clickTarget) {
   LOCAL_COURSE_DATA_ID = localStorageID;
-  courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
+  var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
   var pathStr = courseData.THEME_PATH;
   switch(modalType) {
     case 'splashPage':
@@ -70,7 +70,6 @@ export function openAudioModal(src) {
 export function getSplashPage() {
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
 
-  console.log(courseData);
   var title = courseData.splash.title;
   var caption = courseData.splash.caption;
   var intro = courseData.splash.introduction;

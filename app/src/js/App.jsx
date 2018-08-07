@@ -44,7 +44,7 @@ $(document).ready(function() {
 function initLocalStorage() {
   //console.log("initInterface()");
   // @if DEBUG
-  localStorage.clear();
+
   // @endif
 
   $(window).resize(function() {
@@ -69,9 +69,10 @@ function initLocalStorage() {
     var tempStorage = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
 
     if(tempStorage === null || tempStorage.SETTINGS_VERSION !== currentVersion) {
-      console.log("localStorage has reloaded");
       populateStorage(json, tempStorage);
+      console.log("localStorage has reloaded");
     }
+
     else{
       loadInterfaceStyles();
       Interface.initInterface(LOCAL_COURSE_DATA_ID);

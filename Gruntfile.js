@@ -28,8 +28,11 @@
 */
 
 var path = require('path');
+var timer = require("grunt-timer");
 
 module.exports = function(grunt){
+  timer.init(grunt);
+
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 
@@ -165,7 +168,19 @@ module.exports = function(grunt){
             flatten: true
           }
         ]
+      },
+
+      test: {
+        files: [
+          {
+            expand: true,
+            src: ['app/dir/content/course_content/1_1.xml'],
+            dest: 'dist/dir/content/course_content/',
+            flatten: true
+          }
+        ]
       }
+
     },
 
     clean: {
@@ -428,7 +443,6 @@ module.exports = function(grunt){
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-webpack');
-  grunt.loadNpmTasks('grunt-concurrent');
 
   grunt.registerTask('dev', ['dev:theme', 'sass', 'browserSync:dev', 'watch', 'webpack']);
 
@@ -570,8 +584,7 @@ module.exports = function(grunt){
     grunt.config.set("sass.dist.files", files);
   });
 
-  grunt.registerTask('test', ['concurrent']);
-  grunt.registerTask('test2', ['browserSync:dev']);
+  grunt.registerTask('test', ['copy:test']);
 
 
   grunt.event.on('watch', function(action, filepath, target) {

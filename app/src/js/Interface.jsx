@@ -547,34 +547,37 @@ export function getFooterNav() {
 
   /* current page is not the last page in the current chapter so display next button
   OR current chapter is not the last chapter so display next button */
+  var next_inactive = false;
+  var nextBtnImgPath = '/img/btn_next.png';
+  var styles = "";
+
   if(currentPage != courseData.chapters[currentChapter-1].pages.length || currentChapter != courseData.chapters.length) {
     if(hasLocks) {
       nextBtnImgPath = '/img/btn_next_inactive.png';
-    } else {
-      nextBtnImgPath = '/img/btn_next.png';
+      styles = 'style="cursor:default"';
     }
-
-    footerNavHTML = footerNavHTML + '<a class="next" href="#"><img src="dir/media'+nextBtnImgPath+'" alt="go to next page"></a>';
 
   } else {
     nextBtnImgPath = '/img/btn_next_inactive.png';
-
-    footerNavHTML = footerNavHTML + '<a class="next" href="#"><img src="dir/media'+nextBtnImgPath+'" alt="go to next page"></a>';
-
+    styles = 'style="cursor:default"';
   }
+
+  footerNavHTML = footerNavHTML + '<a '+styles+' class="next" href="#"><img src="dir/media'+nextBtnImgPath+'" alt="go to next page"></a>';
 
   /* current page is not the first page in the current chapter so display back button
   OR current chapter is not the first chapter so display back button */
-  if(currentPage != 1 || currentChapter != 1) {
-    backBtnImgPath = '/img/btn_back.png';
+  var back_inactive = false;
+  var backBtnImgPath = '/img/btn_back.png';
+  var styles = "";
 
-    footerNavHTML = '<a class="back" href="#"><img src="dir/media'+backBtnImgPath+'" alt="go to previous page"></a>' + footerNavHTML;
+  if(currentPage == 1 && currentChapter == 1) {
 
-  } else {
     backBtnImgPath = '/img/btn_back_inactive.png';
+    styles = 'style="cursor:default"';
 
-    footerNavHTML = '<a class="back" href="#"><img src="dir/media/'+backBtnImgPath+'" alt="go to previous page"></a>' + footerNavHTML;
   }
+  
+  footerNavHTML = '<a '+styles+' class="back" href="#"><img src="dir/media/'+backBtnImgPath+'" alt="go to previous page"></a>' + footerNavHTML;
 
   return footerNavHTML;
 }
