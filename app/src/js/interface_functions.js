@@ -581,7 +581,7 @@ function getFooterNav() {
   } else {
     nextBtnImgPath = '/img/btn_next_inactive.png';
 
-    footerNavHTML = footerNavHTML + '<a class="next" href="#" onclick="nextPage();"><img src="dir/media'+nextBtnImgPath+'" alt="go to next page"></a>';
+    footerNavHTML = footerNavHTML + '<a class="next dead-end" href="#"><img src="dir/media'+nextBtnImgPath+'" alt=""></a>';
 
   }
 
@@ -595,7 +595,7 @@ function getFooterNav() {
   } else {
     backBtnImgPath = '/img/btn_back_inactive.png';
 
-    footerNavHTML = '<a class="back" href="#" onclick="prevPage();"><img src="dir/media/'+backBtnImgPath+'" alt="go to previous page"></a>' + footerNavHTML;
+    footerNavHTML = '<a class="back dead-end" href="#"><img src="dir/media/'+backBtnImgPath+'" alt=""></a>' + footerNavHTML;
   }
 
   return footerNavHTML;

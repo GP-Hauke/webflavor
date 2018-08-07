@@ -30,3 +30,7 @@ footer.footer > .container.footer-nav .back {
 footer.footer > .container.footer-nav .next {
   float: right;
 }
+
+footer.footer > .container.footer-nav .dead-end {
+  cursor: not-allowed;
+}
