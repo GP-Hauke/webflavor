@@ -84,12 +84,11 @@ export function buildShellUI() {
 export function buildTopNav() {
 
   var navMarkup = '';
-  var navMarkup = '<div id="navbar" class="nav-container navbar-fixed-left"><nav class="navbar navbar-dark"><div class="container"><div class="mobile-container container-fluid d-block d-md-none"><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMain" aria-controls="navbarsExample01" aria-expanded="false" aria-label="Toggle navigation">            <span class="navbar-toggler-icon"></span>         </button>          <span id="titleMainMobile" class="title-main"></span>          <span id="subTitleMobile" class=""></span>        </div>        <div class="title-container d-none d-sm-none d-md-block ">          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMain" aria-controls="navbarsExample01" aria-expanded="false" aria-label="Toggle navigation">            <span class="navbar-toggler-icon"></span></button>  <a class="navbar-brand"></a><span id="titleMain" class="title-main"></span><span id="subTitle" class=""></span></div><div class="links-container d-none d-sm-none d-md-block "><ul id="headerLinks" class="nav page-assist float-right"></ul></div>      </div>      <div id="navbarMain" class="navbar-collapse collapse"><ul id="navbarMobile" class="navbar-nav mr-auto"></ul>      </div>    </nav>  </div>';
+  var navMarkup = '<div id="navbar" class="nav-container navbar-fixed-left"><nav class="navbar navbar-dark"><div class="container"><div class="mobile-container container-fluid d-block d-md-none"><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMain" aria-controls="navbarsExample01" aria-expanded="false" aria-label="Toggle navigation">            <span class="navbar-toggler-icon"></span>         </button>          <span id="titleMainMobile" class="title-main"></span>          <span id="subTitleMobile" class=""></span> <ul class="headerLinks nav page-assist float-right"></ul>       </div>        <div class="title-container d-none d-sm-none d-md-block ">          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMain" aria-controls="navbarsExample01" aria-expanded="false" aria-label="Toggle navigation">            <span class="navbar-toggler-icon"></span></button>  <a class="navbar-brand"></a><span id="titleMain" class="title-main"></span><span id="subTitle" class=""></span></div><div class="links-container d-none d-sm-none d-md-block "><ul class="headerLinks nav page-assist float-right"></ul></div>      </div>      <div id="navbarMain" class="navbar-collapse collapse"><ul id="navbarMobile" class="navbar-nav mr-auto"></ul>      </div>    </nav>  </div>';
 
     $("#navContainer").append(navMarkup);
 
     $('#titleMain').html(courseData.TITLE+":");
-    $('#titleMainMobile').html(courseData.TITLE+":");
     $('#subTitle').html(courseData.SUB_TITLE);
     $('#subTitleMobile').html(courseData.SUB_TITLE);
 
@@ -124,18 +123,18 @@ export function buildTopNav() {
     // HEADER LINKS
     var headerLinks = "";
     if(courseData.HAS_RESOURCES === "true"){
-      var headerLinkEl = '<li><a id="btnResources" href="#" target="">RESOURCES</a></li>';
+      var headerLinkEl = '<li><a class="btnResources" href="#" target=""><img src="dir/media/img/resources.png" style="height:50px;" alt=""></a></li>';
       headerLinks = headerLinks + headerLinkEl;
     }
     if(courseData.HAS_GLOSSARY === "true"){
-      var headerLinkEl = '<li><a id="btnGlossary" href="#" target="">GLOSSARY</a></li>';
+      var headerLinkEl = '<li><a class="btnGlossary" href="#" target=""><img src="dir/media/img/glossary.png" style="height:50px;" alt=""></a></li>';
       headerLinks = headerLinks + headerLinkEl;
     }
     if(courseData.HAS_HELP === "true"){
-      var headerLinkEl = '<li><a id="btnHelpModal" href="#" target="">?</a></li>';
+      var headerLinkEl = '<li><a class="btnHelpModal" href="#" target=""><img src="dir/media/img/help.png" style="height:50px;" alt=""></a></li>';
       headerLinks = headerLinks + headerLinkEl;
     }
-    $("#headerLinks").append(headerLinks);
+    $(".headerLinks").append(headerLinks);
     // END HEADER LINKS
 
     // BOTTOM NAV
@@ -182,9 +181,9 @@ export function buildTopNav() {
     if(courseData.HAS_MENU_LOGO == "true"){
       $('#navbar .navbar-brand').append('<img src="'+courseData.THEME_PATH+'/img/logo.png" alt="logo">')
     }
-    $('#btnGlossary').click(function(){Modal.openModal(LOCAL_COURSE_DATA_ID, 'glossary');});
-    $('#btnHelpModal').click(function(){Modal.openModal(LOCAL_COURSE_DATA_ID, 'help');});
-    $('#btnResources').click(function(){Modal.openModal(LOCAL_COURSE_DATA_ID, 'resources');});
+    $('.btnGlossary').click(function(){Modal.openModal(LOCAL_COURSE_DATA_ID, 'glossary');});
+    $('.btnHelpModal').click(function(){Modal.openModal(LOCAL_COURSE_DATA_ID, 'help');});
+    $('.btnResources').click(function(){Modal.openModal(LOCAL_COURSE_DATA_ID, 'resources');});
 
     updateNavigation();
 
@@ -196,7 +195,7 @@ export function buildTopNav() {
 
 export function buildLeftNav() {
 
-  var navMarkup = '<div id="navbar" class="nav-container navbar-fixed-left leftNav">    <nav class="navbar navbar-dark">      <div class="container">        <div class="mobile-container container-fluid d-block d-md-none">          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMain" aria-controls="navbarsExample01" aria-expanded="false" aria-label="Toggle navigation">            <span class="navbar-toggler-icon"></span>          </button>          <a class="navbar-brand logo-mobile"></a>          <span id="titleMainMobile" class="title-main"></span>          <span id="subTitleMobile" class=""></span>        </div>        <div class="title-container d-none d-sm-none d-md-block ">          <button class="navbar-toggler" onclick="leftNav();">            <span class="navbar-toggler-icon"></span>          </button>          <a class="navbar-brand"></a>          <span id="titleMain" class="title-main"></span>          <span id="subTitle" class=""></span>        </div>        <div class="links-container d-none d-sm-none d-md-block ">          <ul id="headerLinks" class="nav page-assist float-right"></ul>        </div>      </div>      <div id="navbarMain" class="navbar-collapse">        <ul id="navbarMobile" class="navbar-nav mr-auto"></ul>      </div>    </nav>  </div>';
+  var navMarkup = '<div id="navbar" class="nav-container navbar-fixed-left leftNav">    <nav class="navbar navbar-dark">      <div class="container">        <div class="mobile-container container-fluid d-block d-md-none">          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMain" aria-controls="navbarsExample01" aria-expanded="false" aria-label="Toggle navigation">            <span class="navbar-toggler-icon"></span>          </button>          <a class="navbar-brand logo-mobile"></a>          <span id="titleMainMobile" class="title-main"></span>          <span id="subTitleMobile" class=""></span>   <ul class="headerLinks nav page-assist float-right"></ul>      </div>        <div class="title-container d-none d-sm-none d-md-block ">          <button class="navbar-toggler" onclick="leftNav();">            <span class="navbar-toggler-icon"></span>          </button>          <a class="navbar-brand"></a>          <span id="titleMain" class="title-main"></span>          <span id="subTitle" class=""></span>        </div>        <div class="links-container d-none d-sm-none d-md-block ">          <ul class="headerLinks nav page-assist float-right"></ul>        </div>      </div>      <div id="navbarMain" class="navbar-collapse">        <ul id="navbarMobile" class="navbar-nav mr-auto"></ul>      </div>    </nav>  </div>';
 
     $("#navContainer").append(navMarkup);
 
@@ -246,7 +245,7 @@ export function buildLeftNav() {
       var headerLinkEl = '<li><a id="btnHelpModal" href="#" target="">?</a></li>';
       headerLinks = headerLinks + headerLinkEl;
     }
-    $("#headerLinks").append(headerLinks);
+    $(".headerLinks").append(headerLinks);
     // END HEADER LINKS
 
     $("#navbarMobile").append(mobileNav);
@@ -576,7 +575,7 @@ export function getFooterNav() {
     styles = 'style="cursor:default"';
 
   }
-  
+
   footerNavHTML = '<a '+styles+' class="back" href="#"><img src="dir/media/'+backBtnImgPath+'" alt="go to previous page"></a>' + footerNavHTML;
 
   return footerNavHTML;

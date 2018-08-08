@@ -286,7 +286,7 @@ p {
 }
 
 /* LEFT NAVIGATION MENU */
-#headerLinks li {
+.headerLinks li {
   &:not(:last-child) {
     margin-right: 20px;
   }

@@ -4,7 +4,7 @@ import * as Game from '../components/assessment_functions';
 
 export function openModal(localStorageID, modalType, assessmentID, clickTarget) {
   LOCAL_COURSE_DATA_ID = localStorageID;
-  var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
+  courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
   var pathStr = courseData.THEME_PATH;
   switch(modalType) {
     case 'splashPage':
