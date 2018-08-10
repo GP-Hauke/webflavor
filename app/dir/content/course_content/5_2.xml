@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <page>
   <title>
-    <chapterTitle><![CDATA[KNOWLEDGE]]></chapterTitle>
-    <pageTitle><![CDATA[REVIEW I]]></pageTitle>
+    <chapterTitle><![CDATA[KNOWLEDGE CHECKS]]></chapterTitle>
+    <pageTitle><![CDATA[REVIEW II]]></pageTitle>
     <included>true</included>
     <pagination>false</pagination>
     <size>12</size>
@@ -18,40 +18,40 @@
     </div>
 
     <div class="row margin-below">
-      <div class="col-md-7 mx-auto p-0"><div id="knowledgeCheck-page-1"></div></div>
+      <div class="col-md-7 mx-auto p-0"><div id="knowledgeCheck-page-2"></div></div>
     </div>
     ]]>
   </layout>
 
   <components>
-    <KnowledgeCheck id="knowledgeCheck-page-1" scored="true" title="Review I">
+    <KnowledgeCheck id="knowledgeCheck-page-2" scored="true" title="Review II">
       <question>
         <body>The question body goes in this element. What answer is right?</body>
         <answers>
-          <answer>P</answer>
-          <answer>O</answer>
-          <answer correct="true">RIGHT ANSWER</answer>
-          <answer>I</answer>
-        </answers>
-      </question>
-
-      <question>
-        <body>The question body goes in this element. What answer is right?</body>
-        <answers>
-          <answer correct="true">RIGHT ANSWER</answer>
-          <answer>R</answer>
-          <answer>E</answer>
-          <answer>W</answer>
-        </answers>
-      </question>
-
-      <question>
-        <body>The question body goes in this element. What answer is right?</body>
-        <answers>
-          <answer>Q</answer>
           <answer>A</answer>
+          <answer>L</answer>
           <answer correct="true">RIGHT ANSWER</answer>
-          <answer>J</answer>
+          <answer>K</answer>
+        </answers>
+      </question>
+
+      <question>
+        <body>The question body goes in this element. What answer is right?</body>
+        <answers>
+          <answer correct="true">RIGHT ANSWER</answer>
+          <answer>Y</answer>
+          <answer>T</answer>
+          <answer>S</answer>
+        </answers>
+      </question>
+
+      <question>
+        <body>The question body goes in this element. What answer is right?</body>
+        <answers>
+          <answer>A</answer>
+          <answer>L</answer>
+          <answer correct="true">RIGHT ANSWER</answer>
+          <answer>K</answer>
         </answers>
       </question>
 

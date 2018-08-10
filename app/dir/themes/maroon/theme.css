@@ -210,7 +210,7 @@ li.courseTitleChapterSelected {
   color: #632121;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 991px) {
   .tabbed #navbarMobile .dropdown-menu li p {
     background: #fff !important;
     color: #632121 !important;

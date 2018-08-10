@@ -67,6 +67,7 @@ export function initDragAndDrop(dragDropContentXML, elementID, localStorageID) {
 }
 
 export function setupDragDrop(id, elementID){
+
   if(elementID == null){
     $('#dragAndDrop').remove();
   }
@@ -92,42 +93,13 @@ export function setupDragDrop(id, elementID){
     var droppableID = elementID+'_t' + i;
     var droppableText = dragDropData.matchings[i].drop;
 
-    var draggable = '<div class="item-container holder" id="'+ holderID +'" ondrop="drop_handler(event);" ondragover="dragover_handler(event);"><p class="draggable" id="'+ draggableID +'" draggable="true" ondragstart="dragstart_handler(event);" >'+ draggableText +'</p></div>';
+    var draggable = '<div class="item-container holder" id="'+ holderID +'" ondrop="drop_handler(event);" ondragover="dragover_handler(event);"><p class="draggable" id="'+ draggableID +'" draggable="true" ondragstart="dragstart_handler(event);" ontouchstart="dragstart_handler(event);" >'+ draggableText +'</p></div>';
 
     var droppable = '<div class="item-container" id="'+ droppableID +'" ondrop="drop_handler(event);" ondragover="dragover_handler(event);">'+ droppableText +'</div>';
 
     $("#"+elementID + ' .left').append(draggable);
     $("#"+elementID + ' .right').append(droppable);
-
-/*
-    $('#'+holderID).on('drop', function(event){
-      console.log("HERE");
-
-      drop_handler(event);
-    });
-
-    $('#'+holderID).on('dragover', function(event){
-      console.log("HERE");
-
-      dragover_handler(event);
-    });
-
-    $('#'+draggableID).on('dragstart', function(event){
-      console.log("HERE");
-
-      dragstart_handler(event);
-    });
-
-    */
-
   }
-
-
-
-/*    var draggable = '<div class="item-container holder" id="'+ holderID +'" ondrop="drop_handler(event);" ondragover="dragover_handler(event);"><p class="draggable" id="'+ draggableID +'" draggable="true" ondragstart="dragstart_handler(event);" >'+ draggableText +'</p></div>';
-
-    var droppable = '<div class="item-container" id="'+ droppableID +'" ondrop="drop_handler(event);" ondragover="dragover_handler(event);">'+ droppableText +'</div>';*/
-
 
 
   $(".btn-restart").click(function(){
@@ -154,6 +126,8 @@ export function setupDragDrop(id, elementID){
   })
   shuffleDrags(elementID);
   shuffleDrops(elementID);
+
+
 }
 
 export function shuffleDrags(elementID){

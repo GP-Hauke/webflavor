@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <page>
   <title>
-    <chapterTitle><![CDATA[TEMPLATE GRID]]></chapterTitle>
-    <pageTitle><![CDATA[BLANK GRID]]></pageTitle>
+    <chapterTitle><![CDATA[TEMPLATE GUIDE]]></chapterTitle>
+    <pageTitle><![CDATA[WEBFLAVOR 2.0]]></pageTitle>
     <included>true</included>
     <pagination>true</pagination>
     <size>12</size>
@@ -11,58 +11,29 @@
 
   <layout>
     <![CDATA[
-    <div class="row">
-      <div class="col-md-12"><p>After the grid is created, components can be inserted into their appropriate places on the grid layout. The first Component is the Text-Component.</p></div>
-    </div>
-
-    <div class="row">
-      <div class="col-12 col-md-3 p-0"><div class="componentContainer color1"></div></div>
-
-      <div class="col-12 col-md-9 p-0"><div class="componentContainer color1"></div></div>
-    </div>
-
-    <div class="row">
-      <div class="col-12 col-md-4 p-0"><div class="componentContainer color1"></div></div>
-
-      <div class="col-12 col-md-8 p-0"><div class="componentContainer color1"></div></div>
-    </div>
-
-    <div class="row">
-      <div class="col-12 col-md-12 p-0"><div class="componentContainer color1"></div></div>
-    </div>
-
-    <div class="row">
-      <div class="col-12 col-md-8 p-0"><div class="componentContainer color1 size2"></div></div>
-
-      <div class="col-12 col-md-4 p-0">
-        <div class="row">
-          <div class="col-6 col-md-12 inner-col-top"><div class="componentContainer color1"></div></div>
-          <div class="col-6 col-md-12 inner-col-bottom"><div class="componentContainer color1"></div></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-12 col-md-4 p-0"><div class="componentContainer color1"></div></div>
-
-      <div class="col-12 col-md-8 p-0"><div class="componentContainer color1"></div></div>
-    </div>
-
-    <div class="row">
-      <div class="col-12 col-md-4 p-0">
-        <div class="row">
-          <div class="col-6 col-md-12 inner-col-top"><div class="componentContainer color1"></div></div>
-          <div class="col-6 col-md-12 inner-col-bottom"><div class="componentContainer color1"></div></div>
-        </div>
-      </div>
-
-      <div class="col-12 col-md-8 p-0"><div class="componentContainer color1 size2"></div></div>
-    </div>
-
     <div class="row margin-below">
-      <div class="col-12 col-md-8 p-0"><div class="componentContainer color1"></div></div>
-      <div class="col-12 col-md-4 p-0"><div class="componentContainer color1"></div></div>
+      <div class="col-md-6">
+        <p>WebFlavor is a development framework for creating responsive HTML5 courses. The framework uses the Grunt JavaScript task runner to build an optimized course output from a set of XML, CSS, and media source files.</p>
+
+        <p>In order to modify the content of the course, the user needs to have an intermediate understanding of XML, HTML, and the Bootstrap CSS framework. Specifically, the user needs to know how to modify an existing XML document - including addition, removal, and changes of nodes – and how to modify HTML documents that are built upon the “Bootstrap” grid framework. Details can be found on the GitHub Repository</p>
+      </div>
+
+      <div class="col-md-6">
+        <img style="width:100%" src="dir/media/img/assets/intro.jpg" alt="">
+      </div>
     </div>
+
+  <div class="row">
+    <div class="col-md-8">
+      <img style="width:100%" src="dir/media/img/assets/devices.jpg" alt="">
+    </div>
+
+    <div class="col-md-4">
+      <p>This version of WebFlavor is responsive, meaning it works on all devices for users to take the course. Whether on Desktop, Android, iPhone, iPad, tablet or any smaller viewing screen, the WebFlavor interface provides a responsive design for the user.</p>
+
+      <p>WebFlavor course completion, interactives, and all other components are just as usable on the mobile responsive layout as they are on a desktop, and a user taking the course would have no problems on either device. </p>
+    </div>
+  </div>
     ]]>
   </layout>
 </page>

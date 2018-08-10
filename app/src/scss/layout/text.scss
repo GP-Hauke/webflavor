@@ -28,22 +28,25 @@
   }
 }
 
-@media only screen and (max-width: 992px) {
+@media only screen and (max-width: 991px) {
   #titleMainMobile {
     color: #fff;
     font-size: 20px;
-    line-height: 40px;
+    line-height: 52px;
     font-weight: 100;
     text-align: center;
   }
   #subTitleMobile {
     color: #fff;
+    font-size: 28px;
+    text-transform: uppercase;
+    font-weight: 600;
     text-align: center;
+    line-height: 52px;
   }
 }
 
 /* PAGE TITLE */
-
 h1#pageTitle {
   margin-top: 0;
   margin-bottom: 20px;
@@ -150,11 +153,4 @@ a.download {
   color: #4b4b4b;
   font-size: 26px;
   font-weight: normal;
-}
-
-/* COLLAPSABLE PART OF NAV BAR - MOBILE LINK LIST */
-@media only screen and (max-width: 990px) {
-  #titleMain, #subTitle, .links-container ul li a {
-    font-size: 22px;
-  }
 }

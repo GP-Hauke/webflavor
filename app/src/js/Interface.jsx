@@ -84,7 +84,7 @@ export function buildShellUI() {
 export function buildTopNav() {
 
   var navMarkup = '';
-  var navMarkup = '<div id="navbar" class="nav-container navbar-fixed-left"><nav class="navbar navbar-dark"><div class="container"><div class="mobile-container container-fluid d-block d-md-none"><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMain" aria-controls="navbarsExample01" aria-expanded="false" aria-label="Toggle navigation">            <span class="navbar-toggler-icon"></span>         </button>          <span id="titleMainMobile" class="title-main"></span>          <span id="subTitleMobile" class=""></span> <ul class="headerLinks nav page-assist float-right"></ul>       </div>        <div class="title-container d-none d-sm-none d-md-block ">          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMain" aria-controls="navbarsExample01" aria-expanded="false" aria-label="Toggle navigation">            <span class="navbar-toggler-icon"></span></button>  <a class="navbar-brand"></a><span id="titleMain" class="title-main"></span><span id="subTitle" class=""></span></div><div class="links-container d-none d-sm-none d-md-block "><ul class="headerLinks nav page-assist float-right"></ul></div>      </div>      <div id="navbarMain" class="navbar-collapse collapse"><ul id="navbarMobile" class="navbar-nav mr-auto"></ul>      </div>    </nav>  </div>';
+  var navMarkup = '<div id="navbar" class="nav-container navbar-fixed-left">    <nav class="navbar navbar-dark">      <div class="container">        <div class="mobile-container container-fluid d-block d-lg-none">          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMain" aria-controls="navbarsExample01" aria-expanded="false" aria-label="Toggle navigation">            <span class="navbar-toggler-icon">            </span>          </button>          <span id="titleMainMobile" class="title-main"></span>          <span id="subTitleMobile" class=""></span>          <ul class="headerLinks nav page-assist float-right"></ul>        </div>        <div class="title-container d-none d-lg-none d-lg-block ">          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMain" aria-controls="navbarsExample01" aria-expanded="false" aria-label="Toggle navigation">            <span class="navbar-toggler-icon"></span>          </button>          <a class="navbar-brand"></a>          <span id="titleMain" class="title-main"></span>          <span id="subTitle" class=""></span>        </div>        <div class="links-container d-none d-lg-none d-lg-block "><ul class="headerLinks nav page-assist float-right"></ul>        </div>      </div>      <div id="navbarMain" class="navbar-collapse collapse"><ul id="navbarMobile" class="navbar-nav mr-auto"></ul>      </div>    </nav>  </div>';
 
     $("#navContainer").append(navMarkup);
 
@@ -162,7 +162,7 @@ export function buildTopNav() {
 
       if(courseData.MENU_STYLE === 'tab' && courseData.MENU_PLACEMENT === 'top') {
         $('#navbarMain').addClass('tabbed');
-        $('.navbar .container').addClass('navbar-expand-md');
+        $('.navbar .container').addClass('navbar-expand-lg');
       }
       else{
         $('#navbarMain').addClass('default');

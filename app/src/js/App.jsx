@@ -37,6 +37,16 @@ var cookieName = "cookieName";
 var muted = false;
 var volume = .6;
 
+window.onresize = function() {
+  if($(window).width() < $('#navbarMain').width()){
+    console.log("COLLAPSE");
+    //$('#navbarMain').css({'display':'none'})
+  }
+  else{
+    //$('#navbarMain').css({'display':'block'})
+  }
+}
+
 $(document).ready(function() {
   initLocalStorage();
 });
@@ -44,7 +54,7 @@ $(document).ready(function() {
 function initLocalStorage() {
   //console.log("initInterface()");
   // @if DEBUG
-
+  localStorage.clear();
   // @endif
 
   $(window).resize(function() {

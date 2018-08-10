@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <page>
   <title>
-    <chapterTitle><![CDATA[CURATED CONTENT]]></chapterTitle>
-    <pageTitle><![CDATA[CURATED CONTENT]]></pageTitle>
+    <chapterTitle><![CDATA[VIDEO & AUDIO]]></chapterTitle>
+    <pageTitle><![CDATA[VIDEO & AUDIO]]></pageTitle>
     <included>true</included>
     <pagination>true</pagination>
     <size>12</size>
@@ -13,71 +13,64 @@
     <![CDATA[
     <div class="row">
       <div class="col-sm-12">
-        <p>The following is an example of curated content using the dynamic thumbnail component of the WebFlavor Template.</p>
+        <p>The following is a Video/Audio component. This component can be used to display Video or Audio for the users. The component has the ability to be fully embeded into the page, or to display in a pop up modal for the user to view.</p>
       </div>
     </div>
 
-    <div class="row">
-      <div class="col-sm-12">
-        <div id="thumbnail-page-1"></div>
+    <div class="row margin-below">
+      <div class="col-sm-6">
+        <div id="videoAudio-page-3"></div>
+      </div>
+      <div class="col-sm-6">
+        <div id="videoAudio-page-4"></div>
       </div>
     </div>
 
     <div class="row">
       <div class="col-sm-6">
-        <p>Thumbnail component can be broken up and placed anywhere on the page. The sizing is dynamic and dependent on how many Thumbnails are in each section, and they span the width of the container they are placed in. The four thumbnails above are one full component. The two thumbnails to the right are also one full component. One component takes up one row. You can split up thumbnails into as many components as needed for the layout of the page</p>
+        <div class="row">
+          <div class="col-sm-12">
+            <div id="videoAudio-page-2"></div>
+          </div>
+          <div class="col-sm-12">
+            <div id="videoAudio-page-1"></div>
+          </div>
+        </div>
       </div>
       <div class="col-sm-6">
-        <div id="thumbnail-page-2"></div>
+        <p class="top-paragraph">To the left are the Audio/Video components that are of type embeded. Above are the pop up modal types of Audio/Video. For the popups, a play button overlay will automatically be placed on the image given as the poster. A developer can edit the play button for a different style.</p>
       </div>
-    </div>]]>
+    </div>
+    ]]>
   </layout>
 
   <components>
-    <Thumbnails id="thumbnail-page-1">
-      <thumbnail>
-        <img><![CDATA[dir/media/img/assets/3_5.jpg]]></img>
-        <url><![CDATA[https://www.gpstrategies.com/]]></url>
-        <heading><![CDATA[Maecenas]]></heading>
-        <caption><![CDATA[Maecenas venenatis magna, vel pellentesque <span class="link-look">enim scelerisque</span>  erat ultricies. Quisque fringilla, nulla sed ornare tincidunt, neque velit finibus.]]></caption>
-      </thumbnail>
+    <VideoAudio id="videoAudio-page-1">
+      <type>video</type>
+      <embeded>true</embeded>
+      <poster><![CDATA[dir/media/img/assets/poster.jpg]]></poster>
+      <source><![CDATA[dir/media/videos/animation.mp4]]></source>
+    </VideoAudio>
 
-      <thumbnail>
-        <img><![CDATA[dir/media/img/assets/3_6.jpg]]></img>
-        <url><![CDATA[https://www.gpstrategies.com/]]></url>
-        <heading><![CDATA[LNulla Oranre]]></heading>
-        <caption><![CDATA[Maecenas venenatis magna, vel pellentesque <span class="link-look">enim scelerisque</span>  erat ultricies. Quisque fringilla, nulla sed ornare tincidunt, neque velit finibus.]]></caption>
-      </thumbnail>
+    <VideoAudio id="videoAudio-page-2">
+      <type>audio</type>
+      <embeded>true</embeded>
+      <poster><![CDATA[dir/media/img/assets/red.jpg]]></poster>
+      <source><![CDATA[dir/media/audio/bruce.mp3]]></source>
+    </VideoAudio>
 
-      <thumbnail>
-        <img><![CDATA[dir/media/img/assets/3_7.jpg]]></img>
-        <url><![CDATA[https://www.gpstrategies.com/]]></url>
-        <heading><![CDATA[Fringilla]]></heading>
-        <caption><![CDATA[<span class="link-look">Aliquam quis</span> enim at metus commodo hendrerit sit amet eu nisi. Proin sagittis euismod risus vel fringilla. Suspendisse non leo ut erat euismod.]]></caption>
-      </thumbnail>
+    <VideoAudio id="videoAudio-page-3">
+      <type>video</type>
+      <embeded>false</embeded>
+      <poster><![CDATA[dir/media/img/assets/poster.jpg]]></poster>
+      <source><![CDATA[dir/media/videos/animation.mp4]]></source>
+    </VideoAudio>
 
-      <thumbnail>
-        <img><![CDATA[dir/media/img/assets/3_8.jpg]]></img>
-        <url><![CDATA[https://www.gpstrategies.com/]]></url>
-        <heading><![CDATA[Arcus Sed]]></heading>
-        <caption><![CDATA[Curabitur accumsan, orci molestie <span class="link-look">condimentum aliquamenim</span> , eros eros elementum ex, in commodo lacus lorem ac nisl. Pellentesque id arcu sed est vulputate.]]></caption>
-      </thumbnail>
-    </Thumbnails>
-
-    <Thumbnails id="thumbnail-page-2">
-      <thumbnail>
-        <img><![CDATA[dir/media/img/assets/3_3.jpg]]></img>
-        <url><![CDATA[https://www.gpstrategies.com/]]></url>
-        <heading><![CDATA[Maecenas]]></heading>
-        <caption><![CDATA[Maecenas venenatis magna, vel pellentesque <span class="link-look">enim scelerisque</span>  erat ultricies. Quisque fringilla, nulla sed ornare tincidunt, neque velit finibus.]]></caption>
-      </thumbnail>
-
-      <thumbnail>
-        <img><![CDATA[dir/media/img/assets/3_4.jpg]]></img>
-        <url><![CDATA[https://www.gpstrategies.com/]]></url>
-        <heading><![CDATA[LNulla Oranre]]></heading>
-        <caption><![CDATA[Maecenas venenatis magna, vel pellentesque <span class="link-look">enim scelerisque</span>  erat ultricies. Quisque fringilla, nulla sed ornare tincidunt, neque velit finibus.]]></caption>
-      </thumbnail>
-    </Thumbnails>
+    <VideoAudio id="videoAudio-page-4">
+      <type>audio</type>
+      <embeded>false</embeded>
+      <poster><![CDATA[dir/media/img/assets/red.jpg]]></poster>
+      <source><![CDATA[dir/media/audio/bruce.mp3]]></source>
+    </VideoAudio>
   </components>
 </page>

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <page>
   <title>
-    <chapterTitle><![CDATA[CLICK TO REVEAL]]></chapterTitle>
-    <pageTitle><![CDATA[CLICK TO REVEAL]]></pageTitle>
+    <chapterTitle><![CDATA[INTERACTIVES]]></chapterTitle>
+    <pageTitle><![CDATA[CLICK TO REVEALS]]></pageTitle>
     <included>true</included>
     <pagination>true</pagination>
     <size>12</size>
-    <gated locks="0">true</gated>
+    <gated locks="0">false</gated>
   </title>
 
   <layout>
