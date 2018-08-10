@@ -1,0 +1,67 @@
+//////////////////////////////////////////////////////////////////////
+//
+//     HELP SCSS
+//      - Styles for Help Section
+//
+//////////////////////////////////////////////////////////////////////
+
+#helpModal {
+  &.modal {
+    overflow-y: hidden !important;
+
+    .modal-dialog {
+      margin: 0;
+    }
+
+    .modal-header {
+      background-color: #2b2b2b;
+      border-bottom: none;
+      padding: 40px 40px 40px 40px;
+      position: absolute;
+      width: 100%;
+      z-index: 10;
+      border-radius: 0;
+    }
+
+    .modal-body {
+      padding: 40px 40px 0 40px;
+      overflow-y: scroll;
+
+      .help-section {
+        margin-bottom: 30px;
+        h5 {
+          margin-bottom: 20px;
+        }
+      }
+
+      .help-item {
+        border-bottom: 1px solid #cbc3c0;
+        padding: 20px 0;
+      }
+    }
+  }
+
+  .modal-header .modal-title {
+    line-height: 40px;
+    font-size: 40px;
+    font-weight: normal;
+    font-style: normal;
+    color: #000;
+  }
+
+  .modal-body {
+    .help-section h5 {
+      color: #000;
+      font-weight: 100;
+      font-size: 20px;
+      text-transform: uppercase;
+    }
+    
+    .help-item h6 {
+      color: #000;
+      font-weight: 100;
+      font-size: 16px;
+      text-transform: uppercase;
+    }
+  }
+}

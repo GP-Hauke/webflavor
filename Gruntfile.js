@@ -27,36 +27,92 @@
 ------------ END GRUNT BUILD SCRIPT CONTENTS ------------
 */
 
+var path = require('path');
+var timer = require("grunt-timer");
+
 module.exports = function(grunt){
+  timer.init(grunt);
+
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
+
+    concurrent: {
+      target1: ['dev:theme', 'sass', 'browserSync:dev', 'watch', 'webpack']
+    },
+
+    webpack: {
+      myconfig: function() {
+        return {
+          entry: './app/src/js/App.jsx',
+          output: {
+            filename: 'bundle.js',
+            path: path.resolve(__dirname, 'app/src')
+          },
+          watch: false,
+          mode: 'production',
+          devtool: "source-map"
+        };
+      }
+    },
 
     browserSync: {
       dev : {
         bsFiles: {
-            src : 'app/**/*'
+          src : ['app/**/*', '!app/src/js/**/*', '!**/*.scss']
         },
         options: {
-            server: {
-                baseDir: "./app"
-            },
-            notify: false
+          server: {
+            baseDir: "./app"
+          },
+          watchTask: true,
+          notify: false
 
         }
       },
 
       build : {
         bsFiles: {
-            src : 'dist/**/*'
+          src : 'dist/**/*'
         },
         options: {
-            server: {
-                baseDir: "./dist"
-            },
-            notify: false
+          server: {
+            baseDir: "./dist"
+          },
+          notify: false
 
         }
       }
+    },
+
+    sass: {
+      dist: {
+        options:{
+        },
+        files: [{
+          expand: true,
+          cwd: 'app/dir/themes/forest/scss',
+          src: ['theme.scss'],
+          dest: 'app/dir/themes/forest',
+          ext: '.css'
+        },
+        {
+          expand: true,
+          cwd: 'app/src/scss/',
+          src: ['main.scss'],
+          dest: 'app/src',
+          ext: '.css'
+        }]
+      }
+    },
+
+    watch: {
+      scripts: {
+        files: ['app/src/js/**/*', 'app/**/*.scss'],
+        tasks: [],
+        options: {
+          spawn: false
+        },
+      },
     },
 
     useminPrepare: {
@@ -73,10 +129,9 @@ module.exports = function(grunt){
     copy: {
       build: {
         cwd: 'app',
-        src: ['**', '!**/themes/*/**', '**/themes/gp_strategies/**'],
+        src: [],
         dest: 'dist',
         expand: true,
-
         filter: function(filepath){
           if(require('path').dirname(filepath) == "app\\dir\\content"){
             var path = require('path').basename(filepath)
@@ -95,126 +150,15 @@ module.exports = function(grunt){
                 return false;
               }
             }else if(path == 'assessments.xml'){
-              if(json.settings.hasAssessments == 'false'){
+              if(json.settings.hasVehicleGame == 'false'){
                 return false;
               }
             }
             return true;
           }
-
-          else if(require('path').relative(require('path').dirname(filepath), 'app\\src\\vendors') == '..'){
-            var dir = require('path').dirname(filepath).split(require('path').sep)
-            var json = grunt.file.readJSON('app/settings.json');
-
-            //var required = 'app\\dir\\themes\\'+json.settings.theme;
-            var folder = dir[dir.length -1];
-            if(json.settings.vendors[folder] == "false"){
-              return false;
-            }
-          }
-
-          else if(require('path').dirname(filepath) == "app\\src\\components"){
-            var path = require('path').basename(filepath)
-            var json = grunt.file.readJSON('app/settings.json');
-            var xmldoc = require('xmldoc');
-            var pages = grunt.file.expand(["app/dir/content/course_content/*.xml"]);
-
-            var xmldoc = require('xmldoc');
-            for(var i = 0; i < pages.length; i++){
-              var xml = grunt.file.read(pages[i]);
-
-              var xmlDoc = new xmldoc.XmlDocument(xml);
-              if(path == 'drag_drop_functions.js'){
-                var content = xmlDoc.descendantWithPath("components.DragAndDrop");
-                if(content != null){
-                  if(content.toString().length > 0){
-                    grunt.log.oklns("INCLUDED: " + "Drag And Drops".cyan);
-                    return true;
-                    break;
-                  }
-                }
-              }
-
-              else if(path == 'flip_cards_functions.js'){
-                var content = xmlDoc.descendantWithPath("components.FlipCard");
-                if(content != null){
-                  if(content.toString().length > 0){
-                    grunt.log.oklns("INCLUDED: " + "Flip Cards".cyan);
-                    return true;
-                    break;
-                  }
-                }
-              }
-              else if(path == 'hotspot_functions.js'){
-                var content = xmlDoc.descendantWithPath("components.Hotspot");
-                if(content != null){
-                  if(content.toString().length > 0){
-                    grunt.log.oklns("INCLUDED: " + "Hot Spots".cyan);
-                    return true;
-                    break;
-                  }
-                }
-              }
-              else if(path == 'knowledge_check_functions.js'){
-                var content = xmlDoc.descendantWithPath("components.KnowledgeCheck");
-                if(content != null){
-                  if(content.toString().length > 0){
-                    grunt.log.oklns("INCLUDED: " + "Knowledge Checks".cyan);
-                    return true;
-                    break;
-                  }
-                }
-              }
-              else if(path == 'thumbnails_functions.js'){
-                var content = xmlDoc.descendantWithPath("components.Thumbnails");
-                if(content != null){
-                  if(content.toString().length > 0){
-                    grunt.log.oklns("INCLUDED: " + "Thumbnails".cyan);
-                    return true;
-                    break;
-                  }
-                }
-              }
-              else if(path == 'ctr_functions.js'){
-                var content = xmlDoc.descendantWithPath("components.Ctr");
-                if(content != null){
-                  if(content.toString().length > 0){
-                    grunt.log.oklns("INCLUDED: " + "CTRs".cyan);
-                    return true;
-                    break;
-                  }
-                }
-              }
-              else if(path == 'video_audio_functions.js'){
-                var content = xmlDoc.descendantWithPath("components.VideoAudio");
-                if(content != null){
-                  if(content.toString().length > 0){
-                    grunt.log.oklns("INCLUDED: " + "Video/Audio".cyan);
-                    return true;
-                    break;
-                  }
-                }
-              }
-              else if(path == 'modal_functions.js'){
-                return true;
-                break;
-              }
-              else if(path == 'text_functions.js'){
-                return true;
-                break;
-              }
-              else if(path == 'assessment_functions.js'){
-                return true;
-                break;
-              }
-            }
-            return false;
-          }
-
           return true;
         }
       },
-
       vendors: {
         files: [
           {
@@ -224,16 +168,27 @@ module.exports = function(grunt){
             flatten: true
           }
         ]
+      },
+
+      test: {
+        files: [
+          {
+            expand: true,
+            src: ['app/dir/content/course_content/1_1.xml'],
+            dest: 'dist/dir/content/course_content/',
+            flatten: true
+          }
+        ]
       }
     },
 
     clean: {
       rebuild: {
-        src: [ 'dist' ]
+        src: [ 'dist']
       },
 
       finishbuild: {
-        src: ['dist/src/vendors/*/', 'dist/src/js/*.js', '!dist/src/js/functions.js', 'dist/src/components/*.js', '!dist/src/components/components.js', 'dist/**/**.css', 'dist/src/css/*/', '!dist/src/css/default.css', '!dist/**/theme.css', '!dist/src/vendors/vendors.min.css']
+        src: ['dist/src/vendors', 'dist/src/scss', 'dist/src/js']
       },
 
       validate: {
@@ -252,13 +207,13 @@ module.exports = function(grunt){
         },
         {
           expand: true,
-          cwd: 'dist/src/css',
-          src: ['default.css'],
-          dest: 'dist/src/css',
+          cwd: 'dist/src/scss',
+          src: ['main.css'],
+          dest: 'dist/src',
           ext: '.css'
         },
         {
-          'dist/src/vendors/vendors.min.css': ['dist/src/vendors/**/*.min.css']
+          'dist/src/vendors.min.css': ['dist/src/vendors/**/*.min.css']
         }]
       }
     },
@@ -269,9 +224,7 @@ module.exports = function(grunt){
           mangle: false
         },
         files: {
-          'dist/src/components/components.js': [ 'dist/src/components/*.js' ],
-          'dist/src/js/functions.js': [ 'dist/src/js/*.js' ],
-          'dist/src/vendors/vendors.min.js': ['dist/src/vendors/jquery/jquery-3.2.1.min.js', 'dist/src/vendors/bootstrap/js/bootstrap.min.js', 'dist/src/vendors/**/*.min.js']
+          'dist/src/vendors.min.js': ['dist/src/vendors/jquery/jquery-3.2.1.min.js', 'dist/src/vendors/bootstrap/js/bootstrap.min.js', 'dist/src/vendors/**/*.min.js']
         }
       }
     },
@@ -323,6 +276,12 @@ module.exports = function(grunt){
             ext: '.json'
           }
         ]
+      }
+    },
+
+    exec: {
+      list_files: {
+        cmd: 'webpack'
       }
     },
 
@@ -380,9 +339,9 @@ module.exports = function(grunt){
           files: {
             'app/sco01.xml': 'app/sco01.xml',
           },
-        },
+      },
 
-        imsmanifest: {
+      imsmanifest: {
           options: {
             namespaces: {
               'w':'http://www.imsproject.org/xsd/imscp_rootv1p1p2',
@@ -446,158 +405,210 @@ module.exports = function(grunt){
               'app/imsmanifest.xml': 'app/imsmanifest.xml',
             },
           },
+      },
+
+    xml_validator: {
+      your_target: {
+        src: ['app/**/*.xml']
+      },
+    },
+
+    htmlhint: {
+      html1: {
+        options: {
+          'tag-pair': true
         },
+        src: ['dist/dir/content/course_content/*.html']
+      }
+    }
+  });
 
-        xml_validator: {
-          your_target: {
-            src: ['app/**/*.xml']
-          },
-        },
+  grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-contrib-connect');
+  grunt.loadNpmTasks('grunt-usemin');
+  grunt.loadNpmTasks('grunt-contrib-compress');
+  grunt.loadNpmTasks('grunt-convert');
+  grunt.loadNpmTasks('grunt-cleanempty');
+  grunt.loadNpmTasks('grunt-preprocess');
+  grunt.loadNpmTasks('grunt-xmlpoke');
+  grunt.loadNpmTasks('grunt-xml-validator');
+  grunt.loadNpmTasks('grunt-htmlhint');
+  grunt.loadNpmTasks('grunt-browser-sync');
+  grunt.loadNpmTasks('grunt-exec');
+  grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-webpack');
 
-        htmlhint: {
-          html1: {
-            options: {
-              'tag-pair': true
-            },
-            src: ['dist/dir/content/course_content/*.html']
-          }
-        }
-    });
+  grunt.registerTask('test', ['replace']);
 
-    grunt.loadNpmTasks('grunt-contrib-copy');
-    grunt.loadNpmTasks('grunt-contrib-clean');
-    grunt.loadNpmTasks('grunt-contrib-cssmin');
-    grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.loadNpmTasks('grunt-contrib-concat');
-    grunt.loadNpmTasks('grunt-contrib-connect');
-    grunt.loadNpmTasks('grunt-usemin');
-    grunt.loadNpmTasks('grunt-contrib-compress');
-    grunt.loadNpmTasks('grunt-convert');
-    grunt.loadNpmTasks('grunt-cleanempty');
-    grunt.loadNpmTasks('grunt-preprocess');
-    grunt.loadNpmTasks('grunt-xmlpoke');
-    grunt.loadNpmTasks('grunt-xml-validator');
-    grunt.loadNpmTasks('grunt-htmlhint');
-    grunt.loadNpmTasks('grunt-browser-sync');
+  grunt.registerTask('dev', ['dev:theme', 'sass', 'browserSync:dev', 'watch', 'webpack']);
 
-    grunt.registerTask(
-        'build',
-        'Compiles all of the assets and copies the files to the build directory.',
-        ['xml_validator', 'version', 'clean:rebuild', 'build:theme', 'copy:build', 'validate', 'preprocess', 'uglify', 'cssmin', 'useminPrepare', 'usemin', 'copy:vendors', 'clean:finishbuild', 'compress', 'browserSync:build']
-      );
+  grunt.registerTask('build',
+    'Compiles all of the assets and copies the files to the build directory.',
+    ['xml_validator', 'version', 'preprocess', 'clean:rebuild', 'build:theme', 'copy:build', 'validate', 'uglify', 'cssmin', 'useminPrepare', 'usemin', 'copy:vendors', 'clean:finishbuild', 'production', 'compress', 'browserSync:build']
+  );
 
-    grunt.registerTask(
-        'init',
-        'Compiles all of the assets and copies the files to the build directory.',
-        ['settings','xmlpoke:sco01','xmlpoke:imsmanifest']
-      );
+  grunt.registerTask('init',
+    'Compiles all of the assets and copies the files to the build directory.',
+    ['settings','xmlpoke:sco01','xmlpoke:imsmanifest']
+  );
 
-    grunt.registerTask('build:theme', function(key, value) {
-        var settingsFile = "app/settings.json";
-        var json = grunt.file.readJSON(settingsFile);
-        var theme = json.settings.theme;
-        var settingsFile = ['**', '!**/themes/*/**', '**/themes/'+theme+'/**'];
-        grunt.log.oklns('**/themes/'+theme+'/**');
-        grunt.config.set("copy.build.src", settingsFile);
-      });
+  grunt.registerTask('build:theme', function(key, value) {
+    var settingsFile = "app/settings.json";
+    var json = grunt.file.readJSON(settingsFile);
+    var theme = json.settings.theme;
+    var settingsFile = ['**', '!**/themes/*/**', '**/themes/'+theme+'/**', '!**/src/js/*.js', '!**/src/components/*.js', '!**/*.map', '!**/*.scss','**/src/js/tracking_functions.js'];
+    grunt.log.oklns("THEME: " + theme.green);
+    grunt.config.set("copy.build.src", settingsFile);
+  });
 
-    grunt.registerTask('version', function(key, value) {
-        var settingsFile = "app/settings.json";
-        if (!grunt.file.exists(settingsFile)) {
-          grunt.log.error("file " + settingsFile + " not found");
-          return true; //return false to abort the execution
-        }
+  grunt.registerTask('version', function(key, value) {
+    var settingsFile = "app/settings.json";
+    if (!grunt.file.exists(settingsFile)) {
+      grunt.log.error("file " + settingsFile + " not found");
+      return true; //return false to abort the execution
+    }
 
-        var json = grunt.file.readJSON(settingsFile); //get file as json object
-        currentVersion = json.settings.version;
+    var json = grunt.file.readJSON(settingsFile); //get file as json object
+    currentVersion = json.settings.version;
 
-        json.settings.version = (parseFloat(currentVersion)+0.1).toFixed(1).toString();
-        grunt.log.oklns("VERSION: " + json.settings.version);
+    json.settings.version = (parseFloat(currentVersion)+0.1).toFixed(1).toString();
+    grunt.log.oklns("VERSION: " + json.settings.version);
 
-        grunt.file.write(settingsFile, JSON.stringify(json, null, 2));
-      });
+    grunt.file.write(settingsFile, JSON.stringify(json, null, 2));
+  });
 
-    grunt.registerTask('settings', function(key, value) {
-        var settingsFile = "app/settings.json";
-        if (!grunt.file.exists(settingsFile)) {
-          grunt.log.error("file " + settingsFile + " not found");
-          return true; //return false to abort the execution
-        }
+  grunt.registerTask('production', function(key, value) {
+    var settingsFile = "dist/settings.json";
+    if (!grunt.file.exists(settingsFile)) {
+      grunt.log.error("file " + settingsFile + " not found");
+      return true; //return false to abort the execution
+    }
 
-        var json = grunt.file.readJSON(settingsFile); //get file as json object
-        var courseTitle = json.settings.courseTitle + " " + json.settings.courseSubTitle;
-        courseTitle = courseTitle.replace(/\s+/g, '_') + "_";
+    var json = grunt.file.readJSON(settingsFile); //get file as json object
 
-        var acronym = json.settings.courseTitle + " " + json.settings.courseSubTitle;
-        var matches = acronym.match(/\b(\w)/g);              // ['J','S','O','N']
-        var cookie = matches.join('').toLowerCase()+"_";
+    json.settings.production = "true";
 
-        var possible = "abcdefghijklmnopqrstuvwxyz01234567890123456789";
+    grunt.file.write(settingsFile, JSON.stringify(json, null, 2));
+  });
 
-        for (var i = 0; i < 5; i++){
-          var r = possible.charAt(Math.floor(Math.random() * possible.length));
-          cookie += r;
-          courseTitle += r;
+  grunt.registerTask('settings', function(key, value) {
+    var settingsFile = "app/settings.json";
+    if (!grunt.file.exists(settingsFile)) {
+      grunt.log.error("file " + settingsFile + " not found");
+      return true; //return false to abort the execution
+    }
 
-        }
+    var json = grunt.file.readJSON(settingsFile); //get file as json object
+    var courseTitle = json.settings.courseTitle + " " + json.settings.courseSubTitle;
+    courseTitle = courseTitle.replace(/\s+/g, '_') + "_";
 
-        grunt.log.oklns("VERSION: "['green'].bold + "1.0".yellow);
-        grunt.log.oklns("Course ID: "['green'].bold + courseTitle.yellow);
-        grunt.log.oklns("Cookie: "['green'].bold + cookie.yellow);
+    var acronym = json.settings.courseTitle + " " + json.settings.courseSubTitle;
+    var matches = acronym.match(/\b(\w)/g);              // ['J','S','O','N']
+    var cookie = matches.join('').toLowerCase()+"_";
+
+    var possible = "abcdefghijklmnopqrstuvwxyz01234567890123456789";
+
+    for (var i = 0; i < 5; i++){
+      var r = possible.charAt(Math.floor(Math.random() * possible.length));
+      cookie += r;
+      courseTitle += r;
+    }
+
+    grunt.log.oklns("VERSION: "['green'].bold + "1.0".yellow);
+    grunt.log.oklns("Course ID: "['green'].bold + courseTitle.yellow);
+    grunt.log.oklns("Cookie: "['green'].bold + cookie.yellow);
 
 
-        json.settings.courseStorageID = cookie;
-        json.settings.version = "1.0";
-        json.settings.cookieName = cookie;
-        grunt.file.write(settingsFile, JSON.stringify(json, null, 2));
-      });
+    json.settings.courseStorageID = cookie;
+    json.settings.version = "1.0";
+    json.settings.cookieName = cookie;
+    grunt.file.write(settingsFile, JSON.stringify(json, null, 2));
+  });
 
-    grunt.registerTask('validate', function(key, value) {
-        var xmldoc = require('xmldoc');
-        var pages = grunt.file.expand(["dist/dir/content/course_content/*.xml"]);
+  grunt.registerTask('validate', function(key, value) {
+    var xmldoc = require('xmldoc');
+    var pages = grunt.file.expand(["dist/dir/content/course_content/*.xml"]);
 
-        for(var i = 0; i < pages.length; i++){
-          var xml = grunt.file.read(pages[i]);
-          var xmlDoc = new xmldoc.XmlDocument(xml);
-          var html = xmlDoc.valueWithPath("layout");
+    for(var i = 0; i < pages.length; i++){
+      var xml = grunt.file.read(pages[i]);
+      var xmlDoc = new xmldoc.XmlDocument(xml);
+      var html = xmlDoc.valueWithPath("layout");
 
-          grunt.file.write(pages[i].substring(0, pages[i].length - 3) + 'html', html);
-        }
+      grunt.file.write(pages[i].substring(0, pages[i].length - 3) + 'html', html);
+    }
 
-        grunt.log.oklns('HTML Created')
-        grunt.task.run('htmlhint');
-        grunt.task.run('clean:validate');
-      });
+    grunt.log.oklns('HTML Created')
+    grunt.task.run('htmlhint');
+    grunt.task.run('clean:validate');
+  });
 
-    grunt.registerTask('update', function(key, value) {
-        var pages = grunt.file.expand(["app/dir/content/course_content/*.xml"]);
-        var lastChapter = "";
-        var currentChapter = "";
-        var contents = [];
-        var currentXML = "";
+  grunt.registerTask('update', function(key, value) {
+    var pages = grunt.file.expand(["app/dir/content/course_content/*.xml"]);
+    var lastChapter = "";
+    var currentChapter = "";
+    var contents = [];
+    var currentXML = "";
 
-        for(var i = 0; i < pages.length; i++){
-          var path = require('path').basename(pages[i])
-          //grunt.log.oklns(path.substring(0, path.length - 4))
-          currentChapter = path.substr(0, path.indexOf('_'));
-          currentXML = path.substr(0, path.indexOf('.'));
+    for(var i = 0; i < pages.length; i++){
+      var path = require('path').basename(pages[i])
+      //grunt.log.oklns(path.substring(0, path.length - 4))
+      currentChapter = path.substr(0, path.indexOf('_'));
+      currentXML = path.substr(0, path.indexOf('.'));
 
-          if(currentChapter != lastChapter){
-            contents[currentChapter - 1] = [];
-          }
+      if(currentChapter != lastChapter){
+        contents[currentChapter - 1] = [];
+      }
 
-          contents[currentChapter - 1].push(currentXML);
-          lastChapter = currentChapter;
+      contents[currentChapter - 1].push(currentXML);
+      lastChapter = currentChapter;
 
-        }
+    }
 
-        var json = grunt.file.readJSON('app/settings.json'); //get file as json object
+    var json = grunt.file.readJSON('app/settings.json'); //get file as json object
 
-        json.settings.contents = contents;
-        grunt.file.write('app/settings.json', JSON.stringify(json, null, 2));
-      });
+    json.settings.contents = contents;
+    grunt.file.write('app/settings.json', JSON.stringify(json, null, 2));
+  });
 
-    grunt.registerTask('dev', ['browserSync:dev']);
+  grunt.registerTask('dev:theme', function(key, value) {
+    var settingsFile = "app/settings.json";
+    var json = grunt.file.readJSON(settingsFile);
+    var theme = json.settings.theme;
+    var files = [{
+      expand: true,
+      cwd: 'app/dir/themes/'+theme+'/scss',
+      src: ['theme.scss'],
+      dest: 'app/dir/themes/'+theme+'',
+      ext: '.css'
+    },
+    {
+      expand: true,
+      cwd: 'app/src/scss/',
+      src: ['main.scss'],
+      dest: 'app/src',
+      ext: '.css'
+    }];
 
-    grunt.registerTask('test', ['build:theme', 'copy']);
+
+    grunt.log.oklns("THEME: " + theme.green);
+    grunt.config.set("sass.dist.files", files);
+  });
+
+
+  grunt.event.on('watch', function(action, filepath, target) {
+    var filetype = filepath.substring(filepath.indexOf('.'), filepath.length);
+    grunt.log.oklns(filetype);
+
+    if(filetype == '.scss'){
+      grunt.task.run('sass');
+    }
+    else{
+      grunt.task.run('webpack');
+    }
+  });
 }

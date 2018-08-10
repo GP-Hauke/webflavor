@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<page>
+  <title>
+    <chapterTitle><![CDATA[INTERACTIVES]]></chapterTitle>
+    <pageTitle><![CDATA[DRAG AND DROPS]]></pageTitle>
+    <included>true</included>
+    <pagination>true</pagination>
+    <size>12</size>
+    <gated locks="1">false</gated>
+  </title>
+
+  <layout>
+    <![CDATA[
+    <div class="row">
+      <div class="col-md-12">
+        <p class="top-paragraph">The following is a Drag and Drop component. The Drag and Drop component automatically pairs up the matchings and displays correct and incorrect answers when the answers are submitted. Users can restart at any time, but they cannot submit incomplete results.</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div id="dragAndDrop-page-1"></div>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-md-6">
+        <div id="dragAndDrop-page-2"></div>
+      </div>
+
+      <div class="col-md-6">
+        <p>With the score being kept track of, a minimum score can be set so that until the user reaches that score, the component will still be listed as not completed in the localStorage. If this is tied to gating, which is stubbed out in the development as well, then it is potential to not let a user proceed in the course until getting a certain score on the Drag and Drop.</p>
+      </div>
+    </div>
+    ]]>
+  </layout>
+
+  <components>
+    <DragAndDrop id="dragAndDrop-page-1">
+      <completion gated="">
+        <minimumScore>30</minimumScore>
+      </completion>
+
+      <matchings>
+        <pair>
+          <drag>Lexington</drag>
+          <drop>Kentucky</drop>
+        </pair>
+        <pair>
+          <drag>Bloomington</drag>
+          <drop>Indiana</drop>
+        </pair>
+        <pair>
+          <drag>Chicago</drag>
+          <drop>Illinois</drop>
+        </pair>
+        <pair>
+          <drag>Portland</drag>
+          <drop>Oregon</drop>
+        </pair>
+        <pair>
+          <drag>Dallas</drag>
+          <drop>Texas</drop>
+        </pair>
+      </matchings>
+    </DragAndDrop>
+
+    <DragAndDrop id="dragAndDrop-page-2">
+      <completion gated="">
+        <minimumScore>30</minimumScore>
+      </completion>
+
+      <matchings>
+        <pair>
+          <drag>Red / Blue</drag>
+          <drop>Purple</drop>
+        </pair>
+        <pair>
+          <drag>Blue / Yellow</drag>
+          <drop>Green</drop>
+        </pair>
+        <pair>
+          <drag>Yellow / Red</drag>
+          <drop>Orange</drop>
+        </pair>
+      </matchings>
+    </DragAndDrop>
+  </components>
+</page>

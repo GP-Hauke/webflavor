@@ -1,0 +1,91 @@
+//////////////////////////////////////////////////////////////////////
+//
+//     RESOURCES SCSS
+//      - Styles for resources section
+//
+//////////////////////////////////////////////////////////////////////
+
+#resourcesModal {
+  &.modal {
+    overflow-y: hidden !important;
+
+    .modal-dialog {
+      margin: 0;
+    }
+  }
+
+  .modal-header {
+    background-color: #2b2b2b;
+    position: absolute;
+    width: 100%;
+    z-index: 10;
+    display: block;
+    border-radius: 0;
+  }
+
+  &.modal .modal-body {
+    padding-top: 65px;
+    overflow-y: scroll;
+
+    .gloss-item {
+      border-bottom: 1px solid #cbc3c0;
+      padding: 20px 0;
+
+      p {
+        margin: 0;
+      }
+    }
+  }
+
+  .modal-title-wrapper {
+    display: block;
+    width: 100%;
+  }
+
+  .modal-title {
+    display: inline-block;
+    height: 100%;
+    font-size: 30px;
+    color: #000;
+  }
+
+  .letterHeading {
+    font-size: 30px;
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .alphabet {
+    display: block;
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    padding-top: 25px;
+    margin-left: -10px;
+
+    a {
+      text-decoration: none;
+      font-size: 22px;
+      font-weight: 400;
+      color: black;
+      opacity: .2;
+      letter-spacing: 5px;
+
+      &:hover {
+        opacity: 1;
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+/* end GLOSSARY MODAL */
+
+.modal-header .close {
+  padding: 0;
+  padding-right: 1rem;
+}
+
+#resourcesModal .modal-header h4 {
+  color: white;
+}

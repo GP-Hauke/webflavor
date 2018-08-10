@@ -1,0 +1,108 @@
+//////////////////////////////////////////////////////////////////////
+//
+//     Hot Spot SCSS
+//      - Styles for hot spot interactive
+//
+//////////////////////////////////////////////////////////////////////
+
+#hotSpot {
+  width: 100%;
+  margin: 0 auto;
+  display: block;
+  position: relative;
+  .hotSpot-img {
+    width: 100%;
+    border: 2px solid #2b2b2b;
+    border-radius: 10px;
+  }
+  .hotSpot-spot {
+    font-size: 30px;
+    line-height: 60px;
+    text-align: center;
+    background: rgba(43, 43, 43, 0.8);
+    border: 1px solid #000;
+    cursor: pointer;
+    width: 60px;
+    height: 60px;
+    border-radius: 100px;
+    position: absolute;
+    color: #efefef;
+  }
+  .circle-1 {
+    top: 52%;
+    left: 22%;
+  }
+  .circle-2 {
+    top: 40%;
+    left: 61%;
+  }
+  .circle-3 {
+    top: 67%;
+    left: 76%;
+  }
+  .hotSpot-popup {
+    width: 80%;
+    background: rgba(255, 255, 255, 0.94);
+    box-shadow: 0 0 100px rgba(0, 0, 0, 0.55);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 40px 50px 50px 10px;
+    display: none;
+    border-radius: 3px;
+    ul {
+      li {
+        color: #000;
+        font-size: 25px;
+        margin-bottom: 5px;
+        &:last-child {
+          margin: 0;
+        }
+      }
+      margin: 0 !important;
+    }
+  }
+  .hotSpot-close {
+    color: #2b2b2b;
+    font-size: 40px;
+    float: right;
+    margin-top: -45px;
+    margin-right: -35px;
+    cursor: pointer;
+  }
+}
+
+/*HOT SPOT COMPONENT*/
+
+@media (max-width: 500px) {
+  #hotSpot {
+    .hotSpot-spot {
+      font-size: 20px;
+      line-height: 40px;
+      width: 40px;
+      height: 40px;
+    }
+    .hotSpot-popup {
+      ul li {
+        font-size: 15px;
+        margin-bottom: 0px;
+      }
+      padding: 30px 40px 15px 0px;
+    }
+    .hotSpot-close {
+      font-size: 30px;
+      margin-top: -35px;
+      margin-right: -25px;
+    }
+  }
+}
+
+@media (max-width: 300px) {
+  #hotSpot .hotSpot-spot {
+    font-size: 15px;
+    line-height: 30px;
+    width: 30px;
+    height: 30px;
+  }
+}

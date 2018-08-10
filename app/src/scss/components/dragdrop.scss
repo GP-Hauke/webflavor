@@ -1,0 +1,128 @@
+//////////////////////////////////////////////////////////////////////
+//
+//     Drag Drop SCSS
+//      - Styles for drag and drop interactive
+//
+//////////////////////////////////////////////////////////////////////
+
+@-webkit-keyframes opacity-fade {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+
+@keyframes opacity-fade {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+
+#dragAndDrop {
+  .row {
+    width: 100%;
+  }
+  .item-container {
+    height: 50px;
+    background: #f7f7f7;
+    margin-bottom: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+    font-weight: 400;
+    height: 50px;
+    position: relative;
+    -webkit-animation: opacity-fade 100ms ease-in 1;
+    animation: opacity-fade 100ms ease-in 1;
+    p {
+      font-size: 25px;
+      text-align: center;
+      height: 50px;
+      line-height: 50px;
+      font-weight: 600;
+      height: 50px;
+      background: #474747;
+      color: #fff;
+      margin-bottom: 10px;
+      cursor: pointer;
+      transition: all 250ms ease-in;
+      -webkit-animation: opacity-fade 100ms ease-in 1;
+      animation: opacity-fade 100ms ease-in 1;
+    }
+  }
+  .draggable {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+  .correct {
+    color: #2ee216 !important;
+  }
+  .wrong {
+    color: #e21616 !important;
+  }
+  .intro {
+    width: 75%;
+    margin: 0 auto;
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  .btn-row {}
+  .btn-default-main {
+    margin-right: 10px;
+    border: 2px solid #2b2b2b;
+    background: #2b2b2b;
+    color: #fff;
+    font-size: 20px;
+  }
+  .btn-reversed {
+    margin-right: 10px;
+    border: 2px solid #2b2b2b;
+    background: #fff;
+    color: #2b2b2b;
+    font-size: 20px;
+    transition: all 200ms ease-in-out;
+    transform: scale(0.88);
+  }
+  .btn:first-child {
+    margin-left: 20px;
+  }
+  .feedback {
+    font-size: 24px;
+    float: right;
+    margin-right: 3%;
+    span {
+      font-weight: 600;
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  #dragAndDrop {
+    .item-container {
+      p {
+        font-size: 16px;
+      }
+      font-size: 16px;
+    }
+    .feedback {
+      font-size: 18px;
+    }
+    .btn-default-main, .btn-reversed {
+      font-size: 20px;
+      padding: 5px;
+    }
+  }
+}

@@ -12,71 +12,42 @@
     <title></title>
     <link type="image/x-icon" rel="icon" href="theme-path/img/favicon.ico" class="add-theme-path-head"/>
 
-    <script type="text/javascript" src="src/js/api/APIWrapper.js"></script>
-    <script type="text/javascript" src="src/js/api/SCOFunctions.js"></script>
-
-    <!-- build:js src/vendors/vendors.min.js -->
+    <script type="text/javascript" src="src/api/APIWrapper.js"></script>
+    <script type="text/javascript" src="src/api/SCOFunctions.js"></script>
+    <!-- build:js src/vendors.min.js -->
     <script type="text/javascript" src="src/vendors/jquery/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="src/vendors/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="src/vendors/tweenmax/TweenMax.min.js"></script>
     <!-- endbuild -->
-
-    <!-- build:js src/components/components.js -->
-    <script type="text/javascript" src="src/components/modal_functions.js"></script>
-    <script type="text/javascript" src="src/components/assessment_functions.js"></script>
-    <script type="text/javascript" src="src/components/drag_drop_functions.js"></script>
-    <script type="text/javascript" src="src/components/hotspot_functions.js"></script>
-    <script type="text/javascript" src="src/components/flip_cards_functions.js"></script>
-    <script type="text/javascript" src="src/components/thumbnails_functions.js"></script>
-    <script type="text/javascript" src="src/components/ctr_functions.js"></script>
-    <script type="text/javascript" src="src/components/text_functions.js"></script>
-    <script type="text/javascript" src="src/components/video_audio_functions.js"></script>
-    <script type="text/javascript" src="src/components/knowledge_check_functions.js"></script>
-    <!-- endbuild -->
-
-    <!-- build:js src/js/functions.js -->
-    <script type="text/javascript" src="src/js/common_functions.js"></script>
-    <script type="text/javascript" src="src/js/interface_functions.js"></script>
-    <script type="text/javascript" src="src/js/content_functions.js"></script>
-    <script type="text/javascript" src="src/js/settings.js"></script>
-    <script type="text/javascript" src="src/js/tracking_functions.js"></script>
-    <!-- endbuild -->
-
-    <!-- build:css src/vendors/vendors.min.css -->
+    <!-- build:css src/vendors.min.css -->
     <link type="text/css" rel="stylesheet" href="src/vendors/bootstrap/css/bootstrap.min.css"/>
     <!-- endbuild -->
-
-    <link type="text/css" rel="stylesheet" href="src/css/default.css"/>
-    <link type="text/css" rel="stylesheet" href="theme-path/css/theme.css" class="add-theme-path-head"/>
-
+    <link type="text/css" rel="stylesheet" href="src/main.css"/>
+    <link type="text/css" rel="stylesheet" href="theme-path/theme.css" class="add-theme-path-head"/>
   </head>
 
   <!-- Initiate Script on Load -->
-  <body onload="initInterface(); initCommonFunctions();" style="opacity:0;">
-
-	<!-- Navigation -->
+  <body>
+	   <!-- Navigation -->
     <div id="navContainer"></div>
-
-	<!-- Main Content -->
-	<div id="mainContainer" class="hidden" data-role="page">
-      <div id="contentContainer">
-        <div id="pageContainer" class="page-container">
-          <div id="pageContent" class="container">
-
+  	<!-- Main Content -->
+  	<div id="mainContainer" class="hidden" data-role="page">
+        <div id="contentContainer">
+          <div id="pageContainer" class="page-container">
+            <div id="pageContent" class="container">
+            </div>
           </div>
+          <div id="pageModalContainer"></div>
         </div>
-        <div id="pageModalContainer"></div>
-      </div>
-  </div>
-
+    </div>
+    <!-- Audio -->
     <audio id="pagePlayer" src="" ontimeupdate="updateProgressTime()" onended="stopAudio()"></audio>
-
-	<!-- Footer -->
+	   <!-- Footer -->
     <footer class="footer">
       <div class="container footer-nav"></div>
     </footer>
-
-	<!-- Modal -->
+	   <!-- Modal -->
     <div id="modalContainer"></div>
+    <script type="text/javascript" src="src/bundle.js"></script>
   </body>
 </html>

@@ -1,369 +1,68 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <page>
   <title>
-    <chapterTitle><![CDATA[TEMPLATE GRID]]></chapterTitle>
-    <pageTitle><![CDATA[DEMO GRID]]></pageTitle>
+    <chapterTitle><![CDATA[TEMPLATE GUIDE]]></chapterTitle>
+    <pageTitle><![CDATA[GRID SYSTEM]]></pageTitle>
     <included>true</included>
     <pagination>true</pagination>
     <size>12</size>
     <gated locks="0">false</gated>
   </title>
 
-  <component>none</component>
   <layout>
     <![CDATA[
     <div class="row">
-      <div class="col-md-12"><p>After the grid is created, components can be inserted into their appropriate places on the grid layout. If a developer doesn't wish to use the pre-developed components, then he/she can still code in HTML in the layout element. This text block is raw HTML example. Else, the following components are available for use: <span class="bolded">Text - Drag And Drop - Thumbnails - Flip Cards - Hot Spots - Knowledge Checks</span> To see what the page would look like without in a real course without the grid borders: <a onclick="removeDemoOutline()" style="padding: 3px; font-size:16px" class="btn btn-default">Click Here</a></p></div>
+      <div class="col-md-12"><p>The first part in developing a specific page in a course is using the Bootstrap grid system. This grid system allows the developer to place text, content, and interactives in any layout that they choose by implementing the Bootstrap classes. This page demonstrates a potential layout with the Bootstrap grid.</p></div>
     </div>
 
     <div class="row">
-      <div class="col-12 col-md-3 p-0"><div id="text-1" class="componentContainer outline"></div></div>
+      <div class="col-12 col-md-3 p-0"><div class="componentContainer color1"></div></div>
 
-      <div class="col-12 col-md-9 p-0"><div id="dragAndDrop-2" class="componentContainer outline"></div></div>
+      <div class="col-12 col-md-9 p-0"><div class="componentContainer color1"></div></div>
     </div>
 
     <div class="row">
-      <div class="col-12 col-md-4 p-0"><div id="thumbnail-2" class="componentContainer outline"></div></div>
+      <div class="col-12 col-md-4 p-0"><div class="componentContainer color1"></div></div>
 
-      <div class="col-12 col-md-8 p-0"><div id="text-2" class="componentContainer outline"></div></div>
+      <div class="col-12 col-md-8 p-0"><div class="componentContainer color1"></div></div>
     </div>
 
     <div class="row">
-      <div class="col-12 col-md-12 p-0"><div id="flipCard-1" class="componentContainer outline"></div></div>
+      <div class="col-12 col-md-12 p-0"><div class="componentContainer color1"></div></div>
     </div>
 
     <div class="row">
-      <div class="col-12 col-md-8 p-0"><div id="hotspot-1" class="componentContainer outline"></div></div>
+      <div class="col-12 col-md-8 p-0"><div class="componentContainer color1 size2"></div></div>
 
       <div class="col-12 col-md-4 p-0">
         <div class="row">
-          <div class="col-6 col-md-12 inner-col-top"><div id="text-3" class="componentContainer outline"></div></div>
-          <div class="col-6 col-md-12 inner-col-bottom"><div id="flipCard-2" class="componentContainer outline"></div></div>
+          <div class="col-6 col-md-12 inner-col-top"><div class="componentContainer color1"></div></div>
+          <div class="col-6 col-md-12 inner-col-bottom"><div class="componentContainer color1"></div></div>
         </div>
       </div>
     </div>
 
     <div class="row">
-      <div class="col-12 col-md-4 p-0"><div id="knowledgeCheck-2" class="componentContainer outline"></div></div>
+      <div class="col-12 col-md-4 p-0"><div class="componentContainer color1"></div></div>
 
-      <div class="col-12 col-md-8 p-0"><div id="dragAndDrop-1" class="componentContainer outline"></div></div>
+      <div class="col-12 col-md-8 p-0"><div class="componentContainer color1"></div></div>
     </div>
 
     <div class="row">
       <div class="col-12 col-md-4 p-0">
         <div class="row">
-          <div class="col-6 col-md-12 inner-col-top"><div id="text-4" class="componentContainer outline"></div></div>
-          <div class="col-6 col-md-12 inner-col-bottom"><div id="hotspot-2" class="componentContainer outline"></div></div>
+          <div class="col-6 col-md-12 inner-col-top"><div class="componentContainer color1"></div></div>
+          <div class="col-6 col-md-12 inner-col-bottom"><div class="componentContainer color1"></div></div>
         </div>
       </div>
 
-      <div class="col-12 col-md-8 p-0"><div id="knowledgeCheck-1" class="componentContainer outline"></div></div>
+      <div class="col-12 col-md-8 p-0"><div class="componentContainer color1 size2"></div></div>
     </div>
 
     <div class="row margin-below">
-      <div class="col-12 col-md-8 p-0"><div id="thumbnail-1" class="componentContainer outline"></div></div>
-      <div class="col-12 col-md-4 p-0"><div id="text-5" class="componentContainer outline"></div></div>
+      <div class="col-12 col-md-8 p-0"><div class="componentContainer color1"></div></div>
+      <div class="col-12 col-md-4 p-0"><div class="componentContainer color1"></div></div>
     </div>
-
-    <script type="text/javascript">
-      function removeDemoOutline(){
-        $(".componentContainer").toggleClass("outline");
-      }
-    </script>
     ]]>
   </layout>
-
-  <components>
-    <Text id="text-1">
-      <![CDATA[<p style="margin:0">velit ut tortor pretium viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare suspendisse sed nisi lacus sed viverra tellus in hac habitasse platea dictumst vestibulum rhoncus</p>]]>
-    </Text>
-
-    <Text id="text-2">
-      <![CDATA[<p style="margin:0">faucibus nisl tincidunt eget nullam non nisi est sit amet facilisis magna etiam tempor orci eu lobortis elementum nibh tellus molestie nunc non blandit massa enim nec dui nunc mattis enim ut tellus elementum sagittis vitae et leo duis ut diam quam nulla porttitor massa id neque aliquam vestibulum morbi blandit cursus risus at ultrices mi tempus imperdiet nulla malesuada pellentesque elit eget gravida cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus mauris vitae ultricies leo integer malesuada nunc vel risus commodo viverra maecenas accumsan lacus vel facilisis volutpat est velit egestas dui id ornare arcu odio ut sem nulus commodo viverra maecenas accumsan lacus vel facilisis volutpat est velit egestas dui id ornare arcu odio ut sem nulla pharetra diam sit am</p>]]>
-    </Text>
-
-    <Text id="text-3">
-      <![CDATA[<p style="margin:0">lamcorper malesuada proin libero nunc consequat interdum varius sit amet mattis vulputate enim nulla aliquet</p>]]>
-    </Text>
-
-    <Text id="text-4">
-      <![CDATA[<p style="margin:0">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur</p>]]>
-    </Text>
-
-    <Text id="text-5">
-      <![CDATA[<p style="margin:0">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur  inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur</p>]]>
-    </Text>
-
-    <DragAndDrop id="dragAndDrop-1">
-      <completion gated="false">
-        <minimumScore>30</minimumScore>
-      </completion>
-
-      <matchings>
-        <pair>
-          <drag>Kentucky</drag>
-          <drop>Wildcats</drop>
-        </pair>
-        <pair>
-          <drag>Duke</drag>
-          <drop>Blue Devils</drop>
-        </pair>
-        <pair>
-          <drag>Notre Dame</drag>
-          <drop>Fighting Irish</drop>
-        </pair>
-        <pair>
-          <drag>Texas</drag>
-          <drop>Longhorns</drop>
-        </pair>
-        <pair>
-          <drag>Oregon</drag>
-          <drop>Ducks</drop>
-        </pair>
-        <pair>
-          <drag>Wisconsin</drag>
-          <drop>Badgers</drop>
-        </pair>
-        <pair>
-          <drag>North Carolina</drag>
-          <drop>Tarheels</drop>
-        </pair>
-        <pair>
-          <drag>Louisville</drag>
-          <drop>Cardinals</drop>
-        </pair>
-      </matchings>
-    </DragAndDrop>
-
-    <DragAndDrop id="dragAndDrop-2">
-      <completion gated="false">
-        <minimumScore>30</minimumScore>
-      </completion>
-
-      <matchings>
-        <pair>
-          <drag>Grand Canyon</drag>
-          <drop>Arizona</drop>
-        </pair>
-        <pair>
-          <drag>Statue of Liberty</drag>
-          <drop>New York</drop>
-        </pair>
-        <pair>
-          <drag>Willis Tower</drag>
-          <drop>Chicago</drop>
-        </pair>
-        <pair>
-          <drag>Golden Gate Bridge</drag>
-          <drop>San Francisco</drop>
-        </pair>
-      </matchings>
-    </DragAndDrop>
-
-    <FlipCard id="flipCard-1" class="col-md-3 col-sm-6" hasButton="true">
-      <card>
-        <front><![CDATA[<h4>Nullam Nisi</h4>]]></front>
-        <back><![CDATA[<p>Curabitur accumsan, orci mostie cond aliquam, eros eros elementum ex.
-          <br>
-          <br>
-          Pellentesque id arcu sed est vulputate consequat nec id dolor.</p>]]></back>
-      </card>
-
-      <card>
-        <front><![CDATA[<h4>Curabitur</h4>]]></front>
-        <back><![CDATA[<p>Fermentum et venenatis in, vulputate sit amet diam
-        <br>
-        <br>
-        Ut a tortor turpis. Aliquam quis enim at metus commodo hendrerit sit amet eu nisi.</p>]]></back>
-      </card>
-
-      <card>
-        <front><![CDATA[<h4>Diam Fames</h4>]]></front>
-        <back><![CDATA[<p>Cras id diam dolor. Suspendisse in mi in turpis fringilla rhoncus. Curabitur ultricies condimentum est, vitae ultrices.
-        <br>
-        <br>
-        Morbi quis malesuada elit. Ut tristique dolor non rutrum bibendum. Sed eleifend.</p>]]></back>
-      </card>
-
-      <card>
-        <front><![CDATA[<h4>Sed Magna</h4>]]></front>
-        <back><![CDATA[<p>Nullam nec nisl risus. Morbi in ex quis enim bibendum varius.
-        <br>
-        <br>
-        Pellentesque habitant morbi tristique senectus.</p>]]></back>
-      </card>
-    </FlipCard>
-
-    <FlipCard id="flipCard-2" class="col-md-6 col-sm-6" hasButton="true">
-      <card>
-        <front><![CDATA[<h4>Curabitur</h4>]]></front>
-        <back><![CDATA[<p>Fermentum et venenatis in, vulputate sit amet diam
-        <br>
-        <br>
-        Ut a tortor turpis. Aliquam quis enim at metus commodo hendrerit sit amet eu nisi.</p>]]></back>
-      </card>
-    </FlipCard>
-
-    <Hotspot id="hotspot-1">
-      <img><![CDATA[dir/media/img/assets/City-Map.jpg]]></img>
-      <spot>
-        <label><![CDATA[1]]></label>
-        <popup>
-          <![CDATA[
-          <ul>
-            <li>Vix debitis lucilius ut, quo id porro timeam honestatis.</li>
-            <li>Vim exerci mandamus cu, sonet molestiae cu pri.</li>
-            <li>Fuisset instructior vel ne, ubique malorum legendos sit et.</li>
-          </ul>]]>
-        </popup>
-      </spot>
-
-      <spot>
-        <label><![CDATA[2]]></label>
-        <popup>
-          <![CDATA[
-          <ul>
-            <li>At eum detracto maluisset elaboraret, nec putent appareat in.</li>
-            <li>Elit ubique sensibus nec in.</li>
-            <li>Sea ad cibo illud, mea ex mutat perpetua.</li>
-          </ul>]]>
-        </popup>
-      </spot>
-
-      <spot>
-        <label><![CDATA[3]]></label>
-        <popup>
-          <![CDATA[
-          <ul>
-            <li>Vim duis consul nemore eu, ad libris molestie principes sed.</li>
-            <li>Id verear volumus recteque eam.</li>
-            <li> Omnium nostrud tacimates sea eu, ius ad fabulas pertinacia, fastidii quaerendum mea ex.</li>
-          </ul>]]>
-        </popup>
-      </spot>
-    </Hotspot>
-
-    <Hotspot id="hotspot-2">
-      <img><![CDATA[dir/media/img/assets/City-Map.jpg]]></img>
-      <spot>
-        <label><![CDATA[1]]></label>
-        <popup>
-          <![CDATA[
-          <ul>
-            <li>Vix</li>
-            <li>Vim</li>
-            <li>Fuisset</li>
-          </ul>]]>
-        </popup>
-      </spot>
-
-      <spot>
-        <label><![CDATA[2]]></label>
-        <popup>
-          <![CDATA[
-          <ul>
-            <li>At eum</li>
-            <li>Elit u</li>
-            <li>Sea ad.</li>
-          </ul>]]>
-        </popup>
-      </spot>
-
-      <spot>
-        <label><![CDATA[3]]></label>
-        <popup>
-          <![CDATA[
-          <ul>
-            <li>Vim duis </li>
-            <li>Id verear</li>
-            <li> Omnium </li>
-          </ul>]]>
-        </popup>
-      </spot>
-    </Hotspot>
-
-    <KnowledgeCheck id="knowledgeCheck-1" scored="true" title="Review II">
-      <question>
-        <body>The question body goes in this element. What answer is right?</body>
-        <answers>
-          <answer>A</answer>
-          <answer>L</answer>
-          <answer correct="true">RIGHT ANSWER</answer>
-          <answer>K</answer>
-        </answers>
-      </question>
-
-      <question>
-        <body>The question body goes in this element. What answer is right?</body>
-        <answers>
-          <answer correct="true">RIGHT ANSWER</answer>
-          <answer>Y</answer>
-          <answer>T</answer>
-          <answer>S</answer>
-        </answers>
-      </question>
-    </KnowledgeCheck>
-
-    <KnowledgeCheck id="knowledgeCheck-2" scored="true" title="Review I">
-      <question>
-        <body>What answer is right?</body>
-        <answers>
-          <answer>A</answer>
-          <answer>L</answer>
-          <answer correct="true">RIGHT ANSWER</answer>
-          <answer>K</answer>
-        </answers>
-      </question>
-
-      <question>
-        <body>What answer is right?</body>
-        <answers>
-          <answer>P</answer>
-          <answer correct="true">RIGHT ANSWER</answer>
-          <answer>K</answer>
-          <answer>V</answer>
-        </answers>
-      </question>
-    </KnowledgeCheck>
-
-    <Thumbnails id="thumbnail-1">
-      <thumbnail>
-        <img><![CDATA[dir/media/img/assets/3_5.jpg]]></img>
-        <url><![CDATA[https://www.gpstrategies.com/]]></url>
-        <heading><![CDATA[Maecenas]]></heading>
-        <caption><![CDATA[Maecenas venenatis magna, vel pellentesque <span class="link-look">enim scelerisque</span>  erat ultricies. Quisque fringilla, nulla sed ornare tincidunt, neque velit finibus.]]></caption>
-      </thumbnail>
-
-      <thumbnail>
-        <img><![CDATA[dir/media/img/assets/3_6.jpg]]></img>
-        <url><![CDATA[https://www.gpstrategies.com/]]></url>
-        <heading><![CDATA[LNulla Oranre]]></heading>
-        <caption><![CDATA[Maecenas venenatis magna, vel pellentesque <span class="link-look">enim scelerisque</span>  erat ultricies. Quisque fringilla, nulla sed ornare tincidunt, neque velit finibus.]]></caption>
-      </thumbnail>
-
-      <thumbnail>
-        <img><![CDATA[dir/media/img/assets/3_7.jpg]]></img>
-        <url><![CDATA[https://www.gpstrategies.com/]]></url>
-        <heading><![CDATA[Fringilla]]></heading>
-        <caption><![CDATA[<span class="link-look">Aliquam quis</span> enim at metus commodo hendrerit sit amet eu nisi. Proin sagittis euismod risus vel fringilla. Suspendisse non leo ut erat euismod.]]></caption>
-      </thumbnail>
-
-      <thumbnail>
-        <img><![CDATA[dir/media/img/assets/3_8.jpg]]></img>
-        <url><![CDATA[https://www.gpstrategies.com/]]></url>
-        <heading><![CDATA[Arcus Sed]]></heading>
-        <caption><![CDATA[Curabitur accumsan, orci molestie <span class="link-look">condimentum aliquamenim</span> , eros eros elementum ex, in commodo lacus lorem ac nisl. Pellentesque id arcu sed est vulputate.]]></caption>
-      </thumbnail>
-    </Thumbnails>
-
-    <Thumbnails id="thumbnail-2">
-      <thumbnail>
-        <img><![CDATA[dir/media/img/assets/3_6.jpg]]></img>
-        <url><![CDATA[https://www.gpstrategies.com/]]></url>
-        <heading><![CDATA[Maecenas]]></heading>
-        <caption><![CDATA[Quisque fringilla, nulla sed ornare tincidunt, neque velit finibus.]]></caption>
-      </thumbnail>
-    </Thumbnails>
-  </components>
-
 </page>

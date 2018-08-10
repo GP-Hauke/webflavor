@@ -1,0 +1,34 @@
+//////////////////////////////////////////////////////////////////////
+//
+//     Knowledge Check SCSS
+//      - Styles for knowldge check interactive
+//
+//////////////////////////////////////////////////////////////////////
+
+#knowledgeCheck {
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.15);
+  padding: 30px;
+  margin-left: 50px;
+  form {
+    li {
+      list-style-type: none;
+      margin-bottom: 25px;
+      padding: 10px;
+    }
+    .wrong {
+      background: rgba(255, 0, 0, 0.15);
+    }
+    li {
+      p {
+        margin-bottom: 8px;
+      }
+      label {
+        margin-left: 8px;
+      }
+    }
+  }
+  .feedback {
+    margin: 0;
+    margin-bottom: 20px;
+  }
+}

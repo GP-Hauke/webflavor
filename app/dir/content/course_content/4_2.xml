@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<page>
+  <title>
+    <chapterTitle><![CDATA[INTERACTIVES]]></chapterTitle>
+    <pageTitle><![CDATA[FLIP CARDS]]></pageTitle>
+    <included>true</included>
+    <pagination>true</pagination>
+    <size>12</size>
+    <gated locks="0">false</gated>
+  </title>
+
+  <layout>
+    <![CDATA[
+    <div class="row">
+      <div class="col-sm-12">
+        <p>Flip Cards are another interactive component that can be implemented through the WebFlavor Template</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div id="flipCard-page-1"></div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4">
+        <p>Flip Card component can be broken up and placed anywhere on the page. The sizing is dynamic and dependent on how many Flip Cards are in each section, and they span the width of the container they are placed in. The four flip cards above are one full component. The two thumbnails to the right are also one full component. One component takes up the entire continer it is in. By diving columns into more rows/columns, you can place them practically anywhere. You can split up flip cards into as many components as needed for the layout of the page</p>
+      </div>
+      <div class="col-md-8">
+        <div id="flipCard-page-2"></div>
+      </div>
+    </div>
+
+    <div class="row margin-below">
+      <div class="col-md-8">
+        <div id="flipCard-page-3"></div>
+      </div>
+
+      <div class="col-md-4">
+        <p>This component also has other features predefined so that a developer can customize them. The Flip Card component can have either a clickable button to flip the card, or it can have the user click anywhere on the card instead. This is declared in the element's xml tags. The flip card to the left shows the how it works with this feature instead of the button</p>
+      </div>
+    </div>
+    ]]>
+  </layout>
+
+  <components>
+    <FlipCard id="flipCard-page-1" hasButton="true">
+      <completion gated="false">
+      </completion>
+
+      <card>
+        <front><![CDATA[<h4>Nullam Nisi</h4>]]></front>
+        <back><![CDATA[<p>Curabitur accumsan, orci mostie cond aliquam, eros eros elementum ex.
+          <br>
+          <br>
+          Pellentesque id arcu sed est vulputate consequat nec id dolor.</p>]]></back>
+      </card>
+
+      <card>
+        <front><![CDATA[<h4>Curabitur</h4>]]></front>
+        <back><![CDATA[<p>Fermentum et venenatis in, vulputate sit amet diam
+        <br>
+        <br>
+        Ut a tortor turpis. Aliquam quis enim at metus commodo hendrerit sit amet eu nisi.</p>]]></back>
+      </card>
+
+      <card>
+        <front><![CDATA[<h4>Diam Fames</h4>]]></front>
+        <back><![CDATA[<p>Cras id diam dolor. Suspendisse in mi in turpis fringilla rhoncus. Curabitur ultricies condimentum est, vitae ultrices.
+        <br>
+        <br>
+        Morbi quis malesuada elit. Ut tristique dolor non rutrum bibendum. Sed eleifend.</p>]]></back>
+      </card>
+
+      <card>
+        <front><![CDATA[<h4>Sed Magna</h4>]]></front>
+        <back><![CDATA[<p>Nullam nec nisl risus. Morbi in ex quis enim bibendum varius.
+        <br>
+        <br>
+        Pellentesque habitant morbi tristique senectus.</p>]]></back>
+      </card>
+    </FlipCard>
+
+    <FlipCard id="flipCard-page-2" hasButton="true">
+      <completion gated="false">
+
+      </completion>
+
+      <card>
+        <front><![CDATA[<h4>Nullam Nisi</h4>]]></front>
+        <back><![CDATA[<p>Curabitur accumsan, orci mostie cond aliquam, eros eros elementum ex.
+          <br>
+          <br>
+          Pellentesque id arcu sed est vulputate consequat nec id dolor.</p>]]></back>
+      </card>
+
+      <card>
+        <front><![CDATA[<h4>Curabitur</h4>]]></front>
+        <back><![CDATA[<p>Fermentum et venenatis in, vulputate sit amet diam
+        <br>
+        <br>
+        Ut a tortor turpis. Aliquam quis enim at metus commodo hendrerit sit amet eu nisi.</p>]]></back>
+      </card>
+
+      <card>
+        <front><![CDATA[<h4>Curabitur</h4>]]></front>
+        <back><![CDATA[<p>Fermentum et venenatis in, vulputate sit amet diam
+        <br>
+        <br>
+        Ut a tortor turpis. Aliquam quis enim at metus commodo hendrerit sit amet eu nisi.</p>]]></back>
+      </card>
+    </FlipCard>
+
+    <FlipCard id="flipCard-page-3" hasButton="false">
+      <completion gated="false">
+
+      </completion>
+      <card>
+        <front><![CDATA[<h4>Curabitur</h4>]]></front>
+        <back><![CDATA[<p>Fermentum et venenatis in, vulputate sit amet diam
+        <br>
+        <br>
+        Ut a tortor turpis. Aliquam quis enim at metus commodo hendrerit sit amet eu nisi.</p>]]></back>
+      </card>
+
+      <card>
+        <front><![CDATA[<h4>Curabitur</h4>]]></front>
+        <back><![CDATA[<p>Fermentum et venenatis in, vulputate sit amet diam
+        <br>
+        <br>
+        Ut a tortor turpis. Aliquam quis enim at metus commodo hendrerit sit amet eu nisi.</p>]]></back>
+      </card>
+    </FlipCard>
+  </components>
+</page>
