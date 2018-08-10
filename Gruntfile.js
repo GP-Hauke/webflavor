@@ -180,7 +180,6 @@ module.exports = function(grunt){
           }
         ]
       }
-
     },
 
     clean: {
@@ -444,11 +443,13 @@ module.exports = function(grunt){
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-webpack');
 
+  grunt.registerTask('test', ['replace']);
+
   grunt.registerTask('dev', ['dev:theme', 'sass', 'browserSync:dev', 'watch', 'webpack']);
 
   grunt.registerTask('build',
     'Compiles all of the assets and copies the files to the build directory.',
-    ['xml_validator', 'version', 'preprocess', 'clean:rebuild', 'build:theme', 'copy:build', 'validate', 'uglify', 'cssmin', 'useminPrepare', 'usemin', 'copy:vendors', 'clean:finishbuild', 'compress', 'browserSync:build']
+    ['xml_validator', 'version', 'preprocess', 'clean:rebuild', 'build:theme', 'copy:build', 'validate', 'uglify', 'cssmin', 'useminPrepare', 'usemin', 'copy:vendors', 'clean:finishbuild', 'production', 'compress', 'browserSync:build']
   );
 
   grunt.registerTask('init',
@@ -477,6 +478,20 @@ module.exports = function(grunt){
 
     json.settings.version = (parseFloat(currentVersion)+0.1).toFixed(1).toString();
     grunt.log.oklns("VERSION: " + json.settings.version);
+
+    grunt.file.write(settingsFile, JSON.stringify(json, null, 2));
+  });
+
+  grunt.registerTask('production', function(key, value) {
+    var settingsFile = "dist/settings.json";
+    if (!grunt.file.exists(settingsFile)) {
+      grunt.log.error("file " + settingsFile + " not found");
+      return true; //return false to abort the execution
+    }
+
+    var json = grunt.file.readJSON(settingsFile); //get file as json object
+
+    json.settings.production = "true";
 
     grunt.file.write(settingsFile, JSON.stringify(json, null, 2));
   });
@@ -583,8 +598,6 @@ module.exports = function(grunt){
     grunt.log.oklns("THEME: " + theme.green);
     grunt.config.set("sass.dist.files", files);
   });
-
-  grunt.registerTask('test', ['copy:test']);
 
 
   grunt.event.on('watch', function(action, filepath, target) {

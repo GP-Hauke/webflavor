@@ -6,6 +6,8 @@
 //
 //////////////////////////////////////////////////////////////////////
 
+bar
+
 
 import * as Interface from './Interface.jsx';
 import * as Tracking from './Tracking.jsx';
@@ -55,8 +57,9 @@ $(document).ready(function() {
 function initLocalStorage() {
   //console.log("initInterface()");
 
-  //LOGIC FOR DEVELOPING
-
+  // @if DEBUG
+  localStorage.clear();
+  // @endif
 
   $(window).resize(function() {
     calculateHeight();
@@ -76,10 +79,6 @@ function initLocalStorage() {
     console.log("localStorage in megabytes: ", localStorageSize);
 
     var currentVersion = json.settings.version;
-
-    if(json.settings.production == null){
-      localStorage.clear();
-    }
 
     var tempStorage = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
 
