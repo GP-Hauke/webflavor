@@ -66,7 +66,6 @@ export function enforcedShow(elem) {
 
 export function buildShellUI() {
   //console.log("buildShellUI()");
-
   if(courseData.MENU_PLACEMENT === 'top') {
     buildTopNav();
 
@@ -82,7 +81,6 @@ export function buildShellUI() {
 }
 
 export function buildTopNav() {
-
   var navMarkup = '';
   var navMarkup = '<div id="navbar" class="nav-container navbar-fixed-left">    <nav class="navbar navbar-dark">      <div class="container">        <div class="mobile-container container-fluid d-block d-lg-none">          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMain" aria-controls="navbarsExample01" aria-expanded="false" aria-label="Toggle navigation">            <span class="navbar-toggler-icon">            </span>          </button>          <span id="titleMainMobile" class="title-main"></span>          <span id="subTitleMobile" class=""></span>          <ul class="headerLinks nav page-assist float-right"></ul>        </div>        <div class="title-container d-none d-lg-none d-lg-block ">          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMain" aria-controls="navbarsExample01" aria-expanded="false" aria-label="Toggle navigation">            <span class="navbar-toggler-icon"></span>          </button>          <a class="navbar-brand"></a>          <span id="titleMain" class="title-main"></span>          <span id="subTitle" class=""></span>        </div>        <div class="links-container d-none d-lg-none d-lg-block "><ul class="headerLinks nav page-assist float-right"></ul>        </div>      </div>      <div id="navbarMain" class="navbar-collapse collapse"><ul id="navbarMobile" class="navbar-nav mr-auto"></ul>      </div>    </nav>  </div>';
 
@@ -195,12 +193,11 @@ export function buildTopNav() {
 
 export function buildLeftNav() {
 
-  var navMarkup = '<div id="navbar" class="nav-container navbar-fixed-left leftNav">    <nav class="navbar navbar-dark">      <div class="container">        <div class="mobile-container container-fluid d-block d-md-none">          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMain" aria-controls="navbarsExample01" aria-expanded="false" aria-label="Toggle navigation">            <span class="navbar-toggler-icon"></span>          </button>          <a class="navbar-brand logo-mobile"></a>          <span id="titleMainMobile" class="title-main"></span>          <span id="subTitleMobile" class=""></span>   <ul class="headerLinks nav page-assist float-right"></ul>      </div>        <div class="title-container d-none d-sm-none d-md-block ">          <button class="navbar-toggler" onclick="leftNav();">            <span class="navbar-toggler-icon"></span>          </button>          <a class="navbar-brand"></a>          <span id="titleMain" class="title-main"></span>          <span id="subTitle" class=""></span>        </div>        <div class="links-container d-none d-sm-none d-md-block ">          <ul class="headerLinks nav page-assist float-right"></ul>        </div>      </div>      <div id="navbarMain" class="navbar-collapse">        <ul id="navbarMobile" class="navbar-nav mr-auto"></ul>      </div>    </nav>  </div>';
+  var navMarkup = '<div id="navbar" class="nav-container navbar-fixed-left leftNav">    <nav class="navbar navbar-dark">      <div class="container">        <div class="mobile-container container-fluid d-block d-md-none">          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMain" aria-controls="navbarsExample01" aria-expanded="false" aria-label="Toggle navigation">            <span class="navbar-toggler-icon"></span>          </button>                   <span id="titleMainMobile" class="title-main"></span>          <span id="subTitleMobile" class=""></span>   <ul class="headerLinks nav page-assist float-right"></ul>      </div>        <div class="title-container d-none d-sm-none d-md-block ">          <button class="navbar-toggler" onclick="leftNav();">            <span class="navbar-toggler-icon"></span>          </button>          <a class="navbar-brand"></a>          <span id="titleMain" class="title-main"></span>          <span id="subTitle" class=""></span>        </div>        <div class="links-container d-none d-sm-none d-md-block ">          <ul class="headerLinks nav page-assist float-right"></ul>        </div>      </div>      <div id="navbarMain" class="navbar-collapse">        <ul id="navbarMobile" class="navbar-nav mr-auto"></ul>      </div>    </nav>  </div>';
 
     $("#navContainer").append(navMarkup);
 
     $('#titleMain').html(courseData.TITLE+":");
-    $('#titleMainMobile').html(courseData.TITLE);
     $('#subTitle').html(courseData.SUB_TITLE);
     $('#subTitleMobile').html(courseData.SUB_TITLE);
 
@@ -234,15 +231,15 @@ export function buildLeftNav() {
     // HEADER LINKS
     var headerLinks = "";
     if(courseData.HAS_RESOURCES === "true"){
-      var headerLinkEl = '<li><a id="btnResources" href="#" target="">RESOURCES</a></li>';
+      var headerLinkEl = '<li><a class="btnResources" href="#" target=""><img src="dir/media/img/resources.png" style="height:50px;" alt=""></a></li>';
       headerLinks = headerLinks + headerLinkEl;
     }
     if(courseData.HAS_GLOSSARY === "true"){
-      var headerLinkEl = '<li><a id="btnGlossary" href="#" target="">GLOSSARY</a></li>';
+      var headerLinkEl = '<li><a class="btnGlossary" href="#" target=""><img src="dir/media/img/glossary.png" style="height:50px;" alt=""></a></li>';
       headerLinks = headerLinks + headerLinkEl;
     }
     if(courseData.HAS_HELP === "true"){
-      var headerLinkEl = '<li><a id="btnHelpModal" href="#" target="">?</a></li>';
+      var headerLinkEl = '<li><a class="btnHelpModal" href="#" target=""><img src="dir/media/img/help.png" style="height:50px;" alt=""></a></li>';
       headerLinks = headerLinks + headerLinkEl;
     }
     $(".headerLinks").append(headerLinks);
@@ -261,7 +258,11 @@ export function buildLeftNav() {
       calculateHeight();
     });
 
-    loadInterfaceStyles();
+    $('.btnGlossary').click(function(){Modal.openModal(LOCAL_COURSE_DATA_ID, 'glossary');});
+    $('.btnHelpModal').click(function(){Modal.openModal(LOCAL_COURSE_DATA_ID, 'help');});
+    $('.btnResources').click(function(){Modal.openModal(LOCAL_COURSE_DATA_ID, 'resources');});
+
+    updateNavigation();
 
   var notSelectedClass = "menuItemNotSelected";
 }
@@ -356,7 +357,6 @@ export function updateNavigation() {
   }
 
   $("#navbarMobile .courseTitleChapter").eq(currentChapter-1).addClass('courseTitleChapterSelected');
-
 }
 
 export function activateChapter(active,deactive,titleIndex) {
@@ -627,6 +627,8 @@ export function calculateHeight() {
   // console.log("calculateHeight");
   // console.log($("#navbar").height());
 
+
+
   //  $("#contentContainer").css({height:$(window).height() - 1, paddingTop:$("#navbar").height()});
   //$("#contentContainer").css({height:$(window).height() - 1});
   $("#contentContainer").css({height:$(window).height()-($('#navContainer').height()+getFooterHeight())});
@@ -651,4 +653,13 @@ export function getFooterHeight() {
   return $('footer').height();
 }
 
+export function navbarHeight(){
+  $('#navbarMobile').css({'height': '200px'});
+
+  $('#navbarMobile li').css({'height': '30px'});
+
+}
+
+
 window.openPage = openPage;
+window.leftNav = leftNav;

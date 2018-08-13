@@ -38,16 +38,6 @@ var cookieName = "cookieName";
 var muted = false;
 var volume = .6;
 
-window.onresize = function() {
-  if($(window).width() < $('#navbarMain').width()){
-    console.log("COLLAPSE");
-    //$('#navbarMain').css({'display':'none'})
-  }
-  else{
-    //$('#navbarMain').css({'display':'block'})
-  }
-}
-
 $(document).ready(function() {
   initLocalStorage();
 });
@@ -413,6 +403,7 @@ function calculateHeight() {
   // adding padding to accommodate Bootstrap header nav
   // console.log("calculateHeight");
   // console.log($("#navbar").height());
+
 
   //  $("#contentContainer").css({height:$(window).height() - 1, paddingTop:$("#navbar").height()});
   //$("#contentContainer").css({height:$(window).height() - 1});
