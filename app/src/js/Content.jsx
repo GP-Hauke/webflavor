@@ -50,6 +50,10 @@ export function loadContent(chapter, page, id){
 
     }
     $('#pageContent').append($(xml).find('layout').text());
+    
+    $('#contentContainer').scrollTop(
+      0
+    );
 
     var modal = $(xml).find('modal').text();
     if(modal != ""){

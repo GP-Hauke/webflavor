@@ -8,14 +8,14 @@
     "hasMenuLogo": "true",
     "hasFooter": "true",
     "hasVehicleGame": "true",
-    "hasSplashPage": "false",
+    "hasSplashPage": "true",
     "hasResources": "true",
     "hasGlossary": "true",
     "hasHelp": "true",
     "hasCountPages": "true",
     "hasInteractiveCompletion": "true",
     "courseStorageID": "courseStorageID",
-    "version": "21.1",
+    "version": "21.4",
     "contents": [
       [
         "1_1",
