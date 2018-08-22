@@ -1496,7 +1496,7 @@ p.courseTitleGated, p.courseTitleGatedPage {
   font-weight: 600;
   height: 50px;
   position: relative;
-  padding: 0px 10px 0px 20px !important;
+  padding: 0px 0px 0px 10px !important;
   font-size: 14px;
   border-bottom: 3px solid transparent;
 }
@@ -1797,7 +1797,7 @@ h3 {
 }
 
 #splashPageModal .modal-dialog .modal-content {
-  background-image: url("../../../dir/media/img/assets/bg_completion.jpg");
+  background-image: url("../dir/media/img/assets/bg_completion.jpg");
   background-size: cover;
   background-position: center;
   height: 800px;
@@ -1881,7 +1881,7 @@ h2.section-title {
   font-style: italic;
 }
 .page-container.completion {
-  background: url(../../dir/media/img/assets/bg_completion.jpg) center center/cover no-repeat fixed;
+  background: url(../dir/media/img/assets/bg_completion.jpg) center center/cover no-repeat fixed;
 }
 
 a.download {

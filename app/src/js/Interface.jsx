@@ -183,6 +183,15 @@ export function buildTopNav() {
     $('.btnHelpModal').click(function(){Modal.openModal(LOCAL_COURSE_DATA_ID, 'help');});
     $('.btnResources').click(function(){Modal.openModal(LOCAL_COURSE_DATA_ID, 'resources');});
 
+    $(document).click(function (event) {
+      var clickover = $(event.target);
+      var opened = $("#navbarMain").hasClass("show");
+
+      if (opened === true && !clickover.hasClass("navbar-toggle")) {
+          $("button.navbar-toggler").click();
+      }
+    });
+
     updateNavigation();
 
     //var width = $('#navbarMobile li.courseTitleChapter').css("width");
@@ -193,7 +202,7 @@ export function buildTopNav() {
 
 export function buildLeftNav() {
 
-  var navMarkup = '<div id="navbar" class="nav-container navbar-fixed-left leftNav">    <nav class="navbar navbar-dark">      <div class="container">        <div class="mobile-container container-fluid d-block d-md-none">          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMain" aria-controls="navbarsExample01" aria-expanded="false" aria-label="Toggle navigation">            <span class="navbar-toggler-icon"></span>          </button>                   <span id="titleMainMobile" class="title-main"></span>          <span id="subTitleMobile" class=""></span>   <ul class="headerLinks nav page-assist float-right"></ul>      </div>        <div class="title-container d-none d-sm-none d-md-block ">          <button class="navbar-toggler" onclick="leftNav();">            <span class="navbar-toggler-icon"></span>          </button>          <a class="navbar-brand"></a>          <span id="titleMain" class="title-main"></span>          <span id="subTitle" class=""></span>        </div>        <div class="links-container d-none d-sm-none d-md-block ">          <ul class="headerLinks nav page-assist float-right"></ul>        </div>      </div>      <div id="navbarMain" class="navbar-collapse">        <ul id="navbarMobile" class="navbar-nav mr-auto"></ul>      </div>    </nav>  </div>';
+  var navMarkup = '<div id="navbar" class="nav-container navbar-fixed-left leftNav">    <nav class="navbar navbar-dark">      <div class="container">        <div class="mobile-container container-fluid d-block d-md-none">          <button class="navbar-toggler" onclick="leftNav();">            <span class="navbar-toggler-icon"></span>          </button>                   <span id="titleMainMobile" class="title-main"></span>          <span id="subTitleMobile" class=""></span>   <ul class="headerLinks nav page-assist float-right"></ul>      </div>        <div class="title-container d-none d-sm-none d-md-block ">          <button class="navbar-toggler" onclick="leftNav();">            <span class="navbar-toggler-icon"></span>          </button>          <a class="navbar-brand"></a>          <span id="titleMain" class="title-main"></span>          <span id="subTitle" class=""></span>        </div>        <div class="links-container d-none d-sm-none d-md-block ">          <ul class="headerLinks nav page-assist float-right"></ul>        </div>      </div>      <div id="navbarMain" class="navbar-collapse">        <ul id="navbarMobile" class="navbar-nav mr-auto"></ul>      </div>    </nav>  </div>';
 
     $("#navContainer").append(navMarkup);
 
@@ -263,6 +272,16 @@ export function buildLeftNav() {
     $('.btnResources').click(function(){Modal.openModal(LOCAL_COURSE_DATA_ID, 'resources');});
 
     updateNavigation();
+
+    $(document).click(function (event) {
+      var clickover = $(event.target);
+      var opened = $("#navbarMain").hasClass("toggled");
+
+      if (opened === true && !(clickover.hasClass("navbar-toggler") || clickover.hasClass("navbar-toggler-icon"))) {
+          leftNav();
+      }
+
+    });
 
   var notSelectedClass = "menuItemNotSelected";
 }
