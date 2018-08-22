@@ -151,7 +151,11 @@ nav.navbar {
 
 /*Navigation Current Page*/
 li.courseTitleChapterSelected {
-  background-color: #632121;
+  background-color: #fff;
+}
+
+li.courseTitleChapterSelected .nav-link {
+  color: #632121 !important;
 }
 
 /*  Navigation Tabs Verion */
@@ -210,29 +214,6 @@ li.courseTitleChapterSelected {
   color: #632121;
 }
 
-@media (max-width: 991px) {
-  .tabbed #navbarMobile .dropdown-menu li p {
-    background: #fff !important;
-    color: #632121 !important;
-  }
-
-  .tabbed #navbarMobile .dropdown p {
-    color: #fff;
-  }
-
-  .tabbed #navbarMobile .courseTitleChapter {
-    background: #632121;
-    color: #fff;
-  }
-
-  .tabbed #navbarMobile .courseTitleChapter p {
-    color: #fff !important;
-  }
-
-  .tabbed #navbarMobile .courseTitleChapterSelected p {
-    color: #632121 !important;
-  }
-}
 /*----------- BUTTON STYLES -----------*/
 .btn {
   padding: 10px 16px;

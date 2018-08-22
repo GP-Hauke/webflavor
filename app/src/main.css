@@ -1628,60 +1628,56 @@ p.courseTitleGated, p.courseTitleGatedPage {
     display: block;
   }
 }
+/*
 @media (max-width: 991px) {
   .tabbed #navbarMobile {
     display: block;
     width: 100% !important;
     margin: 0 auto;
-  }
-  .tabbed #navbarMobile li {
-    font-weight: 200;
-    line-height: 30px;
-    height: 30px;
-    position: relative;
-  }
-  .tabbed #navbarMobile li p {
-    padding: 0 !important;
-    line-height: 30px !important;
-  }
-  .tabbed #navbarMobile .dropdown-menu {
-    left: 0 !important;
-    top: 0 !important;
-  }
-  .tabbed #navbarMobile .dropdown-menu li p {
-    background: #fff !important;
-    color: #2b2b2b;
-  }
-  .tabbed #navbarMobile .dropdown p {
-    margin: 0;
-    color: #fff;
-    padding: 0.5rem 1rem;
-  }
-  .tabbed #navbarMobile .courseTitleChapter {
-    padding: 0 !important;
-    background: #2b2b2b;
-  }
-  .tabbed #navbarMobile .courseTitleChapter p {
-    margin: 0;
-    color: #fff;
-    padding: 0.5rem 1rem !important;
-  }
-  .tabbed #navbarMobile .courseTitleChapterSelected p {
-    color: #2b2b2b;
-  }
-  .tabbed #navbarMobile li {
-    width: 100%;
-  }
-  .tabbed #navbarMobile li:not(:first-child):after {
-    content: "";
+    li {
+      font-weight: 200;
+      line-height: 30px;
+      height: 30px;
+      position: relative;
+      p {
+        padding: 0 !important;
+        line-height: 30px !important;
+      }
+    }
+    .dropdown-menu {
+      left: 0 !important;
+      top: 0 !important;
+      li p {
+        background: #fff !important;
+        color: #2b2b2b;
+      }
+    }
+    .dropdown p {
+      margin: 0;
+      color: #fff;
+      padding: .5rem 1rem;
+    }
+    .courseTitleChapter {
+      padding: 0 !important;
+      background: #2b2b2b;
+      p {
+        margin: 0;
+        color: #fff;
+        padding: .5rem 1rem !important;
+      }
+    }
+    .courseTitleChapterSelected p {
+      color: #2b2b2b;
+    }
+    li {
+      &:not(:first-child):after {
+        content: "";
+      }
+      width: 100%;
+    }
   }
 }
-/*
-@media (max-width: 950px) {
-  .tabbed #navbarMobile .courseTitleChapter p{
-    font-size: 10px;
-  }
-}*/
+*/
 #resourcesModal.modal {
   overflow-y: hidden !important;
 }

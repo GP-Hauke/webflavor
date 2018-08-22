@@ -4,15 +4,21 @@ nav.navbar {
   background-color: $primary;
 }
 
+#navbarMobile{
+  background-color: $primary !important;
+}
+
+li.courseTitleChapterSelected {
+  background-color: #fff;
+}
+
+li.courseTitleChapterSelected .nav-link{
+  color: $primary !important;
+}
+
 /*Navigation Secondary Color*/
 .navbar-collapse {
   border: none;
-  background-color: #d14040;
-}
-
-/*Navigation Current Page*/
-li.courseTitleChapterSelected {
-  background-color: $primary;
 }
 
 /*  Navigation Tabs Verion */
@@ -70,30 +76,4 @@ li.courseTitleChapterSelected {
 
 #navbarMobile .nav-link{
   color: $primary;
-}
-
-@media (max-width: 767px) {
-
-  .tabbed #navbarMobile .dropdown-menu li p{
-    background: #fff !important;
-    color: $primary !important;
-  }
-
-  .tabbed #navbarMobile .dropdown p{
-    color: #fff;
-  }
-
-  .tabbed #navbarMobile .courseTitleChapter{
-    background: $primary;
-    color: #fff;
-  }
-
-  .tabbed #navbarMobile .courseTitleChapter p{
-    color: #fff !important;
-  }
-
-  .tabbed #navbarMobile .courseTitleChapterSelected p{
-    color: $primary !important;
-  }
-
 }

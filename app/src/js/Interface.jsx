@@ -187,12 +187,32 @@ export function buildTopNav() {
       var clickover = $(event.target);
       var opened = $("#navbarMain").hasClass("show");
 
-      if (opened === true && !clickover.hasClass("navbar-toggle")) {
+      if (opened === true && !clickover.hasClass("navbar-toggle") && $('#navContainer').find(clickover).length == 0) {
           $("button.navbar-toggler").click();
       }
     });
 
     updateNavigation();
+
+    if($(window).width() <= 991){
+      $('#navbarMain').addClass('default');
+      $('#navbarMain').removeClass('tabbed');
+    }
+    else{
+      $('#navbarMain').removeClass('default');
+      $('#navbarMain').addClass('tabbed');
+    }
+
+    window.onresize = function() {
+      if($(window).width() <= 991){
+        $('#navbarMain').addClass('default');
+        $('#navbarMain').removeClass('tabbed');
+      }
+      else{
+        $('#navbarMain').removeClass('default');
+        $('#navbarMain').addClass('tabbed');
+      }
+    };
 
     //var width = $('#navbarMobile li.courseTitleChapter').css("width");
     //$('#navbarMobile li.courseTitleChapter').css("max-width", width);
@@ -277,7 +297,7 @@ export function buildLeftNav() {
       var clickover = $(event.target);
       var opened = $("#navbarMain").hasClass("toggled");
 
-      if (opened === true && !(clickover.hasClass("navbar-toggler") || clickover.hasClass("navbar-toggler-icon"))) {
+      if (opened === true && $('#navContainer').find(clickover).length == 0 && !(clickover.hasClass("navbar-toggler") || clickover.hasClass("navbar-toggler-icon"))) {
           leftNav();
       }
 
@@ -645,8 +665,6 @@ export function calculateHeight() {
   // adding padding to accommodate Bootstrap header nav
   // console.log("calculateHeight");
   // console.log($("#navbar").height());
-
-
 
   //  $("#contentContainer").css({height:$(window).height() - 1, paddingTop:$("#navbar").height()});
   //$("#contentContainer").css({height:$(window).height() - 1});
