@@ -1,6 +1,6 @@
 {
   "settings": {
-    "theme": "gm_selling_skills",
+    "theme": "maroon",
     "courseTitle": "HTML Template",
     "courseSubTitle": "WebFlavor",
     "menuPlacement": "top",
@@ -13,9 +13,9 @@
     "hasGlossary": "true",
     "hasHelp": "true",
     "hasCountPages": "true",
-    "hasInteractiveCompletion": "true",
-    "courseStorageID": "courseStorageID",
-    "version": "21.7",
+    "hasInteractiveCompletion": "false",
+    "courseStorageID": "htw_x1aw6",
+    "version": "1.4",
     "contents": [
       [
         "1_1",
@@ -44,6 +44,6 @@
         "6_1"
       ]
     ],
-    "cookieName": "test_cookie_123"
+    "cookieName": "htw_x1aw6"
   }
 }

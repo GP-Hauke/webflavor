@@ -1,17 +1,17 @@
 <?xml version="1.0"?>
-<lom xmlns="http://www.imsglobal.org/xsd/imsmd_rootv1p2p1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  xsi:schemaLocation="http://www.imsglobal.org/xsd/imsmd_rootv1p2p1 imsmd_rootv1p2p1.xsd">
+<lom xmlns="http://www.imsglobal.org/xsd/imsmd_rootv1p2p1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/imsmd_rootv1p2p1 imsmd_rootv1p2p1.xsd">
   <general>
     <catalogentry>
-      <catalog>---- COOKIE_NAME_HERE ----</catalog>
+      <catalog>htw_x1aw6</catalog>
       <entry>
-        <langstring>---- COURSE: TITLE HERE ----</langstring>
+        <langstring>HTML Template: WebFlavor</langstring>
       </entry>
     </catalogentry>
     <title>
-      <langstring>---- COURSE: TITLE HERE ----</langstring>
+      <langstring>HTML Template: WebFlavor</langstring>
     </title>
     <description>
-      <langstring></langstring>
+      <langstring/>
     </description>
     <keyword>
       <langstring>N/A</langstring>

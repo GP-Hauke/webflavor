@@ -313,6 +313,27 @@ li.courseTitleChapterSelected .nav-link {
   color: #632121;
 }
 
+/*----------- DRAG AND DROP STYLES -----------*/
+/*Draggable Items*/
+#touchAndDrop .item-container p {
+  background: #632121;
+  color: #fff;
+}
+
+/*Hover Button*/
+#touchAndDrop .btn-default-main {
+  border: 2px solid #632121;
+  background: #632121;
+  color: #fff;
+}
+
+/*Hover Button Seconday*/
+#touchAndDrop .btn-reversed {
+  border: 2px solid #632121;
+  background: #fff;
+  color: #632121;
+}
+
 a.download {
   border: 2px solid #632121;
   background-color: #632121;

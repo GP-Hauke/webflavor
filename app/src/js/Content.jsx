@@ -50,7 +50,7 @@ export function loadContent(chapter, page, id){
 
     }
     $('#pageContent').append($(xml).find('layout').text());
-    
+
     $('#contentContainer').scrollTop(
       0
     );

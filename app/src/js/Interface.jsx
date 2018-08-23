@@ -177,7 +177,7 @@ export function buildTopNav() {
     // END BOTTOM NAV
 
     if(courseData.HAS_MENU_LOGO == "true"){
-      $('#navbar .navbar-brand').append('<img src="'+courseData.THEME_PATH+'/img/logo.png" alt="logo">')
+      $('#navbar .navbar-brand').append('<img style="width:100%;" src="'+courseData.THEME_PATH+'/img/logo.png" alt="logo">')
     }
     $('.btnGlossary').click(function(){Modal.openModal(LOCAL_COURSE_DATA_ID, 'glossary');});
     $('.btnHelpModal').click(function(){Modal.openModal(LOCAL_COURSE_DATA_ID, 'help');});

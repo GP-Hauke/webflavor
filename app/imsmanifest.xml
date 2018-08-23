@@ -1,21 +1,21 @@
-<?xml version="1.0"?><manifest identifier="---- COOKIE_NAME_HERE ----" version="1.1" xmlns="http://www.imsproject.org/xsd/imscp_rootv1p1p2" xmlns:adlcp="http://www.adlnet.org/xsd/adlcp_rootv1p2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsproject.org/xsd/imscp_rootv1p1p2 imscp_rootv1p1p2.xsd http://www.imsglobal.org/xsd/imsmd_rootv1p2p1 imsmd_rootv1p2p1.xsd http://www.adlnet.org/xsd/adlcp_rootv1p2 adlcp_rootv1p2.xsd">
+<?xml version="1.0"?><manifest identifier="htw_x1aw6" version="1.1" xmlns="http://www.imsproject.org/xsd/imscp_rootv1p1p2" xmlns:adlcp="http://www.adlnet.org/xsd/adlcp_rootv1p2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsproject.org/xsd/imscp_rootv1p1p2 imscp_rootv1p1p2.xsd http://www.imsglobal.org/xsd/imsmd_rootv1p2p1 imsmd_rootv1p2p1.xsd http://www.adlnet.org/xsd/adlcp_rootv1p2 adlcp_rootv1p2.xsd">
   <metadata>
     <schema>ADL SCORM</schema>
     <schemaversion>1.2</schemaversion>
-    <lom xmlns="http://www.imsglobal.org/xsd/imsmd_rootv1p2p1" >
+    <lom xmlns="http://www.imsglobal.org/xsd/imsmd_rootv1p2p1">
       <general>
         <title>
-          <langstring>---- COURSE: TITLE HERE ----</langstring>
+          <langstring>HTML Template: WebFlavor</langstring>
         </title>
         <catalogentry>
-          <catalog></catalog>
-          <entry><langstring xml:lang="en">---- COOKIE_NAME_HERE ----</langstring></entry>
+          <catalog/>
+          <entry><langstring xml:lang="en">htw_x1aw6</langstring></entry>
         </catalogentry>
         <description>
-          <langstring xml:lang="en"></langstring>
+          <langstring xml:lang="en"/>
         </description>
         <keyword>
-          <langstring xml:lang="en"></langstring>
+          <langstring xml:lang="en"/>
         </keyword>
       </general>
       <lifecycle/>
@@ -28,7 +28,7 @@
       </technical>
       <educational>
         <typicallearningtime>
-          <datetime></datetime>
+          <datetime/>
         </typicallearningtime>
       </educational>
       <rights>
@@ -49,7 +49,7 @@
           </value>
         </copyrightandotherrestrictions>
         <description>
-          <langstring xml:lang="en"></langstring>
+          <langstring xml:lang="en"/>
         </description>
       </rights>
       <classification>
@@ -62,19 +62,19 @@
           </value>
         </purpose>
         <description>
-          <langstring xml:lang="en"></langstring>
+          <langstring xml:lang="en"/>
         </description>
         <keyword>
-          <langstring xml:lang="en"></langstring>
+          <langstring xml:lang="en"/>
         </keyword>
       </classification>
     </lom>
   </metadata>
-  <organizations default="ORG-a37be2fca">
+  <organizations default="ORG-a37be2fca" xmlns="http://www.imsproject.org/xsd/imscp_rootv1p1p2">
     <organization identifier="ORG-a37be2fca">
-      <title>---- COURSE: TITLE HERE ----</title>
+      <title>HTML Template: WebFlavor</title>
       <item identifier="SCO" identifierref="SCO1" isvisible="true">
-        <title>---- COURSE: TITLE HERE ----</title>
+        <title>HTML Template: WebFlavor</title>
       </item>
     </organization>
   </organizations>
@@ -85,7 +85,7 @@
         <schemaversion>1.2</schemaversion>
         <adlcp:location>sco01.xml</adlcp:location>
       </metadata>
-      <file href="index.html" />
+      <file href="index.html"/>
 
     </resource>
   </resources>
