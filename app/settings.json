@@ -5,17 +5,17 @@
     "courseSubTitle": "WebFlavor",
     "menuPlacement": "top",
     "menuStyle": "tab",
-    "hasMenuLogo": "true",
+    "hasMenuLogo": "false",
     "hasFooter": "true",
-    "hasVehicleGame": "true",
-    "hasSplashPage": "true",
-    "hasResources": "true",
-    "hasGlossary": "true",
-    "hasHelp": "true",
-    "hasCountPages": "true",
+    "hasVehicleGame": "false",
+    "hasSplashPage": "false",
+    "hasResources": "false",
+    "hasGlossary": "false",
+    "hasHelp": "false",
+    "hasCountPages": "false",
     "hasInteractiveCompletion": "false",
-    "courseStorageID": "htw_x1aw6",
-    "version": "1.4",
+    "courseStorageID": "htw_1tzww",
+    "version": "1.7",
     "contents": [
       [
         "1_1",
@@ -44,6 +44,6 @@
         "6_1"
       ]
     ],
-    "cookieName": "htw_x1aw6"
+    "cookieName": "htw_1tzww"
   }
 }

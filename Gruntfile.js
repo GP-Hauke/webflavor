@@ -436,7 +436,6 @@ module.exports = function(grunt){
       },
     },
 
-
     htmlhint: {
       html1: {
         options: {
@@ -447,7 +446,7 @@ module.exports = function(grunt){
     },
 
     size_report: {
-      your_target: {
+      dist: {
         options: {
           header: 'MEDIA SIZE REPORT'
         },
@@ -466,7 +465,7 @@ module.exports = function(grunt){
     }
   });
 
-  grunt.registerTask('size', ['size_report']);
+  grunt.registerTask('size', ['size_report:dist']);
   grunt.registerTask('media', ['clean:media']);
   grunt.registerTask('test', ['jslint']);
 
@@ -574,7 +573,23 @@ module.exports = function(grunt){
     grunt.task.run('clean:validate');
   });
 
+  grunt.registerTask('testing', function(key, value) {
+    var xmldoc = require('xmldoc');
+    var pages = grunt.file.expand(["dist/dir/content/course_content/*.xml"]);
 
+    //for(var i = 0; i < pages.length; i++){
+      var xml = grunt.file.read("dist/dir/content/course_content/1_3.xml");
+      var xmlDoc = new xmldoc.XmlDocument(xml);
+      var html = xmlDoc.childrenNamed("img");
+
+      grunt.log.oklns(html[0]);
+
+      //var filename = pages[i].split("course_content/")[1];
+      //filename = "dist/"+filename.substring(0, filename.length - 3)+"html";
+
+      //grunt.file.write(filename, html);
+    //}
+  });
 
   grunt.registerTask('update', function(key, value) {
     var pages = grunt.file.expand(["app/dir/content/course_content/*.xml"]);
