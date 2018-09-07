@@ -194,16 +194,7 @@ export function buildTopNav() {
 
     updateNavigation();
 
-    if($(window).width() <= 991){
-      $('#navbarMain').addClass('default');
-      $('#navbarMain').removeClass('tabbed');
-    }
-    else{
-      $('#navbarMain').removeClass('default');
-      $('#navbarMain').addClass('tabbed');
-    }
-
-    window.onresize = function() {
+    if(courseData.MENU_STYLE === 'tab'){
       if($(window).width() <= 991){
         $('#navbarMain').addClass('default');
         $('#navbarMain').removeClass('tabbed');
@@ -212,7 +203,20 @@ export function buildTopNav() {
         $('#navbarMain').removeClass('default');
         $('#navbarMain').addClass('tabbed');
       }
-    };
+
+      window.onresize = function() {
+        if($(window).width() <= 991){
+          $('#navbarMain').addClass('default');
+          $('#navbarMain').removeClass('tabbed');
+        }
+        else{
+          $('#navbarMain').removeClass('default');
+          $('#navbarMain').addClass('tabbed');
+        }
+      };
+    }
+
+
 
     //var width = $('#navbarMobile li.courseTitleChapter').css("width");
     //$('#navbarMobile li.courseTitleChapter').css("max-width", width);

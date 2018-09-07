@@ -197,7 +197,7 @@ module.exports = function(grunt){
       },
 
       media: {
-        src: ['app/dir/media/audio/**/*', 'app/dir/media/videos/**/*', 'app/dir/media/img/**/*']
+        src: ['app/dir/media/audio/**/*', 'app/dir/media/videos/**/*', 'app/dir/media/img/assets/*']
       },
     },
 

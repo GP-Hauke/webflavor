@@ -39,9 +39,14 @@ export function initVideoAudio(videoAudioComponentXML, elementID, localStorageID
     completed: false,
     completion: {},
     type: $(currentVideoAudio).find('type').text(),
-    embeded: $(currentVideoAudio).find('embeded').text(),
+    embedded: $(currentVideoAudio).find('embedded').text(),
     poster: $(currentVideoAudio).find('poster').text(),
-    source: $(currentVideoAudio).find('source').text()
+    source: $(currentVideoAudio).find('source').text(),
+    heading: $(currentVideoAudio).find('heading').text(),
+    caption: $(currentVideoAudio).find('caption').text(),
+    youtube: $(currentVideoAudio).find('youtube').text(),
+    popup: $(currentVideoAudio).find('popup').text()
+
   };
 
   courseData.videoAudioData.videoAudio.push(videoAudio);
@@ -57,34 +62,40 @@ export function setupVideoAudio(id,elementID){
 
   var src = courseData.videoAudioData.videoAudio[id].source;
   var poster = courseData.videoAudioData.videoAudio[id].poster;
-  var embeded = courseData.videoAudioData.videoAudio[id].embeded;
+  var embedded = courseData.videoAudioData.videoAudio[id].embedded;
   var type = courseData.videoAudioData.videoAudio[id].type;
+  var heading = courseData.videoAudioData.videoAudio[id].heading;
+  var caption = courseData.videoAudioData.videoAudio[id].caption;
+  var youtube = courseData.videoAudioData.videoAudio[id].youtube;
+  var popup = courseData.videoAudioData.videoAudio[id].popup;
 
-  if(embeded == "true"){
-    if(type == "video"){
-      var html = '<video id="'+elementID+'-video-embed" poster="'+poster+'" controls><source src="'+src+'" type="video/mp4">Your browser does not support the video tag.</video>';
+  if(popup == "true"){
+    var html = '<div class="videoAudio"><div class="img-container"><img class="popupImg" style="width: 100%; cursor: pointer" src="'+poster+'"></div>';
+  }
+
+  else{
+    if(youtube == "true"){
+      var html = '<div class="videoAudio"><div class="youtube-container"><iframe class="youtube" width="100%" height="120%" src="'+src+'" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>';
     }
     else{
-      var html = '<audio id="'+elementID+'-audio-embed" controls><source src="'+src+'" type="audio/mp3">Your browser does not support the audio element.</audio>';
+      var html = '<div class="videoAudio"><video id="'+elementID+'-video-embed" poster="'+poster+'" style="margin-bottom: -6px;"" controls><source src="'+src+'" type="video/mp4"">Your browser does not support the video tag.</video>';
+
     }
   }
+
+  if(heading.length > 0){
+    html += '<div class="caption"><div class="caption-title"><span>'+ heading+'</span></div><p>'+caption+'</p></div></div></div>';
+  }
   else{
-    //openAudioModal(src);
-    //openVideoModal(src);
-    if(type == "video"){
-      var html = '<img src="'+poster+'" alt="poster" class="embeded-vidAud"><img id="'+elementID+'-video" class="playBtnOverlay" src="dir/media/img/play_overlay.png">';
-    }
-    else{
-      var html = '<img src="'+poster+'" alt="poster"  class="embeded-vidAud"><img id="'+elementID+'-audio" class="playBtnOverlay" src="dir/media/img/play_overlay.png">';
-    }
+    html += '</div>'
   }
 
   $("#"+elementID).empty();
   $("#"+elementID).append(html);
 
-  $('#'+elementID+'-audio').click(function(){
+  $('#'+elementID+' .popupImg').click(function(){
     console.log("HERE");
-    Modal.openAudioModal(src);
+    Modal.openVideoModal(src);
     checkVideoAudioCompletion(getVideoAudioIndex(elementID));
   });
 

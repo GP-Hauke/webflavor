@@ -381,6 +381,10 @@ h1 {
   color: #632121;
 }
 
+.videoAudio .caption-title > span {
+  color: #632121;
+}
+
 .ctr .click {
   background: #632121;
   color: #fff;
@@ -401,7 +405,7 @@ h1 {
   background-position: center;
 }
 
-#splashPageModal h1, h3 {
+#splashPageModal h1, h3, h4, h5 {
   color: #632121;
 }
 
@@ -428,6 +432,11 @@ footer.footer {
 
 .outline {
   border: 1px solid #632121;
+}
+
+h4 {
+  font-size: 22px;
+  font-weight: 600;
 }
 
 /*# sourceMappingURL=theme.css.map */

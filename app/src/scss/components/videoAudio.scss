@@ -1,17 +1,16 @@
 //////////////////////////////////////////////////////////////////////
 //
 //     Thumbnail SCSS
-//      - Styles for thumbnail interactive
+//      - Styles for videoAudio interactive
 //
 //////////////////////////////////////////////////////////////////////
 
-.thumbnail {
+.videoAudio {
   border: 0;
   border-radius: 0;
   position: relative;
   height: 100%;
   padding: 0;
-  cursor: pointer;
   margin-bottom: 2px;
   > a {
     text-decoration: none;
@@ -24,9 +23,15 @@
   position: relative;
   background: transparent;*/
   box-shadow: 0 0px 40px rgba(0, 0, 0, 0.4);
+  height: auto;
+  background: #fff;
+
+  iframe, object, embed {
+    min-height: 200px;
+  }
 }
 
-.thumbnail {
+.videoAudio {
   .img-zoom {
     /*position: absolute;
     top: 0; bottom: 0; left: 0; right: 0;*/
@@ -130,5 +135,15 @@
 
   p{
     margin: 0;
+  }
+}
+
+.youtube-container{
+  position: relative;
+  padding-bottom: 56.25%;
+
+  iframe{
+    height: 100%;
+    position: absolute;
   }
 }

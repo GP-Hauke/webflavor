@@ -13,7 +13,6 @@ $white: #ffffff;
 @import "text.scss";
 @import "ctr.scss";
 
-
 /*----------- SPLASH PAGE STYLES -----------*/
 #splashPageModal .modal-dialog .modal-content{
   font-family: 'GMGlobalSansCond';
@@ -22,7 +21,7 @@ $white: #ffffff;
 
 }
 
-#splashPageModal h1, h3{
+#splashPageModal h1, h3, h4, h5{
   color: $primary;
 }
 
@@ -49,4 +48,9 @@ footer.footer {
 }
 .outline{
   border: 1px solid $primary;
+}
+
+h4{
+  font-size: 22px;
+  font-weight: 600;
 }

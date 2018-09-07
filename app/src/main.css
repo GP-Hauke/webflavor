@@ -815,7 +815,7 @@
   width: 100%;
   position: relative;
   background: transparent;*/
-  box-shadow: 0 0px 40px rgba(0, 0, 0, 0.55);
+  box-shadow: 0 0px 40px rgba(0, 0, 0, 0.4);
 }
 
 .thumbnail .img-zoom {
@@ -908,6 +908,15 @@
   color: #fff;
 }
 
+.videoAudio h4 {
+  color: red;
+  padding-top: 5px;
+  margin: 0;
+}
+.videoAudio p {
+  margin: 0;
+}
+
 .carousel-item .btn-primary {
   border: none;
   background-color: #003056;
@@ -983,6 +992,139 @@
 
 .carousel-control-next-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23003056' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
+}
+
+.videoAudio {
+  border: 0;
+  border-radius: 0;
+  position: relative;
+  height: 100%;
+  padding: 0;
+  margin-bottom: 2px;
+}
+.videoAudio > a {
+  text-decoration: none;
+}
+
+.img-container {
+  /*overflow: hidden;
+  width: 100%;
+  position: relative;
+  background: transparent;*/
+  box-shadow: 0 0px 40px rgba(0, 0, 0, 0.4);
+  height: auto;
+  background: #fff;
+}
+.img-container iframe, .img-container object, .img-container embed {
+  min-height: 200px;
+}
+
+.videoAudio .img-zoom {
+  /*position: absolute;
+  top: 0; bottom: 0; left: 0; right: 0;*/
+  width: 100%;
+}
+.videoAudio:hover .img-zoom {
+  /*-webkit-animation: kenburns .1s 1 linear forwards;
+  -moz-animation: kenburns .1s 1 linear forwards;
+  -o-animation: kenburns .1s 1 linear forwards;
+  animation: kenburns .1s 1 linear forwards;*/
+}
+.videoAudio .caption {
+  padding: 0;
+  margin: 0;
+}
+.videoAudio .caption p {
+  font-size: 15px;
+  text-align: center;
+}
+.videoAudio .caption-title {
+  display: table;
+  height: 80px;
+  width: 100%;
+  background-color: #fff;
+  opacity: 0.9;
+  padding: 0 20px;
+  box-shadow: 0 0.5px 40px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+}
+.videoAudio .caption-title > span {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 20px;
+  font-weight: 600;
+  color: #2b2b2b;
+}
+.videoAudio .caption h3 {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 80px;
+  color: #fff;
+  padding: 0 20px;
+  margin: 1px;
+  height: 80px;
+  background-color: #2b2b2b;
+}
+.videoAudio .caption h3 > span {
+  font-weight: 100;
+  font-size: 50px;
+}
+.videoAudio .caption h3.clicked {
+  color: #2b2b2b;
+  -webkit-animation-name: ctr-clicked;
+  animation-name: ctr-clicked;
+  -webkit-animation-duration: 0.5s;
+  animation-duration: 0.5s;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+.videoAudio .caption h3::before {
+  /*content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -0.25em;*/
+}
+.videoAudio .caption h4 {
+  text-align: center;
+  padding: 0 20px;
+  height: 110px;
+  background-color: #2b2b2b;
+}
+.videoAudio .caption h4:before {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -0.25em;
+}
+.videoAudio .caption h4 > span {
+  display: inline-block;
+  vertical-align: middle;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 22px;
+  color: #fff;
+}
+
+.videoAudio h4 {
+  color: red;
+  padding-top: 5px;
+  margin: 0;
+}
+.videoAudio p {
+  margin: 0;
+}
+
+.youtube-container {
+  position: relative;
+  padding-bottom: 56.25%;
+}
+.youtube-container iframe {
+  height: 100%;
+  position: absolute;
 }
 
 #mainContainer {
