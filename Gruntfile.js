@@ -1,32 +1,3 @@
-/*
------------- GRUNT INIT SCRIPT CONTENTS ------------
--[xmlpoke:settings] - Updates version number in setings.xml
--[xmlpoke:sco01] - Cleans (deletes) dist folder for new build
--[xmlpoke:imsmanifest] - Converts settings.xml to JSON file to be used in Grunt
------------- END GRUNT INIT SCRIPT CONTENTS ------------
-*/
-
-
-/*
------------- GRUNT BUILD SCRIPT CONTENTS ------------
--[xml_validator] - Validates XML files before building
--[xmlpoke:verion] - Updates version number in setings.xml
--[clean:rebuild] - Cleans (deletes) dist folder for new build
--[convert:xml2json] - Converts settings.xml to JSON file to be used in Grunt
--[copy:build] - Copies over core files that are not minified/concatenated
--[validateHTML] - Copies over core files that are not minified/concatenated
--[preprocess] - Removes localStorage.clear() line used in development
--[uglify] - Concatenates JS files and copies them into dist folder
--[cssmin] - Minifies CSS files and copies them into dist folder
--[useminPrepare] - Preprocessor for usemin
--[usemin] - Changes all HTML link tags to the new dist version
--[copy:vendors] - Copies over only needed vendors
--[clean:finishbuild] - Deletes uneeded files from dist folder
--[compress] - Creates scorm_package.zip file for LMS
--[browserSync] - Starts localhost to test build version
------------- END GRUNT BUILD SCRIPT CONTENTS ------------
-*/
-
 var path = require('path');
 var timer = require("grunt-timer");
 
@@ -44,10 +15,10 @@ module.exports = function(grunt){
     webpack: {
       myconfig: function() {
         return {
-          entry: './app/src/js/App.jsx',
+          entry: './dev/src/js/App.jsx',
           output: {
             filename: 'bundle.js',
-            path: path.resolve(__dirname, 'app/src')
+            path: path.resolve(__dirname, 'public/src')
           },
           watch: false,
           mode: 'production',
@@ -59,48 +30,49 @@ module.exports = function(grunt){
     browserSync: {
       dev : {
         bsFiles: {
-          src : ['app/**/*', '!app/src/js/**/*', '!**/*.scss']
+          src : ['public/**/*', '!public/**/*.map']
         },
         options: {
           server: {
-            baseDir: "./app"
+            baseDir: "./public"
           },
           watchTask: true,
           notify: false
-
         }
       },
-
       build : {
         bsFiles: {
-          src : 'dist/**/*'
+          src : ['public/**/*', '!public/**/*.map']
         },
         options: {
           server: {
-            baseDir: "./dist"
+            baseDir: "./public"
           },
           notify: false
-
         }
       }
     },
 
     sass: {
-      dist: {
+      default: {
         options:{
         },
         files: [{
           expand: true,
-          cwd: 'app/dir/themes/forest/scss',
-          src: ['theme.scss'],
-          dest: 'app/dir/themes/forest',
-          ext: '.css'
-        },
-        {
-          expand: true,
-          cwd: 'app/src/scss/',
+          cwd: 'dev/src/scss',
           src: ['main.scss'],
-          dest: 'app/src',
+          dest: 'public/src',
+          ext: '.css'
+        }]
+      },
+      theme: {
+        options:{
+        },
+        files: [{
+          expand: true,
+          cwd: '',
+          src: ['theme.scss'],
+          dest: 'public/src',
           ext: '.css'
         }]
       }
@@ -108,131 +80,69 @@ module.exports = function(grunt){
 
     watch: {
       scripts: {
-        files: ['app/src/js/**/*', 'app/**/*.scss'],
+        files: ['dev/**'],
         tasks: [],
         options: {
           spawn: false
-        },
-      },
-    },
-
-    useminPrepare: {
-      html: 'app/**/index.html',
-      options: {
-        dest: 'dist'
+        }
       }
     },
 
-    usemin: {
-      html:['dist/**/*.html']
-    },
-
     copy: {
-      build: {
-        cwd: 'app',
-        src: [],
-        dest: 'dist',
-        expand: true,
-        filter: function(filepath){
-          if(require('path').dirname(filepath) == "app\\dir\\content"){
-            var path = require('path').basename(filepath)
-            var json = grunt.file.readJSON('app/settings.json');
-
-            if(path == 'splash.xml'){
-              if(json.settings.hasSplashPage == 'false'){
-                return false;
-              }
-            }else if(path == 'glossary.xml'){
-              if(json.settings.hasGlossary == 'false'){
-                return false;
-              }
-            }else if(path == 'resources.xml'){
-              if(json.settings.hasResources == 'false'){
-                return false;
-              }
-            }else if(path == 'assessments.xml'){
-              if(json.settings.hasVehicleGame == 'false'){
-                return false;
-              }
-            }
-            return true;
-          }
-          return true;
-        }
-      },
-      vendors: {
+      public: {
         files: [
           {
             expand: true,
-            src: ['dist/src/vendors/**/*.ttf','dist/src/vendors/**/*.otf','dist/src/vendors/**/*.eot','dist/src/vendors/**/*.svg','dist/src/vendors/**/*.woff','dist/src/vendors/**/*.woff2'],
-            dest: 'dist/src/vendors',
-            flatten: true
+            cwd: 'dev',
+            src: ['**/*', '!view/themes/**','!src/**'],
+            dest: 'public',
           }
         ]
       },
-
-      test: {
+      dev: {
         files: [
           {
             expand: true,
-            src: ['app/dir/content/course_content/1_1.xml'],
-            dest: 'dist/dir/content/course_content/',
-            flatten: true
+            cwd: 'public ',
+            src: ['THIS IS UPDATED ON-RUN OF GRUNT'],
+            dest: 'THIS IS UPDATED ON-RUN OF GRUNT',
           }
         ]
       }
     },
 
     clean: {
-      rebuild: {
-        src: [ 'dist']
+      dev: {
+        src: ['public/view/**/*','public/src/**/*','!public/src/api/**', 'public/settings.json']
       },
-
-      finishbuild: {
-        src: ['dist/src/vendors', 'dist/src/scss', 'dist/src/js','dist/src/api/APIWrapper2004.js','dist/src/api/SCOFunctions2004.js', 'dist/dir/media/fonts/*','!dist/dir/media/fonts/*.woff']
-      },
-
-      validate: {
-        src: ['dist/*.html', '!dist/index.html']
-      },
-
-      media: {
-        src: ['app/dir/media/audio/**/*', 'app/dir/media/videos/**/*', 'app/dir/media/img/assets/*']
-      },
+      build: {
+        src: ['public/**/*.map']
+      }
     },
 
     cssmin: {
-      target: {
-        files: [{
-          expand: true,
-          cwd: 'dist/dir/themes',
-          src: ['**/theme.css'],
-          dest: 'dist/dir/themes',
-          ext: '.css'
-        },
+      build: {
+        files: [
         {
-          expand: true,
-          cwd: 'dist/src',
-          src: ['main.css'],
-          dest: 'dist/src',
-          ext: '.css'
-        },
+          'public/src/main.css': ['public/src/main.css']
+        }]
+      },
+      vendors: {
+        files: [
         {
-          'dist/src/vendors.min.css': ['dist/src/vendors/**/*.min.css']
+          'public/src/vendors.min.css': ['dev/src/vendors/**/*.min.css']
         }]
       }
     },
 
     uglify: {
-      build: {
+      vendors: {
         options: {
           mangle: false
         },
-        files: {
-          'dist/src/vendors.min.js': ['dist/src/vendors/jquery/jquery-3.2.1.min.js', 'dist/src/vendors/bootstrap/js/bootstrap.min.js', 'dist/src/vendors/**/*.min.js'],
 
-          'dist/src/api/APIWrapper.js': ['dist/src/api/APIWrapper.js'],
-          'dist/src/api/SCOFunctions.js': ['dist/src/api/SCOFunctions.js']
+        files: {
+          'public/src/vendors.min.js': ['dev/src/vendors/jquery/jquery-3.2.1.min.js', 'dev/src/vendors/bootstrap/js/bootstrap.min.js', 'dev/src/vendors/**/*.min.js']
         }
       }
     },
@@ -245,30 +155,19 @@ module.exports = function(grunt){
         },
         files: [{
           expand: true,
-          cwd: 'dist/dir/media/img/assets',
+          cwd: 'public',
           src: ['**/*.{png,jpg,gif}'],
-          dest: 'dist/dir/media/img/assets'
+          dest: 'public'
         }]
       }
     },
 
-    concat: {
-      options: {
-        separator: ';',
-      },
-      dist: {
-        src: ['app/src/vendors/jquery/jquery-3.2.1.min.js', 'app/src/vendors/**/*.min.js'],
-        dest: 'dist/src/vendors/vendors.min.js',
-      },
-    },
-
-    connect: {
-      server: {
+    htmlhint: {
+      html1: {
         options: {
-          port: 9000,
-          base: 'dist',
-          keepalive: true
-        }
+          'tag-pair': true
+        },
+        src: ['public/**/*.html']
       }
     },
 
@@ -279,219 +178,121 @@ module.exports = function(grunt){
         },
         files: [{
           src: ['**/*'],
-          cwd: 'dist/',
+          cwd: 'public/',
           expand: true
         }]
       }
     },
 
-    convert: {
-      options: {
-        explicitArray: false,
-      },
-      jsonconvert: {
-        files: [
-          {
-            expand: true,
-            cwd: 'dist/dir/content/course_content',
-            src: ['*.xml'],
-            dest: 'dist/dir/content/course_content',
-            ext: '.json'
-          }
-        ]
-      }
-    },
-
-    exec: {
-      list_files: {
-        cmd: 'webpack'
-      }
-    },
-
-    preprocess: {
-      options: {
-        inline: true,
-        context : {
-          DEBUG: false
-        }
-      },
-      js : {
-        src: 'dist/src/js/interface_functions.js'
-      }
-    },
-
-    xmlpoke: {
-      sco01: {
-        options: {
-          namespaces: {
-            'w':'http://www.imsglobal.org/xsd/imsmd_rootv1p2p1',
-          },
-          replacements: [
-            {
-              xpath: '/w:lom/w:general/w:catalogentry/w:catalog/text()',
-              value: function (node) {
-                var json = grunt.file.readJSON('app/settings.json');
-                return json.settings.cookieName;
-              }
-            },
-            {
-              xpath: '/w:lom/w:general/w:catalogentry/w:entry/w:langstring/text()',
-              value: function (node) {
-                var json = grunt.file.readJSON('app/settings.json');
-
-                if(json.settings.courseSubTitle.length == 0){
-                  return json.settings.courseTitle;
-                }
-
-                return json.settings.courseTitle +": "+json.settings.courseSubTitle;
-              }
-            },
-            {
-              xpath: '/w:lom/w:general/w:title/w:langstring/text()',
-              value: function (node) {
-                var json = grunt.file.readJSON('app/settings.json');
-
-                if(json.settings.courseSubTitle.length == 0){
-                  return json.settings.courseTitle;
-                }
-
-                return json.settings.courseTitle +": "+json.settings.courseSubTitle;
-              }
-            }]
-          },
-          files: {
-            'app/sco01.xml': 'app/sco01.xml',
-          },
-      },
-
-      imsmanifest: {
-          options: {
-            namespaces: {
-              'w':'http://www.imsproject.org/xsd/imscp_rootv1p1p2',
-              'w2':'http://www.imsglobal.org/xsd/imsmd_rootv1p2p1',
-              'w3':'http://www.imsproject.org/xsd/imscp_rootv1p1p2'
-            },
-            replacements: [
-              {
-                xpath: '/w:manifest/@identifier',
-                value: function (node) {
-                  var json = grunt.file.readJSON('app/settings.json');
-                  return json.settings.cookieName;
-                }
-              },
-              {
-                xpath: '/w:manifest/w:metadata/w2:lom/w2:general/w2:catalogentry/w2:entry/w2:langstring/text()',
-                value: function (node) {
-                  var json = grunt.file.readJSON('app/settings.json');
-                  return json.settings.cookieName;
-                }
-              },
-              {
-                xpath: '/w:manifest/w:metadata/w2:lom/w2:general/w2:title/w2:langstring/text()',
-                value: function (node) {
-                  var json = grunt.file.readJSON('app/settings.json');
-
-                  if(json.settings.courseSubTitle.length == 0){
-                    return json.settings.courseTitle;
-                  }
-
-                  return json.settings.courseTitle +": "+json.settings.courseSubTitle;
-                }
-              },
-              {
-                xpath: '/w:manifest/w3:organizations/w3:organization/w3:title/text()',
-                value: function (node) {
-                  var json = grunt.file.readJSON('app/settings.json');
-
-                  if(json.settings.courseSubTitle.length == 0){
-                    return json.settings.courseTitle;
-                  }
-
-                  return json.settings.courseTitle +": "+json.settings.courseSubTitle;
-                }
-              },
-              {
-                xpath: '/w:manifest/w3:organizations/w3:organization/w3:item/w3:title/text()',
-                value: function (node) {
-                  var json = grunt.file.readJSON('app/settings.json');
-
-                  if(json.settings.courseSubTitle.length == 0){
-                    return json.settings.courseTitle;
-                  }
-
-                  return json.settings.courseTitle +": "+json.settings.courseSubTitle;
-                }
-              }]
-            },
-
-            files: {
-              'app/imsmanifest.xml': 'app/imsmanifest.xml',
-            },
-          },
-      },
-
-    xml_validator: {
-      your_target: {
-        src: ['app/**/*.xml']
-      },
-    },
-
-    htmlhint: {
-      html1: {
-        options: {
-          'tag-pair': true
-        },
-        src: ['dist/*.html']
-      }
-    },
-
     size_report: {
-      dist: {
+      your_target: {
         options: {
-          header: 'MEDIA SIZE REPORT'
+          header: 'PACKAGE SIZE REPORT'
         },
         files: {
-          list: ['dist/**/*']
-        }
-      },
-      test: {
-        options: {
-          header: 'MEDIA SIZE REPORT'
-        },
-        files: {
-          list: ['dist/dir/media/fonts/**/*']
+          list: ['public/']
         }
       }
     }
   });
 
-  grunt.registerTask('size', ['size_report:dist']);
-  grunt.registerTask('media', ['clean:media']);
-  grunt.registerTask('test', ['jslint']);
+  //'browserSync:dev', 'watch', 'webpack'
+  grunt.registerTask('dev', ['clean:dev', 'copy:public', 'uglify:vendors', 'cssmin:vendors', 'build:theme', 'webpack', 'browserSync:dev', 'watch']);
 
-  grunt.registerTask('dev', ['update','dev:theme', 'sass', 'browserSync:dev', 'watch', 'webpack']);
+  grunt.registerTask('build', ['imagemin', 'cssmin:build', 'version', 'production', 'build:clean', 'compress', 'browserSync:build']);
 
-  grunt.registerTask('build',
-    'Compiles all of the assets and copies the files to the build directory.',
-    ['version','init', 'xml_validator', 'preprocess', 'clean:rebuild', 'build:theme', 'copy:build', 'validate', 'uglify', 'cssmin', 'imagemin', 'useminPrepare', 'usemin', 'copy:vendors', 'clean:finishbuild', 'production', 'compress', 'browserSync:build']
-  );
-
-  grunt.registerTask('init',
-    'Compiles all of the assets and copies the files to the build directory.',
-    ['settings','xmlpoke:sco01','xmlpoke:imsmanifest']
-  );
-
-  grunt.registerTask('build:theme', function(key, value) {
-    var settingsFile = "app/settings.json";
-    var json = grunt.file.readJSON(settingsFile);
-    var theme = json.settings.theme;
-    var settingsFile = ['**', '!**/themes/*/**', '**/themes/'+theme+'/**', '!**/src/js/*.js', '!**/src/components/*.js', '!**/*.map', '!**/*.scss','**/src/js/tracking_functions.js'];
-    grunt.log.oklns("THEME: " + theme.green);
-    grunt.config.set("copy.build.src", settingsFile);
+  grunt.event.on('watch', function(action, filepath, target) {
+    var filetype = path.extname(filepath);
+    grunt.log.oklns(filetype.green);
+      if(filetype == '.scss'){
+      grunt.log.oklns();
+      if(filepath.indexOf('themes') != -1){
+        grunt.task.run('sass:theme');
+      }
+      else if(filepath.indexOf('src') != -1){
+        grunt.task.run('sass:default');
+      }
+      else{
+        grunt.task.run('sass');
+      }
+    }
+      else if(filetype == '.js' || filetype == '.jsx'){
+      grunt.task.run('webpack');
+    }
+      else{
+      var dest = "public/"+filepath.substring(4, filepath.length).replace(path.basename(filepath), "");
+      var files = [
+        {
+          expand: true,
+          src: [filepath],
+          dest: dest,
+          flatten: true
+        }
+      ];
+        grunt.config.set("copy.dev.files", files);
+      grunt.task.run('copy:dev');
+    }
   });
 
+  grunt.registerTask('build:theme', function(key, value) {
+    var settingsFile = "dev/settings.json";
+    var json = grunt.file.readJSON(settingsFile);
+    var theme = json.settings.theme;
+    var themeDirect = [{
+      expand: true,
+      cwd: 'dev/view/themes/'+theme+'/scss',
+      src: ['theme.scss'],
+      dest: 'public/view/themes/'+theme,
+      ext: '.css'
+    }];
+
+    var themeMisc = [
+      {
+        expand: true,
+        cwd: 'dev',
+        src: ['view/themes/'+theme+'/**', '!view/themes/'+theme+'/scss/**'
+      ],
+        dest: 'public',
+      }
+    ];
+    grunt.config.set("copy.dev.files", themeMisc);
+    grunt.task.run('copy:dev');
+
+    grunt.log.oklns("THEME: " + theme.green);
+    grunt.config.set("sass.theme.files", themeDirect);
+    grunt.config.set("copy.build.src", themeMisc);
+    grunt.task.run('sass:default', 'sass:theme');
+  });
+
+  grunt.registerTask('build:clean', function(key, value) {
+    var settingsFile = "public/settings.json";
+    var json = grunt.file.readJSON(settingsFile);
+    var src =[];
+
+    grunt.task.run('clean:build');
+
+    if(json.settings.hasSplashPage == 'false'){
+      src.push('public/view/content/splash.xml');
+    }
+    if(json.settings.hasGlossary == 'false'){
+      src.push('public/view/content/glossary.xml');
+    }
+    if(json.settings.hasResources == 'false'){
+      src.push('public/view/content/resources.xml');
+    }
+    if(json.settings.hasVehicleGame == 'false'){
+      src.push('public/view/content/assessments.xml');
+    }
+
+    grunt.config.set("clean.build.src", src);
+    grunt.task.run('clean:build');
+  });
+
+
   grunt.registerTask('version', function(key, value) {
-    var settingsFile = "app/settings.json";
+    var settingsFile = "dev/settings.json";
+    var settingsFile2 = "public/settings.json";
+
     if (!grunt.file.exists(settingsFile)) {
       grunt.log.error("file " + settingsFile + " not found");
       return true; //return false to abort the execution
@@ -499,16 +300,18 @@ module.exports = function(grunt){
 
     var json = grunt.file.readJSON(settingsFile); //get file as json object
     currentVersion = json.settings.version;
-    grunt.log.oklns("VERSION: " + (parseFloat(currentVersion)+0.1));
+    var version = (parseFloat(currentVersion)+0.1).toFixed(1).toString();
 
-    json.settings.version = (parseFloat(currentVersion)+0.1).toFixed(1).toString();
-    //grunt.log.oklns("VERSION: " + json.settings.version);
+    json.settings.version = version;
+    grunt.log.oklns("VERSION: ".green + (json.settings.version).cyan);
 
     grunt.file.write(settingsFile, JSON.stringify(json, null, 2));
+    grunt.file.write(settingsFile2, JSON.stringify(json, null, 2));
+
   });
 
   grunt.registerTask('production', function(key, value) {
-    var settingsFile = "dist/settings.json";
+    var settingsFile = "public/settings.json";
     if (!grunt.file.exists(settingsFile)) {
       grunt.log.error("file " + settingsFile + " not found");
       return true; //return false to abort the execution
@@ -521,137 +324,5 @@ module.exports = function(grunt){
     grunt.file.write(settingsFile, JSON.stringify(json, null, 2));
   });
 
-  grunt.registerTask('settings', function(key, value) {
-    var settingsFile = "app/settings.json";
-    if (!grunt.file.exists(settingsFile)) {
-      grunt.log.error("file " + settingsFile + " not found");
-      return true; //return false to abort the execution
-    }
-
-    var json = grunt.file.readJSON(settingsFile); //get file as json object
-    var courseTitle = json.settings.courseTitle + " " + json.settings.courseSubTitle;
-    courseTitle = courseTitle.replace(/\s+/g, '_') + "_";
-
-    var acronym = json.settings.courseTitle + " " + json.settings.courseSubTitle;
-    var matches = acronym.match(/\b(\w)/g);              // ['J','S','O','N']
-    var cookie = matches.join('').toLowerCase()+"_";
-
-    var possible = "abcdefghijklmnopqrstuvwxyz01234567890123456789";
-
-    for (var i = 0; i < 5; i++){
-      var r = possible.charAt(Math.floor(Math.random() * possible.length));
-      cookie += r;
-      courseTitle += r;
-    }
-
-    grunt.log.oklns("Course ID: "['green'].bold + courseTitle.yellow);
-    grunt.log.oklns("Cookie: "['green'].bold + cookie.yellow);
-
-
-    json.settings.courseStorageID = cookie;
-    json.settings.cookieName = cookie;
-    grunt.file.write(settingsFile, JSON.stringify(json, null, 2));
-  });
-
-  grunt.registerTask('validate', function(key, value) {
-    var xmldoc = require('xmldoc');
-    var pages = grunt.file.expand(["dist/dir/content/course_content/*.xml"]);
-
-    for(var i = 0; i < pages.length; i++){
-      var xml = grunt.file.read(pages[i]);
-      var xmlDoc = new xmldoc.XmlDocument(xml);
-      var html = xmlDoc.valueWithPath("layout");
-
-      var filename = pages[i].split("course_content/")[1];
-      filename = "dist/"+filename.substring(0, filename.length - 3)+"html";
-
-      grunt.file.write(filename, html);
-    }
-
-    grunt.log.oklns('HTML Created')
-    grunt.task.run('htmlhint');
-    grunt.task.run('clean:validate');
-  });
-
-  grunt.registerTask('testing', function(key, value) {
-    var xmldoc = require('xmldoc');
-    var pages = grunt.file.expand(["dist/dir/content/course_content/*.xml"]);
-
-    //for(var i = 0; i < pages.length; i++){
-      var xml = grunt.file.read("dist/dir/content/course_content/1_3.xml");
-      var xmlDoc = new xmldoc.XmlDocument(xml);
-      var html = xmlDoc.childrenNamed("img");
-
-      grunt.log.oklns(html[0]);
-
-      //var filename = pages[i].split("course_content/")[1];
-      //filename = "dist/"+filename.substring(0, filename.length - 3)+"html";
-
-      //grunt.file.write(filename, html);
-    //}
-  });
-
-  grunt.registerTask('update', function(key, value) {
-    var pages = grunt.file.expand(["app/dir/content/course_content/*.xml"]);
-    var lastChapter = "";
-    var currentChapter = "";
-    var contents = [];
-    var currentXML = "";
-
-    for(var i = 0; i < pages.length; i++){
-      var path = require('path').basename(pages[i])
-      //grunt.log.oklns(path.substring(0, path.length - 4))
-      currentChapter = path.substr(0, path.indexOf('_'));
-      currentXML = path.substr(0, path.indexOf('.'));
-
-      if(currentChapter != lastChapter){
-        contents[currentChapter - 1] = [];
-      }
-
-      contents[currentChapter - 1].push(currentXML);
-      lastChapter = currentChapter;
-
-    }
-
-    var json = grunt.file.readJSON('app/settings.json'); //get file as json object
-
-    json.settings.contents = contents;
-    grunt.file.write('app/settings.json', JSON.stringify(json, null, 2));
-  });
-
-  grunt.registerTask('dev:theme', function(key, value) {
-    var settingsFile = "app/settings.json";
-    var json = grunt.file.readJSON(settingsFile);
-    var theme = json.settings.theme;
-    var files = [{
-      expand: true,
-      cwd: 'app/dir/themes/'+theme+'/scss',
-      src: ['theme.scss'],
-      dest: 'app/dir/themes/'+theme+'',
-      ext: '.css'
-    },
-    {
-      expand: true,
-      cwd: 'app/src/scss/',
-      src: ['main.scss'],
-      dest: 'app/src',
-      ext: '.css'
-    }];
-
-
-    grunt.log.oklns("THEME: " + theme.green);
-    grunt.config.set("sass.dist.files", files);
-  });
-
-  grunt.event.on('watch', function(action, filepath, target) {
-    var filetype = filepath.substring(filepath.indexOf('.'), filepath.length);
-    grunt.log.oklns(filetype);
-
-    if(filetype == '.scss'){
-      grunt.task.run('sass');
-    }
-    else{
-      grunt.task.run('webpack');
-    }
-  });
-}
+  grunt.registerTask('files', ['size_report']);
+};
