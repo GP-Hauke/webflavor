@@ -1,19 +1,19 @@
 /*----------- DRAG AND DROP STYLES -----------*/
 /*Draggable Items*/
-#touchAndDrop .item-container p{
+#dragAndDrop .item-container p{
   background: $primary;
   color: #fff;
 }
 
 /*Hover Button*/
-#touchAndDrop .btn-default-main{
+#dragAndDrop .btn-default-main{
   border: 2px solid $primary;
   background: $primary;
   color: #fff;
 }
 
 /*Hover Button Seconday*/
-#touchAndDrop .btn-reversed{
+#dragAndDrop .btn-reversed{
   border: 2px solid $primary;
   background: #fff;
   color: $primary;

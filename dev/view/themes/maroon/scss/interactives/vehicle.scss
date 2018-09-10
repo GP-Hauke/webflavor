@@ -1,0 +1,115 @@
+/*---- ASSESSMENT STYLES ----*/
+#assessmentModal .retry-container.buick button {
+  background-color: #ef7521;
+}
+
+#assessmentModal .retry-container.chevy button {
+  background-color: #f4bc00;
+}
+
+#assessmentModal .retry-container.gmc button {
+  background-color: #e31837;
+}
+
+#assessmentModal .modal-content .intro-screen.buick button {
+  background-color: #ef7521;
+}
+
+#assessmentModal .modal-content .intro-screen.chevy button {
+  background-color: #f4bc00;
+}
+
+#assessmentModal .modal-content .intro-screen.gmc button {
+  background-color: #e31837;
+}
+#assessmentModal .assessment-content.buick .feedback-container button.btn-ok,
+#assessmentModal .assessment-content.buick .btn-submit-answer {
+  background-color: #ef7521;
+}
+
+#assessmentModal .assessment-content.chevy .feedback-container button.btn-ok,
+#assessmentModal .assessment-content.chevy .btn-submit-answer {
+  background-color: #f4bc00;
+}
+
+#assessmentModal .assessment-content.gmc .feedback-container button.btn-ok,
+#assessmentModal .assessment-content.gmc .btn-submit-answer {
+  background-color: #e31837;
+}
+
+#assessmentModal .finish-screen.buick button {
+  background-color: #ef7521;
+}
+
+#assessmentModal .finish-screen.chevy button {
+  background-color: #f4bc00;
+}
+
+#assessmentModal .finish-screen.gmc button {
+  background-color: #e31837;
+}
+
+#assessmentModal .assessment-content.buick .answer-container.selected .selected-bar {
+  background-color: #ef7521;
+}
+
+#assessmentModal .assessment-content.chevy .answer-container.selected .selected-bar {
+  background-color: #f4bc00;
+}
+
+#assessmentModal .assessment-content.gmc .answer-container .selected-bar {
+  background-color: #000;
+}
+
+#assessmentModal .assessment-content.gmc .answer-container.selected .selected-bar {
+  background-color: #e31837;
+}
+
+#assessmentModal .assessment-content.buick h3 {
+  color: #ef7521;
+}
+
+#assessmentModal .assessment-content.chevy h3 {
+  color: #f4bc00;
+}
+
+#assessmentModal .assessment-content.gmc h3 {
+  color: #e31837;
+}
+
+#assessmentModal .assessment-content.buick span {
+  color: #ef7521;
+}
+
+#assessmentModal .assessment-content.chevy span {
+  color: #f4bc00;
+}
+
+#assessmentModal .assessment-content.gmc span {
+  color: #e31837;
+}
+
+#assessmentModal .answer-container .brand-model-attr p.model {
+  color: #58595b;
+}
+
+#assessmentModal .assessment-content.buick .answer-container .brand-model-attr p.brand {
+  color: #ef7521;
+}
+
+#assessmentModal .assessment-content.chevy .answer-container .brand-model-attr > p.brand {
+  color: #f4bc00;
+}
+
+#assessmentModal .assessment-content.gmc .answer-container .brand-model-attr > p.brand {
+  color: #e31837;
+}
+
+#assessmentModal .assessment-content .feedback-container .feedback-details{
+  font-size: 20px;
+  line-height: 35px;
+}
+
+#assessmentModal .assessment-content .feedback-container .feedback-details span{
+  font-weight: 300;
+}

@@ -4,5 +4,7 @@ package-lock.json
 *.zip
 /settings.json
 dist/
-public/**
-scorm_package/**
+scorm_pac
+public/src/**
+public/view/**
+!public/src/api/**

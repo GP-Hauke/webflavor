@@ -117,7 +117,10 @@ module.exports = function(grunt){
       },
       build: {
         src: ['public/**/*.map']
-      }
+      },
+      validate: {
+        src: ['public/*.html', '!public/index.html']
+      },
     },
 
     cssmin: {
@@ -197,9 +200,9 @@ module.exports = function(grunt){
   });
 
   //'browserSync:dev', 'watch', 'webpack'
-  grunt.registerTask('dev', ['clean:dev', 'copy:public', 'uglify:vendors', 'cssmin:vendors', 'build:theme', 'webpack', 'browserSync:dev', 'watch']);
+  grunt.registerTask('dev', ['clean:dev', 'settings', 'update', 'copy:public', 'uglify:vendors', 'cssmin:vendors', 'build:theme', 'webpack', 'browserSync:dev', 'watch']);
 
-  grunt.registerTask('build', ['imagemin', 'cssmin:build', 'version', 'production', 'build:clean', 'compress', 'browserSync:build']);
+  grunt.registerTask('build', ['validate','imagemin', 'cssmin:build', 'version', 'production', 'build:clean', 'compress', 'browserSync:build']);
 
   grunt.event.on('watch', function(action, filepath, target) {
     var filetype = path.extname(filepath);
@@ -288,7 +291,6 @@ module.exports = function(grunt){
     grunt.task.run('clean:build');
   });
 
-
   grunt.registerTask('version', function(key, value) {
     var settingsFile = "dev/settings.json";
     var settingsFile2 = "public/settings.json";
@@ -325,4 +327,86 @@ module.exports = function(grunt){
   });
 
   grunt.registerTask('files', ['size_report']);
+
+  grunt.registerTask('settings', function(key, value) {
+    var settingsFile = "dev/settings.json";
+    if (!grunt.file.exists(settingsFile)) {
+      grunt.log.error("file " + settingsFile + " not found");
+      return true; //return false to abort the execution
+    }
+
+    var json = grunt.file.readJSON(settingsFile); //get file as json object
+    var courseTitle = json.settings.courseTitle + " " + json.settings.courseSubTitle;
+    courseTitle = courseTitle.replace(/\s+/g, '_') + "_";
+
+    var acronym = json.settings.courseTitle + " " + json.settings.courseSubTitle;
+    var matches = acronym.match(/\b(\w)/g);              // ['J','S','O','N']
+    var cookie = matches.join('').toLowerCase()+"_";
+
+    var possible = "abcdefghijklmnopqrstuvwxyz01234567890123456789";
+
+    for (var i = 0; i < 5; i++){
+      var r = possible.charAt(Math.floor(Math.random() * possible.length));
+      cookie += r;
+      courseTitle += r;
+    }
+
+    grunt.log.oklns("Course ID: "['green'].bold + courseTitle.yellow);
+    grunt.log.oklns("Cookie: "['green'].bold + cookie.yellow);
+
+
+    json.settings.courseStorageID = cookie;
+    json.settings.cookieName = cookie;
+    grunt.file.write(settingsFile, JSON.stringify(json, null, 2));
+  });
+
+  grunt.registerTask('update', function(key, value) {
+    var pages = grunt.file.expand(["dev/view/content/pages/*.xml"]);
+    var lastChapter = "";
+    var currentChapter = "";
+    var contents = [];
+    var currentXML = "";
+
+    for(var i = 0; i < pages.length; i++){
+      var path = require('path').basename(pages[i])
+      //grunt.log.oklns(path.substring(0, path.length - 4))
+      currentChapter = path.substr(0, path.indexOf('_'));
+      currentXML = path.substr(0, path.indexOf('.'));
+
+      if(currentChapter != lastChapter){
+        contents[currentChapter - 1] = [];
+      }
+
+      contents[currentChapter - 1].push(currentXML);
+      lastChapter = currentChapter;
+
+    }
+
+    var json = grunt.file.readJSON('dev/settings.json'); //get file as json object
+
+    json.settings.contents = contents;
+    grunt.file.write('dev/settings.json', JSON.stringify(json, null, 2));
+    grunt.log.oklns("UPDATED TABLE OF CONTENTS"['green'].bold);
+
+  });
+
+  grunt.registerTask('validate', function(key, value) {
+    var xmldoc = require('xmldoc');
+    var pages = grunt.file.expand(["public/view/content/pages/*.xml"]);
+
+    for(var i = 0; i < pages.length; i++){
+      var xml = grunt.file.read(pages[i]);
+      var xmlDoc = new xmldoc.XmlDocument(xml);
+      var html = xmlDoc.valueWithPath("layout");
+
+      var filename = pages[i].split("pages/")[1];
+      filename = "public/"+filename.substring(0, filename.length - 3)+"html";
+
+      grunt.file.write(filename, html);
+    }
+
+    grunt.log.oklns('HTML Created')
+    grunt.task.run('htmlhint');
+    grunt.task.run('clean:validate');
+  });
 };

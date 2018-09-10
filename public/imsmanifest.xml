@@ -1,0 +1,93 @@
+<?xml version="1.0"?><manifest identifier="htw_pn47b" version="1.1" xmlns="http://www.imsproject.org/xsd/imscp_rootv1p1p2" xmlns:adlcp="http://www.adlnet.org/xsd/adlcp_rootv1p2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsproject.org/xsd/imscp_rootv1p1p2 imscp_rootv1p1p2.xsd http://www.imsglobal.org/xsd/imsmd_rootv1p2p1 imsmd_rootv1p2p1.xsd http://www.adlnet.org/xsd/adlcp_rootv1p2 adlcp_rootv1p2.xsd">
+  <metadata>
+    <schema>ADL SCORM</schema>
+    <schemaversion>1.2</schemaversion>
+    <lom xmlns="http://www.imsglobal.org/xsd/imsmd_rootv1p2p1">
+      <general>
+        <title>
+          <langstring>HTML Template: WebFlavor</langstring>
+        </title>
+        <catalogentry>
+          <catalog/>
+          <entry><langstring xml:lang="en">htw_pn47b</langstring></entry>
+        </catalogentry>
+        <description>
+          <langstring xml:lang="en"/>
+        </description>
+        <keyword>
+          <langstring xml:lang="en"/>
+        </keyword>
+      </general>
+      <lifecycle/>
+      <metametadata>
+        <metadatascheme>LOM-1.0</metadatascheme>
+      </metametadata>
+      <technical>
+        <format>text/html</format>
+        <location type="TEXT">.</location>
+      </technical>
+      <educational>
+        <typicallearningtime>
+          <datetime/>
+        </typicallearningtime>
+      </educational>
+      <rights>
+        <cost>
+          <source>
+            <langstring xml:lang="x-none">LOM-WD6.1</langstring>
+          </source>
+          <value>
+            <langstring xml:lang="x-none">no</langstring>
+          </value>
+        </cost>
+        <copyrightandotherrestrictions>
+          <source>
+            <langstring xml:lang="x-none">LOM-WD6.1</langstring>
+          </source>
+          <value>
+            <langstring xml:lang="x-none">no</langstring>
+          </value>
+        </copyrightandotherrestrictions>
+        <description>
+          <langstring xml:lang="en"/>
+        </description>
+      </rights>
+      <classification>
+        <purpose>
+          <source>
+            <langstring xml:lang="x-none">LOM-WD6.1</langstring>
+          </source>
+          <value>
+            <langstring xml:lang="x-none">Educational Objective</langstring>
+          </value>
+        </purpose>
+        <description>
+          <langstring xml:lang="en"/>
+        </description>
+        <keyword>
+          <langstring xml:lang="en"/>
+        </keyword>
+      </classification>
+    </lom>
+  </metadata>
+  <organizations default="ORG-a37be2fca" xmlns="http://www.imsproject.org/xsd/imscp_rootv1p1p2">
+    <organization identifier="ORG-a37be2fca">
+      <title>HTML Template: WebFlavor</title>
+      <item identifier="SCO" identifierref="SCO1" isvisible="true">
+        <title>HTML Template: WebFlavor</title>
+      </item>
+    </organization>
+  </organizations>
+  <resources>
+    <resource identifier="SCO1" type="webcontent" adlcp:scormtype="sco" href="index.html">
+      <metadata>
+        <schema>ADL SCORM</schema>
+        <schemaversion>1.2</schemaversion>
+        <adlcp:location>sco01.xml</adlcp:location>
+      </metadata>
+      <file href="index.html"/>
+
+    </resource>
+  </resources>
+
+</manifest>

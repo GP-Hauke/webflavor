@@ -32,7 +32,7 @@
     </div>
 
     <div class="row">
-      <div class="col-12 col-md-8 p-0"><div class="componentContainer color1 size2"></div></div>
+      <div class="col-12 col-md-8 p-0"><div style="height: 100%" class="componentContainer color1 size2"></div></div>
 
       <div class="col-12 col-md-4 p-0">
         <div class="row">
@@ -56,7 +56,7 @@
         </div>
       </div>
 
-      <div class="col-12 col-md-8 p-0"><div class="componentContainer color1 size2"></div></div>
+      <div class="col-12 col-md-8 p-0"><div style="height: 100%" class="componentContainer color1 size2"></div></div>
     </div>
 
     <div class="row margin-below">
