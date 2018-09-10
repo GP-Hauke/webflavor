@@ -7,4 +7,4 @@ dist/
 scorm_pac
 public/src/**
 public/view/**
-!public/src/api/**
+!public/src/api/*
