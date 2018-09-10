@@ -5,6 +5,5 @@ package-lock.json
 /settings.json
 dist/
 scorm_pac
-public/src/**
 public/view/**
 !public/src/api/*
