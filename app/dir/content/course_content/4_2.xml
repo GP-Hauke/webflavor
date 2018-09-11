@@ -70,7 +70,7 @@
         <back><![CDATA[<p>Cras id diam dolor. Suspendisse in mi in turpis fringilla rhoncus. Curabitur ultricies condimentum est, vitae ultrices.
         <br>
         <br>
-        Morbi quis malesuada elit. Ut tristique dolor non rutrum bibendum. Sed eleifend.</p>]]></back>
+        Morbi quis malesuada elit. Ut tristique dolor non rutrum bibendum. Sed eleifendMorbi quis malesuada elit. Ut tristique dolor non rutrum bibendum. Sed eleifend.Morbi quis malesuada elit. Ut tristique dolor non rutrum bibendum. Sed eleifend</p>]]></back>
       </card>
 
       <card>
@@ -96,7 +96,7 @@
       </card>
 
       <card>
-        <front><![CDATA[<h4>Curabitur</h4>]]></front>
+        <front><![CDATA[<h4>This test shows that the front height can dictate the height of the entire flip card and is dynamic css code for<br><br></h4>]]></front>
         <back><![CDATA[<p>Fermentum et venenatis in, vulputate sit amet diam
         <br>
         <br>
