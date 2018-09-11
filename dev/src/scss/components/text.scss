@@ -1,0 +1,156 @@
+//////////////////////////////////////////////////////////////////////
+//
+//     TEXT  SCSS
+//      - Styles for text
+//
+//////////////////////////////////////////////////////////////////////
+
+
+#titleMain {
+  font-weight: 100;
+  font-size: 28px;
+  color: #fff;
+  line-height: 50px;
+  text-transform: uppercase;
+}
+
+#subTitle {
+  font-weight: 600;
+  font-size: 28px;
+  color: #fff;
+  line-height: 50px;
+  text-transform: uppercase;
+}
+
+@media only screen and (max-width: 1200px) {
+  .navbar-collapse > ul > li {
+    color: #fff;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  #titleMainMobile {
+    color: #fff;
+    font-size: 20px;
+    line-height: 52px;
+    font-weight: 100;
+    text-align: center;
+  }
+  #subTitleMobile {
+    color: #fff;
+    font-size: 28px;
+    text-transform: uppercase;
+    font-weight: 600;
+    text-align: center;
+    line-height: 52px;
+  }
+}
+
+/* PAGE TITLE */
+h1#pageTitle {
+  margin-top: 0;
+  margin-bottom: 20px;
+  border-bottom: 3px solid #cdcdcd;
+  font-size: 32px;
+}
+
+h2.section-title {
+  margin-bottom: 20px;
+}
+
+.page-number {
+  position: absolute;
+  right: 15px;
+  top: 0;
+}
+
+.page-container {
+  p.cta-page {
+    font-weight: 600;
+    font-style: italic;
+  }
+  &.completion {
+    background: url(../view/media/img/bg_completion.jpg) center (center / cover) no-repeat fixed;
+  }
+}
+
+
+a.download {
+  font-size: 18px;
+  border: 2px solid #2b2b2b;
+  background-color: #2b2b2b;
+  color: #ffffff !important;
+  padding: 8px;
+  cursor: pointer;
+
+  &:hover, &:active, &:focus{
+    background-color: #fff;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    outline: 0;
+    color: #2b2b2b !important;
+    text-decoration: none
+  }
+}
+
+/* QUOTES */
+.quote > p > span {
+  &.opening-quotes, &.closing-quotes {
+    font-size: 90px;
+  }
+  &.quote-text {
+    text-align: justify;
+  }
+}
+
+/* COMPLETION PAGE */
+.results-container ul li {
+  font-size: 16px;
+}
+
+/* QUOTES */
+.quote > p {
+  margin-top: 20px;
+  > span {
+    &.quote-text {
+      display: inline-block;
+      float: left;
+      width: 80%;
+      padding: 0 15px;
+    }
+    &.opening-quotes, &.closing-quotes {
+      display: inline-block;
+      float: left;
+      width: 10%;
+    }
+  }
+}
+
+/* TEXT CONTAINER */
+.text-container {
+  background-color: rgba(0, 48, 86, 0.95);
+  padding: 20px;
+  h1#pageTitle, p {
+    color: #fff;
+  }
+}
+
+.btn-default {
+  border: 2px solid #000;
+  background-color: #fff;
+  color: #000;
+  border-radius: 0px;
+  font-size: 20px;
+}
+
+/* ASSESSMENT BUTTON */
+.btn-assess {
+  cursor: pointer;
+  height: 100%;
+}
+
+.page-container .loading-overlay > p {
+  color: #4b4b4b;
+  font-size: 26px;
+  font-weight: normal;
+}

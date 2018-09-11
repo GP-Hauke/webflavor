@@ -1,0 +1,49 @@
+{
+  "settings": {
+    "theme": "maroon",
+    "courseTitle": "HTML Template",
+    "courseSubTitle": "WebFlavor",
+    "menuPlacement": "top",
+    "menuStyle": "tab",
+    "hasMenuLogo": "true",
+    "hasFooter": "true",
+    "hasVehicleGame": "true",
+    "hasSplashPage": "true",
+    "hasResources": "true",
+    "hasGlossary": "true",
+    "hasHelp": "true",
+    "hasCountPages": "true",
+    "hasInteractiveCompletion": "true",
+    "courseStorageID": "htw_fw8ul",
+    "version": "2.1",
+    "contents": [
+      [
+        "1_1",
+        "1_2",
+        "1_3",
+        "1_4"
+      ],
+      [
+        "2_1"
+      ],
+      [
+        "3_1"
+      ],
+      [
+        "4_1",
+        "4_2",
+        "4_3",
+        "4_4",
+        "4_5"
+      ],
+      [
+        "5_1",
+        "5_2"
+      ],
+      [
+        "6_1"
+      ]
+    ],
+    "cookieName": "htw_fw8ul"
+  }
+}

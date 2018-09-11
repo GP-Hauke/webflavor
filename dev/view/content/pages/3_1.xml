@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<page>
+  <title>
+    <chapterTitle><![CDATA[VIDEO & AUDIO]]></chapterTitle>
+    <pageTitle><![CDATA[VIDEO & AUDIO]]></pageTitle>
+    <included>true</included>
+    <pagination>true</pagination>
+    <size>12</size>
+    <gated locks="0">false</gated>
+  </title>
+
+  <layout>
+    <![CDATA[
+    <div class="row">
+      <div class="col-sm-12">
+        <p>The following is a Video/Audio component. This component can be used to display Video or Audio for the users. The component has the ability to be fully embedded into the page, or to display in a pop up modal for the user to view.</p>
+      </div>
+    </div>
+
+    <div class="row margin-below">
+      <div class="col-sm-12">
+        <h4>YOUTUBE VIDEOS EMBEDED</h4>
+      </div>
+      <div class="col-sm-6">
+        <div id="videoAudio-page-1"></div>
+      </div>
+      <div class="col-sm-6">
+        <div id="videoAudio-page-2"></div>
+      </div>
+    </div>
+
+    <div class="row margin-below">
+      <div class="col-sm-12">
+        <h4>VIDEO/AUDIO EMBEDED</h4>
+      </div>
+      <div class="col-sm-6">
+        <div id="videoAudio-page-5"></div>
+      </div>
+      <div class="col-sm-6">
+        <div id="videoAudio-page-6"></div>
+      </div>
+    </div>
+
+    <div class="row margin-below">
+      <div class="col-sm-12">
+        <h4>NO HEADING/CAPTION EMBEDED</h4>
+      </div>
+      <div class="col-sm-6">
+        <div id="videoAudio-page-3"></div>
+      </div>
+      <div class="col-sm-6">
+        <div id="videoAudio-page-4"></div>
+      </div>
+    </div>
+
+    <div class="row margin-below">
+      <div class="col-sm-12">
+        <h4>VIDEO/AUDIO POPUPS</h4>
+      </div>
+      <div class="col-sm-6">
+        <div id="videoAudio-page-7"></div>
+      </div>
+      <div class="col-sm-6">
+        <div id="videoAudio-page-8"></div>
+      </div>
+    </div>
+
+    ]]>
+  </layout>
+
+  <components>
+    <VideoAudio id="videoAudio-page-1">
+      <youtube>true</youtube>
+      <popup>false</popup>
+      <source><![CDATA[https://www.youtube.com/embed/WxR8KUFqgaM]]></source>
+      <heading><![CDATA[EMBEDDED YouTube]]></heading>
+      <caption><![CDATA[Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.]]></caption>
+    </VideoAudio>
+
+    <VideoAudio id="videoAudio-page-2">
+      <youtube>true</youtube>
+      <popup>false</popup>
+      <source><![CDATA[https://www.youtube.com/embed/o1wO2ox07Rg]]></source>
+      <heading><![CDATA[YouTube POPUP]]></heading>
+      <caption><![CDATA[Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ]]></caption>
+    </VideoAudio>
+
+    <VideoAudio id="videoAudio-page-3">
+      <youtube>false</youtube>
+      <popup>false</popup>
+      <poster><![CDATA[view/media/img/poster.jpg]]></poster>
+      <source><![CDATA[view/media/videos/animation.mp4]]></source>
+    </VideoAudio>
+
+    <VideoAudio id="videoAudio-page-4">
+      <youtube>false</youtube>
+      <popup>false</popup>
+      <poster><![CDATA[view/media/img/red.jpg]]></poster>
+      <source><![CDATA[view/media/audio/bruce.mp3]]></source>
+    </VideoAudio>
+
+    <VideoAudio id="videoAudio-page-5">
+      <youtube>false</youtube>
+      <popup>false</popup>
+      <poster><![CDATA[view/media/img/poster.jpg]]></poster>
+      <source><![CDATA[view/media/videos/animation.mp4]]></source>
+      <heading><![CDATA[Video Embedded]]></heading>
+      <caption><![CDATA[Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ]]></caption>
+    </VideoAudio>
+
+    <VideoAudio id="videoAudio-page-6">
+      <youtube>false</youtube>
+      <popup>false</popup>
+      <poster><![CDATA[view/media/img/red.jpg]]></poster>
+      <source><![CDATA[view/media/audio/bruce.mp3]]></source>
+      <heading><![CDATA[Audio Embedded]]></heading>
+      <caption><![CDATA[Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ]]></caption>
+    </VideoAudio>
+
+    <VideoAudio id="videoAudio-page-7">
+      <youtube>false</youtube>
+      <popup>true</popup>
+      <poster><![CDATA[view/media/img/poster.jpg]]></poster>
+      <source><![CDATA[view/media/videos/animation.mp4]]></source>
+      <heading><![CDATA[Video Popup]]></heading>
+      <caption><![CDATA[Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ]]></caption>
+    </VideoAudio>
+
+    <VideoAudio id="videoAudio-page-8">
+      <youtube>false</youtube>
+      <popup>true</popup>
+      <poster><![CDATA[view/media/img/red.jpg]]></poster>
+      <source><![CDATA[view/media/audio/bruce.mp3]]></source>
+      <heading><![CDATA[Audio Popup]]></heading>
+      <caption><![CDATA[Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ]]></caption>
+    </VideoAudio>
+  </components>
+</page>

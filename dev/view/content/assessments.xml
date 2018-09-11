@@ -1,0 +1,2134 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<assessments questionsGiven="10">
+  <version>0.0.5</version>
+  <!--  -->
+  <assessment id="1" type="" completed="false" title="Match Features to Wants Game - Buick">
+    <introText>
+      <![CDATA[<p>With all the questions, play with these assumptions:</p>
+      <ul>
+        <li>Vehicles are the most recent model year.</li>
+        <li>Unless otherwise stated, vehicles have automatic transmissions.</li>
+        <li>There are no dealer or factory incentives.</li>
+        <li>All the seats are up when considering trunk/cargo space.</li>
+        <li>The customers want the best option (most legroom, most headroom, highest horsepower, highest gas mileage, lowest base price).</li>
+        <li>There are no add-on packages included.</li>
+      </ul>
+      <p>Try to get all 10 right! Once you’ve selected a vehicle, hit <span class="bolded">SUBMIT</span>. Then review the feedback.  Take all the time you need to look at the questions and answer options before clicking <span class="bolded">GO</span>.</p>
+      <p>See how well you did. Then, come back again and do better. The questions and answers will change!</p>
+      <p>Click <span class='bolded'>NEXT</span> to begin.</p>]]>
+    </introText>
+
+    <questionAnswer required="false" answered="false" passed="false">
+      <questions>
+        <question type="characteristic" required="false" answered="false" passed="false" >
+          <type>
+            <criterion>connectedNavigation</criterion>
+            <characteristic>yes</characteristic>
+            <filters hasFilters="true">
+              <filter type="attribute" compare="maximum" value="30000">basePrice</filter>
+            </filters>
+          </type>
+          <questionTitle><![CDATA[]]></questionTitle>
+          <questionBody><![CDATA[The customer wants a Buick for under $30,000 that has Connected Navigation. Which vehicle offers Connected Navigation?]]></questionBody>
+          <imgSrc><![CDATA[]]></imgSrc>
+        </question>
+
+        <question type="characteristic" required="false" answered="false" passed="false" >
+          <type>
+            <criterion>sunroof</criterion>
+            <characteristic>yes</characteristic>
+            <filters hasFilters="true">
+              <filter type="attribute" compare="maximum" value="30000">basePrice</filter>
+            </filters>
+          </type>
+          <questionTitle><![CDATA[]]></questionTitle>
+          <questionBody><![CDATA[The customer wants a vehicle with a base price of no more than $30,000 and offers a moonroof or sunroof. Which vehicle offers a moonroof or sunroof?]]></questionBody>
+          <imgSrc><![CDATA[]]></imgSrc>
+        </question>
+
+        <question type="characteristic" required="false" answered="false" passed="false" >
+          <type>
+            <criterion>remoteStart</criterion>
+            <characteristic>yes</characteristic>
+            <filters hasFilters="true">
+              <filter type="characteristic" compare="" value="Regal">base</filter>
+            </filters>
+          </type>
+          <questionTitle><![CDATA[]]></questionTitle>
+          <questionBody><![CDATA[The customer is fond of the Buick Regal but wants remote start. Which Regal offers remote start?]]></questionBody>
+          <imgSrc><![CDATA[]]></imgSrc>
+        </question>
+
+        <question type="characteristic" required="false" answered="false" passed="false" >
+          <type>
+            <criterion>heatedWheel</criterion>
+            <characteristic>yes</characteristic>
+            <filters hasFilters="true">
+              <filter type="attribute" compare="minimum" value="25">mpg</filter>
+            </filters>
+          </type>
+          <questionTitle><![CDATA[]]></questionTitle>
+          <questionBody><![CDATA[The customer wants a Buick that gets at least 25 mpg and that offers a heated steering wheel. Which Buick offers a heated steering wheel?]]></questionBody>
+          <imgSrc><![CDATA[]]></imgSrc>
+        </question>
+
+        <question type="characteristic" required="false" answered="false" passed="false" >
+          <type>
+            <criterion>connectedNavigation</criterion>
+            <characteristic>yes</characteristic>
+            <filters hasFilters="true">
+              <filter type="attribute" compare="minimum" value="35">rearLegRoom</filter>
+            </filters>
+          </type>
+          <questionTitle><![CDATA[]]></questionTitle>
+          <questionBody><![CDATA[The customer needs a vehicle that has at least 35 inches of rear-seat legroom and that offers Connected Navigation. Which vehicle offers Connected Navigation?]]></questionBody>
+          <imgSrc><![CDATA[]]></imgSrc>
+        </question>
+
+        <question type="characteristic" required="false" answered="false" passed="false" >
+          <type>
+            <criterion>heatedWheel</criterion>
+            <characteristic>yes</characteristic>
+            <filters hasFilters="true">
+              <filter type="characteristic" compare="" value="LaCrosse">base</filter>
+            </filters>
+          </type>
+          <questionTitle><![CDATA[]]></questionTitle>
+          <questionBody><![CDATA[The customer loves the luxurious look of the LaCrosse but wants a heated steering wheel. Which LaCrosse has a heated steering wheel?]]></questionBody>
+          <imgSrc><![CDATA[]]></imgSrc>
+        </question>
+
+        <question type="characteristic" required="false" answered="false" passed="false" >
+          <type>
+            <criterion>heatedSeats</criterion>
+            <characteristic>yes</characteristic>
+            <filters hasFilters="true">
+              <filter type="characteristic" compare="" value="Encore">base</filter>
+            </filters>
+          </type>
+          <questionTitle><![CDATA[]]></questionTitle>
+          <questionBody><![CDATA[The customer loves the Buick Encore for its great gas mileage but wants heated seats. Which Encore offers heated seats?]]></questionBody>
+          <imgSrc><![CDATA[]]></imgSrc>
+        </question>
+
+        <question type="attribute" required="false" answered="false" passed="false" >
+          <type>
+            <criterion>mpg</criterion>
+            <characteristic></characteristic>
+            <filters hasFilters="true">
+              <filter type="characteristic" compare="" value="yes">sunroof</filter>
+            </filters>
+          </type>
+          <questionTitle><![CDATA[]]></questionTitle>
+          <questionBody><![CDATA[The customer wants a Buick that offers a moonroof or sunroof that gets the best gas mileage. Which Buick gets the best gas mileage?]]></questionBody>
+          <imgSrc><![CDATA[]]></imgSrc>
+        </question>
+
+        <question type="characteristic" required="false" answered="false" passed="false" >
+          <type>
+            <criterion>remoteStart</criterion>
+            <characteristic>yes</characteristic>
+            <filters hasFilters="false">
+            </filters>
+          </type>
+          <questionTitle><![CDATA[]]></questionTitle>
+          <questionBody><![CDATA[The customer wants a Buick that offers remote start. Which Buick offers remote start?]]></questionBody>
+          <imgSrc><![CDATA[]]></imgSrc>
+        </question>
+
+        <question type="attribute" required="false" answered="false" passed="false" >
+          <type>
+            <criterion>mpg</criterion>
+            <characteristic></characteristic>
+            <filters hasFilters="true">
+              <filter type="characteristic" compare="" value="yes">sunroof</filter>
+            </filters>
+          </type>
+          <questionTitle><![CDATA[]]></questionTitle>
+          <questionBody><![CDATA[The customer needs a vehicle that has a moon roof or sunroof and gets at least 25 mpg combined. Which vehicle gets the best mpg?]]></questionBody>
+          <imgSrc><![CDATA[]]></imgSrc>
+        </question>
+
+        <question type="attribute" required="false" answered="false" passed="false" >
+          <type>
+            <criterion>interiorHeadRoom</criterion>
+            <characteristic></characteristic>
+            <filters hasFilters="true">
+              <filter type="characteristic" compare="" value="yes">heatedWheel</filter>
+              <filter type="attribute" compare="minimum" value="35">interiorHeadRoom</filter>
+            </filters>
+          </type>
+          <questionTitle><![CDATA[]]></questionTitle>
+          <questionBody><![CDATA[The customer wants a vehicle that has a heated steering wheel and at least 35 inches of headroom. Which has the most interior headroom? ]]></questionBody>
+          <imgSrc><![CDATA[]]></imgSrc>
+        </question>
+
+        <question type="attribute" required="false" answered="false" passed="false" >
+          <type>
+            <criterion>horsePower</criterion>
+            <characteristic></characteristic>
+            <filters hasFilters="true">
+              <filter type="characteristic" compare="" value="yes">remoteStart</filter>
+            </filters>
+          </type>
+          <questionTitle><![CDATA[]]></questionTitle>
+          <questionBody><![CDATA[The customer wants remote start on his vehicle and at least 250 horsepower. Which vehicle has the highest horsepower?]]></questionBody>
+          <imgSrc><![CDATA[]]></imgSrc>
+        </question>
+
+        <question type="characteristic" required="false" answered="false" passed="false" >
+          <type>
+            <criterion>heatedSeats</criterion>
+            <characteristic>yes</characteristic>
+            <filters hasFilters="true">
+              <filter type="attribute" compare="minimum" value="35">rearLegRoom</filter>
+            </filters>
+          </type>
+          <questionTitle><![CDATA[]]></questionTitle>
+          <questionBody><![CDATA[The customer wants a vehicle with at least 35 inches of rear-seat legroom  and has heated seats. Which vehicle has heated seats? ]]></questionBody>
+          <imgSrc><![CDATA[]]></imgSrc>
+        </question>
+
+        <question type="characteristic" required="false" answered="false" passed="false" >
+          <type>
+            <criterion>connectedNavigation</criterion>
+            <characteristic>yes</characteristic>
+            <filters hasFilters="true">
+              <filter type="attribute" compare="minimum" value="35">interiorHeadRoom</filter>
+            </filters>
+          </type>
+          <questionTitle><![CDATA[]]></questionTitle>
+          <questionBody><![CDATA[The customer needs a vehicle with Connected Navigation and at least 35 inches of headroom. Which vehicle offers Connected Navigation?]]></questionBody>
+          <imgSrc><![CDATA[]]></imgSrc>
+        </question>
+
+        <question type="characteristic" required="false" answered="false" passed="false" >
+          <type>
+            <criterion>heatedSeats</criterion>
+            <characteristic>yes</characteristic>
+            <filters hasFilters="true">
+              <filter type="characteristic" compare="" value="yes">sunroof</filter>
+            </filters>
+          </type>
+          <questionTitle><![CDATA[]]></questionTitle>
+          <questionBody><![CDATA[The customer wants a vehicle that has a moon roof or sunroof, and heated seats. Which vehicle offers heated seats?]]></questionBody>
+          <imgSrc><![CDATA[]]></imgSrc>
+        </question>
+
+        <question type="attribute" required="false" answered="false" passed="false" >
+          <type>
+            <criterion>cargoVol</criterion>
+            <characteristic></characteristic>
+            <filters hasFilters="true">
+              <filter type="characteristic" compare="" value="yes">heatedSeats</filter>
+              <filter type="attribute" compare="minimum" value="30">cargoVol</filter>
+            </filters>
+          </type>
+          <questionTitle><![CDATA[]]></questionTitle>
+          <questionBody><![CDATA[The customer wants a vehicle with heated seats and at least 30 cubic feet of cargo space. Which vehicle has the most cargo space?]]></questionBody>
+          <imgSrc><![CDATA[]]></imgSrc>
+        </question>
+
+        <question type="characteristic" required="false" answered="false" passed="false" >
+          <type>
+            <criterion>remoteStart</criterion>
+            <characteristic>yes</characteristic>
+            <filters hasFilters="true">
+              <filter type="attribute" compare="minimum" value="30">cargoVol</filter>
+            </filters>
+          </type>
+          <questionTitle><![CDATA[]]></questionTitle>
+          <questionBody><![CDATA[The customer wants a vehicle with remote start and at least 30 cubic feet of cargo space. Which vehicle has remote start?]]></questionBody>
+          <imgSrc><![CDATA[]]></imgSrc>
+        </question>
+      </questions>
+      <answers>
+        <answer correct="">
+          <modelImgSrc><![CDATA[view/media/img/game/2018-Buick-Regal-GS-(base).jpg]]></modelImgSrc>
+          <brand><![CDATA[2018 Buick]]></brand>
+          <base><![CDATA[Regal]]></base>
+          <model><![CDATA[Regal GS]]></model>
+          <attributes><![CDATA[(Base)]]></attributes>
+          <!-- ATTRIBUTES -->
+          <mpg><![CDATA[23]]></mpg>
+          <mpgCity><![CDATA[19]]></mpgCity>
+          <mpgHighway><![CDATA[27]]></mpgHighway>
+          <rearLegRoom><![CDATA[36.9]]></rearLegRoom>
+          <cargoVol><![CDATA[31.5]]></cargoVol>
+          <basePrice><![CDATA[39070]]></basePrice>
+          <horsePower><![CDATA[310]]></horsePower>
+          <interiorHeadRoom><![CDATA[38.8]]></interiorHeadRoom>
+          <!-- CHARACTERISTICS -->
+          <drivetrain><![CDATA[no]]></drivetrain>
+          <engineType><![CDATA[no]]></engineType>
+          <heatedSeats><![CDATA[yes]]></heatedSeats>
+          <sunroof><![CDATA[yes]]></sunroof>
+          <heatedWheel><![CDATA[yes]]></heatedWheel>
+          <remoteStart><![CDATA[yes]]></remoteStart>
+          <connectedNavigation><![CDATA[yes]]></connectedNavigation>
+          <dr4><![CDATA[yes]]></dr4>
+        </answer>
+
+        <answer correct="">
+          <modelImgSrc><![CDATA[view/media/img/game/2018-Buick-Regal-Sportback-(base).jpg]]></modelImgSrc>
+          <brand><![CDATA[2018 Buick]]></brand>
+          <base><![CDATA[Regal]]></base>
+          <model><![CDATA[Regal Sportback]]></model>
+          <attributes><![CDATA[(Base)]]></attributes>
+          <!-- ATTRIBUTES -->
+          <mpg><![CDATA[26]]></mpg>
+          <rearLegRoom><![CDATA[36.9]]></rearLegRoom>
+          <cargoVol><![CDATA[31.5]]></cargoVol>
+          <basePrice><![CDATA[24990]]></basePrice>
+          <horsePower><![CDATA[250]]></horsePower>
+          <interiorHeadRoom><![CDATA[38.8]]></interiorHeadRoom>
+          <!-- CHARACTERISTICS -->
+          <driveLine><![CDATA[yes]]></driveLine>
+          <engineType><![CDATA[yes]]></engineType>
+          <heatedSeats><![CDATA[no]]></heatedSeats>
+          <sunroof><![CDATA[no]]></sunroof>
+          <heatedWheel><![CDATA[no]]></heatedWheel>
+          <remoteStart><![CDATA[no]]></remoteStart>
+          <connectedNavigation><![CDATA[no]]></connectedNavigation>
+          <dr4><![CDATA[yes]]></dr4>
+        </answer>
+
+        <answer correct="">
+          <modelImgSrc><![CDATA[view/media/img/game/2018-Buick-Regal-Sportback-Essence.jpg]]></modelImgSrc>
+          <brand><![CDATA[2018 Buick]]></brand>
+          <base><![CDATA[Regal]]></base>
+          <model><![CDATA[Regal Sportback Essence]]></model>
+          <attributes><![CDATA[]]></attributes>
+          <!-- ATTRIBUTES -->
+          <mpg><![CDATA[26]]></mpg>
+          <rearLegRoom><![CDATA[36.9]]></rearLegRoom>
+          <cargoVol><![CDATA[31.5]]></cargoVol>
+          <basePrice><![CDATA[32695]]></basePrice>
+          <horsePower><![CDATA[250]]></horsePower>
+          <interiorHeadRoom><![CDATA[38.8]]></interiorHeadRoom>
+          <!-- CHARACTERISTICS -->
+          <driveLine><![CDATA[yes]]></driveLine>
+          <engineType><![CDATA[yes]]></engineType>
+          <heatedSeats><![CDATA[yes]]></heatedSeats>
+          <sunroof><![CDATA[yes]]></sunroof>
+          <heatedWheel><![CDATA[yes]]></heatedWheel>
+          <remoteStart><![CDATA[no]]></remoteStart>
+          <connectedNavigation><![CDATA[yes]]></connectedNavigation>
+          <dr4><![CDATA[yes]]></dr4>
+        </answer>
+
+        <answer correct="">
+          <modelImgSrc><![CDATA[view/media/img/game/2018-Buick-Regal-TourX-(base).jpg]]></modelImgSrc>
+          <brand><![CDATA[2018 Buick]]></brand>
+          <base><![CDATA[Regal]]></base>
+          <model><![CDATA[Regal TourX]]></model>
+          <attributes><![CDATA[(Base)]]></attributes>
+          <!-- ATTRIBUTES -->
+          <mpg><![CDATA[24]]></mpg>
+          <rearLegRoom><![CDATA[36.9]]></rearLegRoom>
+          <cargoVol><![CDATA[32.7]]></cargoVol>
+          <basePrice><![CDATA[29070]]></basePrice>
+          <horsePower><![CDATA[250]]></horsePower>
+          <interiorHeadRoom><![CDATA[38.8]]></interiorHeadRoom>
+          <!-- CHARACTERISTICS -->
+          <driveLine><![CDATA[no]]></driveLine>
+          <engineType><![CDATA[yes]]></engineType>
+          <heatedSeats><![CDATA[no]]></heatedSeats>
+          <sunroof><![CDATA[no]]></sunroof>
+          <heatedWheel><![CDATA[no]]></heatedWheel>
+          <remoteStart><![CDATA[no]]></remoteStart>
+          <connectedNavigation><![CDATA[no]]></connectedNavigation>
+          <dr4><![CDATA[yes]]></dr4>
+        </answer>
+
+        <answer correct="">
+          <modelImgSrc><![CDATA[view/media/img/game/2018-Buick-Regal-TourX-Essence-AWD.jpg]]></modelImgSrc>
+          <brand><![CDATA[2018 Buick]]></brand>
+          <base><![CDATA[Regal]]></base>
+          <model><![CDATA[Regal TourX Essence AWD]]></model>
+          <attributes><![CDATA[]]></attributes>
+          <!-- ATTRIBUTES -->
+          <mpg><![CDATA[24]]></mpg>
+          <rearLegRoom><![CDATA[36.9]]></rearLegRoom>
+          <cargoVol><![CDATA[32.7]]></cargoVol>
+          <basePrice><![CDATA[35995]]></basePrice>
+          <horsePower><![CDATA[250]]></horsePower>
+          <interiorHeadRoom><![CDATA[38.8]]></interiorHeadRoom>
+          <!-- CHARACTERISTICS -->
+          <driveLine><![CDATA[no]]></driveLine>
+          <engineType><![CDATA[yes]]></engineType>
+          <heatedSeats><![CDATA[yes]]></heatedSeats>
+          <sunroof><![CDATA[yes]]></sunroof>
+          <heatedWheel><![CDATA[yes]]></heatedWheel>
+          <remoteStart><![CDATA[yes]]></remoteStart>
+          <connectedNavigation><![CDATA[yes]]></connectedNavigation>
+          <dr4><![CDATA[yes]]></dr4>
+        </answer>
+
+        <answer correct="">
+          <modelImgSrc><![CDATA[view/media/img/game/2018-Buick-LaCrosse-(base).jpg]]></modelImgSrc>
+          <brand><![CDATA[2018 Buick]]></brand>
+          <base><![CDATA[LaCrosse]]></base>
+          <model><![CDATA[LaCrosse]]></model>
+          <attributes><![CDATA[(Base)]]></attributes>
+          <!-- ATTRIBUTES -->
+          <mpg><![CDATA[30]]></mpg>
+          <rearLegRoom><![CDATA[38.0]]></rearLegRoom>
+          <cargoVol><![CDATA[15.0]]></cargoVol>
+          <basePrice><![CDATA[29565]]></basePrice>
+          <horsePower><![CDATA[194]]></horsePower>
+          <interiorHeadRoom><![CDATA[38.4]]></interiorHeadRoom>
+          <!-- CHARACTERISTICS -->
+          <driveLine><![CDATA[yes]]></driveLine>
+          <engineType><![CDATA[yes]]></engineType>
+          <heatedSeats><![CDATA[no]]></heatedSeats>
+          <sunroof><![CDATA[no]]></sunroof>
+          <heatedWheel><![CDATA[no]]></heatedWheel>
+          <remoteStart><![CDATA[yes]]></remoteStart>
+          <connectedNavigation><![CDATA[no]]></connectedNavigation>
+          <dr4><![CDATA[yes]]></dr4>
+        </answer>
+
+        <answer correct="">
+          <modelImgSrc><![CDATA[view/media/img/game/2018-Buick-LaCrosse-Avenir.jpg]]></modelImgSrc>
+          <brand><![CDATA[2018 Buick]]></brand>
+          <base><![CDATA[LaCrosse]]></base>
+          <model><![CDATA[LaCrosse Avenir]]></model>
+          <attributes><![CDATA[]]></attributes>
+          <!-- ATTRIBUTES -->
+          <mpg><![CDATA[30]]></mpg>
+          <rearLegRoom><![CDATA[38.0]]></rearLegRoom>
+          <cargoVol><![CDATA[15.0]]></cargoVol>
+          <basePrice><![CDATA[45795]]></basePrice>
+          <horsePower><![CDATA[310]]></horsePower>
+          <interiorHeadRoom><![CDATA[38.4]]></interiorHeadRoom>
+          <!-- CHARACTERISTICS -->
+          <driveLine><![CDATA[yes]]></driveLine>
+          <engineType><![CDATA[no]]></engineType>
+          <heatedSeats><![CDATA[yes]]></heatedSeats>
+          <sunroof><![CDATA[yes]]></sunroof>
+          <heatedWheel><![CDATA[yes]]></heatedWheel>
+          <remoteStart><![CDATA[yes]]></remoteStart>
+          <connectedNavigation><![CDATA[yes]]></connectedNavigation>
+          <dr4><![CDATA[yes]]></dr4>
+        </answer>
+
+        <answer correct="">
+          <modelImgSrc><![CDATA[view/media/img/game/2018-Buick-LaCrosse-Essence-V-6.jpg]]></modelImgSrc>
+          <brand><![CDATA[2018 Buick]]></brand>
+          <base><![CDATA[LaCrosse]]></base>
+          <model><![CDATA[LaCrosse Essence V-6]]></model>
+          <attributes><![CDATA[]]></attributes>
+          <!-- ATTRIBUTES -->
+          <mpg><![CDATA[26]]></mpg>
+          <rearLegRoom><![CDATA[38.0]]></rearLegRoom>
+          <cargoVol><![CDATA[15.0]]></cargoVol>
+          <basePrice><![CDATA[37295]]></basePrice>
+          <horsePower><![CDATA[310]]></horsePower>
+          <interiorHeadRoom><![CDATA[38.4]]></interiorHeadRoom>
+          <!-- CHARACTERISTICS -->
+          <driveLine><![CDATA[yes]]></driveLine>
+          <engineType><![CDATA[no]]></engineType>
+          <heatedSeats><![CDATA[yes]]></heatedSeats>
+          <sunroof><![CDATA[yes]]></sunroof>
+          <heatedWheel><![CDATA[no]]></heatedWheel>
+          <remoteStart><![CDATA[yes]]></remoteStart>
+          <connectedNavigation><![CDATA[yes]]></connectedNavigation>
+          <dr4><![CDATA[yes]]></dr4>
+        </answer>
+
+        <answer correct="">
+          <modelImgSrc><![CDATA[view/media/img/game/2018-Buick-Cascada-(base).jpg]]></modelImgSrc>
+          <brand><![CDATA[2018 Buick]]></brand>
+          <base><![CDATA[Cascada]]></base>
+          <model><![CDATA[Cascada]]></model>
+          <attributes><![CDATA[(Base)]]></attributes>
+          <!-- ATTRIBUTES -->
+          <mpg><![CDATA[24]]></mpg>
+          <rearLegRoom><![CDATA[32.8]]></rearLegRoom>
+          <cargoVol><![CDATA[13.4]]></cargoVol>
+          <basePrice><![CDATA[33990]]></basePrice>
+          <horsePower><![CDATA[200]]></horsePower>
+          <interiorHeadRoom><![CDATA[37.8]]></interiorHeadRoom>
+          <!-- CHARACTERISTICS -->
+          <driveLine><![CDATA[yes]]></driveLine>
+          <engineType><![CDATA[yes]]></engineType>
+          <heatedSeats><![CDATA[yes]]></heatedSeats>
+          <sunroof><![CDATA[no]]></sunroof>
+          <heatedWheel><![CDATA[yes]]></heatedWheel>
+          <remoteStart><![CDATA[yes]]></remoteStart>
+          <connectedNavigation><![CDATA[yes]]></connectedNavigation>
+          <dr4><![CDATA[no]]></dr4>
+        </answer>
+
+        <answer correct="">
+          <modelImgSrc><![CDATA[view/media/img/game/2018-Buick-Cascada-SportTouring.jpg]]></modelImgSrc>
+          <brand><![CDATA[2018 Buick]]></brand>
+          <base><![CDATA[Cascada]]></base>
+          <model><![CDATA[Cascada Sport Touring]]></model>
+          <attributes><![CDATA[]]></attributes>
+          <!-- ATTRIBUTES -->
+          <mpg><![CDATA[24]]></mpg>
+          <rearLegRoom><![CDATA[32.8]]></rearLegRoom>
+          <cargoVol><![CDATA[13.4]]></cargoVol>
+          <basePrice><![CDATA[37995]]></basePrice>
+          <horsePower><![CDATA[200]]></horsePower>
+          <interiorHeadRoom><![CDATA[37.8]]></interiorHeadRoom>
+          <!-- CHARACTERISTICS -->
+          <driveLine><![CDATA[yes]]></driveLine>
+          <engineType><![CDATA[yes]]></engineType>
+          <heatedSeats><![CDATA[yes]]></heatedSeats>
+          <sunroof><![CDATA[no]]></sunroof>
+          <heatedWheel><![CDATA[yes]]></heatedWheel>
+          <remoteStart><![CDATA[yes]]></remoteStart>
+          <connectedNavigation><![CDATA[yes]]></connectedNavigation>
+          <dr4><![CDATA[no]]></dr4>
+        </answer>
+
+        <answer correct="">
+          <modelImgSrc><![CDATA[view/media/img/game/2018-Buick-Encore-Preferred.jpg]]></modelImgSrc>
+          <brand><![CDATA[2018 Buick]]></brand>
+          <base><![CDATA[Encore]]></base>
+          <model><![CDATA[Encore Preferred]]></model>
+          <attributes><![CDATA[]]></attributes>
+          <!-- ATTRIBUTES -->
+          <mpg><![CDATA[28]]></mpg>
+          <rearLegRoom><![CDATA[35.7]]></rearLegRoom>
+          <cargoVol><![CDATA[18.8]]></cargoVol>
+          <basePrice><![CDATA[25395]]></basePrice>
+          <horsePower><![CDATA[138]]></horsePower>
+          <interiorHeadRoom><![CDATA[39.58]]></interiorHeadRoom>
+          <!-- CHARACTERISTICS -->
+          <driveLine><![CDATA[yes]]></driveLine>
+          <engineType><![CDATA[yes]]></engineType>
+          <heatedSeats><![CDATA[no]]></heatedSeats>
+          <sunroof><![CDATA[no]]></sunroof>
+          <heatedWheel><![CDATA[no]]></heatedWheel>
+          <remoteStart><![CDATA[yes]]></remoteStart>
+          <connectedNavigation><![CDATA[no]]></connectedNavigation>
+          <dr4><![CDATA[yes]]></dr4>
+        </answer>
+
+        <answer correct="">
+          <modelImgSrc><![CDATA[view/media/img/game/2018-Buick-Encore-SportTouring.jpg]]></modelImgSrc>
+          <brand><![CDATA[2018 Buick]]></brand>
+          <base><![CDATA[Encore]]></base>
+          <model><![CDATA[Encore Sport Touring]]></model>
+          <attributes><![CDATA[]]></attributes>
+          <!-- ATTRIBUTES -->
+          <mpg><![CDATA[28]]></mpg>
+          <rearLegRoom><![CDATA[35.7]]></rearLegRoom>
+          <cargoVol><![CDATA[18.8]]></cargoVol>
+          <basePrice><![CDATA[26595]]></basePrice>
+          <horsePower><![CDATA[138]]></horsePower>
+          <interiorHeadRoom><![CDATA[39.58]]></interiorHeadRoom>
+          <!-- CHARACTERISTICS -->
+          <driveLine><![CDATA[yes]]></driveLine>
+          <engineType><![CDATA[yes]]></engineType>
+          <heatedSeats><![CDATA[no]]></heatedSeats>
+          <sunroof><![CDATA[yes]]></sunroof>
+          <heatedWheel><![CDATA[no]]></heatedWheel>
+          <remoteStart><![CDATA[yes]]></remoteStart>
+          <connectedNavigation><![CDATA[yes]]></connectedNavigation>
+          <dr4><![CDATA[yes]]></dr4>
+        </answer>
+
+        <answer correct="">
+          <modelImgSrc><![CDATA[view/media/img/game/2018-Buick-Encore-Premium.jpg]]></modelImgSrc>
+          <brand><![CDATA[2018 Buick]]></brand>
+          <base><![CDATA[Encore]]></base>
+          <model><![CDATA[Encore Premium]]></model>
+          <attributes><![CDATA[]]></attributes>
+          <!-- ATTRIBUTES -->
+          <mpg><![CDATA[28]]></mpg>
+          <rearLegRoom><![CDATA[35.7]]></rearLegRoom>
+          <cargoVol><![CDATA[18.8]]></cargoVol>
+          <basePrice><![CDATA[31595]]></basePrice>
+          <horsePower><![CDATA[138]]></horsePower>
+          <interiorHeadRoom><![CDATA[39.58]]></interiorHeadRoom>
+          <!-- CHARACTERISTICS -->
+          <driveLine><![CDATA[yes]]></driveLine>
+          <engineType><![CDATA[yes]]></engineType>
+          <heatedSeats><![CDATA[yes]]></heatedSeats>
+          <sunroof><![CDATA[yes]]></sunroof>
+          <heatedWheel><![CDATA[yes]]></heatedWheel>
+          <remoteStart><![CDATA[yes]]></remoteStart>
+          <connectedNavigation><![CDATA[yes]]></connectedNavigation>
+          <dr4><![CDATA[yes]]></dr4>
+        </answer>
+
+        <answer correct="">
+          <modelImgSrc><![CDATA[view/media/img/game/2018-Buick-Envision-(base).jpg]]></modelImgSrc>
+          <brand><![CDATA[2018 Buick]]></brand>
+          <base><![CDATA[Envision]]></base>
+          <model><![CDATA[Envision]]></model>
+          <attributes><![CDATA[(Base)]]></attributes>
+          <!-- ATTRIBUTES -->
+          <mpg><![CDATA[25]]></mpg>
+          <rearLegRoom><![CDATA[37.5]]></rearLegRoom>
+          <cargoVol><![CDATA[26.9]]></cargoVol>
+          <basePrice><![CDATA[34990]]></basePrice>
+          <horsePower><![CDATA[197]]></horsePower>
+          <interiorHeadRoom><![CDATA[40]]></interiorHeadRoom>
+          <!-- CHARACTERISTICS -->
+          <driveLine><![CDATA[yes]]></driveLine>
+          <engineType><![CDATA[yes]]></engineType>
+          <heatedSeats><![CDATA[yes]]></heatedSeats>
+          <sunroof><![CDATA[no]]></sunroof>
+          <heatedWheel><![CDATA[no]]></heatedWheel>
+          <remoteStart><![CDATA[yes]]></remoteStart>
+          <connectedNavigation><![CDATA[no]]></connectedNavigation>
+          <dr4><![CDATA[yes]]></dr4>
+        </answer>
+
+        <answer correct="">
+          <modelImgSrc><![CDATA[view/media/img/game/2018-Buick-Envision-Essence.jpg]]></modelImgSrc>
+          <brand><![CDATA[2018 Buick]]></brand>
+          <base><![CDATA[Envision]]></base>
+          <model><![CDATA[Envision Essence]]></model>
+          <attributes><![CDATA[]]></attributes>
+          <!-- ATTRIBUTES -->
+          <mpg><![CDATA[25]]></mpg>
+          <rearLegRoom><![CDATA[37.5]]></rearLegRoom>
+          <cargoVol><![CDATA[26.9]]></cargoVol>
+          <basePrice><![CDATA[38715]]></basePrice>
+          <horsePower><![CDATA[197]]></horsePower>
+          <interiorHeadRoom><![CDATA[40]]></interiorHeadRoom>
+          <!-- CHARACTERISTICS -->
+          <driveLine><![CDATA[yes]]></driveLine>
+          <engineType><![CDATA[yes]]></engineType>
+          <heatedSeats><![CDATA[yes]]></heatedSeats>
+          <sunroof><![CDATA[yes]]></sunroof>
+          <heatedWheel><![CDATA[yes]]></heatedWheel>
+          <remoteStart><![CDATA[yes]]></remoteStart>
+          <connectedNavigation><![CDATA[yes]]></connectedNavigation>
+          <dr4><![CDATA[yes]]></dr4>
+        </answer>
+      </answers>
+      <feedback>
+        <correct><![CDATA[That's correct!]]></correct>
+        <incorrect><![CDATA[Sorry. That's Incorrect.]]></incorrect>
+      </feedback>
+    </questionAnswer>
+  </assessment>
+
+  <assessment id="2" type="" completed="false" title="Match Features to Wants Game - GMC">
+    <introText>
+      <![CDATA[<p>With all the questions, play with these assumptions:</p>
+      <ul>
+        <li>Vehicles are the most recent model year.</li>
+        <li>Unless otherwise stated, vehicles have automatic transmissions.</li>
+        <li>There are no dealer or factory incentives.</li>
+        <li>All the seats are up when considering trunk/cargo space.</li>
+        <li>The customers want the best option (most legroom, most headroom, highest horsepower, highest gas mileage, lowest base price).</li>
+        <li>There are no add-on packages included.</li>
+      </ul>
+      <p>Try to get all 10 right! Once you’ve selected a vehicle, hit <span class="bolded">SUBMIT</span>. Then review the feedback.  Take all the time you need to look at the questions and answer options before clicking <span class="bolded">GO</span>.</p>
+      <p>See how well you did. Then, come back again and do better. The questions and answers will change!</p>
+      <p>Click <span class='bolded'>NEXT</span> to begin.</p>]]>
+    </introText>
+
+    <questionAnswer required="false" answered="false" passed="false">
+      <questions>
+        <question type="characteristic" required="false" answered="false" passed="false">
+          <type>
+            <criterion>heatedSeats</criterion>
+            <characteristic>yes</characteristic>
+            <filters hasFilters="true">
+              <filter type="attribute" compare="minimum" value="29">cargoVol</filter>
+            </filters>
+          </type>
+          <questionTitle><![CDATA[]]></questionTitle>
+          <questionBody><![CDATA[The customer wants a GMC that offers at least 29 inches of cargo space but also offers heated seats. Which GMC offers heated seats?]]></questionBody>
+          <imgSrc><![CDATA[]]></imgSrc>
+        </question>
+
+        <question type="characteristic" required="false" answered="false" passed="false">
+          <type>
+            <criterion>sunroof</criterion>
+            <characteristic>yes</characteristic>
+            <filters hasFilters="true">
+              <filter type="attribute" compare="minimum" value="41">interiorHeadRoom</filter>
+            </filters>
+          </type>
+          <questionTitle><![CDATA[]]></questionTitle>
+          <questionBody><![CDATA[The customer wants a GMC with at least 41 inches of headroom but also offers a moonroof or sunroof. Which GMC offers a moonroof or sunroof?  ]]></questionBody>
+          <imgSrc><![CDATA[]]></imgSrc>
+        </question>
+
+        <question type="attribute" required="false" answered="false" passed="false">
+          <type>
+            <criterion>horsePower</criterion>
+            <characteristic>yes</characteristic>
+            <filters hasFilters="true">
+              <filter type="characteristic" compare="" value="Sierra">base</filter>
+            </filters>
+          </type>
+          <questionTitle><![CDATA[]]></questionTitle>
+          <questionBody><![CDATA[The customer loves a Sierra with a lot of horsepower. Which Sierra offers the most horsepower? ]]></questionBody>
+          <imgSrc><![CDATA[]]></imgSrc>
+        </question>
+
+        <question type="characteristic" required="false" answered="false" passed="false">
+          <type>
+            <criterion>connectedNavigation</criterion>
+            <characteristic>yes</characteristic>
+            <filters hasFilters="false">
+              <filter type="characteristic" compare="" value="yes">sunroof</filter>
+            </filters>
+          </type>
+          <questionTitle><![CDATA[]]></questionTitle>
+          <questionBody><![CDATA[The customer wants a GMC Canyon that offers Connected Navigation. Which Canyon offers Connected Navigation?]]></questionBody>
+          <imgSrc><![CDATA[]]></imgSrc>
+        </question>
+
+        <question type="attribute" required="false" answered="false" passed="false">
+          <type>
+            <criterion>basePrice</criterion>
+            <characteristic></characteristic>
+            <filters hasFilters="true">
+              <filter type="characteristic" compare="" value="yes">sunroof</filter>
+            </filters>
+          </type>
+          <questionTitle><![CDATA[]]></questionTitle>
+          <questionBody><![CDATA[The customer wants a GMC with the lowest base price and offers a moonroof or sunroof. Which GMC has the lowest base price?]]></questionBody>
+          <imgSrc><![CDATA[]]></imgSrc>
+        </question>
+
+        <question type="characteristic" required="false" answered="false" passed="false">
+          <type>
+            <criterion>sunroof</criterion>
+            <characteristic>yes</characteristic>
+            <filters hasFilters="true">
+              <filter type="characteristic" compare="" value="yes">heatedSeats</filter>
+            </filters>
+          </type>
+          <questionTitle><![CDATA[]]></questionTitle>
+          <questionBody><![CDATA[The customer wants a GMC that has a moonroof or sunroof and heated seats. Which vehicle offers a moonroof or sunroof?]]></questionBody>
+          <imgSrc><![CDATA[]]></imgSrc>
+        </question>
+
+        <question type="attribute" required="false" answered="false" passed="false">
+          <type>
+            <criterion>mpg</criterion>
+            <characteristic></characteristic>
+            <filters hasFilters="true">
+              <filter type="characteristic" compare="" value="yes">thirdRowSeating</filter>
+            </filters>
+          </type>
+          <questionTitle><![CDATA[]]></questionTitle>
+          <questionBody><![CDATA[The customer needs a GMC that offers third-row seating and gets good gas mileage. Which GMC gets the best mpg?]]></questionBody>
+          <imgSrc><![CDATA[]]></imgSrc>
+        </question>
+
+        <question type="characteristic" required="false" answered="false" passed="false">
+          <type>
+            <criterion>remoteStart</criterion>
+            <characteristic>yes</characteristic>
+            <filters hasFilters="true">
+              <filter type="characteristic" compare="" value="yes">v6</filter>
+            </filters>
+          </type>
+          <questionTitle><![CDATA[]]></questionTitle>
+          <questionBody><![CDATA[The customer wants a GMC with a V-6 or larger engine that offers remote start. Which vehicle offers remote start? ]]></questionBody>
+          <imgSrc><![CDATA[]]></imgSrc>
+        </question>
+
+        <question type="attribute" required="false" answered="false" passed="false">
+          <type>
+            <criterion>mpg</criterion>
+            <characteristic></characteristic>
+            <filters hasFilters="true">
+              <filter type="characteristic" compare="" value="yes">sunroof</filter>
+              <filter type="attribute" compare="minimum" value="21">mpg</filter>
+            </filters>
+          </type>
+          <questionTitle><![CDATA[]]></questionTitle>
+          <questionBody><![CDATA[The customer needs a GMC that has a moon roof or sunroof, and gets at least 21 mpg combined. Which vehicle gets the best mpg?]]></questionBody>
+          <imgSrc><![CDATA[]]></imgSrc>
+        </question>
+
+        <question type="attribute" required="false" answered="false" passed="false">
+          <type>
+            <criterion>interiorHeadRoom</criterion>
+            <characteristic></characteristic>
+            <filters hasFilters="true">
+              <filter type="characteristic" compare="" value="yes">heatedWheel</filter>
+              <filter type="attribute" compare="minimum" value="40">interiorHeadRoom</filter>
+            </filters>
+          </type>
+          <questionTitle><![CDATA[]]></questionTitle>
+          <questionBody><![CDATA[The customer wants a vehicle that has a heated steering wheel and at least 40 inches of headroom. Which has the most interior headroom? ]]></questionBody>
+          <imgSrc><![CDATA[]]></imgSrc>
+        </question>
+
+        <question type="attribute" required="false" answered="false" passed="false">
+          <type>
+            <criterion>horsePower</criterion>
+            <characteristic></characteristic>
+            <filters hasFilters="true">
+              <filter type="characteristic" compare="" value="yes">remoteStart</filter>
+              <filter type="attribute" compare="minimum" value="30">horsePower</filter>
+            </filters>
+          </type>
+          <questionTitle><![CDATA[]]></questionTitle>
+          <questionBody><![CDATA[The customer wants remote start on his vehicle and at least 250 horsepower. Which vehicle has the highest horsepower? ]]></questionBody>
+          <imgSrc><![CDATA[]]></imgSrc>
+        </question>
+
+        <question type="characteristic" required="false" answered="false" passed="false">
+          <type>
+            <criterion>heatedSeats</criterion>
+            <characteristic>yes</characteristic>
+            <filters hasFilters="true">
+              <filter type="attribute" compare="minimum" value="35">rearLegRoom</filter>
+            </filters>
+          </type>
+          <questionTitle><![CDATA[]]></questionTitle>
+          <questionBody><![CDATA[The customer wants a vehicle with at least 35 inches of rear-seat legroom and that has heated seats. Which vehicle has heated seats?]]></questionBody>
+          <imgSrc><![CDATA[]]></imgSrc>
+        </question>
+
+        <question type="characteristic" required="false" answered="false" passed="false">
+          <type>
+            <criterion>thirdRowSeating</criterion>
+            <characteristic>yes</characteristic>
+            <filters hasFilters="true">
+              <filter type="attribute" compare="minimum" value="250">horsePower</filter>
+            </filters>
+          </type>
+          <questionTitle><![CDATA[]]></questionTitle>
+          <questionBody><![CDATA[The customer needs a vehicle that has at least 250 horsepower and has available third-row seating. Which vehicle has third-row seating? ]]></questionBody>
+          <imgSrc><![CDATA[]]></imgSrc>
+        </question>
+
+        <question type="characteristic" required="false" answered="false" passed="false">
+          <type>
+            <criterion>connectedNavigation</criterion>
+            <characteristic>yes</characteristic>
+            <filters hasFilters="true">
+              <filter type="attribute" compare="minimum" value="35">interiorHeadRoom</filter>
+            </filters>
+          </type>
+          <questionTitle><![CDATA[]]></questionTitle>
+          <questionBody><![CDATA[The customer needs a vehicle with Connected Navigation that has at least 35 inches of headroom. Which vehicle offers Connected Navigation?]]></questionBody>
+          <imgSrc><![CDATA[]]></imgSrc>
+        </question>
+
+        <question type="characteristic" required="false" answered="false" passed="false">
+          <type>
+            <criterion>thirdRowSeating</criterion>
+            <characteristic>yes</characteristic>
+            <filters hasFilters="true">
+              <filter type="attribute" compare="minimum" value="30">rearLegRoom</filter>
+            </filters>
+          </type>
+          <questionTitle><![CDATA[]]></questionTitle>
+          <questionBody><![CDATA[The customer needs third-row seating and at least 30 inches of rear-seat legroom. Which vehicle offers third-row seating?]]></questionBody>
+          <imgSrc><![CDATA[]]></imgSrc>
+        </question>
+
+        <question type="characteristic" required="false" answered="false" passed="false">
+          <type>
+            <criterion>connectedNavigation</criterion>
+            <characteristic>yes</characteristic>
+            <filters hasFilters="true">
+              <filter type="attribute" compare="minimum" value="25">mpg</filter>
+            </filters>
+          </type>
+          <questionTitle><![CDATA[]]></questionTitle>
+          <questionBody><![CDATA[The customer needs a vehicle that gets at least 25 mpg and offers Connected Navigation. Which vehicle offers Connected Navigation?]]></questionBody>
+          <imgSrc><![CDATA[]]></imgSrc>
+        </question>
+
+        <question type="attribute" required="false" answered="false" passed="false">
+          <type>
+            <criterion>cargoVol</criterion>
+            <characteristic>yes</characteristic>
+            <filters hasFilters="true">
+              <filter type="attribute" compare="minimum" value="30">cargoVol</filter>
+              <filter type="characteristic" compare="" value="yes">heatedSeats</filter>
+            </filters>
+          </type>
+          <questionTitle><![CDATA[]]></questionTitle>
+          <questionBody><![CDATA[The customer wants a vehicle with heated seats and at least 30 cubic feet of cargo space. Which vehicle has the most cargo space?]]></questionBody>
+          <imgSrc><![CDATA[]]></imgSrc>
+        </question>
+
+        <question type="characteristic" required="false" answered="false" passed="false">
+          <type>
+            <criterion>remoteStart</criterion>
+            <characteristic>yes</characteristic>
+            <filters hasFilters="true">
+              <filter type="attribute" compare="minimum" value="30">cargoVol</filter>
+            </filters>
+          </type>
+          <questionTitle><![CDATA[]]></questionTitle>
+          <questionBody><![CDATA[The customer wants a vehicle with remote start and that has at least 30 cubic feet of cargo space. Which vehicle has remote start?]]></questionBody>
+          <imgSrc><![CDATA[]]></imgSrc>
+        </question>
+
+      </questions>
+      <answers>
+        <answer correct="">
+          <modelImgSrc><![CDATA[view/media/img/game/2018-GMC-Acadia-(base).jpg]]></modelImgSrc>
+          <brand><![CDATA[2018 GMC]]></brand>
+          <base><![CDATA[Acadia]]></base>
+          <model><![CDATA[Acadia]]></model>
+          <attributes><![CDATA[(Base)]]></attributes>
+          <!-- ATTRIBUTES -->
+          <mpg><![CDATA[23]]></mpg>
+          <rearLegRoom><![CDATA[39.7]]></rearLegRoom>
+          <cargoVol><![CDATA[41.7]]></cargoVol>
+          <basePrice><![CDATA[29,000]]></basePrice>
+          <horsePower><![CDATA[193]]></horsePower>
+          <interiorHeadRoom><![CDATA[40.3]]></interiorHeadRoom>
+          <!-- CHARACTERISTICS -->
+          <driveLine><![CDATA[yes]]></driveLine>
+          <heatedSeats><![CDATA[no]]></heatedSeats>
+          <sunroof><![CDATA[no]]></sunroof>
+          <heatedWheel><![CDATA[no]]></heatedWheel>
+          <i4><![CDATA[yes]]></i4>
+          <v6><![CDATA[no]]></v6>
+          <remoteStart><![CDATA[no]]></remoteStart>
+          <connectedNavigation><![CDATA[no]]></connectedNavigation>
+          <thirdRowSeating><![CDATA[yes]]></thirdRowSeating>
+          <dr4><![CDATA[yes]]></dr4>
+        </answer>
+
+        <answer correct="">
+          <modelImgSrc><![CDATA[view/media/img/game/2018-GMC-Acadia-All-Terrain.jpg]]></modelImgSrc>
+          <brand><![CDATA[2018 GMC]]></brand>
+          <base><![CDATA[Acadia]]></base>
+          <model><![CDATA[Acadia All Terrain]]></model>
+          <attributes><![CDATA[]]></attributes>
+          <!-- ATTRIBUTES -->
+          <mpg><![CDATA[20]]></mpg>
+          <rearLegRoom><![CDATA[39.7]]></rearLegRoom>
+          <cargoVol><![CDATA[41.7]]></cargoVol>
+          <basePrice><![CDATA[44,895]]></basePrice>
+          <horsePower><![CDATA[310]]></horsePower>
+          <interiorHeadRoom><![CDATA[40.3]]></interiorHeadRoom>
+          <!-- CHARACTERISTICS -->
+          <driveLine><![CDATA[no]]></driveLine>
+          <heatedSeats><![CDATA[yes]]></heatedSeats>
+          <sunroof><![CDATA[yes]]></sunroof>
+          <heatedWheel><![CDATA[no]]></heatedWheel>
+          <i4><![CDATA[no]]></i4>
+          <v6><![CDATA[yes]]></v6>
+          <remoteStart><![CDATA[yes]]></remoteStart>
+          <connectedNavigation><![CDATA[yes]]></connectedNavigation>
+          <thirdRowSeating><![CDATA[yes]]></thirdRowSeating>
+          <dr4><![CDATA[yes]]></dr4>
+        </answer>
+
+        <answer correct="">
+          <modelImgSrc><![CDATA[view/media/img/game/2018-GMC-Acadia-Denali.jpg]]></modelImgSrc>
+          <brand><![CDATA[2018 GMC]]></brand>
+          <base><![CDATA[Acadia]]></base>
+          <model><![CDATA[Acadia Denali]]></model>
+          <attributes><![CDATA[]]></attributes>
+          <!-- ATTRIBUTES -->
+          <mpg><![CDATA[21]]></mpg>
+          <rearLegRoom><![CDATA[39.7]]></rearLegRoom>
+          <cargoVol><![CDATA[41.7]]></cargoVol>
+          <basePrice><![CDATA[46,095]]></basePrice>
+          <horsePower><![CDATA[310]]></horsePower>
+          <interiorHeadRoom><![CDATA[40.3]]></interiorHeadRoom>
+          <!-- CHARACTERISTICS -->
+          <driveLine><![CDATA[yes]]></driveLine>
+          <heatedSeats><![CDATA[yes]]></heatedSeats>
+          <sunroof><![CDATA[yes]]></sunroof>
+          <heatedWheel><![CDATA[yes]]></heatedWheel>
+          <i4><![CDATA[no]]></i4>
+          <v6><![CDATA[yes]]></v6>
+          <remoteStart><![CDATA[yes]]></remoteStart>
+          <connectedNavigation><![CDATA[yes]]></connectedNavigation>
+          <thirdRowSeating><![CDATA[yes]]></thirdRowSeating>
+          <dr4><![CDATA[yes]]></dr4>
+        </answer>
+
+        <answer correct="">
+          <modelImgSrc><![CDATA[view/media/img/game/2018-GMC-Terrain-BASE.jpg]]></modelImgSrc>
+          <brand><![CDATA[2018 GMC]]></brand>
+          <base><![CDATA[Terrain]]></base>
+          <model><![CDATA[Terrain]]></model>
+          <attributes><![CDATA[(Base)]]></attributes>
+          <!-- ATTRIBUTES -->
+          <mpg><![CDATA[28]]></mpg>
+          <rearLegRoom><![CDATA[39.7]]></rearLegRoom>
+          <cargoVol><![CDATA[29.6]]></cargoVol>
+          <basePrice><![CDATA[24,995]]></basePrice>
+          <horsePower><![CDATA[170]]></horsePower>
+          <interiorHeadRoom><![CDATA[40.0]]></interiorHeadRoom>
+          <!-- CHARACTERISTICS -->
+          <driveLine><![CDATA[yes]]></driveLine>
+          <heatedSeats><![CDATA[no]]></heatedSeats>
+          <sunroof><![CDATA[no]]></sunroof>
+          <heatedWheel><![CDATA[no]]></heatedWheel>
+          <i4><![CDATA[yes]]></i4>
+          <v6><![CDATA[no]]></v6>
+          <remoteStart><![CDATA[no]]></remoteStart>
+          <connectedNavigation><![CDATA[no]]></connectedNavigation>
+          <thirdRowSeating><![CDATA[no]]></thirdRowSeating>
+          <dr4><![CDATA[yes]]></dr4>
+        </answer>
+
+        <answer correct="">
+          <modelImgSrc><![CDATA[view/media/img/game/2018-GMC-Terrain-XLTDiesel.jpg]]></modelImgSrc>
+          <brand><![CDATA[2018 GMC]]></brand>
+          <base><![CDATA[Terrain]]></base>
+          <model><![CDATA[Terrain SLT Diesel]]></model>
+          <attributes><![CDATA[]]></attributes>
+          <!-- ATTRIBUTES -->
+          <mpg><![CDATA[33]]></mpg>
+          <rearLegRoom><![CDATA[39.7]]></rearLegRoom>
+          <cargoVol><![CDATA[29.6]]></cargoVol>
+          <basePrice><![CDATA[35,195]]></basePrice>
+          <horsePower><![CDATA[137]]></horsePower>
+          <interiorHeadRoom><![CDATA[40.0]]></interiorHeadRoom>
+          <!-- CHARACTERISTICS -->
+          <driveLine><![CDATA[yes]]></driveLine>
+          <heatedSeats><![CDATA[yes]]></heatedSeats>
+          <sunroof><![CDATA[yes]]></sunroof>
+          <heatedWheel><![CDATA[yes]]></heatedWheel>
+          <i4><![CDATA[yes]]></i4>
+          <v6><![CDATA[no]]></v6>
+          <remoteStart><![CDATA[yes]]></remoteStart>
+          <connectedNavigation><![CDATA[yes]]></connectedNavigation>
+          <thirdRowSeating><![CDATA[no]]></thirdRowSeating>
+          <dr4><![CDATA[yes]]></dr4>
+        </answer>
+
+        <answer correct="">
+          <modelImgSrc><![CDATA[view/media/img/game/2018-GMC-YukonSLE2WD.jpg]]></modelImgSrc>
+          <brand><![CDATA[2018 GMC]]></brand>
+          <base><![CDATA[Yukon]]></base>
+          <model><![CDATA[Yukon SLE 2WD]]></model>
+          <attributes><![CDATA[]]></attributes>
+          <!-- ATTRIBUTES -->
+          <mpg><![CDATA[19]]></mpg>
+          <rearLegRoom><![CDATA[45.3]]></rearLegRoom>
+          <cargoVol><![CDATA[51.7]]></cargoVol>
+          <basePrice><![CDATA[49,100]]></basePrice>
+          <horsePower><![CDATA[355]]></horsePower>
+          <interiorHeadRoom><![CDATA[42.8]]></interiorHeadRoom>
+          <!-- CHARACTERISTICS -->
+          <driveLine><![CDATA[yes]]></driveLine>
+          <heatedSeats><![CDATA[no]]></heatedSeats>
+          <sunroof><![CDATA[no]]></sunroof>
+          <heatedWheel><![CDATA[no]]></heatedWheel>
+          <i4><![CDATA[no]]></i4>
+          <v6><![CDATA[yes]]></v6>
+          <remoteStart><![CDATA[yes]]></remoteStart>
+          <connectedNavigation><![CDATA[no]]></connectedNavigation>
+          <thirdRowSeating><![CDATA[yes]]></thirdRowSeating>
+          <dr4><![CDATA[yes]]></dr4>
+        </answer>
+
+        <answer correct="">
+          <modelImgSrc><![CDATA[view/media/img/game/2018-GMC-Yukon-XL-Denali.jpg]]></modelImgSrc>
+          <brand><![CDATA[2018 GMC]]></brand>
+          <base><![CDATA[Yukon]]></base>
+          <model><![CDATA[Yukon XL Denali]]></model>
+          <attributes><![CDATA[]]></attributes>
+          <!-- ATTRIBUTES -->
+          <mpg><![CDATA[18]]></mpg>
+          <rearLegRoom><![CDATA[45.3]]></rearLegRoom>
+          <cargoVol><![CDATA[76.1]]></cargoVol>
+          <basePrice><![CDATA[70,195]]></basePrice>
+          <horsePower><![CDATA[420]]></horsePower>
+          <interiorHeadRoom><![CDATA[42.8]]></interiorHeadRoom>
+          <!-- CHARACTERISTICS -->
+          <driveLine><![CDATA[yes]]></driveLine>
+          <heatedSeats><![CDATA[yes]]></heatedSeats>
+          <sunroof><![CDATA[yes]]></sunroof>
+          <heatedWheel><![CDATA[yes]]></heatedWheel>
+          <i4><![CDATA[no]]></i4>
+          <v6><![CDATA[yes]]></v6>
+          <remoteStart><![CDATA[yes]]></remoteStart>
+          <connectedNavigation><![CDATA[yes]]></connectedNavigation>
+          <thirdRowSeating><![CDATA[yes]]></thirdRowSeating>
+          <dr4><![CDATA[yes]]></dr4>
+        </answer>
+
+        <answer correct="">
+          <modelImgSrc><![CDATA[view/media/img/game/2018-GMC-Canyon-(base-EXcab).jpg]]></modelImgSrc>
+          <brand><![CDATA[2018 GMC]]></brand>
+          <base><![CDATA[Yukon]]></base>
+          <model><![CDATA[Canyon]]></model>
+          <attributes><![CDATA[(Base, Extended Cab)]]></attributes>
+          <!-- ATTRIBUTES -->
+          <mpg><![CDATA[26]]></mpg>
+          <rearLegRoom><![CDATA[28.6]]></rearLegRoom>
+          <cargoVol><![CDATA[0]]></cargoVol>
+          <basePrice><![CDATA[21,100]]></basePrice>
+          <horsePower><![CDATA[200]]></horsePower>
+          <interiorHeadRoom><![CDATA[41.4]]></interiorHeadRoom>
+          <!-- CHARACTERISTICS -->
+          <driveLine><![CDATA[yes]]></driveLine>
+          <heatedSeats><![CDATA[no]]></heatedSeats>
+          <sunroof><![CDATA[no]]></sunroof>
+          <heatedWheel><![CDATA[no]]></heatedWheel>
+          <i4><![CDATA[yes]]></i4>
+          <v6><![CDATA[no]]></v6>
+          <remoteStart><![CDATA[no]]></remoteStart>
+          <connectedNavigation><![CDATA[no]]></connectedNavigation>
+          <thirdRowSeating><![CDATA[no]]></thirdRowSeating>
+          <dr4><![CDATA[yes]]></dr4>
+        </answer>
+
+        <answer correct="">
+          <modelImgSrc><![CDATA[view/media/img/game/2018-GMC-CanyonDenaliCrewCab.jpg]]></modelImgSrc>
+          <brand><![CDATA[2018 GMC]]></brand>
+          <base><![CDATA[Canyon]]></base>
+          <model><![CDATA[Canyon Denali Crew Cab]]></model>
+          <attributes><![CDATA[]]></attributes>
+          <!-- ATTRIBUTES -->
+          <mpg><![CDATA[21]]></mpg>
+          <rearLegRoom><![CDATA[35.8]]></rearLegRoom>
+          <cargoVol><![CDATA[0]]></cargoVol>
+          <basePrice><![CDATA[40,595]]></basePrice>
+          <horsePower><![CDATA[308]]></horsePower>
+          <interiorHeadRoom><![CDATA[41.4]]></interiorHeadRoom>
+          <!-- CHARACTERISTICS -->
+          <driveLine><![CDATA[yes]]></driveLine>
+          <heatedSeats><![CDATA[no]]></heatedSeats>
+          <sunroof><![CDATA[no]]></sunroof>
+          <heatedWheel><![CDATA[no]]></heatedWheel>
+          <i4><![CDATA[no]]></i4>
+          <v6><![CDATA[yes]]></v6>
+          <remoteStart><![CDATA[yes]]></remoteStart>
+          <connectedNavigation><![CDATA[yes]]></connectedNavigation>
+          <thirdRowSeating><![CDATA[no]]></thirdRowSeating>
+          <dr4><![CDATA[yes]]></dr4>
+        </answer>
+
+        <answer correct="">
+          <modelImgSrc><![CDATA[view/media/img/game/2018-GMC-Sierra-1500-SLEcrewcab.jpg]]></modelImgSrc>
+          <brand><![CDATA[2018 GMC]]></brand>
+          <base><![CDATA[Sierra]]></base>
+          <model><![CDATA[Sierra 1500 SLE]]></model>
+          <attributes><![CDATA[(Crew Cab)]]></attributes>
+          <!-- ATTRIBUTES -->
+          <mpg><![CDATA[19]]></mpg>
+          <rearLegRoom><![CDATA[40.9]]></rearLegRoom>
+          <cargoVol><![CDATA[0]]></cargoVol>
+          <basePrice><![CDATA[42,095]]></basePrice>
+          <horsePower><![CDATA[355]]></horsePower>
+          <interiorHeadRoom><![CDATA[42.8]]></interiorHeadRoom>
+          <!-- CHARACTERISTICS -->
+          <driveLine><![CDATA[yes]]></driveLine>
+          <heatedSeats><![CDATA[yes]]></heatedSeats>
+          <sunroof><![CDATA[no]]></sunroof>
+          <heatedWheel><![CDATA[no]]></heatedWheel>
+          <i4><![CDATA[no]]></i4>
+          <v6><![CDATA[no]]></v6>
+          <remoteStart><![CDATA[yes]]></remoteStart>
+          <connectedNavigation><![CDATA[yes]]></connectedNavigation>
+          <thirdRowSeating><![CDATA[no]]></thirdRowSeating>
+          <dr4><![CDATA[yes]]></dr4>
+        </answer>
+
+        <answer correct="">
+          <modelImgSrc><![CDATA[view/media/img/game/2018-GMC-Sierra-1500-DENALI-CrewCab.jpg]]></modelImgSrc>
+          <brand><![CDATA[2018 GMC]]></brand>
+          <base><![CDATA[Sierra]]></base>
+          <model><![CDATA[Sierra 1500 Denali]]></model>
+          <attributes><![CDATA[(Crew Cab)]]></attributes>
+          <!-- ATTRIBUTES -->
+          <mpg><![CDATA[17]]></mpg>
+          <rearLegRoom><![CDATA[40.9]]></rearLegRoom>
+          <cargoVol><![CDATA[0]]></cargoVol>
+          <basePrice><![CDATA[54,295]]></basePrice>
+          <horsePower><![CDATA[420]]></horsePower>
+          <interiorHeadRoom><![CDATA[42.8]]></interiorHeadRoom>
+          <!-- CHARACTERISTICS -->
+          <driveLine><![CDATA[yes]]></driveLine>
+          <heatedSeats><![CDATA[yes]]></heatedSeats>
+          <sunroof><![CDATA[yes]]></sunroof>
+          <heatedWheel><![CDATA[yes]]></heatedWheel>
+          <i4><![CDATA[no]]></i4>
+          <v6><![CDATA[no]]></v6>
+          <remoteStart><![CDATA[yes]]></remoteStart>
+          <connectedNavigation><![CDATA[yes]]></connectedNavigation>
+          <thirdRowSeating><![CDATA[no]]></thirdRowSeating>
+          <dr4><![CDATA[yes]]></dr4>
+        </answer>
+
+        <answer correct="">
+          <modelImgSrc><![CDATA[view/media/img/game/2018-GMC-Sierra-1500-base-CrewCab.jpg]]></modelImgSrc>
+          <brand><![CDATA[2018 GMC]]></brand>
+          <base><![CDATA[Sierra]]></base>
+          <model><![CDATA[Sierra 1500]]></model>
+          <attributes><![CDATA[(Base)]]></attributes>
+          <!-- ATTRIBUTES -->
+          <mpg><![CDATA[21]]></mpg>
+          <rearLegRoom><![CDATA[34.6]]></rearLegRoom>
+          <cargoVol><![CDATA[0]]></cargoVol>
+          <basePrice><![CDATA[34,395]]></basePrice>
+          <horsePower><![CDATA[285]]></horsePower>
+          <interiorHeadRoom><![CDATA[42.8]]></interiorHeadRoom>
+          <!-- CHARACTERISTICS -->
+          <driveLine><![CDATA[yes]]></driveLine>
+          <heatedSeats><![CDATA[no]]></heatedSeats>
+          <sunroof><![CDATA[no]]></sunroof>
+          <heatedWheel><![CDATA[no]]></heatedWheel>
+          <i4><![CDATA[yes]]></i4>
+          <v6><![CDATA[yes]]></v6>
+          <remoteStart><![CDATA[no]]></remoteStart>
+          <connectedNavigation><![CDATA[no]]></connectedNavigation>
+          <thirdRowSeating><![CDATA[no]]></thirdRowSeating>
+          <dr4><![CDATA[yes]]></dr4>
+        </answer>
+      </answers>
+      <feedback>
+        <correct><![CDATA[That's correct!]]></correct>
+        <incorrect><![CDATA[Sorry. That's Incorrect.]]></incorrect>
+      </feedback>
+    </questionAnswer>
+  </assessment>
+
+  <!-- -->
+  <assessment id="3" type="" completed="false" title="Match Features to Wants Game - Chevrolet">
+    <introText>
+      <![CDATA[<p>With all the questions, play with these assumptions:</p>
+      <ul>
+        <li>Vehicles are the most recent model year.</li>
+        <li>Unless otherwise stated, vehicles have automatic transmissions.</li>
+        <li>There are no dealer or factory incentives.</li>
+        <li>All the seats are up when considering trunk/cargo space.</li>
+        <li>The customers want the best option (most legroom, most headroom, highest horsepower, highest gas mileage, lowest base price).</li>
+        <li>There are no add-on packages included.</li>
+      </ul>
+      <p>Try to get all 10 right! Once you’ve selected a vehicle, hit <span class="bolded">SUBMIT</span>. Then review the feedback.  Take all the time you need to look at the questions and answer options before clicking <span class="bolded">GO</span>.</p>
+      <p>See how well you did. Then, come back again and do better. The questions and answers will change!</p>
+      <p>Click <span class='bolded'>NEXT</span> to begin.</p>]]>
+    </introText>
+
+    <questionAnswer required="false" answered="false" passed="false">
+      <questions>
+        <question type="attribute" required="false" answered="false" passed="false">
+          <type>
+            <criterion>horsePower</criterion>
+            <characteristic></characteristic>
+            <filters hasFilters="true">
+              <filter type="attribute" compare="minimum" value="250">horsePower</filter>
+              <filter type="characteristic" compare="" value="yes">dr2</filter>
+            </filters>
+          </type>
+          <questionTitle><![CDATA[]]></questionTitle>
+          <questionBody><![CDATA[The customer wants a vehicle that has two doors and has at least 250 horsepower. Which vehicle has the highest horsepower? ]]></questionBody>
+          <imgSrc><![CDATA[]]></imgSrc>
+        </question>
+
+        <question type="attribute" required="false" answered="false" passed="false">
+          <type>
+            <criterion>basePrice</criterion>
+            <characteristic></characteristic>
+            <filters hasFilters="true">
+              <filter type="attribute" compare="maximum" value="25000">basePrice</filter>
+              <filter type="characteristic" compare="" value="yes">dr4</filter>
+            </filters>
+          </type>
+          <questionTitle><![CDATA[]]></questionTitle>
+          <questionBody><![CDATA[The customer wants a four-door vehicle that has a base price of no higher than $25,000. Which vehicle has the lowest base price?]]></questionBody>
+          <imgSrc><![CDATA[]]></imgSrc>
+        </question>
+
+        <question type="characteristic" required="false" answered="false" passed="false">
+          <type>
+            <criterion>remoteStart</criterion>
+            <characteristic>yes</characteristic>
+            <filters hasFilters="true">
+              <filter type="attribute" compare="maximum" value="30000">basePrice</filter>
+            </filters>
+          </type>
+          <questionTitle><![CDATA[]]></questionTitle>
+          <questionBody><![CDATA[The customer wants a vehicle under $30,000 that has remote start. Which vehicle offers remote start? ]]></questionBody>
+          <imgSrc><![CDATA[]]></imgSrc>
+        </question>
+
+        <question type="characteristic" required="false" answered="false" passed="false">
+          <type>
+            <criterion>sunroof</criterion>
+            <characteristic>yes</characteristic>
+            <filters hasFilters="true">
+              <filter type="attribute" compare="maximum" value="30000">basePrice</filter>
+            </filters>
+          </type>
+          <questionTitle><![CDATA[]]></questionTitle>
+          <questionBody><![CDATA[The customer wants a vehicle with a base price of no more than $30,000 and offers a moonroof or sunroof. Which vehicle offers a moonroof or sunroof?]]></questionBody>
+          <imgSrc><![CDATA[]]></imgSrc>
+        </question>
+
+        <question type="attribute" required="false" answered="false" passed="false">
+          <type>
+            <criterion>horsePower</criterion>
+            <characteristic></characteristic>
+            <filters hasFilters="true">
+              <filter type="characteristic" compare="" value="Camaro">base</filter>
+            </filters>
+          </type>
+          <questionTitle><![CDATA[]]></questionTitle>
+          <questionBody><![CDATA[The customer loves Camaros with a lot of horsepower. Which Camaro offers the most horsepower?]]></questionBody>
+          <imgSrc><![CDATA[]]></imgSrc>
+        </question>
+
+        <question type="attribute" required="false" answered="false" passed="false">
+          <type>
+            <criterion>mpg</criterion>
+            <characteristic></characteristic>
+            <filters hasFilters="true">
+              <filter type="characteristic" compare="" value="Equinox">base</filter>
+            </filters>
+          </type>
+          <questionTitle><![CDATA[]]></questionTitle>
+          <questionBody><![CDATA[The customer likes the Chevrolet Equinox but needs it to get good gas mileage. Which Equinox gets the best gas mileage (mpg)?]]></questionBody>
+          <imgSrc><![CDATA[]]></imgSrc>
+        </question>
+
+        <question type="characteristic" required="false" answered="false" passed="false">
+          <type>
+            <criterion>connectedNavigation</criterion>
+            <characteristic>yes</characteristic>
+            <filters hasFilters="true">
+              <filter type="characteristic" compare="" value="Cruze">base</filter>
+            </filters>
+          </type>
+          <questionTitle><![CDATA[]]></questionTitle>
+          <questionBody><![CDATA[The customer likes the look of the Chevrolet Cruze but also wants Connected Navigation. Which Cruze offers Connected Navigation?]]></questionBody>
+          <imgSrc><![CDATA[]]></imgSrc>
+        </question>
+
+        <question type="characteristic" required="false" answered="false" passed="false">
+          <type>
+            <criterion>thirdRowSeating</criterion>
+            <characteristic>yes</characteristic>
+            <filters hasFilters="true">
+              <filter type="attribute" compare="minimum" value="30">rearLegRoom</filter>
+            </filters>
+          </type>
+          <questionTitle><![CDATA[]]></questionTitle>
+          <questionBody><![CDATA[The customer needs third-row seating and at least 30 inches of rear-seat legroom. Which vehicle offers third-row seating?]]></questionBody>
+          <imgSrc><![CDATA[]]></imgSrc>
+        </question>
+
+        <question type="characteristic" required="false" answered="false" passed="false">
+          <type>
+            <criterion>connectedNavigation</criterion>
+            <characteristic>yes</characteristic>
+            <filters hasFilters="true">
+              <filter type="attribute" compare="minimum" value="25">mpg</filter>
+            </filters>
+          </type>
+          <questionTitle><![CDATA[]]></questionTitle>
+          <questionBody><![CDATA[The customer needs a vehicle that gets at least 25 mpg and offers Connected Navigation. Which vehicle offers Connected Navigation?]]></questionBody>
+          <imgSrc><![CDATA[]]></imgSrc>
+        </question>
+
+        <question type="attribute" required="false" answered="false" passed="false">
+          <type>
+            <criterion>cargoVol</criterion>
+            <characteristic></characteristic>
+            <filters hasFilters="true">
+              <filter type="attribute" compare="minimum" value="30">cargoVol</filter>
+              <filter type="characteristic" compare="" value="yes">heatedSeats</filter>
+            </filters>
+          </type>
+          <questionTitle><![CDATA[]]></questionTitle>
+          <questionBody><![CDATA[The customer wants a vehicle with heated seats and at least 30 cubic feet of cargo space. Which vehicle has the most cargo space?]]></questionBody>
+          <imgSrc><![CDATA[]]></imgSrc>
+        </question>
+
+        <question type="characteristic" required="false" answered="false" passed="false">
+          <type>
+            <criterion>remoteStart</criterion>
+            <characteristic>yes</characteristic>
+            <filters hasFilters="true">
+              <filter type="attribute" compare="minimum" value="30">cargoVol</filter>
+            </filters>
+          </type>
+          <questionTitle><![CDATA[]]></questionTitle>
+          <questionBody><![CDATA[The customer wants a vehicle with remote start and that has at least 30 cubic feet of cargo space. Which vehicle has remote start?]]></questionBody>
+          <imgSrc><![CDATA[]]></imgSrc>
+        </question>
+
+        <question type="characteristic" required="false" answered="false" passed="false">
+          <type>
+            <criterion>heatedSeats</criterion>
+            <characteristic>yes</characteristic>
+            <filters hasFilters="true">
+              <filter type="attribute" compare="minimum" value="220">horsePower</filter>
+            </filters>
+          </type>
+          <questionTitle><![CDATA[]]></questionTitle>
+          <questionBody><![CDATA[The customer wants a vehicle with at least 220 horsepower that offers heated seats. Which vehicle offers heated seats?]]></questionBody>
+          <imgSrc><![CDATA[]]></imgSrc>
+        </question>
+
+        <question type="attribute" required="false" answered="false" passed="false">
+          <type>
+            <criterion>mpg</criterion>
+            <characteristic></characteristic>
+            <filters hasFilters="true">
+              <filter type="characteristic" compare="" value="yes">sunroof</filter>
+            </filters>
+          </type>
+          <questionTitle><![CDATA[]]></questionTitle>
+          <questionBody><![CDATA[The customer needs a vehicle that has a moon roof or sunroof and gets at least 25 mpg combined. Which vehicle gets the best mpg?]]></questionBody>
+          <imgSrc><![CDATA[]]></imgSrc>
+        </question>
+
+        <question type="characteristic" required="false" answered="false" passed="false">
+          <type>
+            <criterion>interiorHeadRoom</criterion>
+            <characteristic>yes</characteristic>
+            <filters hasFilters="true">
+              <filter type="characteristic" compare="" value="yes">heatedWheel</filter>
+              <filter type="attribute" compare="minimum" value="35">interiorHeadRoom</filter>
+            </filters>
+          </type>
+          <questionTitle><![CDATA[]]></questionTitle>
+          <questionBody><![CDATA[The customer wants a vehicle that has a heated steering wheel and at least 35 inches of headroom. Which has the most interior headroom?]]></questionBody>
+          <imgSrc><![CDATA[]]></imgSrc>
+        </question>
+
+        <question type="attribute" required="false" answered="false" passed="false">
+          <type>
+            <criterion>horsePower</criterion>
+            <characteristic></characteristic>
+            <filters hasFilters="true">
+              <filter type="characteristic" compare="" value="yes">remoteStart</filter>
+              <filter type="attribute" compare="minimum" value="250">horsePower</filter>
+            </filters>
+          </type>
+          <questionTitle><![CDATA[]]></questionTitle>
+          <questionBody><![CDATA[The customer wants remote start on his vehicle and at least 250 horsepower. Which vehicle has the highest horsepower?]]></questionBody>
+          <imgSrc><![CDATA[]]></imgSrc>
+        </question>
+
+        <question type="characteristic" required="false" answered="false" passed="false">
+          <type>
+            <criterion>heatedSeats</criterion>
+            <characteristic>yes</characteristic>
+            <filters hasFilters="true">
+              <filter type="attribute" compare="minimum" value="35">rearLegRoom</filter>
+            </filters>
+          </type>
+          <questionTitle><![CDATA[]]></questionTitle>
+          <questionBody><![CDATA[The customer wants a vehicle with at least 35 inches of rear-seat legroom and that has heated seats. Which vehicle has heated seats?]]></questionBody>
+          <imgSrc><![CDATA[]]></imgSrc>
+        </question>
+
+        <question type="characteristic" required="false" answered="false" passed="false">
+          <type>
+            <criterion>thirdRowSeating</criterion>
+            <characteristic>yes</characteristic>
+            <filters hasFilters="true">
+              <filter type="attribute" compare="minimum" value="250">horsePower</filter>
+            </filters>
+          </type>
+          <questionTitle><![CDATA[]]></questionTitle>
+          <questionBody><![CDATA[The customer needs a vehicle that has at least 250 horsepower and has available third-row seating. Which vehicle has third-row seating? ]]></questionBody>
+          <imgSrc><![CDATA[]]></imgSrc>
+        </question>
+
+        <question type="characteristic" required="false" answered="false" passed="false">
+          <type>
+            <criterion>connectedNavigation</criterion>
+            <characteristic>yes</characteristic>
+            <filters hasFilters="true">
+              <filter type="attribute" compare="minimum" value="35">interiorHeadRoom</filter>
+            </filters>
+          </type>
+          <questionTitle><![CDATA[]]></questionTitle>
+          <questionBody><![CDATA[The customer needs a vehicle with Connected Navigation that has at least 35 inches of headroom. Which vehicle offers Connected Navigation?]]></questionBody>
+          <imgSrc><![CDATA[]]></imgSrc>
+        </question>
+
+        <question type="characteristic" required="false" answered="false" passed="false">
+          <type>
+            <criterion>remoteStart</criterion>
+            <characteristic>yes</characteristic>
+            <filters hasFilters="true">
+              <filter type="characteristic" compare="" value="yes">v6</filter>
+            </filters>
+          </type>
+          <questionTitle><![CDATA[]]></questionTitle>
+          <questionBody><![CDATA[The customer wants a vehicle with a V-6 engine that offers remote start. Which vehicle offers remote start?]]></questionBody>
+          <imgSrc><![CDATA[]]></imgSrc>
+        </question>
+
+        <question type="characteristic" required="false" answered="false" passed="false">
+          <type>
+            <criterion>heatedSeats</criterion>
+            <characteristic>yes</characteristic>
+            <filters hasFilters="true">
+              <filter type="characteristic" compare="" value="yes">sunroof</filter>
+            </filters>
+          </type>
+          <questionTitle><![CDATA[]]></questionTitle>
+          <questionBody><![CDATA[The customer wants a vehicle that has a moonroof or sunroof and heated seats. Which vehicle offers a heated seats?]]></questionBody>
+          <imgSrc><![CDATA[]]></imgSrc>
+        </question>
+
+      </questions>
+      <answers>
+        <answer correct="">
+          <modelImgSrc><![CDATA[view/media/img/game/2018-Chevrolet-Spark-(base-CVT).jpg]]></modelImgSrc>
+          <brand><![CDATA[2018 Chevrolet]]></brand>
+          <base><![CDATA[Spark]]></base>
+          <model><![CDATA[Spark]]></model>
+          <attributes><![CDATA[(Base, CVT)]]></attributes>
+          <!-- ATTRIBUTES -->
+          <mpg><![CDATA[33]]></mpg>
+          <rearLegRoom><![CDATA[33]]></rearLegRoom>
+          <cargoVol><![CDATA[11.1]]></cargoVol>
+          <basePrice><![CDATA[13050]]></basePrice>
+          <horsePower><![CDATA[98]]></horsePower>
+          <interiorHeadRoom><![CDATA[39]]></interiorHeadRoom>
+          <!-- CHARACTERISTICS -->
+          <driveLine><![CDATA[yes]]></driveLine>
+          <i4><![CDATA[yes]]></i4>
+          <v6><![CDATA[no]]></v6>
+          <heatedSeats><![CDATA[no]]></heatedSeats>
+          <sunroof><![CDATA[no]]></sunroof>
+          <heatedWheel><![CDATA[no]]></heatedWheel>
+          <remoteStart><![CDATA[no]]></remoteStart>
+          <connectedNavigation><![CDATA[no]]></connectedNavigation>
+          <thirdRowSeating><![CDATA[no]]></thirdRowSeating>
+          <dr4><![CDATA[yes]]></dr4>
+          <dr2><![CDATA[no]]></dr2>
+        </answer>
+
+        <answer correct="">
+          <modelImgSrc><![CDATA[view/media/img/game/2018-Chevrolet-Spark-ACTIV.jpg]]></modelImgSrc>
+          <brand><![CDATA[2018 Chevrolet]]></brand>
+          <base><![CDATA[Spark]]></base>
+          <model><![CDATA[Spark ACTIV]]></model>
+          <attributes><![CDATA[(CVT)]]></attributes>
+          <!-- ATTRIBUTES -->
+          <mpg><![CDATA[33]]></mpg>
+          <rearLegRoom><![CDATA[33]]></rearLegRoom>
+          <cargoVol><![CDATA[11.1]]></cargoVol>
+          <basePrice><![CDATA[18045]]></basePrice>
+          <horsePower><![CDATA[98]]></horsePower>
+          <interiorHeadRoom><![CDATA[39]]></interiorHeadRoom>
+          <!-- CHARACTERISTICS -->
+          <driveLine><![CDATA[yes]]></driveLine>
+          <heatedSeats><![CDATA[yes]]></heatedSeats>
+          <sunroof><![CDATA[no]]></sunroof>
+          <heatedWheel><![CDATA[no]]></heatedWheel>
+          <i4><![CDATA[yes]]></i4>
+          <v6><![CDATA[no]]></v6>
+          <remoteStart><![CDATA[no]]></remoteStart>
+          <connectedNavigation><![CDATA[no]]></connectedNavigation>
+          <thirdRowSeating><![CDATA[no]]></thirdRowSeating>
+          <dr4><![CDATA[yes]]></dr4>
+          <dr2><![CDATA[no]]></dr2>
+        </answer>
+
+        <answer correct="">
+          <modelImgSrc><![CDATA[view/media/img/game/2018-Chevrolet-Sonic-Sedan-(base-automatic).jpg]]></modelImgSrc>
+          <brand><![CDATA[2018 Chevrolet]]></brand>
+          <base><![CDATA[Sonic]]></base>
+          <model><![CDATA[Sonic Sedan]]></model>
+          <attributes><![CDATA[(Base, Automatic)]]></attributes>
+          <!-- ATTRIBUTES -->
+          <mpg><![CDATA[31]]></mpg>
+          <rearLegRoom><![CDATA[34.6]]></rearLegRoom>
+          <cargoVol><![CDATA[14.9]]></cargoVol>
+          <basePrice><![CDATA[15295]]></basePrice>
+          <horsePower><![CDATA[138]]></horsePower>
+          <interiorHeadRoom><![CDATA[38.7]]></interiorHeadRoom>
+          <!-- CHARACTERISTICS -->
+          <driveLine><![CDATA[yes]]></driveLine>
+          <heatedSeats><![CDATA[no]]></heatedSeats>
+          <sunroof><![CDATA[no]]></sunroof>
+          <heatedWheel><![CDATA[no]]></heatedWheel>
+          <i4><![CDATA[yes]]></i4>
+          <v6><![CDATA[no]]></v6>
+          <remoteStart><![CDATA[no]]></remoteStart>
+          <connectedNavigation><![CDATA[no]]></connectedNavigation>
+          <thirdRowSeating><![CDATA[no]]></thirdRowSeating>
+          <dr4><![CDATA[yes]]></dr4>
+          <dr2><![CDATA[no]]></dr2>
+        </answer>
+
+        <answer correct="">
+          <modelImgSrc><![CDATA[view/media/img/game/2018-Chevrolet-Sonic-Sedan-LS.jpg]]></modelImgSrc>
+          <brand><![CDATA[2018 Chevrolet]]></brand>
+          <base><![CDATA[Sonic]]></base>
+          <model><![CDATA[Sonic Sedan]]></model>
+          <attributes><![CDATA[(LS)]]></attributes>
+          <!-- ATTRIBUTES -->
+          <mpg><![CDATA[31]]></mpg>
+          <rearLegRoom><![CDATA[34.6]]></rearLegRoom>
+          <cargoVol><![CDATA[14.9]]></cargoVol>
+          <basePrice><![CDATA[15295]]></basePrice>
+          <horsePower><![CDATA[138]]></horsePower>
+          <interiorHeadRoom><![CDATA[38.7]]></interiorHeadRoom>
+          <!-- CHARACTERISTICS -->
+          <driveLine><![CDATA[yes]]></driveLine>
+          <heatedSeats><![CDATA[no]]></heatedSeats>
+          <sunroof><![CDATA[no]]></sunroof>
+          <heatedWheel><![CDATA[no]]></heatedWheel>
+          <i4><![CDATA[yes]]></i4>
+          <v6><![CDATA[no]]></v6>
+          <remoteStart><![CDATA[no]]></remoteStart>
+          <connectedNavigation><![CDATA[no]]></connectedNavigation>
+          <thirdRowSeating><![CDATA[no]]></thirdRowSeating>
+          <dr4><![CDATA[yes]]></dr4>
+          <dr2><![CDATA[no]]></dr2>
+        </answer>
+
+        <answer correct="">
+          <modelImgSrc><![CDATA[view/media/img/game/2018-Chevrolet-Sonic-Hatchback-Premier.jpg]]></modelImgSrc>
+          <brand><![CDATA[2018 Chevrolet]]></brand>
+          <base><![CDATA[Sonic]]></base>
+          <model><![CDATA[Sonic Hatchback Premier]]></model>
+          <attributes><![CDATA[(Automatic)]]></attributes>
+          <!-- ATTRIBUTES -->
+          <mpg><![CDATA[31]]></mpg>
+          <rearLegRoom><![CDATA[34.6]]></rearLegRoom>
+          <cargoVol><![CDATA[47]]></cargoVol>
+          <basePrice><![CDATA[20695]]></basePrice>
+          <horsePower><![CDATA[138]]></horsePower>
+          <interiorHeadRoom><![CDATA[38.7]]></interiorHeadRoom>
+          <!-- CHARACTERISTICS -->
+          <driveLine><![CDATA[yes]]></driveLine>
+          <heatedSeats><![CDATA[yes]]></heatedSeats>
+          <sunroof><![CDATA[yes]]></sunroof>
+          <heatedWheel><![CDATA[yes]]></heatedWheel>
+          <i4><![CDATA[yes]]></i4>
+          <v6><![CDATA[no]]></v6>
+          <remoteStart><![CDATA[yes]]></remoteStart>
+          <connectedNavigation><![CDATA[no]]></connectedNavigation>
+          <thirdRowSeating><![CDATA[no]]></thirdRowSeating>
+          <dr4><![CDATA[yes]]></dr4>
+          <dr2><![CDATA[no]]></dr2>
+        </answer>
+
+        <answer correct="">
+          <modelImgSrc><![CDATA[view/media/img/game/2018-Chevrolet-Cruze-L-Sedan-(base-auto).jpg]]></modelImgSrc>
+          <brand><![CDATA[2018 Chevrolet]]></brand>
+          <base><![CDATA[Cruze]]></base>
+          <model><![CDATA[Cruze L Sedan]]></model>
+          <attributes><![CDATA[(Base, Automatic)]]></attributes>
+          <!-- ATTRIBUTES -->
+          <mpg><![CDATA[36.1]]></mpg>
+          <rearLegRoom><![CDATA[36.1]]></rearLegRoom>
+          <cargoVol><![CDATA[13.9]]></cargoVol>
+          <basePrice><![CDATA[16975]]></basePrice>
+          <horsePower><![CDATA[138]]></horsePower>
+          <interiorHeadRoom><![CDATA[38.9]]></interiorHeadRoom>
+          <!-- CHARACTERISTICS -->
+          <driveLine><![CDATA[yes]]></driveLine>
+          <heatedSeats><![CDATA[no]]></heatedSeats>
+          <sunroof><![CDATA[no]]></sunroof>
+          <heatedWheel><![CDATA[no]]></heatedWheel>
+          <i4><![CDATA[yes]]></i4>
+          <v6><![CDATA[no]]></v6>
+          <remoteStart><![CDATA[no]]></remoteStart>
+          <connectedNavigation><![CDATA[no]]></connectedNavigation>
+          <thirdRowSeating><![CDATA[no]]></thirdRowSeating>
+          <dr4><![CDATA[yes]]></dr4>
+          <dr2><![CDATA[no]]></dr2>
+        </answer>
+
+        <answer correct="">
+          <modelImgSrc><![CDATA[view/media/img/game/2018-Chevrolet-Cruze-LT-Sedan-(diesel-auto).jpg]]></modelImgSrc>
+          <brand><![CDATA[2018 Chevrolet]]></brand>
+          <base><![CDATA[Cruze]]></base>
+          <model><![CDATA[Cruze LT Sedan]]></model>
+          <attributes><![CDATA[(Diesal, Manual)]]></attributes>
+          <!-- ATTRIBUTES -->
+          <mpg><![CDATA[41]]></mpg>
+          <rearLegRoom><![CDATA[36.1]]></rearLegRoom>
+          <cargoVol><![CDATA[13.9]]></cargoVol>
+          <basePrice><![CDATA[19295]]></basePrice>
+          <horsePower><![CDATA[138]]></horsePower>
+          <interiorHeadRoom><![CDATA[38.9]]></interiorHeadRoom>
+          <!-- CHARACTERISTICS -->
+          <driveLine><![CDATA[yes]]></driveLine>
+          <heatedSeats><![CDATA[yes]]></heatedSeats>
+          <sunroof><![CDATA[yes]]></sunroof>
+          <heatedWheel><![CDATA[no]]></heatedWheel>
+          <i4><![CDATA[yes]]></i4>
+          <v6><![CDATA[no]]></v6>
+          <remoteStart><![CDATA[yes]]></remoteStart>
+          <connectedNavigation><![CDATA[yes]]></connectedNavigation>
+          <thirdRowSeating><![CDATA[no]]></thirdRowSeating>
+          <dr4><![CDATA[yes]]></dr4>
+          <dr2><![CDATA[no]]></dr2>
+        </answer>
+
+        <answer correct="">
+          <modelImgSrc><![CDATA[view/media/img/game/2018-Chevrolet-Cruze-LT-Hatch-Diesel-auto.jpg]]></modelImgSrc>
+          <brand><![CDATA[2018 Chevrolet]]></brand>
+          <base><![CDATA[Cruze]]></base>
+          <model><![CDATA[Cruze Hatchback LT Redline]]></model>
+          <attributes><![CDATA[(Manual)]]></attributes>
+          <!-- ATTRIBUTES -->
+          <mpg><![CDATA[33]]></mpg>
+          <rearLegRoom><![CDATA[42]]></rearLegRoom>
+          <cargoVol><![CDATA[22.7]]></cargoVol>
+          <basePrice><![CDATA[20095]]></basePrice>
+          <horsePower><![CDATA[138]]></horsePower>
+          <interiorHeadRoom><![CDATA[38.9]]></interiorHeadRoom>
+          <!-- CHARACTERISTICS -->
+          <driveLine><![CDATA[yes]]></driveLine>
+          <heatedSeats><![CDATA[yes]]></heatedSeats>
+          <sunroof><![CDATA[yes]]></sunroof>
+          <heatedWheel><![CDATA[no]]></heatedWheel>
+          <i4><![CDATA[yes]]></i4>
+          <v6><![CDATA[no]]></v6>
+          <remoteStart><![CDATA[yes]]></remoteStart>
+          <connectedNavigation><![CDATA[yes]]></connectedNavigation>
+          <thirdRowSeating><![CDATA[no]]></thirdRowSeating>
+          <dr4><![CDATA[yes]]></dr4>
+          <dr2><![CDATA[no]]></dr2>
+        </answer>
+
+        <answer correct="">
+          <modelImgSrc><![CDATA[view/media/img/game/2018-Chevrolet-Malibu-(base-auto).jpg]]></modelImgSrc>
+          <brand><![CDATA[2018 Chevrolet]]></brand>
+          <base><![CDATA[Malibu]]></base>
+          <model><![CDATA[Malibu]]></model>
+          <attributes><![CDATA[(Base, Automatic)]]></attributes>
+          <!-- ATTRIBUTES -->
+          <mpg><![CDATA[31]]></mpg>
+          <rearLegRoom><![CDATA[38.1]]></rearLegRoom>
+          <cargoVol><![CDATA[15.8]]></cargoVol>
+          <basePrice><![CDATA[21680]]></basePrice>
+          <horsePower><![CDATA[163]]></horsePower>
+          <interiorHeadRoom><![CDATA[39.1]]></interiorHeadRoom>
+          <!-- CHARACTERISTICS -->
+          <driveLine><![CDATA[yes]]></driveLine>
+          <heatedSeats><![CDATA[no]]></heatedSeats>
+          <sunroof><![CDATA[no]]></sunroof>
+          <heatedWheel><![CDATA[no]]></heatedWheel>
+          <i4><![CDATA[yes]]></i4>
+          <v6><![CDATA[no]]></v6>
+          <remoteStart><![CDATA[no]]></remoteStart>
+          <connectedNavigation><![CDATA[no]]></connectedNavigation>
+          <thirdRowSeating><![CDATA[no]]></thirdRowSeating>
+          <dr4><![CDATA[yes]]></dr4>
+          <dr2><![CDATA[no]]></dr2>
+        </answer>
+
+        <answer correct="">
+          <modelImgSrc><![CDATA[view/media/img/game/2018-Chevrolet-Malibu-Premier.jpg]]></modelImgSrc>
+          <brand><![CDATA[2018 Chevrolet]]></brand>
+          <base><![CDATA[Malibu]]></base>
+          <model><![CDATA[Malibu Premier]]></model>
+          <attributes><![CDATA[]]></attributes>
+          <!-- ATTRIBUTES -->
+          <mpg><![CDATA[27]]></mpg>
+          <rearLegRoom><![CDATA[38.1]]></rearLegRoom>
+          <cargoVol><![CDATA[15.8]]></cargoVol>
+          <basePrice><![CDATA[31895]]></basePrice>
+          <horsePower><![CDATA[250]]></horsePower>
+          <interiorHeadRoom><![CDATA[39.1]]></interiorHeadRoom>
+          <!-- CHARACTERISTICS -->
+          <driveLine><![CDATA[yes]]></driveLine>
+          <heatedSeats><![CDATA[yes]]></heatedSeats>
+          <sunroof><![CDATA[yes]]></sunroof>
+          <heatedWheel><![CDATA[yes]]></heatedWheel>
+          <i4><![CDATA[yes]]></i4>
+          <v6><![CDATA[no]]></v6>
+          <remoteStart><![CDATA[yes]]></remoteStart>
+          <connectedNavigation><![CDATA[yes]]></connectedNavigation>
+          <thirdRowSeating><![CDATA[no]]></thirdRowSeating>
+          <dr4><![CDATA[yes]]></dr4>
+          <dr2><![CDATA[no]]></dr2>
+        </answer>
+
+        <answer correct="">
+          <modelImgSrc><![CDATA[view/media/img/game/2018-Chevrolet-Impala-(base-2.5L).jpg]]></modelImgSrc>
+          <brand><![CDATA[2018 Chevrolet]]></brand>
+          <base><![CDATA[Impala]]></base>
+          <model><![CDATA[Impala]]></model>
+          <attributes><![CDATA[(Base, 2.5L)]]></attributes>
+          <!-- ATTRIBUTES -->
+          <mpg><![CDATA[26]]></mpg>
+          <rearLegRoom><![CDATA[39.8]]></rearLegRoom>
+          <cargoVol><![CDATA[18.8]]></cargoVol>
+          <basePrice><![CDATA[27895]]></basePrice>
+          <horsePower><![CDATA[197]]></horsePower>
+          <interiorHeadRoom><![CDATA[39.9]]></interiorHeadRoom>
+          <!-- CHARACTERISTICS -->
+          <driveLine><![CDATA[yes]]></driveLine>
+          <heatedSeats><![CDATA[no]]></heatedSeats>
+          <sunroof><![CDATA[no]]></sunroof>
+          <heatedWheel><![CDATA[no]]></heatedWheel>
+          <i4><![CDATA[yes]]></i4>
+          <v6><![CDATA[no]]></v6>
+          <remoteStart><![CDATA[no]]></remoteStart>
+          <connectedNavigation><![CDATA[no]]></connectedNavigation>
+          <thirdRowSeating><![CDATA[no]]></thirdRowSeating>
+          <dr4><![CDATA[yes]]></dr4>
+          <dr2><![CDATA[no]]></dr2>
+        </answer>
+
+        <answer correct="">
+          <modelImgSrc><![CDATA[view/media/img/game/2018-Chevrolet-Impala-LT.jpg]]></modelImgSrc>
+          <brand><![CDATA[2018 Chevrolet]]></brand>
+          <base><![CDATA[Impala]]></base>
+          <model><![CDATA[Impala LT]]></model>
+          <attributes><![CDATA[]]></attributes>
+          <!-- ATTRIBUTES -->
+          <mpg><![CDATA[23]]></mpg>
+          <rearLegRoom><![CDATA[39.8]]></rearLegRoom>
+          <cargoVol><![CDATA[18.8]]></cargoVol>
+          <basePrice><![CDATA[31295]]></basePrice>
+          <horsePower><![CDATA[305]]></horsePower>
+          <interiorHeadRoom><![CDATA[39.9]]></interiorHeadRoom>
+          <!-- CHARACTERISTICS -->
+          <driveLine><![CDATA[yes]]></driveLine>
+          <heatedSeats><![CDATA[yes]]></heatedSeats>
+          <sunroof><![CDATA[yes]]></sunroof>
+          <heatedWheel><![CDATA[yes]]></heatedWheel>
+          <i4><![CDATA[no]]></i4>
+          <v6><![CDATA[yes]]></v6>
+          <remoteStart><![CDATA[yes]]></remoteStart>
+          <connectedNavigation><![CDATA[yes]]></connectedNavigation>
+          <thirdRowSeating><![CDATA[no]]></thirdRowSeating>
+          <dr4><![CDATA[yes]]></dr4>
+          <dr2><![CDATA[no]]></dr2>
+        </answer>
+
+        <answer correct="">
+          <modelImgSrc><![CDATA[view/media/img/game/2018-Chevrolet-Trax-(base).jpg]]></modelImgSrc>
+          <brand><![CDATA[2018 Chevrolet]]></brand>
+          <base><![CDATA[Trax]]></base>
+          <model><![CDATA[Trax]]></model>
+          <attributes><![CDATA[(Base)]]></attributes>
+          <!-- ATTRIBUTES -->
+          <mpg><![CDATA[29]]></mpg>
+          <rearLegRoom><![CDATA[35.7]]></rearLegRoom>
+          <cargoVol><![CDATA[18.7]]></cargoVol>
+          <basePrice><![CDATA[21000]]></basePrice>
+          <horsePower><![CDATA[138]]></horsePower>
+          <interiorHeadRoom><![CDATA[39.6]]></interiorHeadRoom>
+          <!-- CHARACTERISTICS -->
+          <driveLine><![CDATA[yes]]></driveLine>
+          <heatedSeats><![CDATA[no]]></heatedSeats>
+          <sunroof><![CDATA[no]]></sunroof>
+          <heatedWheel><![CDATA[no]]></heatedWheel>
+          <i4><![CDATA[yes]]></i4>
+          <v6><![CDATA[no]]></v6>
+          <remoteStart><![CDATA[no]]></remoteStart>
+          <connectedNavigation><![CDATA[no]]></connectedNavigation>
+          <thirdRowSeating><![CDATA[no]]></thirdRowSeating>
+          <dr4><![CDATA[yes]]></dr4>
+          <dr2><![CDATA[no]]></dr2>
+        </answer>
+
+        <answer correct="">
+          <modelImgSrc><![CDATA[view/media/img/game/2018-Chevrolet-Equinox-15L-FWD.jpg]]></modelImgSrc>
+          <brand><![CDATA[2018 Chevrolet]]></brand>
+          <base><![CDATA[Equinox]]></base>
+          <model><![CDATA[Equinox]]></model>
+          <attributes><![CDATA[(1.5L FWD)]]></attributes>
+          <!-- ATTRIBUTES -->
+          <mpg><![CDATA[29]]></mpg>
+          <rearLegRoom><![CDATA[39.7]]></rearLegRoom>
+          <cargoVol><![CDATA[29.9]]></cargoVol>
+          <basePrice><![CDATA[23580]]></basePrice>
+          <horsePower><![CDATA[170]]></horsePower>
+          <interiorHeadRoom><![CDATA[40]]></interiorHeadRoom>
+          <!-- CHARACTERISTICS -->
+          <driveLine><![CDATA[yes]]></driveLine>
+          <heatedSeats><![CDATA[no]]></heatedSeats>
+          <sunroof><![CDATA[no]]></sunroof>
+          <heatedWheel><![CDATA[no]]></heatedWheel>
+          <i4><![CDATA[yes]]></i4>
+          <v6><![CDATA[no]]></v6>
+          <remoteStart><![CDATA[no]]></remoteStart>
+          <connectedNavigation><![CDATA[no]]></connectedNavigation>
+          <thirdRowSeating><![CDATA[no]]></thirdRowSeating>
+          <dr4><![CDATA[yes]]></dr4>
+          <dr2><![CDATA[no]]></dr2>
+        </answer>
+
+        <answer correct="">
+          <modelImgSrc><![CDATA[view/media/img/game/2018-Chevrolet-Equinox-Premier-3LZ-Diesel.jpg]]></modelImgSrc>
+          <brand><![CDATA[2018 Chevrolet]]></brand>
+          <base><![CDATA[Equinox]]></base>
+          <model><![CDATA[Equinox Premier 3LZ Diesel]]></model>
+          <attributes><![CDATA[(FWD)]]></attributes>
+          <!-- ATTRIBUTES -->
+          <mpg><![CDATA[36]]></mpg>
+          <rearLegRoom><![CDATA[39.7]]></rearLegRoom>
+          <cargoVol><![CDATA[29.9]]></cargoVol>
+          <basePrice><![CDATA[33995]]></basePrice>
+          <horsePower><![CDATA[137]]></horsePower>
+          <interiorHeadRoom><![CDATA[40]]></interiorHeadRoom>
+          <!-- CHARACTERISTICS -->
+          <driveLine><![CDATA[yes]]></driveLine>
+          <heatedSeats><![CDATA[yes]]></heatedSeats>
+          <sunroof><![CDATA[yes]]></sunroof>
+          <heatedWheel><![CDATA[yes]]></heatedWheel>
+          <i4><![CDATA[yes]]></i4>
+          <v6><![CDATA[no]]></v6>
+          <remoteStart><![CDATA[yes]]></remoteStart>
+          <connectedNavigation><![CDATA[yes]]></connectedNavigation>
+          <thirdRowSeating><![CDATA[no]]></thirdRowSeating>
+          <dr4><![CDATA[yes]]></dr4>
+          <dr2><![CDATA[no]]></dr2>
+        </answer>
+
+        <answer correct="">
+          <modelImgSrc><![CDATA[view/media/img/game/2018-Chevrolet-Traverse-(base).jpg]]></modelImgSrc>
+          <brand><![CDATA[2018 Chevrolet]]></brand>
+          <base><![CDATA[Traverse]]></base>
+          <!-- ATTRIBUTES -->
+          <model><![CDATA[Traverse]]></model>
+          <attributes><![CDATA[(Base)]]></attributes>
+          <mpg><![CDATA[22]]></mpg>
+          <rearLegRoom><![CDATA[38.4]]></rearLegRoom>
+          <cargoVol><![CDATA[58.1]]></cargoVol>
+          <basePrice><![CDATA[29930]]></basePrice>
+          <horsePower><![CDATA[310]]></horsePower>
+          <interiorHeadRoom><![CDATA[41.3]]></interiorHeadRoom>
+          <!-- CHARACTERISTICS -->
+          <driveLine><![CDATA[yes]]></driveLine>
+          <heatedSeats><![CDATA[no]]></heatedSeats>
+          <sunroof><![CDATA[no]]></sunroof>
+          <heatedWheel><![CDATA[no]]></heatedWheel>
+          <i4><![CDATA[no]]></i4>
+          <v6><![CDATA[yes]]></v6>
+          <remoteStart><![CDATA[no]]></remoteStart>
+          <connectedNavigation><![CDATA[no]]></connectedNavigation>
+          <thirdRowSeating><![CDATA[yes]]></thirdRowSeating>
+          <dr4><![CDATA[yes]]></dr4>
+          <dr2><![CDATA[no]]></dr2>
+        </answer>
+
+        <answer correct="">
+          <modelImgSrc><![CDATA[view/media/img/game/2018-Chevrolet-Traverse-RS.jpg]]></modelImgSrc>
+          <brand><![CDATA[2018 Chevrolet]]></brand>
+          <base><![CDATA[Traverse]]></base>
+          <model><![CDATA[Traverse RS]]></model>
+          <attributes><![CDATA[]]></attributes>
+          <!-- ATTRIBUTES -->
+          <mpg><![CDATA[23]]></mpg>
+          <rearLegRoom><![CDATA[38.4]]></rearLegRoom>
+          <cargoVol><![CDATA[58.1]]></cargoVol>
+          <basePrice><![CDATA[43595]]></basePrice>
+          <horsePower><![CDATA[257]]></horsePower>
+          <interiorHeadRoom><![CDATA[41.3]]></interiorHeadRoom>
+          <!-- CHARACTERISTICS -->
+          <driveLine><![CDATA[yes]]></driveLine>
+          <heatedSeats><![CDATA[yes]]></heatedSeats>
+          <sunroof><![CDATA[no]]></sunroof>
+          <heatedWheel><![CDATA[no]]></heatedWheel>
+          <i4><![CDATA[yes]]></i4>
+          <v6><![CDATA[no]]></v6>
+          <remoteStart><![CDATA[yes]]></remoteStart>
+          <connectedNavigation><![CDATA[yes]]></connectedNavigation>
+          <thirdRowSeating><![CDATA[yes]]></thirdRowSeating>
+          <dr4><![CDATA[yes]]></dr4>
+          <dr2><![CDATA[no]]></dr2>
+        </answer>
+
+        <answer correct="">
+          <modelImgSrc><![CDATA[view/media/img/game/2018-Chevrolet-Colorado-(base-auto-ExCab).jpg]]></modelImgSrc>
+          <brand><![CDATA[2018 Chevrolet]]></brand>
+          <base><![CDATA[Colorado]]></base>
+          <model><![CDATA[Colorado]]></model>
+          <attributes><![CDATA[(Base, Auto, Extended Cab)]]></attributes>
+          <!-- ATTRIBUTES -->
+          <mpg><![CDATA[23]]></mpg>
+          <rearLegRoom><![CDATA[28.6]]></rearLegRoom>
+          <cargoVol><![CDATA[0]]></cargoVol>
+          <basePrice><![CDATA[20200]]></basePrice>
+          <horsePower><![CDATA[200]]></horsePower>
+          <interiorHeadRoom><![CDATA[41.4]]></interiorHeadRoom>
+          <!-- CHARACTERISTICS -->
+          <driveLine><![CDATA[yes]]></driveLine>
+          <heatedSeats><![CDATA[no]]></heatedSeats>
+          <sunroof><![CDATA[no]]></sunroof>
+          <heatedWheel><![CDATA[no]]></heatedWheel>
+          <i4><![CDATA[yes]]></i4>
+          <v6><![CDATA[no]]></v6>
+          <remoteStart><![CDATA[no]]></remoteStart>
+          <connectedNavigation><![CDATA[no]]></connectedNavigation>
+          <thirdRowSeating><![CDATA[no]]></thirdRowSeating>
+          <dr4><![CDATA[yes]]></dr4>
+          <dr2><![CDATA[no]]></dr2>
+        </answer>
+
+        <answer correct="">
+          <modelImgSrc><![CDATA[view/media/img/game/2018-Chevrolet-Colorado-CrewCabLT-Diesel.jpg]]></modelImgSrc>
+          <brand><![CDATA[2018 Chevrolet]]></brand>
+          <base><![CDATA[Colorado]]></base>
+          <model><![CDATA[Colorado Crew Cab LT Diesel]]></model>
+          <attributes><![CDATA[(2WD)]]></attributes>
+          <!-- ATTRIBUTES -->
+          <mpg><![CDATA[26]]></mpg>
+          <rearLegRoom><![CDATA[35.8]]></rearLegRoom>
+          <cargoVol><![CDATA[0]]></cargoVol>
+          <basePrice><![CDATA[27295]]></basePrice>
+          <horsePower><![CDATA[186]]></horsePower>
+          <interiorHeadRoom><![CDATA[41.4]]></interiorHeadRoom>
+          <!-- CHARACTERISTICS -->
+          <driveLine><![CDATA[yes]]></driveLine>
+          <heatedSeats><![CDATA[yes]]></heatedSeats>
+          <sunroof><![CDATA[no]]></sunroof>
+          <heatedWheel><![CDATA[no]]></heatedWheel>
+          <i4><![CDATA[yes]]></i4>
+          <v6><![CDATA[no]]></v6>
+          <remoteStart><![CDATA[yes]]></remoteStart>
+          <connectedNavigation><![CDATA[yes]]></connectedNavigation>
+          <thirdRowSeating><![CDATA[no]]></thirdRowSeating>
+          <dr4><![CDATA[yes]]></dr4>
+          <dr2><![CDATA[no]]></dr2>
+        </answer>
+
+        <answer correct="">
+          <modelImgSrc><![CDATA[view/media/img/game/2018-Chevrolet-Silverado-1500-(base-double_cab).jpg]]></modelImgSrc>
+          <brand><![CDATA[2018 Chevrolet]]></brand>
+          <base><![CDATA[Silverado]]></base>
+          <model><![CDATA[Silverado 1500]]></model>
+          <attributes><![CDATA[(Base, Double Cab)]]></attributes>
+          <!-- ATTRIBUTES -->
+          <mpg><![CDATA[21]]></mpg>
+          <rearLegRoom><![CDATA[34.6]]></rearLegRoom>
+          <cargoVol><![CDATA[0]]></cargoVol>
+          <basePrice><![CDATA[28300]]></basePrice>
+          <horsePower><![CDATA[285]]></horsePower>
+          <interiorHeadRoom><![CDATA[42.8]]></interiorHeadRoom>
+          <!-- CHARACTERISTICS -->
+          <driveLine><![CDATA[yes]]></driveLine>
+          <heatedSeats><![CDATA[no]]></heatedSeats>
+          <sunroof><![CDATA[no]]></sunroof>
+          <heatedWheel><![CDATA[no]]></heatedWheel>
+          <i4><![CDATA[no]]></i4>
+          <v6><![CDATA[no]]></v6>
+          <remoteStart><![CDATA[no]]></remoteStart>
+          <connectedNavigation><![CDATA[no]]></connectedNavigation>
+          <thirdRowSeating><![CDATA[no]]></thirdRowSeating>
+          <dr4><![CDATA[yes]]></dr4>
+          <dr2><![CDATA[no]]></dr2>
+        </answer>
+
+        <answer correct="">
+          <modelImgSrc><![CDATA[view/media/img/game/2018-Chevrolet-Silverado-1500-HighCountry-2WD-Crew-Short.jpg]]></modelImgSrc>
+          <brand><![CDATA[2018 Chevrolet]]></brand>
+          <base><![CDATA[Silverado]]></base>
+          <model><![CDATA[Silverado 1500 High Country]]></model>
+          <attributes><![CDATA[(2WD, Crew Cab, Short Box)]]></attributes>
+          <!-- ATTRIBUTES -->
+          <mpg><![CDATA[19]]></mpg>
+          <rearLegRoom><![CDATA[40.9]]></rearLegRoom>
+          <cargoVol><![CDATA[0]]></cargoVol>
+          <basePrice><![CDATA[53395]]></basePrice>
+          <horsePower><![CDATA[285]]></horsePower>
+          <interiorHeadRoom><![CDATA[42.8]]></interiorHeadRoom>
+          <!-- CHARACTERISTICS -->
+          <driveLine><![CDATA[yes]]></driveLine>
+          <heatedSeats><![CDATA[yes]]></heatedSeats>
+          <sunroof><![CDATA[yes]]></sunroof>
+          <heatedWheel><![CDATA[yes]]></heatedWheel>
+          <i4><![CDATA[no]]></i4>
+          <v6><![CDATA[no]]></v6>
+          <remoteStart><![CDATA[yes]]></remoteStart>
+          <connectedNavigation><![CDATA[yes]]></connectedNavigation>
+          <thirdRowSeating><![CDATA[no]]></thirdRowSeating>
+          <dr4><![CDATA[yes]]></dr4>
+          <dr2><![CDATA[no]]></dr2>
+        </answer>
+
+        <answer correct="">
+          <modelImgSrc><![CDATA[view/media/img/game/2018-Chevrolet-Camaro-2SS-Coupe.jpg]]></modelImgSrc>
+          <brand><![CDATA[2018 Chevrolet]]></brand>
+          <base><![CDATA[Camaro]]></base>
+          <model><![CDATA[Camaro 2SS Coupe]]></model>
+          <attributes><![CDATA[]]></attributes>
+          <!-- ATTRIBUTES -->
+          <mpg><![CDATA[22]]></mpg>
+          <rearLegRoom><![CDATA[29.9]]></rearLegRoom>
+          <cargoVol><![CDATA[9.1]]></cargoVol>
+          <basePrice><![CDATA[42995]]></basePrice>
+          <horsePower><![CDATA[445]]></horsePower>
+          <interiorHeadRoom><![CDATA[38.5]]></interiorHeadRoom>
+          <!-- CHARACTERISTICS -->
+          <driveLine><![CDATA[yes]]></driveLine>
+          <heatedSeats><![CDATA[yes]]></heatedSeats>
+          <sunroof><![CDATA[yes]]></sunroof>
+          <heatedWheel><![CDATA[yes]]></heatedWheel>
+          <i4><![CDATA[no]]></i4>
+          <v6><![CDATA[no]]></v6>
+          <remoteStart><![CDATA[yes]]></remoteStart>
+          <connectedNavigation><![CDATA[yes]]></connectedNavigation>
+          <thirdRowSeating><![CDATA[no]]></thirdRowSeating>
+          <dr4><![CDATA[no]]></dr4>
+          <dr2><![CDATA[yes]]></dr2>
+        </answer>
+
+        <answer correct="">
+          <modelImgSrc><![CDATA[view/media/img/game/2018-Chevrolet-Camaro2LTCoupe.jpg]]></modelImgSrc>
+          <brand><![CDATA[2018 Chevrolet]]></brand>
+          <base><![CDATA[Camaro]]></base>
+          <model><![CDATA[Camaro 2LT Coupe]]></model>
+          <attributes><![CDATA[(V6, Automatic)]]></attributes>
+          <!-- ATTRIBUTES -->
+          <mpg><![CDATA[23]]></mpg>
+          <rearLegRoom><![CDATA[29.9]]></rearLegRoom>
+          <cargoVol><![CDATA[9.1]]></cargoVol>
+          <basePrice><![CDATA[31495]]></basePrice>
+          <horsePower><![CDATA[335]]></horsePower>
+          <interiorHeadRoom><![CDATA[38.5]]></interiorHeadRoom>
+          <!-- CHARACTERISTICS -->
+          <driveLine><![CDATA[yes]]></driveLine>
+          <heatedSeats><![CDATA[yes]]></heatedSeats>
+          <sunroof><![CDATA[yes]]></sunroof>
+          <heatedWheel><![CDATA[yes]]></heatedWheel>
+          <i4><![CDATA[no]]></i4>
+          <v6><![CDATA[yes]]></v6>
+          <remoteStart><![CDATA[yes]]></remoteStart>
+          <connectedNavigation><![CDATA[yes]]></connectedNavigation>
+          <thirdRowSeating><![CDATA[no]]></thirdRowSeating>
+          <dr4><![CDATA[no]]></dr4>
+          <dr2><![CDATA[yes]]></dr2>
+        </answer>
+
+        <answer correct="">
+          <modelImgSrc><![CDATA[view/media/img/game/2018-Chevrolet-Camaro-Coupe-(base-auto).jpg]]></modelImgSrc>
+          <brand><![CDATA[2018 Chevrolet]]></brand>
+          <base><![CDATA[Camaro]]></base>
+          <model><![CDATA[Camaro Coupe]]></model>
+          <attributes><![CDATA[(Base, Automatic)]]></attributes>
+          <!-- ATTRIBUTES -->
+          <mpg><![CDATA[26]]></mpg>
+          <rearLegRoom><![CDATA[29.9]]></rearLegRoom>
+          <cargoVol><![CDATA[9.1]]></cargoVol>
+          <basePrice><![CDATA[25905]]></basePrice>
+          <horsePower><![CDATA[335]]></horsePower>
+          <interiorHeadRoom><![CDATA[38.5]]></interiorHeadRoom>
+          <!-- CHARACTERISTICS -->
+          <driveLine><![CDATA[yes]]></driveLine>
+          <heatedSeats><![CDATA[no]]></heatedSeats>
+          <sunroof><![CDATA[yes]]></sunroof>
+          <heatedWheel><![CDATA[no]]></heatedWheel>
+          <i4><![CDATA[yes]]></i4>
+          <v6><![CDATA[no]]></v6>
+          <remoteStart><![CDATA[no]]></remoteStart>
+          <connectedNavigation><![CDATA[no]]></connectedNavigation>
+          <thirdRowSeating><![CDATA[no]]></thirdRowSeating>
+          <dr4><![CDATA[no]]></dr4>
+          <dr2><![CDATA[yes]]></dr2>
+        </answer>
+
+      </answers>
+
+      <feedback>
+        <correct><![CDATA[That's correct!]]></correct>
+        <incorrect><![CDATA[Sorry. That's Incorrect.]]></incorrect>
+      </feedback>
+    </questionAnswer>
+  </assessment>
+</assessments>

@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<page>
+  <title>
+    <chapterTitle><![CDATA[TEMPLATE GUIDE]]></chapterTitle>
+    <pageTitle><![CDATA[WEBFLAVOR 2.0]]></pageTitle>
+    <included>true</included>
+    <pagination>true</pagination>
+    <size>12</size>
+    <gated locks="0">false</gated>
+  </title>
+
+  <layout>
+    <![CDATA[
+    <div class="row margin-below">
+      <div class="col-lg-6">
+        <p>WebFlavor is a development framework for creating responsive HTML5 courses. The framework uses the Grunt JavaScript task runner to build an optimized course output from a set of XML, CSS, and media source files.</p>
+
+        <p>In order to modify the content of the course, the user needs to have an intermediate understanding of XML, HTML, and the Bootstrap CSS framework. Specifically, the user needs to know how to modify an existing XML document - including addition, removal, and changes of nodes – and how to modify HTML documents that are built upon the “Bootstrap” grid framework. Details can be found on the GitHub Repository</p>
+      </div>
+
+      <div class="col-lg-6">
+        <img style="width:100%" src="view/media/img/webflavorLogo.jpg" alt="logo">
+      </div>
+    </div>
+
+  <div class="row margin-below">
+    <div class="col-lg-8">
+      <img style="width:100%" src="view/media/img/devices.jpg" alt="devices">
+    </div>
+
+    <div class="col-lg-4">
+      <h1>RESPONSIVE DESIGN</h1>
+      <p>This version of WebFlavor is responsive, meaning it works on all devices for users to take the course. Whether on Desktop, Android, iPhone, iPad, tablet or any smaller viewing screen, the WebFlavor interface provides a responsive design for the user.</p>
+
+      <p>WebFlavor course completion, interactives, and all other components are just as usable on the mobile responsive layout as they are on a desktop, and a user taking the course would have no problems on either device. </p>
+    </div>
+  </div>
+
+  <div class="row margin-below">
+    <div class="col-lg-6">
+      <h1>ADAPTABLE INTERACTIVES</h1>
+      <p>One of the key features of WebFlavor is the ability to use adaptable interactives that are premade for developers. Drag and Drops, flip cards, hot spots, knowledge checks, and more are all developed in JQuery and implemented in the framework. Developers now only have to add in their custom information for the interactives using the course page's XML files, and the interavtives will be rendered themselves.</p>
+
+      <p>Custom interactives can be made with the same template and guidelines that the other interactives have, using normal JQuery or any other method that the developer might prefer.</p>
+    </div>
+
+    <div class="col-lg-6">
+      <div id="hotspot-page-intro"></div>
+    </div>
+  </div>
+
+  <div class="row margin-below">
+    <div class="col-lg-6">
+      <img style="width:100%" src="view/media/img/themes.jpg" alt="themes">
+    </div>
+
+    <div class="col-lg-6">
+      <h1>Customizable Themes</h1>
+      <p>Themes are another integral part of WebFlavor's features. The use of themes allows for developers to use the WebFlavor template for different types of courses, and allows them to customize CSS for a particular brand and then easily navigate from one theme to another.</p>
+
+      <p>There are several premade themes that come with WebFlavor. However, these along are just the basics of what WebFlavor is capable of. With the use of SASS as a preprocessor for CSS, a developer can style the course to whatever CSS itself is capable to accomplishing.</p>
+    </div>
+  </div>
+
+  <div class="row margin-below">
+    <div class="col-lg-6">
+      <h1>Page/Chapter Gating</h1>
+      <p>Gating features allow for the course to gate certain pages or chapters until a user completes an action. There is soft-gating which requires users to simply visit all previous pages before continuing, and there is hard-gating which requires users to actually participate in an interactive before gaining access to the next pages.</p>
+    </div>
+
+    <div class="col-lg-6">
+      <img style="width:100%" src="view/media/img/gate.jpg" alt="grunt">
+    </div>
+  </div>
+
+  <div class="row margin-below">
+    <div class="col-lg-4">
+      <h1>Resources</h1>
+      <p>The optional resources tab in the navigation allows for the course to have external resources, such as websites, workbooks, pdfs, etc. linked to the course for easy access.</p>
+    </div>
+
+    <div class="col-lg-4">
+      <h1>Glossary</h1>
+      <p>The optional glossary tab in the navigation allows for the course to have vocabulary words, definitions, and other important informatoin linked to the course for easy access.</p>
+    </div>
+
+    <div class="col-lg-4">
+      <h1>Help</h1>
+      <p>The optional help tab in the navigation allows for the course to have a section dedicated to giving instructions on how to take the course, if a learner gets confused.</p>
+    </div>
+  </div>
+
+  <div class="row margin-below">
+    <div class="col-lg-3">
+      <img style="width:100%" src="view/media/img/browser.jpg" alt="grunt">
+    </div>
+
+    <div class="col-lg-9">
+      <h1>Browser Syncronization</h1>
+      <p>Not only does WebFlavor have live-reloading for the browser while developing, but it also supports browser syncronization with the BrowserSync package. With this, multiple browsers can be open and the scrolling, clicking, and interactions will be automatically linked up in each browser.</p>
+
+      <p>This feature can be used to multitask and test multiple responsive screen sizes at the same time in different browsers.</p>
+    </div>
+  </div>
+
+  <div class="row margin-below">
+    <div class="col-lg-8">
+      <h1>SASS Integration</h1>
+      <p>Furthermore, WebFlavor makes use of SASS as a CSS styling preprocessor. With SASS, the use of variables, functions, mixins, and more allow for a developer to style the Course at a much more rapid pace. Changing just a few variables can help reskin the entire course in several seconds rather than pacing through line by line.</p>
+
+      <p>A developer doesn't have to know the keys to SASS either, since SASS is backwards compatible with normal CSS.</p>
+    </div>
+
+    <div class="col-lg-4">
+      <img style="width:100%" src="view/media/img/sass.jpg" alt="grunt">
+    </div>
+  </div>
+
+  <div class="row margin-below">
+    <div class="col-lg-3">
+      <img style="width:100%" src="view/media/img/grunt.jpg" alt="grunt">
+    </div>
+
+    <div class="col-lg-9">
+      <h1>Dev/Production Enviornment</h1>
+      <p>WebFlavor's built in development and production envriornments allow for developers to create and build their projects in an automated process that removes the manual labor that existed prior to the framework. </p>
+
+      <p>Minification, concatenation, compression of files takes place in production along with the automated versioning, and cleaning of viewectories so that the course is LMS server ready after the build. Most importantly, live localhost servers come with browser syncronization for the best development.</p>
+    </div>
+  </div>
+  ]]>
+  </layout>
+
+  <components>
+    <Hotspot id="hotspot-page-intro">
+      <img><![CDATA[view/media/img/City-Map-2.jpg]]></img>
+      <spot>
+        <label><![CDATA[1]]></label>
+        <popup>
+          <![CDATA[
+          <ul>
+            <li>Vix debitis lucilius ut, quo id porro timeam honestatis.</li>
+            <li>Vim exerci mandamus cu, sonet molestiae cu pri.</li>
+            <li>Fuisset instructior vel ne, ubique malorum legendos sit et.</li>
+          </ul>]]>
+        </popup>
+      </spot>
+
+      <spot>
+        <label><![CDATA[2]]></label>
+        <popup>
+          <![CDATA[
+          <ul>
+            <li>At eum detracto maluisset elaboraret, nec putent appareat in.</li>
+            <li>Elit ubique sensibus nec in.</li>
+            <li>Sea ad cibo illud, mea ex mutat perpetua.</li>
+          </ul>]]>
+        </popup>
+      </spot>
+
+      <spot>
+        <label><![CDATA[3]]></label>
+        <popup>
+          <![CDATA[
+          <ul>
+            <li>Vim duis consul nemore eu, ad libris molestie principes sed.</li>
+            <li>Id verear volumus recteque eam.</li>
+            <li> Omnium nostrud tacimates sea eu, ius ad fabulas pertinacia, fastidii quaerendum mea ex.</li>
+          </ul>]]>
+        </popup>
+      </spot>
+    </Hotspot>
+  </components>
+</page>

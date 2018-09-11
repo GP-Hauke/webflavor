@@ -1,0 +1,40 @@
+@import "base/variables.scss";
+@import "base/typography.scss";
+
+@import "interactives/vehicle.scss";
+@import "interactives/card.scss";
+@import "interactives/ctr.scss";
+@import "interactives/dragdrop.scss";
+@import "interactives/touchdrop.scss";
+@import "interactives/hotspot.scss";
+@import "interactives/knowledgecheck.scss";
+@import "interactives/thumbnail.scss";
+@import "interactives/carousel.scss";
+@import "interactives/videoAudio.scss";
+
+@import "components/button.scss";
+@import "components/text.scss";
+
+@import "layout/container.scss";
+@import "layout/footer.scss";
+@import "layout/glossary.scss";
+@import "layout/help.scss";
+@import "layout/navigation.scss";
+@import "layout/resources.scss";
+@import "layout/splash.scss";
+
+
+/*------------ BASIC STYLES ------------*/
+body {
+  font-family: "GMGlobalSansCond" !important;
+  text-rendering: optimizeLegibility;
+}
+
+.color1{
+  height: 300px;
+  opacity: .75;
+  background: $primary;
+}
+.outline{
+  border: 1px solid $primary;
+}

@@ -1,0 +1,55 @@
+a.download {
+  border: 2px solid $primary;
+  background-color: $primary;
+  color: #ffffff !important;
+}
+
+a.download:hover,
+a.download:active,
+a.download:focus {
+  color: $primary !important;
+}
+
+/*Page Titles*/
+h1#pageTitle {
+  font-weight: 600;
+  color: $primary;
+  font-size: 26px;
+  text-transform: uppercase;
+}
+
+h1 {
+  font-weight: 600;
+  color: $primary;
+  font-size: 24px;
+  text-transform: uppercase;
+  border: none;
+}
+
+h4{
+  font-size: 22px;
+  font-weight: 600;
+}
+
+/*Page Numbers*/
+.page-number {
+  font-weight: 600;
+  font-size: 18px;
+  color: $primary;
+}
+
+/*Page Content Text*/
+.page-container p,
+.page-container ul > li {
+  font-weight: 100;
+  font-size: 20px;
+  color: #333;
+}
+
+.thumbnail .caption-title > span {
+  color: $primary;
+}
+
+.videoAudio .caption-title > span {
+  color: $primary;
+}

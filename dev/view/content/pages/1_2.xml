@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<page>
+  <title>
+    <chapterTitle><![CDATA[TEMPLATE GUIDE]]></chapterTitle>
+    <pageTitle><![CDATA[GRID SYSTEM]]></pageTitle>
+    <included>true</included>
+    <pagination>true</pagination>
+    <size>12</size>
+    <gated locks="0">false</gated>
+  </title>
+
+  <layout>
+    <![CDATA[
+    <div class="row">
+      <div class="col-md-12"><p>The first part in developing a specific page in a course is using the Bootstrap grid system. This grid system allows the developer to place text, content, and interactives in any layout that they choose by implementing the Bootstrap classes. This page demonstrates a potential layout with the Bootstrap grid.</p></div>
+    </div>
+
+    <div class="row">
+      <div class="col-12 col-md-3 p-0"><div class="componentContainer color1"></div></div>
+
+      <div class="col-12 col-md-9 p-0"><div class="componentContainer color1"></div></div>
+    </div>
+
+    <div class="row">
+      <div class="col-12 col-md-4 p-0"><div class="componentContainer color1"></div></div>
+
+      <div class="col-12 col-md-8 p-0"><div class="componentContainer color1"></div></div>
+    </div>
+
+    <div class="row">
+      <div class="col-12 col-md-12 p-0"><div class="componentContainer color1"></div></div>
+    </div>
+
+    <div class="row">
+      <div class="col-12 col-md-8 p-0"><div style="height: 100%" class="componentContainer color1 size2"></div></div>
+
+      <div class="col-12 col-md-4 p-0">
+        <div class="row">
+          <div class="col-6 col-md-12 inner-col-top"><div class="componentContainer color1"></div></div>
+          <div class="col-6 col-md-12 inner-col-bottom"><div class="componentContainer color1"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12 col-md-4 p-0"><div class="componentContainer color1"></div></div>
+
+      <div class="col-12 col-md-8 p-0"><div class="componentContainer color1"></div></div>
+    </div>
+
+    <div class="row">
+      <div class="col-12 col-md-4 p-0">
+        <div class="row">
+          <div class="col-6 col-md-12 inner-col-top"><div class="componentContainer color1"></div></div>
+          <div class="col-6 col-md-12 inner-col-bottom"><div class="componentContainer color1"></div></div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-8 p-0"><div style="height: 100%" class="componentContainer color1 size2"></div></div>
+    </div>
+
+    <div class="row margin-below">
+      <div class="col-12 col-md-8 p-0"><div class="componentContainer color1"></div></div>
+      <div class="col-12 col-md-4 p-0"><div class="componentContainer color1"></div></div>
+    </div>
+    ]]>
+  </layout>
+</page>

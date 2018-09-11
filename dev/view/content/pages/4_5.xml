@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<page>
+  <title>
+    <chapterTitle><![CDATA[INTERACTIVES]]></chapterTitle>
+    <pageTitle><![CDATA[CLICK TO REVEALS]]></pageTitle>
+    <included>true</included>
+    <pagination>true</pagination>
+    <size>12</size>
+    <gated locks="0">false</gated>
+  </title>
+
+  <layout>
+    <![CDATA[
+    <div class="row">
+      <div class="col-md-12">
+        <p class="top-paragraph">The following is a Click to Reveal (CTR) component. The CTR boxes can contain any HTML a developer wants, which includes images and normal text. Using the Bootstrap Grid classes in the &lt;layout&gt; element, the CTR component can be placed anywhere. The placement of the reveal-section, can also be modified to be: Right, Left, Top</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div id="ctr-1"></div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <p>The <span class="bolded">CTR component on the right of this text is the same demensions as the component above</span>, however, it  has one clickable box. To achieve the same demensions, the Bootstrap Grid classes must be applied properly. This row of content is divided up into this text and the CTR, since they have <span class="bolded">'col-md-6'</span>. Each box within the CTR takes up half of the container. If the CTR on the right was put into a container with a class of <span class="bolded">'col-md-12'</span> it would look like the one below...</p>
+      </div>
+
+      <div class="col-md-6">
+        <div id="ctr-2"></div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div id="ctr-3"></div>
+      </div>
+    </div>
+
+    <div class="row margin-below">
+      <div class="col-md-3">
+        <div id="ctr-4"></div>
+      </div>
+      <div class="col-md-3">
+        <div id="ctr-5"></div>
+      </div>
+      <div class="col-md-3">
+        <div id="ctr-6"></div>
+      </div>
+      <div class="col-md-3">
+        <div id="ctr-7"></div>
+      </div>
+    </div>
+    ]]>
+  </layout>
+
+  <components>
+    <!-- POSITION: Right, Left, Top, Bottom -->
+    <Ctr id="ctr-1" position="right">
+      <section>
+        <click><![CDATA[<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore?</p>]]></click>
+        <reveal><![CDATA[<p>veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur...</p>]]></reveal>
+      </section>
+
+      <section>
+        <click><![CDATA[<p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?</p>]]></click>
+        <reveal><![CDATA[<img src="view/media/img/check.png" alt="checkmark">]]></reveal>
+      </section>
+    </Ctr>
+
+    <Ctr id="ctr-2" position="right">
+      <section>
+        <click><![CDATA[<img src="view/media/img/settings.png "settings">]]></click>
+        <reveal><![CDATA[<p>Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae...</p>]]></reveal>
+      </section>
+    </Ctr>
+
+    <Ctr id="ctr-3" position="right">
+      <section>
+        <click><![CDATA[<p>facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente dlectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat</p>]]></click>
+        <reveal><![CDATA[<p>vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis...</p>]]></reveal>
+      </section>
+    </Ctr>
+
+    <Ctr id="ctr-4" position="right">
+      <section>
+        <click><![CDATA[<p>Position: Right</p>]]></click>
+        <reveal><![CDATA[<p>veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>]]></reveal>
+      </section>
+    </Ctr>
+
+    <Ctr id="ctr-5" position="bottom">
+      <section>
+        <click><![CDATA[<p>Position: Bottom</p>]]></click>
+        <reveal><![CDATA[<p>veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>]]></reveal>
+      </section>
+    </Ctr>
+
+    <Ctr id="ctr-6" position="top">
+      <section>
+        <click><![CDATA[<p>Position: Top</p>]]></click>
+        <reveal><![CDATA[<p>veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>]]></reveal>
+      </section>
+    </Ctr>
+
+    <Ctr id="ctr-7" position="left">
+      <section>
+        <click><![CDATA[<p>Position: Left</p>]]></click>
+        <reveal><![CDATA[<p>veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>]]></reveal>
+      </section>
+    </Ctr>
+  </components>
+</page>
