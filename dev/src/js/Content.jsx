@@ -113,6 +113,8 @@ export function loadContent(chapter, page, id){
       }
     })
 
+    //FlipCard.setCalculatedHeight();
+
 
     if($(xml).find("title").find("pagination").text() == "true"){
       updatePagination();

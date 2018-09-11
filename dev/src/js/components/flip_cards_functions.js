@@ -85,13 +85,13 @@ export function setupFlipCards(id, elementID){
     var back = courseData.flipCardData.flipCards[id].cards[i].back;
     var front = courseData.flipCardData.flipCards[id].cards[i].front;
 
-    var cardWidth = "col-12 col-sm-12 mx-auto col-md-"+size;
+    var cardWidth = "col-12 col-sm-12 mx-auto col-lg-"+size;
 
     if(courseData.flipCardData.flipCards[id].hasButton == "true"){
-      var cardHTML = '<div class="'+cardWidth+' margin-below"><div class="cardCont" id="card'+i+'"><div class="cardBack">'+back+'<a class="showMore back" href="#">Back</a></div><div class="cardFront">'+front+'<a class="showMore front" href="#">Show More</a></div></div></div>';
+      var cardHTML = '<div class="'+cardWidth+' margin-below"><div class="cardCont" id="'+elementID+'-card-'+i+'"><div class="cardBack">'+back+'<a class="showMore back" href="#">Back</a></div><div class="cardFront">'+front+'<a class="showMore front" href="#">Show More</a></div></div></div>';
     }
     else{
-      var cardHTML = '<div class="'+cardWidth+' margin-below"><div class="cardCont" id="card'+i+'"><div class="cardBack">'+back+'</div><div class="cardFront">'+front+'</div></div></div>';
+      var cardHTML = '<div class="'+cardWidth+' margin-below"><div class="cardCont" id="'+elementID+'-card-'+i+'"><div class="cardBack">'+back+'</div><div class="cardFront">'+front+'</div></div></div>';
     }
 
     $("#"+elementID + " .row").append(cardHTML);
@@ -151,7 +151,15 @@ export function setupFlipCards(id, elementID){
           $(this).closest(".cardCont")[0].animation.reverse();
       });
     }
+
+
   }
+  setTimeout(function(){
+    calculateCardHeight(elementID);
+  }, 100);
+
+
+
 }
 
 export function getFlipCardIndex(currentID){
@@ -200,4 +208,35 @@ export function checkCardsCompletion(id, cardsID){
       }
     }
   }
+}
+
+export function calculateCardHeight(cardsID){
+
+    var element = "#"+cardsID;
+    //element = "#flipCard-page-1-card-1";
+
+    var card =  $(element + " .cardCont");
+    var front =  $(element + " .cardFront");
+    var back =  $(element + " .cardBack");
+
+    var height = 0;
+
+    card.each(function(){
+      console.log($(this).find(".cardBack").css("height"));
+
+
+
+      height = Math.max(parseInt($(this).find(".cardBack").css("height")),
+        parseInt($(this).find(".cardFront").css("height")),
+        height);
+
+    });
+
+    //window.stop();
+
+    front.height(height + 30);
+    back.height(height + 30);
+    card.height(height + 30);
+
+    //console.log(height);
 }
