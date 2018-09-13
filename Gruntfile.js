@@ -174,6 +174,116 @@ module.exports = function(grunt){
       }
     },
 
+    xmlpoke: {
+      sco01: {
+        options: {
+          namespaces: {
+            'w':'http://www.imsglobal.org/xsd/imsmd_rootv1p2p1',
+          },
+          replacements: [
+            {
+              xpath: '/w:lom/w:general/w:catalogentry/w:catalog/text()',
+              value: function (node) {
+                var json = grunt.file.readJSON('dev/settings.json');
+                return json.settings.cookieName;
+              }
+            },
+            {
+              xpath: '/w:lom/w:general/w:catalogentry/w:entry/w:langstring/text()',
+              value: function (node) {
+                var json = grunt.file.readJSON('dev/settings.json');
+
+                if(json.settings.courseSubTitle.length == 0){
+                  return json.settings.courseTitle;
+                }
+
+                return json.settings.courseTitle +": "+json.settings.courseSubTitle;
+              }
+            },
+            {
+              xpath: '/w:lom/w:general/w:title/w:langstring/text()',
+              value: function (node) {
+                var json = grunt.file.readJSON('dev/settings.json');
+
+                if(json.settings.courseSubTitle.length == 0){
+                  return json.settings.courseTitle;
+                }
+
+                return json.settings.courseTitle +": "+json.settings.courseSubTitle;
+              }
+            }]
+          },
+          files: {
+            'public/sco01.xml': 'public/sco01.xml',
+          },
+        },
+
+        imsmanifest: {
+          options: {
+            namespaces: {
+              'w':'http://www.imsproject.org/xsd/imscp_rootv1p1p2',
+              'w2':'http://www.imsglobal.org/xsd/imsmd_rootv1p2p1',
+              'w3':'http://www.imsproject.org/xsd/imscp_rootv1p1p2'
+            },
+            replacements: [
+              {
+                xpath: '/w:manifest/@identifier',
+                value: function (node) {
+                  var json = grunt.file.readJSON('dev/settings.json');
+                  return json.settings.cookieName;
+                }
+              },
+              {
+                xpath: '/w:manifest/w:metadata/w2:lom/w2:general/w2:catalogentry/w2:entry/w2:langstring/text()',
+                value: function (node) {
+                  var json = grunt.file.readJSON('dev/settings.json');
+                  return json.settings.cookieName;
+                }
+              },
+              {
+                xpath: '/w:manifest/w:metadata/w2:lom/w2:general/w2:title/w2:langstring/text()',
+                value: function (node) {
+                  var json = grunt.file.readJSON('dev/settings.json');
+
+                  if(json.settings.courseSubTitle.length == 0){
+                    return json.settings.courseTitle;
+                  }
+
+                  return json.settings.courseTitle +": "+json.settings.courseSubTitle;
+                }
+              },
+              {
+                xpath: '/w:manifest/w3:organizations/w3:organization/w3:title/text()',
+                value: function (node) {
+                  var json = grunt.file.readJSON('dev/settings.json');
+
+                  if(json.settings.courseSubTitle.length == 0){
+                    return json.settings.courseTitle;
+                  }
+
+                  return json.settings.courseTitle +": "+json.settings.courseSubTitle;
+                }
+              },
+              {
+                xpath: '/w:manifest/w3:organizations/w3:organization/w3:item/w3:title/text()',
+                value: function (node) {
+                  var json = grunt.file.readJSON('dev/settings.json');
+
+                  if(json.settings.courseSubTitle.length == 0){
+                    return json.settings.courseTitle;
+                  }
+
+                  return json.settings.courseTitle +": "+json.settings.courseSubTitle;
+                }
+              }]
+            },
+
+            files: {
+              'public/imsmanifest.xml': 'public/imsmanifest.xml',
+            },
+          },
+        },
+
     compress: {
       main: {
         options: {
@@ -200,9 +310,14 @@ module.exports = function(grunt){
   });
 
   //'browserSync:dev', 'watch', 'webpack'
-  grunt.registerTask('dev', ['clean:dev', 'settings', 'update', 'copy:public', 'uglify:vendors', 'cssmin:vendors', 'build:theme', 'webpack', 'browserSync:dev', 'watch']);
+  grunt.registerTask('dev', ['clean:dev', 'update', 'init', 'copy:public', 'uglify:vendors', 'cssmin:vendors', 'build:theme', 'webpack', 'browserSync:dev', 'watch']);
 
   grunt.registerTask('build', ['validate','imagemin', 'cssmin:build', 'version', 'production', 'build:clean', 'compress', 'browserSync:build']);
+
+  grunt.registerTask('init',
+    'Compiles all of the assets and copies the files to the build directory.',
+    ['settings','xmlpoke:sco01','xmlpoke:imsmanifest']
+  );
 
   grunt.event.on('watch', function(action, filepath, target) {
     var filetype = path.extname(filepath);
