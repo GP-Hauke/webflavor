@@ -321,8 +321,10 @@ module.exports = function(grunt){
 
   grunt.event.on('watch', function(action, filepath, target) {
     var filetype = path.extname(filepath);
-    grunt.log.oklns(filetype.green);
-      if(filetype == '.scss'){
+    var base = path.basename(filepath);
+    grunt.log.oklns(path.basename(filepath).green);
+
+    if(filetype == '.scss'){
       grunt.log.oklns();
       if(filepath.indexOf('themes') != -1){
         grunt.task.run('sass:theme');
@@ -334,21 +336,40 @@ module.exports = function(grunt){
         grunt.task.run('sass');
       }
     }
-      else if(filetype == '.js' || filetype == '.jsx'){
+    else if(filetype == '.js' || filetype == '.jsx'){
       grunt.task.run('webpack');
     }
+    else{
+      if(action == "deleted"){
+        grunt.log.oklns("DELETED FILE".red)
+
+
+        var src =[];
+        src.push('public/view/content/pages/'+base);
+
+
+        grunt.config.set("clean.build.src", src);
+        grunt.task.run('clean:build');
+        grunt.task.run('update');
+      }
       else{
-      var dest = "public/"+filepath.substring(4, filepath.length).replace(path.basename(filepath), "");
-      var files = [
-        {
-          expand: true,
-          src: [filepath],
-          dest: dest,
-          flatten: true
+        if(action == "added" && path.dirname(filepath).split(path.sep).pop() == "pages"){
+          grunt.log.oklns("ADDED FILE".yellow)
+          grunt.task.run('update');
         }
-      ];
+
+        var dest = "public/"+filepath.substring(4, filepath.length).replace(path.basename(filepath), "");
+        var files = [
+          {
+            expand: true,
+            src: [filepath],
+            dest: dest,
+            flatten: true
+          }
+        ];
         grunt.config.set("copy.dev.files", files);
-      grunt.task.run('copy:dev');
+        grunt.task.run('copy:dev');
+      }
     }
   });
 
@@ -501,6 +522,7 @@ module.exports = function(grunt){
 
     json.settings.contents = contents;
     grunt.file.write('dev/settings.json', JSON.stringify(json, null, 2));
+    grunt.file.write('public/settings.json', JSON.stringify(json, null, 2));
     grunt.log.oklns("UPDATED TABLE OF CONTENTS"['green'].bold);
 
   });
