@@ -67,15 +67,16 @@
     <Thumbnails id="thumbnail-page-2">
       <thumbnail>
         <img><![CDATA[view/media/img/3_3.jpg]]></img>
-        <url><![CDATA[https://www.gpstrategies.com/]]></url>
-        <heading><![CDATA[Maecenas]]></heading>
+        <url><![CDATA[]]></url>
+        <heading><![CDATA[No Link]]></heading>
         <caption><![CDATA[Maecenas venenatis magna, vel pellentesque <span class="link-look">enim scelerisque</span>  erat ultricies. Quisque fringilla, nulla sed ornare tincidunt, neque velit finibus.]]></caption>
       </thumbnail>
 
       <thumbnail>
+        <onClickFunction>true</onClickFunction>
         <img><![CDATA[view/media/img/3_4.jpg]]></img>
-        <url><![CDATA[https://www.gpstrategies.com/]]></url>
-        <heading><![CDATA[LNulla Oranre]]></heading>
+        <url><![CDATA[openPage(2,1)]]></url>
+        <heading><![CDATA[Open Page]]></heading>
         <caption><![CDATA[Maecenas venenatis magna, vel pellentesque <span class="link-look">enim scelerisque</span>  erat ultricies. Quisque fringilla, nulla sed ornare tincidunt, neque velit finibus.]]></caption>
       </thumbnail>
     </Thumbnails>

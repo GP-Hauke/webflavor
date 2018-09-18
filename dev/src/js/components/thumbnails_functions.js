@@ -57,7 +57,7 @@ export function initThumbnails(thumbnailContentXML, elementID, localStorageID) {
     var thumb = {
       img: currentThumbnail.find("img").text(),
       url: currentThumbnail.find("url").text(),
-      onclickFunction: currentThumbnail.find("url").attr("onclickFunction"),
+      onClickFunction: currentThumbnail.find("onClickFunction").text(),
       heading: currentThumbnail.find("heading").text(),
       caption: currentThumbnail.find("caption").text(),
       completed: false
@@ -92,16 +92,24 @@ export function setupThumbnails(id, elementID){
     var thumbnailWidth = "col-12 col-sm-"+size;
 
     var href = "href";
-    if(courseData.thumbnailData.thumbnails[id].thumbs[i].onclickFunction == "true"){
+    if(courseData.thumbnailData.thumbnails[id].thumbs[i].onClickFunction == "true"){
       href = "onclick";
 
-      var thumbnailHTML = '<div class="'+thumbnailWidth+'"><div class="thumbnail" id=""><a id="thumb'+i+'" target="_blank" '+href+'="'+url+'" class="top-paragraph link"><div class="img-container"><img class="img-zoom" src="'+img+'" alt=""></div><div class="caption"><div class="caption-title"><span>'+
+      var thumbnailHTML = '<div class="'+thumbnailWidth+'"><div class="thumbnail" id=""><a id="thumb'+i+'" target="_blank" '+href+'='+url+' class="top-paragraph link"><div class="img-container"><img class="img-zoom" src="'+img+'" alt=""></div><div class="caption"><div class="caption-title"><span>'+
       heading+'</span></div><p>'+caption+'</p></div></a></div></div>';
     }
 
     else {
-      var thumbnailHTML = '<div class="'+thumbnailWidth+'"><div class="thumbnail" id=""><a id="'+elementID+'-thumb-'+i+'" target="_blank" '+href+'="'+url+'" class="top-paragraph link"><div class="img-container"><img class="img-zoom" src="'+img+'" alt=""></div><div class="caption"><div class="caption-title"><span>'+
-      heading+'</span></div><p>'+caption+'</p></div></a></div></div>';
+
+      if(url.length == ""){
+        var thumbnailHTML = '<div class="'+thumbnailWidth+'"><div class="thumbnail" id=""><div style="cursor: default" id="'+elementID+'-thumb-'+i+'" class="top-paragraph link"><div class="img-container"><img class="img-zoom" src="'+img+'" alt=""></div><div class="caption"><div class="caption-title"><span>'+
+        heading+'</span></div><p>'+caption+'</p></div></div></div></div>';
+      }
+
+      else{
+        var thumbnailHTML = '<div class="'+thumbnailWidth+'"><div class="thumbnail" id=""><a id="'+elementID+'-thumb-'+i+'" target="_blank" '+href+'="'+url+'" class="top-paragraph link"><div class="img-container"><img class="img-zoom" src="'+img+'" alt=""></div><div class="caption"><div class="caption-title"><span>'+
+        heading+'</span></div><p>'+caption+'</p></div></a></div></div>';
+      }
     }
 
     $("#"+elementID+ ' .row').append(thumbnailHTML);
