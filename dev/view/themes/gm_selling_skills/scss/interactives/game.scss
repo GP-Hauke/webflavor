@@ -1,0 +1,13 @@
+.game{
+  .answers{
+    .answer{
+      &.selected{
+        border: 1px solid $primary;
+        box-shadow: 0 0 10px 0 rgba($primary, .5);
+      }
+    }
+  }
+  button{
+    background: $primary;
+  }
+}

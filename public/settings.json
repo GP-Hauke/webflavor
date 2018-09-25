@@ -14,7 +14,7 @@
     "hasHelp": "true",
     "hasCountPages": "true",
     "hasInteractiveCompletion": "true",
-    "courseStorageID": "htw_4te78",
+    "courseStorageID": "htw_n7896",
     "version": "2.1",
     "contents": [
       [
@@ -42,8 +42,11 @@
       ],
       [
         "6_1"
+      ],
+      [
+        "7_1"
       ]
     ],
-    "cookieName": "htw_4te78"
+    "cookieName": "htw_n7896"
   }
 }

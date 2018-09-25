@@ -9,7 +9,7 @@
 
 import * as Interface from './Interface.jsx';
 import * as Tracking from './Tracking.jsx';
-import * as Game from './components/assessment_functions';
+import * as Assessment from './components/assessment_functions';
 
 var LOCAL_COURSE_DATA_ID;
 
@@ -114,6 +114,7 @@ function populateStorage(json, tempStorage) {
   courseStorageObj.HAS_VEHICLE_GAME = json.settings.hasVehicleGame;
 
   courseStorageObj.ctrData = {TOTAL: 0};
+  courseStorageObj.gameData = {TOTAL: 0};
   courseStorageObj.dragDropData = {TOTAL: 0};
   courseStorageObj.flipCardData = {TOTAL: 0};
   courseStorageObj.hotspotData = {TOTAL: 0};
@@ -324,7 +325,7 @@ function GetInterfaceXML(args) {
     }
     else if(args.indexOf("assessments") != -1) {
       assessmentsLoaded = true;
-      Game.initAssessments(LOCAL_COURSE_DATA_ID, xml); // lives in assessment_functions.js
+      Assessment.initAssessments(LOCAL_COURSE_DATA_ID, xml); // lives in assessment_functions.js
       loadXMLData();
     }
   });
@@ -435,6 +436,13 @@ function countInteractives(interactive, tempData){
       tempData.ctrData = {TOTAL: 0};
     }
     tempData.ctrData.TOTAL += 1;
+    tempData.INTERACTIVES_TOTAL += 1;
+  }
+  else if(interactive == "Game"){
+    if(tempData.gameData == null){
+      tempData.gameData = {TOTAL: 0};
+    }
+    tempData.gameData.TOTAL += 1;
     tempData.INTERACTIVES_TOTAL += 1;
   }
   else if(interactive == "DragAndDrop"){

@@ -210,6 +210,9 @@ export function buildTopNav() {
           $('#navbarMain').removeClass('tabbed');
         }
         else{
+          if($('#navbarMain').hasClass('show')){
+            $('.navbar-toggler').click();
+          }
           $('#navbarMain').removeClass('default');
           $('#navbarMain').addClass('tabbed');
         }

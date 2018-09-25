@@ -16,6 +16,7 @@ import * as Thumbnails from './components/thumbnails_functions';
 import * as VideoAudio from './components/video_audio_functions';
 import * as Modal from './components/modal_functions';
 import * as Assessment from './components/assessment_functions';
+import * as Game from './components/game_functions.js';
 import * as Tracking from './Tracking.jsx';
 
 
@@ -67,6 +68,9 @@ export function loadContent(chapter, page, id){
       if(type == "Ctr"){
         Ctr.initCtr(xml, componentID, LOCAL_COURSE_DATA_ID);
       }
+      else if(type == "Game"){
+        Game.initGame(xml, componentID, LOCAL_COURSE_DATA_ID);
+      }
       else if(type == "DragAndDrop"){
         DragAndDrop.initDragAndDrop(xml, componentID, LOCAL_COURSE_DATA_ID);
       }
@@ -88,7 +92,7 @@ export function loadContent(chapter, page, id){
       else if(type == "VideoAudio"){
         VideoAudio.initVideoAudio(xml, componentID, LOCAL_COURSE_DATA_ID);
       }
-      else if(type == "Game"){
+      else if(type == "VehicleGame"){
         var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
         console.log("setupassessment");
         var assessmentID = parseInt($(".btn-assess").attr("id").substring(13,15), 10) - 1;

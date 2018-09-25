@@ -42,6 +42,6 @@
   </layout>
 
   <components>
-    <Game>Placeholder for Vehicle Game</Game>
+    <VehicleGame>Placeholder for Vehicle Game to work</VehicleGame>
   </components>
 </page>

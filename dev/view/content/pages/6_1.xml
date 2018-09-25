@@ -1,39 +1,73 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <page>
   <title>
-    <chapterTitle><![CDATA[COMPLETION]]></chapterTitle>
-    <pageTitle><![CDATA[COMPLETION]]></pageTitle>
+    <chapterTitle><![CDATA[GAME]]></chapterTitle>
+    <pageTitle><![CDATA[GAME]]></pageTitle>
     <included>true</included>
-    <pagination>false</pagination>
-    <size>6</size>
+    <pagination>true</pagination>
+    <size>12</size>
     <gated locks="0">false</gated>
   </title>
 
-  <component>none</component>
-  <layout completion="true">
+  <layout>
     <![CDATA[
     <div class="row">
-      <div class="col-sm-6">
-        <p id="sectionComplete">Please select the <span class="bolded">Complete for Credit</span> button below to receive credit for this course.</p>
-      </div>
-    </div>
-
-    <div class="row margin-below">
-      <div class="offset-1 col-sm-4">
-        <a class="btn btn-default d-block mx-auto btn-complete" id="btnComplete" role="button" onclick="setComplete()">Complete for Credit</a>
+      <div class="col-sm-12">
+        <p id="sectionComplete">This page shows the interactive quiz game for courses.</p>
       </div>
     </div>
 
     <div class="row">
-      <div class="col-sm-6">
-        <p class="top-paragraph">You are among the first to take this course. We would appreciate your feedback.</p>
+      <div class="col-sm-12">
+        <div id="Game-page-6-1"></div>
       </div>
     </div>
-
-    <div class="row">
-      <div class="offset-1 col-sm-4">
-        <a class="btn btn-default d-block mx-auto" href="https://www.gpstrategies.com" target="_blank" role="button">Take Survey</a>
-      </div>
-    </div>]]>
+    ]]>
   </layout>
+
+  <components>
+    <Game id="Game-page-6-1">
+      <title><![CDATA[<h3>Game Title Here</h3>]]></title>
+      <introText><![CDATA[<p>With all the questions, play with these assumptions:</p>
+      <p>Try to get all 10 right! Once you’ve selected a vehicle, hit <span class="bolded">SUBMIT</span>. Then review the feedback.  Take all the time you need to look at the questions and answer options before clicking <span class="bolded">GO</span>.</p>
+      <p>See how well you did. Then, come back again and do better. The questions and answers will change!</p>
+      <p>Click <span class='bolded'>BEGIN</span> to start.</p>]]></introText>
+
+      <questions>
+        <question>
+          <body><![CDATA[<p>The question body goes here...</p>]]></body>
+          <answers>
+            <answer correct="true">
+              <text><![CDATA[<p>The text about the answer goes here...</p>]]></text>
+            </answer>
+            <answer correct="true">
+              <text><![CDATA[<p>The text about the answer goes here...</p>]]></text>
+            </answer>
+            <answer>
+              <text><![CDATA[<p>The text about the answer goes here...</p>]]></text>
+            </answer>
+            <answer>
+              <text><![CDATA[<p>The text about the answer goes here...</p>]]></text>
+            </answer>
+          </answers>
+        </question>
+
+        <question>
+          <body><![CDATA[<p>another question heres...</p>]]></body>
+          <answers>
+            <answer correct="true">
+              <img><![CDATA[<p>the link to the image goes here...</p>]]></img>
+              <text><![CDATA[<p>The text about the answer goes here...</p>]]></text>
+            </answer>
+            <answer>
+              <img><![CDATA[<p>the link to the image goes here...</p>]]></img>
+              <text><![CDATA[<p>The text about the answer goes here...</p>]]></text>
+            </answer>
+          </answers>
+        </question>
+      </questions>
+
+      <completionText><![CDATA[The completion text body goes here...]]></completionText>
+    </Game>
+  </components>
 </page>
