@@ -1,3 +1,7 @@
 .cardFront{
   background:$primary;
 }
+
+.cardFront, .cardBack, .cardCont {
+  min-height: 275px;
+}

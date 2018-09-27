@@ -4,6 +4,11 @@ nav.navbar {
   background-color: $primary;
 }
 
+.default .nav-link{
+  background-color: $primary !important;
+  color: #fff;
+}
+
 /*Navigation Secondary Color*/
 .navbar-collapse {
   border: none;
@@ -17,6 +22,11 @@ li.courseTitleChapterSelected {
 
 li.courseTitleChapterSelected .nav-link{
   color: $primary !important;
+}
+
+.default li.courseTitleChapterSelected .nav-link{
+  color: #fff !important;
+  font-weight: 800;
 }
 
 /*  Navigation Tabs Verion */

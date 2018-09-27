@@ -361,6 +361,8 @@
   padding: 20px;
   text-align: center;
   position: relative;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .cardFront, .cardBack {
