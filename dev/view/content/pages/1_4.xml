@@ -2,46 +2,96 @@
 <page>
   <title>
     <chapterTitle><![CDATA[TEMPLATE GUIDE]]></chapterTitle>
-    <pageTitle><![CDATA[VEHICLE GAME]]></pageTitle>
+    <pageTitle><![CDATA[TILED LAYOUT]]></pageTitle>
     <included>true</included>
     <pagination>true</pagination>
     <size>12</size>
     <gated locks="0">false</gated>
   </title>
 
-  <component>assessment</component>
   <layout>
     <![CDATA[
     <div class="row margin-below">
-      <div class="col-md-6">
+      <div class="col-md-12">
         <p class="top-paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <ul>
-          <li>Consectetur</li>
-          <li>Dolore</li>
-          <li>Lorem Culpa</li>
-          <li>Labore et</li>
-          <li>Ofiicia</li>
-        </ul>
-        <p class="top-paragraph">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
       </div>
-      <div id="btnAssessment1" class="col-md-offset-1 col-md-6 btn-assess">
-        <div class="block summary">
-          <img id="startBtn" class="img-fluid" src="view/media/img/game/startBtn.png" alt="game launch button"/>
-        </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div id="thumbnail-layout-1"></div>
       </div>
     </div>
 
     <div class="row margin-below">
-      <div class="col-md-6">
-        <p class="top-paragraph"><span class="bolded">Extended text for scroll bar view </span>Mei lorem consequat necessitatibus ad, vim ex noluisse persecuti. Summo mucius electram ut pro, quaeque vocibus duo ex. Ius id habemus accusata. Mei eleifend deseruisse id, duo eirmod omnesque legendos ut, ius an illud aliquip voluptua.Mei ad rebum altera possit. Mei eu quidam hendrerit reprehendunt. Eu iudico aliquid corrumpit sed. Nam ut perfecto conceptam, cum ei ignota habemus percipit. Mea te nisl laudem. Posse fuisset voluptatibus vis id, alii summo democritum te pro.</p>
-        <p class="top-paragraph">Tamquam consulatu ius ex. Animal vivendum mnesarchum nec ut. Eu habeo definitiones has. Et vix elit vocibus, illud errem abhorreant eu mei. Sed ut fuisset nominavi.Est vivendum sapientem interpretaris an, eos ex dolor ponderum hendrerit, ius no persecuti efficiendi. Commune dissentias adversarium eu mei, id illum mediocrem usu. Tempor libris his an. Id pri atomorum repudiandae, ad elit indoctum vim, id brute partem consequuntur vel. Et duo dicta iisque.</p>
+      <div class="col-md-12">
+        <div id="thumbnail-layout-2"></div>
       </div>
     </div>
-
     ]]>
+
+
   </layout>
 
   <components>
-    <VehicleGame>Placeholder for Vehicle Game to work</VehicleGame>
+    <Thumbnails id="thumbnail-layout-1">
+      <thumbnail>
+        <onClickFunction>true</onClickFunction>
+        <img><![CDATA[view/media/img/3_1.jpg]]></img>
+        <url><![CDATA[openPage(1,1)]]></url>
+        <heading><![CDATA[Webflavor 2.0]]></heading>
+      </thumbnail>
+
+      <thumbnail>
+        <onClickFunction>true</onClickFunction>
+        <img><![CDATA[view/media/img/3_2.jpg]]></img>
+        <url><![CDATA[openPage(1,2)]]></url>
+        <heading><![CDATA[Grid System]]></heading>
+      </thumbnail>
+
+      <thumbnail>
+        <onClickFunction>true</onClickFunction>
+        <img><![CDATA[view/media/img/3_3.jpg]]></img>
+        <url><![CDATA[openPage(1,3)]]></url>
+        <heading><![CDATA[Demo Grid]]></heading>
+      </thumbnail>
+
+      <thumbnail>
+        <onClickFunction>true</onClickFunction>
+        <img><![CDATA[view/media/img/3_4.jpg]]></img>
+        <url><![CDATA[openPage(3,1)]]></url>
+        <heading><![CDATA[Video & Audio (Gated)]]></heading>
+      </thumbnail>
+    </Thumbnails>
+
+    <Thumbnails id="thumbnail-layout-2">
+      <thumbnail>
+        <onClickFunction>true</onClickFunction>
+        <img><![CDATA[view/media/img/3_5.jpg]]></img>
+        <url><![CDATA[openPage(2,1)]]></url>
+        <heading><![CDATA[Modal Features]]></heading>
+      </thumbnail>
+
+      <thumbnail>
+        <onClickFunction>true</onClickFunction>
+        <img><![CDATA[view/media/img/3_6.jpg]]></img>
+        <url><![CDATA[openPage(4,2)]]></url>
+        <heading><![CDATA[Flip Cards]]></heading>
+      </thumbnail>
+
+      <thumbnail>
+        <onClickFunction>true</onClickFunction>
+        <img><![CDATA[view/media/img/3_7.jpg]]></img>
+        <url><![CDATA[openPage(4,3)]]></url>
+        <heading><![CDATA[Drag and Drops]]></heading>
+      </thumbnail>
+
+      <thumbnail>
+        <onClickFunction>true</onClickFunction>
+        <img><![CDATA[view/media/img/3_8.jpg]]></img>
+        <url><![CDATA[openPage(4,4)]]></url>
+        <heading><![CDATA[Hot Spots]]></heading>
+      </thumbnail>
+    </Thumbnails>
   </components>
 </page>

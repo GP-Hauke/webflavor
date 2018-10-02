@@ -95,20 +95,71 @@ export function setupThumbnails(id, elementID){
     if(courseData.thumbnailData.thumbnails[id].thumbs[i].onClickFunction == "true"){
       href = "onclick";
 
-      var thumbnailHTML = '<div class="'+thumbnailWidth+'"><div class="thumbnail" id=""><a id="thumb'+i+'" target="_blank" '+href+'='+url+' class="top-paragraph link"><div class="img-container"><img class="img-zoom" src="'+img+'" alt=""></div><div class="caption"><div class="caption-title"><span>'+
-      heading+'</span></div><p>'+caption+'</p></div></a></div></div>';
+      var thumbnailHTML = `
+      <div class="`+thumbnailWidth+`">
+         <div class="thumbnail" id="">
+          <a id="thumb`+i+`" target="_blank" `+href+`=`+url+` class="top-paragraph link">
+          <div class="img-container">
+            <img class="img-zoom" src="`+img+`" alt="">
+          </div>
+          <div class="caption">
+            <div class="caption-title">
+              <span>`+
+              heading+`
+              </span>
+            </div>
+          <p>`+caption+`
+          </p>
+         </div>
+         </a>
+        </div>
+      </div>`;
     }
 
     else {
 
       if(url.length == ""){
-        var thumbnailHTML = '<div class="'+thumbnailWidth+'"><div class="thumbnail" id=""><div style="cursor: default" id="'+elementID+'-thumb-'+i+'" class="top-paragraph link"><div class="img-container"><img class="img-zoom" src="'+img+'" alt=""></div><div class="caption"><div class="caption-title"><span>'+
-        heading+'</span></div><p>'+caption+'</p></div></div></div></div>';
+        var thumbnailHTML = `
+        <div class="`+thumbnailWidth+`">
+          <div class="thumbnail" id="">
+            <div style="cursor: default" id="`+elementID+`-thumb-`+i+`" class="top-paragraph link">
+            <div class="img-container">
+              < img class="img-zoom" src="`+img+`" alt="">
+            </div>
+            <div class="caption">
+              <div class="caption-title">
+                <span>`+
+                  heading+`
+                </span>
+              </div>
+            <p>`+caption+`
+            </p>
+            </div>
+           </div>
+          </div>
+        </div>`;
       }
 
       else{
-        var thumbnailHTML = '<div class="'+thumbnailWidth+'"><div class="thumbnail" id=""><a id="'+elementID+'-thumb-'+i+'" target="_blank" '+href+'="'+url+'" class="top-paragraph link"><div class="img-container"><img class="img-zoom" src="'+img+'" alt=""></div><div class="caption"><div class="caption-title"><span>'+
-        heading+'</span></div><p>'+caption+'</p></div></a></div></div>';
+        var thumbnailHTML = `
+        <div class="`+thumbnailWidth+`">
+        <div class="thumbnail" id="">
+        <a id="`+elementID+`-thumb-`+i+`" target="_blank" `+href+`="`+url+`" class="top-paragraph link">
+        <div class="img-container">
+        <img class="img-zoom" src="`+img+`" alt="">
+        </div>
+        <div class="caption">
+        <div class="caption-title">
+        <span>`+
+        heading+`
+        </span>
+        </div>
+        <p>`+caption+`
+        </p>
+        </div>
+        </a>
+        </div>
+        </div>`;
       }
     }
 

@@ -14,7 +14,7 @@
     "hasHelp": "true",
     "hasCountPages": "true",
     "hasInteractiveCompletion": "true",
-    "courseStorageID": "htw_9a9fp",
+    "courseStorageID": "htw_euxt3",
     "version": "2.1",
     "contents": [
       [
@@ -41,12 +41,13 @@
         "5_2"
       ],
       [
-        "6_1"
+        "6_1",
+        "6_2"
       ],
       [
         "7_1"
       ]
     ],
-    "cookieName": "htw_9a9fp"
+    "cookieName": "htw_euxt3"
   }
 }

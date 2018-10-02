@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<page>
+  <title>
+    <chapterTitle><![CDATA[GAMES]]></chapterTitle>
+    <pageTitle><![CDATA[VEHICLE GAME]]></pageTitle>
+    <included>true</included>
+    <pagination>true</pagination>
+    <size>12</size>
+    <gated locks="0">false</gated>
+  </title>
+
+  <component>assessment</component>
+  <layout>
+    <![CDATA[
+    <div class="row margin-below">
+      <div class="col-md-6">
+        <p class="top-paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <ul>
+          <li>Consectetur</li>
+          <li>Dolore</li>
+          <li>Lorem Culpa</li>
+          <li>Labore et</li>
+          <li>Ofiicia</li>
+        </ul>
+        <p class="top-paragraph">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </div>
+      <div id="btnAssessment1" class="col-md-offset-1 col-md-6 btn-assess">
+        <div class="block summary">
+          <img id="startBtn" class="img-fluid" src="view/media/img/game/startBtn.png" alt="game launch button"/>
+        </div>
+      </div>
+    </div>
+
+    <div class="row margin-below">
+      <div class="col-md-6">
+        <p class="top-paragraph"><span class="bolded">Extended text for scroll bar view </span>Mei lorem consequat necessitatibus ad, vim ex noluisse persecuti. Summo mucius electram ut pro, quaeque vocibus duo ex. Ius id habemus accusata. Mei eleifend deseruisse id, duo eirmod omnesque legendos ut, ius an illud aliquip voluptua.Mei ad rebum altera possit. Mei eu quidam hendrerit reprehendunt. Eu iudico aliquid corrumpit sed. Nam ut perfecto conceptam, cum ei ignota habemus percipit. Mea te nisl laudem. Posse fuisset voluptatibus vis id, alii summo democritum te pro.</p>
+        <p class="top-paragraph">Tamquam consulatu ius ex. Animal vivendum mnesarchum nec ut. Eu habeo definitiones has. Et vix elit vocibus, illud errem abhorreant eu mei. Sed ut fuisset nominavi.Est vivendum sapientem interpretaris an, eos ex dolor ponderum hendrerit, ius no persecuti efficiendi. Commune dissentias adversarium eu mei, id illum mediocrem usu. Tempor libris his an. Id pri atomorum repudiandae, ad elit indoctum vim, id brute partem consequuntur vel. Et duo dicta iisque.</p>
+      </div>
+    </div>
+
+    ]]>
+  </layout>
+
+  <components>
+    <VehicleGame>Placeholder for Vehicle Game to work</VehicleGame>
+  </components>
+</page>

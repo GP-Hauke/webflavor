@@ -72,14 +72,16 @@ export function setupHotSpot(id, elementID){
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
 
   var img = courseData.hotspotData.hotspots[id].img;
-  var html ='<div id="hotSpot"><img class="hotSpot-img" src="'+img+'">';
+  var html =`
+  <div id="hotSpot">
+    <img class="hotSpot-img" src="`+img+`">`;
 
   for(var i = 0; i < courseData.hotspotData.hotspots[id].spots.length; i++){
     var label = courseData.hotspotData.hotspots[id].spots[i].label;
-    html += '<div id="spot-'+i+'" class="hotSpot-spot circle-'+label+'">'+label+'</div>';
+    html += `<div id="spot-`+i+`" class="hotSpot-spot circle-`+label+`">`+label+`</div>`;
   }
 
-  html += '<div class="hotSpot-popup"></div>';
+  html += `<div class="hotSpot-popup"></div>`;
 
 
   if(elementID != null){
@@ -90,11 +92,35 @@ export function setupHotSpot(id, elementID){
     $('#pageContent').append(html);
   }
 
-  var popup_1 = "<ul><li>Ask your Sales Manager about recommended routes.</li><li>Include a variety of speed zones. Make sure there are stretches that allow the customer to drive more than 45 mph.</li><li>Alternate your route as needed.</li></ul>";
+  var popup_1 = `
+  <ul>
+    <li>Ask your Sales Manager about recommended routes.
+    </li>
+    <li>Include a variety of speed zones. Make sure there are stretches that allow the customer to drive more than 45 mph.
+    </li>
+    <li>Alternate your route as needed.
+    </li>
+  </ul>`;
 
-  var popup_2 = "<ul><li>Be flexible on the drive. Your customer may want a longer or shorter drive than planned.</li><li>Ask your manager how to handle these situations.</li><li>If the customer wants a shorter drive, know how to return to the dealership quuickly using streets with varied speeds that will still enhance the drive.</li></ul>";
+  var popup_2 = `
+  <ul>
+    <li>Be flexible on the drive. Your customer may want a longer or shorter drive than planned.
+    </li>
+    <li>Ask your manager how to handle these situations.
+    </li>
+    <li>If the customer wants a shorter drive, know how to return to the dealership quuickly using streets with varied speeds that will still enhance the drive.
+    </li>
+  </ul>`;
 
-  var popup_3 = "<ul><li>Know your drive.</li><li>Shadow a live demo drive with an experienced consultant and a customer.</li><li>Play the role of a customer and let an experienced consultant show you how he or she conducts a demo drive.</li></ul>";
+  var popup_3 = `
+  <ul>
+    <li>Know your drive.
+    </li>
+    <li>Shadow a live demo drive with an experienced consultant and a customer.
+    </li>
+    <li>Play the role of a customer and let an experienced consultant show you how he or she conducts a demo drive.
+    </li>
+  </ul>`;
 
 
   $('#' + elementID + ' .hotSpot-spot').click(function(){

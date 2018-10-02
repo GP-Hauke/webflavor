@@ -100,14 +100,33 @@ export function setupKnowledgeCheck(id, elementID){
     for(var j = 0; j < currentKnowledgeCheck.questions[i].answers.length; j++){
       answerBody = currentKnowledgeCheck.questions[i].answers[j].body;
 
-      answersHTML += '<div><input type="radio" name="'+elementID+'question-'+i+'-answers" id="'+elementID+'question-'+i+'-answers-'+j+'" value="'+j+'" /><label for="'+elementID+'question-'+i+'-answers-'+j+'">'+answerBody+'</label></div>';
+      answersHTML += `
+        <div>
+          <input type="radio" name="`+elementID+`question-`+i+`-answers" id="`+elementID+`question-`+i+`-answers-`+j+`" value="`+j+`" />
+          <label for="`+elementID+`question-`+i+`-answers-`+j+`">`+answerBody+`
+          </label>
+        </div>`;
     }
 
-    questionHTML += '<li><p>'+questionBody+'</p>' + answersHTML + '</li>';
+    questionHTML += `
+      <li>
+        <p>`+questionBody+`
+        </p>` + answersHTML + `
+      </li>`;
   }
 
   var title= currentKnowledgeCheck.title;
-  var html = '<div id="knowledgeCheck" class="col-md-12 mx-auto"><form id="myForm"><h3>'+title+'</h3>' + questionHTML + '<div class="feedback"></div><a class="btn btn-default submitKnowledge">Submit Answers</a></form></div>';
+  var html = `
+    <div id="knowledgeCheck" class="col-md-12 mx-auto">
+      <form id="myForm">
+        <h3>`+title+`
+        </h3>` + questionHTML + `
+        <div class="feedback">
+        </div>
+        <a class="btn btn-default submitKnowledge">Submit Answers
+        </a>
+      </form>
+    </div>`;
 
   if(elementID != null){
     $("#"+elementID).empty();

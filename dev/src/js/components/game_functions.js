@@ -200,7 +200,6 @@ export function endGame(id, elementID){
 
     <div class="next">
       <button class="results">RESULTS</button>
-      <button class="begin">RETRY</button>
     </div>
 
     <div class="next">
@@ -212,6 +211,21 @@ export function endGame(id, elementID){
   $('#'+elementID).html(html);
 
   $('#'+elementID + ' .begin').click(function(){
+    var currentData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
+
+    currentData.gameData.games[id].completed = false;
+
+    for(var i = 0; i < currentData.gameData.games[id].questions.length - 1; i++){
+      currentData.gameData.games[id].questions[i].completed = false;
+
+      for(var j = 0; j < currentData.gameData.games[id].questions.length; j++){
+        currentData.gameData.games[id].questions[i].answers[j].selected = false;
+
+      }
+    }
+
+    console.log(currentData);
+    localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(currentData));
     setupGame(id, elementID);
   });
 

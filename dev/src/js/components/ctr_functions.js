@@ -73,7 +73,17 @@ export function setupCtr(id, elementID){
   var position = courseData.ctrData.ctrs[id].position;
   var colNum = 12/num;
 
-  var html = '<div class="row"><div class="col-md-12 mx-auto p-0"><div id=""><div class="ctr"><div class="row"></div></div></div></div></div>';
+  var html = `
+    <div class="row">
+      <div class="col-md-12 mx-auto p-0">
+        <div id="">
+          <div class="ctr">
+            <div class="row">
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>`;
 
   $('#'+elementID).append(html);
 
@@ -82,7 +92,17 @@ export function setupCtr(id, elementID){
     var click = courseData.ctrData.ctrs[id].sections[i].click;
     var reveal = courseData.ctrData.ctrs[id].sections[i].reveal;
 
-    var sectionHtml = '<div class="col-md-'+colNum+' p-0" id="'+elementID+'-'+i+'"><div class="ctr-wrapper '+elementID+'-section-'+i+'"><div class="click">'+click+'</div></div><div class="ctr-wrapper"><div class="reveal">'+reveal+'</div></div></div>';
+    var sectionHtml = `
+    <div class="col-md-`+colNum+` p-0" id="`+elementID+`-`+i+`">
+      <div class="ctr-wrapper `+elementID+`-section-`+i+`">
+        <div class="click">`+click+`
+        </div>
+      </div>
+      <div class="ctr-wrapper">
+        <div class="reveal">`+reveal+`
+        </div>
+      </div>
+    </div>`;
 
     $('#'+elementID + ' .ctr .row').append(sectionHtml);
 

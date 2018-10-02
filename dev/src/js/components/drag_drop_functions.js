@@ -75,10 +75,22 @@ export function setupDragDrop(id, elementID){
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
   var dragDropData = courseData.dragDropData.dragDrops[id];
 
-  var submitBtn = '</div><p class="feedback"><a class="btn btn-reversed btn-restart">Restart</a><a class="btn btn-default-main btn-submit">Submit</a></p>';
-  var leftContainerHtml = '<div class="col-6 left"></div>';
-  var rightContainerHtml = '<div class="col-6 right"></div>';
-  var html = '<div id="dragAndDrop" class="container"><div class="row">' + leftContainerHtml + rightContainerHtml + submitBtn;
+  var submitBtn = `
+  </div>
+    <p class="feedback">
+      <a class="btn btn-reversed btn-restart">Restart
+      </a>
+      <a class="btn btn-default-main btn-submit">Submit
+      </a>
+    </p>`;
+
+  var leftContainerHtml = `<div class="col-6 left"></div>`;
+
+  var rightContainerHtml = `<div class="col-6 right"></div>`;
+
+  var html = `
+    <div id="dragAndDrop" class="container">
+      <div class="row">` + leftContainerHtml + rightContainerHtml + submitBtn;
 
 
   if(elementID != null){
@@ -93,7 +105,11 @@ export function setupDragDrop(id, elementID){
     var droppableID = elementID+'_t' + i;
     var droppableText = dragDropData.matchings[i].drop;
 
-    var draggable = '<div class="item-container holder" id="'+ holderID +'" ondrop="drop_handler(event);" ondragover="dragover_handler(event);"><p class="draggable" id="'+ draggableID +'" draggable="true" ondragstart="dragstart_handler(event);" ontouchstart="dragstart_handler(event);" >'+ draggableText +'</p></div>';
+    var draggable = `
+      <div class="item-container holder" id="`+ holderID +`" ondrop="drop_handler(event);" ondragover="dragover_handler(event);">
+        <p class="draggable" id="`+ draggableID +`" draggable="true" ondragstart="dragstart_handler(event);" ontouchstart="dragstart_handler(event);" >`+ draggableText +`
+        </p>
+      </div>`;
 
     var droppable = '<div class="item-container" id="'+ droppableID +'" ondrop="drop_handler(event);" ondragover="dragover_handler(event);">'+ droppableText +'</div>';
 

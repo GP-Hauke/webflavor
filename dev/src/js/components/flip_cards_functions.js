@@ -88,10 +88,30 @@ export function setupFlipCards(id, elementID){
     var cardWidth = "col-12 col-sm-12 mx-auto col-lg-"+size;
 
     if(courseData.flipCardData.flipCards[id].hasButton == "true"){
-      var cardHTML = '<div class="'+cardWidth+' margin-below"><div class="cardCont" id="'+elementID+'-card-'+i+'"><div class="cardBack">'+back+'<a class="showMore back" href="#">Back</a></div><div class="cardFront">'+front+'<a class="showMore front" href="#">Show More</a></div></div></div>';
+      var cardHTML = `
+      <div class="`+cardWidth+` margin-below">
+        <div class="cardCont" id="`+elementID+`-card-`+i+`">
+          <div class="cardBack">`+back+`
+            <a class="showMore back" href="#">Back
+            </a>
+          </div>
+          <div class="cardFront">`+front+`
+            <a class="showMore front" href="#">Show More
+            </a>
+          </div>
+        </div>
+      </div>`;
     }
     else{
-      var cardHTML = '<div class="'+cardWidth+' margin-below"><div class="cardCont" id="'+elementID+'-card-'+i+'"><div class="cardBack">'+back+'</div><div class="cardFront">'+front+'</div></div></div>';
+      var cardHTML = `
+      <div class="`+cardWidth+` margin-below">
+        <div class="cardCont" id="`+elementID+`-card-`+i+`">
+          <div class="cardBack">`+back+`
+          </div>
+          <div class="cardFront">`+front+`
+          </div>
+        </div>
+      </div>`;
     }
 
     $("#"+elementID + " .row").append(cardHTML);

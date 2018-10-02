@@ -70,21 +70,44 @@ export function setupVideoAudio(id,elementID){
   var popup = courseData.videoAudioData.videoAudio[id].popup;
 
   if(popup == "true"){
-    var html = '<div class="videoAudio"><div class="img-container"><img class="popupImg" style="width: 100%; cursor: pointer" src="'+poster+'"></div>';
+    var html = `
+      <div class="videoAudio">
+        <div class="img-container">
+        <img class="popupImg" style="width: 100%; cursor: pointer" src="`+poster+`">
+        </div>`;
   }
 
   else{
     if(youtube == "true"){
-      var html = '<div class="videoAudio"><div class="youtube-container"><iframe class="youtube" width="100%" height="120%" src="'+src+'" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></div>';
+      var html = `
+        <div class="videoAudio">
+          <div class="youtube-container">
+          <iframe class="youtube" width="100%" height="120%" src="`+src+`" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+          </iframe>
+        </div>`;
     }
     else{
-      var html = '<div class="videoAudio"><video id="'+elementID+'-video-embed" poster="'+poster+'" style="margin-bottom: -6px;"" controls><source src="'+src+'" type="video/mp4"">Your browser does not support the video tag.</video>';
+      var html = `
+      <div class="videoAudio">
+      <video id="`+elementID+`-video-embed" poster="`+poster+`" style="margin-bottom: -6px;"" controls>
+      <source src="`+src+`" type="video/mp4"">Your browser does not support the video tag.
+      </video>`;
 
     }
   }
 
   if(heading.length > 0){
-    html += '<div class="caption"><div class="caption-title"><span>'+ heading+'</span></div><p>'+caption+'</p></div></div></div>';
+    html += `
+        <div class="caption">
+          <div class="caption-title">
+            <span>`+ heading+`
+            </span>
+          </div>
+        <p>`+caption+`
+        </p>
+        </div>
+      </div>
+    </div>`;
   }
   else{
     html += '</div>'
