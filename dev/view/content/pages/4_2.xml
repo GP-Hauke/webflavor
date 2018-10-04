@@ -18,6 +18,26 @@
     </div>
 
     <div class="row">
+      <div class="col-md-8">
+        <div id="flipCard-page-3"></div>
+      </div>
+
+      <div class="col-md-4">
+        <p>The Flip Card component can have either a clickable button to flip the card, or it can have the user click anywhere on the card instead. This is declared in the element's xml tags. The flip card to the left shows the how it works with this feature instead of the button</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div id="flipCard-page-4"></div>
+      </div>
+
+      <div class="col-md-12">
+        <div id="flipCard-page-5"></div>
+      </div>
+    </div>
+
+    <div class="row">
       <div class="col-md-12">
         <div id="flipCard-page-1"></div>
       </div>
@@ -31,16 +51,6 @@
         <div id="flipCard-page-2"></div>
       </div>
     </div>
-
-    <div class="row margin-below">
-      <div class="col-md-8">
-        <div id="flipCard-page-3"></div>
-      </div>
-
-      <div class="col-md-4">
-        <p>This component also has other features predefined so that a developer can customize them. The Flip Card component can have either a clickable button to flip the card, or it can have the user click anywhere on the card instead. This is declared in the element's xml tags. The flip card to the left shows the how it works with this feature instead of the button</p>
-      </div>
-    </div>
     ]]>
   </layout>
 
@@ -50,6 +60,8 @@
       </completion>
 
       <card>
+        <minHeight>0</minHeight>
+        <background><![CDATA[]]></background>
         <front><![CDATA[<h4>Nullam Nisi</h4>]]></front>
         <back><![CDATA[<p>Curabitur accumsan, orci mostie cond aliquam, eros eros elementum ex.
           <br>
@@ -58,6 +70,8 @@
       </card>
 
       <card>
+        <minHeight>0</minHeight>
+        <background><![CDATA[]]></background>
         <front><![CDATA[<h4>Curabitur</h4>]]></front>
         <back><![CDATA[<p>Fermentum et venenatis in, vulputate sit amet diam
         <br>
@@ -66,6 +80,8 @@
       </card>
 
       <card>
+        <minHeight>0</minHeight>
+        <background><![CDATA[]]></background>
         <front><![CDATA[<h4>Diam Fames</h4>]]></front>
         <back><![CDATA[<p>Cras id diam dolor. Suspendisse in mi in turpis fringilla rhoncus. Curabitur ultricies condimentum est, vitae ultrices.
         <br>
@@ -74,6 +90,8 @@
       </card>
 
       <card>
+        <minHeight>0</minHeight>
+        <background><![CDATA[]]></background>
         <front><![CDATA[<h4>Sed Magna</h4>]]></front>
         <back><![CDATA[<p>Nullam nec nisl risus. Morbi in ex quis enim bibendum varius.
         <br>
@@ -88,6 +106,8 @@
       </completion>
 
       <card>
+        <minHeight>0</minHeight>
+        <background><![CDATA[]]></background>
         <front><![CDATA[<h4>Nullam Nisi</h4>]]></front>
         <back><![CDATA[<p>Curabitur accumsan, orci mostie cond aliquam, eros eros elementum ex.
           <br>
@@ -96,6 +116,8 @@
       </card>
 
       <card>
+        <minHeight>0</minHeight>
+        <background><![CDATA[]]></background>
         <front><![CDATA[<h4>This test shows that the front height can dictate the height of the entire flip card and is dynamic css code for<br><br></h4>]]></front>
         <back><![CDATA[<p>Fermentum et venenatis in, vulputate sit amet diam
         <br>
@@ -104,6 +126,8 @@
       </card>
 
       <card>
+        <minHeight>0</minHeight>
+        <background><![CDATA[]]></background>
         <front><![CDATA[<h4>Curabitur</h4>]]></front>
         <back><![CDATA[<p>Fermentum et venenatis in, vulputate sit amet diam
         <br>
@@ -117,6 +141,8 @@
 
       </completion>
       <card>
+        <minHeight>0</minHeight>
+        <background><![CDATA[]]></background>
         <front><![CDATA[<h4>Curabitur</h4>]]></front>
         <back><![CDATA[<p>Fermentum et venenatis in, vulputate sit amet diam
         <br>
@@ -125,7 +151,55 @@
       </card>
 
       <card>
+        <minHeight>0</minHeight>
+        <background><![CDATA[]]></background>
         <front><![CDATA[<h4>Curabitur</h4>]]></front>
+        <back><![CDATA[<p>Fermentum et venenatis in, vulputate sit amet diam
+        <br>
+        <br>
+        Ut a tortor turpis. Aliquam quis enim at metus commodo hendrerit sit amet eu nisi.</p>]]></back>
+      </card>
+    </FlipCard>
+
+    <FlipCard id="flipCard-page-4" hasButton="false">
+      <completion gated="false">
+
+      </completion>
+      <card>
+        <minHeight>400</minHeight>
+        <background><![CDATA[view/media/img/4_1.jpg]]></background>
+        <front><![CDATA[]]></front>
+        <back><![CDATA[<p>Fermentum et venenatis in, vulputate sit amet diam
+        Ut a tortor turpis. Aliquam quis enim at metus commodo hendrerit sit amet eu nisi.</p>]]></back>
+      </card>
+
+      <card>
+        <minHeight>400</minHeight>
+        <background><![CDATA[view/media/img/4_2.jpg]]></background>
+        <front><![CDATA[]]></front>
+        <back><![CDATA[<p>Fermentum et venenatis in, vulputate sit amet diam
+        <br>
+        <br>
+        Ut a tortor turpis. Aliquam quis enim at metus commodo hendrerit sit amet eu nisi.</p>]]></back>
+      </card>
+    </FlipCard>
+
+    <FlipCard id="flipCard-page-5" hasButton="false">
+      <completion gated="false">
+
+      </completion>
+      <card>
+        <minHeight>400</minHeight>
+        <background><![CDATA[view/media/img/4_3.jpg]]></background>
+        <front><![CDATA[]]></front>
+        <back><![CDATA[<p>Fermentum et venenatis in, vulputate sit amet diam
+        Ut a tortor turpis. Aliquam quis enim at metus commodo hendrerit sit amet eu nisi.</p>]]></back>
+      </card>
+
+      <card>
+        <minHeight>400</minHeight>
+        <background><![CDATA[view/media/img/4_4.jpg]]></background>
+        <front><![CDATA[]]></front>
         <back><![CDATA[<p>Fermentum et venenatis in, vulputate sit amet diam
         <br>
         <br>

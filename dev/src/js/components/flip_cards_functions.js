@@ -59,7 +59,9 @@ export function initFlipCard(flipCardContentXML, elementID, localStorageID) {
     var card = {
       front: currentCard.find("front").text(),
       back: currentCard.find("back").text(),
-      completed: false
+      completed: false,
+      background: currentCard.find("background").text(),
+      minHeight: currentCard.find("minHeight").text()
     };
     flipCard.cards.push(card);
   });
@@ -115,6 +117,19 @@ export function setupFlipCards(id, elementID){
     }
 
     $("#"+elementID + " .row").append(cardHTML);
+
+    var img = courseData.flipCardData.flipCards[id].cards[i].background;
+    if(img !== ""){
+      $("#"+elementID+"-card-"+i+" .cardFront").css({"background-image":"url("+img+")"});
+      $("#"+elementID+"-card-"+i+" .cardFront").css({"background-size":"cover"});
+    }
+
+    var minHeight = courseData.flipCardData.flipCards[id].cards[i].minHeight;
+    if(minHeight !== ""){
+      $("#"+elementID+"-card-"+i+" .cardFront").css({"min-height":minHeight+"px"});
+    }
+
+
 
     CSSPlugin.defaultTransformPerspective = 1000;
 
