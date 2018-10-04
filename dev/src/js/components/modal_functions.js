@@ -2,6 +2,83 @@ var LOCAL_COURSE_DATA_ID;
 var courseData;
 import * as Game from '../components/assessment_functions';
 
+
+export function initModal(modalContentXML, elementID, localStorageID) {
+  LOCAL_COURSE_DATA_ID = localStorageID;
+
+  if(localStorage === "undefined") {
+    location.reload();
+  }
+
+  var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
+
+  var currentModalComponent = $(modalContentXML).find('Modal[id="'+elementID+'"]');
+  if(currentModalComponent.length == 0){
+    var currentModalComponent = $(modalContentXML).find('Modal');
+  }
+  var currentID = $(currentModalComponent).attr("id")
+
+  if(courseData.modalData.modals != null){
+    for(var i=0; i < courseData.modalData.modals.length; i++){
+      if(courseData.modalData.modals[i].id == currentID){
+        var id = getModalIndex(currentID);
+        console.log("Modal Loaded Previously");
+        //setupModals(id, elementID);
+        return;
+      }
+    }
+  }
+
+  else{
+    console.log("Modal Initialized");
+    courseData.modalData.id = $(currentModalComponent).attr("id");
+    courseData.modalData.completed = 0;
+    courseData.modalData.modals =  [];
+  }
+
+  var modal = {
+    id: $(currentModalComponent).attr("id"),
+    completed: false,
+    completion: {},
+    score: 0,
+    html: $(currentModalComponent).find("html").text(),
+  };
+
+  if(currentModalComponent.find("completion").attr("gated") == "true"){
+    modal.completion = {
+      gate : {
+        chapter: currentModalComponent.find("chapter").text(),
+        page: currentModalComponent.find("page").text(),
+        lock: currentModalComponent.find("lock").text()
+      }
+    };
+  }
+
+  courseData.modalData.modals.push(modal);
+  localStorage.setItem(LOCAL_COURSE_DATA_ID,  JSON.stringify(courseData));
+  var id = getModalIndex(currentID);
+  //setupModals(id, elementID);
+}
+
+export function getModalIndex(currentID){
+  var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
+
+  for(var i = 0; i < courseData.modalData.modals.length; i++){
+    if(courseData.modalData.modals[i].id == currentID){
+      return i;
+    }
+  }
+}
+
+export function modal(id){
+  var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
+  courseData.modalData.modals.forEach((modal) => {
+    if(modal.id === id){
+      openContentModal(modal.html);
+    }
+  });
+}
+
 export function openModal(localStorageID, modalType, assessmentID, clickTarget) {
   LOCAL_COURSE_DATA_ID = localStorageID;
   courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
@@ -43,7 +120,14 @@ export function openModal(localStorageID, modalType, assessmentID, clickTarget) 
 }
 
 export function openContentModal(content) {
-  $('#modalContainer').html(content);
+  var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
+  var html = "<div class='modal fade' id='Modal' tabindex='-1' role='dialog' aria-labelledby='ModalLabel'><div class='modal-dialog' role='document'><div class='modal-content'><div class='modal-header'><button type='button' class='close' data-dismiss='modal' aria-label='Close'><span aria-hidden='true'><img src='view/themes/"+courseData.THEME+"/img/btn_close.png' alt='close the modal'></span></button></div><div class='modal-body clearfix'>"+content+"</div></div></div></div>";
+  $('#modalContainer').html(html);
+  $('.modal').on('hidden.bs.modal', function (e) {
+    $('#modalContainer').html('');
+  });
+
+  $('.modal').modal();
 }
 
  export function openVideoModal(src) {
@@ -163,3 +247,6 @@ export function getAssessment() {
   var html = '<div class="modal" id="assessmentModal" tabindex="-1" role="dialog" aria-labelledby="assessmentModalLabel" data-backdrop="static"><div class="modal-dialog" role="document" style="max-width: 1000px"><div class="modal-content"><div class="row"><div class="col-md-12 assessment-container"></div></div></div></div></div>';
   return html;
 }
+
+window.modal = modal;
+window.openContentModal = openContentModal;

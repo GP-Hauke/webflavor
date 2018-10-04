@@ -175,7 +175,7 @@ export function setupFlipCards(id, elementID){
 
   }
   setTimeout(function(){
-    calculateCardHeight(elementID);
+    calculateCardHeight(id, elementID);
   }, 100);
 
 
@@ -230,7 +230,14 @@ export function checkCardsCompletion(id, cardsID){
   }
 }
 
-export function calculateCardHeight(cardsID){
+export function calculateCardHeight(id, cardsID){
+    var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
+    var hasButton = courseData.flipCardData.flipCards[id].hasButton;
+
+    var extraButtonHeight = 0;
+    if(hasButton === "true"){
+      extraButtonHeight = 40;
+    }
 
     var element = "#"+cardsID;
     //element = "#flipCard-page-1-card-1";
@@ -242,21 +249,16 @@ export function calculateCardHeight(cardsID){
     var height = 0;
 
     card.each(function(){
-      console.log($(this).find(".cardBack").css("height"));
-
-
-
       height = Math.max(parseInt($(this).find(".cardBack").css("height")),
         parseInt($(this).find(".cardFront").css("height")),
         height);
-
     });
 
     //window.stop();
-
-    front.height(height + 30);
-    back.height(height + 30);
-    card.height(height + 30);
+    console.log(extraButtonHeight);
+    front.height(height + extraButtonHeight);
+    back.height(height + extraButtonHeight);
+    card.height(height + extraButtonHeight);
 
     //console.log(height);
 }

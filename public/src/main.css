@@ -1276,6 +1276,17 @@ button.close:hover, button.close:active, button.close:visited, button.close:focu
     width: 100%;
   }
 }
+#Modal .modal-header {
+  border: none;
+}
+#Modal .modal-dialog {
+  border: none;
+  display: block;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
 /*----------- BUTTON STYLES -----------*/
 .btn {
   padding: 10px 16px;

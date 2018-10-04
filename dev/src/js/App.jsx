@@ -112,7 +112,7 @@ function populateStorage(json, tempStorage) {
   };
 
   courseStorageObj.HAS_VEHICLE_GAME = json.settings.hasVehicleGame;
-
+  courseStorageObj.modalData = {TOTAL: 0};
   courseStorageObj.ctrData = {TOTAL: 0};
   courseStorageObj.gameData = {TOTAL: 0};
   courseStorageObj.dragDropData = {TOTAL: 0};
@@ -436,6 +436,13 @@ function countInteractives(interactive, tempData){
       tempData.ctrData = {TOTAL: 0};
     }
     tempData.ctrData.TOTAL += 1;
+    tempData.INTERACTIVES_TOTAL += 1;
+  }
+  else if(interactive == "Modal"){
+    if(tempData.modalData == null){
+      tempData.modalData = {TOTAL: 0};
+    }
+    tempData.modalData.TOTAL += 1;
     tempData.INTERACTIVES_TOTAL += 1;
   }
   else if(interactive == "Game"){

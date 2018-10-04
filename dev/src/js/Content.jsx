@@ -68,6 +68,9 @@ export function loadContent(chapter, page, id){
       if(type == "Ctr"){
         Ctr.initCtr(xml, componentID, LOCAL_COURSE_DATA_ID);
       }
+      else if(type == "Modal"){
+        Modal.initModal(xml, componentID, LOCAL_COURSE_DATA_ID);
+      }
       else if(type == "Game"){
         Game.initGame(xml, componentID, LOCAL_COURSE_DATA_ID);
       }
