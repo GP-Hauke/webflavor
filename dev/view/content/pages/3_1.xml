@@ -65,6 +65,18 @@
       </div>
     </div>
 
+    <div class="row margin-below">
+      <div class="col-sm-12">
+        <h4>VIDEO/AUDIO POPUPS</h4>
+      </div>
+      <div class="col-sm-6">
+        <div id="videoAudio-page-9"></div>
+      </div>
+      <div class="col-sm-6">
+        <div id="videoAudio-page-10"></div>
+      </div>
+    </div>
+
     ]]>
   </layout>
 
@@ -133,6 +145,24 @@
       <source><![CDATA[view/media/audio/bruce.mp3]]></source>
       <heading><![CDATA[Audio Popup]]></heading>
       <caption><![CDATA[Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ]]></caption>
+    </VideoAudio>
+
+    <VideoAudio id="videoAudio-page-9">
+      <youtube>false</youtube>
+      <popup>true</popup>
+      <poster><![CDATA[view/media/img/poster.jpg]]></poster>
+      <source><![CDATA[view/media/videos/animation.mp4]]></source>
+      <heading><![CDATA[Video Popup]]></heading>
+      <caption><![CDATA[Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ]]></caption>
+    </VideoAudio>
+
+    <VideoAudio id="videoAudio-page-10">
+      <youtube>false</youtube>
+      <popup>true</popup>
+      <poster><![CDATA[view/media/img/red.jpg]]></poster>
+      <source><![CDATA[view/media/audio/0.mp3]]></source>
+      <heading><![CDATA[Audio Popup]]></heading>
+      <caption><![CDATA[Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.]]></caption>
     </VideoAudio>
   </components>
 </page>

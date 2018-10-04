@@ -270,10 +270,8 @@ export function calculateCardHeight(id, cardsID){
     });
 
     //window.stop();
-    console.log(extraButtonHeight);
     front.height(height + extraButtonHeight);
     back.height(height + extraButtonHeight);
     card.height(height + extraButtonHeight);
-
     //console.log(height);
 }
