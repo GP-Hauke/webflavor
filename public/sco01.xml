@@ -2,7 +2,7 @@
 <lom xmlns="http://www.imsglobal.org/xsd/imsmd_rootv1p2p1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/imsmd_rootv1p2p1 imsmd_rootv1p2p1.xsd">
   <general>
     <catalogentry>
-      <catalog>htw_4dr84</catalog>
+      <catalog>htw_cz5mr</catalog>
       <entry>
         <langstring>HTML Template: WebFlavor</langstring>
       </entry>

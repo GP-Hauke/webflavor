@@ -117,13 +117,12 @@ export function setupVideoAudio(id,elementID){
   $("#"+elementID).append(html);
 
   $('#'+elementID+' .popupImg').click(function(){
-    console.log("HERE");
-    Modal.openVideoModal(src);
+    Modal.openVideoModal(src, LOCAL_COURSE_DATA_ID);
     checkVideoAudioCompletion(getVideoAudioIndex(elementID));
   });
 
   $('#'+elementID+'-video').click(function(){
-    Modal.openVideoModal(src);
+    Modal.openVideoModal(src, LOCAL_COURSE_DATA_ID);
     checkVideoAudioCompletion(getVideoAudioIndex(elementID));
   });
 
