@@ -72,7 +72,7 @@ export function getModalIndex(currentID){
 
 export function modal(id){
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
-  courseData.modalData.modals.forEach(function(modal){
+  courseData.modalData.modals.forEach(function(modal) {
     if(modal.id === id){
       openContentModal(modal.html);
     }
