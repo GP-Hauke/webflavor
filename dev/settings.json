@@ -2,10 +2,10 @@
   "settings": {
     "theme": "maroon",
     "courseTitle": "HTML Template",
-    "courseSubTitle": "WebFlavor",
+    "courseSubTitle": "WebFlavor | Fully Dynamic Web Learning Course | Extended Title",
     "menuPlacement": "top",
     "menuStyle": "tab",
-    "hasMenuLogo": "true",
+    "hasMenuLogo": "false",
     "hasFooter": "true",
     "hasVehicleGame": "true",
     "hasSplashPage": "true",
@@ -14,7 +14,7 @@
     "hasHelp": "true",
     "hasCountPages": "true",
     "hasInteractiveCompletion": "true",
-    "courseStorageID": "htw_i5e6s",
+    "courseStorageID": "htwfdwlcet_u82f3",
     "version": "2.2",
     "contents": [
       [
@@ -48,6 +48,6 @@
         "7_1"
       ]
     ],
-    "cookieName": "htw_i5e6s"
+    "cookieName": "htwfdwlcet_u82f3"
   }
 }

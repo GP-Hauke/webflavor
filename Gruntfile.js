@@ -13,7 +13,7 @@ module.exports = function(grunt){
     },
 
     webpack: {
-      myconfig: function() {
+      dev: function() {
         return {
           entry: './dev/src/js/App.jsx',
           output: {
@@ -79,7 +79,7 @@ module.exports = function(grunt){
     },
 
     watch: {
-      scripts: {
+      dev: {
         files: ['dev/**'],
         tasks: [],
         options: {
@@ -309,8 +309,10 @@ module.exports = function(grunt){
     }
   });
 
+  grunt.loadNpmTasks('grunt-run');
+
   //'browserSync:dev', 'watch', 'webpack'
-  grunt.registerTask('dev', ['clean:dev', 'update', 'init', 'copy:public', 'uglify:vendors', 'cssmin:vendors', 'build:theme', 'webpack', 'browserSync:dev', 'watch']);
+  grunt.registerTask('dev', ['clean:dev', 'update', 'init', 'copy:public', 'uglify:vendors', 'cssmin:vendors', 'build:theme', 'webpack:dev', 'browserSync:dev', 'watch']);
 
   grunt.registerTask('build', ['validate','imagemin', 'cssmin:build', 'version', 'production', 'build:clean', 'compress', 'browserSync:build']);
 
@@ -323,6 +325,7 @@ module.exports = function(grunt){
     var filetype = path.extname(filepath);
     var base = path.basename(filepath);
     grunt.log.oklns(path.basename(filepath).green);
+    grunt.log.oklns("HELLO WORLD");
 
     if(filetype == '.scss'){
       grunt.log.oklns();

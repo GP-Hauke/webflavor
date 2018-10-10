@@ -1326,7 +1326,7 @@ button.close:hover, button.close:active, button.close:visited, button.close:focu
   font-weight: 600;
   font-size: 28px;
   color: #fff;
-  line-height: 50px;
+  line-height: 0px;
   text-transform: uppercase;
 }
 
@@ -1339,7 +1339,6 @@ button.close:hover, button.close:active, button.close:visited, button.close:focu
   #titleMainMobile {
     color: #fff;
     font-size: 20px;
-    line-height: 52px;
     font-weight: 100;
     text-align: center;
   }
@@ -1350,7 +1349,6 @@ button.close:hover, button.close:active, button.close:visited, button.close:focu
     text-transform: uppercase;
     font-weight: 600;
     text-align: center;
-    line-height: 52px;
   }
 }
 /* PAGE TITLE */
@@ -1787,6 +1785,31 @@ footer.footer > .container.footer-nav .next {
   text-transform: uppercase;
 }
 
+nav.navbar .mobile-container .titles__wrapper {
+  display: block;
+  float: left;
+  width: 62%;
+  margin-top: 7px;
+}
+nav.navbar .mobile-container .links-container {
+  float: left;
+  width: 38% !important;
+}
+
+nav.navbar .container {
+  display: flex;
+}
+nav.navbar .container .title-container {
+  width: 75%;
+  float: left;
+}
+nav.navbar .container .title-container .navbar-brand {
+  float: left;
+}
+nav.navbar .container .links-container {
+  width: 25%;
+}
+
 .dropdown-menu {
   min-width: 0rem;
 }
@@ -1799,8 +1822,12 @@ footer.footer > .container.footer-nav .next {
 #navbar .navbar-brand {
   padding: 0;
   position: relative;
-  top: -4px;
+  top: 3px;
   margin: 0;
+  margin-right: 10px;
+}
+#navbar .navbar-brand img {
+  width: 100%;
 }
 #navbar .logo-mobile {
   padding: 0;

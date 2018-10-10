@@ -204,9 +204,14 @@ export function calculateHeight() {
   // console.log("calculateHeight");
   // console.log($("#navbar").height());
 
+
   //  $("#contentContainer").css({height:$(window).height() - 1, paddingTop:$("#navbar").height()});
   //$("#contentContainer").css({height:$(window).height() - 1});
-  $("#contentContainer").css({height:$(window).height()-($('#navContainer').height()+getFooterHeight())});
+
+  setTimeout(function(){
+    $("#contentContainer").css({height:$(window).height()-($('#navContainer').height()+getFooterHeight())});
+  }, 50);
+
 
 
   var navItemHeight = (($(window).height()-($('#navContainer').height()+getFooterHeight())) * .75)/ $('.courseTitleChapter').length;

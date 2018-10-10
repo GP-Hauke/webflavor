@@ -5,6 +5,43 @@
 //
 //////////////////////////////////////////////////////////////////////
 
+nav.navbar .mobile-container{
+
+  .titles__wrapper{
+    display: block;
+    float: left;
+    width: 62%;
+    margin-top: 7px;
+
+  }
+
+  .links-container{
+    float: left;
+    width: 38% !important;
+  }
+}
+
+nav.navbar .container{
+  display: flex;
+
+  .title-container{
+    width: 75%;
+    float: left;
+
+    .navbar-brand{
+      float: left;
+    }
+
+    .titles__wrapper{
+    }
+  }
+
+  .links-container{
+    width: 25%;
+
+  }
+}
+
 .dropdown-menu {
   min-width: 0rem;
 }
@@ -18,8 +55,13 @@
   .navbar-brand {
     padding: 0;
     position: relative;
-    top: -4px;
+    top: 3px;
     margin: 0;
+    margin-right: 10px;
+
+    img{
+      width: 100%;
+    }
   }
   .logo-mobile {
     padding: 0;
@@ -158,6 +200,12 @@ nav {
   .title-container {
     float: left;
     margin-left: 15px !important;
+
+    .titles-wrapper{
+      &-main{
+
+      }
+    }
   }
   #titleMain {
     display: inline-block;
