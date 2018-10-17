@@ -124,7 +124,7 @@ export function setupThumbnails(id, elementID){
           <div class="thumbnail" id="">
             <div style="cursor: default" id="`+elementID+`-thumb-`+i+`" class="top-paragraph link">
             <div class="img-container">
-              < img class="img-zoom" src="`+img+`" alt="">
+              <img class="img-zoom" src="`+img+`" alt="">
             </div>
             <div class="caption">
               <div class="caption-title">

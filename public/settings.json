@@ -2,7 +2,7 @@
   "settings": {
     "theme": "maroon",
     "courseTitle": "HTML Template",
-    "courseSubTitle": "WebFlavor | Fully Dynamic Web Learning Course | Extended Title",
+    "courseSubTitle": "WebFlavor | Fully Dynamic Web Learning Course | GP Strategies",
     "menuPlacement": "top",
     "menuStyle": "tab",
     "hasMenuLogo": "false",
@@ -14,8 +14,8 @@
     "hasHelp": "true",
     "hasCountPages": "true",
     "hasInteractiveCompletion": "true",
-    "courseStorageID": "htwfdwlcet_u82f3",
-    "version": "2.2",
+    "courseStorageID": "htwfdwlcgs_cgmoc",
+    "version": "2.3",
     "contents": [
       [
         "1_1",
@@ -48,6 +48,6 @@
         "7_1"
       ]
     ],
-    "cookieName": "htwfdwlcet_u82f3"
+    "cookieName": "htwfdwlcgs_cgmoc"
   }
 }

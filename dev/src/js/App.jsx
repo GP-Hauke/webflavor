@@ -6,7 +6,6 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-
 import * as Interface from './Interface.jsx';
 import * as Tracking from './Tracking.jsx';
 import * as Assessment from './components/assessment_functions';
@@ -42,12 +41,7 @@ $(document).ready(function() {
   initLocalStorage();
 });
 
-function initLocalStorage() {
-  //console.log("initInterface()");
-
-  //LOGIC FOR DEVELOPING
-
-
+export function initLocalStorage() {
   $(window).resize(function() {
     calculateHeight();
   });
@@ -86,32 +80,34 @@ function initLocalStorage() {
   });
 }
 
-function populateStorage(json, tempStorage) {
+export function populateStorage(json, tempStorage) {
   var courseStorageObj = {};
-  courseStorageObj.TITLE = json.settings.courseTitle;
-  courseStorageObj.SUB_TITLE = json.settings.courseSubTitle;
-  courseStorageObj.SETTINGS_VERSION = json.settings.version;
-  courseStorageObj.THEME = json.settings.theme;
+  const {settings} = json;
+
+  courseStorageObj.TITLE = settings.courseTitle;
+  courseStorageObj.SUB_TITLE = settings.courseSubTitle;
+  courseStorageObj.SETTINGS_VERSION = settings.version;
+  courseStorageObj.THEME = settings.theme;
   courseStorageObj.THEME_PATH = "view/themes/" + courseStorageObj.THEME;
-  courseStorageObj.COOKIE_NAME = json.settings.cookieName;
-  courseStorageObj.MENU_PLACEMENT = json.settings.menuPlacement;
-  courseStorageObj.MENU_STYLE = json.settings.menuStyle;
-  courseStorageObj.HAS_MENU_LOGO = json.settings.hasMenuLogo;
-  courseStorageObj.HAS_FOOTER = json.settings.hasFooter;
-  courseStorageObj.HAS_GLOSSARY = json.settings.hasGlossary;
-  courseStorageObj.HAS_RESOURCES = json.settings.hasResources;
-  courseStorageObj.HAS_HELP = json.settings.hasHelp;
-  courseStorageObj.HAS_SPLASH_PAGE = json.settings.hasSplashPage;
-  courseStorageObj.HAS_INTERACTIVE_COMPLETION = json.settings.hasInteractiveCompletion;
+  courseStorageObj.COOKIE_NAME = settings.cookieName;
+  courseStorageObj.MENU_PLACEMENT = settings.menuPlacement;
+  courseStorageObj.MENU_STYLE = settings.menuStyle;
+  courseStorageObj.HAS_MENU_LOGO = settings.hasMenuLogo;
+  courseStorageObj.HAS_FOOTER = settings.hasFooter;
+  courseStorageObj.HAS_GLOSSARY = settings.hasGlossary;
+  courseStorageObj.HAS_RESOURCES = settings.hasResources;
+  courseStorageObj.HAS_HELP = settings.hasHelp;
+  courseStorageObj.HAS_SPLASH_PAGE = settings.hasSplashPage;
+  courseStorageObj.HAS_INTERACTIVE_COMPLETION = settings.hasInteractiveCompletion;
   courseStorageObj.SETTINGS_LOADED = false;
   courseStorageObj.INTERACTIVES_TOTAL = 0;
   courseStorageObj.INTERACTIVES_COMPLETED = 0;
   courseStorageObj.CONTENTS = {
-    toc: json.settings.contents,
+    toc: settings.contents,
     completed: []
   };
 
-  courseStorageObj.HAS_VEHICLE_GAME = json.settings.hasVehicleGame;
+  courseStorageObj.HAS_VEHICLE_GAME = settings.hasVehicleGame;
   courseStorageObj.modalData = {TOTAL: 0};
   courseStorageObj.ctrData = {TOTAL: 0};
   courseStorageObj.gameData = {TOTAL: 0};
@@ -123,7 +119,7 @@ function populateStorage(json, tempStorage) {
   courseStorageObj.videoAudioData = {TOTAL: 0};
   courseStorageObj.assessmentData = {TOTAL: 0};
 
-  courseStorageObj.COUNT_PAGES = json.settings.hasCountPages;
+  courseStorageObj.COUNT_PAGES = settings.hasCountPages;
   if(courseStorageObj.COUNT_PAGES == "true") {
     var pageCountObj = {"pagesTotal":0,"pagesVisited":0,"pageIds":[]};
     courseStorageObj.pageCount = pageCountObj;
@@ -137,7 +133,7 @@ function populateStorage(json, tempStorage) {
   getNavigationData();
 }
 
-function getNavigationData(){
+export function getNavigationData(){
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
   var contents = courseData.CONTENTS.toc;
   var pageCount = 0;
@@ -183,7 +179,7 @@ function getNavigationData(){
   getChapterData();
 }
 
-function getChapterData(){
+export function getChapterData(){
   var tempData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
   var activeCount = 0;
   for(var i = 0; i < tempData.chapters.length; i++){
@@ -274,39 +270,34 @@ function getChapterData(){
   }
 }
 
-function loadXMLData() {
+export function loadXMLData() {
   //console.log("loadXMLData()");
   courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
-
 
   if(courseData.HAS_RESOURCES === 'true' && resourcesLoaded === false) {
     GetInterfaceXML("view/content/resources.xml");
     return;
   }
-
   if(courseData.HAS_GLOSSARY === 'true' && glossaryLoaded === false) {
     GetInterfaceXML("view/content/glossary.xml");
     return;
-
   }
   if(courseData.HAS_SPLASH_PAGE === 'true' && splashLoaded === false){
     GetInterfaceXML("view/content/splash.xml");
     return;
-
   }
-
   if(courseData.HAS_VEHICLE_GAME === 'true' && assessmentsLoaded === false) {
     GetInterfaceXML("view/content/assessments.xml");
     return;
   }
- else {
+  else {
     loadInterfaceStyles();
     Interface.initInterface(LOCAL_COURSE_DATA_ID);
     return;
   }
 }
 
-function GetInterfaceXML(args) {
+export function GetInterfaceXML(args) {
   $.get(args).done(function(xml) {
     if(args.indexOf("glossary") != -1) {
       glossaryLoaded = true;
@@ -331,7 +322,7 @@ function GetInterfaceXML(args) {
   });
 }
 
-function addGlossaryToLocalStorage(xml) {
+export function addGlossaryToLocalStorage(xml) {
   var storage = localStorage.getItem(LOCAL_COURSE_DATA_ID);
   var tempStorage = JSON.parse(storage);
 
@@ -351,7 +342,7 @@ function addGlossaryToLocalStorage(xml) {
   localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(tempStorage));
 }
 
-function addResourcesToLocalStorage(xml) {
+export function addResourcesToLocalStorage(xml) {
   var storage = localStorage.getItem(LOCAL_COURSE_DATA_ID);
   var tempStorage = JSON.parse(storage);
 
@@ -374,7 +365,7 @@ function addResourcesToLocalStorage(xml) {
   localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(tempStorage));
 }
 
-function addSplashToLocalStorage(xml) {
+export function addSplashToLocalStorage(xml) {
   var storage = localStorage.getItem(LOCAL_COURSE_DATA_ID);
   var tempStorage = JSON.parse(storage);
 
@@ -386,7 +377,7 @@ function addSplashToLocalStorage(xml) {
   localStorage.setItem(LOCAL_COURSE_DATA_ID, JSON.stringify(tempStorage));
 }
 
-function loadInterfaceStyles(){
+export function loadInterfaceStyles(){
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
   $(".add-theme-path").attr("src", function () {
     return $(this).attr("src").replace("theme-path", courseData.THEME_PATH);
@@ -399,12 +390,11 @@ function loadInterfaceStyles(){
   });
 }
 
-function calculateHeight() {
+export function calculateHeight() {
   // subtracting one pixel ensures that second scroll bar doesn't appear
   // adding padding to accommodate Bootstrap header nav
   // console.log("calculateHeight");
   // console.log($("#navbar").height());
-
 
   //  $("#contentContainer").css({height:$(window).height() - 1, paddingTop:$("#navbar").height()});
   //$("#contentContainer").css({height:$(window).height() - 1});
@@ -423,14 +413,14 @@ function calculateHeight() {
 
 }
 
-function getFooterHeight() {
+export function getFooterHeight() {
   if($('footer').height() == null){
     return 0;
   }
   return $('footer').height();
 }
 
-function countInteractives(interactive, tempData){
+export function countInteractives(interactive, tempData){
   if(interactive == "Ctr"){
     if(tempData.ctrData == null){
       tempData.ctrData = {TOTAL: 0};

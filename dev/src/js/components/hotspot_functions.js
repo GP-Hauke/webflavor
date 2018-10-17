@@ -2,7 +2,6 @@
 var LOCAL_COURSE_DATA_ID;
 export function initHotspot(hotspotContentXML, elementID, localStorageID) {
   LOCAL_COURSE_DATA_ID = localStorageID;
-
   if(localStorage === "undefined") {
     location.reload();
   }
@@ -13,7 +12,6 @@ export function initHotspot(hotspotContentXML, elementID, localStorageID) {
     currentHotspot = $(hotspotContentXML).find('Hotspot');
   }
   var currentID = $(currentHotspot).attr("id");
-
   if(courseData.hotspotData.hotspots != null){
     for(var i=0; i < courseData.hotspotData.hotspots.length; i++){
       if(courseData.hotspotData.hotspots[i].id == currentID){

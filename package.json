@@ -4,6 +4,9 @@
   "scripts": {
     "test": "jest --watch"
   },
+  "jest": {
+    "setupFiles": ["jest-localstorage-mock"]
+  },
   "dependencies": {},
   "devDependencies": {
     "grunt": "^1.0.3",

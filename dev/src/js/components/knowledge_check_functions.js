@@ -153,11 +153,11 @@ export function submitAnswers(id, elementID){
   var selected =   $("#"+elementID + ' form li input:checked');
   for(var i = 0; i < selected.length; i++){
     var selectedAnswer = selected.eq(i).siblings('label').html();
-
+    console.log(selectedAnswer);
     for(var j = 0; j < currentKnowledgeCheck.questions[i].answers.length; j++){
       var answer = currentKnowledgeCheck.questions[i].answers[j];
       if(answer.correct == "true"){
-        if(answer.body == selectedAnswer){
+        if(answer.body.trim() == selectedAnswer.trim()){
           currentKnowledgeCheck.questions[i].correct = true;
         }
       }

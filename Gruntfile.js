@@ -309,8 +309,6 @@ module.exports = function(grunt){
     }
   });
 
-  grunt.loadNpmTasks('grunt-run');
-
   //'browserSync:dev', 'watch', 'webpack'
   grunt.registerTask('dev', ['clean:dev', 'update', 'init', 'copy:public', 'uglify:vendors', 'cssmin:vendors', 'build:theme', 'webpack:dev', 'browserSync:dev', 'watch']);
 

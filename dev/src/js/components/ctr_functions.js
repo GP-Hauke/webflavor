@@ -40,11 +40,11 @@ export function initCtr(CtrContentXML, elementID,localStorageID) {
   };
 
   if(currentCtr.find("completion").attr("gated") == "true"){
-  ctr.completion = {
-    gate : {
-      chapter: currentCtr.find("chapter").text(),
-      page: currentCtr.find("page").text(),
-      lock: currentCtr.find("lock").text()
+    ctr.completion = {
+      gate : {
+        chapter: currentCtr.find("chapter").text(),
+        page: currentCtr.find("page").text(),
+        lock: currentCtr.find("lock").text()
       }
     }
   };
@@ -74,16 +74,16 @@ export function setupCtr(id, elementID){
   var colNum = 12/num;
 
   var html = `
-    <div class="row">
-      <div class="col-md-12 mx-auto p-0">
-        <div id="">
-          <div class="ctr">
-            <div class="row">
-            </div>
-            </div>
+  <div class="row">
+    <div class="col-md-12 mx-auto p-0">
+      <div id="">
+        <div class="ctr">
+          <div class="row">
           </div>
         </div>
-      </div>`;
+      </div>
+    </div>
+  </div>`;
 
   $('#'+elementID).append(html);
 
@@ -94,14 +94,14 @@ export function setupCtr(id, elementID){
 
     var sectionHtml = `
     <div class="col-md-`+colNum+` p-0" id="`+elementID+`-`+i+`">
-      <div class="ctr-wrapper `+elementID+`-section-`+i+`">
-        <div class="click">`+click+`
-        </div>
-      </div>
-      <div class="ctr-wrapper">
-        <div class="reveal">`+reveal+`
-        </div>
-      </div>
+    <div class="ctr-wrapper `+elementID+`-section-`+i+`">
+    <div class="click">`+click+`
+    </div>
+    </div>
+    <div class="ctr-wrapper">
+    <div class="reveal">`+reveal+`
+    </div>
+    </div>
     </div>`;
 
     $('#'+elementID + ' .ctr .row').append(sectionHtml);

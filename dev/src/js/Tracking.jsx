@@ -17,6 +17,7 @@ export function SetCookieName(c){
 }
 
 export function SetBookmark(c, p) {
+
   if(TRACKING == "SCORM") {
     if(getAPIHandle() == null) {
       return;

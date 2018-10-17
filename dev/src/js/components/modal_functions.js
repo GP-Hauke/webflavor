@@ -121,7 +121,22 @@ export function openModal(localStorageID, modalType, assessmentID, clickTarget) 
 
 export function openContentModal(content) {
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));
-  var html = "<div class='modal fade' id='Modal' tabindex='-1' role='dialog' aria-labelledby='ModalLabel'><div class='modal-dialog' role='document'><div class='modal-content'><div class='modal-header'><button type='button' class='close' data-dismiss='modal' aria-label='Close'><span aria-hidden='true'><img src='view/themes/"+courseData.THEME+"/img/btn_close.png' alt='close the modal'></span></button></div><div class='modal-body clearfix'>"+content+"</div></div></div></div>";
+  var html = `
+  <div class='modal fade' id='Modal' tabindex='-1' role='dialog' aria-labelledby='ModalLabel'>
+    <div class='modal-dialog' role='document'>
+      <div class='modal-content'>
+        <div class='modal-header'>
+          <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+            <span aria-hidden='true'>
+              <img src='view/themes/`+courseData.THEME+`/img/btn_close.png' alt='close the modal'>
+            </span>
+          </button>
+        </div>
+        <div class='modal-body clearfix'>`+content+`</div>
+      </div>
+    </div>
+  </div>`;
+
   $('#modalContainer').html(html);
   $('.modal').on('hidden.bs.modal', function (e) {
     $('#modalContainer').html('');
@@ -132,7 +147,25 @@ export function openContentModal(content) {
 
  export function openVideoModal(src, localStorageID) {
    var courseData = JSON.parse(localStorage.getItem(localStorageID));
-  $('#modalContainer').html("<div class='modal fade' id='videoModal' tabindex='-1' role='dialog' aria-labelledby='videoModalLabel'><div class='modal-dialog' role='document'><div class='modal-content'><div class='modal-header'><button type='button' class='close' data-dismiss='modal' aria-label='Close'><span aria-hidden='true'><img src='view/themes/"+courseData.THEME+"/img/btn_close.png' alt='close the modal'></span></button></div><div class='modal-body clearfix'><video controls autoplay>Sorry, your browser doesn't support embedded videos. <source src='"+src+"' type='video/mp4'></video></div></div></div></div>");
+  $('#modalContainer').html(`
+    <div class='modal fade' id='videoModal' tabindex='-1' role='dialog' aria-labelledby='videoModalLabel'>
+      <div class='modal-dialog' role='document'>
+        <div class='modal-content'>
+          <div class='modal-header'>
+            <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+              <span aria-hidden='true'>
+                <img src='view/themes/`+courseData.THEME+`/img/btn_close.png' alt='close the modal'>
+              </span>
+            </button>
+          </div>
+          <div class='modal-body clearfix'>
+            <video controls autoplay>Sorry, your browser doesn't support embedded videos.
+              <source src='`+src+`' type='video/mp4'>
+            </video>
+          </div>
+        </div>
+      </div>
+    </div>`);
 
   $('.modal').on('hidden.bs.modal', function (e) {
     $('#modalContainer').html('');
@@ -143,7 +176,25 @@ export function openContentModal(content) {
 
 export function openAudioModal(src) {
   var courseData = JSON.parse(localStorage.getItem(localStorageID));
-  $('#modalContainer').html("<div class='modal fade' id='audioModal' tabindex='-1' role='dialog' aria-labelledby='audioModalLabel'><div class='modal-dialog' role='document'><div class='modal-content'><div class='modal-header'><button type='button' class='close' data-dismiss='modal' aria-label='Close'><span aria-hidden='true'><img src='view/themes/"+courseData.THEME+"/img/btn_close.png' alt='close the modal'></span></button></div><div class='modal-body clearfix'><audio controls><source src='"+src+"' type='audio/mp3'>Your browser does not support the audio element.</audio></div></div></div></div>");
+  $('#modalContainer').html(`
+    <div class='modal fade' id='audioModal' tabindex='-1' role='dialog' aria-labelledby='audioModalLabel'>
+      <div class='modal-dialog' role='document'>
+        <div class='modal-content'>
+          <div class='modal-header'>
+            <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+              <span aria-hidden='true'>
+                <img src='view/themes/`+courseData.THEME+`/img/btn_close.png' alt='close the modal'>
+              </span>
+            </button>
+          </div>
+          <div class='modal-body clearfix'>
+            <audio controls>
+              <source src='`+src+`' type='audio/mp3'>Your browser does not support the audio element.
+            </audio>
+          </div>
+        </div>
+      </div>
+    </div>`);
 
   $('.modal').on('hidden.bs.modal', function (e) {
     $('#modalContainer').html('');
@@ -159,7 +210,24 @@ export function getSplashPage() {
   var caption = courseData.splash.caption;
   var intro = courseData.splash.introduction;
 
-  var html = '<div class="modal" id="splashPageModal" tabindex="-1" role="dialog" aria-labelledby="splashPageModalLabel"><div class="modal-dialog" role="document" style="max-width: 1000px"><div class="modal-content"><div class="row"><div class="col-md-5 col splashTitle"><h3>'+title+'</h3><h1>'+caption+'</h1><p>'+intro+'</p> <a id="beginCourse" class="btn btn-default d-block mx-auto" role="button">Begin Course</a></div></div></div></div></div><audio autoplay><source src="view/media/audio/0.mp3"/></audio>';
+  var html = `
+  <div class="modal" id="splashPageModal" tabindex="-1" role="dialog" aria-labelledby="splashPageModalLabel">
+    <div class="modal-dialog" role="document" style="max-width: 1000px">
+      <div class="modal-content">
+        <div class="row">
+          <div class="col-md-5 col splashTitle">
+            <h3>`+title+`</h3>
+            <h1>`+caption+`</h1>
+            <p>`+intro+`</p>
+            <a id="beginCourse" class="btn btn-default d-block mx-auto" role="button">Begin Course</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <audio autoplay>
+    <source src="view/media/audio/0.mp3"/>
+  </audio>`;
 
   return html;
 }
@@ -167,7 +235,20 @@ export function getSplashPage() {
 /* NEW GLOSSARY METHOD USING XML */
 
 export function getGlossary() {
-  var glossary = '<div class="modal fade" id="glossaryModal" tabindex="-1" role="dialog" aria-labelledby="glossaryModalLabel"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header"><div class="modal-title-wrapper"><h4 class="modal-title" id="glossaryModalLabel">GLOSSARY</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><img src="view/themes/'+courseData.THEME+'/img/btn_close_glossary.png" alt="close the glossary"></span></button></div><div class="alphabet"><a id="" href="#">#</a><a id="" href="#">a</a><a id="" href="#">b</a><a id="" href="#">c</a><a id="" href="#">d</a><a id="" href="#">e</a><a id="" href="#">f</a><a id="" href="#">g</a><a id="" href="#">h</a><a id="" href="#">i</a><a id="" href="#">j</a><a id="" href="#">k</a><a id="" href="#">l</a><a id="" href="#">m</a><a id="" href="#">n</a><a id="" href="#">o</a><a id="" href="#">p</a><a id="" href="#">q</a><a id="" href="#">r</a><a id="" href="#">s</a><a id="" href="#">t</a><a id="" href="#">u</a><a id="" href="#">v</a><a id="" href="#">w</a><a id="" href="#">x</a><a id="" href="#">y</a><a id="" href="#">z</a></div></div><div class="modal-body">';
+  var glossary = `
+  <div class="modal fade" id="glossaryModal" tabindex="-1" role="dialog" aria-labelledby="glossaryModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="modal-title-wrapper">
+            <h4 class="modal-title" id="glossaryModalLabel">GLOSSARY</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">
+              <img src="view/themes/`+courseData.THEME+`/img/btn_close_glossary.png" alt="close the glossary">
+            </span>
+          </button>
+        </div>
+      <div class="alphabet"><a id="" href="#">#</a><a id="" href="#">a</a><a id="" href="#">b</a><a id="" href="#">c</a><a id="" href="#">d</a><a id="" href="#">e</a><a id="" href="#">f</a><a id="" href="#">g</a><a id="" href="#">h</a><a id="" href="#">i</a><a id="" href="#">j</a><a id="" href="#">k</a><a id="" href="#">l</a><a id="" href="#">m</a><a id="" href="#">n</a><a id="" href="#">o</a><a id="" href="#">p</a><a id="" href="#">q</a><a id="" href="#">r</a><a id="" href="#">s</a><a id="" href="#">t</a><a id="" href="#">u</a><a id="" href="#">v</a><a id="" href="#">w</a><a id="" href="#">x</a><a id="" href="#">y</a><a id="" href="#">z</a></div></div><div class="modal-body">`;
 
 
   for(var i = 0; i < courseData.glossary.items.length; i++){
@@ -217,7 +298,21 @@ export function glossaryNavigate(){
 /* end NEW GLOSSARY METHOD USING XML */
 
 export function getResources() {
-  var resources = '<div class="modal fade" id="resourcesModal" tabindex="-1" role="dialog" aria-labelledby="resourcesModalLabel"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header"><div class="modal-title-wrapper"><h4 class="modal-title" id="resourcesModalLabel">RESOURCES</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><img src="view/themes/'+courseData.THEME+'/img/btn_close_glossary.png" alt="close the resources"></span></button></div></div><div class="modal-body">';
+  var resources = `
+  <div class="modal fade" id="resourcesModal" tabindex="-1" role="dialog" aria-labelledby="resourcesModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="modal-title-wrapper">
+            <h4 class="modal-title" id="resourcesModalLabel">RESOURCES</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">
+                <img src="view/themes/`+courseData.THEME+`/img/btn_close_glossary.png" alt="close the resources">
+              </span>
+            </button>
+          </div>
+        </div>
+      <div class="modal-body">`;
 
 
   for(var i = 0; i < courseData.resources.items.length; i++){

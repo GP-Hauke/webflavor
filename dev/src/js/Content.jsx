@@ -19,7 +19,6 @@ import * as Assessment from './components/assessment_functions';
 import * as Game from './components/game_functions.js';
 import * as Tracking from './Tracking.jsx';
 
-
 var LOCAL_COURSE_DATA_ID;
 var currentChapter;
 var currentPage;
