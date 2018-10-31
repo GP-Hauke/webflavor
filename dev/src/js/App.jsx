@@ -82,7 +82,7 @@ export function initLocalStorage() {
 
 export function populateStorage(json, tempStorage) {
   var courseStorageObj = {};
-  const {settings} = json;
+  const settings = json.settings;
 
   courseStorageObj.TITLE = settings.courseTitle;
   courseStorageObj.SUB_TITLE = settings.courseSubTitle;

@@ -144,8 +144,8 @@ export function setupThumbnails(id, elementID){
               <img class="img-zoom" src="`+img+`" alt="">
             </div>
             <div class="caption">
-              ${headingHTML}
-              ${captionHTML}
+            `+headingHTML+`
+            `+captionHTML+`
             </div>
            </div>
           </div>
@@ -182,8 +182,8 @@ export function setupThumbnails(id, elementID){
                 <img class="img-zoom" src="`+img+`" alt="">
               </div>
               <div class="caption">
-                ${headingHTML}
-                ${captionHTML}
+              `+headingHTML+`
+              `+captionHTML+`
               </div>
             </a>
           </div>
