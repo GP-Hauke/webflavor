@@ -117,8 +117,25 @@ export function setupThumbnails(id, elementID){
     }
 
     else {
-
       if(url.length == ""){
+        var headingHTML = "";
+        var captionHTML = "";
+
+        if(heading.length !== 0){
+          headingHTML = `
+          <div class="caption-title">
+            <span>`+
+            heading+`
+            </span>
+          </div>`;
+        }
+
+        if(caption.length !== 0){
+          captionHTML = `
+          <p>`+caption+`</p>
+          `;
+        }
+
         var thumbnailHTML = `
         <div class="`+thumbnailWidth+`">
           <div class="thumbnail" id="">
@@ -127,38 +144,49 @@ export function setupThumbnails(id, elementID){
               <img class="img-zoom" src="`+img+`" alt="">
             </div>
             <div class="caption">
-              <div class="caption-title">
-                <span>`+
-                  heading+`
-                </span>
-              </div>
-            <p>`+caption+`
-            </p>
+              ${headingHTML}
+              ${captionHTML}
             </div>
            </div>
           </div>
         </div>`;
+
       }
 
       else{
+        var headingHTML = "";
+        var captionHTML = "";
+
+        if(heading.length !== 0){
+          headingHTML = `
+          <div class="caption-title">
+            <span>`+
+            heading+`
+            </span>
+          </div>`;
+        }
+
+        if(caption.length !== 0){
+          captionHTML = `
+          <p>`+caption+`</p>
+          `;
+        }
+
+
+
         var thumbnailHTML = `
         <div class="`+thumbnailWidth+`">
-        <div class="thumbnail" id="">
-        <a id="`+elementID+`-thumb-`+i+`" target="_blank" `+href+`="`+url+`" class="top-paragraph link">
-        <div class="img-container">
-        <img class="img-zoom" src="`+img+`" alt="">
-        </div>
-        <div class="caption">
-        <div class="caption-title">
-        <span>`+
-        heading+`
-        </span>
-        </div>
-        <p>`+caption+`
-        </p>
-        </div>
-        </a>
-        </div>
+          <div class="thumbnail" id="">
+            <a id="`+elementID+`-thumb-`+i+`" target="_blank" `+href+`="`+url+`" class="top-paragraph link">
+              <div class="img-container">
+                <img class="img-zoom" src="`+img+`" alt="">
+              </div>
+              <div class="caption">
+                ${headingHTML}
+                ${captionHTML}
+              </div>
+            </a>
+          </div>
         </div>`;
       }
     }

@@ -53,13 +53,13 @@
         <img><![CDATA[view/media/img/3_7.jpg]]></img>
         <url><![CDATA[https://www.gpstrategies.com/]]></url>
         <heading><![CDATA[Fringilla]]></heading>
-        <caption><![CDATA[<span class="link-look">Aliquam quis</span> enim at metus commodo hendrerit sit amet eu nisi. Proin sagittis euismod risus vel fringilla. Suspendisse non leo ut erat euismod.]]></caption>
+        <caption></caption>
       </thumbnail>
 
       <thumbnail>
         <img><![CDATA[view/media/img/3_8.jpg]]></img>
         <url><![CDATA[https://www.gpstrategies.com/]]></url>
-        <heading><![CDATA[Arcus Sed]]></heading>
+        <heading></heading>
         <caption><![CDATA[Curabitur accumsan, orci molestie <span class="link-look">condimentum aliquamenim</span> , eros eros elementum ex, in commodo lacus lorem ac nisl. Pellentesque id arcu sed est vulputate.]]></caption>
       </thumbnail>
     </Thumbnails>
@@ -69,7 +69,7 @@
         <img><![CDATA[view/media/img/3_3.jpg]]></img>
         <url><![CDATA[]]></url>
         <heading><![CDATA[No Link]]></heading>
-        <caption><![CDATA[Maecenas venenatis magna, vel pellentesque <span class="link-look">enim scelerisque</span>  erat ultricies. Quisque fringilla, nulla sed ornare tincidunt, neque velit finibus.]]></caption>
+        <caption></caption>
       </thumbnail>
 
       <thumbnail>
