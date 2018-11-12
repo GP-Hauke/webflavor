@@ -207,19 +207,7 @@ export function getFlipCardIndex(currentID){
   }
 }
 
-export function showBack(evt) {
-  var card = evt.data.thisCard;
-  card.animation.play();
-  $(card).unbind("click", showBack);
-  $(card).click({thisCard: card}, showFront);
-}
 
-export function showFront(evt) {
-  var card = evt.data.thisCard;
-  card.animation.reverse();
-  $(card).unbind("click", showFront);
-  $(card).click({thisCard: card}, showBack);
-}
 
 export function checkCardsCompletion(id, cardsID){
   var courseData = JSON.parse(localStorage.getItem(LOCAL_COURSE_DATA_ID));

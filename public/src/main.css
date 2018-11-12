@@ -1487,7 +1487,7 @@ a.download:hover, a.download:active, a.download:focus {
   min-height: 100%;
 }
 .page-container.about {
-  background: url(../../view/media/img/0_0_1.jpg) center center/cover no-repeat fixed;
+  background: url(../view/media/img/0_0_1.jpg) center center/cover no-repeat fixed;
 }
 .page-container p {
   margin-bottom: 20px;
@@ -1583,7 +1583,7 @@ a.download:hover, a.download:active, a.download:focus {
 
 /* COMPLETION PAGE */
 .page-container.completion {
-  background: url(../../view/media/img/bg_completion.jpg) center center/cover no-repeat fixed;
+  background: url(../view/media/img/bg_completion.jpg) center center/cover no-repeat fixed;
 }
 
 .results-container {

@@ -51,7 +51,7 @@ export function initLocalStorage() {
 
   Tracking.StartLMS();
 
-  $.get("settings.json")
+  $.getJSON("settings.json")
   .done(function(json) {
     settingsLoaded = true;
     LOCAL_COURSE_DATA_ID = json.settings.courseStorageID;
